@@ -1,4 +1,4 @@
 # DA_Lang-Immler
  
-Diplomarbeit von Nico Lang und Phillip Immler.
+Diplomarbeit von Nico Lang und Philipp Immler.
 "Multi-Room Sound Adapter"
