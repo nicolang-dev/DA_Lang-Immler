@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.6.26)  26 JUN 2024 22:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.3)  3 JUL 2024 08:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -326,7 +326,7 @@ L3 programming layer <2024-01-04>
  ) 
 Here is how much of TeX's memory you used:
  3655 strings out of 474486
- 59702 string characters out of 5743755
+ 59702 string characters out of 5743756
  1936542 words of memory out of 5000000
  25891 multiletter control sequences out of 15000+600000
  604635 words of font info for 64 fonts, out of 8000000 for 9000
@@ -337,7 +337,7 @@ b><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
 b><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb
 ><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb>
 
-Output written on DA-Main.pdf (6 pages, 128216 bytes).
+Output written on DA-Main.pdf (6 pages, 129191 bytes).
 PDF statistics:
  42 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
