@@ -16,7 +16,6 @@
 \contentsline {subsubsection}{\numberline {3.4.1}Einleitung}{5}{}%
 \contentsline {subsubsection}{\numberline {3.4.2}Softwaretools Microcontroller}{5}{}%
 \contentsline {subsubsection}{\numberline {3.4.3}Softwaretools Smartphoneapp}{6}{}%
-\contentsline {paragraph}{React Native}{6}{}%
 \contentsline {section}{\numberline {4}Entwicklung}{6}{}%
 \contentsline {subsection}{\numberline {4.1}Design Platine}{6}{}%
 \contentsline {subsection}{\numberline {4.2}Bestückung Platine}{6}{}%
@@ -29,7 +28,7 @@
 \contentsline {subsection}{\numberline {5.2}auftretende Fehler beheben}{6}{}%
 \contentsline {subsection}{\numberline {5.3}Test auf Cybersecurity}{6}{}%
 \contentsline {subsection}{\numberline {5.4}Auftretende Sicherheitslücken schließen}{6}{}%
-\contentsline {section}{\numberline {6}Einzelnachweise}{6}{}%
-\contentsline {subsection}{\numberline {6.1}Literaturverzeichnis}{6}{}%
-\contentsline {subsection}{\numberline {6.2}Abbildungsverzeichnis}{6}{}%
-\contentsline {subsection}{\numberline {6.3}Anhang}{6}{}%
+\contentsline {section}{\numberline {6}Einzelnachweise}{7}{}%
+\contentsline {subsection}{\numberline {6.1}Literaturverzeichnis}{7}{}%
+\contentsline {subsection}{\numberline {6.2}Abbildungsverzeichnis}{7}{}%
+\contentsline {subsection}{\numberline {6.3}Anhang}{7}{}%
