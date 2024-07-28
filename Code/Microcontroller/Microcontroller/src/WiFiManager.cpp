@@ -13,6 +13,12 @@ void WiFiManager::connect(){
     }
 }
 
+string WiFiManager::getInfo(){
+    if(WiFi.status() == WL_CONNECTED){
+        return WiFi.localIP().toString();
+    }
+}
+
 void WiFiManager::disconnect(){
     if(WiFi.status() == WL_CONNECTED){
         WiFi.disconnect();

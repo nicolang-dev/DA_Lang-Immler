@@ -9,10 +9,6 @@ class WiFiManager{
 
     public:
         WiFiManager(std::string ssid, std::string password);
-        void setSsid(const std::string ssid);
-        void setPassword(const std::string password);
-        std::string getSsid();
-        std::string getPassword();
         void connect();
         void disconnect();
         bool isConnected();
