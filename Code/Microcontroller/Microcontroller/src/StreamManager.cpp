@@ -1,0 +1,8 @@
+/*
+class StreamManager{
+    public:
+
+    private:
+        
+};
+*/
