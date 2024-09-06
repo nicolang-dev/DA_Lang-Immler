@@ -1,18 +1,36 @@
+//libraries
+#include <Arduino.h>
 #include <EEPROM.h>
 #include <WiFi.h>
 #include <WebServer.h>
 #include <Audio.h>
 #include "driver/rtc_io.h"
+#include <ArduinoJson.h>
 
+//definition of pins
 #define I2S_BCLK 26
 #define I2S_LRC 25
-#define I2C_DOUT 22
+#define I2S_DOUT 22
 #define BUTTON_PIN 12
 #define LED_RED 15
 #define LED_GREEN 2
 #define LED_BLUE 4
 
+//definition of constants
 const int BUTTON_PRESS_SLEEP_TIME = 2000;
+const int AUDIO_VOLUME = 10; //0-21
+
+//definition of json for logging errors
+JsonDocument error_log;
+
+//declaration of enum for status
+enum Status {
+  OK,
+  CONFIG,
+  ERROR
+};
+
+//definition of variables
 String wifi_ssid;
 String wifi_password;
 IPAddress client_ip;
@@ -26,20 +44,32 @@ String server_ssid = "Microcontroller";
 bool server_mode = false;
 bool audio_stream_mode = false;
 bool wifi_config_mode = false;
-Audio audio;
+String stream_url;
+int battery_val;
+Status status;
+bool config_mode = false;
 
-WebServer server(server_port);
+//definition of Objects
+WebServer server(server_port); //web server object
+Audio audio; //audio object
 
+//declaration of functions
 void wifiInitialization();
 void button_pressed();
 void activate_deep_sleep();
 
 void setup(){
+  //serial setup
   Serial.println("esp32 started!");
   Serial.begin(9600);
+  //pin setup
   pinMode(BUTTON_PIN, INPUT_PULLDOWN);
   rtc_gpio_pulldown_en(GPIO_NUM_12);
   esp_sleep_enable_ext0_wakeup(GPIO_NUM_12, 1);
+  //audio setup
+  audio.setPinout(I2S_BCLK, I2S_LRC, I2S_DOUT);
+  audio.setVolume(AUDIO_VOLUME);
+  //wifi setup
   wifiInitialization();
 }
 
@@ -70,6 +100,20 @@ bool checkWifiCredentials(String ssid, String password){
   return true;
 }
 
+void handle_getInfo(){
+  /*JsonDocument data;
+  String error_list = "";
+  data["volume"] = AUDIO_VOLUME;
+  data["streamUrl"] = stream_url;
+  data["batteryVal"] = battery_val;
+  data["errors"] = error_list;
+  server.send(200, "application/json", data);*/
+}
+
+void handle_get(){
+  server.send(200, "text/plain", "get request received!");
+}
+
 void handle_setWifiCredentials(){
   String ssid;
   String password;
@@ -93,19 +137,17 @@ void handle_setWifiCredentials(){
 }
 
 void handle_setStreamUrl(){
-   String streamUrl;
    if(server.hasArg("streamUrl") && WiFi.status() == WL_CONNECTED){
-    streamUrl = server.arg("streamUrl");
-    Serial.println(streamUrl);
-    audio.setPinout(I2S_BCLK, I2S_LRC, I2C_DOUT);
-    audio.setVolume(5);
-    audio.connecttohost(streamUrl.c_str());
-    audio_stream_mode = true;
+    String sent_stream_url = server.arg("streamUrl");
+    Serial.println(sent_stream_url);
+    if(!sent_stream_url.equals(stream_url)){
+      stream_url = sent_stream_url;
+      audio.connecttohost(stream_url.c_str());
+      if(!audio_stream_mode){
+        audio_stream_mode = true;
+      }
+    }
    }
-}
-
-void handle_get(){
-  server.send(200, "text/plain", "get request received!");
 }
 
 void wifiInitialization(){
@@ -119,9 +161,10 @@ void wifiInitialization(){
     WiFi.mode(WIFI_AP);
     WiFi.softAPConfig(server_ip, gateway_ip, subnet_ip);
     WiFi.softAP(server_ssid);
+    server.on("/", HTTP_GET, handle_get);
+    server.on("/getInfo", HTTP_GET, handle_getInfo);
     server.on("/setWifiCredentials", HTTP_POST, handle_setWifiCredentials);
     server.on("/setStreamUrl", HTTP_POST, handle_setStreamUrl);
-    server.on("/", HTTP_GET, handle_get);
     server.begin();
     server_mode = true;
   } else {
@@ -142,22 +185,24 @@ void wifiInitialization(){
   }
 }
 
-void status_LED_GREEN(){
-  digitalWrite(LED_GREEN, HIGH);
-  digitalWrite(LED_RED, LOW);
-  digitalWrite(LED_BLUE, LOW);
-}
-
-void status_LED_RED(){
-  digitalWrite(LED_GREEN, LOW);
-  digitalWrite(LED_RED, HIGH);
-  digitalWrite(LED_BLUE, LOW);
-}
-
-void status_LED_BLUE(){
-  digitalWrite(LED_GREEN, LOW);
-  digitalWrite(LED_RED, LOW);
-  digitalWrite(LED_BLUE, HIGH);
+void switch_statusLED(){
+  switch(status){
+    case OK: //led is green
+      digitalWrite(LED_GREEN, HIGH);
+      digitalWrite(LED_RED, LOW);
+      digitalWrite(LED_BLUE, LOW);
+      break;
+    case CONFIG: //led is blue
+      digitalWrite(LED_GREEN, LOW);
+      digitalWrite(LED_RED, LOW);
+      digitalWrite(LED_BLUE, HIGH);
+      break;
+    case ERROR: //led is red
+      digitalWrite(LED_GREEN, LOW);
+      digitalWrite(LED_RED, HIGH);
+      digitalWrite(LED_BLUE, LOW);
+      break;
+  }
 }
 
 

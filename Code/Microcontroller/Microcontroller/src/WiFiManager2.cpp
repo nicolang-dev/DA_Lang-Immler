@@ -1,11 +1,29 @@
-/*
 #include <WiFi.h>
 #include <list>
 #include <WebServer.h>
+#include <EEPROM.h>
+
 using namespace std;
 
 class WiFiManager{
     public:
+        static String client_ssid;
+        static String client_password;
+        static String host_ssid;
+        static String host_password;
+        IPAddress server_ip(192,168,0,1);
+        IPAddress gateway_ip(192,168,0,1);
+        IPAddress subnet_ip(255,255,255,0);
+
+        static boolean credentialsSet(){
+            String val1;
+            String val2;
+            EEPROM.get(0, val1);
+            EEPROM.get(1, val2);
+            
+            return (val1.length() > 0) && (val2.lenght() > 0);
+        }
+
         static boolean startApMode(String ssid, IPAddress ip){
             if((WiFi.getMode() != WIFI_AP) && (ssid.length() > 0) && (ip.toString().length() > 0)){
                 IPAddress gateway_ip(255,255,255,0);
@@ -68,12 +86,4 @@ class WiFiManager{
             return availableSsids;
         }
 
-    private:
-        static String ap_ssid;
-        static String sta_ssid;
-        static String sta_password;
-        static int server_port;
-        static IPAddress ap_ip;
-        static WebServer server;
 };
-*/
