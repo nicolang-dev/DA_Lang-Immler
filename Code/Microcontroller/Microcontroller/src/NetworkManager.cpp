@@ -7,6 +7,8 @@
 #include <Preferences.h>
 #include <ArduinoJson.h>
 
+using namespace std;
+
 class NetworkManager{
     private:
         static String client_ssid;
@@ -32,6 +34,20 @@ class NetworkManager{
             return info;
         }
 
+        static String getAvailableNetworks(){
+            JsonDocument networks;
+            if(WiFi.getMode() == WIFI_AP){
+                int available_networks = WiFi.scanNetworks(false);
+                for(int i = 0; i < available_networks; i++){
+                    networks[i]["ssid"] = WiFi.SSID(i);
+                    networks[i]["rssi"] = WiFi.RSSI(i);
+                }
+            }
+            String networks_str;
+            serializeJson(networks, networks_str);
+            return networks_str;
+        }
+
         static void handle_get(){
             server.send(200, "text/plain", "get request received!");
         }
@@ -41,6 +57,11 @@ class NetworkManager{
             String info_str;
             serializeJson(info, info_str);
             server.send(200, "application/json", info_str);
+        }
+
+        static void handle_getAvailableNetworks(){
+            String available_networks = getAvailableNetworks();
+            server.send(200, "application/json", available_networks);
         }
 
         static void handle_setWiFiCredentials(){
@@ -67,14 +88,24 @@ class NetworkManager{
         }
 
     public:
-        static void readWiFiCredentials(){
+        static String readSSID(){
             preferences.begin(WIFI_CREDENTIALS_PREFERENCES_NAMESPACE.c_str(), false);
-            if(preferences.isKey(SSID_PREFERENCES_KEY.c_str()) && preferences.isKey(PASSWORD_PREFERENCES_KEY.c_str())){
-                client_ssid = preferences.getString(SSID_PREFERENCES_KEY.c_str());
-                client_password = preferences.getString(PASSWORD_PREFERENCES_KEY.c_str());
+            if(preferences.isKey(SSID_PREFERENCES_KEY.c_str())){
+                return preferences.getString(SSID_PREFERENCES_KEY.c_str());
                 preferences.end();
             }
             preferences.end();
+            return "";
+        }
+
+        static String readPassword(){
+            preferences.begin(WIFI_CREDENTIALS_PREFERENCES_NAMESPACE.c_str(), false);
+            if(preferences.isKey(PASSWORD_PREFERENCES_KEY.c_str())){
+                return preferences.getString(PASSWORD_PREFERENCES_KEY.c_str());
+                preferences.end();
+            }
+            preferences.end();
+            return "";
         }
 
         static void writeWiFiCredentials(String ssid, String password){
@@ -94,19 +125,24 @@ class NetworkManager{
             return true;
         }
 
-        static boolean startClient(char *client_ssid, char *client_password){
-            if(WiFi.getMode() != WIFI_STA){
-                WiFi.mode(WIFI_STA);
-            }
-            if(WiFi.status() == WL_CONNECTED){
-                WiFi.disconnect();
-            }
-            WiFi.begin(client_ssid, client_password);
-            while(WiFi.status() != WL_CONNECTED){
-                delay(1);
-            }
-            if(WiFi.status() == WL_CONNECTED){
-                return true;
+        static boolean startClient(){
+            String ssid = readSSID();
+            String password = readPassword();
+            if((ssid.length() >= 0) && (password.length() >= 0)){
+                if(WiFi.getMode() != WIFI_STA){
+                    WiFi.mode(WIFI_STA);
+                }
+                if(WiFi.status() == WL_CONNECTED){
+                    WiFi.disconnect();
+                }
+                WiFi.begin(ssid, password);
+                unsigned long connection_start_time = millis();
+                while((WiFi.status() != WL_CONNECTED) && ((millis() - connection_start_time) < MAX_CONNECTION_TIME)){
+                    delay(1);
+                }
+                if(WiFi.status() == WL_CONNECTED){
+                    return true;
+                }
             }
             return false;
         }
@@ -115,6 +151,7 @@ class NetworkManager{
             server.begin(SERVER_PORT);
             server.on("/", HTTP_GET, handle_get);
             server.on("/getInfo", HTTP_GET, handle_getInfo);
+            server.on("/getAvailableNetworks", HTTP_GET, handle_getAvailableNetworks);
             server.on("/setWiFiCredentials", HTTP_POST, handle_setWiFiCredentials);
             server.on("/setStreamUrl", HTTP_POST, handle_setStreamUrl);
             server.onNotFound(handle_notFound);

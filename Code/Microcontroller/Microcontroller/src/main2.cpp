@@ -1,0 +1,220 @@
+//libraries
+#include <Arduino.h>
+#include <EEPROM.h>
+#include <WiFi.h>
+#include <WebServer.h>
+#include <Audio.h>
+#include "driver/rtc_io.h"
+#include <ArduinoJson.h>
+
+//definition of json for logging errors
+JsonDocument error_log;
+
+//definition of variables
+String wifi_ssid;
+String wifi_password;
+IPAddress client_ip;
+String macAddress;
+bool server_mode = false;
+bool audio_stream_mode = false;
+bool wifi_config_mode = false;
+String stream_url;
+int battery_val;
+bool config_mode = false;
+
+//definition of Objects
+WebServer server(server_port); //web server object
+Audio audio; //audio object
+
+//declaration of functions
+void wifiInitialization();
+void button_pressed();
+void activate_deep_sleep();
+
+void setup(){
+  //serial setup
+  Serial.println("esp32 started!");
+  Serial.begin(9600);
+  //pin setup
+  pinMode(BUTTON_PIN, INPUT_PULLDOWN);
+  rtc_gpio_pulldown_en(GPIO_NUM_12);
+  esp_sleep_enable_ext0_wakeup(GPIO_NUM_12, 1);
+  //audio setup
+  audio.setPinout(I2S_BCLK, I2S_LRC, I2S_DOUT);
+  audio.setVolume(AUDIO_VOLUME);
+  //wifi setup
+  wifiInitialization();
+}
+
+void loop(){
+  if(digitalRead(BUTTON_PIN) == 1){
+    int button_press_start_time = millis();
+    int button_press_end_time = 0;
+    while(digitalRead(BUTTON_PIN) == 1){}
+    if(digitalRead(BUTTON_PIN) == 0){
+      button_press_end_time = millis();
+    }
+    if((button_press_end_time - button_press_start_time) >= BUTTON_PRESS_SLEEP_TIME){
+      Serial.println("activating deep sleep!");
+      esp_deep_sleep_start();
+    } else {
+      Serial.println("activating wifi config mode!");
+    }
+  }
+  if(server_mode){
+    server.handleClient();
+  }
+  if(audio_stream_mode){
+    audio.loop();
+  }
+}
+
+bool checkWifiCredentials(String ssid, String password){
+  return true;
+}
+
+void handle_getInfo(){
+  /*JsonDocument data;
+  String error_list = "";
+  data["volume"] = AUDIO_VOLUME;
+  data["streamUrl"] = stream_url;
+  data["batteryVal"] = battery_val;
+  data["errors"] = error_list;
+  server.send(200, "application/json", data);*/
+}
+
+void handle_get(){
+  server.send(200, "text/plain", "get request received!");
+}
+
+void handle_setWifiCredentials(){
+  String ssid;
+  String password;
+  if(server.hasArg("ssid") && server.hasArg("password")){
+    ssid = server.arg("ssid");
+    password = server.arg("password");
+    if(checkWifiCredentials(ssid, password)){
+      server_mode = false;
+      WiFi.softAPdisconnect();
+      WiFi.mode(WIFI_STA);
+      WiFi.begin(ssid, password);
+      Serial.println("Connecting with WiFi ...");
+      while(WiFi.status() != WL_CONNECTED){
+        Serial.print(".");
+      }
+      if(WiFi.status() == WL_CONNECTED){
+        Serial.println("Connected to WiFi!");
+      }
+    }
+  }
+}
+
+void handle_setStreamUrl(){
+   if(server.hasArg("streamUrl") && WiFi.status() == WL_CONNECTED){
+    String sent_stream_url = server.arg("streamUrl");
+    Serial.println(sent_stream_url);
+    if(!sent_stream_url.equals(stream_url)){
+      stream_url = sent_stream_url;
+      audio.connecttohost(stream_url.c_str());
+      if(!audio_stream_mode){
+        audio_stream_mode = true;
+      }
+    }
+   }
+}
+
+void wifiInitialization(){
+  EEPROM.get(0, wifi_ssid);
+  EEPROM.get(1, wifi_password);
+
+  int connection_startTime = millis();
+
+  if(wifi_ssid.length() == 0 || wifi_password.length() == 0){
+    Serial.println("wifi credentials are null");
+    WiFi.mode(WIFI_AP);
+    WiFi.softAPConfig(server_ip, gateway_ip, subnet_ip);
+    WiFi.softAP(server_ssid);
+    server.on("/", HTTP_GET, handle_get);
+    server.on("/getInfo", HTTP_GET, handle_getInfo);
+    server.on("/setWifiCredentials", HTTP_POST, handle_setWifiCredentials);
+    server.on("/setStreamUrl", HTTP_POST, handle_setStreamUrl);
+    server.begin();
+    server_mode = true;
+  } else {
+    WiFi.mode(WIFI_STA);
+    WiFi.begin(wifi_ssid, wifi_password);
+    Serial.println("Connecting to WiFi...");
+    while((WiFi.status() != WL_CONNECTED) && ((millis() - connection_startTime) < maxConnectionTime)){
+      Serial.print(".");
+    }
+    if(WiFi.status() == WL_CONNECTED){
+      Serial.println("Connected to WiFi!");
+      client_ip = WiFi.localIP();
+      Serial.printf("IP: ", client_ip);
+      Serial.printf("Mac: ", macAddress);
+    } else {
+      Serial.println("Connecting to WiFi failed!");
+    }
+  }
+}
+
+void switch_statusLED(){
+  switch(status){
+    case OK: //led is green
+      digitalWrite(LED_GREEN, HIGH);
+      digitalWrite(LED_RED, LOW);
+      digitalWrite(LED_BLUE, LOW);
+      break;
+    case CONFIG: //led is blue
+      digitalWrite(LED_GREEN, LOW);
+      digitalWrite(LED_RED, LOW);
+      digitalWrite(LED_BLUE, HIGH);
+      break;
+    case ERROR: //led is red
+      digitalWrite(LED_GREEN, LOW);
+      digitalWrite(LED_RED, HIGH);
+      digitalWrite(LED_BLUE, LOW);
+      break;
+  }
+}
+
+
+/*#include <Arduino.h>
+#include "WiFiManager.cpp"
+
+#define statusLED_RED 0
+#define statusLED_GREEN 0
+#define statusLED_BLUE 0
+#define button_pin 0  
+
+boolean configMode = false;
+
+WiFiManager wifiManager;
+
+void handle_buttonPressed();
+
+void setup() {
+  //pin init
+  pinMode(statusLED_RED, OUTPUT);
+  pinMode(statusLED_GREEN, OUTPUT);
+  pinMode(statusLED_BLUE, OUTPUT);
+  pinMode(button_pin, INPUT_PULLUP);
+  attachInterrupt(button_pin, handle_buttonPressed, CHANGE);
+}
+
+void loop() {
+  if(configMode){
+     wifiManager.startApMode();
+     wifiManager.startServer();                                                                                            
+  }
+}
+
+void setLedColor(int red, int green, int blue){
+  analogWrite(statusLED_RED, red);
+  analogWrite(statusLED_GREEN, green);
+  analogWrite(statusLED_BLUE, blue);
+}
+
+void handle_buttonPressed(){
+
+}*/

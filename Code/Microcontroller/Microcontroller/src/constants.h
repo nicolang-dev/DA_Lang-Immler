@@ -15,7 +15,7 @@ const int LED_BLUE = 4;
 //definition of constants
 const int BUTTON_PRESS_SLEEP_TIME = 2000;
 const int AUDIO_VOLUME = 10; //0-21
-const int MAX_CONNECTION_TIME = 5000;
+const unsigned long MAX_CONNECTION_TIME = 5000;
 const int SERVER_PORT = 80;
 const IPAddress AP_LOCAL_IP(192,168,0,1);
 const IPAddress AP_GATEWAY_IP(192,168,0,1);
