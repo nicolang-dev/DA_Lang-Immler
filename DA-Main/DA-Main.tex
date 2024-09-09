@@ -87,6 +87,29 @@ Der Teil der Software für folgende Diplomarbeit beschäftigt sich damit, einers
 \subsection{Festlegung Funktionsweise}
 \subsection{Auswahl Hardwarekomponenten}
 \subsection{Auswahl Technologien}
+\subsubsection{Protokolle}
+In diesem Kapitel geht es um die Recherche und Auswahl von Protokollen, die für den Austausch von Daten verwendet werden.
+\newline \\
+\textbf{HTTP}
+\newline
+Das Hyper Text Transfer Protocol wird für den Datenaustausch zwischen Microcontroller und Smartphone verwendet. Dabei läuft auf dem Microcontroller ein Webserver an den das Smartphone HTTP-Anfragen sendet. Dabei wird eine REST-API angewendet. Folgende Routen sind dabei auf dem Webserver aufrufbar: \newline
+\begin{tabularx}{\textwidth}{|l|l|X|}
+\hline
+\textbf{Route} & \textbf{Anfragen-Typ} & \textbf{Funktion} \\
+\hline
+/getInfo & GET & Client bekommt Infos vom Microcontroller \\
+\hline 
+/getAvailableNetworks & GET & Client bekommt eine Liste im JSON-Format, gefüllt mit SSID und RSSI (Stärke) von verfügbaren Netzwerken in der Nähe des Microcontrollers \\
+\hline
+/setWiFiCredentials & POST & Client sendet SSID und Passwort des gewünschten Netzwerks an den Microcontroller \\
+\hline
+/setStreamUrl & POST & Client sendet die URL des gewünschten Audio-Streams an den Microcontroller \\
+\hline
+\end{tabularx}
+\newline \\
+\textbf{I2S}
+\newline
+Das Inter Integrated Sound Protocol wird verwendet, um Audiodaten vom Microcontroller an den PCM5102 Digital-Analog-Wandler zu senden. Dabei werden die digitalen Buffer, die der Microcontroller vom Audio-Stream erhält, mittels I2S an den Digital-Analog Wandler gesendet, welcher die digitalen Daten in analoge Daten umwandelt, so dass sie dann anschließend auf der Lautsprecherbox ausgegeben werden können.
 \subsection{Auswahl Softwaretools}
 \subsubsection{Einleitung}
 In diesem Kapitel geht es um die Recherche und Auswahl von geeigneten Softwaretools, welche für die App-Entwicklung, als auch für die Entwicklung der Software des Microcontrollers verwendet werden.  
@@ -107,6 +130,30 @@ Für die Entwicklung der Smartphoneapp wurde das "React Native"  - Framework ver
 \subsection{Bestückung Platine}
 \subsection{Entwicklung Software Adapter}
 In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Software des Adapters beschrieben. 
+Zur Entwicklung der Software des Microcontrollers wird die IDE Visual Studio Code in Verbindung mit PlatformIO verwendet. Um die Entwicklung einfacher und übersichtlicher zu gestalten, wird die Arduino-Bibliothek in Verbindung mit C++ verwendet.
+\newline \\
+\textbf{Programmablauf}
+\newline
+Der Ablauf des Programmes wird mit folgendem UML-Ablaufdiagramm veranschaulicht:
+hier kommt das UML-Ablaufdiagramm her
+\newline \\
+\textbf{Klassen}
+\newline
+Bei der Entwicklung der Microcontroller-Software wurde aufgrund der Übersichtlichkeit und um die Design-Patterns der Softwareentwicklung einzuhalten, auf objektorientierte Programmierung gesetzt. Das folgende UML-Klassendiagramm veranschaulicht die Beziehung der verschiedenen Klassen zueinander:
+hier kommt das UML-Klassendiagramm her
+Im folgenden Teil werden die Klassen und deren Funktionen noch näher beschrieben:
+\newline \\
+\textbf{StatusLED}
+\newline
+hier kommt der Text zur Beschreibung der Klasse "StatusLED"
+\newline \\
+\textbf{NetworkManager}
+\newline
+hier kommt der Text zur Beschreibung der Klasse "NetworkManager"
+\newline \\
+\textbf{AudioManager}
+\newline
+hier kommt der Text zur Beschreibung der Klasse "AudioManager"
 \subsection{Entwicklung Smartphone-App}
 In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Smartphone-App beschrieben. 
 \subsection{Design Adaptergehäuse}
