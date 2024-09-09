@@ -16,12 +16,12 @@
 \contentsline {subsection}{\numberline {3.4}Auswahl Softwaretools}{6}{}%
 \contentsline {subsubsection}{\numberline {3.4.1}Einleitung}{6}{}%
 \contentsline {subsubsection}{\numberline {3.4.2}Softwaretools Microcontroller}{6}{}%
-\contentsline {subsubsection}{\numberline {3.4.3}Softwaretools Smartphoneapp}{6}{}%
+\contentsline {subsubsection}{\numberline {3.4.3}Softwaretools Smartphoneapp}{7}{}%
 \contentsline {section}{\numberline {4}Entwicklung}{7}{}%
 \contentsline {subsection}{\numberline {4.1}Design Platine}{7}{}%
 \contentsline {subsection}{\numberline {4.2}Bestückung Platine}{7}{}%
 \contentsline {subsection}{\numberline {4.3}Entwicklung Software Adapter}{7}{}%
-\contentsline {subsection}{\numberline {4.4}Entwicklung Smartphone-App}{7}{}%
+\contentsline {subsection}{\numberline {4.4}Entwicklung Smartphone-App}{8}{}%
 \contentsline {subsection}{\numberline {4.5}Design Adaptergehäuse}{8}{}%
 \contentsline {subsection}{\numberline {4.6}Fertigung Adaptergehäuse}{8}{}%
 \contentsline {section}{\numberline {5}Testen und Fehlerbehebung}{8}{}%

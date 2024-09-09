@@ -112,15 +112,19 @@ Das Hyper Text Transfer Protocol wird für den Datenaustausch zwischen Microcont
 Das Inter Integrated Sound Protocol wird verwendet, um Audiodaten vom Microcontroller an den PCM5102 Digital-Analog-Wandler zu senden. Dabei werden die digitalen Buffer, die der Microcontroller vom Audio-Stream erhält, mittels I2S an den Digital-Analog Wandler gesendet, welcher die digitalen Daten in analoge Daten umwandelt, so dass sie dann anschließend auf der Lautsprecherbox ausgegeben werden können.
 \subsection{Auswahl Softwaretools}
 \subsubsection{Einleitung}
-In diesem Kapitel geht es um die Recherche und Auswahl von geeigneten Softwaretools, welche für die App-Entwicklung, als auch für die Entwicklung der Software des Microcontrollers verwendet werden.  
+In diesem Kapitel geht es um die Recherche und Auswahl von geeigneten Softwaretools, welche für die App-Entwicklung, als auch für die Entwicklung der Software des Microcontrollers verwendet werden. 
 \subsubsection{Softwaretools Microcontroller}
-Für die Entwicklung der Software des Microcontrollers wurden folgende Bibliotheken verwendet:
-\begin{itemize}
-\item WiFiClientSecure
-\item Audio
-\item Arduino
-\end{itemize}
-
+Im folgenden werden die verwendeten Bibliotheken im Code des Microcontrollers aufgezählt und kurz beschrieben: \\
+\textbf{Arduino} \\
+Die Arduino-Bibliothek wird verwendet um den ESP32 ähnlich wie einen Arduino programmieren zu können. Es erleichtert dabei die Programmierung enorm, vorallem dann, wenn man schon Vorerfahrung mit der Programmierung von Arduinos hat. \\
+\textbf{WiFi} \\
+Die WiFi-Bibliothek wird verwendet, um die Funktionen der eingebauten WiFi-Antenne des ESP32 zu verwenden. In unserem Projekt wird sie verwendet, um zum einen einen Access Point bereitzustellen und zum Andern als WiFi-Client zu fungieren. \\
+\textbf{ArduinoJson} \\
+Die ArduinoJson-Bibliothek wird verwendet, um Daten in das JSON vormat zu kodieren. Der Vorteil dabei ist, dass JSON ein weit verbreitetes Format in der Informatik ist und deshalb mit vielen Schnittstellen funktioniert. \\
+\textbf{WebServer} \\
+Die WebServer-Bibliothek wird verwendet, um einen Webserver auf dem ESP32 bereitzustellen. Dieser ist wichtig für den Datenaustausch mittels HTTP, zwischen ESP32 und Smartphone. \\
+\textbf{Audio} \\
+Die Audio-Bibliothek wird verwendet, um die Audio-Daten mittels I2S-Protokoll an den Digital-Analog-Wandler zu senden und diesen zu konfigurieren.
 \subsubsection{Softwaretools Smartphoneapp}
 Für die Entwicklung der Smartphoneapp wurde das "React Native"  - Framework verwendet. Mithilfe von React Native ist es möglich eine zentrale Applikation zu entwickeln und diese dann auf mehreren Plattformen wie IOS, Android und auch im Web zu verwenden. React Native basiert auf React, welches ein Framework für die Frontend-Entwicklung ist. Außerdem wird die Radio-Browser-API für die bereitstellung diverser Internetradios verwendet.
 
@@ -143,17 +147,12 @@ Bei der Entwicklung der Microcontroller-Software wurde aufgrund der Übersichtli
 hier kommt das UML-Klassendiagramm her
 Im folgenden Teil werden die Klassen und deren Funktionen noch näher beschrieben:
 \newline \\
-\textbf{StatusLED}
-\newline
-hier kommt der Text zur Beschreibung der Klasse "StatusLED"
-\newline \\
-\textbf{NetworkManager}
-\newline
-hier kommt der Text zur Beschreibung der Klasse "NetworkManager"
-\newline \\
-\textbf{AudioManager}
-\newline
-hier kommt der Text zur Beschreibung der Klasse "AudioManager"
+\textbf{StatusLED} \\
+Mithilfe der Klasse StatusLED wird die RGB-LED, welche am ESP32 angeschlossen ist, gesteuert. \\
+\textbf{NetworkManager} \\
+Die Klasse NetworkManager kümmert sich um alle Funktionen, die mit dem WiFi des ESP32 zu tun haben. \\
+\textbf{AudioManager} \\
+Die Klasse AudioManager regelt hauptsächlich das Senden der Audiodaten, vom ESP32 an den Digital-Analog Wandler, mittels I2S-Protokoll. 
 \subsection{Entwicklung Smartphone-App}
 In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Smartphone-App beschrieben. 
 \subsection{Design Adaptergehäuse}
