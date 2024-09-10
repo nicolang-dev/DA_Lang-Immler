@@ -86,7 +86,43 @@ Der Teil der Software für folgende Diplomarbeit beschäftigt sich damit, einers
 
 \section{Planung}
 \subsection{Festlegung Funktionsweise}
+GEMEINSAM
 \subsection{Auswahl Hardwarekomponenten}
+Zur Auswahl der Hardwarekomponenten des Adapters wird zu aller erst die externe Ausstattung des Adapters überlegt. Das bedeutet praktisch alles, mit dem der klassische Endverbraucher letztendlich zu tun hat. Dann kann der interne Teil, also die Technik dahinter individuell auf die Anforderungen des externen Teils designet und entwickelt werden.
+\subsubsection{Auswahl externe Hardware}
+Der Adapter soll ein möglichst kompakt konstruiertes und stabiles Gehäuse bekommen. Auf beziehungsweise in diesem wird ein einfacher Taster zur Interaktion angebracht. Mit dem Taster sollen einige Funktionen des Adapters ermöglicht werden. Beispielsweise per Klick, Doppelklick oder kurzem Halten. Da sich die Funktionen des Tasters selbst gering halten werden (Verbindungsvorgang, Ein- und Ausschalten, ...) wird nur ein einziger Taster verwendet, um die Komplexität des Gesamtsystems zu senken. Die weitaus komplizierteren Funktionen sollen alle samt in der Smartphone-Applikation ermöglicht werden. Zusätzlich werden eine oder mehrere LED-Leuchten zur Statusanzeige verbaut, um beispielsweise den aktuellen Verbindungsstatus zum Mobilgerät und zum Internet oder den aktuellen Akkustand anzuzeigen. \newline \\
+\textbf{Gehäuse} \newline
+Das Gehäuse soll alle Komponenten auf möglichst kleinem Raum zusammenhalten. Da sich Komponenten und möglicherweise auch das Design selbst laufend ändern wird dieses deshalb erst gegen Ende des Projekts finalisiert werden können. \newline \\
+\textbf{Taster} \newline
+Für den Taster wird ein herkömmlicher Button in das Gehäuse eingelassen.  \newline \\
+\textbf{LED (Light-Emitting Diode)} \newline
+Es ist durchaus bekannt, dass LED-Leuchten im Vergleich zu anderer Lichttechnik effizienter und langlebiger sind. \newline
+Laut \newline
+\url{https://ledtipps.net/wirkungsgrad/#wirkungsgrad-und-lichtausbeute-im-vergleich}
+"Grundsätzlich fällt der Wirkungsgrad bei höheren Leistungen immer etwas besser aus." \newline
+In der folgenden Tabelle aus \newline
+\url{https://ledtipps.net/wirkungsgrad/#wirkungsgrad-und-lichtausbeute-im-vergleich} 
+wird der Wirkungsgrad sowie die Lichtausbeute unter herkömmlicher Lichttechnik verglichen. \newline
+
+\begin{tabularx}{\textwidth}{|l|l|X|}
+\hline
+\textbf{Leuchtmittel} & 
+\textbf{Wirkungsgrad} & 
+\textbf{Lichtausbeute} \\
+\hline
+LED & 25-40\% & 80 – 150 lm/W \\
+\hline 
+Energiesparlampe & 15-25\% & 40 – 60 lm/W \\
+\hline
+Halogenlampe & 8-12\% & 15 – 20 lm/W \\
+\hline
+Glühlampe & 3-5\% & 10 – 15 lm/W \\
+\hline
+\end{tabularx} \newline \\
+Für dieses Projekt bedeutet das, dass die Leuchtdiode wohl die effizienteste Methode für eine Statusanzeige auf dem Adapter ist.
+
+\subsubsection{Auswahl interne Hardware}
+
 \subsection{Auswahl Technologien}
 \subsubsection{Protokolle}
 In diesem Kapitel geht es um die Recherche und Auswahl von Protokollen, die für den Austausch von Daten verwendet werden.
@@ -94,6 +130,7 @@ In diesem Kapitel geht es um die Recherche und Auswahl von Protokollen, die für
 \textbf{HTTP}
 \newline
 Das Hyper Text Transfer Protocol wird für den Datenaustausch zwischen Microcontroller und Smartphone verwendet. Dabei läuft auf dem Microcontroller ein Webserver an den das Smartphone HTTP-Anfragen sendet. Dabei wird eine REST-API angewendet. Folgende Routen sind dabei auf dem Webserver aufrufbar: \newline
+
 \begin{tabularx}{\textwidth}{|l|l|X|}
 \hline
 \textbf{Route} & \textbf{Anfragen-Typ} & \textbf{Funktion} \\
