@@ -1,3 +1,7 @@
+/**
+ * file with constants, which are needed in the code
+ */
+
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 

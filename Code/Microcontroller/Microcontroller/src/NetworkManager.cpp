@@ -1,14 +1,22 @@
 #ifndef NETWORKMANAGER_H
 #define NETWORKMANAGER_H
 
+//including needed libraries
 #include <WiFi.h>
 #include <WebServer.h>
 #include <constants.h>
 #include <Preferences.h>
 #include <ArduinoJson.h>
 
+//using namespace std for String an vectors
 using namespace std;
 
+/**
+ * responsible for network tasks, like:
+ * providing an access point
+ * acting as a WiFi client
+ * providing a web server
+ */
 class NetworkManager{
     private:
         static String client_ssid;
@@ -19,6 +27,13 @@ class NetworkManager{
         static Preferences preferences;
         static WebServer server;
 
+        /**
+         * returns a JSON with basic informations, like:
+         * wifi mode (station or access point)
+         * mac address
+         * local IP address
+         * access point hostname
+         */
         static JsonDocument getInfo(){
             JsonDocument info;
             wifi_mode_t wifi_mode = WiFi.getMode();
@@ -34,6 +49,9 @@ class NetworkManager{
             return info;
         }
 
+        /**
+         * scans for available networks and returns the ssid and rssi (strength) of the found networks as a String
+         */
         static String getAvailableNetworks(){
             JsonDocument networks;
             if(WiFi.getMode() == WIFI_AP){
@@ -48,10 +66,17 @@ class NetworkManager{
             return networks_str;
         }
 
+        /**
+         * handles basic GET requests
+         */
         static void handle_get(){
             server.send(200, "text/plain", "get request received!");
         }
-
+        
+        /**
+         * handles get requests on route /getInfo
+         * sends information from the getInfo method to the client as a String, formatted as JSON
+         */
         static void handle_getInfo(){
             JsonDocument info = getInfo();
             String info_str;
@@ -59,11 +84,19 @@ class NetworkManager{
             server.send(200, "application/json", info_str);
         }
 
+        /**
+         * handles get requests on route /getAvailableNetworks
+         * sends ssid and rssi (strength) of all found networks to the client as a String, formatted as JSON
+         */
         static void handle_getAvailableNetworks(){
             String available_networks = getAvailableNetworks();
             server.send(200, "application/json", available_networks);
         }
 
+        /**
+         * handles POST requests on route /setWiFiCredentials
+         * reads ssid and password arguments from server and saves them in the EEPROM
+         */
         static void handle_setWiFiCredentials(){
             if(server.hasArg("ssid") && server.hasArg("password")){
                 String ssid = server.arg("ssid");
@@ -76,6 +109,10 @@ class NetworkManager{
             }
         }
 
+        /**
+         * handles POST requests on route /setStreamUrl
+         * reads url argument from client and sets this url for the audiostream
+         */
         static void handle_setStreamUrl(){
             if(server.hasArg("url")){
                 stream_url = server.arg("url");
@@ -88,6 +125,9 @@ class NetworkManager{
         }
 
     public:
+        /**
+         * reads SSID from EEPROM
+         */
         static String readSSID(){
             preferences.begin(WIFI_CREDENTIALS_PREFERENCES_NAMESPACE.c_str(), false);
             if(preferences.isKey(SSID_PREFERENCES_KEY.c_str())){
@@ -98,6 +138,9 @@ class NetworkManager{
             return "";
         }
 
+        /**
+         * reads password from EEPROM
+         */
         static String readPassword(){
             preferences.begin(WIFI_CREDENTIALS_PREFERENCES_NAMESPACE.c_str(), false);
             if(preferences.isKey(PASSWORD_PREFERENCES_KEY.c_str())){
@@ -108,6 +151,9 @@ class NetworkManager{
             return "";
         }
 
+        /**
+         * writes WiFi credentials in EEPROM
+         */
         static void writeWiFiCredentials(String ssid, String password){
             preferences.begin(WIFI_CREDENTIALS_PREFERENCES_NAMESPACE.c_str(), false);
             preferences.clear();
@@ -116,6 +162,9 @@ class NetworkManager{
             preferences.end();
         }
 
+        /**
+         * starts an access point
+         */
         static boolean startAP(){
             if(WiFi.getMode() != WIFI_AP){
                 WiFi.mode(WIFI_AP);
@@ -125,6 +174,9 @@ class NetworkManager{
             return true;
         }
 
+        /**
+         * acting as a client
+         */
         static boolean startClient(){
             String ssid = readSSID();
             String password = readPassword();
@@ -147,6 +199,9 @@ class NetworkManager{
             return false;
         }
 
+        /**
+         * starts a web server
+         */
         static boolean startWebServer(){
             server.begin(SERVER_PORT);
             server.on("/", HTTP_GET, handle_get);
@@ -157,6 +212,9 @@ class NetworkManager{
             server.onNotFound(handle_notFound);
         }
 
+        /**
+         * getter for stream url
+         */
         static String getStreamUrl(){
             if(stream_url.length() > 0){
                 return stream_url;
