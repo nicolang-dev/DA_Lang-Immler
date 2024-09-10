@@ -6,6 +6,7 @@
 \usepackage[ngerman]{babel}
 \usepackage{amsmath}
 \usepackage{tabularx}
+\usepackage{hyperref}
 
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
@@ -112,19 +113,32 @@ Das Hyper Text Transfer Protocol wird für den Datenaustausch zwischen Microcont
 Das Inter Integrated Sound Protocol wird verwendet, um Audiodaten vom Microcontroller an den PCM5102 Digital-Analog-Wandler zu senden. Dabei werden die digitalen Buffer, die der Microcontroller vom Audio-Stream erhält, mittels I2S an den Digital-Analog Wandler gesendet, welcher die digitalen Daten in analoge Daten umwandelt, so dass sie dann anschließend auf der Lautsprecherbox ausgegeben werden können.
 \subsection{Auswahl Softwaretools}
 \subsubsection{Einleitung}
-In diesem Kapitel geht es um die Recherche und Auswahl von geeigneten Softwaretools, welche für die App-Entwicklung, als auch für die Entwicklung der Software des Microcontrollers verwendet werden. 
+In diesem Kapitel geht es um die Recherche und Auswahl von geeigneten Softwaretools, welche für die App-Entwicklung, als auch für die Entwicklung der Software des Microcontrollers verwendet werden. Zusätzlich werden auch die Softwaretools zum Schreiben dieser Diplomarbeit kurz beschrieben. \\
+\textbf{LaTeX} \\
+"LaTeX ist ein hochwertiges Schriftsatzsystem, das Funktionen für die Erstellung technischer und wissenschaftlicher Dokumentationen enthält. LaTeX ist der De-facto-Standard für die Kommunikation und Veröffentlichung von wissenschaftlichen Dokumenten." (Übersetzung des englischen Originals von: https://www.latex-project.org/) \\
+Wir haben uns für das Schreiben unserer Diplomarbeit in LaTeX entschieden, weil es sich sehr gut für wissenschaftliche Arbeiten eignet und wir somit schon damit vertraut sind, wenn wir es in der Zukunft brauchen. \\
+\textbf{draw.io}
+"draw.io ist eine kostenlose Online-Diagrammsoftware zur Erstellung von Flussdiagrammen, Prozessdiagrammen, Organigrammen, UML, ER und Netzwerkdiagrammen." (Übersetzung des englischen Originals von: https://app.diagrams.net/) \\
+Wir haben alle Diagramme unserer Diplomarbeit in draw.io erstellt, weil es einfach zu handhaben ist und es eine große Auwahl an Diagrammtypen und Formen gibt. \\
+\textbf{Visual Studio Code} \\
+"Visual Studio Code ist ein leichtgewichtiger, aber leistungsstarker Quellcode-Editor, der auf Ihrem Desktop läuft und für Windows, macOS und Linux verfügbar ist. Er bietet integrierte Unterstützung für JavaScript, TypeScript und Node.js und verfügt über ein umfangreiches Ökosystem von Erweiterungen für andere Sprachen und Laufzeiten (wie C++, C\#, Java, Python, PHP, Go, .NET)." (Übersetzung des englischen Originals von: https://code.visualstudio.com/docs) \\
+Wir haben Visual Studio Code als IDE für unsere Diplomarbeit gewählt, weil durch die unzähligen Erweiterungen viele verschieden Programmiersprachen und Bibliotheken unterstützt und wir auch schon etwas Erfahrung damit haben. \\
+\textbf{GitHub} \\
+"GitHub ist eine webbasierte Schnittstelle, die Git verwendet, die Open-Source-Software zur Versionskontrolle, mit der mehrere Personen gleichzeitig separate Änderungen an Webseiten vornehmen können. Wie Carpenter anmerkt, fördert GitHub die Zusammenarbeit von Teams bei der Erstellung und Bearbeitung von Website-Inhalten, da es eine Zusammenarbeit in Echtzeit ermöglicht." (Übersetzung des englischen Originals von: https://digital.gov/resources/an-introduction-github/) \\
+Wir verwenden GitHub für die Verwaltung unseres Codes und unserer Dokumente. Der Vorteil dabei ist, dass jedes Projektmitglied auf seinem lokalen PC an den Dokumenten arbeiten kann und die Änderungen dann per GitHub synchronisiert werden können. \\
 \subsubsection{Softwaretools Microcontroller}
 Im folgenden werden die verwendeten Bibliotheken im Code des Microcontrollers aufgezählt und kurz beschrieben: \\
 \textbf{Arduino} \\
 Die Arduino-Bibliothek wird verwendet um den ESP32 ähnlich wie einen Arduino programmieren zu können. Es erleichtert dabei die Programmierung enorm, vorallem dann, wenn man schon Vorerfahrung mit der Programmierung von Arduinos hat. \\
 \textbf{WiFi} \\
-Die WiFi-Bibliothek wird verwendet, um die Funktionen der eingebauten WiFi-Antenne des ESP32 zu verwenden. In unserem Projekt wird sie verwendet, um zum einen einen Access Point bereitzustellen und zum Andern als WiFi-Client zu fungieren. \\
+\url{https://github.com/arduino-libraries/WiFi} \\
+Die WiFi-Bibliothek wird verwendet, um die Funktionen der eingebauten WiFi-Antenne des ESP32 zu verwenden. Der ESP32 kann dabei entweder als Access Point oder als Client fungieren. Wenn er als Access Point fungiert, stellt er ein eigenes WiFi-Netzwerk bereit, mit dem sich andere Geräte verbinden können und der ESP32 somit einen Host darstellt. Als Client kann er sich mit anderen WiFi-Netzwerken bzw. Access Points verbinden. In unserem Projekt fungiert der ESP32 sowohl als Access Point, als auch als Client.\\
 \textbf{ArduinoJson} \\
-Die ArduinoJson-Bibliothek wird verwendet, um Daten in das JSON vormat zu kodieren. Der Vorteil dabei ist, dass JSON ein weit verbreitetes Format in der Informatik ist und deshalb mit vielen Schnittstellen funktioniert. \\
+Die ArduinoJson-Bibliothek wird verwendet, um Daten in das JSON vormat zu kodieren. Der Vorteil dabei ist, dass JSON ein weit verbreitetes Format in der Informatik ist und deshalb mit vielen Schnittstellen funktioniert. In unserem Projekt wird die ArduinoJson-Bibliothek für den einheitlichen Datenaustausch zwischen Webserver (ESP32) und Client (Smartphone) verwendet. \\
 \textbf{WebServer} \\
-Die WebServer-Bibliothek wird verwendet, um einen Webserver auf dem ESP32 bereitzustellen. Dieser ist wichtig für den Datenaustausch mittels HTTP, zwischen ESP32 und Smartphone. \\
+Die WebServer-Bibliothek wird verwendet, um einen Webserver auf dem ESP32 bereitzustellen. Dieser ist wichtig für den Datenaustausch mittels HTTP, zwischen ESP32 und Smartphone. Mithilfe des Webserver wird einerseits das WiFi-Passwort des gewählten WLANs, als auch die URL des Audiostreams an den ESP32 geleitet. In die andere Richtung, werden grundlegende WiFi-Informationen und verfügbare WiFi-Netzwerke vom ESP32 bereitgestellt. \\
 \textbf{Audio} \\
-Die Audio-Bibliothek wird verwendet, um die Audio-Daten mittels I2S-Protokoll an den Digital-Analog-Wandler zu senden und diesen zu konfigurieren.
+Die Audio-Bibliothek wird verwendet, um die Audio-Daten mittels I2S-Protokoll an den Digital-Analog-Wandler zu senden und diesen zu konfigurieren. Der ESP32 verfügt bereits standartmäßig über Funktionen, mit deren Hilfe man Audiodaten mittels I2S übertragen kann. Allerdings bereitet dies einen viel höheren Aufwand für Konfiguration usw. Daher verwenden wir in unserem Projekt die Audio-Bibliothek.
 \subsubsection{Softwaretools Smartphoneapp}
 Für die Entwicklung der Smartphoneapp wurde das "React Native"  - Framework verwendet. Mithilfe von React Native ist es möglich eine zentrale Applikation zu entwickeln und diese dann auf mehreren Plattformen wie IOS, Android und auch im Web zu verwenden. React Native basiert auf React, welches ein Framework für die Frontend-Entwicklung ist. Außerdem wird die Radio-Browser-API für die bereitstellung diverser Internetradios verwendet.
 
