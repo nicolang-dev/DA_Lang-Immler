@@ -110,7 +110,15 @@ Das Hyper Text Transfer Protocol wird für den Datenaustausch zwischen Microcont
 \newline \\
 \textbf{I2S}
 \newline
-Das Inter Integrated Sound Protocol wird verwendet, um Audiodaten vom Microcontroller an den PCM5102 Digital-Analog-Wandler zu senden. Dabei werden die digitalen Buffer, die der Microcontroller vom Audio-Stream erhält, mittels I2S an den Digital-Analog Wandler gesendet, welcher die digitalen Daten in analoge Daten umwandelt, so dass sie dann anschließend auf der Lautsprecherbox ausgegeben werden können.
+Das Inter IC Sound Protocol wird verwendet, um Stereo-Audio-Daten zwischen ICs auszutauschen. Es benötigt für die Datenübertragung folgende Leitungen: \\
+\begin{itemize}
+\item Taktleitung
+\item Wortauswahl
+\item mindestens eine Datenleitung
+\end{itemize}
+Die Datenübertragung erfolgt seriell und synchron. Seriell bedeutet, dass die Daten nur durch eine Leitung (die Datenleitung) übertragen werden. Synchron bedeutet, dass die Daten in einem bestimmten Takt übertragen werden. Dieser Takt wird von der Taktleitung vorgegeben. Die Leitung für die Wortauswahl wählt den Stereokanal aus (links oder rechts). (vgl. https://www.mikrocontroller.net/articles/I2S) \\
+In unserem Projekt wird das I2S Protokoll verwendet, um die digitalen Stereo-Audio-Daten vom Microcontroller an den Digital-Analag-Wandler zu übertragen.
+Dabei werden die digitalen Buffer, die der Microcontroller vom Audio-Stream erhält, mittels I2S an den Digital-Analog-Wandler gesendet, welcher die digitalen Daten in analoge Daten umwandelt, so dass diese dann anschließend auf der Lautsprecherbox ausgegeben werden können.
 \subsection{Auswahl Softwaretools}
 \subsubsection{Einleitung}
 In diesem Kapitel geht es um die Recherche und Auswahl von geeigneten Softwaretools, welche für die App-Entwicklung, als auch für die Entwicklung der Software des Microcontrollers verwendet werden. Zusätzlich werden auch die Softwaretools zum Schreiben dieser Diplomarbeit kurz beschrieben. \\
