@@ -5,47 +5,59 @@
 #include "StatusLED.cpp"
 
 void handle_buttonPress();
+void print(String message);
 
 bool config_mode = false;
 
 NetworkManager* NetworkManager::instance = nullptr;
 StatusLED* StatusLED::instance = nullptr;
 
+NetworkManager* networkManager;
+StatusLED* statusLED;
+
 void setup(){
-    NetworkManager* networkManager = NetworkManager::getInstance();
-    StatusLED* statusLED = StatusLED::getInstance();
+    networkManager = NetworkManager::getInstance();
+    statusLED = StatusLED::getInstance();
     Serial.begin(9600);
+    //initializing pin of button
     pinMode(BUTTON_PIN, INPUT_PULLDOWN);
+    //attaching interrupt to button
     attachInterrupt(BUTTON_PIN, handle_buttonPress, RISING);
-    StatusLED::initializePins();
+    //initializing pins of status led
+    statusLED->initializePins();
+    statusLED->setOff();
     if(networkManager->startClient()){
-        StatusLED::setGreen();
+        print("connected to wifi");
+        statusLED->setGreen();
     } else {
-        StatusLED::setRed();
-        if(networkManager->startAP()){
-            config_mode;
-            while(networkManager->wifiCredentialsReceived()){}
-            ESP.restart();
-        }
+        print("connection failed");
+        statusLED->setRed();
     }
 }
 
 void loop(){
     if(config_mode){
-        if(NetworkManager::wifiCredentialsReceived()){
-            if(NetworkManager::startClient()){
-                config_mode = false;
-            }
-        }    
+        print("button pressed");
+        networkManager->startAP();
+        print("ap started");
+        networkManager->startWebServer();
+        config_mode = false;
+    }
+    if(networkManager->wifiCredentialsReceived()){
+        print("wifi credentials received");
+        print(networkManager->getClientSSID());
+        print(networkManager->getClientPassword());
+        /*if(networkManager->startClient()){
+            print("connected to wifi");
+            config_mode = false;
+        }*/
     }
 }
 
-static void handle_buttonPress(){
+void handle_buttonPress(){
     config_mode = true;
-    Serial.println("config mode on");   
-    if(NetworkManager::startAP()){
-        StatusLED::setGreen();
-    } else {
-        StatusLED::setRed();
-    }
+}
+
+void print(String message){
+    Serial.println(message);
 }

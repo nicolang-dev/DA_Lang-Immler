@@ -29,11 +29,13 @@ const String WIFI_CREDENTIALS_PREFERENCES_NAMESPACE = "wifi_credentials";
 const String SSID_PREFERENCES_KEY = "ssid";
 const String PASSWORD_PREFERENCES_KEY = "password";
 
+/*
 //declaration of enum for status
 enum Status {
   OK,
   CONFIG,
   ERROR
 };
+*/
 
 #endif

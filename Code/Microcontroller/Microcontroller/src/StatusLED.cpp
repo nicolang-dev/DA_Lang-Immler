@@ -58,6 +58,15 @@ class StatusLED{
             digitalWrite(LED_GREEN, LOW);
             digitalWrite(LED_BLUE, HIGH);
         }
+
+        /**
+         * sets the led off (no light)
+         */
+        void setOff(){
+            digitalWrite(LED_RED, LOW);
+            digitalWrite(LED_GREEN, LOW);
+            digitalWrite(LED_BLUE, LOW);
+        }
 };
 
 #endif

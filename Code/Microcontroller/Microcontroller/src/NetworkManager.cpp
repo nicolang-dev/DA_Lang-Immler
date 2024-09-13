@@ -19,7 +19,12 @@ using namespace std;
  */
 class NetworkManager{
     private:
-        NetworkManager(){}
+        NetworkManager(){
+            client_ssid = "";
+            client_password = "";
+            stream_url = "";
+            wifi_credentials_received = false;
+        }
 
         static NetworkManager *instance;
 
@@ -28,8 +33,36 @@ class NetworkManager{
 
         String stream_url;
 
+        bool wifi_credentials_received;
+
         Preferences preferences;
         WebServer server;
+
+        /**
+         * reads SSID from EEPROM
+         */
+        String readSSID(){
+            preferences.begin(WIFI_CREDENTIALS_PREFERENCES_NAMESPACE.c_str(), false);
+            if(preferences.isKey(SSID_PREFERENCES_KEY.c_str())){
+                return preferences.getString(SSID_PREFERENCES_KEY.c_str());
+                preferences.end();
+            }
+            preferences.end();
+            return "";
+        }
+
+        /**
+         * reads password from EEPROM
+         */
+        String readPassword(){
+            preferences.begin(WIFI_CREDENTIALS_PREFERENCES_NAMESPACE.c_str(), false);
+            if(preferences.isKey(PASSWORD_PREFERENCES_KEY.c_str())){
+                return preferences.getString(PASSWORD_PREFERENCES_KEY.c_str());
+                preferences.end();
+            }
+            preferences.end();
+            return "";
+        }
 
         /**
          * returns a JSON with basic informations, like:
@@ -109,6 +142,7 @@ class NetworkManager{
                 if((ssid.length() < 0) && (password.length() > 0)){
                     client_ssid = ssid;
                     client_password = password;
+                    wifi_credentials_received = true;
                 }
             }
         }
@@ -140,32 +174,6 @@ class NetworkManager{
         NetworkManager& operator = (const NetworkManager&) = delete;
 
         /**
-         * reads SSID from EEPROM
-         */
-        String readSSID(){
-            preferences.begin(WIFI_CREDENTIALS_PREFERENCES_NAMESPACE.c_str(), false);
-            if(preferences.isKey(SSID_PREFERENCES_KEY.c_str())){
-                return preferences.getString(SSID_PREFERENCES_KEY.c_str());
-                preferences.end();
-            }
-            preferences.end();
-            return "";
-        }
-
-        /**
-         * reads password from EEPROM
-         */
-        String readPassword(){
-            preferences.begin(WIFI_CREDENTIALS_PREFERENCES_NAMESPACE.c_str(), false);
-            if(preferences.isKey(PASSWORD_PREFERENCES_KEY.c_str())){
-                return preferences.getString(PASSWORD_PREFERENCES_KEY.c_str());
-                preferences.end();
-            }
-            preferences.end();
-            return "";
-        }
-
-        /**
          * writes WiFi credentials in EEPROM
          */
         void writeWiFiCredentials(String ssid, String password){
@@ -179,20 +187,21 @@ class NetworkManager{
         /**
          * starts an access point
          */
-        void startAP(){
+        bool startAP(){
             if(WiFi.getMode() != WIFI_AP){
                 WiFi.mode(WIFI_AP);
             }
             WiFi.softAPConfig(AP_LOCAL_IP, AP_GATEWAY_IP, AP_SUBNET_IP);
             WiFi.softAP(AP_SSID);
+            return true;
         }
 
         /**
          * acting as a client
          */
         boolean startClient(){
-            String ssid = readSSID();
-            String password = readPassword();
+            String ssid = this->readSSID();
+            String password = this->readPassword();
             if((ssid.length() >= 0) && (password.length() >= 0)){
                 if(WiFi.getMode() != WIFI_STA){
                     WiFi.mode(WIFI_STA);
@@ -215,7 +224,7 @@ class NetworkManager{
         /**
          * starts a web server
          */
-        boolean startWebServer(){
+        bool startWebServer(){
             server.begin(SERVER_PORT);
             server.on("/", HTTP_GET, bind(&NetworkManager::handle_get, this));
             server.on("/getInfo", HTTP_GET, bind(&NetworkManager::handle_getInfo, this));
@@ -223,20 +232,32 @@ class NetworkManager{
             server.on("/setWiFiCredentials", HTTP_POST, bind(&NetworkManager::handle_setWiFiCredentials, this));
             server.on("/setStreamUrl", HTTP_POST, bind(&NetworkManager::handle_setStreamUrl, this));
             server.onNotFound(bind(&NetworkManager::handle_notFound, this));
+            return true;
         }
 
         /**
          * getter for stream url
          */
         String getStreamUrl(){
-            if(stream_url.length() > 0){
-                return stream_url;
-            }
-            return "";
+            return stream_url;
+        }
+
+        /**
+         * getter for client ssid
+         */
+        String getClientSSID(){
+            return client_ssid;
+        }
+
+        /**
+         * getter for client password
+         */
+        String getClientPassword(){
+            return client_password;
         }
 
         bool wifiCredentialsReceived(){
-            return false;
+            return wifi_credentials_received;
         }
 };
 #endif

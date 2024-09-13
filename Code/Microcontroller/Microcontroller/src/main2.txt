@@ -1,3 +1,5 @@
+/*
+
 //libraries
 #include <Arduino.h>
 #include <EEPROM.h>
@@ -80,7 +82,7 @@ void handle_getInfo(){
   data["streamUrl"] = stream_url;
   data["batteryVal"] = battery_val;
   data["errors"] = error_list;
-  server.send(200, "application/json", data);*/
+  server.send(200, "application/json", data);
 }
 
 void handle_get(){
@@ -178,6 +180,7 @@ void switch_statusLED(){
   }
 }
 
+*/
 
 /*#include <Arduino.h>
 #include "WiFiManager.cpp"
