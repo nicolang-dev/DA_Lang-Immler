@@ -9,12 +9,24 @@
  */
 class StatusLED{
     private:
+        StatusLED(){}
+        static StatusLED *instance;
 
     public:
+        static StatusLED* getInstance(){
+            if(instance == nullptr){
+                instance = new StatusLED();
+            }
+            return instance;
+        }
+
+        StatusLED(const StatusLED*) = delete;
+        StatusLED& operator = (const StatusLED&) = delete;
+
         /**
-         * initialized the pins / sets them all as an output
+         * initializes the pins / sets them all as an output
          */
-        static void initializePins(){
+        void initializePins(){
             pinMode(LED_RED, OUTPUT);
             pinMode(LED_GREEN, OUTPUT);
             pinMode(LED_BLUE, OUTPUT);
@@ -23,7 +35,7 @@ class StatusLED{
         /**
          * sets the color of the led to red
          */
-        static void setRed(){
+        void setRed(){
             digitalWrite(LED_RED, HIGH);
             digitalWrite(LED_GREEN, LOW);
             digitalWrite(LED_BLUE, LOW);
@@ -32,7 +44,7 @@ class StatusLED{
         /**
          * sets the color of the led to green
          */
-        static void setGreen(){
+        void setGreen(){
             digitalWrite(LED_RED, LOW);
             digitalWrite(LED_GREEN, HIGH);
             digitalWrite(LED_BLUE, LOW);
@@ -41,7 +53,7 @@ class StatusLED{
         /**
          * sets the color of the led to blue
          */
-        static void setBlue(){
+        void setBlue(){
             digitalWrite(LED_RED, LOW);
             digitalWrite(LED_GREEN, LOW);
             digitalWrite(LED_BLUE, HIGH);
