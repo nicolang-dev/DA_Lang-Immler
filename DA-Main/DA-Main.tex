@@ -173,7 +173,7 @@ Wir haben Visual Studio Code als IDE für unsere Diplomarbeit gewählt, weil dur
 Wir verwenden GitHub für die Verwaltung unseres Codes und unserer Dokumente. Der Vorteil dabei ist, dass jedes Projektmitglied auf seinem lokalen PC an den Dokumenten arbeiten kann und die Änderungen dann per GitHub synchronisiert werden können. \\
 \textbf{DeepL}
 Wir verwenden DeepL um englische Texte, welche für unsere Diplomarbeit relevant sind, ins Deutsche zu übersetzen. Wir haben uns für DeepL entschieden weil dieser einer der genauesten Übersetzer ist und man dießen außerdem kostenlos nutzen kann.
-\subsubsection{Softwaretools Microcontroller}
+\subsubsection{Bibliotheken Microcontroller}
 Im folgenden werden die verwendeten Bibliotheken im Code des Microcontrollers aufgezählt und kurz beschrieben: \\
 \textbf{Arduino} \\
 Die Arduino-Bibliothek wird verwendet um den ESP32 ähnlich wie einen Arduino programmieren zu können. Es erleichtert dabei die Programmierung enorm, vorallem dann, wenn man schon Vorerfahrung mit der Programmierung von Arduinos hat. \\
@@ -196,14 +196,10 @@ Für die Entwicklung der Smartphoneapp wurde das "React Native"  - Framework ver
 \subsection{Entwicklung Software Adapter}
 In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Software des Adapters beschrieben. 
 Zur Entwicklung der Software des Microcontrollers wird die IDE Visual Studio Code in Verbindung mit PlatformIO verwendet. Um die Entwicklung einfacher und übersichtlicher zu gestalten, wird die Arduino-Bibliothek in Verbindung mit C++ verwendet.
-\newline \\
-\textbf{Programmablauf}
-\newline
+\subsubsection{Programmablauf}
 Der Ablauf des Programmes wird mit folgendem UML-Ablaufdiagramm veranschaulicht:
 hier kommt das UML-Ablaufdiagramm her
-\newline \\
-\textbf{Klassen}
-\newline
+\subsubsection{Klassen}
 Bei der Entwicklung der Microcontroller-Software wurde aufgrund der Übersichtlichkeit und um die Design-Patterns der Softwareentwicklung einzuhalten, auf objektorientierte Programmierung gesetzt. Das folgende UML-Klassendiagramm veranschaulicht die Beziehung der verschiedenen Klassen zueinander:
 hier kommt das UML-Klassendiagramm her
 Im folgenden Teil werden die Klassen und deren Funktionen noch näher beschrieben:
@@ -213,7 +209,9 @@ Mithilfe der Klasse StatusLED wird die RGB-LED, welche am ESP32 angeschlossen is
 \textbf{NetworkManager} \\
 Die Klasse NetworkManager kümmert sich um alle Funktionen, die mit dem WiFi des ESP32 zu tun haben. \\
 \textbf{AudioManager} \\
-Die Klasse AudioManager regelt hauptsächlich das Senden der Audiodaten, vom ESP32 an den Digital-Analog Wandler, mittels I2S-Protokoll. 
+Die Klasse AudioManager regelt hauptsächlich das Senden der Audiodaten, vom ESP32 an den Digital-Analog Wandler, mittels I2S-Protokoll. \\
+\textbf{Log} \\
+Die Klasse Log beinhaltet ein Json Dokument in dieses Logs geschrieben werden können. Dies können Status-Logs oder auch Fehler-Logs sein.
 \subsection{Entwicklung Smartphone-App}
 In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Smartphone-App beschrieben. 
 \subsection{Design Adaptergehäuse}

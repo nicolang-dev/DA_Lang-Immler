@@ -7,6 +7,7 @@
 #include <constants.h>
 #include <Preferences.h>
 #include <ArduinoJson.h>
+#include <Log.cpp>
 
 //using namespace std for String an vectors
 using namespace std;
@@ -19,24 +20,29 @@ using namespace std;
  */
 class NetworkManager{
     private:
-        NetworkManager(){
-            client_ssid = "";
-            client_password = "";
-            stream_url = "";
-            wifi_credentials_received = false;
-        }
-
         static NetworkManager *instance;
 
         String client_ssid;
         String client_password;
-
         String stream_url;
 
         bool wifi_credentials_received;
+        bool webserver_running;
 
         Preferences preferences;
         WebServer server;
+
+        /**
+         * constructor
+         * declares the needed variables
+         */
+        NetworkManager(){
+            client_ssid = readSSID();
+            client_password = readPassword();
+            stream_url = "";
+            wifi_credentials_received = false;
+            webserver_running = false;
+        }
 
         /**
          * reads SSID from EEPROM
@@ -131,6 +137,16 @@ class NetworkManager{
         }
 
         /**
+         * handle get requests on route /getLogs
+         * sends logs from class Log as a String to the client
+         */
+        void handle_getLogs(){
+            Log log;
+            String logs = log.getAllLogs();
+            server.send(200, "text/plain", logs);
+        }
+
+        /**
          * handles POST requests on route /setWiFiCredentials
          * reads ssid and password arguments from server and saves them in the EEPROM
          */
@@ -203,22 +219,19 @@ class NetworkManager{
             String ssid = this->readSSID();
             String password = this->readPassword();
             if((ssid.length() >= 0) && (password.length() >= 0)){
-                if(WiFi.getMode() != WIFI_STA){
+                if(webserver_running){
+                    stopWebServer();
+                }
+                if(WiFi.getMode() == WIFI_AP){
+                    WiFi.softAPdisconnect();
                     WiFi.mode(WIFI_STA);
                 }
                 if(WiFi.status() == WL_CONNECTED){
                     WiFi.disconnect();
                 }
                 WiFi.begin(ssid, password);
-                unsigned long connection_start_time = millis();
-                while((WiFi.status() != WL_CONNECTED) && ((millis() - connection_start_time) < MAX_CONNECTION_TIME)){
-                    delay(1);
-                }
-                if(WiFi.status() == WL_CONNECTED){
-                    return true;
-                }
+            return true;
             }
-            return false;
         }
 
         /**
@@ -232,7 +245,25 @@ class NetworkManager{
             server.on("/setWiFiCredentials", HTTP_POST, bind(&NetworkManager::handle_setWiFiCredentials, this));
             server.on("/setStreamUrl", HTTP_POST, bind(&NetworkManager::handle_setStreamUrl, this));
             server.onNotFound(bind(&NetworkManager::handle_notFound, this));
+            webserver_running = true;
             return true;
+        }
+
+        /**
+         * stops the web server
+         */
+        void stopWebServer(){
+            server.stop();
+            webserver_running = false;
+        }
+        
+        /**
+         * handles the clients of the webserver
+         */
+        void handleWebserverClient(){
+            if(isWebserverRunning()){
+                server.handleClient();
+            }
         }
 
         /**
@@ -258,6 +289,14 @@ class NetworkManager{
 
         bool wifiCredentialsReceived(){
             return wifi_credentials_received;
+        }
+
+        bool isConnectedToWiFi(){
+            return WiFi.status() == WL_CONNECTED;
+        }
+
+        bool isWebserverRunning(){
+            return webserver_running;
         }
 };
 #endif

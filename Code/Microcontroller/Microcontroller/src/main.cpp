@@ -8,6 +8,7 @@ void handle_buttonPress();
 void print(String message);
 
 bool config_mode = false;
+bool webserver_running = false;
 
 NetworkManager* NetworkManager::instance = nullptr;
 StatusLED* StatusLED::instance = nullptr;
@@ -36,6 +37,9 @@ void setup(){
 }
 
 void loop(){
+    if(networkManager->isWebserverRunning()){
+        networkManager->handleWebserverClient();
+    }
     if(config_mode){
         print("button pressed");
         networkManager->startAP();
