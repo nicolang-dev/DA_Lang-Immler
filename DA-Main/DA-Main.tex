@@ -7,6 +7,8 @@
 \usepackage{amsmath}
 \usepackage{tabularx}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
 
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
@@ -129,7 +131,12 @@ In diesem Kapitel geht es um die Recherche und Auswahl von Protokollen, die für
 \newline \\
 \textbf{HTTP}
 \newline
-Das Hyper Text Transfer Protocol wird für den Datenaustausch zwischen Microcontroller und Smartphone verwendet. Dabei läuft auf dem Microcontroller ein Webserver an den das Smartphone HTTP-Anfragen sendet. Dabei wird eine REST-API angewendet. Folgende Routen sind dabei auf dem Webserver aufrufbar: \newline
+Das Hyper Text Transfer Protocol ist ein weitverbreitetes Protokoll im Web und wird größtenteils für die Kommunikation zwischen Browsern und Webservern eingesetzt. Dabei basiert das Protokoll auf sogenannten "Requests" (auf Deutsch: Anfragen). Es gibt zahlreiche Anwendungen für HTTP. Wir nutzen es einerseits als REST-API und andererseits für das Audio-Streaming. (vgl. URLPI02) \newline \\
+\textbf{Anwendung als REST-API} \\ 
+Der Begriff "REST-API" setzt sich aus den Abkürzungen "REST" und "API" zusammen. Dabei steht "REST" für "Representational State Transfer" (auf Deutsch: "gegenständliche Zustandsübertragung") und "API" für "Application Programming Interface" (auf Deutsch: "Anwendungsprogrammierschnittstelle"). Eine REST-API zeichnet sich dadurch aus, dass sie eine einheitliche Schnittstelle zwischen Server und Client bietet. Dies wird durch die "Routes" (auf Deutsch: "Routen") geschaffen. Wenn der Client Requests an diese Routen sendet werden Aktionen auf dem Server ausgeführt. Es ist auch möglich, dass anschließend der Client Daten vom Server erhält. (vgl. URLPI04)
+
+In unserer Diplomarbeit stellt der Microcontroller als Webserver eine REST-API zur Verfügung um so einheitlich Daten mit dem Client (Smartphone) auszutauschen.
+Folgende Routen sind dabei auf dem Webserver aufrufbar: \newline
 
 \begin{tabularx}{\textwidth}{|l|l|X|}
 \hline
@@ -143,11 +150,16 @@ Das Hyper Text Transfer Protocol wird für den Datenaustausch zwischen Microcont
 \hline
 /setStreamUrl & POST & Client sendet die URL des gewünschten Audio-Streams an den Microcontroller \\
 \hline
-\end{tabularx}
-\newline \\
+\end{tabularx} \newline \\
+\textbf{Anwendung fürs Audio-Streaming} \\
+HTTP wird oft zum Streamen von Daten eingesetzt. Dies können Audio- oder auch Videodaten sein.
+
+Beim Streaming wird grundsätzlich zwischen Live-Streaming und On-Demand-Streaming unterschieden. Beim Livestreaming werden die Daten gleich nach dem Erstellen an den Client gesendet. Ein Beispiel dafür ist das Streaming eines Live-Events. Das Video, welches von der Kamera eingefangen wird, wird direkt an die Clients gesendet. Das Gegenteil zum Livestreaming ist das On-Demand-Streaming. Dabei werden fertige Daten (z.B. Filme, Musik) auf einem Server gespeichert. Auf Anfrage eines Clients, werden diese in Teilstücke zerlegt und Stück für Stück an den Client gesendet. Dabei hängt der Client diese Stücke wieder zusammen und kann sie somit als Ganzes wiedergeben. Dies hat den Vorteil, dass die Daten nicht (oder nur kurz) auf dem Client gespeichert werden und es somit ressourcenschonend ist. Der Nachteil dabei ist, dass gerade bei größeren Datenmengen eine hohe Bandbreite benötigt wird. Dabei werden die Daten auch meist nicht (bzw. nur kurz) auf dem Client gespeichert. (vgl. URLPI05)
+
+In unserer Diplomarbeit muss der Microcontroller fähig sein, Audiodaten von Livestreams und auch von On-Demand-Streams zu erhalten.Livestreams könnten dabei von Radiosendern stammen und  On-Demand-Streams von Musikanbietern. \newline \\
 \textbf{I2S}
 \newline
-Das Inter IC Sound Protocol wird verwendet, um Stereo-Audio-Daten zwischen ICs auszutauschen. Es benötigt für die Datenübertragung folgende Leitungen: \\
+Das Inter IC Sound Protocol wird verwendet, um Stereo-Audio-Daten zwischen ICs auszutauschen. Es benötigt für die Datenübertragung folgende Leitungen:
 \begin{itemize}
 \item Taktleitung
 \item Wortauswahl
@@ -197,8 +209,17 @@ Für die Entwicklung der Smartphoneapp wurde das "React Native"  - Framework ver
 In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Software des Adapters beschrieben. 
 Zur Entwicklung der Software des Microcontrollers wird die IDE Visual Studio Code in Verbindung mit PlatformIO verwendet. Um die Entwicklung einfacher und übersichtlicher zu gestalten, wird die Arduino-Bibliothek in Verbindung mit C++ verwendet.
 \subsubsection{Programmablauf}
-Der Ablauf des Programmes wird mit folgendem UML-Ablaufdiagramm veranschaulicht:
-hier kommt das UML-Ablaufdiagramm her
+Der Ablauf des Programmes wird mit folgendem UML-Ablaufdiagramm veranschaulicht: \newline \\
+\textbf{Start} \newline
+Der Microcontroller wird durch einmaliges Drücken auf den Knopf aus dem Standby (Deep Sleep) Modus erweckt. \newline \\
+\textbf{Lesen der WiFi-Zugangsdaten} \newline
+Es wird im EEPROM des Microcontrollers nach einer gespeicherten SSID und nach einem gespeicherten Passwort gesucht. Wenn die Zugansdaten nicht vorhanden sind wird die Status-LED auf rot geschalten. Anschließend werden keine weiteren Prozesse ausgeführt, bis der/die Benutzer/in mit Druck auf den Knopf in den Konfigurationsmodus schaltet. Wenn die Zugangsdaten allerdings gespeichert sind versucht der Microcontroller sich als Client mit dem WLAN zu verbinden. Wenn dies erfolgreich ist, wird in den Standardmodus gewechselt. Wenn die Verbindung allerdings fehlschlägt, wird in den Konfigurationsmodus gewechselt. \newline \\
+\textbf{Standardmodus} \\
+Sobald der Standardmodus aktiviert wird, wechselt die Farbe der Status-LED auf grün. Anschließend wird aus dem EEPROM ausgelesen, ob bereits eine Stream-URL gespeichert ist. Wenn dies der Fall ist, fungiert der Microcontroller als HTTP-Client und empfängt den Stream. Anschließend wird dieser mittels I2S-Protokoll an den Digital-Analog-Wandler übertragen. Wenn allerdings noch keine Stream-URL gespeichert ist, wartet der Microcontroller bis eine Stream-URL vom Client gesendet wird. \newline \\
+\textbf{Konfigurationsmodus} \\
+Wird der Konfigurationsmodus mit Druck auf den Taster aktiviert, wechselt die Status-LED ihre Farbe auf blau. Anschließend wird der WiFi-Chip in den AP-Modus gestellt. Somit bietet der Microcontroller einen Access Point, auf den sich andere Geräte als Clients verbinden können. Dies wird benötigt, dass die Clients in weiterer Folge WiFi-Zugangsdaten an den Microcontroller senden können. Um die Daten zu empfangen wird ein WebServer auf dem Microcontroller gestartet. Dieser erhält dann die WiFi-Zugangsdaten mittels HTTP-Protokoll. \newline \\
+\textbf{Wechsel in normalen Modus} \\
+Sobald der Microcontroller die WiFi-Zugangsdaten vom Client erhalten hat, schreibt er diese in den EEPROM. Anschließend wird der Microcontroller neu gestartet und der Programmablauf fängt wieder von vorne an.
 \subsubsection{Klassen}
 Bei der Entwicklung der Microcontroller-Software wurde aufgrund der Übersichtlichkeit und um die Design-Patterns der Softwareentwicklung einzuhalten, auf objektorientierte Programmierung gesetzt. Das folgende UML-Klassendiagramm veranschaulicht die Beziehung der verschiedenen Klassen zueinander:
 hier kommt das UML-Klassendiagramm her
