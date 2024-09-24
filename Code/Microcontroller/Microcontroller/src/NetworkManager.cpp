@@ -2,12 +2,13 @@
 #define NETWORKMANAGER_H
 
 //including needed libraries
+#include <Arduino.h>
 #include <WiFi.h>
 #include <WebServer.h>
 #include <constants.h>
-#include <Preferences.h>
 #include <ArduinoJson.h>
 #include <Log.cpp>
+#include <MemoryManager.cpp>
 
 //using namespace std for String an vectors
 using namespace std;
@@ -22,14 +23,14 @@ class NetworkManager{
     private:
         static NetworkManager *instance;
 
-        String client_ssid;
-        String client_password;
+        MemoryManager memory;
+
         String stream_url;
 
         bool wifi_credentials_received;
         bool webserver_running;
+        bool client_started;
 
-        Preferences preferences;
         WebServer server;
 
         /**
@@ -37,37 +38,11 @@ class NetworkManager{
          * declares the needed variables
          */
         NetworkManager(){
-            client_ssid = readSSID();
-            client_password = readPassword();
+            Log::add("network manager class created");
             stream_url = "";
             wifi_credentials_received = false;
             webserver_running = false;
-        }
-
-        /**
-         * reads SSID from EEPROM
-         */
-        String readSSID(){
-            preferences.begin(WIFI_CREDENTIALS_PREFERENCES_NAMESPACE.c_str(), false);
-            if(preferences.isKey(SSID_PREFERENCES_KEY.c_str())){
-                return preferences.getString(SSID_PREFERENCES_KEY.c_str());
-                preferences.end();
-            }
-            preferences.end();
-            return "";
-        }
-
-        /**
-         * reads password from EEPROM
-         */
-        String readPassword(){
-            preferences.begin(WIFI_CREDENTIALS_PREFERENCES_NAMESPACE.c_str(), false);
-            if(preferences.isKey(PASSWORD_PREFERENCES_KEY.c_str())){
-                return preferences.getString(PASSWORD_PREFERENCES_KEY.c_str());
-                preferences.end();
-            }
-            preferences.end();
-            return "";
+            client_started = false;
         }
 
         /**
@@ -113,6 +88,7 @@ class NetworkManager{
          * handles basic GET requests
          */
         void handle_get(){
+            Log::add("get request received");
             server.send(200, "text/plain", "get request received!");
         }
         
@@ -121,6 +97,7 @@ class NetworkManager{
          * sends information from the getInfo method to the client as a String, formatted as JSON
          */
         void handle_getInfo(){
+            Log::add("get info request received");
             JsonDocument info = getInfo();
             String info_str;
             serializeJson(info, info_str);
@@ -132,6 +109,7 @@ class NetworkManager{
          * sends ssid and rssi (strength) of all found networks to the client as a String, formatted as JSON
          */
         void handle_getAvailableNetworks(){
+            Log::add("get available networks request received");
             String available_networks = getAvailableNetworks();
             server.send(200, "application/json", available_networks);
         }
@@ -141,9 +119,9 @@ class NetworkManager{
          * sends logs from class Log as a String to the client
          */
         void handle_getLogs(){
-            Log log;
-            String logs = log.getAllLogs();
-            server.send(200, "text/plain", logs);
+            Log::add("get logs request received");
+            //String logs = log.getAllLogs();
+            server.send(200, "text/plain", "get logs request received");
         }
 
         /**
@@ -151,13 +129,16 @@ class NetworkManager{
          * reads ssid and password arguments from server and saves them in the EEPROM
          */
         void handle_setWiFiCredentials(){
+            Log::add("set wifi credentials request received");
             if(server.hasArg("ssid") && server.hasArg("password")){
                 String ssid = server.arg("ssid");
                 String password = server.arg("password");
+                Log::add(ssid);
+                Log::add(password);
                 server.send(200);
                 if((ssid.length() < 0) && (password.length() > 0)){
-                    client_ssid = ssid;
-                    client_password = password;
+                    memory.writeWifiSsid(ssid);
+                    memory.writeWifiPassword(password);
                     wifi_credentials_received = true;
                 }
             }
@@ -168,13 +149,16 @@ class NetworkManager{
          * reads url argument from client and sets this url for the audiostream
          */
         void handle_setStreamUrl(){
+            Log::add("set stream url request received");
             if(server.hasArg("url")){
                 stream_url = server.arg("url");
+                Log::add(stream_url);
                 server.send(200);
             }
         }
 
         void handle_notFound(){
+            Log::add("not found");
             server.send(404, "text/plain", "not found!");
         }
 
@@ -190,20 +174,10 @@ class NetworkManager{
         NetworkManager& operator = (const NetworkManager&) = delete;
 
         /**
-         * writes WiFi credentials in EEPROM
-         */
-        void writeWiFiCredentials(String ssid, String password){
-            preferences.begin(WIFI_CREDENTIALS_PREFERENCES_NAMESPACE.c_str(), false);
-            preferences.clear();
-            preferences.putString(SSID_PREFERENCES_KEY.c_str(), ssid);
-            preferences.putString(PASSWORD_PREFERENCES_KEY.c_str(), password);
-            preferences.end();
-        }
-
-        /**
          * starts an access point
          */
         bool startAP(){
+            Log::add("starting ap");
             if(WiFi.getMode() != WIFI_AP){
                 WiFi.mode(WIFI_AP);
             }
@@ -213,16 +187,12 @@ class NetworkManager{
         }
 
         /**
-         * acting as a client
+         * starts a wifi client
          */
-        boolean startClient(){
-            String ssid = this->readSSID();
-            String password = this->readPassword();
-            if((ssid.length() >= 0) && (password.length() >= 0)){
-                if(webserver_running){
-                    stopWebServer();
-                }
-                if(WiFi.getMode() == WIFI_AP){
+        bool startClient(char *ssid, char *password){
+            Log::add("starting client");
+            if(wifiCredentialsSet()){
+                if(WiFi.getMode() == WIFI_AP){ //if wifi is in ap mode, ap mode will be disabled and station mode will be enabled
                     WiFi.softAPdisconnect();
                     WiFi.mode(WIFI_STA);
                 }
@@ -230,14 +200,28 @@ class NetworkManager{
                     WiFi.disconnect();
                 }
                 WiFi.begin(ssid, password);
-            return true;
+                Log::add("connecting to wifi");
+                unsigned long start_connection_time = millis();
+                while(!isConnectedToWiFi()){
+                    if(millis() - start_connection_time >= MAX_CONNECTION_TIME){
+                        Log::add("connection to wifi failed (too long)");
+                        break;
+                        return false;
+                    }
+                }
+                if(isConnectedToWiFi()){
+                    Log::add("connected to wifi");
+                    return true;
+                }
             }
+            return false;
         }
 
         /**
          * starts a web server
          */
         bool startWebServer(){
+            Log::add("starting web server");
             server.begin(SERVER_PORT);
             server.on("/", HTTP_GET, bind(&NetworkManager::handle_get, this));
             server.on("/getInfo", HTTP_GET, bind(&NetworkManager::handle_getInfo, this));
@@ -253,6 +237,7 @@ class NetworkManager{
          * stops the web server
          */
         void stopWebServer(){
+            Log::add("stop webserver");
             server.stop();
             webserver_running = false;
         }
@@ -273,26 +258,16 @@ class NetworkManager{
             return stream_url;
         }
 
-        /**
-         * getter for client ssid
-         */
-        String getClientSSID(){
-            return client_ssid;
-        }
-
-        /**
-         * getter for client password
-         */
-        String getClientPassword(){
-            return client_password;
-        }
-
         bool wifiCredentialsReceived(){
             return wifi_credentials_received;
         }
 
         bool isConnectedToWiFi(){
             return WiFi.status() == WL_CONNECTED;
+        }
+
+        bool isClientStarted(){
+            return client_started;
         }
 
         bool isWebserverRunning(){

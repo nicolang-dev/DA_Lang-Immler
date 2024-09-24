@@ -3,6 +3,7 @@
 #include <constants.h>
 #include "NetworkManager.cpp"
 #include "StatusLED.cpp"
+#include <Log.cpp>
 
 void handle_buttonPress();
 void print(String message);
@@ -17,6 +18,13 @@ NetworkManager* networkManager;
 StatusLED* statusLED;
 
 void setup(){
+    Serial.begin(9600);
+    networkManager = NetworkManager::getInstance();
+    statusLED = StatusLED::getInstance();
+    Log::initialize();
+    networkManager->startAP();
+    networkManager->startWebServer();
+    /*
     networkManager = NetworkManager::getInstance();
     statusLED = StatusLED::getInstance();
     Serial.begin(9600);
@@ -33,10 +41,15 @@ void setup(){
     } else {
         print("connection failed");
         statusLED->setRed();
-    }
+    }*/
 }
 
 void loop(){
+    networkManager->handleWebserverClient();
+    if(Log::hasChanged()){
+        Serial.println(Log::getLogs());
+    }
+    /*
     if(networkManager->isWebserverRunning()){
         networkManager->handleWebserverClient();
     }
@@ -55,7 +68,7 @@ void loop(){
             print("connected to wifi");
             config_mode = false;
         }*/
-    }
+    //}
 }
 
 void handle_buttonPress(){

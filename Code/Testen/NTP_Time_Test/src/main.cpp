@@ -1,9 +1,6 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 
-const char* ssid = "AP-II";
-const char* password = "MmrL48!?48y";
-
 HTTPClient http;
 
 void setup() {

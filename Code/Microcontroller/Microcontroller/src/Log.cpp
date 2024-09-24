@@ -5,27 +5,27 @@
 
 class Log{
     private:
-        std::vector<String> log_list;
+        static String log_str;
+        static unsigned int last_log_length;
 
     public:
-        void add(String log){
-            unsigned long time = millis();
-            String log_entry = String(time) + log;
-            log_list.push_back(log_entry);
+        static void initialize(){
+            log_str = "";
+            last_log_length = 0;
         }
 
-        String getAllLogs(){
-            String result;
-            for(int i = 0; i < log_list.size(); i++){
-                result += log_list[i] + "\n";
-                return result;
-            }
+        static void add(String log_entry){
+            log_str += log_entry;
+            log_str += "\n";
         }
 
-        void clearLogList(){
-            log_list.clear();
-            log_list.shrink_to_fit();
+        static String getLogs(){
+            last_log_length = log_str.length();
+            return log_str;
         }
-}
 
+        static bool hasChanged(){
+            return log_str.length() != last_log_length;
+        }
+};
 #endif
