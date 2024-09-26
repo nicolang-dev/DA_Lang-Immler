@@ -124,6 +124,13 @@ Glühlampe & 3-5\% & 10 – 15 lm/W \\
 Für dieses Projekt bedeutet das, dass die Leuchtdiode wohl die effizienteste Methode für eine Statusanzeige auf dem Adapter ist. Dies trägt unter anderem zu einer längeren Akkulaufzeit bei.
 
 \subsubsection{Auswahl interne Hardware}
+Als Herz des Systems wird ein ESP32 Mikroprozessor mit angebauter Platine verwendet. Der ESP32 ist ein weit verbreiteter Mikroprozessor. Man kann die Arduino IDE mit C++ als Programmiersprache zum programmieren verwenden. Zudem verfügt er schon Onboard über einen Hybrid WIFI- und Bluetooth-Chip, wodurch externe Module vermieden, und somit Platz eingespart werden kann. Espressif selbst beschreibt den ESP32 als optimal für IoT-Anwendungen; auch wegen der hohen Energieeffizienz.
+
+Eine DAC-Decoderplatine wird verwendet, um das Audiosignal vom Arduino über eine angebaute Klinkenbuchse an die jeweilige Lautsprecherbox auszugeben.
+
+Das Endprodukt soll mithilfe eines Akkus auch ohne Strom auskommen, dafür wird ein INSERT AKKU HERE verwendet.
+
+Für einen optimalen Ladeprozess und Schutz des Akkus wird ein Laderegler verwendet. Dieser regelt wie der Name schon verrät den Ladevorgang des Akkus und hört auf zu laden, sobald er voll ist.
 
 \subsection{Auswahl Technologien}
 \subsubsection{Protokolle}
