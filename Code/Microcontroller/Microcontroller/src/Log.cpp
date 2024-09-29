@@ -1,20 +1,24 @@
 #include "Log.h"
 
-void Log::initialize(){
-    log_str = "";
-    last_log_length = 0;
-}
+unsigned int Log::last_size = 0;
+std::vector<String> Log::logs;
 
 void Log::add(String log_entry){
-    log_str += log_entry;
-    log_str += "\n";
+    Log::logs.push_back(log_entry);
 }
 
-String Log::getLogs(){
-    last_log_length = log_str.length();
-    return log_str;
+std::vector<String> Log::getLogs(){
+    return logs;
+}
+
+String Log::getLastLog(){
+    return logs.at(logs.size()-1);
 }
 
 bool Log::hasChanged(){
-    return log_str.length() != last_log_length;
+    if(logs.size() > last_size){
+        last_size = logs.size();;
+        return true;
+    }
+    return false;
 }

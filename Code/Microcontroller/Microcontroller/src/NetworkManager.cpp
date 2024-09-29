@@ -59,7 +59,7 @@ String NetworkManager::getAvailableNetworks(){
  * handles basic GET requests
  */
 void NetworkManager::handle_get(){
-    ////Log::add("get request received");
+    //Log::add("get request received");
     server.send(200, "text/plain", "get request received!");
 }
 
@@ -108,8 +108,8 @@ void NetworkManager::handle_setWiFiCredentials(){
         //Log::add(password);
         server.send(200);
         if((ssid.length() < 0) && (password.length() > 0)){
-            memory->writeWifiSsid(ssid);
-            memory->writeWifiPassword(password);
+            received_ssid = ssid;
+            received_password = password;
             wifi_credentials_received = true;
         }
     }
@@ -156,30 +156,28 @@ bool NetworkManager::startAP(){
 /**
  * starts a wifi client
  */
-bool NetworkManager::startClient(char *ssid, char *password){
-    //Log::add("starting client");
-    if(NetworkManager::wifiCredentialsSet()){
-        if(WiFi.getMode() == WIFI_AP){ //if wifi is in ap mode, ap mode will be disabled and station mode will be enabled
-            WiFi.softAPdisconnect();
-            WiFi.mode(WIFI_STA);
+bool NetworkManager::startClient(String ssid, String password){
+    if(WiFi.getMode() == WIFI_AP){ //if wifi is in ap mode, ap mode will be disabled and station mode will be enabled
+        WiFi.softAPdisconnect();
+        WiFi.mode(WIFI_STA);
+    }
+    if(WiFi.status() == WL_CONNECTED){
+        WiFi.disconnect();
+    }
+    WiFi.begin(ssid, password);
+    //Log::add("connecting to wifi");
+    unsigned long start_connection_time = millis();
+    while(!isConnectedToWiFi()){
+        if(millis() - start_connection_time >= MAX_CONNECTION_TIME){
+            //Log::add("connection to wifi failed (too long)");
+            return false;
         }
-        if(WiFi.status() == WL_CONNECTED){
-            WiFi.disconnect();
-        }
-        WiFi.begin(ssid, password);
-        //Log::add("connecting to wifi");
-        unsigned long start_connection_time = millis();
-        while(!isConnectedToWiFi()){
-            if(millis() - start_connection_time >= MAX_CONNECTION_TIME){
-                //Log::add("connection to wifi failed (too long)");
-                break;
-                return false;
-            }
-        }
-        if(isConnectedToWiFi()){
-            //Log::add("connected to wifi");
-            return true;
-        }
+    }
+    if(isConnectedToWiFi()){
+        //Log::add("connected to wifi");
+        //Log::add(WiFi.localIP().toString());
+        //Log::add("connected to wifi");
+        return true;
     }
     return false;
 }
@@ -225,8 +223,16 @@ String NetworkManager::getStreamUrl(){
     return stream_url;
 }
 
+String NetworkManager::getReceivedSsid(){
+    return received_password;
+}
+
+String NetworkManager::getReceivedPassword(){
+    return received_password;
+}
+
 bool NetworkManager::wifiCredentialsReceived(){
-    return wifi_credentials_received;
+    return (received_ssid.length() > 0) && (received_password.length() > 0);
 }
 
 bool NetworkManager::wifiCredentialsSet(){

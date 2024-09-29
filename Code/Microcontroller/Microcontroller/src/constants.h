@@ -17,7 +17,9 @@ const int LED_GREEN = 2;
 const int LED_BLUE = 4;
 
 //definition of constants
+const unsigned long SERIAL_BAUDRATE = 9600;
 const int BUTTON_PRESS_SLEEP_TIME = 2000;
+const unsigned long WIFI_REQUEST_PERIOD = 10000;
 const int AUDIO_VOLUME = 10; //0-21
 const unsigned long MAX_CONNECTION_TIME = 5000;
 const int SERVER_PORT = 80;

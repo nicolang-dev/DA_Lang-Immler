@@ -18,7 +18,7 @@ bool MemoryManager::isWifiSsidSet(){
     preferences.end();
 }
 
-bool MemoryManager::isPasswordSet(){
+bool MemoryManager::isWifiPasswordSet(){
     preferences.begin(WIFI_NS.c_str());
     return preferences.isKey(PASSWORD_KEY.c_str());
     preferences.end();

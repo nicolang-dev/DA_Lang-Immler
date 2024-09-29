@@ -21,7 +21,7 @@ class MemoryManager{
 
         bool isWifiSsidSet();
 
-        bool isPasswordSet();
+        bool isWifiPasswordSet();
 
         String readWifiSsid();
 

@@ -24,6 +24,8 @@ class NetworkManager{
         static NetworkManager* instance;
 
         String stream_url;
+        String received_ssid;
+        String received_password;
 
         bool wifi_credentials_received;
         bool webserver_running;
@@ -103,7 +105,7 @@ class NetworkManager{
         /**
          * starts a wifi client
          */
-        bool startClient(char *ssid, char *password);
+        bool startClient(String ssid, String password);
 
         /**
          * starts a web server
@@ -124,6 +126,10 @@ class NetworkManager{
          * getter for stream url
          */
         String getStreamUrl();
+
+        String getReceivedSsid();
+
+        String getReceivedPassword();
 
         bool wifiCredentialsReceived();
 
