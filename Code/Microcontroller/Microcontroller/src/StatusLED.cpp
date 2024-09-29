@@ -1,14 +1,21 @@
 #include "StatusLED.h"
 
+StatusLED* StatusLED::instance = nullptr;
+
+StatusLED::StatusLED(){
+    //empty
+}
+
+StatusLED::~StatusLED(){
+    //empty
+}
+
 StatusLED* StatusLED::getInstance(){
     if(instance == nullptr){
         instance = new StatusLED();
     }
     return instance;
 }
-
-StatusLED::StatusLED(const StatusLED*) = delete;
-StatusLED::StatusLED& operator = (const StatusLED&) = delete;
 
 /**
  * initializes the pins / sets them all as an output

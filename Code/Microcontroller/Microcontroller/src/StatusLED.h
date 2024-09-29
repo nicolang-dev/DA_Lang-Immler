@@ -9,8 +9,10 @@
  */
 class StatusLED{
     private:
-        StatusLED(){}
         static StatusLED *instance;
+
+        StatusLED();
+        ~StatusLED();
 
     public:
         static StatusLED* getInstance();

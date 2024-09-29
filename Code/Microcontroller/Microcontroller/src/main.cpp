@@ -1,10 +1,10 @@
 //including libraries
 #include <Arduino.h>
 #include <constants.h>
-//#include "NetworkManager.cpp"
-#include "StatusLED.cpp"
-#include <Log.cpp>
-#include "MemoryManager.cpp"
+#include "NetworkManager.h"
+#include "StatusLED.h"
+#include "MemoryManager.h"
+#include "Log.h"
 
 void handle_buttonPress();
 void print(String message);
@@ -21,7 +21,7 @@ void setup(){
     memoryManager = MemoryManager::getInstance();
     //networkManager = NetworkManager::getInstance();
     statusLED = StatusLED::getInstance();
-    Log::initialize();
+    //Log::initialize();
     //networkManager->startAP();
     //networkManager->startWebServer();
 

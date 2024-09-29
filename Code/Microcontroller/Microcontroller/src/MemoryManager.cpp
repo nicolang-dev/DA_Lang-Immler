@@ -1,17 +1,16 @@
 #include "MemoryManager.h"
 
+MemoryManager* MemoryManager::instance = nullptr;
+
 MemoryManager::MemoryManager(){}
 MemoryManager::~MemoryManager(){}
 
-static MemoryManager* MemoryManager::getInstance(){
+MemoryManager* MemoryManager::getInstance(){
     if (!instance) {
         instance = new MemoryManager();
     }
     return instance;
 }
-
-MemoryManager::MemoryManager(const MemoryManager&) = delete;
-MemoryManager& MemoryManager::operator = (const MemoryManager&) = delete;
 
 bool MemoryManager::isWifiSsidSet(){
     preferences.begin(WIFI_NS.c_str());
@@ -50,5 +49,3 @@ void MemoryManager::writeWifiPassword(String password){
     preferences.putString(PASSWORD_KEY.c_str(), password);
     preferences.end();
 }
-
-MemoryManager* MemoryManager::instance = nullptr;

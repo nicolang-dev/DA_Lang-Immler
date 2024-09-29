@@ -1,31 +1,20 @@
-#ifndef LOG_H
-#define LOG_H
-#include <Arduino.h>
-#include <vector>
+#include "Log.h"
 
-class Log{
-    private:
-        static String log_str;
-        static unsigned int last_log_length;
+void Log::initialize(){
+    log_str = "";
+    last_log_length = 0;
+}
 
-    public:
-        static void initialize(){
-            log_str = "";
-            last_log_length = 0;
-        }
+void Log::add(String log_entry){
+    log_str += log_entry;
+    log_str += "\n";
+}
 
-        static void add(String log_entry){
-            log_str += log_entry;
-            log_str += "\n";
-        }
+String Log::getLogs(){
+    last_log_length = log_str.length();
+    return log_str;
+}
 
-        static String getLogs(){
-            last_log_length = log_str.length();
-            return log_str;
-        }
-
-        static bool hasChanged(){
-            return log_str.length() != last_log_length;
-        }
-};
-#endif
+bool Log::hasChanged(){
+    return log_str.length() != last_log_length;
+}

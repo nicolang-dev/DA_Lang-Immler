@@ -1,15 +1,14 @@
 //including header file
 #include "NetworkManager.h"
 
-//using namespace std for String an vectors
-//using namespace std;
+NetworkManager* NetworkManager::instance = nullptr;
 
 /**
  * constructor
  * declares the needed variables
  */
 NetworkManager::NetworkManager(){
-    Log::add("network manager class created");
+    //Log::add("network manager class created");
     stream_url = "";
     wifi_credentials_received = false;
     webserver_running = false;
@@ -17,7 +16,6 @@ NetworkManager::NetworkManager(){
     memory = MemoryManager::getInstance();
 }
 
-NetworkManager::~NetworkManager(){}
 /**
  * returns a JSON with basic informations, like:
  * wifi mode (station or access point)
@@ -61,7 +59,7 @@ String NetworkManager::getAvailableNetworks(){
  * handles basic GET requests
  */
 void NetworkManager::handle_get(){
-    Log::add("get request received");
+    ////Log::add("get request received");
     server.send(200, "text/plain", "get request received!");
 }
 
@@ -70,7 +68,7 @@ void NetworkManager::handle_get(){
  * sends information from the getInfo method to the client as a String, formatted as JSON
  */
 void NetworkManager::handle_getInfo(){
-    Log::add("get info request received");
+    //Log::add("get info request received");
     JsonDocument info = getInfo();
     String info_str;
     serializeJson(info, info_str);
@@ -82,18 +80,18 @@ void NetworkManager::handle_getInfo(){
  * sends ssid and rssi (strength) of all found networks to the client as a String, formatted as JSON
  */
 void NetworkManager::handle_getAvailableNetworks(){
-    Log::add("get available networks request received");
+    //Log::add("get available networks request received");
     String available_networks = getAvailableNetworks();
     server.send(200, "application/json", available_networks);
 }
 
 /**
- * handle get requests on route /getLogs
- * sends logs from class Log as a String to the client
+ * handle get requests on route /get//Logs
+ * sends //Logs from class //Log as a String to the client
  */
 void NetworkManager::handle_getLogs(){
-    Log::add("get logs request received");
-    //String logs = log.getAllLogs();
+    //Log::add("get //Logs request received");
+    //String //Logs = //Log.getAll//Logs();
     server.send(200, "text/plain", "get logs request received");
 }
 
@@ -102,16 +100,16 @@ void NetworkManager::handle_getLogs(){
  * reads ssid and password arguments from server and saves them in the EEPROM
  */
 void NetworkManager::handle_setWiFiCredentials(){
-    Log::add("set wifi credentials request received");
+    //Log::add("set wifi credentials request received");
     if(server.hasArg("ssid") && server.hasArg("password")){
         String ssid = server.arg("ssid");
         String password = server.arg("password");
-        Log::add(ssid);
-        Log::add(password);
+        //Log::add(ssid);
+        //Log::add(password);
         server.send(200);
         if((ssid.length() < 0) && (password.length() > 0)){
-            memory.writeWifiSsid(ssid);
-            memory.writeWifiPassword(password);
+            memory->writeWifiSsid(ssid);
+            memory->writeWifiPassword(password);
             wifi_credentials_received = true;
         }
     }
@@ -122,33 +120,31 @@ void NetworkManager::handle_setWiFiCredentials(){
  * reads url argument from client and sets this url for the audiostream
  */
 void NetworkManager::handle_setStreamUrl(){
-    Log::add("set stream url request received");
+    //Log::add("set stream url request received");
     if(server.hasArg("url")){
         stream_url = server.arg("url");
-        Log::add(stream_url);
+        //Log::add(stream_url);
         server.send(200);
     }
 }
 
-void NeworkManager::handle_notFound(){
-    Log::add("not found");
+void NetworkManager::handle_notFound(){
+    //Log::add("not found");
     server.send(404, "text/plain", "not found!");
 }
 
-static NetworkManager* NetworkManager::getInstance(){
+NetworkManager* NetworkManager::getInstance(){
     if(instance == nullptr){
         instance = new NetworkManager();
     }
     return instance;
 }
 
-NetworkManager::NetworkManager(const NetworkManager*) = delete;
-NetworkManager::NetworkManager& operator = (const NetworkManager&) = delete
 /**
  * starts an access point
  */
 bool NetworkManager::startAP(){
-    Log::add("starting ap");
+    //Log::add("starting ap");
     if(WiFi.getMode() != WIFI_AP){
         WiFi.mode(WIFI_AP);
     }
@@ -161,8 +157,8 @@ bool NetworkManager::startAP(){
  * starts a wifi client
  */
 bool NetworkManager::startClient(char *ssid, char *password){
-    Log::add("starting client");
-    if(wifiCredentialsSet()){
+    //Log::add("starting client");
+    if(NetworkManager::wifiCredentialsSet()){
         if(WiFi.getMode() == WIFI_AP){ //if wifi is in ap mode, ap mode will be disabled and station mode will be enabled
             WiFi.softAPdisconnect();
             WiFi.mode(WIFI_STA);
@@ -171,17 +167,17 @@ bool NetworkManager::startClient(char *ssid, char *password){
             WiFi.disconnect();
         }
         WiFi.begin(ssid, password);
-        Log::add("connecting to wifi");
+        //Log::add("connecting to wifi");
         unsigned long start_connection_time = millis();
         while(!isConnectedToWiFi()){
             if(millis() - start_connection_time >= MAX_CONNECTION_TIME){
-                Log::add("connection to wifi failed (too long)");
+                //Log::add("connection to wifi failed (too long)");
                 break;
                 return false;
             }
         }
         if(isConnectedToWiFi()){
-            Log::add("connected to wifi");
+            //Log::add("connected to wifi");
             return true;
         }
     }
@@ -192,7 +188,7 @@ bool NetworkManager::startClient(char *ssid, char *password){
  * starts a web server
  */
 bool NetworkManager::startWebServer(){
-    Log::add("starting web server");
+    //Log::add("starting web server");
     server.begin(SERVER_PORT);
     server.on("/", HTTP_GET, bind(&NetworkManager::handle_get, this));
     server.on("/getInfo", HTTP_GET, bind(&NetworkManager::handle_getInfo, this));
@@ -208,7 +204,7 @@ bool NetworkManager::startWebServer(){
  * stops the web server
  */
 void NetworkManager::stopWebServer(){
-    Log::add("stop webserver");
+    //Log::add("stop webserver");
     server.stop();
     webserver_running = false;
 }
@@ -231,6 +227,10 @@ String NetworkManager::getStreamUrl(){
 
 bool NetworkManager::wifiCredentialsReceived(){
     return wifi_credentials_received;
+}
+
+bool NetworkManager::wifiCredentialsSet(){
+    return true;
 }
 
 bool NetworkManager::isConnectedToWiFi(){

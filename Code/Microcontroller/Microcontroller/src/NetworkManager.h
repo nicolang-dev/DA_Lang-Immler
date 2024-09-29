@@ -7,8 +7,8 @@
 #include <WebServer.h>
 #include <constants.h>
 #include <ArduinoJson.h>
-#include <Log.cpp>
-#include "MemoryManager.cpp"
+#include "MemoryManager.h"
+#include "Log.h"
 
 //using namespace std for String an vectors
 using namespace std;
@@ -21,6 +21,8 @@ using namespace std;
  */
 class NetworkManager{
     private:
+        static NetworkManager* instance;
+
         String stream_url;
 
         bool wifi_credentials_received;
@@ -35,8 +37,9 @@ class NetworkManager{
          * declares the needed variables
          */
         NetworkManager();
-        
         ~NetworkManager();
+        NetworkManager(const NetworkManager*) = delete;
+        NetworkManager& operator = (const NetworkManager&) = delete;
 
         /**
          * returns a JSON with basic informations, like:
@@ -87,16 +90,10 @@ class NetworkManager{
          */
         void handle_setStreamUrl();
 
-        void handle_notFound(){
-            Log::add("not found");
-            server.send(404, "text/plain", "not found!");
-        }
+        void handle_notFound();
 
     public:
         static NetworkManager* getInstance();
-
-        NetworkManager(const NetworkManager*) = delete;
-        NetworkManager& operator = (const NetworkManager&) = delete;
 
         /**
          * starts an access point
@@ -129,6 +126,8 @@ class NetworkManager{
         String getStreamUrl();
 
         bool wifiCredentialsReceived();
+
+        bool wifiCredentialsSet();
 
         bool isConnectedToWiFi();
 

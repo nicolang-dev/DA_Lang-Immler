@@ -7,18 +7,17 @@
 
 class MemoryManager{
     private:
+        static MemoryManager* instance;
+
         MemoryManager();
         ~MemoryManager();
-
-        static MemoryManager* instance;
+        MemoryManager(const MemoryManager&) = delete;
+        MemoryManager& operator = (const MemoryManager&) = delete;
 
         Preferences preferences;
 
     public:
         static MemoryManager* getInstance();
-
-        MemoryManager(const MemoryManager&);
-        MemoryManager& operator = (const MemoryManager&);
 
         bool isWifiSsidSet();
 
