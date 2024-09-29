@@ -1,51 +1,54 @@
-#ifndef MEMORYMANAGER_H
-#define MEMORYMANAGER_H
+#include "MemoryManager.h"
 
-#include <Arduino.h>
-#include <Preferences.h>
-#include <constants.h>
+MemoryManager::MemoryManager(){}
+MemoryManager::~MemoryManager(){}
 
-class MemoryManager{
-    private:
-        Preferences preferences;
+static MemoryManager* MemoryManager::getInstance(){
+    if (!instance) {
+        instance = new MemoryManager();
+    }
+    return instance;
+}
 
-    public:
-        bool isWifiSsidSet(){
-            preferences.begin(WIFI_CREDENTIALS_PREFERENCES_NAMESPACE.c_str());
-            return preferences.isKey(SSID_PREFERENCES_KEY.c_str());
-            preferences.end();
-        }
+MemoryManager::MemoryManager(const MemoryManager&) = delete;
+MemoryManager& MemoryManager::operator = (const MemoryManager&) = delete;
 
-        bool isPasswordSet(){
-            preferences.begin(WIFI_CREDENTIALS_PREFERENCES_NAMESPACE.c_str());
-            return preferences.isKey(PASSWORD_PREFERENCES_KEY.c_str());
-            preferences.end();
-        }
+bool MemoryManager::isWifiSsidSet(){
+    preferences.begin(WIFI_NS.c_str());
+    return preferences.isKey(SSID_KEY.c_str());
+    preferences.end();
+}
 
-        String readWifiSsid(){
-            preferences.begin(WIFI_CREDENTIALS_PREFERENCES_NAMESPACE.c_str());
-            String ssid = preferences.getString(SSID_PREFERENCES_KEY.c_str());
-            preferences.end();
-            return ssid;
-        }
+bool MemoryManager::isPasswordSet(){
+    preferences.begin(WIFI_NS.c_str());
+    return preferences.isKey(PASSWORD_KEY.c_str());
+    preferences.end();
+}
 
-        String readWifiPassword(){
-            preferences.begin(WIFI_CREDENTIALS_PREFERENCES_NAMESPACE.c_str());
-            String ssid = preferences.getString(PASSWORD_PREFERENCES_KEY.c_str());
-            preferences.end();
-            return ssid;
-        }
+String MemoryManager::readWifiSsid(){
+    preferences.begin(WIFI_NS.c_str());
+    String ssid = preferences.getString(SSID_KEY.c_str());
+    preferences.end();
+    return ssid;
+}
 
-        void writeWifiSsid(String ssid){
-            preferences.begin(WIFI_CREDENTIALS_PREFERENCES_NAMESPACE.c_str());
-            preferences.putString(SSID_PREFERENCES_KEY.c_str(), ssid);
-            preferences.end();
-        }
+String MemoryManager::readWifiPassword(){
+    preferences.begin(WIFI_NS.c_str());
+    String ssid = preferences.getString(PASSWORD_KEY.c_str());
+    preferences.end();
+    return ssid;
+}
 
-        void writeWifiPassword(String password){
-            preferences.begin(WIFI_CREDENTIALS_PREFERENCES_NAMESPACE.c_str());
-            preferences.putString(PASSWORD_PREFERENCES_KEY.c_str(), password);
-            preferences.end();
-        }
-};
-#endif
+void MemoryManager::writeWifiSsid(String ssid){
+    preferences.begin(WIFI_NS.c_str());
+    preferences.putString(SSID_KEY.c_str(), ssid);
+    preferences.end();
+}
+
+void MemoryManager::writeWifiPassword(String password){
+    preferences.begin(WIFI_NS.c_str());
+    preferences.putString(PASSWORD_KEY.c_str(), password);
+    preferences.end();
+}
+
+MemoryManager* MemoryManager::instance = nullptr;

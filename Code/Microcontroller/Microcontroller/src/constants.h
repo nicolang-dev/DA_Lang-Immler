@@ -25,9 +25,9 @@ const IPAddress AP_LOCAL_IP(192,168,0,1);
 const IPAddress AP_GATEWAY_IP(192,168,0,1);
 const IPAddress AP_SUBNET_IP(255,255,255,0);
 const String AP_SSID = "Microcontroller";
-const String WIFI_CREDENTIALS_PREFERENCES_NAMESPACE = "wifi_credentials";
-const String SSID_PREFERENCES_KEY = "ssid";
-const String PASSWORD_PREFERENCES_KEY = "password";
+const String WIFI_NS = "wifi";
+const String SSID_KEY = "ssid";
+const String PASSWORD_KEY = "password";
 
 /*
 //declaration of enum for status

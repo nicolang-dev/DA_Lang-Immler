@@ -1,72 +1,56 @@
-#ifndef STATUSLED_H
-#define STATUSLED_H
+#include "StatusLED.h"
 
-#include <Arduino.h>
-#include <constants.h>
+StatusLED* StatusLED::getInstance(){
+    if(instance == nullptr){
+        instance = new StatusLED();
+    }
+    return instance;
+}
+
+StatusLED::StatusLED(const StatusLED*) = delete;
+StatusLED::StatusLED& operator = (const StatusLED&) = delete;
 
 /**
- * manages the state of the connected RGB led
+ * initializes the pins / sets them all as an output
  */
-class StatusLED{
-    private:
-        StatusLED(){}
-        static StatusLED *instance;
+void StatusLED::initializePins(){
+    pinMode(LED_RED, OUTPUT);
+    pinMode(LED_GREEN, OUTPUT);
+    pinMode(LED_BLUE, OUTPUT);
+}
 
-    public:
-        static StatusLED* getInstance(){
-            if(instance == nullptr){
-                instance = new StatusLED();
-            }
-            return instance;
-        }
+/**
+ * sets the color of the led to red
+ */
+void StatusLED::setRed(){
+    digitalWrite(LED_RED, HIGH);
+    digitalWrite(LED_GREEN, LOW);
+    digitalWrite(LED_BLUE, LOW);
+}
 
-        StatusLED(const StatusLED*) = delete;
-        StatusLED& operator = (const StatusLED&) = delete;
+/**
+ * sets the color of the led to green
+ */
+void StatusLED::setGreen(){
+    digitalWrite(LED_RED, LOW);
+    digitalWrite(LED_GREEN, HIGH);
+    digitalWrite(LED_BLUE, LOW);
+}
 
-        /**
-         * initializes the pins / sets them all as an output
-         */
-        void initializePins(){
-            pinMode(LED_RED, OUTPUT);
-            pinMode(LED_GREEN, OUTPUT);
-            pinMode(LED_BLUE, OUTPUT);
-        }
+/**
+ * sets the color of the led to blue
+ */
+void StatusLED::setBlue(){
+    digitalWrite(LED_RED, LOW);
+    digitalWrite(LED_GREEN, LOW);
+    digitalWrite(LED_BLUE, HIGH);
+}
 
-        /**
-         * sets the color of the led to red
-         */
-        void setRed(){
-            digitalWrite(LED_RED, HIGH);
-            digitalWrite(LED_GREEN, LOW);
-            digitalWrite(LED_BLUE, LOW);
-        }
-
-        /**
-         * sets the color of the led to green
-         */
-        void setGreen(){
-            digitalWrite(LED_RED, LOW);
-            digitalWrite(LED_GREEN, HIGH);
-            digitalWrite(LED_BLUE, LOW);
-        }
-
-        /**
-         * sets the color of the led to blue
-         */
-        void setBlue(){
-            digitalWrite(LED_RED, LOW);
-            digitalWrite(LED_GREEN, LOW);
-            digitalWrite(LED_BLUE, HIGH);
-        }
-
-        /**
-         * sets the led off (no light)
-         */
-        void setOff(){
-            digitalWrite(LED_RED, LOW);
-            digitalWrite(LED_GREEN, LOW);
-            digitalWrite(LED_BLUE, LOW);
-        }
-};
-
-#endif
+/**
+ * sets the led off (no light)
+ */
+void StatusLED::setOff(){
+    digitalWrite(LED_RED, LOW);
+    digitalWrite(LED_GREEN, LOW);
+    digitalWrite(LED_BLUE, LOW);
+}

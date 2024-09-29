@@ -1,9 +1,10 @@
 //including libraries
 #include <Arduino.h>
 #include <constants.h>
-#include "NetworkManager.cpp"
+//#include "NetworkManager.cpp"
 #include "StatusLED.cpp"
 #include <Log.cpp>
+#include "MemoryManager.cpp"
 
 void handle_buttonPress();
 void print(String message);
@@ -11,19 +12,19 @@ void print(String message);
 bool config_mode = false;
 bool webserver_running = false;
 
-NetworkManager* NetworkManager::instance = nullptr;
-StatusLED* StatusLED::instance = nullptr;
-
-NetworkManager* networkManager;
+//NetworkManager* networkManager;
 StatusLED* statusLED;
+MemoryManager* memoryManager;
 
 void setup(){
     Serial.begin(9600);
-    networkManager = NetworkManager::getInstance();
+    memoryManager = MemoryManager::getInstance();
+    //networkManager = NetworkManager::getInstance();
     statusLED = StatusLED::getInstance();
     Log::initialize();
-    networkManager->startAP();
-    networkManager->startWebServer();
+    //networkManager->startAP();
+    //networkManager->startWebServer();
+
     /*
     networkManager = NetworkManager::getInstance();
     statusLED = StatusLED::getInstance();
@@ -45,10 +46,13 @@ void setup(){
 }
 
 void loop(){
+    /*
     networkManager->handleWebserverClient();
     if(Log::hasChanged()){
         Serial.println(Log::getLogs());
     }
+    */
+
     /*
     if(networkManager->isWebserverRunning()){
         networkManager->handleWebserverClient();
