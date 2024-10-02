@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.9.10)  26 SEP 2024 11:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.6.26)  2 OCT 2024 23:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -517,150 +517,150 @@ Underfull \hbox (badness 10000) in paragraph at lines 123--125
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 130--137
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 130--137
-
- []
-
-
-Overfull \hbox (2.9566pt too wide) in paragraph at lines 130--137
-\T1/lmr/m/n/10 In-ter-face"(auf Deutsch: Änwen-dungs-pro-gram-mier-schnitt-stel
--le"). Ei-ne REST-API
- []
-
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 138--140
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
+39.
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Underfull \hbox (badness 10000) in paragraph at lines 141--144
+
+ []
+
+[8{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
+
+Overfull \hbox (146.33902pt too wide) in paragraph at lines 151--152
+[]\T1/lmr/m/n/10 (vgl. []$\T1/lmtt/m/n/10 https : / / www . denios . de / servi
+ces / denios-[]magazin / gefahren-[]im-[]umgang-[]mit-[]lithium-[]ionen-[]akkus
+$[]\T1/lmr/m/n/10 ) 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--165
 
  []
 
 
-Underfull \hbox (badness 3471) in paragraph at lines 153--153
+Underfull \hbox (badness 10000) in paragraph at lines 158--165
+
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 166--168
+
+ []
+
+
+Underfull \hbox (badness 3471) in paragraph at lines 181--181
 \T1/lmr/m/n/10 wort des ge-wünsch-ten Netz-
  []
 
 
-Underfull \hbox (badness 3907) in paragraph at lines 153--153
+Underfull \hbox (badness 3907) in paragraph at lines 181--181
 \T1/lmr/m/n/10 wünsch-ten Audio-Streams an
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 153--156
+Underfull \hbox (badness 10000) in paragraph at lines 181--184
 
  []
 
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 159--163
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--191
 
  []
 
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-64.
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
-File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [9{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc
-}]
-Overfull \hbox (76.04161pt too wide) in paragraph at lines 168--171
+[10]
+Overfull \hbox (76.04161pt too wide) in paragraph at lines 196--199
 \T1/lmr/m/n/10 wählt den Ste-reo-ka-nal aus (links oder rechts). (vgl. htt-ps:/
 /www.mikrocontroller.net/articles/I2S) 
  []
 
 
-Overfull \hbox (8.93584pt too wide) in paragraph at lines 173--188
+Overfull \hbox (8.93584pt too wide) in paragraph at lines 201--216
 \T1/lmr/m/n/10 chen Do-ku-men-ten."(Übersetzung des eng-li-schen Ori-gi-nals vo
 n: https://www.latex-
  []
 
 
-Overfull \hbox (61.1576pt too wide) in paragraph at lines 173--188
+Overfull \hbox (61.1576pt too wide) in paragraph at lines 201--216
 \T1/lmr/m/n/10 Netz-werk-dia-gram-men."(Übersetzung des eng-li-schen Ori-gi-nal
 s von: htt-ps://app.diagrams.net/) 
  []
 
 
-Overfull \hbox (50.89548pt too wide) in paragraph at lines 173--188
+Overfull \hbox (50.89548pt too wide) in paragraph at lines 201--216
 \T1/lmr/m/n/10 de-re Spra-chen und Lauf-zei-ten (wie C++, C#, Ja-va, Py-thon, P
 HP, Go, .NET)."(Übersetzung
  []
 
 
-Overfull \hbox (10.3532pt too wide) in paragraph at lines 173--188
+Overfull \hbox (10.3532pt too wide) in paragraph at lines 201--216
 \T1/lmr/m/n/10 licht."(Übersetzung des eng-li-schen Ori-gi-nals von: https://di
 gital.gov/resources/an-
  []
 
-[10]
-Overfull \hbox (5.67361pt too wide) in paragraph at lines 189--201
+[11]
+Overfull \hbox (5.67361pt too wide) in paragraph at lines 217--229
 \T1/lmr/m/n/10 ESP32 ge-lei-tet. In die an-de-re Rich-tung, wer-den grund-le-ge
 n-de WiFi-Informationen
  []
 
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 212--223
+[12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 240--251
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--223
+Underfull \hbox (badness 10000) in paragraph at lines 240--251
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--223
+Underfull \hbox (badness 10000) in paragraph at lines 240--251
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--223
+Underfull \hbox (badness 10000) in paragraph at lines 240--251
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--223
+Underfull \hbox (badness 10000) in paragraph at lines 240--251
 
  []
 
-[12]
-Overfull \hbox (16.6455pt too wide) in paragraph at lines 224--236
+[14]
+Overfull \hbox (16.6455pt too wide) in paragraph at lines 252--264
 \T1/lmr/m/n/10 auf ob-jek-t-ori-en-tier-te Pro-gram-mie-rung ge-setzt. Das fol-
 gen-de UML-Klassendiagramm
  []
 
 
-Overfull \hbox (1.3365pt too wide) in paragraph at lines 224--236
+Overfull \hbox (1.3365pt too wide) in paragraph at lines 252--264
 \T1/lmr/m/n/10 ver-an-schau-licht die Be-zie-hung der ver-schie-de-nen Klas-sen
  zu-ein-an-der: hier kommt
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 224--236
+Underfull \hbox (badness 10000) in paragraph at lines 252--264
 
  []
 
-[13] [14] [15] (DA-Main.aux)
+[15] [16] (DA-Main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-
-
-Package rerunfilecheck Warning: File `DA-Main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `DA-Main.out':
-(rerunfilecheck)             Before: 425F061E9C18B3241DFF50B6F94BCD9E;5928
-(rerunfilecheck)             After:  F1E6F9C7C991BCE4739DBC773AE79745;5890.
+Package rerunfilecheck Info: File `DA-Main.out' has not changed.
+(rerunfilecheck)             Checksum: F1E6F9C7C991BCE4739DBC773AE79745;5890.
  ) 
 Here is how much of TeX's memory you used:
- 10842 strings out of 474486
- 172376 string characters out of 5743755
+ 10841 strings out of 474486
+ 172317 string characters out of 5743755
  1936542 words of memory out of 5000000
- 32907 multiletter control sequences out of 15000+600000
+ 32905 multiletter control sequences out of 15000+600000
  605319 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,8n,79p,1038b,614s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -670,9 +670,9 @@ b><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb
 ><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb>
 <C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
 
-Output written on DA-Main.pdf (15 pages, 211158 bytes).
+Output written on DA-Main.pdf (16 pages, 217672 bytes).
 PDF statistics:
- 307 PDF objects out of 1000 (max. 8388607)
- 55 named destinations out of 1000 (max. 500000)
+ 316 PDF objects out of 1000 (max. 8388607)
+ 56 named destinations out of 1000 (max. 500000)
  305 words of extra memory for PDF output out of 10000 (max. 10000000)
 

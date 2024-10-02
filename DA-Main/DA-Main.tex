@@ -124,12 +124,33 @@ Glühlampe & 3-5\% & 10 – 15 lm/W \\
 Für dieses Projekt bedeutet das, dass die Leuchtdiode wohl die effizienteste Methode für eine Statusanzeige auf dem Adapter ist. Dies trägt unter anderem zu einer längeren Akkulaufzeit bei.
 
 \subsubsection{Auswahl interne Hardware}
-Als Herz des Systems wird ein ESP32 Mikroprozessor mit angebauter Platine verwendet. Der ESP32 ist ein weit verbreiteter Mikroprozessor. Man kann die Arduino IDE mit C++ als Programmiersprache zum programmieren verwenden. Zudem verfügt er schon Onboard über einen Hybrid WIFI- und Bluetooth-Chip, wodurch externe Module vermieden, und somit Platz eingespart werden kann. Espressif selbst beschreibt den ESP32 als optimal für IoT-Anwendungen; auch wegen der hohen Energieeffizienz.
-
+\textbf{Mikroprozessor}\newline
+Als Herz des Systems wird ein ESP32 Mikroprozessor mit angebauter Platine verwendet. Der ESP32 ist ein weit verbreiteter Mikroprozessor. Man kann die Arduino IDE mit C++ als Programmiersprache zum programmieren verwenden. Zudem verfügt er schon Onboard über einen Hybrid WIFI- und Bluetooth-Chip, wodurch externe Module vermieden, und somit Platz eingespart werden kann. Espressif selbst beschreibt den ESP32 als optimal für IoT-Anwendungen; auch wegen der hohen Energieeffizienz. (vgl. Espressif Website)
+\vspace{4mm}\newline
+\textbf{Digital-/Analogwandler}\newline
 Eine DAC-Decoderplatine wird verwendet, um das Audiosignal vom Arduino über eine angebaute Klinkenbuchse an die jeweilige Lautsprecherbox auszugeben.
+\vspace{4mm}\newline
+\textbf{Akku}\newline
+Das Endprodukt soll mithilfe eines Akkus auch ohne Strom auskommen, dafür wird ein Lithium-Ionen-Akku mit 3,7 Volt verwendet. Akkus dieser Art zeichnen sich durch ihre hohe Energiedichte und, unter guten Umständen, hohe Lebensdauer aus. Man verwendet Li-Ionen-Akkus meist für (tragbare) Geräte in denen andere Akkus zu schwer oder zu groß wären. (vgl. \url{https://www.chemie.de/lexikon/Lithium-Ionen-Akkumulator.html}) \vspace{4mm}\newline
+Natürlich haben Li-Ionen-Akkus auch gewisse Nachteile und birgen wie jeder andere Akku Gefahren. Beispiele dafür sind elektrische Überlastung, mechanische Beschädigung und thermische Überlastung:
 
-Das Endprodukt soll mithilfe eines Akkus auch ohne Strom auskommen, dafür wird ein INSERT AKKU HERE verwendet.
+Eine elektrische Überlast kann etliche Gründe haben, darunter: 
+\begin{itemize}
+	\item Verwendung eines falschen Ladegerätes
+	\item Tiefenentladung
+	\item Falsche Lagerbedingungen (z.B.: zu hohe Temperaturen) \newline 
+\newline
+Zitat: \glqq Hier kommt es zur Zersetzung der Elektrolytflüssigkeit und infolgedessen zur Bildung leicht brennbarer Gase. Wird anschließend versucht, die tiefentladenen Lithium-Ionen-Zellen wieder aufzuladen, kann die zugeführte Energie durch das Fehlen von Elektrolytflüssigkeit nicht mehr korrekt umgesetzt werden. Es kann zum Kurzschluss beziehungsweise zum Brand kommen.\grqq{} (vgl. \url{https://www.denios.de/services/denios-magazin/gefahren-im-umgang-mit-lithium-ionen-akkus})
+\end{itemize}
+Eine Mechanische Beschädigung jeglicher Art kann zu Kurzschlüssen im inneren der Zelle führen. Da unser Gerät nicht dafür gemacht ist, ständig in Bewegung zu sein, spielt dies keine zu große Rolle, es muss jedoch trotzdem ausreichend Schutz (durch das Gehäuse) vorhanden sein.
+\vspace{4mm}\newline
+Wie oben schon kurz erwähnt, muss viel Wert auf die richtige Lagerung/Kühlung des Akkus gelegt werden. Wird dieser zu heiß (etwa durch den Mikroprozessor oder sonstige Bauteile) kann es zum Brand kommen.
+\vspace{4mm}\newline
+Man kann daraus schließen, dass jeder kleinste Fehler beispielsweise zu einem Brand oder sogar einer Explosion des Akkus führen kann. Es ist daher wichtig, den Akku mit absoluter Vorsicht zu handhaben. Ausreichend Tests (Betriebstemperatur, etc.), richtige Konfiguration des Ladereglers und die Auswahl des Akkus sind ausschlaggebend für die Sicherheit des Endverbrauchers und dessen Umfeld.
 
+(vgl. \url{https://www.denios.de/services/denios-magazin/gefahren-im-umgang-mit-lithium-ionen-akkus})
+
+\textbf{Laderegler}\newline
 Für einen optimalen Ladeprozess und Schutz des Akkus wird ein Laderegler verwendet. Dieser regelt wie der Name schon verrät den Ladevorgang des Akkus und hört auf zu laden, sobald er voll ist.
 
 \subsection{Auswahl Technologien}
@@ -138,9 +159,9 @@ In diesem Kapitel geht es um die Recherche und Auswahl von Protokollen, die für
 \newline \\
 \textbf{HTTP}
 \newline
-Das Hyper Text Transfer Protocol ist ein weitverbreitetes Protokoll im Web und wird größtenteils für die Kommunikation zwischen Browsern und Webservern eingesetzt. Dabei basiert das Protokoll auf sogenannten "Requests" (auf Deutsch: Anfragen). Es gibt zahlreiche Anwendungen für HTTP. Wir nutzen es einerseits als REST-API und andererseits für das Audio-Streaming. (vgl. URLPI02) \newline \\
+Das Hyper Text Transfer Protocol ist ein weitverbreitetes Protokoll im Web und wird größtenteils für die Kommunikation zwischen Browsern und Webservern eingesetzt. Dabei basiert das Protokoll auf sogenannten \glqq Requests\grqq{} (auf Deutsch: Anfragen). Es gibt zahlreiche Anwendungen für HTTP. Wir nutzen es einerseits als REST-API und andererseits für das Audio-Streaming. (vgl. URLPI02) \newline \\
 \textbf{Anwendung als REST-API} \\ 
-Der Begriff "REST-API" setzt sich aus den Abkürzungen "REST" und "API" zusammen. Dabei steht "REST" für "Representational State Transfer" (auf Deutsch: "gegenständliche Zustandsübertragung") und "API" für "Application Programming Interface" (auf Deutsch: "Anwendungsprogrammierschnittstelle"). Eine REST-API zeichnet sich dadurch aus, dass sie eine einheitliche Schnittstelle zwischen Server und Client bietet. Dies wird durch die "Routes" (auf Deutsch: "Routen") geschaffen. Wenn der Client Requests an diese Routen sendet werden Aktionen auf dem Server ausgeführt. Es ist auch möglich, dass anschließend der Client Daten vom Server erhält. (vgl. URLPI04)
+Der Begriff \glqq REST-API\grqq{} setzt sich aus den Abkürzungen \glqq REST\grqq{} und \glqq API\grqq{} zusammen. Dabei steht \glqq REST\grqq{} für \glqq Representational State Transfer\grqq{} (auf Deutsch: \glqq gegenständliche Zustandsübertragung\grqq{}) und \glqq API\grqq{} für \glqq Application Programming Interface\grqq{} (auf Deutsch: \glqq Anwendungsprogrammierschnittstelle\grqq{}). Eine REST-API zeichnet sich dadurch aus, dass sie eine einheitliche Schnittstelle zwischen Server und Client bietet. Dies wird durch die \glqq Routes\grqq{} (auf Deutsch: \glqq Routen\grqq{}) geschaffen. Wenn der Client Requests an diese Routen sendet werden Aktionen auf dem Server ausgeführt. Es ist auch möglich, dass anschließend der Client Daten vom Server erhält. (vgl. URLPI04)
 
 In unserer Diplomarbeit stellt der Microcontroller als Webserver eine REST-API zur Verfügung um so einheitlich Daten mit dem Client (Smartphone) auszutauschen.
 Folgende Routen sind dabei auf dem Webserver aufrufbar: \newline
