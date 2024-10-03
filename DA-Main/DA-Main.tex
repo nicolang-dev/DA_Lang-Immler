@@ -88,13 +88,22 @@ Der Teil der Software für folgende Diplomarbeit beschäftigt sich damit, einers
 
 \section{Planung}
 \subsection{Festlegung Funktionsweise}
-GEMEINSAM
+Beim Festlegen einer grundlegenden Funktionsweise des Adapters stellen sich vor allem folgende Fragen:
+\subsubsection{Was soll das System können?}
+Das Hauptziel ist, dass das System in verschiedenen, voneinander getrennten Räumlichkeiten verschiedene Audiosignale auf Lautsprecheranlagen abspielen kann. Dabei ist es wichtig, dass das System den Ton zuverlässig und möglichst flüssig überträgt und ausgibt. \newline 
+Grundsätzlich kann jeder beliebige Audio-Stream aus dem Internet verwendet werden. Das können beispielsweise Radiosender sein.
+Ein Beispiel für einen solchen Audio-Stream wäre der, des österreichischen Radio-Senders \glqq OE3\grqq{}: \newline
+\url{https://orf-live.ors-shoutcast.at/oe3-q2a}
+\vspace{4mm} \newline
+Es wird zudem viel Wert auf Benutzerfreundlichkeit gelegt. Das bedeutet, dass sich der Adapter zum einen leicht einrichten lässt, aber auch dass er sich (mithilfe der Smartphone-App) einfach bedienen lässt.
+\subsubsection{Was muss es nicht können?}
+\subsubsection{Wie könnte man es erweitern?}
 \subsection{Auswahl Hardwarekomponenten}
 Zur Auswahl der Hardwarekomponenten des Adapters wird zu aller erst die externe Ausstattung des Adapters überlegt. Das bedeutet praktisch alles, mit dem ein Endverbraucher letztendlich zu tun hat. Dann kann der interne Teil, also die Technik dahinter, individuell auf die Anforderungen des externen Teils designet und entwickelt werden.
 \subsubsection{Auswahl externe Hardware}
 Der Adapter soll ein möglichst kompakt konstruiertes und stabiles Gehäuse bekommen. An diesem wird ein einfacher Taster zur Interaktion angebracht. Mit dem Taster sollen einige Funktionen des Adapters ermöglicht werden. Beispielsweise per Klick, Doppelklick oder kurzem Halten. Da sich die Aufgaben des Tasters selbst gering halten werden (Verbindungsvorgang, Ein- und Ausschalten, ...) wird nur ein einziger Taster verwendet, um die Komplexität des Gesamtsystems zu senken. Die weitaus komplizierteren Funktionen sollen alle samt in der Smartphone-Applikation ermöglicht werden. Zusätzlich werden eine oder mehrere Leuchtdioden zur Statusanzeige verbaut, um beispielsweise den aktuellen Verbindungsstatus zum Mobilgerät und zum Internet oder den aktuellen Akkustand anzuzeigen. \newline \\
 \textbf{Gehäuse} \newline
-Das Gehäuse soll alle Komponenten auf möglichst kleinem Raum zusammenhalten. Da sich Komponenten und möglicherweise auch das Design selbst laufend ändern, wird dieses deshalb erst gegen Ende des Projekts finalisiert werden können. \newline \\
+Das Gehäuse soll alle Komponenten auf möglichst kleinem Raum zusammenhalten, schützen und kühlen. Da sich Komponenten und möglicherweise auch das Design selbst laufend ändern, wird dieses deshalb erst gegen Ende des Projekts finalisiert werden können. \newline \\
 \textbf{Taster} \newline
 Für den Taster wird ein herkömmlicher Knopf in das Gehäuse eingelassen.  \newline \\
 \textbf{LED (Light-Emitting Diode)} \newline
@@ -138,11 +147,11 @@ Eine elektrische Überlast kann etliche Gründe haben, darunter:
 \begin{itemize}
 	\item Verwendung eines falschen Ladegerätes
 	\item Tiefenentladung
-	\item Falsche Lagerbedingungen (z.B.: zu hohe Temperaturen) \newline 
+	\item Falsche Lagerbedingungen (z.B.: zu hohe Temperaturen) 
 \newline
 Zitat: \glqq Hier kommt es zur Zersetzung der Elektrolytflüssigkeit und infolgedessen zur Bildung leicht brennbarer Gase. Wird anschließend versucht, die tiefentladenen Lithium-Ionen-Zellen wieder aufzuladen, kann die zugeführte Energie durch das Fehlen von Elektrolytflüssigkeit nicht mehr korrekt umgesetzt werden. Es kann zum Kurzschluss beziehungsweise zum Brand kommen.\grqq{} (vgl. \url{https://www.denios.de/services/denios-magazin/gefahren-im-umgang-mit-lithium-ionen-akkus})
 \end{itemize}
-Eine Mechanische Beschädigung jeglicher Art kann zu Kurzschlüssen im inneren der Zelle führen. Da unser Gerät nicht dafür gemacht ist, ständig in Bewegung zu sein, spielt dies keine zu große Rolle, es muss jedoch trotzdem ausreichend Schutz (durch das Gehäuse) vorhanden sein.
+Eine mechanische Beschädigung jeglicher Art kann zu Kurzschlüssen im inneren der Zelle führen. Da unser Gerät nicht dafür gemacht ist, ständig in Bewegung zu sein, spielt dies keine zu große Rolle, es muss jedoch trotzdem ausreichend Schutz (durch das Gehäuse) vorhanden sein.
 \vspace{4mm}\newline
 Wie oben schon kurz erwähnt, muss viel Wert auf die richtige Lagerung/Kühlung des Akkus gelegt werden. Wird dieser zu heiß (etwa durch den Mikroprozessor oder sonstige Bauteile) kann es zum Brand kommen.
 \vspace{4mm}\newline
