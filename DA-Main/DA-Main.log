@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.9.10)  3 OCT 2024 15:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.9.10)  4 OCT 2024 14:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -481,165 +481,166 @@ LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 9
 (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [6]
-Underfull \hbox (badness 10000) in paragraph at lines 104--117
+Underfull \hbox (badness 10000) in paragraph at lines 105--118
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--117
+Underfull \hbox (badness 10000) in paragraph at lines 105--118
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--117
+Underfull \hbox (badness 10000) in paragraph at lines 105--118
 
  []
 
 
-Overfull \hbox (66.49881pt too wide) in paragraph at lines 104--117
+Overfull \hbox (66.49881pt too wide) in paragraph at lines 105--118
 []$\T1/lmtt/m/n/10 https : / / ledtipps . net / wirkungsgrad / #wirkungsgrad-[]
 und-[]lichtausbeute-[]im-[]vergleich$[]
  []
 
 
-Overfull \hbox (66.49881pt too wide) in paragraph at lines 104--117
+Overfull \hbox (66.49881pt too wide) in paragraph at lines 105--118
 []$\T1/lmtt/m/n/10 https : / / ledtipps . net / wirkungsgrad / #wirkungsgrad-[]
 und-[]lichtausbeute-[]im-[]vergleich$[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--117
+Underfull \hbox (badness 10000) in paragraph at lines 105--118
 
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 132--134
+Underfull \hbox (badness 10000) in paragraph at lines 133--135
 
  []
 
 [8]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-48.
+49.
  (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Overfull \hbox (146.33902pt too wide) in paragraph at lines 160--161
+[9{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
+
+Overfull \hbox (146.33902pt too wide) in paragraph at lines 161--162
 []\T1/lmr/m/n/10 (vgl. []$\T1/lmtt/m/n/10 https : / / www . denios . de / servi
 ces / denios-[]magazin / gefahren-[]im-[]umgang-[]mit-[]lithium-[]ionen-[]akkus
 $[]\T1/lmr/m/n/10 ) 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 167--174
+Underfull \hbox (badness 10000) in paragraph at lines 168--175
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 167--174
-
- []
-
-[9{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
-
-Underfull \hbox (badness 10000) in paragraph at lines 175--177
+Underfull \hbox (badness 10000) in paragraph at lines 168--175
 
  []
 
 
-Underfull \hbox (badness 3471) in paragraph at lines 190--190
+Underfull \hbox (badness 10000) in paragraph at lines 176--178
+
+ []
+
+
+Underfull \hbox (badness 3471) in paragraph at lines 191--191
 \T1/lmr/m/n/10 wort des ge-wünsch-ten Netz-
  []
 
 
-Underfull \hbox (badness 3907) in paragraph at lines 190--190
+Underfull \hbox (badness 3907) in paragraph at lines 191--191
 \T1/lmr/m/n/10 wünsch-ten Audio-Streams an
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 190--193
+Underfull \hbox (badness 10000) in paragraph at lines 191--194
 
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 196--200
+Underfull \hbox (badness 10000) in paragraph at lines 197--201
 
  []
 
-
-Overfull \hbox (76.04161pt too wide) in paragraph at lines 205--208
+[11]
+Overfull \hbox (76.04161pt too wide) in paragraph at lines 206--209
 \T1/lmr/m/n/10 wählt den Ste-reo-ka-nal aus (links oder rechts). (vgl. htt-ps:/
 /www.mikrocontroller.net/articles/I2S) 
  []
 
 
-Overfull \hbox (8.93584pt too wide) in paragraph at lines 210--225
+Overfull \hbox (8.93584pt too wide) in paragraph at lines 211--226
 \T1/lmr/m/n/10 chen Do-ku-men-ten."(Übersetzung des eng-li-schen Ori-gi-nals vo
 n: https://www.latex-
  []
 
 
-Overfull \hbox (61.1576pt too wide) in paragraph at lines 210--225
+Overfull \hbox (61.1576pt too wide) in paragraph at lines 211--226
 \T1/lmr/m/n/10 Netz-werk-dia-gram-men."(Übersetzung des eng-li-schen Ori-gi-nal
 s von: htt-ps://app.diagrams.net/) 
  []
 
 
-Overfull \hbox (50.89548pt too wide) in paragraph at lines 210--225
+Overfull \hbox (50.89548pt too wide) in paragraph at lines 211--226
 \T1/lmr/m/n/10 de-re Spra-chen und Lauf-zei-ten (wie C++, C#, Ja-va, Py-thon, P
 HP, Go, .NET)."(Übersetzung
  []
 
 
-Overfull \hbox (10.3532pt too wide) in paragraph at lines 210--225
+Overfull \hbox (10.3532pt too wide) in paragraph at lines 211--226
 \T1/lmr/m/n/10 licht."(Übersetzung des eng-li-schen Ori-gi-nals von: https://di
 gital.gov/resources/an-
  []
 
-[11] [12]
-Overfull \hbox (5.67361pt too wide) in paragraph at lines 226--238
+[12]
+Overfull \hbox (5.67361pt too wide) in paragraph at lines 227--239
 \T1/lmr/m/n/10 ESP32 ge-lei-tet. In die an-de-re Rich-tung, wer-den grund-le-ge
 n-de WiFi-Informationen
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 249--260
+Underfull \hbox (badness 10000) in paragraph at lines 250--261
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 249--260
+Underfull \hbox (badness 10000) in paragraph at lines 250--261
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 249--260
+Underfull \hbox (badness 10000) in paragraph at lines 250--261
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 249--260
+Underfull \hbox (badness 10000) in paragraph at lines 250--261
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 249--260
+Underfull \hbox (badness 10000) in paragraph at lines 250--261
 
  []
 
 [14]
-Overfull \hbox (16.6455pt too wide) in paragraph at lines 261--273
+Overfull \hbox (16.6455pt too wide) in paragraph at lines 262--274
 \T1/lmr/m/n/10 auf ob-jek-t-ori-en-tier-te Pro-gram-mie-rung ge-setzt. Das fol-
 gen-de UML-Klassendiagramm
  []
 
 
-Overfull \hbox (1.3365pt too wide) in paragraph at lines 261--273
+Overfull \hbox (1.3365pt too wide) in paragraph at lines 262--274
 \T1/lmr/m/n/10 ver-an-schau-licht die Be-zie-hung der ver-schie-de-nen Klas-sen
  zu-ein-an-der: hier kommt
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--273
+Underfull \hbox (badness 10000) in paragraph at lines 262--274
 
  []
 
@@ -654,7 +655,7 @@ Package rerunfilecheck Info: File `DA-Main.out' has not changed.
 Here is how much of TeX's memory you used:
  10848 strings out of 474486
  172472 string characters out of 5743755
- 1938542 words of memory out of 5000000
+ 1935542 words of memory out of 5000000
  32908 multiletter control sequences out of 15000+600000
  605319 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -665,7 +666,7 @@ b><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb
 ><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb>
 <C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
 
-Output written on DA-Main.pdf (17 pages, 222628 bytes).
+Output written on DA-Main.pdf (17 pages, 223527 bytes).
 PDF statistics:
  336 PDF objects out of 1000 (max. 8388607)
  60 named destinations out of 1000 (max. 500000)

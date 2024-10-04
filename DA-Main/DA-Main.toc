@@ -26,16 +26,16 @@
 \contentsline {subsection}{\numberline {4.1}Design Platine}{14}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Bestückung Platine}{14}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Entwicklung Software Adapter}{14}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Programmablauf}{14}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Klassen}{15}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.1}Programmablauf}{15}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Klassen}{16}{subsubsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.4}Entwicklung Smartphone-App}{16}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Design Adaptergehäuse}{16}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Fertigung Adaptergehäuse}{16}{subsection.4.6}%
-\contentsline {section}{\numberline {5}Testen und Fehlerbehebung}{16}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Testen des Gesamtsystems}{16}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}auftretende Fehler beheben}{16}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Test auf Cybersecurity}{16}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Auftretende Sicherheitslücken schließen}{16}{subsection.5.4}%
+\contentsline {subsection}{\numberline {4.5}Design Adaptergehäuse}{17}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Fertigung Adaptergehäuse}{17}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Testen und Fehlerbehebung}{17}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Testen des Gesamtsystems}{17}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}auftretende Fehler beheben}{17}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Test auf Cybersecurity}{17}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Auftretende Sicherheitslücken schließen}{17}{subsection.5.4}%
 \contentsline {section}{\numberline {6}Einzelnachweise}{17}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Literaturverzeichnis}{17}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Abbildungsverzeichnis}{17}{subsection.6.2}%
