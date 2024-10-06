@@ -8,9 +8,9 @@
 #include <Arduino.h>
 
 //definition of pins
-const int I2S_BCLK = 26;
-const int I2S_LRC = 25;
-const int I2S_DOUT = 22;
+const int I2S_BCLK_PIN = 26;
+const int I2S_LRC_PIN = 25;
+const int I2S_DOUT_PIN = 22;
 const int BUTTON_PIN = 12;
 const int LED_RED = 15;
 const int LED_GREEN = 2;

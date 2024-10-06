@@ -9,6 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "buffer": "^6.0.3",
+    "mpg123-decoder": "^1.0.0",
     "speaker": "^0.5.5"
-  }
+  },
+  "type": "module"
 }
