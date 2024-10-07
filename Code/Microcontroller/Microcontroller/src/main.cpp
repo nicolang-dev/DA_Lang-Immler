@@ -5,8 +5,8 @@
 #include "StatusLED.h"
 #include "MemoryManager.h"
 #include "Log.h"
-#include "AudioOutput.h"
 #include "Server.h"
+#include <WiFi.h>
 
 void handle_buttonPress();
 void print(String message);

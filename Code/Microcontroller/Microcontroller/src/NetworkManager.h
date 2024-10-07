@@ -16,21 +16,10 @@ using namespace std;
  * responsible for network tasks, like:
  * providing an access point
  * acting as a WiFi client
- * providing a web server
  */
 class NetworkManager{
     private:
         static NetworkManager* instance;
-
-        bool client_started;
-
-        MemoryManager* memory;
-        WiFiClient* stream_pointer;
-
-        /**
-         * constructor
-         * declares the needed variables
-         */
         NetworkManager();
         ~NetworkManager();
         NetworkManager(const NetworkManager*) = delete;
@@ -50,19 +39,24 @@ class NetworkManager{
         bool startClient(String ssid, String password);
 
         /**
-         * getter for stream url
+         * returns the MAC-Address of the ESP32, as a String
          */
-        bool wifiCredentialsSet();
-
-        bool isConnectedToWiFi();
-
-        bool isClientStarted();
-
         String getMac();
 
         /**
-         * scans for available networks and returns the ssid and rssi (strength) of the found networks as a String
+         * scans for available networks and returns the ssid and rssi (strength)
+         * of the found networks as a JSON converted to a String
          */
         String getAvailableNetworks();
+
+        /**
+         * returns if wifi module is in access point mode
+         */
+        bool apModeActive();
+
+        /**
+         * returns if wifi client is connected to WLAN
+         */
+        bool isConnectedToWlan();
 };
 #endif

@@ -6,15 +6,6 @@
 #include "constants.h"
 #include "NetworkManager.h"
 
-/*
-    server.on("/", HTTP_GET, bind(&Server::handle_get, this));
-    server.on("/getInfo", HTTP_GET, bind(&Server::handle_getInfo, this));
-    server.on("/getAvailableNetworks", HTTP_GET, bind(&Server::handle_getAvailableNetworks, this));
-    server.on("/setWiFiCredentials", HTTP_POST, bind(&Server::handle_setWiFiCredentials, this));
-    server.on("/setStreamUrl", HTTP_POST, bind(&Server::handle_setStreamUrl, this));
-    server.onNotFound(bind(&Server::handle_notFound, this));
-*/
-
 class Server{
     private:
         static Server* instance;
@@ -28,7 +19,7 @@ class Server{
         String received_password;
         String received_url;
 
-        void handle_get();
+        void handle_get();  
         void handle_getMac();
         void handle_getAvailableNetworks();
         void handle_setWiFiCredentials();

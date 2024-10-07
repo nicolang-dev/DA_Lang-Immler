@@ -1,6 +1,5 @@
 #include "Log.h"
 
-unsigned int Log::last_size = 0;
 std::vector<String> Log::logs;
 
 void Log::add(String log_entry){
@@ -13,12 +12,4 @@ std::vector<String> Log::getLogs(){
 
 String Log::getLastLog(){
     return logs.at(logs.size()-1);
-}
-
-bool Log::hasChanged(){
-    if(logs.size() > last_size){
-        last_size = logs.size();;
-        return true;
-    }
-    return false;
 }

@@ -3,14 +3,20 @@
 
 NetworkManager* NetworkManager::instance = nullptr;
 
+
 /**
  * constructor
  * declares the needed variables
  */
 NetworkManager::NetworkManager(){
     //Log::add("network manager class created");
-    client_started = false;
-    memory = MemoryManager::getInstance();
+}
+
+NetworkManager* NetworkManager::getInstance(){
+    if(instance == nullptr){
+        instance = new NetworkManager();
+    }
+    return instance;
 }
 
 /**
@@ -37,13 +43,6 @@ String NetworkManager::getAvailableNetworks(){
     return networks_str;
 }
 
-NetworkManager* NetworkManager::getInstance(){
-    if(instance == nullptr){
-        instance = new NetworkManager();
-    }
-    return instance;
-}
-
 /**
  * starts an access point
  */
@@ -52,9 +51,7 @@ bool NetworkManager::startAP(){
     if(WiFi.getMode() != WIFI_AP){
         WiFi.mode(WIFI_AP);
     }
-    WiFi.softAPConfig(AP_LOCAL_IP, AP_GATEWAY_IP, AP_SUBNET_IP);
-    WiFi.softAP(AP_SSID);
-    return true;
+    return WiFi.softAPConfig(AP_LOCAL_IP, AP_GATEWAY_IP, AP_SUBNET_IP) && WiFi.softAP(AP_SSID);
 }
 
 /**
@@ -71,13 +68,13 @@ bool NetworkManager::startClient(String ssid, String password){
     WiFi.begin(ssid, password);
     //Log::add("connecting to wifi");
     unsigned long start_connection_time = millis();
-    while(!isConnectedToWiFi()){
+    while(!isConnectedToWlan()){
         if(millis() - start_connection_time >= MAX_CONNECTION_TIME){
             //Log::add("connection to wifi failed (too long)");
             return false;
         }
     }
-    if(isConnectedToWiFi()){
+    if(isConnectedToWlan()){
         //Log::add("connected to wifi");
         //Log::add(WiFi.localIP().toString());
         //Log::add("connected to wifi");
@@ -86,14 +83,13 @@ bool NetworkManager::startClient(String ssid, String password){
     return false;
 }
 
-bool NetworkManager::wifiCredentialsSet(){
-    return true;
+bool NetworkManager::isConnectedToWlan(){
+    if(!apModeActive){
+        return WiFi.status() == WL_CONNECTED;
+    }
+    return false;
 }
 
-bool NetworkManager::isConnectedToWiFi(){
-    return WiFi.status() == WL_CONNECTED;
-}
-
-bool NetworkManager::isClientStarted(){
-    return client_started;
+bool NetworkManager::apModeActive(){
+    return WiFi.getMode() == WIFI_AP;
 }

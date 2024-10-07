@@ -28,8 +28,10 @@ const IPAddress AP_GATEWAY_IP(192,168,0,1);
 const IPAddress AP_SUBNET_IP(255,255,255,0);
 const String AP_SSID = "Microcontroller";
 const String WIFI_NS = "wifi";
+const String URL_NS = "url";
 const String SSID_KEY = "ssid";
 const String PASSWORD_KEY = "password";
+const String URL_KEY = "wifi";
 
 /*
 //declaration of enum for status

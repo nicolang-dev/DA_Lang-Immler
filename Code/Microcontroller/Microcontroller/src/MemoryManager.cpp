@@ -24,6 +24,12 @@ bool MemoryManager::isWifiPasswordSet(){
     preferences.end();
 }
 
+bool MemoryManager::isStreamUrlSet(){
+    preferences.begin(URL_NS.c_str());
+    return preferences.isKey(URL_KEY.c_str());
+    preferences.end();
+}
+
 String MemoryManager::readWifiSsid(){
     preferences.begin(WIFI_NS.c_str());
     String ssid = preferences.getString(SSID_KEY.c_str());
@@ -38,6 +44,14 @@ String MemoryManager::readWifiPassword(){
     return ssid;
 }
 
+
+String MemoryManager::readWifiPassword(){
+    preferences.begin(URL_NS.c_str());
+    String url = preferences.getString(URL_KEY.c_str());
+    preferences.end();
+    return url;
+}
+
 void MemoryManager::writeWifiSsid(String ssid){
     preferences.begin(WIFI_NS.c_str());
     preferences.putString(SSID_KEY.c_str(), ssid);
@@ -47,5 +61,11 @@ void MemoryManager::writeWifiSsid(String ssid){
 void MemoryManager::writeWifiPassword(String password){
     preferences.begin(WIFI_NS.c_str());
     preferences.putString(PASSWORD_KEY.c_str(), password);
+    preferences.end();
+}
+
+void MemoryManager::writeWifiPassword(String url){
+    preferences.begin(URL_NS.c_str());
+    preferences.putString(URL_KEY.c_str(), url);
     preferences.end();
 }
