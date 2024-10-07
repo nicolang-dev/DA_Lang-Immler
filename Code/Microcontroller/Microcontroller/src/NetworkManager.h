@@ -7,7 +7,7 @@
 #include <constants.h>
 #include <ArduinoJson.h>
 #include "MemoryManager.h"
-#include "Log.h"
+#include "Logger.h"
 
 //using namespace std for String an vectors
 using namespace std;
@@ -52,7 +52,7 @@ class NetworkManager{
         /**
          * returns if wifi module is in access point mode
          */
-        bool apModeActive();
+        bool isApModeActive();
 
         /**
          * returns if wifi client is connected to WLAN

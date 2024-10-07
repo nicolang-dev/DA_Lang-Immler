@@ -1,23 +1,24 @@
-#ifndef SERVER_H
-#define SERVER_H
+#ifndef ServerManager_H
+#define ServerManager_H
 
 #include <Arduino.h>
 #include <WebServer.h>
 #include "constants.h"
 #include "NetworkManager.h"
 
-class Server{
+class ServerManager{
     private:
-        static Server* instance;
-        Server();
-        ~Server();
-        Server(const Server*) = delete;
-        Server& operator = (const Server&) = delete;
+        static ServerManager* instance;
+        ServerManager();
+        ~ServerManager();
+        ServerManager(const ServerManager*) = delete;
+        ServerManager& operator = (const ServerManager&) = delete;
         WebServer server;
         NetworkManager* network;
         String received_ssid;
         String received_password;
         String received_url;
+        bool running;
 
         void handle_get();  
         void handle_getMac();
@@ -26,14 +27,15 @@ class Server{
         void handle_setStreamUrl();
         void handle_notFound();
     public:
-        static Server* getInstance();
+        static ServerManager* getInstance();
         bool start();
         bool stop();
         void handleClient();
-        bool wifiCredentialsReceived();
+        bool wlanCredentialsReceived();
         bool urlReceived();
         String getReceivedSsid();
         String getReceivedPassword();
         String getReceivedUrl();
+        bool isRunning();
 };
 #endif

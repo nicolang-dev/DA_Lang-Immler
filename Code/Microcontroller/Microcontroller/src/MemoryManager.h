@@ -17,22 +17,28 @@ class MemoryManager{
     public:
         static MemoryManager* getInstance();
 
-        bool isWifiSsidSet();
+        bool isWlanSsidSet();
 
-        bool isWifiPasswordSet();
+        bool isWlanPasswordSet();
 
         bool isStreamUrlSet();
 
-        String readWifiSsid();
+        bool areLogsSet();
 
-        String readWifiPassword();
+        String readWlanSsid();
+
+        String readWlanPassword();
 
         String readStreamUrl();
 
-        void writeWifiSsid(String ssid);
+        String readLogs();
 
-        void writeWifiPassword(String password);
+        void writeWlanSsid(String ssid);
+
+        void writeWlanPassword(String password);
 
         void writeStreamUrl(String url);
+
+        void writeLogs(String logs);
 };
 #endif

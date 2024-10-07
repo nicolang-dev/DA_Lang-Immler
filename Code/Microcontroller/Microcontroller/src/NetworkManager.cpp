@@ -83,13 +83,13 @@ bool NetworkManager::startClient(String ssid, String password){
     return false;
 }
 
+bool NetworkManager::isApModeActive(){
+    return WiFi.getMode() == WIFI_AP;
+}
+
 bool NetworkManager::isConnectedToWlan(){
-    if(!apModeActive){
+    if(!isApModeActive()){
         return WiFi.status() == WL_CONNECTED;
     }
     return false;
-}
-
-bool NetworkManager::apModeActive(){
-    return WiFi.getMode() == WIFI_AP;
 }
