@@ -31,6 +31,10 @@ const String PASSWORD_KEY = "password";
 const String URL_KEY = "wifi";
 const String LOGS_KEY = "logs";
 
+//I2S
+const int I2S_BITSPERSAMPLE = 16;
+const int I2S_SAMPLERATE = 44100;
+
 //other constants
 const unsigned long SERIAL_BAUDRATE = 9600;
 const int BUTTON_PRESS_SLEEP_TIME = 2000;

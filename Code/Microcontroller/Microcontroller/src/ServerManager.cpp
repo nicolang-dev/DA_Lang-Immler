@@ -21,14 +21,17 @@ ServerManager* ServerManager::getInstance(){
 void ServerManager::handle_get(){
     server.send(200, "text/plain", "get request received");
 }
+
 void ServerManager::handle_getMac(){
     String mac = network->getMac();
     server.send(200, "text/plain", mac);
 }
+
 void ServerManager::handle_getAvailableNetworks(){
     String availableNetworks = network->getAvailableNetworks();
     server.send(200, "text/plain", availableNetworks);
 }
+
 void ServerManager::handle_setWiFiCredentials(){
     if(server.hasArg("ssid") && server.hasArg("password")){
         received_ssid = server.arg("ssid");

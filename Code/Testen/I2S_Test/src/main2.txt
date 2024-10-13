@@ -1,0 +1,43 @@
+#include <Arduino.h>
+#include <WiFi.h>
+#include <WiFi.h>
+#include <HTTPClient.h>
+#include <I2S.h>
+
+#define I2S_BCLK 26
+#define I2S_LRC 25
+#define I2S_DOUT 22
+
+HTTPClient http;
+WiFiClient* stream;
+uint8_t buffer[1024];
+
+void setup() {
+  Serial.begin(9600);
+  WiFi.begin("AP-II", "MmrL48!?48y");
+  while(WiFi.status()!=WL_CONNECTED){
+    Serial.print(".");
+    delay(10);
+  }
+  Serial.println("connected!");
+  http.begin("http://st01.dlf.de/dlf/01/128/mp3/stream.mp3");
+  int code = http.GET();
+  Serial.println(code);
+  String url = http.getLocation();
+  http.end();
+  http.begin(url);
+  code = http.GET();
+  Serial.println(code);
+  stream = http.getStreamPtr();
+  bool success = I2S.begin(I2S_PHILIPS_MODE, 44100, 16) && I2S.setSckPin(I2S_BCLK) && I2S.setFsPin(I2S_LRC) && I2S.setDataOutPin(I2S_DOUT);
+  Serial.println(success);
+}
+
+void loop() {
+  if(stream->available()){{
+    stream->readBytes(buffer, 1024);
+    for(int i = 0; i < 1024; i++){
+      Serial.print(buffer[i]);
+    }
+  }}
+}

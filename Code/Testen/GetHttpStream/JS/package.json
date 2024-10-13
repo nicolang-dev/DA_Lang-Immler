@@ -13,5 +13,8 @@
     "mpg123-decoder": "^1.0.0",
     "speaker": "^0.5.5"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^22.7.5"
+  }
 }

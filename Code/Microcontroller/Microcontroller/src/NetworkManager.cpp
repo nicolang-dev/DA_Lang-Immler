@@ -55,7 +55,7 @@ bool NetworkManager::startAP(){
 }
 
 /**
- * starts a wifi client
+ * starts esp32 wlan client which connects to the access point with the given credentials
  */
 bool NetworkManager::startClient(String ssid, String password){
     if(WiFi.getMode() == WIFI_AP){ //if wifi is in ap mode, ap mode will be disabled and station mode will be enabled
