@@ -236,7 +236,7 @@ Die ArduinoJson-Bibliothek wird verwendet, um Daten in das JSON vormat zu kodier
 \textbf{WebServer} \\
 Die WebServer-Bibliothek wird verwendet, um einen Webserver auf dem ESP32 bereitzustellen. Dieser ist wichtig für den Datenaustausch mittels HTTP, zwischen ESP32 und Smartphone. Mithilfe des Webserver wird einerseits das WiFi-Passwort des gewählten WLANs, als auch die URL des Audiostreams an den ESP32 geleitet. In die andere Richtung, werden grundlegende WiFi-Informationen und verfügbare WiFi-Netzwerke vom ESP32 bereitgestellt. \\
 \textbf{Audio} \\
-Die Audio-Bibliothek wird verwendet, um die Audio-Daten mittels I2S-Protokoll an den Digital-Analog-Wandler zu senden und diesen zu konfigurieren. Der ESP32 verfügt bereits standartmäßig über Funktionen, mit deren Hilfe man Audiodaten mittels I2S übertragen kann. Allerdings bereitet dies einen viel höheren Aufwand für Konfiguration usw. Daher verwenden wir in unserem Projekt die Audio-Bibliothek.
+Die Audio-Bibliothek wird verwendet, um die MP3-kodierten Audio-Daten von einem HTTP-Stream zu empfangen, diese in PCM-Daten umzuwandeln und diese dann an den Digital-Analog-Wandler per I2S zu senden. Der ESP32 verfügt bereits standartmäßig über Funktionen, mit deren Hilfe man Audiodaten mittels I2S übertragen kann. Allerdings bereitet dies einen viel höheren Aufwand für Konfiguration usw. Daher verwenden wir in unserem Projekt die Audio-Bibliothek.
 \subsubsection{Softwaretools Smartphoneapp}
 Für die Entwicklung der Smartphoneapp wurde das "React Native"  - Framework verwendet. Mithilfe von React Native ist es möglich eine zentrale Applikation zu entwickeln und diese dann auf mehreren Plattformen wie IOS, Android und auch im Web zu verwenden. React Native basiert auf React, welches ein Framework für die Frontend-Entwicklung ist. Außerdem wird die Radio-Browser-API für die bereitstellung diverser Internetradios verwendet.
 
@@ -246,7 +246,7 @@ Für die Entwicklung der Smartphoneapp wurde das "React Native"  - Framework ver
 \subsection{Bestückung Platine}
 \subsection{Entwicklung Software Adapter}
 In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Software des Adapters beschrieben. 
-Zur Entwicklung der Software des Microcontrollers wird die IDE Visual Studio Code in Verbindung mit PlatformIO verwendet. Um die Entwicklung einfacher und übersichtlicher zu gestalten, wird die Arduino-Bibliothek in Verbindung mit C++ verwendet.
+Zur Entwicklung der Software des Microcontrollers wird die IDE Visual Studio Code in Verbindung mit PlatformIO verwendet. Um die Entwicklung einfacher und übersichtlicher zu gestalten, wird das Arduino-Framework in Verbindung mit C++ verwendet.
 \subsubsection{Programmablauf}
 Der Ablauf des Programmes wird mit folgendem UML-Ablaufdiagramm veranschaulicht: \newline \\
 \textbf{Start} \newline
@@ -265,13 +265,17 @@ hier kommt das UML-Klassendiagramm her
 Im folgenden Teil werden die Klassen und deren Funktionen noch näher beschrieben:
 \newline \\
 \textbf{StatusLED} \\
-Mithilfe der Klasse StatusLED wird die RGB-LED, welche am ESP32 angeschlossen ist, gesteuert. \\
+Mithilfe der Klasse StatusLED wird die RGB-LED, welche am ESP32 angeschlossen ist, gesteuert. Mit ihr wird z.B. angezeigt ob der Controller sich im Konfigurationsmodus befindet oder mit dem WLAN verbunden ist. \\
 \textbf{NetworkManager} \\
-Die Klasse NetworkManager kümmert sich um alle Funktionen, die mit dem WiFi des ESP32 zu tun haben. \\
+Die Klasse NetworkManager kümmert sich um alle Funktionen, die mit dem WiFi des ESP32 zu tun haben. Dazu gehören: Funktion als Access Point, Funktion als Client. \\
 \textbf{AudioManager} \\
-Die Klasse AudioManager regelt hauptsächlich das Senden der Audiodaten, vom ESP32 an den Digital-Analog Wandler, mittels I2S-Protokoll. \\
-\textbf{Log} \\
-Die Klasse Log beinhaltet ein Json Dokument in dieses Logs geschrieben werden können. Dies können Status-Logs oder auch Fehler-Logs sein.
+Die Klasse AudioManager ist für das Empfangen des Internet-Audio-Streams und in weiterer Folge für das Senden der empfangenen Audiodaten an den Digital-Analog-Wandler zuständig.\\
+\textbf{Logger} \\
+Die Klasse Logger ist zuständig, für das Speichern von Logs, welche von anderen Klassen geschrieben werden. \\
+\textbf{Server}
+Die Klasse Server ist für das managen des Webservers, welcher auf dem Microcontroller läuft, zustängig. In ihr werden unter anderem die verfügbaren Routen der REST-API definiert. \\
+\textbf{MemoryManager}
+Die Klasse MemoryManager ist für das Schreiben in und das Lesen vom EEPROMs des Microcontrollers zuständig.
 \subsection{Entwicklung Smartphone-App}
 In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Smartphone-App beschrieben. 
 \subsection{Design Adaptergehäuse}
