@@ -15,11 +15,20 @@ bool AudioManager::initialize(int volume){
 }
 
 bool AudioManager::startStream(String url){
-    audio.connecttohost(url.c_str());
+    if(audio.connecttohost(url.c_str())){
+        streaming = true;
+        return true;
+    }
+    return false;
 }
 
+bool AudioManager::stopStream(){
+    streaming = false;
+    return true;
+} 
+
 bool AudioManager::isStreaming(){
-    return audio.isRunning();
+    return streaming;
 }
 
 void AudioManager::loop(){

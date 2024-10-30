@@ -9,6 +9,7 @@ class AudioManager{
     private:
         static AudioManager* instance;
         Audio audio;
+        bool streaming;
 
     public:
         static AudioManager* getInstance();

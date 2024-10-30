@@ -10,10 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "buffer": "^6.0.3",
+    "fs": "^0.0.1-security",
     "mpg123-decoder": "^1.0.0",
     "speaker": "^0.5.5"
   },
-  "type": "module",
   "devDependencies": {
     "@types/node": "^22.7.5"
   }

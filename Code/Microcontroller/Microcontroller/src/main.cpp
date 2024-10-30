@@ -79,14 +79,16 @@ void loop(){
     //if webserver is running, it should handle clients
     if(server->isRunning()){
         server->handleClient();
-        if(server->urlReceived()){
+        //if audio class is not receiving an audio stream and server has received a stream-url, the audio class should start streaming
+        if(!audio->isStreaming() && server->urlReceived()){
             String url = server->getReceivedUrl();
-            Serial.println("stream url received");
+            Serial.println("starting audio stream");
             Serial.println(url);
             audio->startStream(url);
         }
     }
-
+    
+    //if audio class receives audio stream
     if(audio->isStreaming()){
         audio->loop();
     }
