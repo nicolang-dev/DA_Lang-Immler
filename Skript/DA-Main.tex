@@ -238,7 +238,20 @@ Die WebServer-Bibliothek wird verwendet, um einen Webserver auf dem ESP32 bereit
 \textbf{Audio} \\
 Die Audio-Bibliothek wird verwendet, um die MP3-kodierten Audio-Daten von einem HTTP-Stream zu empfangen, diese in PCM-Daten umzuwandeln und diese dann an den Digital-Analog-Wandler per I2S zu senden. Der ESP32 verfügt bereits standartmäßig über Funktionen, mit deren Hilfe man Audiodaten mittels I2S übertragen kann. Allerdings bereitet dies einen viel höheren Aufwand für Konfiguration usw. Daher verwenden wir in unserem Projekt die Audio-Bibliothek.
 \subsubsection{Softwaretools Smartphoneapp}
-Für die Entwicklung der Smartphoneapp wurde das "React Native"  - Framework verwendet. Mithilfe von React Native ist es möglich eine zentrale Applikation zu entwickeln und diese dann auf mehreren Plattformen wie IOS, Android und auch im Web zu verwenden. React Native basiert auf React, welches ein Framework für die Frontend-Entwicklung ist. Außerdem wird die Radio-Browser-API für die bereitstellung diverser Internetradios verwendet.
+Die Smartphoneapp wurde mit "React Native" entwickelt. Mithilfe von React Native ist es möglich eine zentrale Applikation zu entwickeln und diese dann auf mehreren Plattformen wie IOS, Android und auch im Web zu verwenden. React Native basiert auf React, welches ein Framework für die Frontend-Entwicklung von Web-Applikationen ist. Außerdem wird die Radio-Browser-API für die Bereitstellung diverser Internetradios verwendet. \\
+
+\textbf{React Native} \\
+React Native ist ein Framework, welches plattformübergreifende Entwicklung ermöglicht. Das heißt, man schreibt einen Code und kann diesen dann für IOS, Anrdoid und fürs Web verwenden. Der Code wird in JavaScript geschrieben. React Native wurde erstmals 2015 von Meta (damals noch Facebook) als Open-Source-Projekt veröffentlicht. Seither wird es weiterhin von Meta instandgehalten und hat eine riesige Community, welche ständig neue Bibliotheken für das Framewok veröffentlicht. React Native basiert auf React, welches man bereits aus der Webentwicklung kennt. Der Vorteil von React im Gegensatz zur normalen Webentwicklung ist, dass man wiederverwendbare Komponenten bauen kann. Dies ist auch mit React Native möglich. In React Native stehen dabei einige Standardkomponenten zur Verfügung, welche dann jeweils in native Komponenten, passend für das jeweilige Betriebssystem, gerendert werden. 
+Wir haben React Native für unsere Smartphoneapp verwendet, weil wir nicht für jede Plattform eigenen Code schreiben wollten. Außerdem haben wir auch schon etwas Erfahrung mit JavaScript und React, was uns den Einstieg erleichterte.
+(vgl. URLPI07)
+
+\textbf{Expo} \\
+Um das Entwickeln der Smartphoneapp noch einfacher bzw. effizienter zu gestalten, wurde das Expo Framework verwendet. Dieses Framework stellt schon einige wichtige Funktionen zur Verfügung und stellt außerdem schon eine Projektstruktur bereit. Zu den großen Vorteilen zählen:
+\begin{itemize}
+\item File-basiertes Routing
+\item Bereitstellung einer Standardbibliothek  für native Module
+\end{itemize}
+(vgl. URLPI08)
 
 
 \section{Entwicklung}
@@ -246,7 +259,8 @@ Für die Entwicklung der Smartphoneapp wurde das "React Native"  - Framework ver
 \subsection{Bestückung Platine}
 \subsection{Entwicklung Software Adapter}
 In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Software des Adapters beschrieben. 
-Zur Entwicklung der Software des Microcontrollers wird die IDE Visual Studio Code in Verbindung mit PlatformIO verwendet. Um die Entwicklung einfacher und übersichtlicher zu gestalten, wird das Arduino-Framework in Verbindung mit C++ verwendet.
+Zur Entwicklung der Software des Microcontrollers wurde die IDE Visual Studio Code in Verbindung mit dem Framwork PlatformIO verwendet. Um die Entwicklung in C++ zu ermöglichen und vorgefertigte Bibliotheken zu verwenden, wurde das Arduino-Framework verwendet.
+
 \subsubsection{Programmablauf}
 Der Ablauf des Programmes wird mit folgendem UML-Ablaufdiagramm veranschaulicht: \newline \\
 \textbf{Start} \newline
@@ -277,7 +291,15 @@ Die Klasse Server ist für das managen des Webservers, welcher auf dem Microcont
 \textbf{MemoryManager}
 Die Klasse MemoryManager ist für das Schreiben in und das Lesen vom EEPROMs des Microcontrollers zuständig.
 \subsection{Entwicklung Smartphone-App}
-In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Smartphone-App beschrieben. 
+In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Smartphone-App beschrieben. Die verwendeten Tools wurden schon genauer im Kapitel ... beschrieben.
+\subsubsection{Funktionalität}
+Es wurde festgelegt, dass die Smartphoneapp folgende Funktionen bereitstellen soll: \\
+\textbf{Konfiguration der Adapter}  \\
+Verbindung mit Adapter herstellen und WLAN-Daten an diesen senden. \\
+\textbf{Verwaltung der Adapter} \\
+Mehrere Adapter abspeichern und bestimmen, welcher Adapter welchen Stream erhalten soll. \\
+\textbf{Suche nach Audio-Streams} \\
+Die Suche nach URLs von Audiostreams, mithilfe externer APIs, ermöglichen.
 \subsection{Design Adaptergehäuse}
 Das Adaptergehäuse mag vorerst nebensächlich erscheinen, jedoch trägt es einen wesentlichen Teil zur Sicherheit des Endverbrauchers sowie zur optimalen Funktionalität der Komponenten bei. Man darf die finale Größe des Gesamtsystems auch nicht außer Acht lassen. Der Adapter soll schließlich nicht riesengroß werden. 
 \subsubsection{Grundsätzlicher Aufbau}

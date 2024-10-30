@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.4)  13 OCT 2024 19:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.4)  30 OCT 2024 20:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -474,12 +474,13 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 \tf@toc=\write4
 \openout4 = `DA-Main.toc'.
 
+ [6]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 9
 6.
 
 (C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [6]
+) [7]
 Underfull \hbox (badness 10000) in paragraph at lines 106--119
 
  []
@@ -511,7 +512,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 106--119
 
  []
 
-[7]
+
 Underfull \hbox (badness 10000) in paragraph at lines 134--136
 
  []
@@ -560,12 +561,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 192--195
 
  []
 
-
+[11]
 Underfull \hbox (badness 10000) in paragraph at lines 198--202
 
  []
 
-[11]
+
 Overfull \hbox (76.04161pt too wide) in paragraph at lines 207--210
 \T1/lmr/m/n/10 wählt den Ste-reo-ka-nal aus (links oder rechts). (vgl. htt-ps:/
 /www.mikrocontroller.net/articles/I2S) 
@@ -601,68 +602,66 @@ Overfull \hbox (5.67361pt too wide) in paragraph at lines 228--240
 n-de WiFi-Informationen
  []
 
-[13] [14]
-Underfull \hbox (badness 10000) in paragraph at lines 251--262
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 241--242
+
+ []
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 265--276
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 251--262
+Underfull \hbox (badness 10000) in paragraph at lines 265--276
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 251--262
+Underfull \hbox (badness 10000) in paragraph at lines 265--276
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 251--262
+Underfull \hbox (badness 10000) in paragraph at lines 265--276
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 251--262
+Underfull \hbox (badness 10000) in paragraph at lines 265--276
 
  []
 
 [15]
-Overfull \hbox (16.6455pt too wide) in paragraph at lines 263--279
+Overfull \hbox (16.6455pt too wide) in paragraph at lines 277--293
 \T1/lmr/m/n/10 auf ob-jek-t-ori-en-tier-te Pro-gram-mie-rung ge-setzt. Das fol-
 gen-de UML-Klassendiagramm
  []
 
 
-Overfull \hbox (1.3365pt too wide) in paragraph at lines 263--279
+Overfull \hbox (1.3365pt too wide) in paragraph at lines 277--293
 \T1/lmr/m/n/10 ver-an-schau-licht die Be-zie-hung der ver-schie-de-nen Klas-sen
  zu-ein-an-der: hier kommt
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 263--279
+Underfull \hbox (badness 10000) in paragraph at lines 277--293
 
  []
 
-[16] [17] [18] (DA-Main.aux)
+[16] [17] [18] [19] (DA-Main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-
-
-Package rerunfilecheck Warning: File `DA-Main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `DA-Main.out':
-(rerunfilecheck)             Before: E9ACBC5C78BB06C47A0D3598D4CF1AD3;7087
-(rerunfilecheck)             After:  04E7B7ED1A3C83D3F28C71CC79E18F5F;7043.
+Package rerunfilecheck Info: File `DA-Main.out' has not changed.
+(rerunfilecheck)             Checksum: 6B537ED5AAA4063E892C63AFFD0A588E;7179.
  ) 
 Here is how much of TeX's memory you used:
- 10855 strings out of 474486
- 172627 string characters out of 5743756
+ 10858 strings out of 474486
+ 172674 string characters out of 5743756
  1936542 words of memory out of 5000000
- 32911 multiletter control sequences out of 15000+600000
+ 32912 multiletter control sequences out of 15000+600000
  605319 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,8n,79p,1038b,614s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -672,9 +671,9 @@ b><C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb
 ><C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb>
 <C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
 
-Output written on DA-Main.pdf (18 pages, 227455 bytes).
+Output written on DA-Main.pdf (19 pages, 230922 bytes).
 PDF statistics:
- 356 PDF objects out of 1000 (max. 8388607)
- 64 named destinations out of 1000 (max. 500000)
- 353 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 366 PDF objects out of 1000 (max. 8388607)
+ 66 named destinations out of 1000 (max. 500000)
+ 361 words of extra memory for PDF output out of 10000 (max. 10000000)
 
