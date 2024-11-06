@@ -15,6 +15,7 @@ unsigned long actual_time = 0;
 unsigned long last_wlan_request_time = 0;
 unsigned long last_log_size = 0;
 String last_log = "";
+String name = DEFAULT_NAME;
 
 NetworkManager* network;
 StatusLED* statusLED;
@@ -49,6 +50,10 @@ void setup(){
         std::vector<String> logs = Logger::getLogsFromString(logs_str);
         Logger::setLogs(logs);
     }*/
+
+    if(memory->isNameSet()){
+        name = memory->readName();
+    }
 
     //if WLAN-credentials are set, read them and try to connect to WLAN
     if(memory->isWlanSsidSet() && memory->isWlanPasswordSet()){
@@ -115,6 +120,7 @@ void loop(){
             Serial.println("server not running");
             Serial.println("starting web server");
             server->start();
+            network->setmDns(name);
         }
         //check if still connected to Wlan
         if((actual_time - last_wlan_request_time) >= WLAN_REQUEST_PERIOD){

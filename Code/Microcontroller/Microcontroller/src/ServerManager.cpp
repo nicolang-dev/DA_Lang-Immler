@@ -6,6 +6,7 @@ ServerManager::ServerManager(){
     received_ssid = "";
     received_password = "";
     received_url = "";
+    received_name = "";
     network = NetworkManager::getInstance();
     running = false;
 }
@@ -43,6 +44,13 @@ void ServerManager::handle_setWiFiCredentials(){
 void ServerManager::handle_setStreamUrl(){
     if(server.hasArg("url")){
         received_url = server.arg("url");
+        server.send(200);
+    }
+}
+
+void ServerManager::handle_setName(){
+    if(server.hasArg("name")){
+        received_name = server.arg("name");
         server.send(200);
     }
 }

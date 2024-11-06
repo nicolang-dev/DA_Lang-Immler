@@ -23,13 +23,13 @@ const IPAddress AP_SUBNET_IP(255,255,255,0);
 const String AP_SSID = "Microcontroller";
 
 //memory
-const String WLAN_NS = "wifi";
-const String URL_NS = "url";
-const String LOGS_NS = "logs";
+const String MEMORY_NAMESPACE = "variables";
+
 const String SSID_KEY = "ssid";
 const String PASSWORD_KEY = "password";
 const String URL_KEY = "wifi";
 const String LOGS_KEY = "logs";
+const String NAME_KEY = "name";
 
 //I2S
 const int I2S_BITSPERSAMPLE = 16;
@@ -42,4 +42,5 @@ const unsigned long WLAN_REQUEST_PERIOD = 10000;
 const int AUDIO_VOLUME = 10; //0-21
 const unsigned long MAX_CONNECTION_TIME = 5000;
 const int SERVER_PORT = 80;
+const String DEFAULT_NAME = "Multiroom_Sound_Adapter";
 #endif

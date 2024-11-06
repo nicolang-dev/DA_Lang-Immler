@@ -39,6 +39,13 @@ class MemoryManager{
         bool isStreamUrlSet();
 
         /**
+         * returns, if the name is set to the memory
+         * 
+         * @return if name of the microcontroller is set to the memory
+         */
+        bool isNameSet();
+
+        /**
          * returns, if the last logs are set to the memory
          * 
          * @return if Last logs are set to the memory
@@ -70,6 +77,13 @@ class MemoryManager{
         String readLogs();
 
         /**
+         * reads the name from the memory
+         * 
+         * @return name of the microcontroller, as a String
+         */
+        String readName();
+
+        /**
          * writes the given ssid to the memory
          * 
          * @param ssid WLAN-SSID which should be written to the memory
@@ -96,5 +110,17 @@ class MemoryManager{
          * @param logs Logs which should be written to the memory
          */
         void writeLogs(String logs);
+
+        /**
+         * writes the given name to the memory
+         * 
+         * @param name Name of the microcontroller, as a String
+         */
+        void writeName(String name);
+
+        /**
+         * clears the memory
+         */
+        void clear();
 };
 #endif

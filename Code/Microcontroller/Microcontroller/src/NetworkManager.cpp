@@ -93,3 +93,7 @@ bool NetworkManager::isConnectedToWlan(){
     }
     return false;
 }
+
+bool NetworkManager::setmDns(String name){
+    return MDNS.begin(name);
+}

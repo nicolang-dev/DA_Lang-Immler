@@ -8,6 +8,7 @@
 #include <ArduinoJson.h>
 #include "MemoryManager.h"
 #include "Logger.h"
+#include <ESPmDNS.h>
 
 //using namespace std for String an vectors
 using namespace std;
@@ -72,5 +73,10 @@ class NetworkManager{
          * @return connected to WLAN, as a bool
          */
         bool isConnectedToWlan();
+
+        /**
+         * ...
+         */
+        bool setmDns(String name);
 };
 #endif

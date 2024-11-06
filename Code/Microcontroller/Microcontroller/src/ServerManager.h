@@ -18,6 +18,7 @@ class ServerManager{
         String received_ssid;
         String received_password;
         String received_url;
+        String received_name;
         bool running;
 
         /**
@@ -41,9 +42,14 @@ class ServerManager{
         void handle_setWiFiCredentials();
 
         /**
-         * hanles a post request to the /setStreamUrl route
+         * handles a post request to the /setStreamUrl route
          */
         void handle_setStreamUrl();
+
+        /**
+         * handles a post request to the /setName route
+         */
+        void handle_setName();
 
         /**
          * handles a request to a undefined route
@@ -82,6 +88,12 @@ class ServerManager{
         bool urlReceived();
 
         /**
+         * handles if the name is received from the client
+         * @return if webserver received name of microcontroller from client
+         */
+        bool nameReceived();
+
+        /**
          * returns the ssid, which was received from the client
          * @return WLAN-SSID, which the webserver received from the client, as a String
          */
@@ -98,6 +110,13 @@ class ServerManager{
          * @return Stream-URL, which the webserver received from the client, as a String
          */
         String getReceivedUrl();
+
+         /**
+         * returns the name, which was received from the client
+         * @return name of the microcontroller, which the webserver received from the client, as a String
+         */
+        String getReceivedName();
+
 
         /**
          * returns if the webserver is running
