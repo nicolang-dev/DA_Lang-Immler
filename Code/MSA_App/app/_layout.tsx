@@ -6,6 +6,7 @@ export default function RootLayout() {
       <Stack.Screen name="index" />
       <Stack.Screen name="configuration" />
       <Stack.Screen name="radiosearch" />
+      <Stack.Screen name="adapters" />
     </Stack>
   );
 }

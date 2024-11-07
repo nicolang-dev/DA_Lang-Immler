@@ -2,10 +2,33 @@ import { Text, View, TextInput, FlatList, SafeAreaView, FlatListComponent, Press
 import { useState, useEffect } from "react";
 import { useSafeAreaFrame } from "react-native-safe-area-context";
 import WifiItem from "./components/WifiItem";
+import axios from "axios";
 export default function Configuration() {
     const [wifiList, setWiFiList] = useState(Array());
     const [selectedSsid, setSelectedSsid] = useState("");
     const [wifiPassword, setWifiPassword] = useState("");
+
+    function getWlanList(hostname: string){
+        const route = hostname + "/getSsids";
+        axios.request({
+            method: 'get',
+            url: route
+        }).then(resp => {
+            return resp.data;
+        }).catch(err => {
+            console.error(err);
+        })
+    }
+
+    function sendWlanData(hostname: string, ssid: string, password: string){
+        const url = hostname + "/setWifiData";
+        axios.post(url, {
+            "ssid": ssid,
+            "password": password
+        }).catch(err => {
+            console.error(err);
+        })
+    }
 
     useEffect(()=>{
         const exampleList = [

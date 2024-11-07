@@ -17,6 +17,7 @@ export default function Index() {
     >
       <Link href={"/radiosearch"}>Go to radio search</Link>
       <Link href={"/configuration"}>Go to configuration</Link>
+      <Link href={"/adapters"}>Go to adapters</Link>
     </View>
   );
 }
