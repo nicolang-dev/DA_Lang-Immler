@@ -5,6 +5,7 @@
 #include <WebServer.h>
 #include "constants.h"
 #include "NetworkManager.h"
+#include "BatteryManager.h"
 
 class ServerManager{
     private:
@@ -15,6 +16,7 @@ class ServerManager{
         ServerManager& operator = (const ServerManager&) = delete;
         WebServer server;
         NetworkManager* network;
+        BatteryManager* battery;
         String received_ssid;
         String received_password;
         String received_url;
@@ -35,6 +37,11 @@ class ServerManager{
          * handles a get request to the /getAvailableNetworks route
          */
         void handle_getAvailableNetworks();
+
+        /**
+         * handles a get request to the /getBatteryStatus route
+         */
+        void handle_getBatteryStatus();
         
         /**
          * handles a post request to the /setWiFiCredentials route

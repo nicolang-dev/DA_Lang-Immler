@@ -16,3 +16,19 @@ BatteryManager* BatteryManager::getInstance(){
     }
     return instance;
 }
+
+/**
+ * initializes the needed pins
+ */
+void BatteryManager::initializePins(){
+    // ...
+}
+
+/**
+ * returns the charging status of the battery
+ * 
+ * @return charging status of the battery, in percent (0 - 100), as a String
+ */
+int BatteryManager::getBatteryStatus(){
+    return 100; //default
+}

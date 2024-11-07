@@ -8,6 +8,7 @@ ServerManager::ServerManager(){
     received_url = "";
     received_name = "";
     network = NetworkManager::getInstance();
+    battery = BatteryManager::getInstance();
     running = false;
 }
 ServerManager::~ServerManager(){}
@@ -31,6 +32,11 @@ void ServerManager::handle_getMac(){
 void ServerManager::handle_getAvailableNetworks(){
     String availableNetworks = network->getAvailableNetworks();
     server.send(200, "text/plain", availableNetworks);
+}
+
+void ServerManager::handle_getBatteryStatus(){
+    String batteryStatus = String(battery->getBatteryStatus());
+    server.send(200, "text/plain", batteryStatus);
 }
 
 void ServerManager::handle_setWiFiCredentials(){
@@ -63,6 +69,7 @@ bool ServerManager::start(){
     server.on("/", HTTP_GET, bind(&ServerManager::handle_get, this));
     server.on("/getMac", HTTP_GET, bind(&ServerManager::handle_getMac, this));
     server.on("/getAvailableNetworks", HTTP_GET, bind(&ServerManager::handle_getAvailableNetworks, this));
+    server.on("/getBatteryStatus", HTTP_GET, bind(&ServerManager::handle_getBatteryStatus, this));
     server.on("/setWiFiCredentials", HTTP_POST, bind(&ServerManager::handle_setWiFiCredentials, this));
     server.on("/setStreamUrl", HTTP_POST, bind(&ServerManager::handle_setStreamUrl, this));
     server.onNotFound(bind(&ServerManager::handle_notFound, this));

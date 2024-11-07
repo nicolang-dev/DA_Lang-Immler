@@ -16,5 +16,7 @@ class BatteryManager{
 
     public:
         static BatteryManager* getInstance();
+        void initializePins();
+        int getBatteryStatus();
 };
 #endif
