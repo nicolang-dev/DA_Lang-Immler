@@ -66,6 +66,7 @@ void ServerManager::handle_notFound(){
 }
 
 bool ServerManager::start(){
+    server.begin(SERVER_PORT);
     server.on("/", HTTP_GET, bind(&ServerManager::handle_get, this));
     server.on("/getMac", HTTP_GET, bind(&ServerManager::handle_getMac, this));
     server.on("/getAvailableNetworks", HTTP_GET, bind(&ServerManager::handle_getAvailableNetworks, this));
@@ -73,7 +74,6 @@ bool ServerManager::start(){
     server.on("/setWiFiCredentials", HTTP_POST, bind(&ServerManager::handle_setWiFiCredentials, this));
     server.on("/setStreamUrl", HTTP_POST, bind(&ServerManager::handle_setStreamUrl, this));
     server.onNotFound(bind(&ServerManager::handle_notFound, this));
-    server.begin(SERVER_PORT);
     running = true;
     return true;
 }

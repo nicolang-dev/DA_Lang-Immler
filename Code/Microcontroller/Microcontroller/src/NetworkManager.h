@@ -9,6 +9,7 @@
 #include "MemoryManager.h"
 #include "Logger.h"
 #include <ESPmDNS.h>
+#include <HTTPClient.h>
 
 //using namespace std for String an vectors
 using namespace std;
@@ -25,6 +26,8 @@ class NetworkManager{
         ~NetworkManager();
         NetworkManager(const NetworkManager*) = delete;
         NetworkManager& operator = (const NetworkManager&) = delete;
+        bool ap_started;
+        HTTPClient http;
 
     public:
         static NetworkManager* getInstance();
@@ -78,5 +81,17 @@ class NetworkManager{
          * ...
          */
         bool setmDns(String name);
+
+        /**
+         * returns if ap is started
+         * 
+         * @return ap started, as a bool
+         */
+        bool isApStarted();
+
+        /**
+         * returns the current utc time, requested from a time server, as a String
+         */
+        String getUtcTime();
 };
 #endif

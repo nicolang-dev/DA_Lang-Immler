@@ -7,9 +7,9 @@
 #include "Logger.h"
 #include "ServerManager.h"
 #include "AudioManager.h"
+#include "Mode.h"
 
-bool config_mode = false;
-bool error_mode = false;
+Mode mode = NORMAL;
 unsigned long actual_time = 0;
 unsigned long last_wlan_request_time = 0;
 unsigned long last_log_size = 0;
@@ -25,10 +25,7 @@ BatteryManager* battery;
 
 //void IRAM_ATTR handle_buttonPress();
 
-void startConfigMode();
-void stopConfigMode();
-void startErrorMode();
-void stopErrorMode();
+void setMode(Mode m);
 
 void setup(){
     //set serial baudrate
@@ -60,100 +57,114 @@ void setup(){
         Logger::setLogs(logs);
     }*/
 
+    //turn status led off at the beginning
+    statusLED->setOff();
+
     //if name is set in memory, use name
     if(memory->isNameSet()){
         name = memory->readName();
     } else {
-        Serial.println("name not set in memory - using default name");
+        Logger::add("name not set in memory - using default name", actual_time);
     }
 
     //if WLAN-credentials are set, read them and try to connect to WLAN
     if(memory->isWlanSsidSet() && memory->isWlanPasswordSet()){
-        Serial.println("wlan credentials set in memory");
+        Logger::add("wlan credentials set in memory", actual_time);
         String wlan_ssid = memory->readWlanSsid();
         String wlan_password = memory->readWlanPassword();
-        Serial.println("wlan credentials:");
-        Serial.println(wlan_ssid);
-        Serial.println(wlan_password);
-        Serial.println("starting wlan client");
+        Logger::add("wlan credentials:", actual_time);
+        Logger::add(wlan_ssid, actual_time);
+        Logger::add(wlan_password, actual_time);
+        Logger::add("starting wlan client", actual_time);
         network->startClient(wlan_ssid, wlan_password);
-        statusLED->setGreen();
+        setMode(NORMAL);
     } else { //when Wlan credentials are not set, status led is set to red
-        Serial.println("wlan credentials not set in memory");
-        startErrorMode();
+        Logger::add("wlan credentials not set in memory", actual_time);
+        setMode(ERROR);
     }
 }
 
 void loop(){
     actual_time = millis();
     //if button is pressed and config mode is not already active, activate config mode
-    if((digitalRead(BUTTON_PIN) == 1) && !config_mode){
-        startConfigMode();
+    if((digitalRead(BUTTON_PIN) == 1) && (mode != CONFIG)){
+        setMode(CONFIG);
     }
 
     //if theres a new log entry, print it on the serial monitor
     /*if(Logger::getLogSize() > last_log_size){
         String last_log = Logger::getLastLog();
-        Serial.println(last_log);
+        Logger::add(last_log);
         last_log_size = Logger::getLogSize();
     }*/
 
-    //if error mode is not active
-    if(!error_mode){
-        //if webserver is not running, start webserver and set mDNS
-        if(!server->isRunning()){
-            Serial.println("server not running");
-            Serial.println("starting web server");
+    //if error mode or config mode is active
+    if(mode == NORMAL){
+        //check if still connected to Wlan
+        if((actual_time - last_wlan_request_time) >= WLAN_REQUEST_PERIOD){
+            if(!network->isConnectedToWlan()){ //if connected to Wlan, set color of status led to green
+                Logger::add("not connected to wlan", actual_time);
+                setMode(ERROR);
+            } else if(!server->isRunning()){
+                Logger::add("starting web server", actual_time);
+            server->start();
+            network->setmDns(name);
+            }
+        }
+         if(audio->isStreaming()){
+            audio->loop();
+        }
+    } else if(mode == CONFIG){
+        if(!network->isApStarted()){
+            Logger::add("starting ap", actual_time);
+            network->startAP();
+        } else if(!server->isRunning()){
+            Logger::add("starting web server", actual_time);
             server->start();
             network->setmDns(name);
         }
-        //if webserver is running, it should handle clients
-        if(server->isRunning()){
-            server->handleClient();
-            //if audio class is not receiving an audio stream and server has received a stream-url, the audio class should start streaming
-            if(!audio->isStreaming() && server->urlReceived()){
-                String url = server->getReceivedUrl();
-                Serial.println("starting audio stream");
-                Serial.println(url);
-                audio->startStream(url);
-            }
-        }
     }
-    //if error mode is not active and config mode is not active
-    if(!error_mode && !config_mode){
-        //if audio class receives audio stream
-        if(audio->isStreaming()){
-            audio->loop();
-        }
-    }
-
-    //if config mode is active, but error mode is not active check if webserver has received Wlan credentials
-    //if Wlan credentials are received, read Wlan credentials and restart microcontroller
-    if(config_mode){
-        if(server->isRunning() && server->wlanCredentialsReceived()){
-            Serial.println("wlan credentials received from client");
-            String received_ssid = server->getReceivedSsid();
-            String received_password = server->getReceivedPassword();
-            Serial.println(received_ssid);
-            Serial.println(received_password);
-            Serial.println("writing wlan credentials to memory");
+    //if webserver is running
+    if(server->isRunning()){
+        server->handleClient(); //handle client
+        //if Wlan credentials are received, read Wlan credentials and restart microcontroller
+        if(server->wlanCredentialsReceived()){
+            Logger::add("wlan credentials received from client", actual_time);
+            String received_ssid = server->getReceivedSsid(); //read received ssid
+            String received_password = server->getReceivedPassword(); //read received password
+            Logger::add(received_ssid, actual_time);
+            Logger::add(received_password, actual_time);
+            Logger::add("writing wlan credentials to memory", actual_time);
             //String all_logs = Logger::getLogsAsString();
-            memory->writeWlanSsid(received_ssid);
-            memory->writeWlanPassword(received_password);
+            memory->writeWlanSsid(received_ssid); //write ssid to memory
+            memory->writeWlanPassword(received_password); //write password to memory
             //memory->writeLogs(all_logs);
-            Serial.println("restarting esp32");
-            ESP.restart();
+            Logger::add("restarting esp32", actual_time);
+            ESP.restart(); //restart microcontroller
         }
-    } else if(!error_mode) { //if config mode is not active and error mode is not active, check if access point and webserver is started and check if connected to wlan
-        //check if still connected to Wlan
-        if((actual_time - last_wlan_request_time) >= WLAN_REQUEST_PERIOD){
-            if(network->isConnectedToWlan()){ //if connected to Wlan, set color of status led to green
-                statusLED->setGreen();
-            } else { //if not connected to wlan, set color of status led to red
-                Serial.println("not connected to wlan");
-                Serial.println("reconnecting to wlan");
-            }
+        //if server has received a stream-url, the audio class should start streaming
+        if(server->urlReceived()){
+            String url = server->getReceivedUrl();
+            Logger::add("starting audio stream", actual_time);
+            Logger::add(url, actual_time);
+            audio->startStream(url);
         }
+    }   
+}
+
+void setMode(Mode m){
+    if(m == NORMAL){
+        Logger::add("setting mode to normal", actual_time);
+        mode = NORMAL;
+        statusLED->setGreen();
+    } else if(m == ERROR){
+        Logger::add("setting mode to error", actual_time);
+        mode = ERROR;
+        statusLED->setRed();
+    } else if(m == CONFIG){
+        Logger::add("setting mode to config", actual_time);
+        mode = CONFIG;
+        statusLED->setBlue();
     }
 }
 
@@ -164,34 +175,3 @@ void loop(){
 /**
  * starts config mode
  */
-void startConfigMode(){
-    Serial.println("starting config mode");
-    config_mode = true;
-    network->startAP();
-    statusLED->setBlue();
-}
-
-/**
- * stops config mode
- */
-void stopConfigMode(){
-    Serial.println("stopping config mode");
-    config_mode = false;
-}
-
-/**
- * starts error mode
- */
-void startErrorMode(){
-    Serial.println("starting error mode");
-    error_mode = true;
-    statusLED->setRed();
-}
-
-/**
- * stops error mode
- */
-void stopErrorMode(){
-    Serial.println("stopping error mode");
-    error_mode = false;
-}

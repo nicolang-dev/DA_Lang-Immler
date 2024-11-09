@@ -43,4 +43,5 @@ const int AUDIO_VOLUME = 10; //0-21
 const unsigned long MAX_CONNECTION_TIME = 5000;
 const int SERVER_PORT = 80;
 const String DEFAULT_NAME = "Multiroom_Sound_Adapter";
+const String TIME_URL = "http://worldtimeapi.org/api/ip";
 #endif

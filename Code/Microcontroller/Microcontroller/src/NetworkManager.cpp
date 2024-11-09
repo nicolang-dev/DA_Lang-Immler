@@ -9,6 +9,7 @@ NetworkManager* NetworkManager::instance = nullptr;
  * declares the needed variables
  */
 NetworkManager::NetworkManager(){
+    ap_started = false;
     //Log::add("network manager class created");
 }
 
@@ -51,6 +52,7 @@ bool NetworkManager::startAP(){
     if(WiFi.getMode() != WIFI_AP){
         WiFi.mode(WIFI_AP);
     }
+    ap_started = true;
     return WiFi.softAPConfig(AP_LOCAL_IP, AP_GATEWAY_IP, AP_SUBNET_IP) && WiFi.softAP(AP_SSID);
 }
 
@@ -96,4 +98,17 @@ bool NetworkManager::isConnectedToWlan(){
 
 bool NetworkManager::setmDns(String name){
     return MDNS.begin(name);
+}
+
+bool NetworkManager::isApStarted(){
+    return ap_started;
+}
+
+String NetworkManager::getUtcTime(){
+    http.begin(TIME_URL);
+    int code = http.GET();
+    if(code == 200){
+        String time_str = http.getString();
+    }
+    return "test";
 }
