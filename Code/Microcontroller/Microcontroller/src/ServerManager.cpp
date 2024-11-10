@@ -7,6 +7,7 @@ ServerManager::ServerManager(){
     received_password = "";
     received_url = "";
     received_name = "";
+    received_volume = -1;
     network = NetworkManager::getInstance();
     battery = BatteryManager::getInstance();
     running = false;
@@ -37,6 +38,11 @@ void ServerManager::handle_getAvailableNetworks(){
 void ServerManager::handle_getBatteryStatus(){
     String batteryStatus = String(battery->getBatteryStatus());
     server.send(200, "text/plain", batteryStatus);
+}
+
+void ServerManager::handle_getLogs(){
+    String logs = Logger::getLogsAsJSON();
+    server.send(200, "text/plain", logs);
 }
 
 void ServerManager::handle_setWiFiCredentials(){
@@ -78,8 +84,11 @@ bool ServerManager::start(){
     server.on("/getMac", HTTP_GET, bind(&ServerManager::handle_getMac, this));
     server.on("/getAvailableNetworks", HTTP_GET, bind(&ServerManager::handle_getAvailableNetworks, this));
     server.on("/getBatteryStatus", HTTP_GET, bind(&ServerManager::handle_getBatteryStatus, this));
+    server.on("/getLogs", HTTP_GET, bind(&ServerManager::handle_getLogs, this));
     server.on("/setWiFiCredentials", HTTP_POST, bind(&ServerManager::handle_setWiFiCredentials, this));
     server.on("/setStreamUrl", HTTP_POST, bind(&ServerManager::handle_setStreamUrl, this));
+    server.on("/setName", HTTP_POST, bind(&ServerManager::handle_setName, this));
+    server.on("/setVolume", HTTP_POST, bind(&ServerManager::handle_setVolume, this));
     server.onNotFound(bind(&ServerManager::handle_notFound, this));
     running = true;
     return true;
@@ -103,6 +112,14 @@ bool ServerManager::urlReceived(){
     return received_url.length() > 0;
 }
 
+bool ServerManager::nameReceived(){
+    return received_name.length() > 0;
+}
+
+bool ServerManager::volumeReceived(){
+    return received_volume >= 0;
+}
+
 String ServerManager::getReceivedSsid(){
     String ssid = received_ssid;
     received_ssid = "";
@@ -121,9 +138,15 @@ String ServerManager::getReceivedUrl(){
     return url;
 }
 
+String ServerManager::getReceivedName(){
+    String name = received_name;
+    received_name = "";
+    return name;
+}
+
 int ServerManager::getReceivedVolume(){
     int volume = received_volume;
-    received_volume = 0;
+    received_volume = -1;
     return volume;
 }
 

@@ -43,6 +43,11 @@ class ServerManager{
          * handles a get request to the /getBatteryStatus route
          */
         void handle_getBatteryStatus();
+
+        /**
+         * handles a get request to the /getLogs route
+         */
+        void handle_getLogs();
         
         /**
          * handles a post request to the /setWiFiCredentials route

@@ -1,18 +1,11 @@
 #include <Arduino.h>
-#include <WebServer.h>
-
-WebServer server;
-
-void handle_get(){
-    server.send(200, "test");
-}
 
 void setup(){
     Serial.begin(9600);
-    server.begin(80);
-    server.on("/", HTTP_GET, handle_get);
 }
 
 void loop(){
-    server.handleClient();
+    int val = analogRead(12);
+    Serial.println(val);
+    delay(500);
 }

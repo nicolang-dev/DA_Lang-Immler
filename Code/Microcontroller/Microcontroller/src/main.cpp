@@ -15,6 +15,7 @@ unsigned long last_wlan_request_time = 0;
 unsigned long last_log_size = 0;
 String last_log = "";
 String name = DEFAULT_NAME;
+int network_reconnect_tries = 0;
 
 NetworkManager* network;
 StatusLED* statusLED;
@@ -60,7 +61,7 @@ void setup(){
     //turn status led off at the beginning
     statusLED->setOff();
 
-    //if name is set in memory, use name
+    //if name is set in memory, read name and use it
     if(memory->isNameSet()){
         name = memory->readName();
     } else {
@@ -148,6 +149,19 @@ void loop(){
             Logger::add("starting audio stream", actual_time);
             Logger::add(url, actual_time);
             audio->startStream(url);
+        }
+        if(server->nameReceived()){
+            String received_name = server->getReceivedName();
+            Logger::add("name received", actual_time);
+            Logger::add(received_name, actual_time);
+            network->setmDns(received_name);
+            memory->writeName(received_name);
+        }
+        if(server->volumeReceived()){
+            int received_volume = server->getReceivedVolume();
+            Logger::add("volume received", actual_time);
+            Logger::add(String(received_volume), actual_time);
+            audio->setVolume(received_volume);
         }
     }   
 }

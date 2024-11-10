@@ -14,8 +14,8 @@ std::vector<std::tuple<String,unsigned long>> Logger::getLogs(){
 String Logger::getLogsAsJSON(){
     JsonDocument doc;
     for(int i = 0; i < logs.size(); i++){
-        doc[i]["ssid"] = std::get<0>(logs.at(i));
-        doc[i]["ssid"] = std::get<1>(logs.at(i));
+        doc[i]["log_entry"] = std::get<0>(logs.at(i));
+        doc[i]["time"] = std::get<1>(logs.at(i));
     }
     String logs_str;
     serializeJson(doc, logs_str);
