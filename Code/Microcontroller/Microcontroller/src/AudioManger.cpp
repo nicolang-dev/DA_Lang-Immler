@@ -15,6 +15,7 @@ bool AudioManager::initialize(int volume){
 }
 
 bool AudioManager::startStream(String url){
+    stream_url = url;
     if(audio.connecttohost(url.c_str())){
         streaming = true;
         return true;
@@ -33,4 +34,12 @@ bool AudioManager::isStreaming(){
 
 void AudioManager::loop(){
     audio.loop();
+}
+
+String AudioManager::getStreamUrl(){
+    return stream_url;
+}
+
+void AudioManager::setVolume(int volume){
+    audio.setVolume(volume);
 }

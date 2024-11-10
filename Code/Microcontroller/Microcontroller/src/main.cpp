@@ -48,7 +48,7 @@ void setup(){
     battery->initializePins();
 
     //initialize i2s
-    audio->initialize(10);
+    audio->initialize(DEFAULT_VOLUME);
 
     //if logs are already set in the memory, read logs and add them
     /*if(memory->areLogsSet()){

@@ -61,6 +61,13 @@ void ServerManager::handle_setName(){
     }
 }
 
+void ServerManager::handle_setVolume(){
+    if(server.hasArg("volume")){
+        received_volume = server.arg("volume").toInt();
+        server.send(200);
+    }
+}
+
 void ServerManager::handle_notFound(){
     server.send(404, "not found!");
 }
@@ -97,15 +104,27 @@ bool ServerManager::urlReceived(){
 }
 
 String ServerManager::getReceivedSsid(){
-    return received_ssid;
+    String ssid = received_ssid;
+    received_ssid = "";
+    return ssid;
 }
 
 String ServerManager::getReceivedPassword(){
-    return received_password;
+    String password = received_url;
+    received_url = "";
+    return password;
 }
 
 String ServerManager::getReceivedUrl(){
-    return received_url;
+    String url = received_url;
+    received_url = "";
+    return url;
+}
+
+int ServerManager::getReceivedVolume(){
+    int volume = received_volume;
+    received_volume = 0;
+    return volume;
 }
 
 bool ServerManager::isRunning(){

@@ -21,6 +21,7 @@ class ServerManager{
         String received_password;
         String received_url;
         String received_name;
+        int received_volume;
         bool running;
 
         /**
@@ -57,6 +58,11 @@ class ServerManager{
          * handles a post request to the /setName route
          */
         void handle_setName();
+
+        /**
+         * handles a post request to the /setVolume route
+         */
+        void handle_setVolume();
 
         /**
          * handles a request to a undefined route
@@ -101,6 +107,12 @@ class ServerManager{
         bool nameReceived();
 
         /**
+         * handles if the volume is received from the client
+         * @return if webserver received volume for audio output from client
+         */
+        bool volumeReceived();
+
+        /**
          * returns the ssid, which was received from the client
          * @return WLAN-SSID, which the webserver received from the client, as a String
          */
@@ -123,6 +135,12 @@ class ServerManager{
          * @return name of the microcontroller, which the webserver received from the client, as a String
          */
         String getReceivedName();
+
+        /**
+         * returns the volume, which was received from the client
+         * @return value of the volume which the webserver received from the client, as a int
+         */
+        int getReceivedVolume();
 
 
         /**

@@ -10,6 +10,7 @@ class AudioManager{
         static AudioManager* instance;
         Audio audio;
         bool streaming;
+        String stream_url;
 
     public:
         static AudioManager* getInstance();
@@ -39,5 +40,15 @@ class AudioManager{
          * handles the audio process
          */
         void loop();
+
+        /**
+         * returns the stream url
+         */
+        String getStreamUrl();
+
+        /**
+         * sets the volume of the output
+         */
+        void setVolume(int volume);
 };
 #endif
