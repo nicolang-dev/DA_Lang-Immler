@@ -284,11 +284,19 @@ Die Klasse Server ist für das managen des Webservers, welcher auf dem Microcont
 Die Klasse MemoryManager ist für das Schreiben in und das Lesen vom EEPROMs des Microcontrollers zuständig.
 \subsection{Entwicklung Smartphone-App}
 In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Smartphone-App beschrieben. Die verwendeten Tools wurden schon genauer im Kapitel ... beschrieben.
-\subsubsection{Funktionalität}
-Es wurde festgelegt, dass die Smartphoneapp folgende Funktionen bereitstellen soll:
+\subsubsection{Struktur}
+Die App ist in drei Haupt-Screens gegliedert. Im folgenden werden die einzelnen Screens genauer beschrieben.
+\textbf{Adapter}
+In diesem Screen werden alle Adapter angezeigt. Es ist hier auch möglich neue Adapter hinzuzufügen. Wenn man auf einen Adapter in der Liste drückt, kann man diesen entweder konfigurieren oder auswählen welchen Audiostream der Adapter erhalten soll.
+\textbf{Musik}
+In diesem Screen ist es möglich, nach weltweiten Streams von Internet-Radios mithilfe der RadioBrowser-API zu suchen. Die Streams können in weiterer Folge zu einer Favoritenliste hinzugefügt sind, so dass sie für den Benutzer schnell abrufbar sind.
+\textbf{Einstellungen}
+In diesem Screen kann der Benutzer wichtige Einstellungen für die App treffen. Dabei gibt es folgende Einstellungen: ...
+\subsubsection{Zielsetzung}
+Es wurde festgelegt, dass die Smartphoneapp folgende Anforderungen erfüllen soll:
 \vspace{4mm}\newline
 \textbf{Konfiguration der Adapter}  \\
-Verbindung mit Adapter herstellen und WLAN-Daten an diesen senden.
+Mit der App soll es einerseits möglich sein, neue Adapter zu konfiguieren, andererseits, bereits hinzugefügte Adapter zu verwalten. Dabei können von den Adaptern verschiedene Daten, wie z.B. Akkustand eingesehen werden.
 \vspace{4mm}\newline
 \textbf{Verwaltung der Adapter} \\
 Mehrere Adapter abspeichern und bestimmen, welcher Adapter welchen Stream erhalten soll.

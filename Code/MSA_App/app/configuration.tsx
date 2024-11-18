@@ -1,6 +1,6 @@
 import { Text, View, TextInput, FlatList, SafeAreaView, FlatListComponent, Pressable, TouchableOpacity, Button } from "react-native";
 import { useState, useEffect } from "react";
-import WifiItem from "./components/WifiItem";
+import WifiItem from "../components/WifiItem";
 import axios from "axios";
 export default function Configuration() {
     const [wifiList, setWiFiList] = useState(Array());

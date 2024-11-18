@@ -1,13 +1,16 @@
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { useEffect } from "react";
+import { Text, View } from "react-native";
 
-export function WifiItem(ssid: string, rssi: number) {
+type Props = {
+  ssid: string,
+  rssi: number
+};
+
+export default function WifiItem({ssid, rssi}: Props) {
   return (
     <View>
-        <Text>{ssid}</Text>
+      <Text>{ssid}</Text>
+      <Text>{rssi}</Text>
     </View>
   );
 }
-
-//const styles = StyleSheet.create();
