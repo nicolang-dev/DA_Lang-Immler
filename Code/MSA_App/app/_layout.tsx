@@ -1,13 +1,13 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { Tabs } from 'expo-router';
-import { black, grey, lightTurquoise, darkTurquoise, white } from '@/constants/Colors';
+import { Colors } from '@/constants/Colors';
 
 export default function TabLayout() {
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: darkTurquoise, tabBarStyle: {backgroundColor: grey} }}>
+    <Tabs screenOptions={{ tabBarActiveTintColor: Colors.darkTurquoise, tabBarStyle: {backgroundColor: Colors.grey} }}>
       <Tabs.Screen
-        name="adapter"
+        name="adapterList"
         options={{
           title: 'Adapter',
           tabBarIcon: ({ color }) => <MaterialIcons size={28} name="speaker-group" color={color} />,

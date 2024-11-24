@@ -1,46 +1,32 @@
 import { AutocompleteDropdown } from "react-native-autocomplete-dropdown";
 import { useEffect, useState } from "react";
-import { View, FlatList, Text, StyleSheet } from "react-native";
+import { View, FlatList, Text, StyleSheet, ScrollView, Button } from "react-native";
 import axios from "axios";
+import {Picker} from '@react-native-picker/picker';
+import {Colors} from "../constants/Colors";
+import { router } from "expo-router";
+
+const Item = Picker.Item;
+
+const testJson = [
+    {attr1: "test1", attr2: "hello1"},
+    {attr1: "test2", attr2: "hello2"},
+    {attr1: "test3", attr2: "hello3"},
+];
+
 
 export default function RadioSearch(){
-    const [countryName, setCountryName] = useState("");
-    const [languageName, setLanguageName] = useState("");
+    const [selectedCountry, setSelectedCountry] = useState("");
+    const [selectedLanguage, setSelectedLanguage] = useState("");
     const [countryDataset, setCountryDataset] = useState(Array());
     const [languageDataset, setLanguageDataset] = useState(Array());
+    const [selectedStation, setSelectedStation] = useState("");
     const [streamUrl, setStreamUrl] = useState("");
-    const deviceUrl ="";
-    const apiUrl = "http://de1.api.radio-browser.info";
 
-    function sendStreamUrl(){
-        const url = deviceUrl + "/setStreamUrl";
-        axios.post(url, streamUrl);
-    }
+    const maxStations = 1;
 
-    function getStationsByCountry(country: string){
-        const url = apiUrl + "";
-        axios.get(url).then(resp=>{
-            return resp.data;
-        }).catch(err => {
-            console.error(err);
-        })
-    }
-
-    function getStationsByLanguage(language: string){
-        const url = apiUrl + "";
-        axios.get(url).then(resp=>{
-            return resp.data;
-        }).catch(err => {
-            console.error(err);
-        })
-    }
-
-    const testList = [
-        {key: "test"},
-        {key: "hello"}
-    ];
-    const countryListUrl = "http://de1.api.radio-browser.info/json/countries";
-    const languageListUrl = "http://de1.api.radio-browser.info/json/languages";
+    const countryListUrl = "http://de1.api.radio-browser.info/json/countries?hidebroken=true&order=name";
+    const languageListUrl = "http://de1.api.radio-browser.info/json/languages?hidebroken=true&order=name";
 
     function toNameArr(arr: any){
         let result = Array();
@@ -50,50 +36,41 @@ export default function RadioSearch(){
         return result;
     }
 
-    function toDataset(arr: any){
-        let dataset = Array();
-        for(let i = 0; i < arr.length; i++){
-            let item = Object();
-            item.id = (i+1).toString();
-            item.title = arr[i];
-            dataset.push(item);
+    const style = StyleSheet.create({
+        pickerItem: {
+            color: 'black'
         }
-        return dataset;
-    }
+    })
 
     useEffect(()=>{
         const testArr = Array();
         axios.get(countryListUrl).then(resp => {
-            const countryArr = toNameArr(resp.data);
-            setCountryDataset(toDataset(countryArr));
-            console.log(countryDataset);
+            setCountryDataset(toNameArr(resp.data));
         }).catch(err => {
             console.error(err);
         })
         axios.get(languageListUrl).then(resp => {
-            const languageArr = toNameArr(resp.data);
-            setLanguageDataset(toDataset(languageArr));
+            setLanguageDataset(toNameArr(resp.data));
         }).catch(err => {
             console.error(err);
         })
     },[]);
 
-    StyleSheet.create({
-        
-    });
-
     return(
-        <View>
-            <FlatList
-                data={testList}
-                renderItem={({item}) => <Text>{item.key}</Text>}   
-            />
-            <AutocompleteDropdown 
-            dataSet={countryDataset}
-            loading={false}
-            onSelectItem={(item)=>{
-                console.log(item);
+        <ScrollView>
+            <Picker onValueChange={(val: string, idx: number) => {setSelectedCountry(val)}} selectedValue={"Austria"}>
+                {countryDataset.map((val, idx) =>(
+                    <Item key={idx} value={val} label={val} color={Colors.black}/>
+                ))}
+            </Picker>
+            <Picker onValueChange={(val: string, idx: number) => {setSelectedLanguage(val)}} selectedValue={"german"}>
+                {languageDataset.map((val, idx) =>(
+                    <Item key={idx} value={val} label={val} color={Colors.black}/>
+                ))}
+            </Picker>
+            <Button title="Search!" onPress={(event) => {
+                router.push({pathname: "/radios", params: {country: selectedCountry, language: selectedLanguage}})
             }}/>
-        </View>
+        </ScrollView>
     )
 }

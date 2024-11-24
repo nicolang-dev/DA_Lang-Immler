@@ -26,9 +26,10 @@ export const Colors = {
   },
 };
 */
-
-export const black = '#131515';
-export const grey = '#2B2C28';
-export const darkTurquoise = '#339989';
-export const lightTurquoise = '#7DE2D1';
-export const white = '#FFFAFB';
+export const Colors = {
+  black: '#131515',
+  grey: '#2B2C28',
+  darkTurquoise: '#339989',
+  lightTurquoise: '#7DE2D1',
+  white: '#FFFAFB'
+}

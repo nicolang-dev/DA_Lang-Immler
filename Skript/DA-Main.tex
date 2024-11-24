@@ -90,7 +90,7 @@ Das Ziel des Software-Teils für folgende Diplomarbeit war, einerseits die Softw
 \subsection{Festlegung Funktionsweise}
 Beim Festlegen einer grundlegenden Funktionsweise des Adapters stellen sich vor allem folgende Fragen:
 \subsubsection{Was soll das System können?}
-Das Hauptziel ist, dass das System in verschiedenen, voneinander getrennten Räumlichkeiten verschiedene Audiosignale auf eine Line-Output abspielen kann. Dabei ist es wichtig, dass das System den Ton zuverlässig und möglichst flüssig überträgt und ausgibt. \newline 
+Das Hauptziel ist, dass das System in verschiedenen, voneinander getrennten Räumlichkeiten verschiedene Audiosignale auf einen Line-Output abspielen kann. Dabei ist es wichtig, dass das System den Ton zuverlässig und möglichst flüssig überträgt und ausgibt. \newline 
 Grundsätzlich kann jeder beliebige Audio-Stream aus dem Internet verwendet werden. Das können beispielsweise Radiosender sein.
 Ein Beispiel für einen solchen Audio-Stream wäre der, des österreichischen Radio-Senders \glqq OE3\grqq{}: \newline
 \url{https://orf-live.ors-shoutcast.at/oe3-q2a}
@@ -99,7 +99,7 @@ Es wird zudem viel Wert auf Benutzerfreundlichkeit gelegt. Das bedeutet, dass si
 \subsubsection{Was muss es nicht können?}
 Dieser Multi-Room Sound Adapter soll als Hi-Fi Produkt für den klassischen Durchschnittsbürger und/oder Musik-Liebhaber durchgehen. Aufgrund dessen wird die Bedienung sehr einfach und benutzerfreundlich, jedoch eindeutig nicht so präzise oder vielfältig einstellbar wie es bei professionellem Audio-Equipment der Fall ist. Während der Laie das Produkt einfach anstecken und benutzen möchte, hätte ein Audio-Nerd gerne noch einen eingebauten Acht-Band Equalizer und vieles mehr. Das ist jedoch nicht das Ziel dieser Diplomarbeit. Es geht eher darum, die Hauptfunktion, also Ton kabellos in Räume zu übertragen, und Einstellungsmöglichkeiten per App ohne großes Kopfzerbrechen zu ermöglichen.
 \subsubsection{Wie könnte man es erweitern?}
-Unsere Variante des Multi-Room Sound Systems zeichnet sich vor allem durch die beliebige Erweiterbarkeit aus. In der Theorie soll es ein einzelnes Modell, also den Adapter selbst geben. Mit jedem weiteren Adapter kann dementsprechend ein weiterer Lautsprecher oder ein Raum zugefügt werden.
+Unsere Variante des Multi-Room Sound Systems zeichnet sich vor allem durch die beliebige Erweiterbarkeit aus. In der Theorie soll es ein einzelnes Modell, also den Adapter selbst geben. Mit jedem weiteren Adapter kann dementsprechend ein weiterer Lautsprecher oder ein Raum zugefügt werden. In Zukunft wäre es auch vorstellbar, dass man aus mehreren Adaptern Gruppen bilden kann, in denen die Adapter synchronisiert ist und somit der gleiche Audio-Stream auf mehreren Adaptern synchron läuft. Dies ist aber technisch sehr aufwendig, da die Latenz von WiFi ziemlich hoch ist.
 \subsection{Auswahl Hardwarekomponenten}
 Zur Auswahl der Hardwarekomponenten des Adapters wurde zu aller erst die externe Ausstattung des Adapters überlegt. Das bedeutet praktisch alles, mit dem ein Endverbraucher letztendlich zu tun hat. Dann kann der interne Teil, also die Technik dahinter, individuell auf die Anforderungen des externen Teils designet und entwickelt werden.
 \subsubsection{Auswahl externe Hardware}
@@ -228,18 +228,13 @@ Die Audio-Bibliothek wird verwendet, um die MP3-kodierten Audio-Daten von einem 
 Die Smartphoneapp wurde mit "React Native" entwickelt. Mithilfe von React Native ist es möglich eine zentrale Applikation zu entwickeln und diese dann auf mehreren Plattformen wie IOS, Android und auch im Web zu verwenden. React Native basiert auf React, welches ein Framework für die Frontend-Entwicklung von Web-Applikationen ist. Außerdem wird die Radio-Browser-API für die Bereitstellung diverser Internetradios verwendet. \\
 
 \textbf{React Native} \\
-React Native ist ein Framework, welches plattformübergreifende Entwicklung ermöglicht. Das heißt, man schreibt einen Code und kann diesen dann für IOS, Anrdoid und fürs Web verwenden. Der Code wird in JavaScript geschrieben. React Native wurde erstmals 2015 von Meta (damals noch Facebook) als Open-Source-Projekt veröffentlicht. Seither wird es weiterhin von Meta instandgehalten und hat eine riesige Community, welche ständig neue Bibliotheken für das Framewok veröffentlicht. React Native basiert auf React, welches man bereits aus der Webentwicklung kennt. Der Vorteil von React im Gegensatz zur normalen Webentwicklung ist, dass man wiederverwendbare Komponenten bauen kann. Dies ist auch mit React Native möglich. In React Native stehen dabei einige Standardkomponenten zur Verfügung, welche dann jeweils in native Komponenten, passend für das jeweilige Betriebssystem, gerendert werden. 
+React Native ist ein Framework, welches die plattformübergreifende Entwicklung von Apps ermöglicht. Das heißt, man schreibt einen Code und kann diesen dann für IOS, Anrdoid und fürs Web verwenden. Der Code wird in JavaScript geschrieben. React Native wurde erstmals 2015 von Meta (damals noch Facebook) als Open-Source-Projekt veröffentlicht. Seither wird es weiterhin von Meta instandgehalten und hat eine riesige Community, welche ständig neue Bibliotheken für das Framewok veröffentlicht. React Native basiert auf React, welches man bereits aus der Webentwicklung kennt. Der Vorteil von React im Gegensatz zur normalen Webentwicklung ist, dass man wiederverwendbare Komponenten bauen kann. Dies ist auch mit React Native möglich. In React Native stehen dabei einige Standardkomponenten zur Verfügung, welche dann jeweils in native Komponenten, passend für das jeweilige Betriebssystem, gerendert werden. 
 Wir haben React Native für unsere Smartphoneapp verwendet, weil wir nicht für jede Plattform eigenen Code schreiben wollten. Außerdem haben wir auch schon etwas Erfahrung mit JavaScript und React, was uns den Einstieg erleichterte.
 (vgl. URLPI07)
 
 \textbf{Expo} \\
-Um das Entwickeln der Smartphoneapp noch einfacher bzw. effizienter zu gestalten, wurde das Expo Framework verwendet. Dieses Framework stellt schon einige wichtige Funktionen zur Verfügung und stellt außerdem schon eine Projektstruktur bereit. Zu den großen Vorteilen zählen:
-\begin{itemize}
-\item File-basiertes Routing
-\item Bereitstellung einer Standardbibliothek  für native Module
-\end{itemize}
+Um das Entwickeln der Smartphoneapp noch einfacher bzw. effizienter zu gestalten, wurde das Expo Framework verwendet. Dieses Framework stellt wichtige Funktionen und eine Projektstruktur standardmäßig zur Verfügung. Dies hat den Vorteil, dass man dann nicht mehr von 0 anfangen muss, sondern schon einen guten Grundaufbau hat. Ein weiterer Vorteil von Expo ist das File-basierte Routing. Mithilfe diesem, ist es möglich die Navigation in der App an die Dateien im Projekt anzupassen.
 (vgl. URLPI08)
-
 
 \section{Entwicklung}
 \subsection{Design Platine}
@@ -287,9 +282,9 @@ In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Smartpho
 \subsubsection{Struktur}
 Die App ist in drei Haupt-Screens gegliedert. Im folgenden werden die einzelnen Screens genauer beschrieben.
 \textbf{Adapter}
-In diesem Screen werden alle Adapter angezeigt. Es ist hier auch möglich neue Adapter hinzuzufügen. Wenn man auf einen Adapter in der Liste drückt, kann man diesen entweder konfigurieren oder auswählen welchen Audiostream der Adapter erhalten soll.
+In diesem Screen werden alle Adapter, welche schon hinzugefügt wurden, angezeigt. Es ist hier auch möglich neue Adapter hinzuzufügen. Wenn man auf einen Adapter in der Liste drückt, kann man diesen entweder konfigurieren oder auswählen welchen Audiostream der Adapter erhalten soll.
 \textbf{Musik}
-In diesem Screen ist es möglich, nach weltweiten Streams von Internet-Radios mithilfe der RadioBrowser-API zu suchen. Die Streams können in weiterer Folge zu einer Favoritenliste hinzugefügt sind, so dass sie für den Benutzer schnell abrufbar sind.
+In diesem Screen ist es möglich, nach weltweiten Streams von Internet-Radios mithilfe der RadioBrowser-API zu suchen. Die Streams können in weiterer Folge zu einer Favoritenliste hinzugefügt werden, so dass sie für den Benutzer schnell abrufbar sind.
 \textbf{Einstellungen}
 In diesem Screen kann der Benutzer wichtige Einstellungen für die App treffen. Dabei gibt es folgende Einstellungen: ...
 \subsubsection{Zielsetzung}
@@ -303,6 +298,14 @@ Mehrere Adapter abspeichern und bestimmen, welcher Adapter welchen Stream erhalt
 \vspace{4mm}\newline
 \textbf{Suche nach Audio-Streams} \\
 Die Suche nach URLs von Audiostreams, mithilfe externer APIs, ermöglichen.
+\subsubsection{UI Design}
+Dieser Teil beschäftigt sich, mit dem Design des User Interfaces der Smartphoneapp. Hier wird beschrieben, wie die App gegliedert ist und welche Farben verwendet wurde.
+
+\textbf{Farbauswahl}
+Bei der Farbauswahl der App wurde auf ein modernes Design geachtet. Daher wurden nicht zu grelle Farben verwendet und es wurde alles eher dunkel gehalten.
+Das User Interface der App enthält folgende Farben:
+...
+
 \subsection{Design Adaptergehäuse}
 Das Adaptergehäuse mag vorerst nebensächlich erscheinen, jedoch trägt es einen wesentlichen Teil zur Sicherheit des Endverbrauchers sowie zur optimalen Funktionalität der Komponenten bei. Man darf die finale Größe des Gesamtsystems auch nicht außer Acht lassen. Der Adapter soll schließlich nicht riesengroß werden. 
 \subsubsection{Grundsätzlicher Aufbau}
