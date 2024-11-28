@@ -312,7 +312,9 @@ Das Adaptergehäuse trägt einen wesentlichen Teil zur Sicherheit des Endverbrau
 Die Grundlage für den ersten Prototyp bildet ein 71x58x29mm (Außenmaße) großer Kasten.\newline
 Dieser wurde mit frei schwebenden, jedoch an den Wänden befestigten Stützen ausgestattet, um den Mikrocontroller im Gehäuse fest montieren zu können. Der erste Prototyp wurde mit kleinen Zylinder auf den Stützen ausgestattet, um den Mikrocontroller mit seinen bereits Vorhandenen Aussparungen darauf platzieren zu können. Der Digital-/Analogwandler und der Akku-Laderegler finden auch auf solchen Stützen ihren Platz. Der Gedanke dahinter war, den Akku unter den Bauteilen zu platzieren. Mehr dazu im Teil "Wärmeableitung". Zudem wurden in den Wänden des Gehäuses Aussparungen für Buchsen, LED und den Taster platziert. Ein Deckel, der von oben auf das Gehäuse gesetzt wird, schließt dieses. Wenn man schon früh beachtet, dass die Prototypen mit einem 3D-Drucker gefertigt werden, kann man schon das Design für eine gute Druckbarkeit auf 3D-Drucker anpassen. Damit ist hauptsächlich gemeint, überhängende Drucke, komplizierte Stützstrukturen oder ähnliches zu vermeiden.
 \subsubsection{Wärmeableitung}
-Wärmeableitung ist wichtig, da Mikroprozessoren, wie alle anderen Prozessoren auch, bei intensivem Betrieb Hitze entwickeln.
+Wärmeableitung ist wichtig, da Mikroprozessoren, wie alle anderen Prozessoren auch, bei intensivem Betrieb Hitze entwickeln. Der in diesem Fall eingesetzte ESP32 hat laut Hersteller eine Betriebstemperatur von –40°C bis +125°C.
+\vspace{4mm}\newline
+vgl. \url{https://www.espressif.com/en/products/socs/esp32}
 \subsection{Fertigung Adaptergehäuse}
 Das Material unseres Gehäuses wurde auf Kunststoff begrenzt. Für die Fertigung von Kunststoffgehäusen gibt es hauptsächlich diese Möglichkeiten, die für uns in Frage kommen:
 \vspace{4mm}\newline
@@ -330,8 +332,13 @@ vgl. \url{https://www.printer-care.de/de/drucker-ratgeber/wie-funktioniert-ein-3
 vgl. \url{https://help.prusa3d.com/de/glossary/175-mm_134816}
 
 \subsubsection{Drucken des Prototyps}
-Die Gehäuse-Prototypen wurden mit einem \glqq PRUSA MK4S\grqq{} 3D-Drucker gefertigt. Alle FFF-Drucker von Prusa sind für 1,75-Filament konfiguriert. EINSTELLUNGEN
-Das Drucken verlief mit den von uns gewählten Einstellungen reibungslos, jedoch manchmal unsauber. ERKLÄRUNG
+Die Gehäuse-Prototypen wurden mit einem \glqq PRUSA MK4S\grqq{} 3D-Drucker gefertigt. Alle FFF-Drucker von Prusa sind für 1,75-Filament konfiguriert.
+\vspace{4mm}\newline
+\textbf{Druckeinstellungen} \newline
+Die Temperatur der Build Plate lag bei uns Standartmäßig auf 60°C. Die Drucktemperatur, also die der Nozzle (Düse) wurde beim ersten Layer auf 200°C eingestellt (praktisch 190°C), die finale Temperatur lag bei 185°C. \newline
+Das erste Layer wurde auf 0,15mm eingestellt, die restlichen auf 0,2mm. \newline
+Als Infill-Pattern wurde Grid mit 20\% Dichte und 4mm Line-Distance gewählt. \newline
+Das Drucken verlief mit den von uns gewählten Einstellungen reibungslos, jedoch an manchen Stellen etwas unsauber. ERKLÄRUNG
 \vspace{4mm}\newline
 vgl. \url{https://help.prusa3d.com/de/glossary/175-mm_134816}
 

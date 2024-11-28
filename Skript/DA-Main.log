@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.6.26)  28 NOV 2024 17:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.6.26)  28 NOV 2024 21:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -628,7 +628,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 259--280
  []
 
 [16] [17] [18]
-Overfull \hbox (90.81114pt too wide) in paragraph at lines 317--331
+Overfull \hbox (90.81114pt too wide) in paragraph at lines 319--333
 \T1/lmr/m/n/10 vgl. []$\T1/lmtt/m/n/10 https : / / www . printer-[]care . de / 
 de / drucker-[]ratgeber / wie-[]funktioniert-[]ein-[]3d-[]drucker$[] 
  []
@@ -642,10 +642,10 @@ Package rerunfilecheck Info: File `DA-Main.out' has not changed.
 (rerunfilecheck)             Checksum: 9CCB6620CCED12AFD6C967EC69691333;7390.
  ) 
 Here is how much of TeX's memory you used:
- 10865 strings out of 474486
- 172713 string characters out of 5743755
+ 10866 strings out of 474486
+ 172726 string characters out of 5743755
  1936542 words of memory out of 5000000
- 32915 multiletter control sequences out of 15000+600000
+ 32916 multiletter control sequences out of 15000+600000
  605319 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,8n,79p,1040b,614s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -655,9 +655,9 @@ b><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb
 ><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb>
 <C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
 
-Output written on DA-Main.pdf (21 pages, 238134 bytes).
+Output written on DA-Main.pdf (21 pages, 239507 bytes).
 PDF statistics:
- 387 PDF objects out of 1000 (max. 8388607)
+ 388 PDF objects out of 1000 (max. 8388607)
  70 named destinations out of 1000 (max. 500000)
  377 words of extra memory for PDF output out of 10000 (max. 10000000)
 
