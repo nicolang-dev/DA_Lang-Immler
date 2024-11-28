@@ -1,31 +1,40 @@
 import { useEffect } from "react";
-import { Text, View, Image } from "react-native";
+import { Text, View, Image, StyleSheet } from "react-native";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import {Colors} from "@/constants/Colors";
 
 type Props = {
   ssid: string,
-  rssi: number
+  rssi: number,
+  selected: boolean
 };
 
-function getWifiItem(bars: number){
-  switch(bars){
-    case 1:
-      return "network-wifi-1-bar";
-    case 2:
-      return "network-wifi-2-bar";
-    case 3:
-      return "network-wifi-3-bar";
-    case 4:
-      return "network-wifi-4-bar";
+const style = StyleSheet.create(
+  {
+    icon: {
+      width: 50,
+      height: 50,
+  },
+  container: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      backgroundColor: Colors.white,
+      borderColor: Colors.black,
+      borderWidth: 1,
+      borderRadius: 10,
+      padding: 10,
+      marginBottom: 7
   }
 }
+);
 
-export default function WifiItem({ssid, rssi}: Props) {
+export default function WifiItem({ssid, rssi, selected}: Props) {
   return (
-    <View>
+    <View style={[style.container, {backgroundColor: selected ? Colors.lightTurquoise : Colors.white}]}>
       <Text>{ssid}</Text>
-      <MaterialIcons name={getWifiItem(rssi)}/>
+      <Text>{rssi}</Text>
     </View>
   );
 }

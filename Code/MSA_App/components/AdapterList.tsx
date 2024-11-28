@@ -5,7 +5,11 @@ import AdapterItem from "../components/AdapterItem";
 import axios from "axios";
 import { router } from "expo-router";
 
-export default function Adapters(){
+type Props = {
+    handlePress: Function
+  };
+
+export default function AdapterList({handlePress}: Props){
     const [adapterList, setAdapterList] = useState(Array());
     useEffect(()=>{
         AsyncStorage.getItem("adapterList").then(result => {
@@ -40,9 +44,7 @@ export default function Adapters(){
     return(
         <View>
             <FlatList data={adapterList} renderItem={({item})=>
-                <Pressable onPress={(event) => {
-                    router.push({pathname: "/radios", params: {name: item.name, hostname: item.hostname}})
-                }}>
+                <Pressable onPress={() => handlePress(item)}>
                     <AdapterItem name={item.name} battery={item.battery} connected={item.connected}/>
                 </Pressable>
             }/>

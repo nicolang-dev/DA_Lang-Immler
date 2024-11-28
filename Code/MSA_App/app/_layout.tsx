@@ -7,7 +7,7 @@ export default function TabLayout() {
   return (
     <Tabs screenOptions={{ tabBarActiveTintColor: Colors.darkTurquoise, tabBarStyle: {backgroundColor: Colors.grey} }}>
       <Tabs.Screen
-        name="adapterList"
+        name="adapterOverview"
         options={{
           title: 'Adapter',
           tabBarIcon: ({ color }) => <MaterialIcons size={28} name="speaker-group" color={color} />,
