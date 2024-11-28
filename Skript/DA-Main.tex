@@ -307,11 +307,33 @@ Das User Interface der App enthält folgende Farben:
 ...
 
 \subsection{Design Adaptergehäuse}
-Das Adaptergehäuse mag vorerst nebensächlich erscheinen, jedoch trägt es einen wesentlichen Teil zur Sicherheit des Endverbrauchers sowie zur optimalen Funktionalität der Komponenten bei. Man darf die finale Größe des Gesamtsystems auch nicht außer Acht lassen. Der Adapter soll schließlich nicht riesengroß werden. 
+Das Adaptergehäuse trägt einen wesentlichen Teil zur Sicherheit des Endverbrauchers sowie zur optimalen Funktionalität der Komponenten bei. Zudem soll es möglichst kompakt sein.
 \subsubsection{Grundsätzlicher Aufbau}
+Die Grundlage für den ersten Prototyp bildet ein 71x58x29mm (Außenmaße) großer Kasten.\newline
+Dieser wurde mit frei schwebenden, jedoch an den Wänden befestigten Stützen ausgestattet, um den Mikrocontroller im Gehäuse fest montieren zu können. Der erste Prototyp wurde mit kleinen Zylinder auf den Stützen ausgestattet, um den Mikrocontroller mit seinen bereits Vorhandenen Aussparungen darauf platzieren zu können. Der Digital-/Analogwandler und der Akku-Laderegler finden auch auf solchen Stützen ihren Platz. Der Gedanke dahinter war, den Akku unter den Bauteilen zu platzieren. Mehr dazu im Teil "Wärmeableitung". Zudem wurden in den Wänden des Gehäuses Aussparungen für Buchsen, LED und den Taster platziert. Ein Deckel, der von oben auf das Gehäuse gesetzt wird, schließt dieses. Wenn man schon früh beachtet, dass die Prototypen mit einem 3D-Drucker gefertigt werden, kann man schon das Design für eine gute Druckbarkeit auf 3D-Drucker anpassen. Damit ist hauptsächlich gemeint, überhängende Drucke, komplizierte Stützstrukturen oder ähnliches zu vermeiden.
 \subsubsection{Wärmeableitung}
+Wärmeableitung ist wichtig, da Mikroprozessoren, wie alle anderen Prozessoren auch, bei intensivem Betrieb Hitze entwickeln.
 \subsection{Fertigung Adaptergehäuse}
+Das Material unseres Gehäuses wurde auf Kunststoff begrenzt. Für die Fertigung von Kunststoffgehäusen gibt es hauptsächlich diese Möglichkeiten, die für uns in Frage kommen:
+\vspace{4mm}\newline
+\textbf{Spritzgießen} \newline
+\glqq Beim Spritzgießen wird der Kunststoff aus einem Plastifiziergerät (erwärmt den Kunststoff auf Schmelztemperatur) in einen Hohlraum (Formwerkzeug) gespritzt, in welchem er erst verdichtet wird und dann erkaltet.\grqq \newline 
+Ein Vorteil für dieses Verfahren ist, dass auch komliziertere Formteile voll automatisiert sehr schnell in hohen Stückzahlen produziert werden können.
+Der große Nachteil sind jedoch die hohen Stückkosten für die Formwerkzeuge.\vspace{4mm}\newline 
+vgl. \url{https://www.chemie.de/lexikon/Kunststoffverarbeitung.html}
+\vspace{4mm}\newline
+\textbf{3D-Druck} \newline
+Die zwei gängigsten 3D-Druck-Methoden sind Filament und Resin Harz. Aufgrund des hohen Aufwands, den ein Resin-Drucker mit sich bringt, wurde für dieses Projekt die Methode mit Filament gewählt. \newline
+Beim 3D-Drucken durch Fused Deposition Modeling (Schichtschmelzverfahren) wird Kunststoff in Drahtform (Filament) (die häufigsten Dicken sind 2,85mm (allgemein als 3mm bezeichnet) und 1,75mm wobei die 1,75mm Version weltweit am häufigsten verbreitet ist) durch beheizte Düsen geleitet und somit geschmolzen. Das nun weiche Filament wird in Schichten auf die Druckplatte aufgetragen und erhärtet kurz darauf. Durch dieses Schichten lassen sich präzise Körper aus Kunststoff bauen.
+\vspace{4mm}\newline
+vgl. \url{https://www.printer-care.de/de/drucker-ratgeber/wie-funktioniert-ein-3d-drucker}\newline
+vgl. \url{https://help.prusa3d.com/de/glossary/175-mm_134816}
+
 \subsubsection{Drucken des Prototyps}
+Die Gehäuse-Prototypen wurden mit einem \glqq PRUSA MK4S\grqq{} 3D-Drucker gefertigt. Alle FFF-Drucker von Prusa sind für 1,75-Filament konfiguriert. EINSTELLUNGEN
+Das Drucken verlief mit den von uns gewählten Einstellungen reibungslos, jedoch manchmal unsauber. ERKLÄRUNG
+\vspace{4mm}\newline
+vgl. \url{https://help.prusa3d.com/de/glossary/175-mm_134816}
 
 \section{Testen und Fehlerbehebung}
 \subsection{Testen des Gesamtsystems}
