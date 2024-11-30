@@ -26,16 +26,18 @@
 \contentsline {subsection}{\numberline {4.1}Design Platine}{15}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Bestückung Platine}{15}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Entwicklung Software Adapter}{15}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Programmablauf}{16}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Klassen}{17}{subsubsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.4}Entwicklung Smartphone-App}{17}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.3.1}Ziele}{16}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Programmablauf}{16}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Klassen}{17}{subsubsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.4}Herausforderungen}{18}{subsubsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.4}Entwicklung Smartphone-App}{18}{subsection.4.4}%
 \contentsline {subsubsection}{\numberline {4.4.1}Struktur}{18}{subsubsection.4.4.1}%
 \contentsline {subsubsection}{\numberline {4.4.2}Zielsetzung}{18}{subsubsection.4.4.2}%
-\contentsline {subsubsection}{\numberline {4.4.3}UI Design}{18}{subsubsection.4.4.3}%
+\contentsline {subsubsection}{\numberline {4.4.3}UI Design}{19}{subsubsection.4.4.3}%
 \contentsline {subsection}{\numberline {4.5}Design Adaptergehäuse}{19}{subsection.4.5}%
 \contentsline {subsubsection}{\numberline {4.5.1}Grundsätzlicher Aufbau}{19}{subsubsection.4.5.1}%
-\contentsline {subsubsection}{\numberline {4.5.2}Wärmeableitung}{19}{subsubsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.6}Fertigung Adaptergehäuse}{19}{subsection.4.6}%
+\contentsline {subsubsection}{\numberline {4.5.2}Wärmeableitung}{20}{subsubsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.6}Fertigung Adaptergehäuse}{20}{subsection.4.6}%
 \contentsline {subsubsection}{\numberline {4.6.1}Drucken des Prototyps}{20}{subsubsection.4.6.1}%
 \contentsline {section}{\numberline {5}Testen und Fehlerbehebung}{21}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Testen des Gesamtsystems}{21}{subsection.5.1}%

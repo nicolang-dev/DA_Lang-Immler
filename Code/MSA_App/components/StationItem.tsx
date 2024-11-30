@@ -1,10 +1,13 @@
 import { useEffect } from "react";
-import { Text, View, Image, StyleSheet } from "react-native";
+import { Text, View, Image, StyleSheet, Pressable } from "react-native";
 import { Colors } from '@/constants/Colors';
+import AntDesign from '@expo/vector-icons/AntDesign';
+import { useState } from "react";
+import Station from "./Station";
 
 type Props = {
-  name: string,
-  icon: string
+  station: Station,
+  onPress: Function
 };
 
 const style = StyleSheet.create({
@@ -25,11 +28,14 @@ const style = StyleSheet.create({
     }
 })
 
-export default function StationItem({name, icon}: Props) {
+export default function StationItem({station, onPress}: Props) {
+  const [isSelected, setSelected] = useState(false);
   return (
-    <View style={style.container}>
-      <Text>{name}</Text>
-      <Image source={{uri: icon}} style={style.icon}/>
-    </View>
+    <Pressable style={[style.container, {backgroundColor: isSelected ? Colors.lightTurquoise : Colors.white}]} onPress={()=>{
+      setSelected(!isSelected);
+      onPress()}}>
+        <Text>{station.getName()}</Text>
+        <Image source={{uri: station.getIconUrl()}} style={style.icon}/>
+    </Pressable>
   );
 }

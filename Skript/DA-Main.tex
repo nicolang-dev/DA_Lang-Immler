@@ -243,6 +243,16 @@ Um das Entwickeln der Smartphoneapp noch einfacher bzw. effizienter zu gestalten
 In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Software des Adapters beschrieben. 
 Zur Entwicklung der Software des Microcontrollers wurde die IDE Visual Studio Code in Verbindung mit dem Framwork PlatformIO verwendet. Um die Entwicklung in C++ zu ermöglichen und vorgefertigte Bibliotheken zu verwenden, wurde das Arduino-Framework verwendet.
 
+\subsubsection{Ziele}
+Der Adapter soll grundsätzlich folgende Funktionen bereitstellen:
+\begin{itemize}
+\item als AP fungieren, um Verbindung mit Smartphone herzustellen
+\item mit WLAN verbinden
+\item Audio-Stream aus Internet empfangen
+\item Audio-Stream dekodieren
+\item dekodierten Audio-Stream an Lautsprecherbox übertragen
+\end{itemize}
+
 \subsubsection{Programmablauf}
 Der Ablauf des Programmes wird mit folgendem UML-Ablaufdiagramm veranschaulicht: \newline \\
 \textbf{Start} \newline
@@ -277,6 +287,8 @@ Die Klasse Server ist für das managen des Webservers, welcher auf dem Microcont
 \vspace{4mm}\newline
 \textbf{MemoryManager}
 Die Klasse MemoryManager ist für das Schreiben in und das Lesen vom EEPROMs des Microcontrollers zuständig.
+\subsubsection{Herausforderungen}
+Bei der Entwicklung der Software für den Adapter, sind wir auf einige Herausforderungen gestoßen. Ursprünglich war geplant, eine Funktion zu implementieren, die es ermöglicht mehrere Adapter zu Gruppen zu verbinden. In diesen Gruppen sollte dann jeweils der gleiche Stream synchron laufen. Die Synchronisierung der Adapter hat sich allerdings als sehr schwierig erwiesen, da die Ressourcen des ESP32 nicht dafür ausreichten, die Latenz gering zu halten.
 \subsection{Entwicklung Smartphone-App}
 In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Smartphone-App beschrieben. Die verwendeten Tools wurden schon genauer im Kapitel ... beschrieben.
 \subsubsection{Struktur}
@@ -297,15 +309,11 @@ Mit der App soll es einerseits möglich sein, neue Adapter zu konfiguieren, ande
 Mehrere Adapter abspeichern und bestimmen, welcher Adapter welchen Stream erhalten soll.
 \vspace{4mm}\newline
 \textbf{Suche nach Audio-Streams} \\
-Die Suche nach URLs von Audiostreams, mithilfe externer APIs, ermöglichen.
+Suche nach URLs von Audio-Streams von Internet-Radios mittels der RadioBrowser-API.
 \subsubsection{UI Design}
-Dieser Teil beschäftigt sich, mit dem Design des User Interfaces der Smartphoneapp. Hier wird beschrieben, wie die App gegliedert ist und welche Farben verwendet wurde.
-
-\textbf{Farbauswahl}
-Bei der Farbauswahl der App wurde auf ein modernes Design geachtet. Daher wurden nicht zu grelle Farben verwendet und es wurde alles eher dunkel gehalten.
-Das User Interface der App enthält folgende Farben:
+Bei der Smartphonapp wurde großer Wert auf Benutzerfreundlichkeit gelegt. Dies wurde mit einem sehr übersichtlichen, simplen User Interface erreicht. In der App werden nur folgende drei Farben verwendet:
 ...
-
+Dies lässt das UI modern und elegant erscheinen.
 \subsection{Design Adaptergehäuse}
 Das Adaptergehäuse trägt einen wesentlichen Teil zur Sicherheit des Endverbrauchers sowie zur optimalen Funktionalität der Komponenten bei. Zudem soll es möglichst kompakt sein.
 \subsubsection{Grundsätzlicher Aufbau}
