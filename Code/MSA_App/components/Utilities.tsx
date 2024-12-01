@@ -7,11 +7,11 @@ const favouriteStationsKey = "favouriteStations";
 const adaptersKey = "adapters";
 
 export async function getStations(country: string, language:string, maxStations: number): Promise<Station[]|null>{
-    const result: Station[] = [];
     const stationsUrl = "http://de1.api.radio-browser.info/json/stations/search" + "?language=" + language + "&country=" + country + "&order=clickcount&reverse=true&limit=" + maxStations;
     return axios.get(stationsUrl).then(resp => {
+        const result: Station[] = [];
         resp.data.map((val, idx) => {
-            const station = new Station(val.name, val.favicon, val.url);
+            const station = new Station(val.id, val.name, val.favicon, val.url);
             result.push(station);
         })
         return result;
@@ -27,7 +27,7 @@ export async function getFavouriteStations(): Promise<Station[]|null>{
             const stationList = JSON.parse(res);
             let result: Station[] = [];
             for(let station of stationList){
-                result.push(new Station(station.name, station.iconUrl, station.url));
+                result.push(new Station(station.id, station.name, station.iconUrl, station.url));
             }
             return result;
         } else {
@@ -38,7 +38,12 @@ export async function getFavouriteStations(): Promise<Station[]|null>{
 
 export function addFavouriteStation(station: Station){
     getFavouriteStations().then(res => {
-        const stationList = res;
+        let stationList: Station[];
+        if(res != null){
+            stationList = res;
+        } else {
+            stationList = [];
+        }
         stationList?.push(station);
         AsyncStorage.setItem(favouriteStationsKey, JSON.stringify(stationList));
     })
@@ -49,7 +54,7 @@ export function removeFavouriteStation(station: Station){
         const stationList = res;
         if(stationList != null){
             for(let i = 0; i < stationList?.length; i++){
-                if(stationList[i] == station){
+                if(stationList[i].getId() == station.getId()){
                     stationList[i] == null;
                 }
             }
@@ -58,13 +63,17 @@ export function removeFavouriteStation(station: Station){
     })
 }
 
+export function clearFavouriteStationList(){
+    AsyncStorage.setItem(favouriteStationsKey, "");
+}
+
 export async function getAdapters(): Promise<Adapter[]|null>{
     return AsyncStorage.getItem(adaptersKey).then(res => {
         if(res != null){
             const adapterList = JSON.parse(res);
             let result: Adapter[] = [];
             for(let adapter of adapterList){
-                result.push(new Adapter(adapter.name, adapter.mac));
+                result.push(new Adapter(adapter.id, adapter.name, adapter.mac, adapter.connected, adapter.battery));
             }
             return result;
         } else {
@@ -93,4 +102,8 @@ export function removeAdapter(adapter: Adapter){
             AsyncStorage.setItem(adaptersKey, JSON.stringify(adapterList));
         }
     })
+}
+
+export function clearAdapterList(){
+    AsyncStorage.setItem(adaptersKey, "");
 }

@@ -3,11 +3,10 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { StyleSheet } from "react-native";
 import {Colors} from "@/constants/Colors";
+import Adapter from "./Adapter";
 
 type Props = {
-  name: string,
-  battery: number,
-  connected: boolean
+  adapter: Adapter
 };
 
 const style = StyleSheet.create({
@@ -34,13 +33,13 @@ const style = StyleSheet.create({
     }
 })
 
-export default function AdapterItem({name, battery, connected}: Props) {
+export default function AdapterItem({adapter}: Props) {
   return (
     <View style={style.container1}>
-      <Text>{name}</Text>
+      <Text>{adapter.getName()}</Text>
       <View style={style.container2}>
-        <Text>{battery + '%'}</Text>
-        <> { connected ? <AntDesign name="cloudo"/> : <Ionicons name="cloud-offline"/> } </>
+        <Text>{adapter.getBattery() + '%'}</Text>
+        <> { adapter.isConnected() ? <AntDesign name="cloudo"/> : <Ionicons name="cloud-offline"/> } </>
       </View>
     </View>
   );
