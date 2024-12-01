@@ -9,47 +9,32 @@ import Station from "./Station";
 
 type Props = {
     stations: Station[],
-    selectedStations: Station[]
+    onSelectedStationsChange: Function
 }
 
-export default function Radios({stations, selectedStations}: Props){
+export default function Radios({stations, onSelectedStationsChange}: Props){
     const [stationList, setStationList] = useState(Array());
     const [selectedStationList, setSelectedStationList] = useState(Array());
 
     useEffect(()=>{
         setStationList(stations);
-        setSelectedStationList(selectedStations);
     },[]);
 
     function handleItemPress(station: Station){
-        console.log("pressed");
-        if(selectedStationList.includes(station)){
-            removeSelectedStation(station);
-        } else {
-            addSelectedStation(station);
+        const selectedStations = selectedStationList;
+        if(selectedStationList.includes(station)){ //remove station from list
+            const idx = selectedStations.indexOf(station);
+            selectedStations.splice(idx, 1);
+        } else { //add station to list
+            selectedStations.push(station);
         }
-    }
-
-    function addSelectedStation(station: Station){
-        let stationArr = selectedStationList;
-        stationArr.push(station);
-        setStationList(stationArr);
-    }
-
-    function removeSelectedStation(station: Station){
-        let stationArr = selectedStationList;
-        for(let i = 0; i < stationArr.length; i++){
-            if(stationArr[i].equals(station)){
-                stationArr[i] = null;
-            }
-        }
-        setStationList(stationArr);
+        setSelectedStationList(selectedStations);
     }
 
     return(
         <View>
             <FlatList data={stationList} renderItem={({item}) => 
-                <StationItem station={item} selected={selectedStationList.includes(item)} onPress={()=> {handleItemPress(item)}}/>
+                <StationItem station={item} onPress={()=> {onSelectedStationsChange(selectedStationList)}}/>
             }/>
         </View>
     )

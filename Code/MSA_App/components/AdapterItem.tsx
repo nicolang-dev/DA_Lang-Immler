@@ -36,7 +36,10 @@ const style = StyleSheet.create({
 export default function AdapterItem({adapter}: Props) {
   return (
     <View style={style.container1}>
-      <Text>{adapter.getName()}</Text>
+      <View>
+        <Text style={{fontSize: 17}}>{adapter.getName()}</Text>
+        <Text style={{fontSize: 10}}>{adapter.getMac()}</Text>
+      </View>
       <View style={style.container2}>
         <Text>{adapter.getBattery() + '%'}</Text>
         <> { adapter.isConnected() ? <AntDesign name="cloudo"/> : <Ionicons name="cloud-offline"/> } </>

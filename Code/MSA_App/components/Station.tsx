@@ -1,17 +1,17 @@
 class Station{
-    private id: number;
+    private uuid: string;
     private name: string;
     private iconUrl: string;
     private url: string;
 
-    public constructor(id: number, name: string, iconUrl: string, url: string){
-        this.id = id;
+    public constructor(uuid: string, name: string, iconUrl: string, url: string){
+        this.uuid = uuid;
         this.name = name;
         this.iconUrl = iconUrl;
         this.url = url;
     }
-    public getId(){
-        return this.id;
+    public getUuid(){
+        return this.uuid;
     }
     public getName(){
         return this.name;

@@ -3,21 +3,32 @@ import AdapterItem from "@/components/AdapterItem";
 import { FlatList } from "react-native";
 import { getAdapters } from "@/components/Utilities";
 import { useEffect, useState } from "react";
+import ErrorScreen from "@/components/ErrorScreen";
+import { router } from "expo-router";
 
 export default function AdapterOverview(){
   const [adapterList, setAdapterList] = useState(new Array());
+  const [isEmpty, setEmpty] = useState(false);
   useEffect(() => {
     getAdapters().then(res => {
       if(res != null){
-        setAdapterList(res);
+          setAdapterList(res);
+          setEmpty(false);
       } else {
-        alert("adapter list is empty!");
+          setEmpty(true);
       }
-    })
+  })
   },[]);
-  return(
-    <FlatList data={adapterList} renderItem={({item}) => 
-      <AdapterItem adapter={item}/>
-    }/>
-  )
+  
+  if(!isEmpty){
+    return(
+      <FlatList data={adapterList} renderItem={({item}) => 
+        <AdapterItem adapter={item}/>
+      }/>
+    )
+  } else {
+    return(
+      <ErrorScreen errorText="Du hast noch keine Adapter hinzugefügt!" buttonText="Adapter hinzufügen" onButtonPress={() => router.push("/addAdapter")}/>
+    )
+  }
 }
