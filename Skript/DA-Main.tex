@@ -237,8 +237,6 @@ Um das Entwickeln der Smartphoneapp noch einfacher bzw. effizienter zu gestalten
 (vgl. URLPI08)
 
 \section{Entwicklung}
-\subsection{Design Platine}
-\subsection{Bestückung Platine}
 \subsection{Entwicklung Software Adapter}
 In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Software des Adapters beschrieben. 
 Zur Entwicklung der Software des Microcontrollers wurde die IDE Visual Studio Code in Verbindung mit dem Framwork PlatformIO verwendet. Um die Entwicklung in C++ zu ermöglichen und vorgefertigte Bibliotheken zu verwenden, wurde das Arduino-Framework verwendet.
@@ -318,17 +316,17 @@ Dies lässt das UI modern und elegant erscheinen.
 Das Adaptergehäuse trägt einen wesentlichen Teil zur Sicherheit des Endverbrauchers sowie zur optimalen Funktionalität der Komponenten bei. Zudem soll es möglichst kompakt sein.
 \subsubsection{Grundsätzlicher Aufbau}
 Die Grundlage für den ersten Prototyp bildet ein 71x58x29mm (Außenmaße) großer Kasten.\newline
-Dieser wurde mit frei schwebenden, jedoch an den Wänden befestigten Stützen ausgestattet, um den Mikrocontroller im Gehäuse fest montieren zu können. Der erste Prototyp wurde mit kleinen Zylinder auf den Stützen ausgestattet, um den Mikrocontroller mit seinen bereits Vorhandenen Aussparungen darauf platzieren zu können. Der Digital-/Analogwandler und der Akku-Laderegler finden auch auf solchen Stützen ihren Platz. Der Gedanke dahinter war, den Akku unter den Bauteilen zu platzieren. Mehr dazu im Teil "Wärmeableitung". Zudem wurden in den Wänden des Gehäuses Aussparungen für Buchsen, LED und den Taster platziert. Ein Deckel, der von oben auf das Gehäuse gesetzt wird, schließt dieses. Wenn man schon früh beachtet, dass die Prototypen mit einem 3D-Drucker gefertigt werden, kann man schon das Design für eine gute Druckbarkeit auf 3D-Drucker anpassen. Damit ist hauptsächlich gemeint, überhängende Drucke, komplizierte Stützstrukturen oder ähnliches zu vermeiden.
+Dieser wurde mit frei schwebenden, jedoch an den Wänden befestigten Stützen ausgestattet, um den Mikrocontroller im Gehäuse fest montieren zu können. Der erste Prototyp wurde mit kleinen Zylinder auf den Stützen ausgestattet, um den Mikrocontroller mit seinen bereits Vorhandenen Aussparungen darauf platzieren zu können. Der Digital-/Analogwandler und der Akku-Laderegler finden auch auf solchen Stützen ihren Platz. Der Gedanke dahinter war, den Akku unter den Bauteilen zu platzieren. Mehr dazu im Teil "Wärmeableitung". Zudem wurden in den Wänden des Gehäuses Aussparungen für Buchsen platziert. Die Aussparungen für die RGB-LED und den Taster wurden im Deckel platziert. Der Deckel, der von oben auf das Gehäuse gedrückt wird, schließt dieses. Wenn man schon früh beachtet, dass die Prototypen mit einem 3D-Drucker gefertigt werden, kann man schon das 3D-Design für eine gute Druckbarkeit auf 3D-Drucker anpassen. Damit ist hauptsächlich gemeint, überhängende Drucke, komplizierte Stützstrukturen oder ähnliches zu vermeiden.
 \subsubsection{Wärmeableitung}
 Wärmeableitung ist wichtig, da Mikroprozessoren, wie alle anderen Prozessoren auch, bei intensivem Betrieb Hitze entwickeln. Der in diesem Fall eingesetzte ESP32 hat laut Hersteller eine Betriebstemperatur von –40°C bis +125°C.
 \vspace{4mm}\newline
 vgl. \url{https://www.espressif.com/en/products/socs/esp32}
 \subsection{Fertigung Adaptergehäuse}
-Das Material unseres Gehäuses wurde auf Kunststoff begrenzt. Für die Fertigung von Kunststoffgehäusen gibt es hauptsächlich diese Möglichkeiten, die für uns in Frage kommen:
+Das Material unseres Gehäuses wurde auf Kunststoff begrenzt. Für die Fertigung von Kunststoffgehäusen gibt es hauptsächlich diese Möglichkeiten, welche für uns in Frage kommen:
 \vspace{4mm}\newline
 \textbf{Spritzgießen} \newline
 \glqq Beim Spritzgießen wird der Kunststoff aus einem Plastifiziergerät (erwärmt den Kunststoff auf Schmelztemperatur) in einen Hohlraum (Formwerkzeug) gespritzt, in welchem er erst verdichtet wird und dann erkaltet.\grqq \newline 
-Ein Vorteil für dieses Verfahren ist, dass auch komliziertere Formteile voll automatisiert sehr schnell in hohen Stückzahlen produziert werden können.
+Ein Vorteil für dieses Verfahren ist, dass auch komplizierte Formteile voll automatisiert sehr schnell in hohen Stückzahlen produziert werden können.
 Der große Nachteil sind jedoch die hohen Stückkosten für die Formwerkzeuge.\vspace{4mm}\newline 
 vgl. \url{https://www.chemie.de/lexikon/Kunststoffverarbeitung.html}
 \vspace{4mm}\newline
@@ -344,11 +342,16 @@ Die Gehäuse-Prototypen wurden mit einem \glqq PRUSA MK4S\grqq{} 3D-Drucker gefe
 \vspace{4mm}\newline
 \textbf{Druckeinstellungen} \newline
 Die Temperatur der Build Plate lag bei uns Standartmäßig auf 60°C. Die Drucktemperatur, also die der Nozzle (Düse) wurde beim ersten Layer auf 200°C eingestellt (praktisch 190°C), die finale Temperatur lag bei 185°C. \newline
-Das erste Layer wurde auf 0,15mm eingestellt, die restlichen auf 0,2mm. \newline
-Als Infill-Pattern wurde Grid mit 20\% Dichte und 4mm Line-Distance gewählt. \newline
+Das erste Layer wurde 0,15mm Dick gedruckt, die restlichen 0,2mm dick. \newline
+Als Infill-Pattern wurde \glqq Grid\grqq mit 20\% Dichte und 4mm Line-Distance gewählt. \newline
 Das Drucken verlief mit den von uns gewählten Einstellungen reibungslos, jedoch an manchen Stellen etwas unsauber. ERKLÄRUNG
 \vspace{4mm}\newline
 vgl. \url{https://help.prusa3d.com/de/glossary/175-mm_134816}
+\subsection{Zusammensetzen des Prototypen}
+Die einzelnen Komponenten werden nicht wie zuerst vorgesehen auf eine Platine gelötet und dann mit dem Controller verbunden, sondern jeweils einzeln direkt mit dem Mikrocontroller. Bei diesem Prototyp lässt sich der Mikrocontroller nämlich vorerst als Platine betrachten, welcher zusätzliche Bauteile zugefügt werden.
+\subsubsection{Schaltplan}
+\subsubsection{Löten}
+\subsubsection{Kleben}
 
 \section{Testen und Fehlerbehebung}
 \subsection{Testen des Gesamtsystems}
