@@ -35,9 +35,10 @@ class NetworkManager{
         /**
          * starts the access point
          * 
-         * @param starting process successful, as a boolean
+         * @param ssid SSID of the access point, as a String
+         * @return starting process successful, as a boolean
          */
-        bool startAP();
+        bool startAP(String ssid);
 
         /**
          * starts a wifi client
@@ -78,7 +79,9 @@ class NetworkManager{
         bool isConnectedToWlan();
 
         /**
-         * ...
+         * sets mDNS
+         * 
+         * @param name Name of the domain
          */
         bool setmDns(String name);
 

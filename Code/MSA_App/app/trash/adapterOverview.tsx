@@ -4,7 +4,7 @@ import { FlatList, Text, Pressable, View } from "react-native";
 import AdapterItem from "../../components/AdapterItem";
 import axios from "axios";
 import { router } from "expo-router";
-import AdapterList from "@/components/AdapterList";
+import AdapterList from "@/app/trash/AdapterList";
 
 export default function AdapterOverview(){
     function handlePress(item: any){

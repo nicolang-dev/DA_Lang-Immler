@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Text, View, Image, StyleSheet } from "react-native";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import {Colors} from "@/constants/Colors";
+import {Colors} from "@/constants/Style";
 
 type Props = {
   ssid: string,

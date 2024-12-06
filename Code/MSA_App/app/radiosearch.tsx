@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 import { View, FlatList, Text, StyleSheet, ScrollView, Button } from "react-native";
 import axios from "axios";
 import {Picker} from '@react-native-picker/picker';
-import {Colors} from "../constants/Colors";
+import {Colors, GlobalStyle} from "../constants/Style";
 import { router } from "expo-router";
 import { getCountries, getLanguages } from "@/components/Utilities";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Item = Picker.Item;
 
@@ -45,20 +46,22 @@ export default function RadioSearch(){
     },[]);
 
     return(
-        <ScrollView>
-            <Picker onValueChange={(val: string, idx: number) => {setSelectedCountry(val)}} selectedValue={selectedCountry}>
-                {countryDataset.map((val, idx) =>(
-                    <Item key={idx} value={val} label={val} color={Colors.black}/>
-                ))}
-            </Picker>
-            <Picker onValueChange={(val: string, idx: number) => {setSelectedLanguage(val)}} selectedValue={selectedLanguage}>
-                {languageDataset.map((val, idx) =>(
-                    <Item key={idx} value={val} label={val} color={Colors.black}/>
-                ))}
-            </Picker>
-            <Button title="Search!" onPress={(event) => {
-                router.push({pathname:"/favouriteStationSelect", params: {country: selectedCountry, language: selectedLanguage}})
-            }}/>
-        </ScrollView>
+        <SafeAreaView style={GlobalStyle.page}>
+            <ScrollView>
+                <Picker onValueChange={(val: string, idx: number) => {setSelectedCountry(val)}} selectedValue={selectedCountry}>
+                    {countryDataset.map((val, idx) =>(
+                        <Item key={idx} value={val} label={val} color={Colors.white}/>
+                    ))}
+                </Picker>
+                <Picker onValueChange={(val: string, idx: number) => {setSelectedLanguage(val)}} selectedValue={selectedLanguage}>
+                    {languageDataset.map((val, idx) =>(
+                        <Item key={idx} value={val} label={val} color={Colors.white}/>
+                    ))}
+                </Picker>
+                <Button color={Colors.lightTurquoise} title="Search!" onPress={(event) => {
+                    router.push({pathname:"/favouriteStationSelect", params: {country: selectedCountry, language: selectedLanguage}})
+                }}/>
+            </ScrollView>
+        </SafeAreaView>
     )
 }

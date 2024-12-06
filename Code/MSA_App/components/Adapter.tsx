@@ -1,26 +1,14 @@
-class Adapter{
-    private name: string;
-    private mac: string;
-    private connected: boolean;
-    private battery: number;
+import Station from "./Station";
 
-    public constructor(name: string, mac: string, connected: boolean, battery: number){
+class Adapter{
+    name: string;
+    mac: string;
+    ip: string;
+
+    constructor(name: string, mac: string, ip: string){
         this.name = name;
         this.mac = mac;
-        this.connected = connected;
-        this.battery = battery;
-    }
-    public getName(){
-        return this.name;
-    }
-    public getMac(){
-        return this.mac;
-    }
-    public isConnected(){
-        return this.connected;
-    }
-    public getBattery(){
-        return this.battery;
+        this.ip = ip;
     }
 }
 

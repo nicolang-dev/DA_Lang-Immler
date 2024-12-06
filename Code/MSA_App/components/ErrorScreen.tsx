@@ -1,3 +1,4 @@
+import { Colors, GlobalStyle } from "@/constants/Style";
 import { View, Text, Button, StyleSheet } from "react-native";
 
 type Props = {
@@ -22,8 +23,8 @@ const style = StyleSheet.create({
 export default function ErrorScreen({errorText, buttonText, onButtonPress}: Props){
     return(
         <View style={style.container}>
-            <Text style={style.text}>{errorText}</Text>
-            <Button title={buttonText} onPress={() => onButtonPress()}/>
+            <Text style={GlobalStyle.textBig}>{errorText}</Text>
+            <Button color={Colors.lightTurquoise} title={buttonText} onPress={() => onButtonPress()}/>
         </View>
     )
 }

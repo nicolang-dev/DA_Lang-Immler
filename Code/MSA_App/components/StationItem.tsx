@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { Text, View, Image, StyleSheet, Pressable } from "react-native";
-import { Colors } from '@/constants/Colors';
+import { Colors, GlobalStyle } from '@/constants/Style';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { useState } from "react";
 import Station from "./Station";
 
 type Props = {
   station: Station,
-  onPress: Function
+  selected: boolean
 };
 
 const style = StyleSheet.create({
@@ -19,7 +19,6 @@ const style = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor: Colors.white,
         borderColor: Colors.black,
         borderWidth: 1,
         borderRadius: 10,
@@ -28,14 +27,11 @@ const style = StyleSheet.create({
     }
 })
 
-export default function StationItem({station, onPress}: Props) {
-  const [isSelected, setSelected] = useState(false);
+export default function StationItem({station, selected}: Props) {
   return (
-    <Pressable style={[style.container, {backgroundColor: isSelected ? Colors.lightTurquoise : Colors.white}]} onPress={()=>{
-      setSelected(!isSelected);
-      onPress()}}>
-        <Text>{station.getName()}</Text>
-        <Image source={{uri: station.getIconUrl()}} style={style.icon}/>
-    </Pressable>
+    <View style={[style.container, {backgroundColor: selected ? Colors.lightTurquoise : Colors.grey}]}>
+        <Text style={GlobalStyle.textBig}>{station.name}</Text>
+        <Image source={{uri: station.iconUrl}} style={style.icon}/>
+    </View>
   );
 }

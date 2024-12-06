@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { View, FlatList, Text, StyleSheet, ScrollView, Button, Image, Pressable } from "react-native";
 import axios from "axios";
 import {Picker} from '@react-native-picker/picker';
-import {Colors} from "../../constants/Colors";
+import {Colors} from "../../constants/Style";
 import StationItem from "../../components/StationItem";
 import StationList from "../../components/StationList";
 import Station from "@/components/Station";

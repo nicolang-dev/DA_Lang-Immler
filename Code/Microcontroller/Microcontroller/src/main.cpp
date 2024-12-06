@@ -14,7 +14,7 @@ unsigned long actual_time = 0;
 unsigned long last_wlan_request_time = 0;
 unsigned long last_log_size = 0;
 String last_log = "";
-String name = DEFAULT_NAME;
+String name;
 int network_reconnect_tries = 0;
 
 NetworkManager* network;
@@ -66,7 +66,10 @@ void setup(){
         name = memory->readName();
     } else {
         Logger::add("name not set in memory - using default name", actual_time);
+        String mac = network->getMac();
+        name = "MSA_" + mac; //setting default name
     }
+    Logger::add(name, actual_time);
 
     //if WLAN-credentials are set, read them and try to connect to WLAN
     if(memory->isWlanSsidSet() && memory->isWlanPasswordSet()){
@@ -118,7 +121,7 @@ void loop(){
     } else if(mode == CONFIG){
         if(!network->isApStarted()){
             Logger::add("starting ap", actual_time);
-            network->startAP();
+            network->startAP(name);
         } else if(!server->isRunning()){
             Logger::add("starting web server", actual_time);
             server->start();

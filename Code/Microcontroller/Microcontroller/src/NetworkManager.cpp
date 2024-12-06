@@ -47,13 +47,13 @@ String NetworkManager::getAvailableNetworks(){
 /**
  * starts an access point
  */
-bool NetworkManager::startAP(){
+bool NetworkManager::startAP(String ssid){
     //Log::add("starting ap");
     if(WiFi.getMode() != WIFI_AP){
         WiFi.mode(WIFI_AP);
     }
     ap_started = true;
-    return WiFi.softAPConfig(AP_LOCAL_IP, AP_GATEWAY_IP, AP_SUBNET_IP) && WiFi.softAP(AP_SSID);
+    return WiFi.softAPConfig(AP_LOCAL_IP, AP_GATEWAY_IP, AP_SUBNET_IP) && WiFi.softAP(ssid);
 }
 
 /**

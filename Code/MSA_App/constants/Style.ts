@@ -26,10 +26,31 @@ export const Colors = {
   },
 };
 */
+import { StyleSheet } from "react-native"
+
 export const Colors = {
   black: '#131515',
   grey: '#2B2C28',
   darkTurquoise: '#339989',
   lightTurquoise: '#7DE2D1',
-  white: '#FFFAFB'
+  white: '#FFFAFB',
+  red: '#d90b0b'
 }
+
+export const GlobalStyle = StyleSheet.create({
+  textBig: {
+    fontSize: 20,
+    color: Colors.white
+  },
+  textMedium: {
+    fontSize: 15,
+    color: Colors.white
+  },
+  page: {
+    flex: 1,
+    backgroundColor: Colors.black
+  },
+  button: {
+    color: Colors.lightTurquoise
+  }
+})

@@ -1,9 +1,14 @@
-import { Text, View } from "react-native";
+import { Text, View, Pressable } from "react-native";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { StyleSheet } from "react-native";
-import {Colors} from "@/constants/Colors";
+import {Colors, GlobalStyle} from "@/constants/Style";
 import Adapter from "./Adapter";
+import { router } from "expo-router";
+import { useEffect, useState } from "react";
+import BatteryIndicator from "./BatteryIndicator";
+import axios from "axios";
+import VolumeIndicator from "./VolumeIndicator";
 
 type Props = {
   adapter: Adapter
@@ -28,22 +33,46 @@ const style = StyleSheet.create({
     container2: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center',
-        width: '15%'
+        alignContent: 'space-between',
+        width: '20%'
     }
 })
-
 export default function AdapterItem({adapter}: Props) {
+  const [connected, setConnected] = useState(false);
+  const [data, setData] = useState(null);
+
+  const requestInterval = 1000;
+
+  useEffect(() => {
+    const url = "http://" + adapter.ip + "/getInfo";
+    const instance = axios.create({timeout: 2500});
+    console.log(url);
+
+    const interval = setInterval(() => {
+      instance.get(url).then(res => {
+        setConnected(true);
+        setData(res.data);
+      }).catch(err => {
+        setConnected(false);
+      })
+    }, 5000);
+
+    return () => {clearInterval(interval);};
+  },[]);
+  
   return (
-    <View style={style.container1}>
+    <View style={[style.container1, {backgroundColor: connected ? Colors.grey : "lightgrey"}]} onPress={() => {/*router.push({pathname: "/adapterView", params: {name: adapter.name, mac: adapter.mac, battery: adapter.battery}})*/}}>
       <View>
-        <Text style={{fontSize: 17}}>{adapter.getName()}</Text>
-        <Text style={{fontSize: 10}}>{adapter.getMac()}</Text>
+        <Text style={GlobalStyle.textBig}>{adapter.name}</Text>
+        <Text style={GlobalStyle.textMedium}>{adapter.mac}</Text>
       </View>
-      <View style={style.container2}>
-        <Text>{adapter.getBattery() + '%'}</Text>
-        <> { adapter.isConnected() ? <AntDesign name="cloudo"/> : <Ionicons name="cloud-offline"/> } </>
-      </View>
+      {connected 
+        ? <View style={style.container2}>
+            <VolumeIndicator volumePercentage={data.volume}/>
+            <BatteryIndicator batteryPercentage={data.battery}/>
+          </View>
+        : <Ionicons name="cloud-offline" size={24} color={Colors.white}/>
+      }
     </View>
   );
 }

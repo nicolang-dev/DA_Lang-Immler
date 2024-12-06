@@ -1,6 +1,12 @@
 const express = require("express");
+const bonjour = require("bonjour")();
 
 const app = express();
+
+const mac = "02:1A:6B:4C:D7:9F";
+let name = "Adapter1";
+let volume = 20;
+let battery = 60;
 
 app.get("/", (req, res) => {
     res.send("get request received!");
@@ -18,16 +24,27 @@ app.get("/test", (req, res) => {
     }, 5000);
 })
 
-app.get("/getMac", (req, res) => {
-    const exampleMac = "30:AE:A4:07:0D:64";
-    res.send(exampleMac);
+app.get("/getInfo", (req, res) => {
+   const info = {name: name, mac: mac, volume: volume, battery: battery, station: "example_station_url"};
+   res.send(info);
 })
 
-app.get("/getName",  (req, res) => {
-    const exampleName = "MSA_0D64";
-    res.send(exampleName);
+app.post("/setName", (req, res) => {
+    const params = req.params;
+    name = params.name;
+    res.send("name received");
+    bonjour.publish({name: name, type: 'http', port: 80, host: hostname});
+})
+
+app.post("/setVolume", (req, res) => {
+    const params = req.params;
+    volume = params.volume;
+    res.send("volume received");
 })
 
 app.listen(80, ()=>{
     console.log("listening!");
 })
+
+const hostname = name + ".local"
+bonjour.publish({name: name, type: 'http', port: 80, host: hostname});

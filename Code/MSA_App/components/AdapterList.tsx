@@ -1,56 +1,79 @@
-import { useState, useEffect } from "react";
-import AsyncStorage from '@react-native-async-storage/async-storage';  
-import { FlatList, Text, Pressable, View } from "react-native";
-import AdapterItem from "../components/AdapterItem";
+import { AutocompleteDropdown } from "react-native-autocomplete-dropdown";
+import { useEffect, useState } from "react";
+import { View, FlatList, Text, StyleSheet, ScrollView, Button, Image, Pressable } from "react-native";
 import axios from "axios";
+import {Picker} from '@react-native-picker/picker';
+import { Colors, GlobalStyle } from "@/constants/Style";
+import StationItem from "@/components/StationItem";
+import Station from "@/components/Station";
+import { getAdapters, removeAdapter } from "@/components/Utilities";
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { router } from "expo-router";
+import ErrorScreen from "@/components/ErrorScreen";
+import Entypo from '@expo/vector-icons/Entypo';
+import { SafeAreaView } from "react-native-safe-area-context";
+import DeleteButton from "./DeleteButton";
+import AddToListButton from "./AddToListButton";
+import Adapter from "./Adapter";
+import AdapterItem from "./AdapterItem";
 
 type Props = {
-    handlePress: Function
-  };
+    onItemPress: Function
+}
 
-export default function AdapterList({handlePress}: Props){
-    const [adapterList, setAdapterList] = useState(Array());
-    useEffect(()=>{
-        AsyncStorage.getItem("adapterList").then(result => {
-            if(result !== null){
-                const adapterListObj = JSON.parse(result);
-                console.log(adapterListObj);
-                setAdapterList(adapterListObj);
+export default function AdapterList({onItemPress}: Props){
+    const [adapterList, setAdapterList] = useState(new Array());
+    const [isDataFetched, setDataFetched] = useState(false);
+    const [isEmpty, setEmpty] = useState(false);
+
+    function fetchData(){
+        getAdapters().then(res => {
+            setDataFetched(true);
+            if(res?.length != 0 && res !== null){
+                setAdapterList(res);
+                setEmpty(false);
             } else {
-                console.error("adapter list is empty");
+                setEmpty(true);
             }
-        }).catch(err => {
-            console.error(err);
-        });
-        /*setInterval(()=>{
-            adapterList.forEach((adapter) => {
-                const url = adapter.name + ".local";
-                try{
-                    axios.get(url).then(resp => {
-                        if(resp) {
-                            adapter.connected = true;
-                        }
-                    }).catch(err => {
-                        adapter.connected = false;
-                    })
-                } catch(err){
-                    console.error(err);
-                }
-            })
-        }, 10000);*/
+        })
+    }
+
+    useEffect(()=>{
+        fetchData();
     },[]);
 
-    return(
-        <View>
-            <FlatList data={adapterList} renderItem={({item})=>
-                <Pressable onPress={() => handlePress(item)}>
-                    <AdapterItem name={item.name} battery={item.battery} connected={item.connected}/>
-                </Pressable>
-            }/>
-            <Pressable>
-                <Text>Adapter hinzufügen</Text>
-            </Pressable>
-        </View>
-    )
+    const style = StyleSheet.create({
+        container: {
+            width: '95%',
+            alignSelf: 'center' 
+        },
+        icon: {
+            alignSelf: 'flex-start'
+        }
+    })
+
+    if(isDataFetched){
+        if(!isEmpty){
+            return(
+                <View style={style.container}>
+                    <FlatList data={adapterList} renderItem={({item}) => 
+                        <Pressable onPress={() => onItemPress(item)}>
+                            <AdapterItem adapter={item}/> 
+                        </Pressable>
+                    }/>
+                    <AddToListButton onPress={() => router.push("/addAdapter")}/>
+                </View>
+            )
+        } else {
+            return (
+                <SafeAreaView style={GlobalStyle.page}>
+                    <ErrorScreen errorText="Du hast noch keine Adapter hinzugefügt!" buttonText="Adapter hinzufügen" onButtonPress={() => addAdapter()}/>
+                </SafeAreaView>
+            )
+        }
+    } else {
+        return (
+            <Text style={GlobalStyle.textBig}>Lade Daten ...</Text>
+        )
+    }
 }

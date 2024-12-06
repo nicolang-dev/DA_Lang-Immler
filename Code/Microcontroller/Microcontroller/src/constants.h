@@ -20,7 +20,7 @@ const int LED_BLUE = 4;
 const IPAddress AP_LOCAL_IP(192,168,0,1);
 const IPAddress AP_GATEWAY_IP(192,168,0,1);
 const IPAddress AP_SUBNET_IP(255,255,255,0);
-const String AP_SSID = "Microcontroller";
+//const String AP_SSID = "Microcontroller";
 
 //memory
 const String MEMORY_NAMESPACE = "variables";
@@ -42,7 +42,7 @@ const unsigned long WLAN_REQUEST_PERIOD = 10000;
 const int AUDIO_VOLUME = 10; //0-21
 const unsigned long MAX_CONNECTION_TIME = 5000;
 const int SERVER_PORT = 80;
-const String DEFAULT_NAME = "Multiroom_Sound_Adapter";
+//const String DEFAULT_NAME = "MSA";
 const String TIME_URL = "http://worldtimeapi.org/api/ip";
 const int DEFAULT_VOLUME = 10;
 #endif

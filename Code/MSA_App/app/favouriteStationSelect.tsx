@@ -1,9 +1,9 @@
 import { AutocompleteDropdown } from "react-native-autocomplete-dropdown";
 import { useEffect, useState } from "react";
-import { View, FlatList, Text, StyleSheet, ScrollView, Button, Image, Pressable } from "react-native";
+import { View, FlatList, Text, StyleSheet, ScrollView, Button, Image, Pressable, SafeAreaView } from "react-native";
 import axios from "axios";
 import {Picker} from '@react-native-picker/picker';
-import {Colors} from "../constants/Colors";
+import {Colors, GlobalStyle} from "../constants/Style";
 import StationItem from "../components/StationItem";
 import StationList from "../components/StationList";
 import Station from "@/components/Station";
@@ -18,18 +18,31 @@ export default function Radios(){
     const {country, language} = useLocalSearchParams();
 
     function handleStationPress(station: Station){
-        if(selectedStations.includes(station)){ //remove station from list
-            const idx = selectedStations.indexOf(station);
-            selectedStations.splice(idx, 1);
-        } else { //add station to list
-            selectedStations.push(station);
+        let newSelectedStations = [... selectedStations];
+        if(newSelectedStations.includes(station)){ 
+            const idx = newSelectedStations.indexOf(station);
+            newSelectedStations.splice(idx, 1);
+        } else {
+            newSelectedStations.push(station);
         }
+        let selectedNames: string[] = [];
+        newSelectedStations.map((val) => {
+            selectedNames.push(val.name);
+        })
+        console.log(selectedNames);
+        setSelectedStations([... newSelectedStations]);
+    }
+
+    function isSelected(station: Station){
+        let selectedUuids: string[] = [];
+        selectedStations.forEach((val) => {
+            selectedUuids.push(val.uuid);
+        })
+        let selected = selectedUuids.includes(station.uuid);
+        return selected; 
     }
 
     const style = StyleSheet.create({
-        container: {
-            
-        },
         list: {
             height: '90%'
         },
@@ -53,17 +66,19 @@ export default function Radios(){
     }, []);
 
     return(
-        <View style={style.container}>
+        <SafeAreaView style={GlobalStyle.page}>
             <FlatList style={style.list} data={stations} renderItem={({item}) => 
-                <StationItem station={item} onPress={() => handleStationPress(item)}/>
+                <Pressable onPress={() => handleStationPress(item)}>
+                    <StationItem station={item} selected={isSelected(item)}/>
+                </Pressable>
             }/>
             <Pressable onPress={() => {
                 addFavouriteStations(selectedStations).then(res => {
                     router.navigate("/favouriteStations");
                 })
             }}>
-                <AntDesign style={style.icon} name="check" size={50} color="black"/>
+                <AntDesign style={style.icon} name="check" size={50} color={Colors.lightTurquoise}/>
             </Pressable>
-        </View>
+        </SafeAreaView>
     )
 }

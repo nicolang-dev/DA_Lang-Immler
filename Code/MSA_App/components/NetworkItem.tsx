@@ -1,5 +1,5 @@
 import { Text, StyleSheet, Pressable } from "react-native";
-import { Colors } from '@/constants/Colors';
+import { Colors } from '@/constants/Style';
 
 type Props = {
   ssid: string,

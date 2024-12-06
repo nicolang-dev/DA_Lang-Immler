@@ -75,42 +75,34 @@ export async function getFavouriteStations(): Promise<Station[]|null>{
 }
 
 export async function addFavouriteStations(stations: Station[]): Promise<boolean>{
-    getFavouriteStations().then(res => {
-        let stationList: Station[];
-        if(res != null){
-            stationList = res;
-        } else {
-            stationList = [];
-        }
-        for(let station of stations){
+    let stationList = await getFavouriteStations();
+    let existingUuidList: string[] = [];
+    stationList?.forEach((station) => {
+        existingUuidList.push(station.uuid);
+    })
+    if(stationList === null){
+        stationList = [];
+    } 
+    for(let station of stations){
+        if(!existingUuidList.includes(station.uuid)){
             stationList.push(station);
         }
-        AsyncStorage.setItem(favouriteStationsKey, JSON.stringify(stationList));
-        return true;
-    })
-    return false;
+    }
+    await AsyncStorage.setItem(favouriteStationsKey, JSON.stringify(stationList));
+    return true;
 }
 
-export async function removeFavouriteStations(stations: Station[]): Promise<boolean>{
-    if(stations.length > 0){
-        const stationUuids: string[] = [];
-        for(let station of stations){
-            stationUuids.push(station.getUuid());
-        }
-        getFavouriteStations().then(res => {
-            if(res?.length != 0 && res != null){
-                let stationList: Station[];
-                stationList = res;
-                for(let i = 0; i < stationList.length; i++){
-                    if(stationUuids.includes(stationList[i].getUuid())){
-                        stationList.splice(i, 1);
-                    }
-                }
-                AsyncStorage.setItem(favouriteStationsKey, JSON.stringify(stationList));
-                return true;
+export async function removeFavouriteStation(uuid: string): Promise<boolean>{
+    let stationList = await getFavouriteStations();
+    if(stationList !== null){
+        for(let i = 0; i < stationList.length; i++){
+            if(stationList[i].uuid == uuid){
+                stationList.splice(i, 1);
             }
-        })
-    }
+        }
+        await AsyncStorage.setItem(favouriteStationsKey, JSON.stringify(stationList));
+        return true;
+    } 
     return false;
 }
 
@@ -120,11 +112,11 @@ export function clearFavouriteStationList(){
 
 export async function getAdapters(): Promise<Adapter[]|null>{
     return AsyncStorage.getItem(adaptersKey).then(res => {
-        if(res != null){
+        if(res !== null && res != "null"){
             const adapterList = JSON.parse(res);
             let result: Adapter[] = [];
             for(let adapter of adapterList){
-                result.push(new Adapter(adapter.name, adapter.mac, adapter.connected, adapter.battery));
+                result.push(new Adapter(adapter.name, adapter.mac, adapter.ip));
             }
             return result;
         } else {
@@ -133,32 +125,37 @@ export async function getAdapters(): Promise<Adapter[]|null>{
     })
 }
 
-export function addAdapter(adapter: Adapter){
-    getAdapters().then(res => {
-        const adapterList = res;
-        adapterList?.push(adapter);
-        AsyncStorage.setItem(adaptersKey, JSON.stringify(adapterList));
-    })
+export async function addAdapter(adapter: Adapter): Promise<boolean>{
+    let newAdapterList = await getAdapters();
+    if(newAdapterList === null){
+        newAdapterList = [];
+    }
+    newAdapterList.push(adapter);
+    await AsyncStorage.setItem(adaptersKey, JSON.stringify(newAdapterList));
+    return true;
 }
 
-export function removeAdapters(adapter: Adapter){
-    getAdapters().then(res => {
-        if(res?.length != 0 && res != null){
-            let adapterList: Adapter[];
-            adapterList = res;
-            for(let i = 0; i < adapterList.length; i++){
-                if(adapterList[i].getMac() == adapter.getMac()){
-                    adapterList.splice(i, 1);
-                }
+export async function removeAdapter(mac: string): Promise<boolean>{
+    let newAdapterList = await getAdapters();
+    if(newAdapterList !== null){
+        for(let i = 0; i < newAdapterList.length; i++){
+            if(newAdapterList[i].mac == mac){
+                newAdapterList.splice(i, 1);
             }
-            AsyncStorage.setItem(favouriteStationsKey, JSON.stringify(stationList));
-            return true;
-        } else {
-            return false;
         }
-    })
+        await AsyncStorage.setItem(adaptersKey, JSON.stringify(newAdapterList));
+        return true;
+    } else {
+        return false;
+    }
 }
 
 export function clearAdapterList(){
     AsyncStorage.setItem(adaptersKey, "");
+}
+
+export function sendWlanCredentials(ssid: string, password: string, serverUrl: string){
+    const url = serverUrl + "/setWlanCredentials";
+    const data = "ssid=" + ssid + "&password=" + password;
+    axios.post(url, data);
 }
