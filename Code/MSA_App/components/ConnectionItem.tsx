@@ -17,34 +17,20 @@ type Props = {
 };
 
 const style = StyleSheet.create({
-    icon: {
-        width: 50,
-        height: 50,
-    },
-    container1: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        backgroundColor: Colors.white,
-        borderColor: Colors.black,
-        borderWidth: 1,
-        borderRadius: 10,
-        padding: 10,
-        marginBottom: 7
-    },
-    container2: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: '15%'
+    container: {
+        flexDirection: 'column',
+        justifyContent: 'space-between'
     }
 })
 
 export default function ConnectionItem({adapter, station}: Props) {
   return (
-    <View>
+    <View style={style.container}>
         <AdapterItem adapter={adapter}/>
-        <StationItem station={station} onPress={() => {}}/>
+        <StationItem station={station} selected={false}/>
+        <View>
+          
+        </View>
     </View>
   );
 }

@@ -8,7 +8,7 @@ type Props = {
 
 export default function DeleteButton({onPress}: Props){
     return (
-        <Pressable onPress={onPress()}>
+        <Pressable style={{alignSelf: 'center'}} onPress={onPress()}>
             <FontAwesome name="trash-o" size={30} color={Colors.red}/>
         </Pressable>
     )

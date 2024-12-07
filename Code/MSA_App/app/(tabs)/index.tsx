@@ -11,15 +11,31 @@ import BatteryIndicator from "@/components/BatteryIndicator";
 import { Colors, GlobalStyle } from "@/constants/Style";
 import StationItem from "@/components/StationItem";
 import FavouriteStationList from "@/components/FavouriteStationList";
+import ConnectionItem from "@/components/ConnectionItem";
+import { useState } from "react";
 
 export default function Index(){
+    const [adapter, setAdapter] = useState(null);
+    const [station, setStation] = useState(null);
     useEffect(()=>{
-        
+        getAdapters().then(adapterList => {
+            setAdapter(adapterList[0]);
+            getFavouriteStations().then(stationList => {
+                setStation(stationList[0]);
+            })
+        })
     }, []);
 
-    return (
-        <SafeAreaView style={GlobalStyle.page}>
-            <Text style={GlobalStyle.textBig}>index page</Text>
-        </SafeAreaView>
-    );
+    if(adapter !== null && station !== null){
+        return (
+            <SafeAreaView style={GlobalStyle.page}>
+                <ConnectionItem adapter={adapter} station={station}/>
+            </SafeAreaView>
+        );
+    } else {
+        return(
+            <Text>not possible!</Text>
+        )
+    }
+   
 }

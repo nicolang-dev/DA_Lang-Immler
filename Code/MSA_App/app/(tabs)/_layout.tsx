@@ -3,6 +3,7 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { Tabs } from 'expo-router';
 import { Colors } from '@/constants/Style';
 import Entypo from '@expo/vector-icons/Entypo';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 export default function TabLayout() {
   return (
@@ -10,8 +11,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Start',
-          tabBarIcon: ({ color }) => <Entypo name="home" size={28} color={color} />,
+          title: 'Verbindungen',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="connection" size={28} color={color} />,
         }}
       />
       <Tabs.Screen
