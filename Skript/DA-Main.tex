@@ -311,7 +311,24 @@ Suche nach URLs von Audio-Streams von Internet-Radios mittels der RadioBrowser-A
 \subsubsection{UI Design}
 Bei der Smartphonapp wurde großer Wert auf Benutzerfreundlichkeit gelegt. Dies wurde mit einem sehr übersichtlichen, simplen User Interface erreicht. In der App werden nur folgende drei Farben verwendet:
 ...
-Dies lässt das UI modern und elegant erscheinen.
+\subsubsection{Aufbau}
+In diesem Kapitel wird die Strukturierung bzw. Aufteilung der App beschrieben. Zur grundlegenden Navigation wurde ein Tab-Navigator verwendet. Es gibt dabei die Tabs Verbindungen, Adapter und Musik. Neben dem Tab-Navigator wurde auch noch ein Stack-Navigator verwendet. Dieser ermöglicht das Navigieren zwischen Seiten mittels einem Stack. Die Navigation mittels Stack funktioniert nach dem Last In First Out - Prinzip.  Das heißt, wenn eine neue Seite aufgerufen wird, wird diese dem Stack hinzugefügt, also sozusagen auf den Stapel oben drauf gelegt. Wenn man wieder auf die vorherige Seite will, wird die aktuelle Seite einfach vom Stack entfernt, also vom Stapel oben herabgenommen. 
+\subsubsection{Komponenten}
+In diesem Kapitel werden die selbst erstellen React-Komponenten genauer beschrieben.
+\textbf{AdapterItem}
+Die Komponente AdapterItem wird dazu verwendet, die Daten eines einzelnen Adapters abzufragen und diese anzuzeigen. Dabei muss man dieser Komponente ein Objekt der Klasse Adapter als Argument mitgeben. Beim rendern wird direkt versucht eine Verbindung zum Webserver mit der IP-Adresse des übergebenen Adapters herzustellen. Ist dies erfolgreich, so wird ein GET-Request auf die /getInfo - Route des Adapters mittels Axios durchgeführt. Dabei werden die erhaltenen Informationen grafisch dargestellt. Zu diesen Daten zählt Lautstärke und Akkustand des Adapters. Ist der Adapter allerdings nicht erreichbar, werden die Daten nicht angezeigt. Gleichzeitig ändert sich die Hintergrundfarbe der Komponente zu einem helleren Grauton und es erscheint rechts eine durchgestrichene Wolke. Dies soll signalisieren, dass der Adapter nicht erreichbar ist. Diese Informations-Abfrage wird in einem Intervall von 5 Sekunden ausgeführt, um Änderungen in den Daten des Adapters bzw. der Verbindung des Adapters schnellstmöglich zu signalisieren. Dieses Intervall wird mit der JavaScript-Methode setInterval verwirklicht. Am Ende des renderns, wird das Interval noch geschlossen, um zu vermeiden, dass es mehrere Instanzen davon gibt.
+\textbf{AdapterList}
+Die Komponente AdapterList stellt eine Liste dar, in der alle bisher hinzugefügten Adaptern aufgelistet sind. Die Adapter werden dabei mithilfe der AdapterItem-Komponente dargestellt. Die Adapter werden mithilfe der Methode getAdapter() aus dem Speicher abgefragt. Wenn noch keine hinzugefügten Adapter vorhanden sind bzw. die Methode getAdapter() null zurückgibt, wird die Komponente ErrorScreen dargestellt. 
+\subsubsection{Seiten}
+In diesem Kapitel werden die einzelnen Seiten genauer beschrieben.
+\textbf{Favoriten}
+Auf dieser Seite wird eine Liste aus Radio-Stationen, welche als Favoriten festgelegt wurden, dargestellt. Dafür wird die Komponente FavouriteList verwendet.
+\textbf{Station-Suche}
+Auf dieser Seite ist es möglich aus einer Liste von Ländern und Sprachen auszuwählen, welche Radio-Stationen man suchen will.
+\textbf{Favoriten-Auswahl}
+Auf dieser Seite wird eine Liste, mit allen Stationen, welche dem ausgewählten Land und der ausgewählten Sprache entsprechen, angezeigt. Hier kann man Radio-Stationen markieren und mit klick auf den Haken diese zu seiner Favoritenliste hinzufügen.
+\textbf{Adapter}
+Auf dieser Seite wird eine Liste von allen bisher hinzugefügten Adaptern angezeigt.
 \subsection{Design Adaptergehäuse}
 Das Adaptergehäuse trägt einen wesentlichen Teil zur Sicherheit des Endverbrauchers sowie zur optimalen Funktionalität der Komponenten bei. Zudem soll es möglichst kompakt sein.
 \subsubsection{Grundsätzlicher Aufbau}

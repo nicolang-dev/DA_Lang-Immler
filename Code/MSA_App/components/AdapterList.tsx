@@ -67,7 +67,7 @@ export default function AdapterList({onItemPress}: Props){
         } else {
             return (
                 <SafeAreaView style={GlobalStyle.page}>
-                    <ErrorScreen errorText="Du hast noch keine Adapter hinzugefügt!" buttonText="Adapter hinzufügen" onButtonPress={() => addAdapter()}/>
+                    <ErrorScreen errorText="Du hast noch keine Adapter hinzugefügt!" buttonText="Adapter hinzufügen" onButtonPress={() => router.push("/addAdapter")}/>
                 </SafeAreaView>
             )
         }
