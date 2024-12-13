@@ -290,16 +290,16 @@ Bei der Entwicklung der Software für den Adapter, sind wir auf einige Herausfor
 \subsection{Entwicklung Smartphone-App}
 In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Smartphone-App beschrieben. Die verwendeten Tools wurden schon genauer im Kapitel ... beschrieben.
 \subsubsection{Struktur}
-Die App ist in drei Haupt-Screens gegliedert. Im folgenden werden die einzelnen Screens genauer beschrieben.
-\textbf{Adapter}
-In diesem Screen werden alle Adapter, welche schon hinzugefügt wurden, angezeigt. Es ist hier auch möglich neue Adapter hinzuzufügen. Wenn man auf einen Adapter in der Liste drückt, kann man diesen entweder konfigurieren oder auswählen welchen Audiostream der Adapter erhalten soll.
-\textbf{Musik}
-In diesem Screen ist es möglich, nach weltweiten Streams von Internet-Radios mithilfe der RadioBrowser-API zu suchen. Die Streams können in weiterer Folge zu einer Favoritenliste hinzugefügt werden, so dass sie für den Benutzer schnell abrufbar sind.
-\textbf{Einstellungen}
+Die App ist in drei Haupt-Screens gegliedert. Im folgenden werden die einzelnen Screens genauer beschrieben. \newline \\
+\textbf{Adapter} \\
+In diesem Screen werden alle Adapter, welche schon hinzugefügt wurden, angezeigt. Es ist hier auch möglich neue Adapter hinzuzufügen. Wenn man auf einen Adapter in der Liste drückt, kann man diesen entweder konfigurieren oder auswählen welchen Audiostream der Adapter erhalten soll. \newline \\
+\textbf{Musik} \\
+In diesem Screen ist es möglich, nach weltweiten Streams von Internet-Radios mithilfe der RadioBrowser-API zu suchen. Die Streams können in weiterer Folge zu einer Favoritenliste hinzugefügt werden, so dass sie für den Benutzer schnell abrufbar sind. \newline \\
+\textbf{Einstellungen} \\
 In diesem Screen kann der Benutzer wichtige Einstellungen für die App treffen. Dabei gibt es folgende Einstellungen: ...
 \subsubsection{Zielsetzung}
 Es wurde festgelegt, dass die Smartphoneapp folgende Anforderungen erfüllen soll:
-\vspace{4mm}\newline
+\vspace{4mm}\newline 
 \textbf{Konfiguration der Adapter}  \\
 Mit der App soll es einerseits möglich sein, neue Adapter zu konfiguieren, andererseits, bereits hinzugefügte Adapter zu verwalten. Dabei können von den Adaptern verschiedene Daten, wie z.B. Akkustand eingesehen werden.
 \vspace{4mm}\newline
@@ -311,14 +311,56 @@ Suche nach URLs von Audio-Streams von Internet-Radios mittels der RadioBrowser-A
 \subsubsection{UI Design}
 Bei der Smartphonapp wurde großer Wert auf Benutzerfreundlichkeit gelegt. Dies wurde mit einem sehr übersichtlichen, simplen User Interface erreicht. In der App werden nur folgende drei Farben verwendet:
 ...
+\subsubsection{Funktionen}
+In der Datei Utilities, wurden Funktionen definiert, welche dabei helfen Aktionen, welche für die App notwendig sind durchzuführen. Dazu gehören Abfragen der RadioBrowser-API und Abfragen an den jeweiligen Adapter. Im folgenden werden die Funktionen genauer beschrieben: \newline \\
+\textbf{getCountries} \\
+Die Funktion getCountries fragt alle verfügbaren Ländernamen der RadioBrowser-API ab. Der GET-Request wird dabei mit Axios ausgeführt. Als Rückgabe liefert die Funktion einen Promise, welcher entweder ein String-Array oder null ist. Das String-Array ist gefüllt mit allen verfügbaren Ländernamen. Null wird dann zurückgelifert. wenn bei der Abfrage ein Fehler auftritt. \newline \\
+\textbf{getLanguages} \\
+Die Funktion getLanguages ist gleich aufgebaut wie die Funktion getCountries. Der einzige Unterschied liegt in der URL. Hier werden nähmlich alle verfügbaren Sprachen der RadioBrowser-API abgefragt. Da die Sprachen, welche zurückgeliefert werden, alle kleingeschrieben sind, werden diese anschließend noch umgewandelt, in groß geschriebene Wörter. Dies hat designtechnische Gründe. \newline \\
+\textbf{getStations} \\
+Die Funktion getStations frägt alle Stations, welche die übergebene Sprache bzw. das übergebene Land haben von der RadioBrowser-API ab und gibt diese dann als String-Array zurück. Wenn bei der Abfrage ein Fehler entsteht, wird null zurückgeliefert. \newline \\
+\textbf{getFavouriteStations} \\
+... \newline \\
+\textbf{addFavouriteStations} \\
+... \newline \\
+\textbf{removeFavouriteStation} \\
+... \newline \\
+\textbf{clearFavouriteStationList} \\
+... \newline \\
+\textbf{Allgemeines} \\
+Für die API-Abfragen wurden asynchrone Funktionen verwendet. Asynchrone Funktionen müssen immer dann verwendet werden, wenn eine Aktion länger dauert, bzw. man auf Daten warten muss. Dies ist bei der Abfrage von APIs der Fall. Asynchrone Funktionen werden in Java Script mit "async function" definiert.
+
+
 \subsubsection{Aufbau}
 In diesem Kapitel wird die Strukturierung bzw. Aufteilung der App beschrieben. Zur grundlegenden Navigation wurde ein Tab-Navigator verwendet. Es gibt dabei die Tabs Verbindungen, Adapter und Musik. Neben dem Tab-Navigator wurde auch noch ein Stack-Navigator verwendet. Dieser ermöglicht das Navigieren zwischen Seiten mittels einem Stack. Die Navigation mittels Stack funktioniert nach dem Last In First Out - Prinzip.  Das heißt, wenn eine neue Seite aufgerufen wird, wird diese dem Stack hinzugefügt, also sozusagen auf den Stapel oben drauf gelegt. Wenn man wieder auf die vorherige Seite will, wird die aktuelle Seite einfach vom Stack entfernt, also vom Stapel oben herabgenommen. 
 \subsubsection{Komponenten}
-In diesem Kapitel werden die selbst erstellen React-Komponenten genauer beschrieben.
-\textbf{AdapterItem}
-Die Komponente AdapterItem wird dazu verwendet, die Daten eines einzelnen Adapters abzufragen und diese anzuzeigen. Dabei muss man dieser Komponente ein Objekt der Klasse Adapter als Argument mitgeben. Beim rendern wird direkt versucht eine Verbindung zum Webserver mit der IP-Adresse des übergebenen Adapters herzustellen. Ist dies erfolgreich, so wird ein GET-Request auf die /getInfo - Route des Adapters mittels Axios durchgeführt. Dabei werden die erhaltenen Informationen grafisch dargestellt. Zu diesen Daten zählt Lautstärke und Akkustand des Adapters. Ist der Adapter allerdings nicht erreichbar, werden die Daten nicht angezeigt. Gleichzeitig ändert sich die Hintergrundfarbe der Komponente zu einem helleren Grauton und es erscheint rechts eine durchgestrichene Wolke. Dies soll signalisieren, dass der Adapter nicht erreichbar ist. Diese Informations-Abfrage wird in einem Intervall von 5 Sekunden ausgeführt, um Änderungen in den Daten des Adapters bzw. der Verbindung des Adapters schnellstmöglich zu signalisieren. Dieses Intervall wird mit der JavaScript-Methode setInterval verwirklicht. Am Ende des renderns, wird das Interval noch geschlossen, um zu vermeiden, dass es mehrere Instanzen davon gibt.
-\textbf{AdapterList}
-Die Komponente AdapterList stellt eine Liste dar, in der alle bisher hinzugefügten Adaptern aufgelistet sind. Die Adapter werden dabei mithilfe der AdapterItem-Komponente dargestellt. Die Adapter werden mithilfe der Methode getAdapter() aus dem Speicher abgefragt. Wenn noch keine hinzugefügten Adapter vorhanden sind bzw. die Methode getAdapter() null zurückgibt, wird die Komponente ErrorScreen dargestellt. 
+In diesem Kapitel werden die selbst erstellen React-Komponenten genauer beschrieben. \newline \\
+\textbf{AdapterItem} \\
+Die Komponente AdapterItem wird dazu verwendet, die Daten eines einzelnen Adapters abzufragen und diese anzuzeigen. Dabei muss man dieser Komponente ein Objekt der Klasse Adapter als Argument mitgeben. Beim rendern wird direkt versucht eine Verbindung zum Webserver mit der IP-Adresse des übergebenen Adapters herzustellen. Ist dies erfolgreich, so wird ein GET-Request auf die /getInfo - Route des Adapters mittels Axios durchgeführt. Dabei werden die erhaltenen Informationen grafisch dargestellt. Zu diesen Daten zählt Lautstärke und Akkustand des Adapters. Ist der Adapter allerdings nicht erreichbar, werden die Daten nicht angezeigt. Gleichzeitig ändert sich die Hintergrundfarbe der Komponente zu einem helleren Grauton und es erscheint rechts eine durchgestrichene Wolke. Dies soll signalisieren, dass der Adapter nicht erreichbar ist. Diese Informations-Abfrage wird in einem Intervall von 5 Sekunden ausgeführt, um Änderungen in den Daten des Adapters bzw. der Verbindung des Adapters schnellstmöglich zu signalisieren. Dieses Intervall wird mit der JavaScript-Methode setInterval verwirklicht. Am Ende des renderns, wird das Interval noch geschlossen, um zu vermeiden, dass es mehrere Instanzen davon gibt. \newline \\
+\textbf{AdapterList} \\
+Die Komponente AdapterList stellt eine Liste dar, in der alle bisher hinzugefügten Adaptern aufgelistet sind. Die Adapter werden dabei mithilfe der AdapterItem-Komponente dargestellt. Die Adapter werden mithilfe der Methode getAdapter() aus dem Speicher abgefragt. Wenn noch keine hinzugefügten Adapter vorhanden sind bzw. die Methode getAdapter() null zurückgibt, wird die Komponente ErrorScreen dargestellt. \newline \\
+\textbf{AddToListButton} \\
+Die Komponente AddToListButton wurde verwendet, um ein drückbares Icon darzustellen, welches symbolisieren soll, ein weiteres Element zu einer Liste hinzuzufügen. Für die Umsetzung der Drück-Funktion wurde die Pressable-Komponente von React Native verwendet. Das Icon wurde von der Entypo-Bibliothek importiert. \newline \\
+\textbf{BatteryIndicator} \\
+Die Komponente BatteryIndicator zeigt die Batterieladung in Prozent mit dazugehörigem Icon an. Dabei erwartet sie als Argument die Batterieladung in Prozent. Je nachdem, in welchem Bereich diese Batterialadung liegt, wird ein entsprechendes Icon gerendert. Wenn für die Batterieladung ein negativer Wert (-1) übergeben wird, bedeutet dies, dass der Akku aktuell geladen wird. In diesem Fall, wird ein Lade-Icon dargestellt. \newline \\
+\textbf{ConnectionItem} \\
+... \newline \\
+\textbf{DeleteButton} \\
+Die Komponente DeleteButton stellt ein drückbares Icon dar, welches signalisieren soll, ein Element zu löschen. Dabei wurde die Drück-Funktion mit der Pressable-Komponente realisiert. Das Icon wurde von der FontAwesome-Bibliothek importiert. \newline \\
+\textbf{ErrorScreen} \\
+Die Komponente ErrorScreen stellt eine Ansicht bereit, die signalisieren soll, dass ein Fehler aufgetreten ist. Dabei wird die Fehlermeldung als Text angezeigt und man hat die Möglichkeit auf einen Knopf zu drücken, welcher dann eine Aktion ausführt. Als Parameter werden der zu anzeigende Text, der Text des Knopfs und die Funktion, welche beim druck auf den Knopf ausgeführt wird, übergeben. Der Fehlertext wird durch die Text-Komponente angezeigt und für den Knopf wurde eine Button-Komponnte verwendet. \newline \\
+\textbf{FavouriteStationList} \\
+Die Komponente FavouriteStationList stellt eine Liste aus mehreren StationItem-Komponenten dar. Die Daten dafür, werden beim Rendern der Komponente mithilfe der Funktion getFavouriteStations() aus dem Speicher ausgelesen. Wenn noch keine Favoriten im Speicher sind, wird die ErrorScreen-Komponente gerendert. Dabei ist es möglich, bei längerem Drücken auf ein FavouriteStationItem dieses zu selektieren und in weiterer Folge aus der Liste zu löschen. Die Selektierung wird mit einem kurzen Klick auf ein FavouriteStationItem wieder aufgehoben. Beim Druck auf die AddToListButton-Komponente, wird zum Screen "Stationsearch" navigiert. Beim druck auf die DeleteButton-Komponente, wird die ausgewählte Komponente aus dem Speicher gelöscht. \newline \\
+\textbf{LoadingScreen} \\
+Die Komponente LoadingScreen soll signalisieren, dass ein Vorgang durchgeführt wird und deshalb der Screen bzw. die Komponenten noch nicht angezeigt werden können. Dies kann zum Beispiel das Laden von Daten sein. Als Argument wird der Text übergeben, welcher in der Komponente angezeigt wird. Der Ladevorgang wird mit der ActivityIndicator-Komponente siganlisiert. \newline \\
+\textbf{NetworkItem} \\
+Die Komponente NetworkItem stellt Daten von einem Netzwerk dar. Dabei werden als Argumente die SSID und RSSI des Netzwerks übergeben. Die SSID wird mit der Text-Komponente angezeigt. Abhängig von dem Wert der RSSI werden verschiedene Icons angezeigt. Diese Icons stellen die Stärke des Netzwerks dar. Das Argument selected gibt an, ob die Komponente ausgewählt wurde. Wenn dies der Fall ist, verändert sich die Hintergrundfarbe der Komponente. \newline \\
+\textbf{StationItem} \\
+Die Komponente StationItem stellt die Name und Icon einer Radiostation dar. Die Radiostation wird dabei als Argument, als Objekt der Klasse Station übergeben. Das Argument selected gibt an, ob die Station ausgewählt ist. Wenn dies der Fall ist, verändert sich die Hintergrundfarbe der Komponente. \newline \\
+\textbf{TextInputWindow} \\
+Die Komponente TextInputWindow ermöglicht es Text in einem Fenster, welches vor dem anderen Content gerendert wird, einzugeben. Dabei ist unter dem Text ein Knopt "Bestätigen" und ein Knopt "Abbrechen" verfügbar. Der Text, welcher ganz oben angezeigt wird, wird als Argument übergeben. Außerdem wird mit isPassword festgelegt, ob die Eingabe in das Textfeld sichtbar sein soll oder nicht und die übergebenen Funktionen onEnter bzw. onCancel bestimmen, was passiert, wenn man den "Abbrechen"- oder "Bestätigen" Knopf drückt. \newline \\
+\textbf{VolumeIndicator} \\
+Die Komponente VolumeIndicator zeigt eine Lautstärke in Prozent an, mit einem Lautstärke-Icon davor. Das Lautstärke-Icon wird von der Feather-Bibliothek importiert. Die Lautstärke in Prozent wird mit einer Text-Komponente angezeigt. Als Argument wird die Lautstärke in Prozent übergeben. Wenn diese kleiner als 0 ist, wird ein Icon angezeigt, welches symbolisiert, dass die Lautstärke stumm ist.
 \subsubsection{Seiten}
 In diesem Kapitel werden die einzelnen Seiten genauer beschrieben.
 \textbf{Favoriten}

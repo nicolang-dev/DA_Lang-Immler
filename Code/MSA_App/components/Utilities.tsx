@@ -1,6 +1,7 @@
 import axios from "axios";
 import Station from "./Station";
 import Adapter from "./Adapter";
+import Connection from "./Connection";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const favouriteStationsKey = "favouriteStations";
@@ -148,6 +149,34 @@ export async function removeAdapter(mac: string): Promise<boolean>{
     } else {
         return false;
     }
+}
+
+export async function getConnections(): Promise<Connection[]|null>{
+    const connectionList: Connection[] = [];
+    getAdapters().then(res => {
+        if(res !== null){
+            for(let adapter of res){
+                const instance = axios.create({timeout: 2500});
+                let url = "http://" + adapter.ip + "/getStreamUrl";
+                instance.get(url).then(res => {
+                    url = "http://de1.api.radio-browser.info/json/stations/byurl?url=" + res.data;
+                    instance.get(url).then(res => {
+                        const station = new Station(res.data.uuid, res.data.name, res.data.favicon, res.data.url);
+                        const connection = new Connection(adapter, station);
+                        connectionList.push(connection);
+                    })
+                })
+            } 
+            if(connectionList.length > 0){
+                return connectionList;
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }   
+    })
+    return null;
 }
 
 export function clearAdapterList(){

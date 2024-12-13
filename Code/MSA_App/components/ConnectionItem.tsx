@@ -5,11 +5,16 @@ import { StyleSheet } from "react-native";
 import {Colors} from "@/constants/Style";
 import Adapter from "./Adapter";
 import { router } from "expo-router";
-import { useState } from "react";
+import { useEffect } from "react";
 import BatteryIndicator from "./BatteryIndicator";
 import Station from "./Station";
 import AdapterItem from "./AdapterItem";
 import StationItem from "./StationItem";
+import Connection from "./Connection";
+import { getAdapters } from "./Utilities";
+import axios from "axios";
+import PlayPauseButton from "./PlayPauseButton";
+import VolumeIndicator from "./VolumeIndicator";
 
 type Props = {
   adapter: Adapter,
@@ -19,7 +24,16 @@ type Props = {
 const style = StyleSheet.create({
     container: {
         flexDirection: 'column',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        width: '100%',
+        backgroundColor: Colors.lightGrey,
+        padding: 10,
+        borderRadius: 10
+    },
+    buttonContainer: {
+      flexDirection: 'row',
+      width: '50%',
+      justifyContent: 'space-between'
     }
 })
 
@@ -28,8 +42,12 @@ export default function ConnectionItem({adapter, station}: Props) {
     <View style={style.container}>
         <AdapterItem adapter={adapter}/>
         <StationItem station={station} selected={false}/>
-        <View>
-          
+        <View style={style.buttonContainer}>
+          <VolumeIndicator volumePercentage={10}/>
+          <PlayPauseButton onSwitch={(paused: boolean) => {
+            const data = "paused=" + paused;
+            axios.post("/setPaused", data);
+          }}/>
         </View>
     </View>
   );

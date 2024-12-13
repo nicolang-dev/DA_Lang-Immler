@@ -34,7 +34,8 @@ export const Colors = {
   darkTurquoise: '#339989',
   lightTurquoise: '#7DE2D1',
   white: '#FFFAFB',
-  red: '#d90b0b'
+  red: '#d90b0b',
+  lightGrey: '#3e403a'
 }
 
 export const GlobalStyle = StyleSheet.create({

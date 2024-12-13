@@ -1,5 +1,4 @@
 const express = require("express");
-const bonjour = require("bonjour")();
 
 const app = express();
 
@@ -7,9 +6,11 @@ const mac = "02:1A:6B:4C:D7:9F";
 let name = "Adapter1";
 let volume = 20;
 let battery = 60;
+let streamUrl = null;
+let paused = false;
 
 app.get("/", (req, res) => {
-    res.send("get request received!");
+    res.sendStatus(200);
 })
 
 app.get("/getAvailableNetworks", (req, res) => {
@@ -18,33 +19,44 @@ app.get("/getAvailableNetworks", (req, res) => {
     res.send(data);
 })
 
-app.get("/test", (req, res) => {
-    setTimeout(() => {
-        res.send("this is the response");
-    }, 5000);
-})
-
 app.get("/getInfo", (req, res) => {
    const info = {name: name, mac: mac, volume: volume, battery: battery, station: "example_station_url"};
    res.send(info);
 })
 
-app.post("/setName", (req, res) => {
-    const params = req.params;
-    name = params.name;
-    res.send("name received");
-    bonjour.publish({name: name, type: 'http', port: 80, host: hostname});
+app.get("/getStreamUrl", (req, res) => {
+    res.send(streamUrl);
 })
 
-app.post("/setVolume", (req, res) => {
+app.put("/setName", (req, res) => {
     const params = req.params;
-    volume = params.volume;
-    res.send("volume received");
+    name = params.name;
+    res.sendStatus(200);
+    console.log("name: " , name);
+})
+
+app.put("/setVolume", (req, res) => {
+    const body = req.body;
+    console.log(body);
+    //volume = params.volume;
+    res.sendStatus(200);
+    //console.log("volume: ", volume);
+})
+
+app.put("/setStreamUrl", (req, res) => {
+    const params = req.params;
+    streamUrl = params.streamUrl;
+    res.sendStatus(200);
+    console.log("stream url: ", streamUrl);
+})
+
+app.put("/setPaused", (req, res) => {
+    const params = req.params;
+    paused = req.paused;
+    res.sendStatus(200);
+    console.log("paused: ", paused);
 })
 
 app.listen(80, ()=>{
     console.log("listening!");
 })
-
-const hostname = name + ".local"
-bonjour.publish({name: name, type: 'http', port: 80, host: hostname});

@@ -58,4 +58,4 @@ console.log(getCountries());
 console.log(getLanguages());
 */
 
-let countries = await getCountries();
+//let countries = await getCountries();

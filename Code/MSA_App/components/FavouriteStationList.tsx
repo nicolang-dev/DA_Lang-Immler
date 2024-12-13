@@ -87,8 +87,8 @@ export default function FavouriteStationList({onItemPress}: Props){
                         </Pressable>
                     }/>
                     <View style={style.iconContainer}>
-                        <AddToListButton onPress={() => addStation}/>
-                        {selectedUuid !== null && <DeleteButton onPress={() => deleteSelectedStation}/>}
+                        <AddToListButton onPress={() => addStation()}/>
+                        {selectedUuid !== null && <DeleteButton onPress={() => deleteSelectedStation()}/>}
                     </View>
                 </Pressable>
             )

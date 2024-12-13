@@ -10,6 +10,7 @@
 #include "Logger.h"
 #include <ESPmDNS.h>
 #include <HTTPClient.h>
+#include "time.h"
 
 //using namespace std for String an vectors
 using namespace std;
@@ -28,6 +29,9 @@ class NetworkManager{
         NetworkManager& operator = (const NetworkManager&) = delete;
         bool ap_started;
         HTTPClient http;
+        const char* ntpServer = "pool.ntp.org";
+        const long gmtOffset_sec = 0;
+        const int daylightOffset_sec = 3600;
 
     public:
         static NetworkManager* getInstance();
@@ -94,6 +98,8 @@ class NetworkManager{
 
         /**
          * returns the current utc time, requested from a time server, as a String
+         * 
+         * @return utc time, as a string
          */
         String getUtcTime();
 };

@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.6.26)  8 DEC 2024 17:45
+=======
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.4)  8 DEC 2024 13:11
+>>>>>>> Stashed changes
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -628,23 +632,179 @@ Underfull \hbox (badness 10000) in paragraph at lines 267--288
  []
 
 [17]
+Underfull \hbox (badness 10000) in paragraph at lines 293--300
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 293--300
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 293--300
+
+ []
+
+
 Overfull \hbox (17.49892pt too wide) in paragraph at lines 301--311
 \T1/lmr/m/n/10 Suche nach URLs von Audio-Streams von Internet-Radios mit-tels d
 er RadioBrowser-
  []
 
-[18] [19] [20]
-Overfull \hbox (90.81114pt too wide) in paragraph at lines 342--356
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 315--330
+
+ []
+
+
+Overfull \hbox (7.41617pt too wide) in paragraph at lines 315--330
+\T1/lmr/m/n/10 Die Funk-ti-on get-Coun-tries fragt al-le ver-füg-ba-ren Län-der
+-na-men der RadioBrowser-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 315--330
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 315--330
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 315--330
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 315--330
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 315--330
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 315--330
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 315--330
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 315--330
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 333--360
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--360
+
+ []
+
+
+Overfull \hbox (9.2839pt too wide) in paragraph at lines 333--360
+\T1/lmr/m/n/10 ten Ad-ap-tern auf-ge-lis-tet sind. Die Ad-ap-ter wer-den da-bei
+ mit-hil-fe der AdapterItem-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--360
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--360
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--360
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--360
+
+ []
+
+
+Overfull \hbox (10.14525pt too wide) in paragraph at lines 333--360
+\T1/lmr/m/n/10 Pressable-Komponente rea-li-siert. Das Icon wur-de von der FontA
+wesome-Bibliothek
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--360
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--360
+
+ []
+
+
+Overfull \hbox (3.08412pt too wide) in paragraph at lines 333--360
+\T1/lmr/m/n/10 Die Kom-po-nen-te Fa-vou-ri-teS-ta-tion-List stellt ei-ne Lis-te
+ aus meh-re-ren StationItem-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--360
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--360
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--360
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--360
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--360
+
+ []
+
+
+Overfull \hbox (2.70175pt too wide) in paragraph at lines 333--360
+\T1/lmr/m/n/10 nem Lautstärke-Icon da-vor. Das Lautstärke-Icon wird von der Fea
+ther-Bibliothek
+ []
+
+[20] [21] [22] [23]
+Overfull \hbox (90.81114pt too wide) in paragraph at lines 380--394
 \T1/lmr/m/n/10 vgl. []$\T1/lmtt/m/n/10 https : / / www . printer-[]care . de / 
 de / drucker-[]ratgeber / wie-[]funktioniert-[]ein-[]3d-[]drucker$[] 
  []
 
-[21] [22] [23] (DA-Main.aux)
+[24] [25] [26] (DA-Main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `DA-Main.out' has not changed.
+<<<<<<< Updated upstream
 (rerunfilecheck)             Checksum: C624A013B60F15F0CCD35EBE33EFEABE;8191.
  ) 
 Here is how much of TeX's memory you used:
@@ -666,4 +826,27 @@ PDF statistics:
  434 PDF objects out of 1000 (max. 8388607)
  79 named destinations out of 1000 (max. 500000)
  433 words of extra memory for PDF output out of 10000 (max. 10000000)
+=======
+(rerunfilecheck)             Checksum: 2408427F147F0D6CCC6777C48EC8EC79;8309.
+ ) 
+Here is how much of TeX's memory you used:
+ 10891 strings out of 474486
+ 173214 string characters out of 5743756
+ 1941542 words of memory out of 5000000
+ 32928 multiletter control sequences out of 15000+600000
+ 605319 words of font info for 66 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 75i,8n,79p,1261b,614s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
+b><C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
+b><C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb
+><C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb>
+<C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
+
+Output written on DA-Main.pdf (26 pages, 256049 bytes).
+PDF statistics:
+ 452 PDF objects out of 1000 (max. 8388607)
+ 83 named destinations out of 1000 (max. 500000)
+ 441 words of extra memory for PDF output out of 10000 (max. 10000000)
+>>>>>>> Stashed changes
 

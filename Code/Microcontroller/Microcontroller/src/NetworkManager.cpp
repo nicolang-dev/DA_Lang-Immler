@@ -105,10 +105,8 @@ bool NetworkManager::isApStarted(){
 }
 
 String NetworkManager::getUtcTime(){
-    http.begin(TIME_URL);
-    int code = http.GET();
-    if(code == 200){
-        String time_str = http.getString();
-    }
-    return "test";
+    struct tm timeinfo;
+    configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
+    getLocalTime(&timeinfo);
+    return
 }
