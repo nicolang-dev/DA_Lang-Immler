@@ -64,7 +64,7 @@ class NetworkManager{
          * scans for available networks and returns the ssid and rssi (strength)
          * of the found networks as a JSON converted to a String
          * 
-         * @return all available networks, as a String
+         * @return all available networks, as a serialized json
          */
         String getAvailableNetworks();
 

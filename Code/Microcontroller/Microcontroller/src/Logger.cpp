@@ -2,8 +2,9 @@
 
 std::vector<std::tuple<String,unsigned long>> Logger::logs;
 
-void Logger::add(String log_entry, unsigned long time){
+void Logger::add(String log_entry){
     Serial.println(log_entry); //for debug purposes
+    int time = 0;
     Logger::logs.push_back(std::make_tuple(log_entry, time));
 }
 
@@ -17,9 +18,9 @@ String Logger::getLogsAsJSON(){
         doc[i]["log_entry"] = std::get<0>(logs.at(i));
         doc[i]["time"] = std::get<1>(logs.at(i));
     }
-    String logs_str;
-    serializeJson(doc, logs_str);
-    return logs_str;
+    String logs;
+    serializeJson(doc, logs);
+    return logs;
 }
 
 std::tuple<String, unsigned long> Logger::getLastLog(){

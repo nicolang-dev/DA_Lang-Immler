@@ -5,7 +5,7 @@ import { GlobalStyle } from "@/constants/Style";
 export default function AdapterOverview(){
     return(
         <SafeAreaView style={GlobalStyle.page}>
-            <AdapterList onItemPress={() => {alert("adapter pressed!")}}/>
+            <AdapterList selectable editable showOnlyConnected={false} onItemPress={() => {}}/>
         </SafeAreaView>
     )
 }

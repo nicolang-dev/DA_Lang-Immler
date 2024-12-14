@@ -6,7 +6,7 @@ const mac = "02:1A:6B:4C:D7:9F";
 let name = "Adapter1";
 let volume = 20;
 let battery = 60;
-let streamUrl = null;
+let streamUrl = "http://stream.live.vc.bbcmedia.co.uk/bbc_world_service";
 let paused = false;
 
 app.get("/", (req, res) => {
@@ -29,30 +29,30 @@ app.get("/getStreamUrl", (req, res) => {
 })
 
 app.put("/setName", (req, res) => {
-    const params = req.params;
+    const params = req.query;
     name = params.name;
     res.sendStatus(200);
     console.log("name: " , name);
 })
 
 app.put("/setVolume", (req, res) => {
-    const body = req.body;
-    console.log(body);
-    //volume = params.volume;
+    const params = req.query;
+    volume = params.volume;
     res.sendStatus(200);
-    //console.log("volume: ", volume);
+    console.log("volume: ", volume);
 })
 
 app.put("/setStreamUrl", (req, res) => {
-    const params = req.params;
+    const params = req.query;
     streamUrl = params.streamUrl;
     res.sendStatus(200);
     console.log("stream url: ", streamUrl);
 })
 
 app.put("/setPaused", (req, res) => {
-    const params = req.params;
-    paused = req.paused;
+    const params = req.query;
+    console.log(params);
+    paused = params.paused;
     res.sendStatus(200);
     console.log("paused: ", paused);
 })

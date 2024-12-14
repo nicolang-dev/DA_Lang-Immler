@@ -18,13 +18,17 @@ import Adapter from "./Adapter";
 import AdapterItem from "./AdapterItem";
 
 type Props = {
-    onItemPress: Function
+    onItemPress: Function,
+    selectable: boolean,
+    editable: boolean
+    showOnlyConnected: boolean
 }
 
-export default function AdapterList({onItemPress}: Props){
+export default function AdapterList({onItemPress, selectable, editable, showOnlyConnected}: Props){
     const [adapterList, setAdapterList] = useState(new Array());
     const [isDataFetched, setDataFetched] = useState(false);
     const [isEmpty, setEmpty] = useState(false);
+    const [selectedMac, setSelectedMac] = useState(null);
 
     function fetchData(){
         getAdapters().then(res => {
@@ -57,11 +61,17 @@ export default function AdapterList({onItemPress}: Props){
             return(
                 <View style={style.container}>
                     <FlatList data={adapterList} renderItem={({item}) => 
-                        <Pressable onPress={() => onItemPress(item)}>
-                            <AdapterItem adapter={item}/> 
+                        <Pressable onPress={() => {
+                            setSelectedMac(item.mac);
+                            onItemPress(item);
+                        }}>
+                            <AdapterItem adapter={item} selected={selectable && selectedMac == item.mac}/> 
                         </Pressable>
                     }/>
-                    <AddToListButton onPress={() => router.push("/addAdapter")}/>
+                    {
+                        editable &&
+                        <AddToListButton onPress={() => router.push("/addAdapter")}/>
+                    }
                 </View>
             )
         } else {

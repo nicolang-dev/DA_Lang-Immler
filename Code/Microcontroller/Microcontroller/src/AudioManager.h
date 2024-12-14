@@ -12,6 +12,9 @@ class AudioManager{
         bool streaming;
         String stream_url;
 
+        AudioManager();
+        ~AudioManager();
+
     public:
         static AudioManager* getInstance();
         /**
@@ -45,6 +48,12 @@ class AudioManager{
          * returns the stream url
          */
         String getStreamUrl();
+
+
+        /**
+         * returns the volume set
+         */
+        int getVolume();
 
         /**
          * sets the volume of the output

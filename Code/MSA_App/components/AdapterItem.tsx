@@ -11,7 +11,8 @@ import axios from "axios";
 import VolumeIndicator from "./VolumeIndicator";
 
 type Props = {
-  adapter: Adapter
+  adapter: Adapter,
+  selected: boolean
 };
 
 const style = StyleSheet.create({
@@ -37,40 +38,34 @@ const style = StyleSheet.create({
         width: '20%'
     }
 })
-export default function AdapterItem({adapter}: Props) {
+export default function AdapterItem({adapter, selected}: Props) {
   const [connected, setConnected] = useState(false);
   const [data, setData] = useState(null);
 
   const requestInterval = 1000;
 
   useEffect(() => {
-    const url = "http://" + adapter.ip + "/getInfo";
-    const instance = axios.create({timeout: 2500});
-    console.log(url);
-
-    const interval = setInterval(() => {
-      instance.get(url).then(res => {
-        setConnected(true);
-        setData(res.data);
-      }).catch(err => {
-        setConnected(false);
-      })
-    }, 5000);
-
-    return () => {clearInterval(interval);};
+    
   },[]);
+
+  let backgroundColor = "lightgrey";
+  if(selected){
+    backgroundColor = Colors.lightTurquoise;
+  } else if(connected){
+    backgroundColor = Colors.grey;
+  } else {
+    backgroundColor = "lightgrey";
+  }
   
   return (
-    <View style={[style.container1, {backgroundColor: connected ? Colors.grey : "lightgrey"}]} onPress={() => {/*router.push({pathname: "/adapterView", params: {name: adapter.name, mac: adapter.mac, battery: adapter.battery}})*/}}>
+    <View style={[style.container1, {backgroundColor: backgroundColor}]}>
       <View>
         <Text style={GlobalStyle.textBig}>{adapter.name}</Text>
         <Text style={GlobalStyle.textMedium}>{adapter.mac}</Text>
       </View>
       {connected 
-        ? <View style={style.container2}>
-            <VolumeIndicator volumePercentage={data.volume}/>
-            <BatteryIndicator batteryPercentage={data.battery}/>
-          </View>
+        ? 
+          <BatteryIndicator batteryPercentage={adapter.battery}/>
         : <Ionicons name="cloud-offline" size={24} color={Colors.white}/>
       }
     </View>

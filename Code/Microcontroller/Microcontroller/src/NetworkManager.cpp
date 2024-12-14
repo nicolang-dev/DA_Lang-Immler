@@ -28,7 +28,7 @@ String NetworkManager::getMac(){
 }
 
 /**
- * scans for available networks and returns the ssid and rssi (strength) of the found networks as a String
+ * scans for available networks and returns the ssid and rssi (strength) of the found networks as a json
  */
 String NetworkManager::getAvailableNetworks(){
     JsonDocument networks;
@@ -39,9 +39,9 @@ String NetworkManager::getAvailableNetworks(){
             networks[i]["rssi"] = WiFi.RSSI(i);
         }
     }
-    String networks_str;
-    serializeJson(networks, networks_str);
-    return networks_str;
+    String result;
+    serializeJson(networks, result);
+    return result;
 }
 
 /**
@@ -108,5 +108,5 @@ String NetworkManager::getUtcTime(){
     struct tm timeinfo;
     configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
     getLocalTime(&timeinfo);
-    return
+    return "example";
 }

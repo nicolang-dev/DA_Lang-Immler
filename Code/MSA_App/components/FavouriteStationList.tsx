@@ -16,10 +16,12 @@ import DeleteButton from "./DeleteButton";
 import AddToListButton from "./AddToListButton";
 
 type Props = {
-    onItemPress: Function
+    onItemPress: Function,
+    selectable: boolean,
+    editable: boolean
 }
 
-export default function FavouriteStationList({onItemPress}: Props){
+export default function FavouriteStationList({onItemPress, selectable, editable}: Props){
     const [stationList, setStationList] = useState(new Array());
     const [isDataFetched, setDataFetched] = useState(false);
     const [isEmpty, setEmpty] = useState(false);
@@ -50,13 +52,13 @@ export default function FavouriteStationList({onItemPress}: Props){
         router.push("/radiosearch");
     }
 
-    function handlePress(station: Station){
+    /*function handlePress(station: Station){
         if(selectedUuid === null){
             onItemPress(station);
         } else {
             setSelectedUuid(null);
         }
-    }
+    }*/
 
     useEffect(()=>{
         console.log("rendering");
@@ -82,14 +84,20 @@ export default function FavouriteStationList({onItemPress}: Props){
             return(
                 <Pressable style={style.container} onPress={() => {setSelectedUuid(null)}}>
                     <FlatList style={style.list} data={stationList} renderItem={({item}) => 
-                        <Pressable onPress={() => handlePress(item)} onLongPress={() => setSelectedUuid(item.uuid)}>
-                            <StationItem station={item} selected={selectedUuid !== null ? selectedUuid == item.uuid : false}/>
+                        <Pressable onPress={() => {
+                            setSelectedUuid(item.uuid);
+                            //handlePress(item);
+                            onItemPress(item);
+                        }}>
+                            <StationItem station={item} selected={selectable && selectedUuid == item.uuid}/>
                         </Pressable>
                     }/>
-                    <View style={style.iconContainer}>
-                        <AddToListButton onPress={() => addStation()}/>
-                        {selectedUuid !== null && <DeleteButton onPress={() => deleteSelectedStation()}/>}
-                    </View>
+                    {editable &&
+                        <View style={style.iconContainer}>
+                            <AddToListButton onPress={() => addStation()}/>
+                            {selectedUuid !== null && <DeleteButton onPress={() => deleteSelectedStation()}/>}
+                        </View>
+                    }
                 </Pressable>
             )
         } else {

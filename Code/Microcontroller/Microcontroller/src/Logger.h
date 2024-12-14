@@ -15,7 +15,7 @@ class Logger{
         /**
          * adds a log entry to the logs vector
          */
-        static void add(String log_entry, unsigned long time);
+        static void add(String log_entry);
 
         /**
          * returns the vector of all logs
@@ -33,7 +33,7 @@ class Logger{
         static unsigned long getLogSize();
 
         /**
-         * returns the logs in JSON format, converted to a String
+         * returns the logs as a serialized json
          */
         static String getLogsAsJSON();
 

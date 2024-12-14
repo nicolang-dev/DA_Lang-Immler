@@ -6,6 +6,9 @@
 #include "constants.h"
 #include "NetworkManager.h"
 #include "BatteryManager.h"
+#include <ArduinoJson.h>
+#include "AudioManager.h"
+#include "MemoryManager.h"
 
 class ServerManager{
     private:
@@ -17,12 +20,21 @@ class ServerManager{
         WebServer server;
         NetworkManager* network;
         BatteryManager* battery;
+        AudioManager* audio;
+        MemoryManager* memory;
         String received_ssid;
         String received_password;
         String received_url;
         String received_name;
         int received_volume;
         bool running;
+
+        /**
+         * creates a json, filed with info about the adapter
+         * 
+         * @return info info about the adapter as a serialized json
+         */
+        String getAdapterInfo();
 
         /**
          * handles a get request to the standard / route
@@ -48,6 +60,11 @@ class ServerManager{
          * handles a get request to the /getLogs route
          */
         void handle_getLogs();
+
+        /**
+         * handles a post request to the /setConfigData route
+         */
+        void handle_setConfigData();
         
         /**
          * handles a post request to the /setWiFiCredentials route
@@ -73,6 +90,11 @@ class ServerManager{
          * handles a request to a undefined route
          */
         void handle_notFound();
+
+        /**
+         * handles a put request to the /getInfo route
+         */
+        void handle_getInfo();
     public:
         static ServerManager* getInstance();
 

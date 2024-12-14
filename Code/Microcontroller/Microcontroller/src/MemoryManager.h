@@ -4,6 +4,7 @@
 #include <Arduino.h>
 #include <Preferences.h>
 #include <constants.h>
+#include "Logger.h"
 
 class MemoryManager{
     private:
@@ -53,6 +54,13 @@ class MemoryManager{
         bool areLogsSet();
 
         /**
+         * returns, if the ip-address is set to the memory
+         * 
+         * @return if ip address is set to the memory
+         */
+        bool isIpSet();
+
+        /**
          * reads the wlan ssid from the memory
          * @return WLAN-SSID, as a String
          */
@@ -82,6 +90,13 @@ class MemoryManager{
          * @return name of the microcontroller, as a String
          */
         String readName();
+
+        /**
+         * reads the ip address from the memory
+         * 
+         * @return ip address of the microcontroller, as a String
+         */
+        String readIp();
 
         /**
          * writes the given ssid to the memory
@@ -117,6 +132,13 @@ class MemoryManager{
          * @param name Name of the microcontroller, as a String
          */
         void writeName(String name);
+
+        /**
+         * writes the given ip address to the memory
+         * 
+         * @param ip IP Address of the microcontroller, as a String
+         */
+        void writeIp(String ip);
 
         /**
          * clears the memory

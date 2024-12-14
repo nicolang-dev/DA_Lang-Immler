@@ -17,8 +17,7 @@ import PlayPauseButton from "./PlayPauseButton";
 import VolumeIndicator from "./VolumeIndicator";
 
 type Props = {
-  adapter: Adapter,
-  station: Station
+  connection: Connection
 };
 
 const style = StyleSheet.create({
@@ -37,16 +36,16 @@ const style = StyleSheet.create({
     }
 })
 
-export default function ConnectionItem({adapter, station}: Props) {
+export default function ConnectionItem({connection}: Props) {
   return (
     <View style={style.container}>
-        <AdapterItem adapter={adapter}/>
-        <StationItem station={station} selected={false}/>
+        <AdapterItem adapter={connection.adapter} selected={false}/>
+        <StationItem station={connection.station} selected={false}/>
         <View style={style.buttonContainer}>
-          <VolumeIndicator volumePercentage={10}/>
           <PlayPauseButton onSwitch={(paused: boolean) => {
-            const data = "paused=" + paused;
-            axios.post("/setPaused", data);
+            const url = "http://" + connection.adapter.ip + "/setPaused";
+            const data = {paused: paused};
+            axios.put(url, data);
           }}/>
         </View>
     </View>

@@ -2,6 +2,10 @@
 
 AudioManager* AudioManager::instance = nullptr;
 
+AudioManager::AudioManager(){
+    stream_url = "";
+}
+
 AudioManager* AudioManager::getInstance(){
     if(instance == nullptr){
         instance = new AudioManager();
@@ -38,6 +42,10 @@ void AudioManager::loop(){
 
 String AudioManager::getStreamUrl(){
     return stream_url;
+}
+
+int AudioManager::getVolume(){
+    return audio.getVolume();
 }
 
 void AudioManager::setVolume(int volume){

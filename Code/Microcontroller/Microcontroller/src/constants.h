@@ -30,6 +30,7 @@ const String PASSWORD_KEY = "password";
 const String URL_KEY = "wifi";
 const String LOGS_KEY = "logs";
 const String NAME_KEY = "name";
+const String IP_KEY = "ip";
 
 //I2S
 const int I2S_BITSPERSAMPLE = 16;

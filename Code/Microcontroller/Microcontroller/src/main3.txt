@@ -41,6 +41,7 @@ void setup(){
     statusLED = StatusLED::getInstance();
     memory = MemoryManager::getInstance();
     server = ServerManager::getInstance();
+    audio = AudioManager::getInstance();
     battery = BatteryManager::getInstance();
 
     //initializing pins of status led
@@ -48,7 +49,7 @@ void setup(){
     battery->initializePins();
 
     //initialize i2s
-    //audio->initialize(DEFAULT_VOLUME);
+    audio->initialize(DEFAULT_VOLUME);
 
     //if logs are already set in the memory, read logs and add them
     /*if(memory->areLogsSet()){
@@ -60,38 +61,29 @@ void setup(){
     //turn status led off at the beginning
     statusLED->setOff();
 
-    Serial.println("serializing json");
-    String test = "";
-    JsonDocument doc;
-    doc["test1"] = "test";
-    doc["test2"] = test;
-    String str;
-    serializeJson(doc, str);
-    Serial.println(str);
-
     //if name is set in memory, read name and use it
     if(memory->isNameSet()){
         name = memory->readName();
     } else {
-        Logger::add("name not set in memory - using default name");
+        Logger::add("name not set in memory - using default name", actual_time);
         String mac = network->getMac();
-        name = "MSA_" + mac.substring(name.length()-4); //setting default name
+        name = "MSA_" + mac; //setting default name
     }
-    Logger::add(name);
+    Logger::add(name, actual_time);
 
     //if WLAN-credentials are set, read them and try to connect to WLAN
     if(memory->isWlanSsidSet() && memory->isWlanPasswordSet()){
-        Logger::add("wlan credentials set in memory");
+        Logger::add("wlan credentials set in memory", actual_time);
         String wlan_ssid = memory->readWlanSsid();
         String wlan_password = memory->readWlanPassword();
-        Logger::add("wlan credentials:");
-        Logger::add(wlan_ssid);
-        Logger::add(wlan_password);
-        Logger::add("starting wlan client");
+        Logger::add("wlan credentials:", actual_time);
+        Logger::add(wlan_ssid, actual_time);
+        Logger::add(wlan_password, actual_time);
+        Logger::add("starting wlan client", actual_time);
         network->startClient(wlan_ssid, wlan_password);
         setMode(NORMAL);
     } else { //when Wlan credentials are not set, status led is set to red
-        Logger::add("wlan credentials not set in memory");
+        Logger::add("wlan credentials not set in memory", actual_time);
         setMode(ERROR);
     }
 }
@@ -115,23 +107,23 @@ void loop(){
         //check if still connected to Wlan
         if((actual_time - last_wlan_request_time) >= WLAN_REQUEST_PERIOD){
             if(!network->isConnectedToWlan()){ //if connected to Wlan, set color of status led to green
-                Logger::add("not connected to wlan");
+                Logger::add("not connected to wlan", actual_time);
                 setMode(ERROR);
             } else if(!server->isRunning()){
-                Logger::add("starting web server");
+                Logger::add("starting web server", actual_time);
             server->start();
             network->setmDns(name);
             }
         }
-         /*if(audio->isStreaming()){
+         if(audio->isStreaming()){
             audio->loop();
-        }*/
+        }
     } else if(mode == CONFIG){
         if(!network->isApStarted()){
-            Logger::add("starting ap");
+            Logger::add("starting ap", actual_time);
             network->startAP(name);
         } else if(!server->isRunning()){
-            Logger::add("starting web server");
+            Logger::add("starting web server", actual_time);
             server->start();
             network->setmDns(name);
         }
@@ -141,37 +133,37 @@ void loop(){
         server->handleClient(); //handle client
         //if Wlan credentials are received, read Wlan credentials and restart microcontroller
         if(server->wlanCredentialsReceived()){
-            Logger::add("wlan credentials received from client");
+            Logger::add("wlan credentials received from client", actual_time);
             String received_ssid = server->getReceivedSsid(); //read received ssid
             String received_password = server->getReceivedPassword(); //read received password
-            Logger::add(received_ssid);
-            Logger::add(received_password);
-            Logger::add("writing wlan credentials to memory");
+            Logger::add(received_ssid, actual_time);
+            Logger::add(received_password, actual_time);
+            Logger::add("writing wlan credentials to memory", actual_time);
             //String all_logs = Logger::getLogsAsString();
             memory->writeWlanSsid(received_ssid); //write ssid to memory
             memory->writeWlanPassword(received_password); //write password to memory
             //memory->writeLogs(all_logs);
-            Logger::add("restarting esp32");
+            Logger::add("restarting esp32", actual_time);
             ESP.restart(); //restart microcontroller
         }
         //if server has received a stream-url, the audio class should start streaming
         if(server->urlReceived()){
             String url = server->getReceivedUrl();
-            Logger::add("starting audio stream");
-            Logger::add(url);
+            Logger::add("starting audio stream", actual_time);
+            Logger::add(url, actual_time);
             audio->startStream(url);
         }
         if(server->nameReceived()){
             String received_name = server->getReceivedName();
-            Logger::add("name received");
-            Logger::add(received_name);
+            Logger::add("name received", actual_time);
+            Logger::add(received_name, actual_time);
             network->setmDns(received_name);
             memory->writeName(received_name);
         }
         if(server->volumeReceived()){
             int received_volume = server->getReceivedVolume();
-            Logger::add("volume received");
-            Logger::add(String(received_volume));
+            Logger::add("volume received", actual_time);
+            Logger::add(String(received_volume), actual_time);
             audio->setVolume(received_volume);
         }
     }   
@@ -179,15 +171,15 @@ void loop(){
 
 void setMode(Mode m){
     if(m == NORMAL){
-        Logger::add("setting mode to normal");
+        Logger::add("setting mode to normal", actual_time);
         mode = NORMAL;
         statusLED->setGreen();
     } else if(m == ERROR){
-        Logger::add("setting mode to error");
+        Logger::add("setting mode to error", actual_time);
         mode = ERROR;
         statusLED->setRed();
     } else if(m == CONFIG){
-        Logger::add("setting mode to config");
+        Logger::add("setting mode to config", actual_time);
         mode = CONFIG;
         statusLED->setBlue();
     }
