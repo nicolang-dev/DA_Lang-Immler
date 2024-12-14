@@ -18,23 +18,9 @@ import ConnectionList from "@/components/ConnectionList";
 import Connection from "@/components/Connection";
 
 export default function Index(){
-    const [connectionList, setConnectionList] = useState(Array());
-
-    useEffect(() => {
-        getAdapters().then(res => {
-            console.log("adapters: ", res);
-        })
-        getConnections().then(res => {
-            if(res !== null){
-                setConnectionList(res);
-            }
-        })
-    },[]);
     return (
         <SafeAreaView style={GlobalStyle.page}>
-           <FlatList data={connectionList} renderItem={({item}) => 
-           <ConnectionItem connection={item}/>
-        }/>
+            <ConnectionList onItemPress={()=>{}}/>
         </SafeAreaView>
     );
 }

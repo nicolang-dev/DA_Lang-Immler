@@ -113,39 +113,50 @@ export function clearFavouriteStationList(){
 
 export async function getAdapters(): Promise<Adapter[]|null>{
     const savedAdapters = await AsyncStorage.getItem(adaptersKey);
-        if(savedAdapters !== null){
-            const adapterList: [] = JSON.parse(savedAdapters);
-            let result: Adapter[] = [];
-            adapterList.forEach((adapter: Adapter) => {
-                const url = "http://" + adapter.name + ".local/getInfo";
-                const instance = axios.create({timeout: 2500});
-                instance.get(url).then(res => {
-                    if(res !== undefined){
-                        const adapterInfo = res.data;
-                        result.push(new Adapter(adapter.name, adapter.mac, adapterInfo.volume, adapterInfo.battery, true, adapterInfo.streamUrl));
-                    } else {
-                        result.push(new Adapter(adapter.name, adapter.mac, -1, -1, false, ""));
-                    }
-                })
-                if(result.length > 0){
-                    return result;
+    if(savedAdapters !== null){
+        const reachableAdapters: Adapter[] = [];
+        const unreachableAdapters: Adapter[] = [];
+        const adapterList: [] = JSON.parse(savedAdapters);
+        adapterList.forEach((element) => {
+            unreachableAdapters.push(new Adapter(element.name, element.mac, -1, -1, false, ""));
+        })
+        const promiseList: any[] = [];
+        adapterList.forEach((adapter: Adapter) => {
+            const url = "http://" + adapter.name + ".local/getInfo";
+            const instance = axios.create({timeout: 500});
+            const promise = instance.get(url);
+            promiseList.push(promise);
+        })
+        const results = await Promise.allSettled(promiseList);
+        results.forEach((element) => {
+            if(element.status == "fulfilled"){
+                const val = element.value.data;
+                reachableAdapters.push(new Adapter(val.name, val.mac, val.volume, val.battery, true, val.streamUrl));
+            }
+        })
+        for(let i = 0; i < unreachableAdapters.length; i++){
+            for(let j = 0; j < reachableAdapters.length; j++){
+                if(unreachableAdapters[i].mac == reachableAdapters[j].mac){
+                    unreachableAdapters.splice(i, 1);
                 }
-            })
+            }
         }
-    return null;
+        const result = reachableAdapters.concat(unreachableAdapters);
+        return Promise.resolve(result);
+    }
+    return Promise.reject("no adapters available");
 }
 
-export async function addAdapter(adapter: Adapter): Promise<boolean>{
+export async function addAdapter(adapter: Adapter){
     let newAdapterList = await getAdapters();
     if(newAdapterList === null){
         newAdapterList = [];
     }
     newAdapterList.push(adapter);
-    await AsyncStorage.setItem(adaptersKey, JSON.stringify(newAdapterList));
-    return true;
+    return AsyncStorage.setItem(adaptersKey, JSON.stringify(newAdapterList));
 }
 
-export async function removeAdapter(mac: string): Promise<boolean>{
+export async function removeAdapter(mac: string){
     let newAdapterList = await getAdapters();
     if(newAdapterList !== null){
         for(let i = 0; i < newAdapterList.length; i++){
@@ -154,9 +165,9 @@ export async function removeAdapter(mac: string): Promise<boolean>{
             }
         }
         await AsyncStorage.setItem(adaptersKey, JSON.stringify(newAdapterList));
-        return true;
+        return Promise.resolve();
     } else {
-        return false;
+        return Promise.reject("adapter list is empty");
     }
 }
 
@@ -165,19 +176,21 @@ export async function getConnections(): Promise<Connection[]|null>{
     const adapterList = await getAdapters();
         if(adapterList !== null){
             for(let adapter of adapterList){
-                const instance = axios.create({timeout: 2500});
-                let url = "http://" + adapter.name + ".local/getStreamUrl";
-                const adapterRes = await instance.get(url);
-                url = "http://de1.api.radio-browser.info/json/stations/byurl?url=" + adapterRes.data;
-                const apiRes = await instance.get(url);
-                const obj = apiRes.data[0];
-                const station = new Station(obj.stationuuid, obj.name, obj.favicon, obj.url);
-                const connection = new Connection(adapter, station);
-                connectionList.push(connection);
-                if(connectionList.length > 0){
-                    return connectionList;
-                } else {
-                    return null;
+                if(adapter.connected){
+                    const instance = axios.create({timeout: 2500});
+                    let url = "http://" + adapter.name + ".local/getStreamUrl";
+                    const adapterRes = await instance.get(url);
+                    url = "http://de1.api.radio-browser.info/json/stations/byurl?url=" + adapterRes.data;
+                    const apiRes = await instance.get(url);
+                    const obj = apiRes.data[0];
+                    const station = new Station(obj.stationuuid, obj.name, obj.favicon, obj.url);
+                    const connection = new Connection(adapter, station);
+                    connectionList.push(connection);
+                    if(connectionList.length > 0){
+                        return connectionList;
+                    } else {
+                        return null;
+                    }
                 }
             }
         }

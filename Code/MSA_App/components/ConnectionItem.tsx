@@ -43,7 +43,7 @@ export default function ConnectionItem({connection}: Props) {
         <StationItem station={connection.station} selected={false}/>
         <View style={style.buttonContainer}>
           <PlayPauseButton onSwitch={(paused: boolean) => {
-            const url = "http://" + connection.adapter.ip + "/setPaused";
+            const url = "http://" + connection.adapter.name + ".local/setPaused";
             const data = {paused: paused};
             axios.put(url, data);
           }}/>

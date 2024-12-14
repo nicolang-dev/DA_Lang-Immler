@@ -17,6 +17,7 @@ import AddToListButton from "./AddToListButton";
 import Adapter from "./Adapter";
 import AdapterItem from "./AdapterItem";
 import ConnectionItem from "./ConnectionItem";
+import LoadingScreen from "./LoadingScreen";
 
 type Props = {
     onItemPress: Function
@@ -30,9 +31,9 @@ export default function ConnectionList({onItemPress}: Props){
     function fetchData(){
         getConnections().then(res => {
             setDataFetched(true);
-            if(res?.length != 0 && res !== null){
-                setConnectionList(res);
+            if(res !== null){
                 setEmpty(false);
+                setConnectionList(res);
             } else {
                 setEmpty(true);
             }
@@ -59,7 +60,7 @@ export default function ConnectionList({onItemPress}: Props){
                 <View style={style.container}>
                     <FlatList data={connectionList} renderItem={({item}) => 
                         <Pressable onPress={() => onItemPress(item)}>
-                            <ConnectionItem adapter={item.adapter} station={item.station}/> 
+                            <ConnectionItem connection={item}/> 
                         </Pressable>
                     }/>
                 </View>
@@ -73,7 +74,7 @@ export default function ConnectionList({onItemPress}: Props){
         }
     } else {
         return (
-            <Text style={GlobalStyle.textBig}>Lade Daten ...</Text>
+            <LoadingScreen text="Lade Verbindungen ..."/>
         )
     }
 }

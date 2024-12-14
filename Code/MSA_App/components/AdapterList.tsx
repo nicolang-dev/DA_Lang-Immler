@@ -16,15 +16,16 @@ import DeleteButton from "./DeleteButton";
 import AddToListButton from "./AddToListButton";
 import Adapter from "./Adapter";
 import AdapterItem from "./AdapterItem";
+import LoadingScreen from "./LoadingScreen";
 
 type Props = {
     onItemPress: Function,
     selectable: boolean,
     editable: boolean
-    showOnlyConnected: boolean
+    onlyReachableSelectable: boolean
 }
 
-export default function AdapterList({onItemPress, selectable, editable, showOnlyConnected}: Props){
+export default function AdapterList({onItemPress, selectable, editable, onlyReachableSelectable}: Props){
     const [adapterList, setAdapterList] = useState(new Array());
     const [isDataFetched, setDataFetched] = useState(false);
     const [isEmpty, setEmpty] = useState(false);
@@ -33,9 +34,9 @@ export default function AdapterList({onItemPress, selectable, editable, showOnly
     function fetchData(){
         getAdapters().then(res => {
             setDataFetched(true);
-            if(res?.length != 0 && res !== null){
-                setAdapterList(res);
+            if(res !== null){
                 setEmpty(false);
+                setAdapterList(res);
             } else {
                 setEmpty(true);
             }
@@ -43,7 +44,7 @@ export default function AdapterList({onItemPress, selectable, editable, showOnly
     }
 
     useEffect(()=>{
-        fetchData();
+        setInterval(fetchData, 5000);
     },[]);
 
     const style = StyleSheet.create({
@@ -62,7 +63,11 @@ export default function AdapterList({onItemPress, selectable, editable, showOnly
                 <View style={style.container}>
                     <FlatList data={adapterList} renderItem={({item}) => 
                         <Pressable onPress={() => {
-                            setSelectedMac(item.mac);
+                            if(onlyReachableSelectable && item.connected){
+                                setSelectedMac(item.mac);
+                            } else if(!onlyReachableSelectable){
+                                setSelectedMac(item.mac);
+                            }
                             onItemPress(item);
                         }}>
                             <AdapterItem adapter={item} selected={selectable && selectedMac == item.mac}/> 
@@ -83,7 +88,7 @@ export default function AdapterList({onItemPress, selectable, editable, showOnly
         }
     } else {
         return (
-            <Text style={GlobalStyle.textBig}>Lade Daten ...</Text>
+            <LoadingScreen text="Lade Adapter ..."/>
         )
     }
 }

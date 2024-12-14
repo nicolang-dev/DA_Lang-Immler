@@ -1,9 +1,10 @@
 const express = require("express");
+const bonjour = require("bonjour")();
 
 const app = express();
 
 const mac = "02:1A:6B:4C:D7:9F";
-let name = "Adapter1";
+let name = "msa_79f";
 let volume = 20;
 let battery = 60;
 let streamUrl = "http://stream.live.vc.bbcmedia.co.uk/bbc_world_service";
@@ -28,11 +29,10 @@ app.get("/getStreamUrl", (req, res) => {
     res.send(streamUrl);
 })
 
-app.put("/setName", (req, res) => {
+app.post("/setConfigData", (req,res) => {
     const params = req.query;
     name = params.name;
-    res.sendStatus(200);
-    console.log("name: " , name);
+    res.sendStatus(201);
 })
 
 app.put("/setVolume", (req, res) => {
@@ -60,3 +60,5 @@ app.put("/setPaused", (req, res) => {
 app.listen(80, ()=>{
     console.log("listening!");
 })
+const host = name + ".local";
+bonjour.publish({name: name, type: 'http', port: 80, host: host});
