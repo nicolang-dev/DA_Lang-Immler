@@ -90,7 +90,7 @@ Das Ziel des Software-Teils für folgende Diplomarbeit war, einerseits die Softw
 \subsection{Festlegung Funktionsweise}
 Beim Festlegen einer grundlegenden Funktionsweise des Adapters stellen sich vor allem folgende Fragen:
 \subsubsection{Was soll das System können?}
-Das Hauptziel ist, dass das System in verschiedenen, voneinander getrennten Räumlichkeiten verschiedene Audiosignale auf einen Line-Output abspielen kann. Dabei ist es wichtig, dass das System den Ton zuverlässig und möglichst flüssig überträgt und ausgibt. \newline 
+Das Hauptziel ist, dass das System in verschiedenen, voneinander getrennten Räumlichkeiten bestimmte Audiosignale auf einen Line-Output abspielen kann. Dabei ist es wichtig, dass das System den Ton zuverlässig und möglichst flüssig überträgt und ausgibt. \newline 
 Grundsätzlich kann jeder beliebige Audio-Stream aus dem Internet verwendet werden. Das können beispielsweise Radiosender sein.
 Ein Beispiel für einen solchen Audio-Stream wäre der, des österreichischen Radio-Senders \glqq OE3\grqq{}: \newline
 \url{https://orf-live.ors-shoutcast.at/oe3-q2a}
@@ -374,10 +374,12 @@ Auf dieser Seite wird eine Liste von allen bisher hinzugefügten Adaptern angeze
 \subsection{Design Adaptergehäuse}
 Das Adaptergehäuse trägt einen wesentlichen Teil zur Sicherheit des Endverbrauchers sowie zur optimalen Funktionalität der Komponenten bei. Zudem soll es möglichst kompakt sein.
 \subsubsection{Grundsätzlicher Aufbau}
-Die Grundlage für den ersten Prototyp bildet ein 71x58x29mm (Außenmaße) großer Kasten mit Deckel.\newline
-Das Gehäuse wurde mit frei schwebenden, jedoch an den Wänden befestigten Stützen ausgestattet, um den Mikrocontroller fest montieren zu können. Der erste Prototyp wurde mit kleinen Zylindern auf den Stützen ausgestattet, um den Mikrocontroller mit seinen bereits Vorhandenen Aussparungen darauf platzieren zu können. Der Digital-/Analogwandler und der Akku-Laderegler finden auch auf solchen Stützen ihren Platz. Der Gedanke dahinter war, den Akku unter den Bauteilen zu platzieren. Mehr dazu im Teil "Wärmeableitung". FEHLTFEHLTFEHLT Zudem wurden in den Wänden des Gehäuses Aussparungen für Buchsen platziert. Die Aussparungen für die RGB-LED und den Taster wurden im Deckel platziert. Eine Art Abdeckung für den Taster selbst wird auf diesen geklebt um ein gleichbleibendes Erscheinungsbild des Gehäuses zu behalten. Der Deckel, der von oben auf das Gehäuse gedrückt wird, schließt dieses. Wenn man schon früh beachtet, dass die Prototypen mit einem 3D-Drucker gefertigt werden, kann man schon das 3D-Design für eine gute Druckbarkeit auf 3D-Drucker anpassen. Damit ist hauptsächlich gemeint, überhängende Drucke, komplizierte Stützstrukturen oder ähnliches zu vermeiden.
+Die Grundlage für den Prototyp bildet ein Kasten mit Deckel.\newline
+Das Gehäuse wurde mit frei schwebenden, jedoch an den Wänden befestigten Stützen ausgestattet, um den Mikrocontroller fest montieren zu können. Der Prototyp wurde zudem mit kleinen Zylindern auf den Stützen ausgestattet, um den Mikrocontroller mit seinen bereits Vorhandenen Aussparungen darauf platzieren zu können. Der Digital-/Analogwandler und der Akku-Laderegler finden auch auf solchen Stützen ihren Platz. Der Gedanke dahinter war, den Akku unter den Bauteilen zu platzieren. Mehr dazu im Teil "Wärmeableitung". Zudem wurden in einer Wand des Gehäuses Aussparungen für die Buchsen platziert. Die Aussparungen für die RGB-LED und den Taster wurden im Deckel platziert. Eine Art Abdeckung für den Taster selbst wird auf diesen geklebt um ein gleichbleibendes Erscheinungsbild des Gehäuses zu behalten. Der Deckel, der von oben auf das Gehäuse gedrückt wird, schließt dieses. Im Deckel ist zusätzlich ein Belüftungsgitter eingelassen. Mehr dazu auch im Teil "Wärmeableitung".
+\subsubsection{Virtuelles 3D-Design}
+Wenn man schon früh beachtet, dass die Prototypen mit einem 3D-Drucker gefertigt werden, kann man schon das 3D-Design für eine gute Druckbarkeit auf 3D-Drucker anpassen. Damit ist hauptsächlich gemeint, überhängende Drucke, komplizierte Stützstrukturen oder ähnliches zu vermeiden.
 \subsubsection{Wärmeableitung}
-Wärmeableitung ist wichtig, da Mikroprozessoren, wie alle anderen Prozessoren auch, bei intensivem Betrieb Hitze entwickeln. Der in diesem Fall eingesetzte ESP32 hat laut Hersteller eine Betriebstemperatur von –40°C bis +125°C.
+Wärmeableitung ist wichtig, da Mikroprozessoren, wie alle anderen Prozessoren auch, bei intensivem Betrieb Hitze entwickeln. Laut einer eigens durchgeführten Messung wird der in diesem Fall eingesetzte ESP32 meistens nur rund 38°C warm. Bei hoher Rechenleistung sind jedoch auch höhere Temperaturen möglich. Der ESP32 hat laut Hersteller eine mögliche Betriebstemperatur von –40°C bis +125°C. Damit die entstandene Wärme gut ableiten kann und keine der Komponenten beeinflusst (vor allem den Akku, da dieser bei hohen Temperaturen Explosionsgefahr ausgesetzt ist), wird der Mikrocontroller im Gehäuse oben, also auf Stützen angebracht. Die aufsteigende Wärme kann somit nach oben durch das dafür vorgesehene Gitter entweichen und staut sich somit nicht im Inneren des Gehäuses. Der Akku liegt dementsprechend unter dem Mikrocontroller und allen anderen Komponenten und wird durch die abstrahlende Hitze dementsprechend nur etwas wärmer als Raumtemperatur.
 \vspace{4mm}\newline
 vgl. \url{https://www.espressif.com/en/products/socs/esp32}
 \subsection{Fertigung Adaptergehäuse}
@@ -409,8 +411,26 @@ vgl. \url{https://help.prusa3d.com/de/glossary/175-mm_134816}
 \subsection{Zusammensetzen des Prototypen}
 Die Komponenten werden jeweils einzeln direkt mit dem Mikrocontroller verbunden. Bei diesem Prototyp lässt sich der Mikrocontroller nämlich vorerst als Platine betrachten, welcher zusätzliche Komponenten zugefügt werden.
 \subsubsection{Schaltplan}
-\subsubsection{Löten}
+Die Pinbelegung zwischen den Komponenten und dem Mikrocontroller ist folgendermaßen gelöst:
+\vspace{4mm}\newline
+\textbf{Digital-/Analogwandler} \newline
+BCK (Wandler) an D26 (Mikrocontroller)\newline
+LCK (Wandler) an D25 (Mikrocontroller)\newline
+DIN (Wandler) an D22 (Mikrocontroller)\newline
+\vspace{4mm}\newline
+\textbf{Taster} \newline
+1 (Taster) an 3V3 (Mikrocontroller)\newline
+2 (Taster) an D12 (Mikrocontroller)\newline
+\vspace{4mm}\newline
+\textbf{RGB-LED} \newline
+R (LED) an D15 (Mikrocontroller)\newline
+G (LED) an D2 (Mikrocontroller)\newline
+B (LED) an D4 (Mikrocontroller)\newline
+GND (LED) an GND (Mikrocontroller)\newline
+\subsubsection{Verdrahten}
+Bei unserem Prototyp wurden alle Komponenten, der Pinbelegung entsprechend, mit dem Mikrocontroller verbunden. Dabei kamen Drahtkabel, Litzenkabel und Steckkabel (Litze) zur Verwendung. Dies hatte hauptsächlich den Grund, dass zum Beispiel nur mit Drähten nicht alle Verbindungen optimal möglich gewesen wären, was hauptsächlich der Löthaftung an einigen Komponenten zu verschulden war. Um keine Wackelkontakte, oder gar unterbrochene Verbindungen zu riskieren, wurde für jede Verbindung einzeln entschieden, welches der genannten Verfahren sich am besten eignet. So entstanden zum Beispiel Steckverbindungen, gelötete Drahtverbindungen oder Mischungen aus gelöteten Litze- und Steckverbindungen (jeweils am anderen Ende des Kabels).
 \subsubsection{Kleben}
+Damit alle Komponenten und Teile sicher im Gehäuse sitzen und nichts klappert oder sich gar bewegt, müssen gewisse Komponenten angeklebt werden. Vorallem bei den Buchsen ist eine feste Verbindung wichtig, da diese bei jedem Ein- und Ausstecken großer Belastung ausgesetzt sind. Somit wurden der Laderegler und der Digital-/Analogwandler an den dafür gedruckten Stützen angeklebt. Zudem wurde der gedruckte Aufsatz in Gehäuseoptik für den Taster auf diesem befestigt. Für alle Klebverbindungen im Adapter wurden entweder herkömmliches Cyanacrylat (Superkleber) oder Schmelzklebstoff (Heißkleber) verwendet.
 
 \section{Testen und Fehlerbehebung}
 \subsection{Testen des Gesamtsystems}
