@@ -7,7 +7,8 @@ export default function Layout() {
           headerStyle: {backgroundColor: Colors.grey},
           headerTitleStyle: {color: Colors.white}
           }}>
-        <Stack.Screen name='index'/>
+        <Stack.Screen name='index' options={{headerTitle: 'Adapter'}}/>
+        <Stack.Screen name='addAdapter' options={{headerTitle: 'Adapter hinzufügen'}}/>
     </Stack>
   );
 }

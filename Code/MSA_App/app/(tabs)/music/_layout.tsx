@@ -7,9 +7,9 @@ export default function Layout() {
               headerStyle: {backgroundColor: Colors.grey},
               headerTitleStyle: {color: Colors.white}
               }}>
-        <Stack.Screen name='index'/>
-        <Stack.Screen name='favouriteStationSelect'/>
-        <Stack.Screen name='radiosearch'/>
+        <Stack.Screen name='index' options={{headerTitle: 'Stationen'}}/>
+        <Stack.Screen name='favouriteStationSelect' options={{headerTitle: 'Stationen auswählen'}}/>
+        <Stack.Screen name='radiosearch' options={{headerTitle: 'Stationen filtern'}}/>
     </Stack>
   );
 }

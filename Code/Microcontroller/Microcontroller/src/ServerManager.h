@@ -22,11 +22,6 @@ class ServerManager{
         BatteryManager* battery;
         AudioManager* audio;
         MemoryManager* memory;
-        String received_ssid;
-        String received_password;
-        String received_url;
-        String received_name;
-        int received_volume;
         bool running;
 
         /**

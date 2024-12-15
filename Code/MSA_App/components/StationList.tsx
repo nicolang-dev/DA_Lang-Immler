@@ -114,7 +114,7 @@ export default function StationList({onItemSelect, editable}: Props){
         } else {
             return (
                 <SafeAreaView style={GlobalStyle.page}>
-                    <ErrorScreen errorText="Du hast noch keine Stationen hinzugefügt!" buttonText="Station hinzufügen" onButtonPress={() => router.push("/radiosearch")}/>
+                    <ErrorScreen errorText="Du hast noch keine Stationen hinzugefügt!" buttonText="Station hinzufügen" onButtonPress={() => router.push("/(tabs)/music/radiosearch")}/>
                 </SafeAreaView>
             )
         }

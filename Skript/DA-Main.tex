@@ -301,7 +301,7 @@ Der Adapter soll grundsätzlich folgende Funktionen bereitstellen:
 \end{itemize}
 
 \subsubsection{Programmablauf}
-Der Ablauf des Programmes wird mit folgendem UML-Ablaufdiagramm veranschaulicht: \newline \\
+Der Ablauf des Programmes wird mit folgendem UML-Ablaufdiagramm veranschaulicht: \\
 \textbf{Start} \newline
 Der Microcontroller wird durch einmaliges Drücken auf den Knopf aus dem Standby (Deep Sleep) Modus erweckt. \newline \\
 \textbf{Lesen der WiFi-Zugangsdaten} \newline
@@ -314,6 +314,10 @@ Wird der Konfigurationsmodus mit Druck auf den Taster aktiviert, wechselt die St
 Sobald der Microcontroller die WiFi-Zugangsdaten vom Client erhalten hat, schreibt er diese in den EEPROM. Anschließend wird der Microcontroller neu gestartet und der Programmablauf fängt wieder von vorne an.
 \subsubsection{Klassen}
 Bei der Entwicklung der Microcontroller-Software wurde aufgrund der Übersichtlichkeit und um die Design-Patterns der Softwareentwicklung einzuhalten, auf objektorientierte Programmierung gesetzt. Das folgende UML-Klassendiagramm veranschaulicht die Beziehung der verschiedenen Klassen zueinander:
+\begin{figure}
+\includegraphics[scale=0.3, angle=90]{/software/uml_microcontroller.png}
+\caption{UML-Klassendiagramm Microcontroller}
+\end{figure}
 hier kommt das UML-Klassendiagramm her
 Im folgenden Teil werden die Klassen und deren Funktionen noch näher beschrieben:
 \newline \\
@@ -329,11 +333,13 @@ Die Klasse AudioManager ist für das Empfangen des Internet-Audio-Streams und in
 \textbf{Logger} \\
 Die Klasse Logger ist zuständig, für das Speichern von Logs, welche von anderen Klassen geschrieben werden. 
 \vspace{4mm}\newline
-\textbf{Server}
-Die Klasse Server ist für das managen des Webservers, welcher auf dem Microcontroller läuft, zustängig. In ihr werden unter anderem die verfügbaren Routen der REST-API definiert.
+\textbf{ServerManager}
+Die Klasse ServerManager ist für das Verwalten des Webservers, welcher auf dem Microcontroller läuft, zustängig. In ihr werden unter anderem die verfügbaren Routen der REST-API definiert.
 \vspace{4mm}\newline
 \textbf{MemoryManager}
 Die Klasse MemoryManager ist für das Schreiben in und das Lesen vom EEPROMs des Microcontrollers zuständig.
+\textbf{BatteryManager}
+Die Klasse BatteryManager regelt die Ladung des ESP32 und liest den Akkustand aus.
 \subsubsection{Herausforderungen}
 Bei der Entwicklung der Software für den Adapter, sind wir auf einige Herausforderungen gestoßen. Ursprünglich war geplant, eine Funktion zu implementieren, die es ermöglicht mehrere Adapter zu Gruppen zu verbinden. In diesen Gruppen sollte dann jeweils der gleiche Stream synchron laufen. Die Synchronisierung der Adapter hat sich allerdings als sehr schwierig erwiesen, da die Ressourcen des ESP32 nicht dafür ausreichten, die Latenz gering zu halten.
 \subsection{Entwicklung Smartphone-App}
@@ -400,8 +406,6 @@ Die Funktion getStations frägt alle Stations, welche die übergebene Sprache bz
 ... \newline \\
 \textbf{Allgemeines} \\
 Für die API-Abfragen wurden asynchrone Funktionen verwendet. Asynchrone Funktionen müssen immer dann verwendet werden, wenn eine Aktion länger dauert, bzw. man auf Daten warten muss. Dies ist bei der Abfrage von APIs der Fall. Asynchrone Funktionen werden in Java Script mit "async function" definiert.
-
-
 \subsubsection{Aufbau}
 In diesem Kapitel wird die Strukturierung bzw. Aufteilung der App beschrieben. Zur grundlegenden Navigation wurde ein Tab-Navigator verwendet. Es gibt dabei die Tabs Verbindungen, Adapter und Musik. Neben dem Tab-Navigator wurde auch noch ein Stack-Navigator verwendet. Dieser ermöglicht das Navigieren zwischen Seiten mittels einem Stack. Die Navigation mittels Stack funktioniert nach dem Last In First Out - Prinzip.  Das heißt, wenn eine neue Seite aufgerufen wird, wird diese dem Stack hinzugefügt, also sozusagen auf den Stapel oben drauf gelegt. Wenn man wieder auf die vorherige Seite will, wird die aktuelle Seite einfach vom Stack entfernt, also vom Stapel oben herabgenommen. 
 \subsubsection{Komponenten}
@@ -451,17 +455,25 @@ Die Komponente StationItem stellt Name und Icon einer Radiostation dar. Die Radi
 \textbf{TextInputWindow} \\
 Die Komponente TextInputWindow ermöglicht es Text in einem Fenster, welches vor dem anderen Content gerendert wird, einzugeben. Dabei ist unter dem Text ein Knopt "Bestätigen" und ein Knopt "Abbrechen" verfügbar. Der Text, welcher ganz oben angezeigt wird, wird als Argument übergeben. Außerdem wird mit isPassword festgelegt, ob die Eingabe in das Textfeld sichtbar sein soll oder nicht und die übergebenen Funktionen onEnter bzw. onCancel bestimmen, was passiert, wenn man den "Abbrechen"- oder "Bestätigen" Knopf drückt. \newline \\
 \textbf{VolumeIndicator} \\
-Die Komponente VolumeIndicator zeigt eine Lautstärke in Prozent an, mit einem Lautstärke-Icon davor. Das Lautstärke-Icon wird von der Feather-Bibliothek importiert. Die Lautstärke in Prozent wird mit einer Text-Komponente angezeigt. Als Argument wird die Lautstärke in Prozent übergeben. Wenn diese kleiner als 0 ist, wird ein Icon angezeigt, welches symbolisiert, dass die Lautstärke stumm ist.
+Die Komponente VolumeIndicator zeigt eine Lautstärke in Prozent an, mit einem Lautstärke-Icon davor. Das Lautstärke-Icon wird von der Feather-Bibliothek importiert. Die Lautstärke in Prozent wird mit einer Text-Komponente angezeigt. Als Argument wird die Lautstärke in Prozent übergeben. Wenn diese kleiner als 0 ist, wird ein Icon angezeigt, welches symbolisiert, dass die Lautstärke stumm ist. \newline \\
+\textbf{WifiItem} \\
+Die Komponente WiFiItem dient dazu, die Informationen eines WLAN-Netzwerkes darzustellen. Zu diesen Informationen zählt die SSID, welche sozusagen der Name des Netzwerks ist und die RSSI, welche die Stärke des Netzwerks angibt. Diese zwei Werte werden als Parameter der Komponente übergeben.
 \subsubsection{Seiten}
-In diesem Kapitel werden die einzelnen Seiten genauer beschrieben.
-\textbf{Favoriten}
-Auf dieser Seite wird eine Liste aus Radio-Stationen, welche als Favoriten festgelegt wurden, dargestellt. Dafür wird die Komponente FavouriteList verwendet.
-\textbf{Station-Suche}
-Auf dieser Seite ist es möglich aus einer Liste von Ländern und Sprachen auszuwählen, welche Radio-Stationen man suchen will.
-\textbf{Favoriten-Auswahl}
-Auf dieser Seite wird eine Liste, mit allen Stationen, welche dem ausgewählten Land und der ausgewählten Sprache entsprechen, angezeigt. Hier kann man Radio-Stationen markieren und mit klick auf den Haken diese zu seiner Favoritenliste hinzufügen.
-\textbf{Adapter}
-Auf dieser Seite wird eine Liste von allen bisher hinzugefügten Adaptern angezeigt.
+In diesem Kapitel werden die einzelnen Seiten der App genauer beschrieben. \newline \\
+\textbf{Startseite Verbindungen} \\
+Diese Seite ist die Startseite des Tabs Verbindungen. Auf ihr werden aktive Verbindungen zwischen Adaptern und Audio-Quellen angezeigt. Die Darstellunge wird mithilfe der Komponente ConnectionList verwirklicht. Es ist hier möglich neue Verbindungen zu erstellen, aktive Verbindungen zu trennen, die Lautstärke von aktiven Verbindungen zu ändern und aktive Verbindungen zu pausieren bzw. fortzusetzen. \newline \\
+\textbf{Verbindung hinzufügen} \\
+Diese Seite befindet sich im Tab Verbindungen. Hier ist es möglich neue Verbindungen hinzuzufügen. Dazu muss zuerst ein Adapter ausgewählt werden und in weiterer Folge eine Audio-Quelle, von der der Adapter den Stream empfangen soll. Dabei können nur verbundene Adapter, das heißt, Adapter die im Netz erreichbar sind, ausgewählt werden. Zum Anzeigen der Adapter wurde die Komponente AdapterList verwendet, zum Anzeigen der Stationen die Komponente Station List. Der Parameter editable wurde dabei bei beiden Stationen auf false gesetzt, da ein bearbeiten der Listen in dieser Ansicht nicht möglich sein soll. Wenn jeweils ein Adapter und eine Station ausgewählt ist, ist es möglich den Knopf unten zu drücken und die Verbindung wird erstellt.
+\textbf{Startseite Adapter} \\
+Diese Seite ist die Startseite des Tabs Adapter. Auf ihr werden hinzugefügte Adapter angezeigt. Dies geschieht mithilfe der Komponente AdapterList. Der Parameter editable der AdapterList hat den Wert true, da es hier möglich sein soll neue Adapter hinzuzufügen bzw. bestehende Adapter zu entfernen. \newline \\
+\textbf{Startseite Musik} \\
+Diese Seite ist die Startseite des Tabs Musik. Auf ihr werden die Favoriten der Radiostationen mithilfe der Komponente StationList dargestellt. Der Parameter selectable der StationList-Komponente hat dabei den Wert true, da es auf dieser Seite möglich sein soll, neue Favoriten hinzuzufügen bzw. bestehende Favoriten zu entfernen. In Zukunft wäre denkbar, dass hier noch Streaming-Dienste implementiert werden, welche dann auch als Audio-Quelle benutzt werden können. \newline \\
+\textbf{Stationen filtern} \\
+Diese Seite befindet sich im Tab Musik. Hier ist es möglich Land und Sprache auswählen, nach denen in weiterer Folge die Stationen auf der Seite Stationen auswählen gefiltert werden. Der Sprachen-Datensatz wird dabei mithilfe der Methode getLanguages() von Utilities abgerufen. Der Länder-Datensatz wird mit der Methode getCountries() von Utilities aufgerufen. Mit druck auf den Knopf wird die Seite Stationen auswählen aufgerufen und die Paramter werden an diese übergeben. \newline \\
+\textbf{Stationen auswählen} \\
+Diese Seite befindet sich im Tab Musik. Hier ist es möglich Stationen, welche zu der Favoritenliste hinzugefügt werden sollen, auszuwählen. Als Parameter werden Ländername und Sprache übergeben. Dementsprechend werden die zu auswählenden Stationen nach diesen Parametern gefiltert. Das Abrufen der Stationen erfolgt mithilfe der Methode getStations() und die Darstellung mithilfe der StationList-Komponente. Nach klick auf den Haken rechts unten werden die Stationen mithilfe der Funktion addFavouriteStations() zur Favoritenliste hinzugefügt. \newline \\
+\textbf{Favoriten-Auswahl} \\
+Auf dieser Seite wird eine Liste, mit allen Stationen, welche dem ausgewählten Land und der ausgewählten Sprache entsprechen, angezeigt. Hier kann man Radio-Stationen markieren und mit klick auf den Haken diese zu seiner Favoritenliste hinzufügen. \newline \\
 \subsection{Design Adaptergehäuse}
 Das Adaptergehäuse trägt einen wesentlichen Teil zur Sicherheit des Endverbrauchers sowie zur optimalen Funktionalität der Komponenten bei. Zudem soll es möglichst kompakt sein.
 \subsubsection{Grundsätzlicher Aufbau}

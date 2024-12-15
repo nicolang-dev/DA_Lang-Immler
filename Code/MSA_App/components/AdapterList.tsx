@@ -112,11 +112,10 @@ export default function AdapterList({onItemSelect, editable, onlyReachableSelect
                     {
                         editable &&
                         <View style={style.iconContainer}>
-                             <AddToListButton onPress={() => router.push("/addAdapter")}/>
+                             <AddToListButton onPress={() => router.push("/(tabs)/adapter/addAdapter")}/>
                                 {
                                     selectedAdapter !== null &&
                                     <DeleteButton onPress={()=>{handleDeletePress()}}/>
-
                                 }
                         </View>
                     }
