@@ -101,7 +101,7 @@ export default function StationList({onItemSelect, editable}: Props){
                     {
                         editable &&
                         <View style={style.iconContainer}>
-                             <AddToListButton onPress={() => router.push("/radiosearch")}/>
+                             <AddToListButton onPress={() => router.push("../radiosearch", { relativeToDirectory: true })}/>
                                 {
                                     selectedStation !== null &&
                                     <DeleteButton onPress={()=>{handleDeletePress()}}/>

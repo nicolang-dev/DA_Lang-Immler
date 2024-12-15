@@ -39,19 +39,10 @@ const style = StyleSheet.create({
     }
 })
 export default function AdapterItem({adapter, selected}: Props) {
-  const [connected, setConnected] = useState(false);
-  const [data, setData] = useState(null);
-
-  const requestInterval = 1000;
-
-  useEffect(() => {
-    
-  },[]);
-
   let backgroundColor = "lightgrey";
   if(selected){
     backgroundColor = Colors.lightTurquoise;
-  } else if(connected){
+  } else if(adapter.connected){
     backgroundColor = Colors.grey;
   } else {
     backgroundColor = "lightgrey";
@@ -63,7 +54,7 @@ export default function AdapterItem({adapter, selected}: Props) {
         <Text style={GlobalStyle.textBig}>{adapter.name}</Text>
         <Text style={GlobalStyle.textMedium}>{adapter.mac}</Text>
       </View>
-      {connected 
+      {adapter.connected 
         ? 
           <BatteryIndicator batteryPercentage={adapter.battery}/>
         : <Ionicons name="cloud-offline" size={24} color={Colors.white}/>

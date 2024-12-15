@@ -338,18 +338,6 @@ Die Klasse MemoryManager ist für das Schreiben in und das Lesen vom EEPROMs des
 Bei der Entwicklung der Software für den Adapter, sind wir auf einige Herausforderungen gestoßen. Ursprünglich war geplant, eine Funktion zu implementieren, die es ermöglicht mehrere Adapter zu Gruppen zu verbinden. In diesen Gruppen sollte dann jeweils der gleiche Stream synchron laufen. Die Synchronisierung der Adapter hat sich allerdings als sehr schwierig erwiesen, da die Ressourcen des ESP32 nicht dafür ausreichten, die Latenz gering zu halten.
 \subsection{Entwicklung Smartphone-App}
 In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Smartphone-App beschrieben. Die verwendeten Tools wurden schon genauer im Kapitel ... beschrieben.
-\subsubsection{Struktur}
-\begin{figure}[H]
-\includegraphics[scale=0.5]{/software/app_layout.png}
-\end{figure}
-Die App kann ganz grob in die 
-Die App ist in drei Haupt-Screens gegliedert. Im folgenden werden die einzelnen Screens genauer beschrieben. \newline \\
-\textbf{Adapter} \\
-In diesem Screen werden alle Adapter, welche schon hinzugefügt wurden, angezeigt. Es ist hier auch möglich neue Adapter hinzuzufügen. Wenn man auf einen Adapter in der Liste drückt, kann man diesen entweder konfigurieren oder auswählen welchen Audiostream der Adapter erhalten soll. \newline \\
-\textbf{Musik} \\
-In diesem Screen ist es möglich, nach weltweiten Streams von Internet-Radios mithilfe der RadioBrowser-API zu suchen. Die Streams können in weiterer Folge zu einer Favoritenliste hinzugefügt werden, so dass sie für den Benutzer schnell abrufbar sind. \newline \\
-\textbf{Einstellungen} \\
-In diesem Screen kann der Benutzer wichtige Einstellungen für die App treffen. Dabei gibt es folgende Einstellungen: ...
 \subsubsection{Zielsetzung}
 Es wurde festgelegt, dass die Smartphoneapp folgende Anforderungen erfüllen soll:
 \vspace{4mm}\newline 
@@ -361,9 +349,39 @@ Mehrere Adapter abspeichern und bestimmen, welcher Adapter welchen Stream erhalt
 \vspace{4mm}\newline
 \textbf{Suche nach Audio-Streams} \\
 Suche nach URLs von Audio-Streams von Internet-Radios mittels der RadioBrowser-API.
+\subsubsection{Navigation}
+Für die Navigation in der App wurde einerseits die Tab-Navigation und andererseits die Stack-Navigation von Expo Router verwendet. Die App ist grundsätzlich in die drei Tabs Verbindungen, Adapter und Musik gegliedert. Zwischen diesen Tabs kann mittels dem Tab-Navigator gewechselt werden. In den einzelnen Tabs befinden sich jeweils mehrere Seiten. Diese Seiten sind mithilfe des Stack-Navigators aufrufbar. Der Stack-Navigator arbeitet mit einem sogenannten Stack, auf Deutsch "Stapel". Zu diesem werden mittels des Last In - First Out - Prinzipes (kurz LIFO) Seiten hinzugefügt bzw. von diesem entfernt. Mithilfe der Methode router.push() werden dem Stack Seiten hinzugefügt. Es wird also sozusagen eine Seite auf den Stapel gelegt. Mithilfe der Methode router.pop() wird eine Seite vom Stack entfernt. Es wird also sozusagen die oberste Seite vom Stapel heruntergenommen.
+\subsubsection{Struktur}
+\begin{figure}[H]
+\includegraphics[scale=0.5]{/software/app_layout.png}
+\caption{Aufbau Seite}
+\end{figure}
+Die Seiten der App sind alle gleich strukturiert. Ganz oben ist der Header, in welchem der Seitenname steht. Ganz unten ist die Tab Bar, welche die einzelnen Tabs anzeigt und auch sichtbar macht, in welchem Tab man sich aktuell befindet (mehr dazu im Kapitel Navigation). Zwischen dem Header und der Tab Bar ist der jeweilige Inhalt der Seite.
+Die App ist in drei Tabs gegliedert. Im folgenden werden die einzelnen Tabs genauer beschrieben. \newline \\
+\textbf{Verbindungen} \\
+Dieser Tab ist für die Verwaltung von Verbindungen zwischen Adaptern und Audioquellen zuständig. Hier kann konfiguriert werden, welcher Adapter welchen Stream empfangen soll. Es ist außerdem möglich, laufende Streams zu stoppen, deren Lautstärke zu ändern und zu löschen. \newline \\
+\textbf{Adapter} \\
+Dieser Tab ist für die Verwaltung von Adaptern zuständig. Es ist hier möglich, gespeicherte Adapter anzusehen, zu löschen und neue Adapter hinzuzufügen. Der Tab besteht aus den Seiten index und addAdapter, welche im Kapitel Seiten noch genauer beschrieben werden.  \newline \\
+\textbf{Musik} \\
+Dieser Tab ist für die Verwaltung von Audio-Quellen zuständig. Vorerst werden hier als Quellen nur Internet-Radios verwendet. In Zukunft wäre es aber auch denkbar, Streaming-Dienste als Quellen zu implementieren. Mit jetztigem Stand ist es in diesem Tab möglich, neue Radiosender zu der Favoritenliste hinzuzufügen und die Favoritenliste anzusehen bzw. Favoriten zu löschen. Der Tab besteht aus den Seiten index und searchStations, welche im Kapitel Seiten noch genauer beschrieben werden.
 \subsubsection{UI Design}
-Bei der Smartphonapp wurde großer Wert auf Benutzerfreundlichkeit gelegt. Dies wurde mit einem sehr übersichtlichen, simplen User Interface erreicht. In der App werden nur folgende drei Farben verwendet:
-...
+Das User Interface der App wurde eher schlicht gehalten und der verwendete Stil wurde durch alle Komponenten durchgezogen. Der globale Style wurde in der App unter constants festgelegt. Folgende Farben wurde in der App verwendet: \\
+\begin{tabularx}{\textwidth}{ |c|c| }
+\hline
+\textbf{Bezeichnung} & \textbf{Farbcode (hex)} \\
+\hline
+grey & \# 2B2C28 \\
+\hline 
+lightTurquoise & \# 7DE2D1 \\
+\hline 
+white & \# FFFAFB \\
+\hline 
+red & \# d90b0b \\
+\hline 
+lightGrey & \# 3e403a \\
+\hline 
+\end{tabularx} \newline \\
+Die Hauptfarben der App sind sehr dunkel und die sekundären eher knalliger, was einen guten Kontrast bildet.
 \subsubsection{Funktionen}
 In der Datei Utilities, wurden Funktionen definiert, welche dabei helfen Aktionen, welche für die App notwendig sind durchzuführen. Dazu gehören Abfragen der RadioBrowser-API und Abfragen an den jeweiligen Adapter. Im folgenden werden die Funktionen genauer beschrieben: \newline \\
 \textbf{getCountries} \\
@@ -389,8 +407,20 @@ In diesem Kapitel wird die Strukturierung bzw. Aufteilung der App beschrieben. Z
 \subsubsection{Komponenten}
 In diesem Kapitel werden die selbst erstellen React-Komponenten genauer beschrieben. \newline \\
 \textbf{AdapterItem} \\
+\begin{figure}[H]
+\includegraphics[scale=0.2]{/software/adapter_connected.png}
+\caption{AdapterItem, verbunden}
+\includegraphics[scale=0.21]{/software/adapter_not_connected.png}
+\caption{AdapterItem, nicht verbunden}
+\includegraphics[scale=0.23]{/software/adapter_selected.png}
+\caption{AdapterItem, ausgewählt}
+\end{figure}
 Die Komponente AdapterItem wird dazu verwendet, die Daten eines einzelnen Adapters abzufragen und diese anzuzeigen. Dabei muss man dieser Komponente ein Objekt der Klasse Adapter als Argument mitgeben. Beim rendern wird direkt versucht eine Verbindung zum Webserver mit der IP-Adresse des übergebenen Adapters herzustellen. Ist dies erfolgreich, so wird ein GET-Request auf die /getInfo - Route des Adapters mittels Axios durchgeführt. Dabei werden die erhaltenen Informationen grafisch dargestellt. Zu diesen Daten zählt Lautstärke und Akkustand des Adapters. Ist der Adapter allerdings nicht erreichbar, werden die Daten nicht angezeigt. Gleichzeitig ändert sich die Hintergrundfarbe der Komponente zu einem helleren Grauton und es erscheint rechts eine durchgestrichene Wolke. Dies soll signalisieren, dass der Adapter nicht erreichbar ist. Diese Informations-Abfrage wird in einem Intervall von 5 Sekunden ausgeführt, um Änderungen in den Daten des Adapters bzw. der Verbindung des Adapters schnellstmöglich zu signalisieren. Dieses Intervall wird mit der JavaScript-Methode setInterval verwirklicht. Am Ende des renderns, wird das Interval noch geschlossen, um zu vermeiden, dass es mehrere Instanzen davon gibt. \newline \\
 \textbf{AdapterList} \\
+\begin{figure}[H]
+\includegraphics[scale=0.15]{/software/stationlist.jpg}
+\caption{StationList, editable}
+\end{figure}
 Die Komponente AdapterList stellt eine Liste dar, in der alle bisher hinzugefügten Adaptern aufgelistet sind. Die Adapter werden dabei mithilfe der AdapterItem-Komponente dargestellt. Die Adapter werden mithilfe der Methode getAdapter() aus dem Speicher abgefragt. Wenn noch keine hinzugefügten Adapter vorhanden sind bzw. die Methode getAdapter() null zurückgibt, wird die Komponente ErrorScreen dargestellt. \newline \\
 \textbf{AddToListButton} \\
 Die Komponente AddToListButton wurde verwendet, um ein drückbares Icon darzustellen, welches symbolisieren soll, ein weiteres Element zu einer Liste hinzuzufügen. Für die Umsetzung der Drück-Funktion wurde die Pressable-Komponente von React Native verwendet. Das Icon wurde von der Entypo-Bibliothek importiert. \newline \\
@@ -409,7 +439,15 @@ Die Komponente LoadingScreen soll signalisieren, dass ein Vorgang durchgeführt 
 \textbf{NetworkItem} \\
 Die Komponente NetworkItem stellt Daten von einem Netzwerk dar. Dabei werden als Argumente die SSID und RSSI des Netzwerks übergeben. Die SSID wird mit der Text-Komponente angezeigt. Abhängig von dem Wert der RSSI werden verschiedene Icons angezeigt. Diese Icons stellen die Stärke des Netzwerks dar. Das Argument selected gibt an, ob die Komponente ausgewählt wurde. Wenn dies der Fall ist, verändert sich die Hintergrundfarbe der Komponente. \newline \\
 \textbf{StationItem} \\
-Die Komponente StationItem stellt die Name und Icon einer Radiostation dar. Die Radiostation wird dabei als Argument, als Objekt der Klasse Station übergeben. Das Argument selected gibt an, ob die Station ausgewählt ist. Wenn dies der Fall ist, verändert sich die Hintergrundfarbe der Komponente. \newline \\
+\begin{figure}[H]
+\begin{flushleft}
+\includegraphics[scale=0.2]{/software/stationitem.png}
+\caption{StationItem}
+\includegraphics[scale=0.2]{/software/stationitem_selected.png}
+\caption{StationItem, selected}
+\end{flushleft}
+\end{figure}
+Die Komponente StationItem stellt Name und Icon einer Radiostation dar. Die Radiostation wird dabei bei den Argumenten, als Objekt der Klasse Station übergeben. Das Argument selected gibt an, ob die Station ausgewählt ist. Wenn dies der Fall ist, verändert sich die Hintergrundfarbe der Komponente. \newline \\
 \textbf{TextInputWindow} \\
 Die Komponente TextInputWindow ermöglicht es Text in einem Fenster, welches vor dem anderen Content gerendert wird, einzugeben. Dabei ist unter dem Text ein Knopt "Bestätigen" und ein Knopt "Abbrechen" verfügbar. Der Text, welcher ganz oben angezeigt wird, wird als Argument übergeben. Außerdem wird mit isPassword festgelegt, ob die Eingabe in das Textfeld sichtbar sein soll oder nicht und die übergebenen Funktionen onEnter bzw. onCancel bestimmen, was passiert, wenn man den "Abbrechen"- oder "Bestätigen" Knopf drückt. \newline \\
 \textbf{VolumeIndicator} \\

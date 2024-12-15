@@ -8,6 +8,8 @@ export default function Layout() {
               headerTitleStyle: {color: Colors.white}
               }}>
         <Stack.Screen name='index'/>
+        <Stack.Screen name='favouriteStationSelect'/>
+        <Stack.Screen name='radiosearch'/>
     </Stack>
   );
 }
