@@ -6,6 +6,7 @@
 \usepackage[ngerman]{babel}
 \usepackage{amsmath}
 \usepackage{tabularx}
+\usepackage[hyphens]{url}
 \usepackage{hyperref}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1em}
@@ -75,12 +76,11 @@ Hiermit versichere ich, dass ich die vorliegende Arbeit selbstständig verfasst 
 \tableofcontents
 
 \section{Einleitung}
-
 Hier befindet sich die allgemeine Einleitung der Diplomarbeit.
 
 \subsection{Einleitung Hardware}
-Das Ziel des Hardware-Teils für folgende Diplomarbeit war, einen sinnvollen internen Aufbau des Geräts zu erzielen, die am besten geeigneten Hardware-Komponenten zu finden, das System bzw. die einzelnen Komponenten zusammenzubauen (Platine) und zu testen. Dieser Teil der Diplomarbeit wird von Nico Lang übernommen.
-Zudem beschäftigt sich dieser Teil mit dem optischen Design des Geräts (Gehäuse) und bestimmt die technischen Anforderungen (Schnittstellen), die der Adapter letztendlich haben soll. 
+Das Ziel des Hardware-Teils für folgende Diplomarbeit war, einen sinnvollen internen Aufbau des Geräts zu erzielen, die am besten geeigneten Hardware-Komponenten zu finden, das System bzw. die einzelnen Komponenten zusammenzusetzen und zu testen. Dieser Teil der Diplomarbeit wird von Nico Lang übernommen.
+Zudem beschäftigt sich dieser Teil mit dem Gehäuse des Geräts und bestimmt die technischen Anforderungen (Schnittstellen), die der Adapter letztendlich haben soll. 
 Bei der Planung soll darauf geachtet werden, möglichst viele Kosten einzusparen, ohne dabei die Faktoren der Sicherheit und Qualität zu vergessen.
 
 \subsection{Einleitung Software}
@@ -90,12 +90,35 @@ Das Ziel des Software-Teils für folgende Diplomarbeit war, einerseits die Softw
 \subsection{Festlegung Funktionsweise}
 Beim Festlegen einer grundlegenden Funktionsweise des Adapters stellen sich vor allem folgende Fragen:
 \subsubsection{Was soll das System können?}
-Das Hauptziel ist, dass das System in verschiedenen, voneinander getrennten Räumlichkeiten bestimmte Audiosignale auf einen Line-Output abspielen kann. Dabei ist es wichtig, dass das System den Ton zuverlässig und möglichst flüssig überträgt und ausgibt. \newline 
+Das Hauptziel ist, dass das System in verschiedenen, voneinander getrennten Räumlichkeiten bestimmte Audiosignale auf einen Line-Ausgang abspielen kann.
+\vspace{4mm}\newline
+\textbf{Line-Ausgang}\newline
+Ein Line-Ausgang (Line-Out) ist eine Ausgangs-Schnittstelle für analoge Audiosignale, deren Ausgangsspannung immer grob dem Line-Pegel entspricht. Dieser \glqq Line-Pegel beträgt etwa 0,5 Volt bis 1 Volt\grqq{}. \newline
+Diese geringe Spannung reicht jedoch nicht, um das Audio-Signal auszugeben. Es muss zuerst noch durch einen Verstärker verstärkt werden. Solche Verstärker kommen einzeln also extern der Lautsprecher vor (passive Lautsprecher), sind jedoch häufig in einem Gehäuse mit den Lautsprechern inkludiert (aktive Lautsprecher).
+\vspace{4mm}\newline
+(vgl. \url{https://www.monacor.de/magazin/audio-pegel})
+\vspace{4mm}\newline
+\textbf{Aktive vs. Passive Lautsprecher}\newline
+Ein klassisches Beispiel für passive Lautsprecher sind herkömmliche Hi-Fi Stereoanlagen. Diese bestehen meistens aus einem oder mehreren Playern, einem Verstärker und zwei oder mehreren (Surround Sound also Raumklang) passiven Lautsprechern. Der Player liest das Signal (beispielsweise einer CD oder einer Schallplatte) und gibt den Line-Pegel über ein Kabel (im Hi-Fi Bereich meist Cinch oder 3,5mm Klinke) an den Verstärker weiter. Dieser Line-Pegel kann aber auch direkt aus einem TV-Gerät oder wie in unserem Fall aus einem Multi-Room Sound Adapter kommen. Der Verstärker verstärkt das Audiosignal nun von der geringen Spannung des Line-Pegels auf die für die Lautsprecher passende Spannung. Mit dem Lautstärkeregler am Verstärker kann man sich die Spannung (also Lautstärke) letztendlich noch auf persönliche Präferenzen anpassen. \newline
+Ein klassisches Beispiel für aktive Lautsprecher sind Bluetooth-Lautsprecher, deren Hauptziel es ist, möglichst kompakt und leicht transportierbar zu sein. Solche Bluetooth-Lautsprecher enthalten im Normalfall einen Akku, um auch unterwegs, ohne aktive Stromquelle, Musik hören zu können. Somit enthält das Gehäuse den Verstärker, die Lautsprecher, den Akku und sonstige Elektronik wie unter anderem ein Bluetooth-Modul. Hier fungiert meist ein herkömmliches Smartphone als Signalgeber, ob über Bluetooth oder 3,5mm Klinke bleibt dem/der Benutzer/-in überlassen.\newline
+Lenovo beschreibt Line-Ausgänge zum Beispiel folgendermaßen: \glqq Der Line-Ausgang unterscheidet sich von anderen Audioausgängen wie z. B. Kopfhörerbuchsen, da er ein Signal mit festem Pegel liefert, das nicht von der Lautstärkeregelung Ihres Geräts beeinflusst wird. Er ist für den Anschluss an Geräte gedacht, die das Audiosignal verstärken oder weiterverarbeiten können.\grqq{} \newline
+Man kann also daraus schließen, dass man das Line-Out Signal des Multi-Room Sound Adapter vor dem Lautsprecher selbst noch verstärken muss. Wie genau, ist dem/der Endverbraucher/-in überlassen.
+\vspace{4mm} \newline
+(vgl. \url{https://www.lenovo.com/at/de/glossary/line-out})
+\vspace{4mm}\newline
+\textbf{Audioqualität}\newline
+Zudem ist es wichtig, dass das System den Ton zuverlässig und möglichst flüssig überträgt und ausgibt.\newline
+blabla
+\vspace{4mm}\newline
+\textbf{Audio-Quellen}\newline
 Grundsätzlich kann jeder beliebige Audio-Stream aus dem Internet verwendet werden. Das können beispielsweise Radiosender sein.
 Ein Beispiel für einen solchen Audio-Stream wäre der, des österreichischen Radio-Senders \glqq OE3\grqq{}: \newline
 \url{https://orf-live.ors-shoutcast.at/oe3-q2a}
-\vspace{4mm} \newline
+\vspace{4mm}\newline
+\textbf{Benutzerfreundlichkeit}\newline
 Es wird zudem viel Wert auf Benutzerfreundlichkeit gelegt. Das bedeutet, dass sich der Adapter zum einen leicht einrichten lässt, aber auch, dass er sich (mithilfe der Smartphone-App) einfach bedienen lässt.
+\vspace{4mm} \newline
+(vgl. (Buch) \url{https://books.google.de/books?id=UI2INugaKwIC&pg=PA219#v=onepage})
 \subsubsection{Was muss es nicht können?}
 Dieser Multi-Room Sound Adapter soll als Hi-Fi Produkt für den klassischen Durchschnittsbürger und/oder Musik-Liebhaber durchgehen. Aufgrund dessen wird die Bedienung sehr einfach und benutzerfreundlich, jedoch eindeutig nicht so präzise oder vielfältig einstellbar wie es bei professionellem Audio-Equipment der Fall ist. Während der Laie das Produkt einfach anstecken und benutzen möchte, hätte ein Audio-Nerd gerne noch einen eingebauten Acht-Band Equalizer und vieles mehr. Das ist jedoch nicht das Ziel dieser Diplomarbeit. Es geht eher darum, die Hauptfunktion, also Ton kabellos in Räume zu übertragen, und Einstellungsmöglichkeiten per App ohne großes Kopfzerbrechen zu ermöglichen.
 \subsubsection{Wie könnte man es erweitern?}
