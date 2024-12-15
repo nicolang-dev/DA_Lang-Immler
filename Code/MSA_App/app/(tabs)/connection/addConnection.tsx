@@ -31,7 +31,7 @@ export default function AddConnection(){
             <Button title="Bestätigen" disabled={buttonDisabled} color={Colors.lightTurquoise} onPress={() => {
                 if((selectedAdapter !== null) && (selectedStation !== null)){
                     const con = new Connection(selectedAdapter, selectedStation);
-                    router.navigate({pathname: "/index", params: {connection: con}})
+                    router.navigate({pathname: "/(tabs)/connection", params: {connection: con}})
                 }
             }}/>
         </SafeAreaView>

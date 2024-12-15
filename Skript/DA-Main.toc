@@ -27,32 +27,32 @@
 \contentsline {subsubsection}{\numberline {4.1.1}Ziele}{19}{subsubsection.4.1.1}%
 \contentsline {subsubsection}{\numberline {4.1.2}Programmablauf}{19}{subsubsection.4.1.2}%
 \contentsline {subsubsection}{\numberline {4.1.3}Klassen}{20}{subsubsection.4.1.3}%
-\contentsline {subsubsection}{\numberline {4.1.4}Herausforderungen}{21}{subsubsection.4.1.4}%
-\contentsline {subsection}{\numberline {4.2}Entwicklung Smartphone-App}{21}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Zielsetzung}{21}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Navigation}{22}{subsubsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.3}Struktur}{22}{subsubsection.4.2.3}%
-\contentsline {subsubsection}{\numberline {4.2.4}UI Design}{23}{subsubsection.4.2.4}%
-\contentsline {subsubsection}{\numberline {4.2.5}Funktionen}{23}{subsubsection.4.2.5}%
-\contentsline {subsubsection}{\numberline {4.2.6}Aufbau}{24}{subsubsection.4.2.6}%
-\contentsline {subsubsection}{\numberline {4.2.7}Komponenten}{25}{subsubsection.4.2.7}%
-\contentsline {subsubsection}{\numberline {4.2.8}Seiten}{29}{subsubsection.4.2.8}%
-\contentsline {subsection}{\numberline {4.3}Design Adaptergehäuse}{29}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Grundsätzlicher Aufbau}{29}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Virtuelles 3D-Design}{30}{subsubsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {4.3.3}Wärmeableitung}{31}{subsubsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.4}Fertigung Adaptergehäuse}{32}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}Drucken des Prototyps}{32}{subsubsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.5}Zusammensetzen des Prototypen}{33}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}Schaltplan}{33}{subsubsection.4.5.1}%
-\contentsline {subsubsection}{\numberline {4.5.2}Verdrahten}{33}{subsubsection.4.5.2}%
-\contentsline {subsubsection}{\numberline {4.5.3}Kleben}{34}{subsubsection.4.5.3}%
-\contentsline {section}{\numberline {5}Testen und Fehlerbehebung}{34}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Testen des Gesamtsystems}{34}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}auftretende Fehler beheben}{34}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Test auf Cybersecurity}{34}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Auftretende Sicherheitslücken schließen}{34}{subsection.5.4}%
-\contentsline {section}{\numberline {6}Einzelnachweise}{35}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Literaturverzeichnis}{35}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Abbildungsverzeichnis}{35}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Anhang}{35}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {4.1.4}Herausforderungen}{22}{subsubsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.2}Entwicklung Smartphone-App}{22}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Zielsetzung}{22}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Navigation}{23}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Struktur}{23}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}UI Design}{24}{subsubsection.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.2.5}Funktionen}{24}{subsubsection.4.2.5}%
+\contentsline {subsubsection}{\numberline {4.2.6}Aufbau}{25}{subsubsection.4.2.6}%
+\contentsline {subsubsection}{\numberline {4.2.7}Komponenten}{26}{subsubsection.4.2.7}%
+\contentsline {subsubsection}{\numberline {4.2.8}Seiten}{30}{subsubsection.4.2.8}%
+\contentsline {subsection}{\numberline {4.3}Design Adaptergehäuse}{31}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Grundsätzlicher Aufbau}{31}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Virtuelles 3D-Design}{32}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Wärmeableitung}{33}{subsubsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.4}Fertigung Adaptergehäuse}{34}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Drucken des Prototyps}{34}{subsubsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.5}Zusammensetzen des Prototypen}{35}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Schaltplan}{35}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.2}Verdrahten}{36}{subsubsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.3}Kleben}{36}{subsubsection.4.5.3}%
+\contentsline {section}{\numberline {5}Testen und Fehlerbehebung}{36}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Testen des Gesamtsystems}{36}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}auftretende Fehler beheben}{36}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Test auf Cybersecurity}{36}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Auftretende Sicherheitslücken schließen}{37}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Einzelnachweise}{37}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Literaturverzeichnis}{37}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Abbildungsverzeichnis}{37}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Anhang}{37}{subsection.6.3}%
