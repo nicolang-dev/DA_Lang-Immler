@@ -491,12 +491,15 @@ Die Breite der Basis ist also genau auf die Länge von dem von uns benutzten Mik
 In den gegenüberliegenden Ecken der Basis befinden sich der Digital-/Analogwandler und der Laderegler. Die Maße des Digital-/Analogwandler sind 31,8x17,2mm. Die Maße des Laderegler sind 28x17,45mm. Beide liegen, wie der Mikrocontroller auch, auf überhängenden, 5mm hohen Stützen auf. Aufgrund der USB-C Buchse wird der Halt des Laderegler noch von einer 3,5mm breiten 2mm-Erhöhung am Ende der Stütze verstärkt. Die USB-C Buchse wurde passend zum Laderegler und der Norm entsprechend (8,34x2,56mm Größe) eingelassen. Der Digital-/Analogwandler wird aufgrund der 3,5mm Klinkenbuchse von einer herabstehenden Wand gestützt, die im Teil "Deckel" genauer beschrieben wird. Die Aussparung der AUX-Buchse wurde auch passend für den Digital-/Analogwandler platziert und hat einen Durchmesser von 6mm.
 
 BILD: BASIS DRAUFSICHT FUSION\newline
-BILD: BASIS MIT INHALT
+BILD: BASIS MIT INHALT IPHONE
 \vspace{4mm}\newline
 \textbf{Deckel} \newline
 Der Deckel des Adapters ist grundsätzlich, wie die Wände der Basis, 71x58x2mm groß. Dieser hat jedoch eine zentrierte 67x54x1mm große Stufe. Mit dieser Stufe lässt sich der Deckel kleberlos auf den Adapter setzen und hält aufgrund der Eigenschaften des 3D-Drucks auch, zumindest für den Prototypen, fest genug.
 Wie schon erwähnt, wird der DAW durch eine herabstehende Wand zusätzlich gestützt. Die Maße dieser Wand sind 32x2x10mm. Es würde keinen Sinn machen, die Wand wie beim Laderegler von der Außenwand aus überhängend zu machen, da der DAW länger als der Laderegler ist und die Buchse sich eher mittig in der entsprechenden Außenwand der Basis befindet.\newline
-An der freien Seite der Stützwand befindet sich ein runder Schacht für die RGB-LED mit 5mm Durchmesser und eine Aussparung für den Aufsatz des Tasters mit 10,10mm Durchmesser. Der Taster mit den Grundmaßen 6x6mm wird durch eine Art U-Form aus Wänden im Gehäuse gehalten. Eine Wand davon bildet die gerade eben beschriebene Stützwand. Die untere Wand, auf der der Taster aufliegt, hat zudem zwei auf den Taster angepasste, 6mm große Aussparungen für die zwei Pole des Tasters.
+An der freien Seite der Stützwand (nicht die des DAW) befindet sich ein runder Schacht für die RGB-LED mit 5mm Durchmesser und eine Aussparung für den Aufsatz des Tasters mit 10,10mm Durchmesser. Der Taster mit den Grundmaßen 6x6mm wird durch eine Art U-Form aus Wänden im Gehäuse gehalten. Eine Wand davon bildet die gerade eben beschriebene Stützwand. Die untere Wand, auf der der Taster aufliegt, hat zudem zwei auf den Taster angepasste, 1mm große Aussparungen für die zwei Pole des Tasters.\newline
+Wenn man in der Draufsicht auf den Deckel schaut, ist dort wo sich der Prozessor selbst befindet, ein Gitter in den Deckel eingelassen. Dieses Gitter hat die Maße 19,9x21,6mm, was etwas größer als der Prozessor des ESP32 ist. Das Gitter besteht aus diagonalen Streben, die jeweils 1,5mm breit sowie 1,5mm weit voneinander entfernt sind. So entsteht eine einfache und stabile Möglichkeit, Wärme durch den Deckel abzuleiten.\newline
+
+BILD: GITTER FUSION
 \vspace{4mm}\newline
 \textbf{Tasteraufsatz} \newline
 Den Tasteraufsatz bildet ein Zylinder mit 9,5mm Durchmesser, auf dem sich ein weiterer Zylinder mit 5,5mm Durchmesser und zentrierter 3,5mm Aussparung für den Taster befindet.
@@ -559,6 +562,24 @@ Damit alle Komponenten und Teile sicher im Gehäuse sitzen und nichts klappert o
 
 \section{Testen und Fehlerbehebung}
 \subsection{Testen des Gesamtsystems}
+\subsubsection{Testen des Prototypen}
+Es gibt unzählbar viele Möglichkeiten einen Prototypen auf Herz und Nieren zu testen. Diese Diplomarbeit beschränkt sich jedoch auf einige wesentliche Aspekte wie Verarbeitung, Funktion und Useability.
+\vspace{4mm}\newline
+\textbf{Verarbeitung}
+\vspace{4mm}\newline
+Positives:\newline
+Die äußere Verarbeitung des Multi Room Sound-Adapters ist für einen Prototypen sehr gut ausgefallen. Fertig zusammengesetzt wirkt das Gerät stabil und wertig. Es hat etwas Gewicht und nichts klappert wenn man es schüttelt. Die Buchsen halten der für Buchsen normalen Belastung stand. Beide der Buchsen lassen sich problemlos benutzen, beim Ein- und Ausstecken gibt es keine Probleme. Der Taster des Adapters ist, zumindest unseren Erwartungen nach, besonders gut ausgefallen, er hat ein angenehmes Klickfeeling und lässt sich reibungslos betätigen. Die Statusanzeige funktioniert so wie sie soll.
+
+Negatives:\newline
+Man sieht dem Gehäuse bei guter Beleuchtung eindeutig an, dass es 3D-gedruckt wurde. Manche Oberflächen wirken eher geriffelt als flach. Diese Oberflächeneigenschafen sind jedoch völlig normal für 3D-Drucker und beeinflussen die Funktionsweise des Gesamtsystems nicht. Bei einem tatsächlichen Vetrieb des Produkts müsste man sich jedoch noch einmal genau über Oberflächenbeschaffenheiten beim 3D-Druck informieren oder das Gehäuse, wie auch bei der Auswahl des Fertigungsverfahrens schon kurz diskutiert, gar Spritzgießen lassen. Ein Spritzguss hat nämlich bessere Oberflächeneigenschaften als ein 3D-Druck.
+\vspace{4mm}\newline
+(vgl. \url{https://2d-spritzguss.de/3d-druck-spritzguss})
+\vspace{4mm}\newline
+\textbf{Funktion}\newline
+Der Adapter funktioniert und erfüllt seine Funktionen ohne gröbere Fehler oder Komplikationen.
+\vspace{4mm}\newline
+\textbf{Usability}\newline
+Die Anwendung des Adapter ist grundsätzlich angenehm. Es gilt jedoch zu bedenken, dass uns sowohl Software als auch Hardware schon bekannt sind. Wie sich die Usability verändert, wenn den Adapter jemand benutzt, der ihn noch nie gesehen hat, kann man nur schlecht sagen. Dafür wären mehrere Produkttests nötig. Falls ein Vetrieb des Produkts in betracht gezogen werden würde, wäre dies auf jeden Fall ein wichtiger Punkt.
 \subsection{auftretende Fehler beheben}
 \subsection{Test auf Cybersecurity}
 In diesem Kapitel wird der gesamte Code auf Sicherheitslücken getestet.
