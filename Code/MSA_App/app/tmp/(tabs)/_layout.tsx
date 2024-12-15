@@ -8,15 +8,16 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 export default function TabLayout() {
   return (
     <Tabs screenOptions={{tabBarActiveTintColor: Colors.darkTurquoise, 
-      tabBarStyle: {backgroundColor: Colors.grey},
-      tabBarInactiveTintColor: Colors.white,
-      headerShown: false
-      }}>
+                          tabBarStyle: {backgroundColor: Colors.grey},
+                          headerStyle: {backgroundColor: Colors.grey},
+                          headerTitleStyle: {color: Colors.white},
+                          tabBarInactiveTintColor: Colors.white
+                          }}>
       <Tabs.Screen
-        name="connection"
+        name="index"
         options={{
           title: 'Verbindungen',
-          tabBarIcon: ({ color }) => <FontAwesome name="chain" size={28} color={color} />,
+          tabBarIcon: ({ color }) => <FontAwesome name="chain" size={24} color={color} />,
         }}
       />
       <Tabs.Screen
@@ -27,7 +28,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="music"
+        name="favouriteStations"
         options={{
           title: 'Musik',
           tabBarIcon: ({ color }) => <MaterialIcons size={28} name="library-music" color={color} />

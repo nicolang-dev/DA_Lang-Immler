@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { View, FlatList, Text, StyleSheet, ScrollView, Button } from "react-native";
 import axios from "axios";
 import {Picker} from '@react-native-picker/picker';
-import {Colors, GlobalStyle} from "../constants/Style";
+import {Colors, GlobalStyle} from "../../constants/Style";
 import { router } from "expo-router";
 import { getCountries, getLanguages } from "@/components/Utilities";
 import { SafeAreaView } from "react-native-safe-area-context";

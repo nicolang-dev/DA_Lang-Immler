@@ -68,7 +68,7 @@ export default function ConnectionList({onItemPress}: Props){
         } else {
             return (
                 <SafeAreaView style={GlobalStyle.page}>
-                    <ErrorScreen errorText="Es sind zurzeit keine Verbindungen vorhanden!" buttonText="Verbindung erstellen" onButtonPress={() => router.push("/addConnection")}/>
+                    <ErrorScreen errorText="Es sind zurzeit keine Verbindungen vorhanden!" buttonText="Verbindung erstellen" onButtonPress={() => router.push("/tmp/addConnection")}/>
                 </SafeAreaView>
             )
         }
