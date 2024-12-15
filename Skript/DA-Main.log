@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
 This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.6.26)  15 DEC 2024 14:54
-=======
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.6.26)  14 DEC 2024 22:38
->>>>>>> Stashed changes
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -192,13 +188,10 @@ Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \TX@cols=\count275
 \TX@ftn=\toks25
 )
-<<<<<<< Updated upstream
 (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-=======
->>>>>>> Stashed changes
 (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2023-11-26 v7.01g Hypertext links for LaTeX
 
@@ -290,14 +283,6 @@ Package hyperref Info: Backreferencing OFF on input line 4201.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4448.
 \c@Hy@tempcnt=\count281
-<<<<<<< Updated upstream
-=======
-
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
-\Urlmuskip=\muskip17
-Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)
->>>>>>> Stashed changes
 LaTeX Info: Redefining \url on input line 4786.
 \XeTeXLinkMargin=\dimen159
 
@@ -437,11 +422,7 @@ fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
-<<<<<<< Updated upstream
 4.
-=======
-3.
->>>>>>> Stashed changes
  (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -473,11 +454,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 {C:/Users/nicol/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/nico
 l/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}]
-<<<<<<< Updated upstream
 Underfull \hbox (badness 10000) in paragraph at lines 30--41
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 29--40
->>>>>>> Stashed changes
 
  []
 
@@ -525,35 +502,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 129--136
 
 [9]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-<<<<<<< Updated upstream
 50.
  (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-=======
-27.
- (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
-File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-[9{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
-
-Overfull \hbox (146.33902pt too wide) in paragraph at lines 139--140
-[]\T1/lmr/m/n/10 (vgl. []$\T1/lmtt/m/n/10 https : / / www . denios . de / servi
-ces / denios-[]magazin / gefahren-[]im-[]umgang-[]mit-[]lithium-[]ionen-[]akkus
-$[]\T1/lmr/m/n/10 ) 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 146--153
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 146--153
-
- []
-
->>>>>>> Stashed changes
 [10]
 Overfull \hbox (20.20036pt too wide) in paragraph at lines 162--163
 []\T1/lmr/m/n/10 (vgl. []$\T1/lmtt/m/n/10 https : / / www . denios . de / servi
@@ -835,7 +787,6 @@ Overfull \hbox (2.70175pt too wide) in paragraph at lines 360--387
 ther-Bibliothek
  []
 
-<<<<<<< Updated upstream
 [22] [23] [24]
 Overfull \hbox (17.3603pt too wide) in paragraph at lines 403--412
 \T1/lmr/m/n/10 In den ge-gen-über-lie-gen-den Ecken der Ba-sis be-fin-den sich 
@@ -854,20 +805,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 459--475
  []
 
 [28] [29] [30] (DA-Main.aux)
-=======
-[20] [21] [22] [23] [24]
-Overfull \hbox (90.81114pt too wide) in paragraph at lines 398--412
-\T1/lmr/m/n/10 vgl. []$\T1/lmtt/m/n/10 https : / / www . printer-[]care . de / 
-de / drucker-[]ratgeber / wie-[]funktioniert-[]ein-[]3d-[]drucker$[] 
- []
-
-[25]
-Underfull \hbox (badness 10000) in paragraph at lines 426--442
-
- []
-
-[26] [27] [28] (DA-Main.aux)
->>>>>>> Stashed changes
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -876,17 +813,10 @@ Package rerunfilecheck Info: File `DA-Main.out' has not changed.
 (rerunfilecheck)             Checksum: ECBC2486BF503352BD7D63EFE42689D5;8502.
  ) 
 Here is how much of TeX's memory you used:
-<<<<<<< Updated upstream
  10900 strings out of 474486
- 173271 string characters out of 5743755
+ 173124 string characters out of 5743755
  1941542 words of memory out of 5000000
  32932 multiletter control sequences out of 15000+600000
-=======
- 10896 strings out of 474486
- 173227 string characters out of 5743755
- 1941542 words of memory out of 5000000
- 32930 multiletter control sequences out of 15000+600000
->>>>>>> Stashed changes
  605319 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,8n,79p,1261b,614s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -896,16 +826,9 @@ b><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb
 ><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb>
 <C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
 
-<<<<<<< Updated upstream
 Output written on DA-Main.pdf (30 pages, 271398 bytes).
 PDF statistics:
  482 PDF objects out of 1000 (max. 8388607)
  88 named destinations out of 1000 (max. 500000)
-=======
-Output written on DA-Main.pdf (28 pages, 261972 bytes).
-PDF statistics:
- 467 PDF objects out of 1000 (max. 8388607)
- 86 named destinations out of 1000 (max. 500000)
->>>>>>> Stashed changes
  449 words of extra memory for PDF output out of 10000 (max. 10000000)
 

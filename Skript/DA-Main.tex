@@ -90,7 +90,6 @@ Das Ziel des Software-Teils für folgende Diplomarbeit war, einerseits die Softw
 \subsection{Festlegung Funktionsweise}
 Beim Festlegen einer grundlegenden Funktionsweise des Adapters stellen sich vor allem folgende Fragen:
 \subsubsection{Was soll das System können?}
-<<<<<<< Updated upstream
 Das Hauptziel ist, dass das System in verschiedenen, voneinander getrennten Räumlichkeiten bestimmte Audiosignale auf einen Line-Ausgang abspielen kann.
 \vspace{4mm}\newline
 \textbf{Line-Ausgang}\newline
@@ -112,9 +111,6 @@ Zudem ist es wichtig, dass das System den Ton zuverlässig und möglichst flüss
 blabla
 \vspace{4mm}\newline
 \textbf{Audio-Quellen}\newline
-=======
-Das Hauptziel ist, dass das System in verschiedenen, voneinander getrennten Räumlichkeiten bestimmte Audiosignale auf einen Line-Output abspielen kann. Dabei ist es wichtig, dass das System den Ton zuverlässig und möglichst flüssig überträgt und ausgibt. \newline 
->>>>>>> Stashed changes
 Grundsätzlich kann jeder beliebige Audio-Stream aus dem Internet verwendet werden. Das können beispielsweise Radiosender sein.
 Ein Beispiel für einen solchen Audio-Stream wäre der, des österreichischen Radio-Senders \glqq OE3\grqq{}: \newline
 \url{https://orf-live.ors-shoutcast.at/oe3-q2a}
@@ -409,7 +405,6 @@ Wenn man schon früh beachtet, dass die Prototypen mit einem 3D-Drucker gefertig
 \vspace{4mm}\newline
 \textbf{Basis} \newline
 Die Basis des Adapters bildet ein 71x58x27mm großer Kasten mit 2mm Wanddicke. Aus Erfahrung kann man sagen, dass diese Dicke bei 3D-Drucken stabil ist, während sie jedoch nicht zu klobig wirkt.\newline
-<<<<<<< Updated upstream
 Die Stützen des Mikrocontroller beginnen auf 11mm Höhe und sind auf einer Längenseite 6x6x5mm und auf der anderen 6,9x6x5mm groß. Sie sind jeweils mit einer oder zwei Seiten an der Wand der Basis und somit überhängend. Mehr dazu im Teil "Drucken des Prototyps/Stützstruktur".\newline
 Auf den Stützen befinden sich jeweils Zylinder, die genau auf die Aussparungen des Mikrocontroller vermessen wurden. Die Zylinder haben einen Durchmesser von exakt 3mm. Der Abstand der Mittelpunkte dieser Zylinder war bei unserem Modell 47,10mm in der Länge und 23,10mm in der Breite. Auf einer Seite befindet sich zwischen Wand und Zylinder etwas mehr Platz, da der USB-C Port des Mikrocontrollers etwas über diesen herausragt. Deswegen auch der zuletzt erwähnte Versatz der Stütze von 0,9mm.\newline
 Die Breite der Basis ist also genau auf die Länge von dem von uns benutzten Mikrocontroller zugeschnitten.\newline
@@ -428,16 +423,6 @@ Den Tasteraufsatz bildet ein Zylinder mit 9,5mm Durchmesser, auf dem sich ein we
 \vspace{4mm}\newline
 vgl. \url{https://www.autodesk.com/de/products/fusion-360/overview}\newline
 vgl. \url{https://www.elektronik-kompendium.de/sites/com/2009021.htm}
-=======
-Die Stützen des Mikrocontroller beginnen auf 11mm Höhe und FEHLTFEHLT
-Auf den Stützen befinden sich jeweils Zylinder, die genau auf die Aussparungen des Mikrocontroller vermessen wurden. 
-\vspace{4mm}\newline
-\textbf{Deckel} \newline
-\vspace{4mm}\newline
-\textbf{Druckknopf} \newline
-\vspace{4mm}\newline
-vgl. \url{https://www.autodesk.com/de/products/fusion-360/overview}
->>>>>>> Stashed changes
 \subsubsection{Wärmeableitung}
 Wärmeableitung ist wichtig, da Mikroprozessoren, wie alle anderen Prozessoren auch, bei intensivem Betrieb Hitze entwickeln. Laut einer eigens durchgeführten Messung wird der in diesem Fall eingesetzte ESP32 meistens nur rund 38°C warm. Bei hoher Rechenleistung sind jedoch auch höhere Temperaturen möglich. Der ESP32 hat laut Hersteller eine mögliche Betriebstemperatur von –40°C bis +125°C. Damit die entstandene Wärme gut ableiten kann und keine der Komponenten beeinflusst (vor allem den Akku, da dieser bei hohen Temperaturen Explosionsgefahr ausgesetzt ist), wird der Mikrocontroller im Gehäuse oben, also auf Stützen angebracht. Die aufsteigende Wärme kann somit nach oben durch das dafür vorgesehene Gitter entweichen und staut sich somit nicht im Inneren des Gehäuses. Der Akku liegt dementsprechend unter dem Mikrocontroller und allen anderen Komponenten und wird durch die abstrahlende Hitze dementsprechend nur etwas wärmer als Raumtemperatur.
 \vspace{4mm}\newline
