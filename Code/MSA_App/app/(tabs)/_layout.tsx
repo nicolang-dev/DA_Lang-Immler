@@ -7,12 +7,17 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 export default function TabLayout() {
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: Colors.darkTurquoise, tabBarStyle: {backgroundColor: Colors.grey}}}>
+    <Tabs screenOptions={{tabBarActiveTintColor: Colors.darkTurquoise, 
+                          tabBarStyle: {backgroundColor: Colors.grey},
+                          headerStyle: {backgroundColor: Colors.grey},
+                          headerTitleStyle: {color: Colors.white},
+                          tabBarInactiveTintColor: Colors.white
+                          }}>
       <Tabs.Screen
         name="index"
         options={{
           title: 'Verbindungen',
-          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="connection" size={28} color={color} />,
+          tabBarIcon: ({ color }) => <FontAwesome name="chain" size={24} color={color} />,
         }}
       />
       <Tabs.Screen

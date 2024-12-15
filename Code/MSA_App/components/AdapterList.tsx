@@ -17,24 +17,24 @@ import AddToListButton from "./AddToListButton";
 import Adapter from "./Adapter";
 import AdapterItem from "./AdapterItem";
 import LoadingScreen from "./LoadingScreen";
+import { Alert } from "react-native";
 
 type Props = {
-    onItemPress: Function,
-    selectable: boolean,
-    editable: boolean
+    onItemSelect: Function,
+    editable: boolean,
     onlyReachableSelectable: boolean
 }
 
-export default function AdapterList({onItemPress, selectable, editable, onlyReachableSelectable}: Props){
+export default function AdapterList({onItemSelect, editable, onlyReachableSelectable}: Props){
     const [adapterList, setAdapterList] = useState(new Array());
     const [isDataFetched, setDataFetched] = useState(false);
     const [isEmpty, setEmpty] = useState(false);
-    const [selectedMac, setSelectedMac] = useState(null);
+    const [selectedAdapter, setSelectedAdapter] = useState(null);
 
     function fetchData(){
         getAdapters().then(res => {
             setDataFetched(true);
-            if(res !== null){
+            if(res !== null && res.length > 0){
                 setEmpty(false);
                 setAdapterList(res);
             } else {
@@ -43,7 +43,44 @@ export default function AdapterList({onItemPress, selectable, editable, onlyReac
         })
     }
 
+    function handleItemPress(item: Adapter){
+        if(selectedAdapter !== null && selectedAdapter.mac == item.mac){
+            setSelectedAdapter(null);
+            onItemSelect(null);
+        } else {
+            setSelectedAdapter(item);
+            onItemSelect(item);
+        }
+    }
+
+    function deleteItem(){
+            if(selectedAdapter !== null){
+                removeAdapter(selectedAdapter.mac).then(res => {
+                    setSelectedAdapter(null);
+                    fetchData();
+                })
+            }
+        }
+    
+    function handleDeletePress(){
+        if(selectedAdapter !== null){
+            Alert.alert("Adapter löschen", 
+                "Wollen Sie den Adapter '" + selectedAdapter.name + "' wirklich löschen?", 
+                [{text: "Nein", onPress: ()=> {setSelectedAdapter(null)}}, {text: "Ja", onPress: ()=> {removeAdapter(selectedAdapter.mac).then(res => {fetchData()})}}])
+        }
+    }
+
+    function isSelected(item: Adapter){
+        if(selectedAdapter !== null && selectedAdapter.mac == item.mac){
+            if((onlyReachableSelectable && item.connected) || !onlyReachableSelectable){
+                return true;
+            }
+        }
+        return false;
+    }
+
     useEffect(()=>{
+        fetchData();
         setInterval(fetchData, 5000);
     },[]);
 
@@ -54,6 +91,12 @@ export default function AdapterList({onItemPress, selectable, editable, onlyReac
         },
         icon: {
             alignSelf: 'flex-start'
+        },
+        iconContainer:{
+            flexDirection: 'row',
+            width: '95%',
+            justifyContent: 'space-between',
+            alignSelf: 'center'
         }
     })
 
@@ -62,20 +105,20 @@ export default function AdapterList({onItemPress, selectable, editable, onlyReac
             return(
                 <View style={style.container}>
                     <FlatList data={adapterList} renderItem={({item}) => 
-                        <Pressable onPress={() => {
-                            if(onlyReachableSelectable && item.connected){
-                                setSelectedMac(item.mac);
-                            } else if(!onlyReachableSelectable){
-                                setSelectedMac(item.mac);
-                            }
-                            onItemPress(item);
-                        }}>
-                            <AdapterItem adapter={item} selected={selectable && selectedMac == item.mac}/> 
+                        <Pressable onPress={() => {handleItemPress(item)}}>
+                            <AdapterItem adapter={item} selected={isSelected(item)}/> 
                         </Pressable>
                     }/>
                     {
                         editable &&
-                        <AddToListButton onPress={() => router.push("/addAdapter")}/>
+                        <View style={style.iconContainer}>
+                             <AddToListButton onPress={() => router.push("/addAdapter")}/>
+                                {
+                                    selectedAdapter !== null &&
+                                    <DeleteButton onPress={()=>{handleDeletePress()}}/>
+
+                                }
+                        </View>
                     }
                 </View>
             )

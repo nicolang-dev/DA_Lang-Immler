@@ -5,7 +5,7 @@ import { GlobalStyle } from "@/constants/Style";
 export default function AdapterOverview(){
     return(
         <SafeAreaView style={GlobalStyle.page}>
-            <AdapterList selectable editable onlyReachableSelectable={false} onItemPress={() => {}}/>
+            <AdapterList editable onlyReachableSelectable={false} onItemSelect={() => {}}/>
         </SafeAreaView>
     )
 }
