@@ -205,43 +205,16 @@ Für einen optimalen Ladeprozess und Schutz des Akkus wird ein Laderegler verwen
 \subsubsection{Protokolle}
 In diesem Kapitel geht es um die Recherche und Auswahl von Protokollen, die für den Austausch von Daten verwendet werden.
 \newline \\
-\textbf{HTTP}
-\newline
-Das Hyper Text Transfer Protocol ist ein weitverbreitetes Protokoll im Web und wird größtenteils für die Kommunikation zwischen Browsern und Webservern eingesetzt. Dabei basiert das Protokoll auf sogenannten \glqq Requests\grqq{} (auf Deutsch: Anfragen). Es gibt zahlreiche Anwendungen für HTTP. Wir nutzen es hauptsätzlich für die Kommunikation zwischen Smartphoneapp (Client) und Microcontroller (Server). (vgl. URLPI02) \newline \\
-\textbf{REST-API} \\ 
-Der Begriff \glqq REST-API\grqq{} setzt sich aus den Abkürzungen \glqq REST\grqq{} und \glqq API\grqq{} zusammen. Dabei steht \glqq REST\grqq{} für \glqq Representational State Transfer\grqq{} (auf Deutsch: \glqq gegenständliche Zustandsübertragung\grqq{}) und \glqq API\grqq{} für \glqq Application Programming Interface\grqq{} (auf Deutsch: \glqq Anwendungsprogrammierschnittstelle\grqq{}). Eine REST-API zeichnet sich dadurch aus, dass sie eine einheitliche Schnittstelle zwischen Server und Client bietet. Dies wird durch die \glqq Routes\grqq{} (auf Deutsch: \glqq Routen\grqq{}) geschaffen. Wenn der Client Requests an diese Routen sendet werden Aktionen auf dem Server ausgeführt. Es ist auch möglich, dass anschließend der Client Daten vom Server erhält. (vgl. URLPI04)
-
-In unserer Diplomarbeit stellt der Microcontroller als Webserver eine REST-API zur Verfügung um so einheitlich Daten mit dem Client (Smartphone) auszutauschen.
-Folgende Routen sind dabei auf dem Webserver aufrufbar: \newline
-
-\begin{tabularx}{\textwidth}{|l|l|X|}
-\hline
-\textbf{Route} & \textbf{Anfragen-Typ} & \textbf{Funktion} \\
-\hline
-/getInfo & GET & Client bekommt Infos vom Microcontroller \\
-\hline 
-/getAvailableNetworks & GET & Client bekommt eine Liste im JSON-Format, gefüllt mit SSID und RSSI (Stärke) von verfügbaren Netzwerken in der Nähe des Microcontrollers \\
-\hline
-/setWiFiCredentials & POST & Client sendet SSID und Passwort des gewünschten Netzwerks an den Microcontroller \\
-\hline
-/setStreamUrl & POST & Client sendet die URL des gewünschten Audio-Streams an den Microcontroller \\
-\hline
-\end{tabularx} \newline \\
-\textbf{Anwendung fürs Audio-Streaming} \\
-HTTP wird oft zum Streamen von Daten eingesetzt. Dies können Audio- oder auch Videodaten sein.
-
-Beim Streaming wird grundsätzlich zwischen Live-Streaming und On-Demand-Streaming unterschieden. Beim Livestreaming werden die Daten gleich nach dem Erstellen an den Client gesendet. Ein Beispiel dafür ist das Streaming eines Live-Events. Das Video, welches von der Kamera eingefangen wird, wird direkt an die Clients gesendet. Eine Alternative zum Livestreaming ist das On-Demand-Streaming. Dabei werden fertige Daten (z.B. Filme, Musik) auf einem Server gespeichert. Auf Anfrage eines Clients, werden diese in Teilstücke zerlegt und Stück für Stück an den Client gesendet. Dabei fügt der Client diese Stücke wieder zusammen und kann sie somit als Ganzes wiedergeben. Dies hat den Vorteil, dass die Daten nicht (oder nur kurz) auf dem Client gespeichert werden und es somit ressourcenschonend ist. Der Nachteil dabei ist, dass gerade bei größeren Datenmengen eine hohe Bandbreite benötigt wird. Dabei werden die Daten auch meist nicht (bzw. nur kurz) auf dem Client gespeichert. (vgl. URLPI05)
-
-In unserer Diplomarbeit muss der Microcontroller fähig sein, Audiodaten von Livestreams und auch von On-Demand-Streams zu erhalten.Livestreams könnten dabei von Radiosendern stammen und  On-Demand-Streams von Musikanbietern. \newline \\
-\textbf{I2S}
-\newline
+\textbf{HTTP} \\
+Das Hyper Text Transfer Protocol ist ein weitverbreitetes Protokoll im Web und wird größtenteils für die Kommunikation zwischen Browsern und Webservern eingesetzt. Dabei basiert das Protokoll auf sogenannten \glqq Requests\grqq{} (auf Deutsch: Anfragen). Es gibt zahlreiche Anwendungen für HTTP. Wir nutzen es einerseits für die Kommunikation zwischen Smartphoneapp (Client) und Microcontroller (Server) mittels REST-API und zum Empfangen der Audio-Streams. (vgl. URLPI02) \newline \\
+\textbf{I2S}\\
 Das Inter IC Sound Protocol wird verwendet, um Stereo-Audio-Daten zwischen ICs auszutauschen. Es benötigt für die Datenübertragung folgende Leitungen:
 \begin{itemize}
 \item Taktleitung
 \item Wortauswahl
 \item mindestens eine Datenleitung
 \end{itemize}
-Die Datenübertragung erfolgt seriell und synchron. Seriell bedeutet, dass die Daten nur durch eine Leitung (die Datenleitung) übertragen werden. Synchron bedeutet, dass die Daten in einem bestimmten Takt übertragen werden. Dieser Takt wird von der Taktleitung vorgegeben. Die Leitung für die Wortauswahl wählt den Stereokanal aus (links oder rechts). (vgl. https://www.mikrocontroller.net/articles/I2S) \\
+Die Datenübertragung erfolgt seriell und synchron. Seriell bedeutet, dass die Daten nur durch eine Leitung (die Datenleitung) übertragen werden. Synchron bedeutet, dass die Daten in einem bestimmten Takt übertragen werden. Dieser Takt wird von der Taktleitung vorgegeben. Die Leitung für die Wortauswahl wählt den Stereokanal aus (links oder rechts). (vgl. URLPI12) \\
 In unserem Projekt wird das I2S Protokoll verwendet, um die digitalen Stereo-Audio-Daten vom Microcontroller an den Digital-Analag-Wandler zu übertragen.
 Dabei werden die digitalen Buffer, die der Microcontroller vom Audio-Stream erhält, mittels I2S an den Digital-Analog-Wandler gesendet, welcher die digitalen Daten in analoge Daten umwandelt, so dass diese dann anschließend auf der Lautsprecherbox ausgegeben werden können.
 \subsection{Auswahl Softwaretools}
@@ -264,7 +237,7 @@ Wir haben Visual Studio Code als IDE für unsere Diplomarbeit gewählt, weil dur
 "GitHub ist eine webbasierte Schnittstelle, die Git verwendet, die Open-Source-Software zur Versionskontrolle, mit der mehrere Personen gleichzeitig separate Änderungen an Webseiten vornehmen können. Wie Carpenter anmerkt, fördert GitHub die Zusammenarbeit von Teams bei der Erstellung und Bearbeitung von Website-Inhalten, da es eine Zusammenarbeit in Echtzeit ermöglicht." (Übersetzung des englischen Originals von: https://digital.gov/resources/an-introduction-github/) \\
 Wir verwenden GitHub für die Verwaltung unseres Codes und unserer Dokumente. Der Vorteil dabei ist, dass jedes Projektmitglied auf seinem lokalen PC an den Dokumenten arbeiten kann und die Änderungen dann per GitHub synchronisiert werden können.
 \vspace{4mm}\newline
-\textbf{DeepL}
+\textbf{DeepL} \\
 Wir verwenden DeepL um englische Texte, welche für unsere Diplomarbeit relevant sind, ins Deutsche zu übersetzen. Wir haben uns für DeepL entschieden weil dieser einer der genauesten Übersetzer ist und man dießen außerdem kostenlos nutzen kann.
 \subsubsection{Bibliotheken Microcontroller}
 Im folgenden werden die verwendeten Bibliotheken im Code des Microcontrollers aufgezählt und kurz beschrieben:
@@ -286,7 +259,10 @@ Die WebServer-Bibliothek wird verwendet, um einen Webserver auf dem ESP32 bereit
 \vspace{4mm}\newline
 \textbf{ESP32-audioI2S} \\
 (https://github.com/schreibfaul1/ESP32-audioI2S) \\
-Die ESP32-audioI2S-Bibliothek wird verwendet, um die MP3-kodierten Audio-Daten vom HLS-Stream zu empfangen, diese in PCM-Signale umzuwandeln und diese dann an den Digital-Analog-Wandler per I2S-Protokoll zu senden. Der ESP32 verfügt bereits standartmäßig über Funktionen, mit deren Hilfe man Audiodaten mittels I2S übertragen kann. Allerdings sind diese sehr komplex in der Verwendung und Konfiguration. Da die ESP32-audioI2S-Bibliothek bereits die perfekte Lösung für unsere Anforderungen bietet, wird diese in unserer Diplomarbeit verwendet.
+Die ESP32-audioI2S-Bibliothek wird verwendet, um die MP3-kodierten Audio-Daten vom HLS-Stream zu empfangen, diese in PCM-Signale umzuwandeln und diese dann an den Digital-Analog-Wandler per I2S-Protokoll zu senden. Der ESP32 verfügt bereits standartmäßig über Funktionen, mit deren Hilfe man Audiodaten mittels I2S übertragen kann. Allerdings sind diese sehr komplex in der Verwendung und Konfiguration. Da die ESP32-audioI2S-Bibliothek bereits die perfekte Lösung für unsere Anforderungen bietet, wird diese in unserer Diplomarbeit verwendet. \newline \\
+\textbf{Preferences} \\
+(https://github.com/espressif/arduino-esp32/tree/master/libraries/Preferences)
+Die Preferences-Bibliothek wird verwendet, um Schreib- und Lesezugriffe auf den eingebauten EEPROM (Electrical Eresable Programmable Read Only Memory) durchzuführen. Dabei werden die im EEPROM gespeicherten Werte mittels eindeutiger Schlüssel identifiziert.
 \subsubsection{Softwaretools Smartphoneapp}
 Im foldenden Teil werden die Softwaretools, welche für die Entwicklung der Smartphoneapp verwendet wurden, genauer beschrieben. \\
 
@@ -313,7 +289,22 @@ Der Microcontroller soll im Konfigurationsmodus als Access Point arbeiten. Somit
 WLAN-Clients sind die Geräte, welche mit einem Access Point verbunden sind und somit Teilnehmer in einem WLAN darstellen. Sie können dabei untereinander Daten austauschen.
 Wenn der Adapter vollständig konfiguriert ist bzw. alle notwendigen Daten festgelegt sind, soll dieser als WLAN-Client arbeiten. Somit ist es möglich, wenn die Smartphoneapp im gleichen Netzwerk wie der Microcontroller ist, mit diesem zu kommunizieren. Dies geschieht durch die REST-API welcher der Microcontroller zur Verfügung stellt. \newline \\
 \textbf{REST-API} \\
-Der Microcontroller soll eine REST-API zur Verfügung stellen, mithilfe der es möglich ist, Daten an den Microcontroller per HTTP zu senden bzw. Daten von diesem zu empfangen. Eine REST-API ist eine API, welche den Designprinzipien der REST-Architektur folgt. Dies heißt, sie muss bestimmte Regeln erfüllen, welche von der REST-Architektur vorgegeben werden. Sie dient dabei zur Kommunikation zwischen Server und Client. Der Client kann mittels HTTP Anfragen an den Server senden. Der Server liefert dann eine Antwort, welche Daten enthalten kann. Auf diese Weise kommuniziert die Smartphoneapp mit dem Microcontroller. (vgl. URLPI04) \newline \\
+Der Microcontroller soll eine REST-API zur Verfügung stellen, mithilfe der es möglich ist, Daten an den Microcontroller per HTTP zu senden bzw. Daten von diesem zu empfangen. Eine REST-API ist eine API, welche den Designprinzipien der REST-Architektur folgt. Dies heißt, sie muss bestimmte Regeln erfüllen, welche von der REST-Architektur vorgegeben werden. Sie dient dabei zur Kommunikation zwischen Server und Client. Der Client kann mittels HTTP Anfragen an den Server senden. Der Server liefert dann eine Antwort, welche Daten enthalten kann. (vgl. URLPI04) Auf diese Weise kommuniziert die Smartphoneapp mit dem Microcontroller. Der Client kann dabei sogenannte Routen aufrufen. Die aufgerufene Route bestimmt die Aktion, welche auf dem Server aufgerufen wird. Im folgenden werden die einzelnen Routen genauer beschrieben: \newline \\
+\begin{tabularx}{\textwidth}{|l|l|X|}
+\hline
+\textbf{Route} & \textbf{Anfragen-Typ} & \textbf{Funktion} \\
+\hline
+/getInfo & GET & Client bekommt die Daten Name, MAC-Addresse, Akkustand, Lautstärke und Stream-URL vom Microcontroller, als JSON kodiert. \\
+\hline 
+/getAvailableNetworks & GET & Client bekommt eine Liste gefüllt mit SSID und RSSI (Stärke) von verfügbaren Netzwerken in der Nähe des Microcontrollers, als JSON kodiert. \\
+\hline
+/setConfigData & POST & Client sendet SSID und Passwort, des gewünschten Netzwerks, sowie Name des Adapters als JSON kodiert, an den Microcontroller. Dieser speichert dann die erhaltenen Daten in den EEPROM und startet neu.\\
+\hline
+/setStreamUrl & PUT & Client sendet die URL des gewünschten Audio-Streams an den Microcontroller. Dieser startet dann den Empfang dieses Streams und gibt diesen auf dem Line-Out aus. \\
+\hline
+/setVolume & PUT & Client sendet die gewünschte Lautstärke (von 0 bis 100, in Prozent) des ausgegebenen Audio-Signals an den Microcontroller. Dieser legt dann die übertragene Lautstärke beim Audio-Modul fest. \\
+\hline
+\end{tabularx} \newline \\
 \textbf{Audio-Streaming} \\
 Der Microcontroller sollte in der Lage sein, Audio-Streams aus dem Internet zu empfangen, diese zu dekodieren und die dekodierten Daten als Signale auf dem Line-Out auszugeben. Die meisten Audio-Streams werden mit dem HLS-Protokoll, welches auf dem HTTP-Protokoll basiert, übertragen. Dabei wird das Audiofile in mehrere kleine Stücke zerteilt, welche dann per HTTP an den Client gesendet werden. Dieser fügt diese Stücke dann wieder zu einem Audiofile zusammen. In weiterer Folge wird das MP3-File von dem externen Digital-Analog-Wandler zu einem PCM(\glqq Pulse Code Modulation\grqq{}) - Signale übertragen, welches dann auf der Lautsprecherbox ausgegeben werden kann.
 
@@ -337,12 +328,10 @@ Um eine hohe Softwarequalität zu gewährleisten, wurde in der Entwicklung der S
 \includegraphics[scale=0.3, angle=90]{/software/uml_microcontroller.png}
 \caption{UML-Klassendiagramm Microcontroller}
 \end{figure}
-\textbf{Mode}
-Im ENUM Mode werden die verschiedenen Modi der Software definiert.
-In der Software des Adapters wird mit Modi gearbeitet. Dabei sind die Modi NORMAL, CONFIG und ERROR verfügbar. Die Modi werden im ENUM Mode definiert. Der Modus NORMAL signalisiert, dass sich der Microcontroller im normalen Ablauf befindet. Im Modus CONFIG fungiert der Microcontroller als Access Point. Somit können sich Client mit diesem verbinden und wichtige Daten, wie z.B. die WLAN-Anmeldedaten senden. Der Modus ERROR wird gesetzt, wenn 
-
+\textbf{Mode} \\
+Im ENUM Mode werden die verschiedenen Modi der Software definiert. Ein ENUM ist wie eine Art Datentyp, der nur bestimmte Werte zulässt. In dem Fall definiert der ENUM die drei Modi NORMAL, CONFIG und ERROR. Diese geben den Status des Microcontrollers an. Der Modus NORMAL signalisiert, dass sich der Microcontroller im normalen Ablauf befindet. Im Modus CONFIG fungiert der Microcontroller als Access Point. Somit können sich Clients mit diesem verbinden und Konfigurationsdaten, wie WLAN-Anmeldedaten und Microcontroller-Name senden. Der Modus ERROR wird gesetzt, wenn ein Fehler im Programm auftritt. Dies ist zum Beispiel der Fall wenn die Verbindung mit dem WLAN-Netzwerk nicht möglich ist.
 \textbf{StatusLED} \\
-Mithilfe der Klasse StatusLED wird die RGB-LED, welche am Microcontroller angeschlossen ist, gesteuert. Mit ihr wird der aktuelle Modus des Microcontrollers angezeigt. Die nachstehende Tabelle beschreibt welche Farbe für welchen Modus steht: \\
+Mithilfe der Klasse StatusLED wird die RGB-LED, welche am Microcontroller angeschlossen ist, gesteuert. Mit ihr wird der aktuelle Modus des Microcontrollers angezeigt. Die nachstehende Tabelle beschreibt welche Farbe für welchen Modus steht: \newline \\
 \begin{tabularx}{\textwidth}{ |c|c| }
 \hline
 \textbf{Modus} & \textbf{Farbe} \\
@@ -353,25 +342,26 @@ CONFIG & Blau \\
 \hline
 ERROR & Rot \\
 \hline
+\newline \\
 \end{tabularx}
 \textbf{NetworkManager} \\
-Die Klasse NetworkManager kümmert sich um alle Funktionen, die mit dem WiFi des ESP32 zu tun haben. Dazu gehören: Funktion als Access Point, Funktion als Client.
+Die Klasse NetworkManager kümmert sich um alle Funktionen, die mit dem WiFi des ESP32 zu tun haben. Es ist hier möglich den Access Point - Modus bzw. den Client-Modus zu aktivieren, sowie nach verfügbaren Netzwerken zu suchen und die MAC-Addresse des Adapters zu lesen. Diese Funktionen werden alle mithilfe der WiFi-Bibliothek verwirklicht.
 \vspace{4mm}\newline
 \textbf{AudioManager} \\
-Die Klasse AudioManager ist für das Empfangen des Internet-Audio-Streams und in weiterer Folge für das Senden der empfangenen Audiodaten an den Digital-Analog-Wandler zuständig.
+Die Klasse AudioManager ist für das Empfangen des Internet-Audio-Streams, für das dekodieren und für die Ausgabe der Audio-Signale zuständig. Dafür wird größtenteils die ESP32-I2SAudio Bibliothek verwendet.
 \vspace{4mm}\newline
 \textbf{Logger} \\
-Die Klasse Logger ist zuständig, für das Speichern von Logs, welche von anderen Klassen geschrieben werden. 
+Die Klasse Logger ist für die Verwaltung von Logs, welche von anderen Klassen geschrieben werden, zuständig. In ihr ist ein Vektor, welcher Tuples, bestehend aus Log-Text und Log-Zeitpunkt, speichert, definiert. Diese Logs sind essentiell für die Fehlerbehebung, da man sehen kann welche Aktionen im Programm ausgeführt wurden. Die Klasse bietet Funktionen zum Hinzufügen von Logs und zum Anzeigen bestehender Logs. Die Funktionen sind alle statisch, das heißt man muss kein Objekt dieser Klasse erzeugen, um die Funktionen auszuführen.
 \vspace{4mm}\newline
 \textbf{ServerManager}
-Die Klasse ServerManager ist für das Verwalten des Webservers, welcher auf dem Microcontroller läuft, zustängig. In ihr werden unter anderem die verfügbaren Routen der REST-API definiert.
+Die Klasse ServerManager ist für das Verwalten des Webservers, welcher auf dem Microcontroller läuft, zustängig. In ihr werden die Funktionen, welche durch die Aufrufe der REST-API ausgeführt werden, definiert. Die Kernfunktionen der Klasse werden vorallem durch die WebServer-Bibliothek bereitgestellt.
 \vspace{4mm}\newline
 \textbf{MemoryManager}
-Die Klasse MemoryManager ist für das Schreiben in und das Lesen vom EEPROMs des Microcontrollers zuständig.
+Die Klasse MemoryManager ist für das Schreiben in und das Lesen vom EEPROMs des Microcontrollers zuständig. Um das zu erreichen, wird die Preferences-Bibliothek verwendet.
 \textbf{BatteryManager}
 Die Klasse BatteryManager regelt die Ladung des ESP32 und liest den Akkustand aus.
-\subsubsection{Herausforderungen}
-Bei der Entwicklung der Software für den Adapter, sind wir auf einige Herausforderungen gestoßen. Ursprünglich war geplant, eine Funktion zu implementieren, die es ermöglicht mehrere Adapter zu Gruppen zu verbinden. In diesen Gruppen sollte dann jeweils der gleiche Stream synchron laufen. Die Synchronisierung der Adapter hat sich allerdings als sehr schwierig erwiesen, da die Ressourcen des ESP32 nicht dafür ausreichten, die Latenz gering zu halten.
+\subsubsection{Erweiterungsmöglichkeiten}
+Hier werden Erweiterungsmöglichkeiten der Software erleutert. Es wäre denkbar eine Funktion zu implementieren, die es ermöglicht mehrere Adapter zu Gruppen zu verbinden. In diesen Gruppen soll dann jeweils der gleiche Audio-Stream synchron empfangen und ausgegeben werden. Die Synchronisierung der Adapter bringt aber eine hohe Komplexizität mit sich, da man per WLAN-Verbindung mit sehr großen Latenzen zu rechnen hat.
 \subsection{Entwicklung Smartphone-App}
 In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Smartphone-App beschrieben. Die verwendeten Tools wurden schon genauer im Kapitel ... beschrieben.
 \subsubsection{Zielsetzung}
@@ -650,5 +640,6 @@ In diesem Kapitel werden die bei den Tests aufgetretenen Sicherheitslücken gesc
 \subsection{Abbildungsverzeichnis}
 \listoffigures
 \subsection{Anhang}
-
+\subsubsection{Code Microcontroller}
+\subsubsection{Code Smartphoneapp}
 \end{document}
