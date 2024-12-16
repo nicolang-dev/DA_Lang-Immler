@@ -13,6 +13,7 @@
 \setlength{\parskip}{1em}
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
+\renewcommand{\listfigurename}{Abbildungen}
 
 \title{\textbf{Multi-Room Sound Adapter}}
 \author{Nico Lang, Philipp Immler}
@@ -74,11 +75,14 @@ Hiermit versichere ich, dass ich die vorliegende Arbeit selbstständig verfasst 
 \end{flushright}
 
 \pagebreak
-
 \subsection{Abstract Deutsch}
+Die vorliegende Diplomarbeit beschäftigt sich mit der Entwicklung eines Multi-Room Sound Adapters. Ein einzelner Adapter besitzt dabei die Funktion, einen Audiostream aus dem Internet auf einen Line-Output auszugeben. So lassen sich die Adapter beispielsweise mit aktiven Lautsprechern per Klinkenkabel verbinden, um so Musik in voneinander getrennten Räumen abzuspielen. Welche Musik in welchem Raum spielt, ist frei konfigurierbar. Dabei erfolgt die Konfiguration per Smartphone-App. Das Endergebnis der Diplomarbeit sind somit der Adapter selbst (physischer Prototyp) und die dazugehörige Smartphone-App. \newline \\
+Die Diplomarbeit lässt sich grob in die drei Teile Planung, Entwicklung und Testen/Fehlerbehebung gliedern.
 \subsection{Abstract English}
+This diploma thesis deals with the development of a multi-room sound adapter. A single adapter has the function of outputting an audio stream from the Internet to a line output. For example, the adapters can be connected to active speakers via a jack cable in order to play music in separate rooms. Which music plays in which room is freely configurable. The configuration is done via smartphone app. The final result of the thesis is the adapter itself (physical prototype) and the corresponding smartphone app. \newline \\
+The thesis can be roughly divided into three parts: planning, development and testing/troubleshooting.
 \subsection{Danksagung}
-
+Wir bedanken uns bei den betreuenden Lehrpersonen Dipl. Ing. Dr. Peter L. Steger und Dipl. Päd. Johannes Köll für die kompetente Unterstützung.
 \tableofcontents
 
 \section{Einleitung}
@@ -90,7 +94,7 @@ Zudem beschäftigt sich dieser Teil mit dem Gehäuse des Geräts und bestimmt di
 Bei der Planung soll darauf geachtet werden, möglichst viele Kosten einzusparen, ohne dabei die Faktoren der Sicherheit und Qualität zu vergessen.
 
 \subsection{Einleitung Software}
-Das Ziel des Software-Teils für folgende Diplomarbeit war, einerseits die Software des Adapters, andererseits die Software der Smartphoneapp zu entwickeln. Dieser Teil der Diplomarbeit wird von Philipp Immler übernommen. Die Software des Adapters wird mit der Programmiersprache C++ codiert. Die Software der Smartphoneapp wird mit JavaScript codiert. Um eine bestmögliche Leistung und Effizienz zu garantieren, werden bei der Programmierung zahlreiche Bibliotheken und Frameworks verwendet. Bei der Entwicklung der Software wird ein großes Augenmerk auf Sicherheit und Effizienz gelegt. 
+Das Ziel des Software-Teils für folgende Diplomarbeit war, einerseits die Software des Adapters, andererseits die Software der Smartphoneapp zu entwickeln. Dieser Teil der Diplomarbeit wurde von Philipp Immler übernommen. Die Software des Adapters wird mit der Programmiersprache C++ codiert. Die Software der Smartphoneapp wird mit JavaScript codiert. Bei der Programmierung wurden zahlreiche Bibliotheken und Frameworks verwendet. Dies hat den Vorteil, dass diese schon vorgefertigte Lösungen für bestimmte Probleme bieten und man deshalb nicht alles von Grund auf entwickeln muss. 
 
 \section{Planung}
 \subsection{Festlegung Funktionsweise}
@@ -196,13 +200,14 @@ Man kann daraus schließen, dass jeder kleinste Fehler beispielsweise zu einem B
 \textbf{Laderegler}\newline
 Für einen optimalen Ladeprozess und Schutz des Akkus wird ein Laderegler verwendet. Dieser regelt den Ladevorgang des Akkus und hört auf zu laden, sobald er voll ist.
 
+
 \subsection{Auswahl Technologien}
 \subsubsection{Protokolle}
 In diesem Kapitel geht es um die Recherche und Auswahl von Protokollen, die für den Austausch von Daten verwendet werden.
 \newline \\
 \textbf{HTTP}
 \newline
-Das Hyper Text Transfer Protocol ist ein weitverbreitetes Protokoll im Web und wird größtenteils für die Kommunikation zwischen Browsern und Webservern eingesetzt. Dabei basiert das Protokoll auf sogenannten \glqq Requests\grqq{} (auf Deutsch: Anfragen). Es gibt zahlreiche Anwendungen für HTTP. Wir nutzen es einerseits als REST-API und andererseits für das Audio-Streaming. (vgl. URLPI02) \newline \\
+Das Hyper Text Transfer Protocol ist ein weitverbreitetes Protokoll im Web und wird größtenteils für die Kommunikation zwischen Browsern und Webservern eingesetzt. Dabei basiert das Protokoll auf sogenannten \glqq Requests\grqq{} (auf Deutsch: Anfragen). Es gibt zahlreiche Anwendungen für HTTP. Wir nutzen es hauptsätzlich für die Kommunikation zwischen Smartphoneapp (Client) und Microcontroller (Server). (vgl. URLPI02) \newline \\
 \textbf{REST-API} \\ 
 Der Begriff \glqq REST-API\grqq{} setzt sich aus den Abkürzungen \glqq REST\grqq{} und \glqq API\grqq{} zusammen. Dabei steht \glqq REST\grqq{} für \glqq Representational State Transfer\grqq{} (auf Deutsch: \glqq gegenständliche Zustandsübertragung\grqq{}) und \glqq API\grqq{} für \glqq Application Programming Interface\grqq{} (auf Deutsch: \glqq Anwendungsprogrammierschnittstelle\grqq{}). Eine REST-API zeichnet sich dadurch aus, dass sie eine einheitliche Schnittstelle zwischen Server und Client bietet. Dies wird durch die \glqq Routes\grqq{} (auf Deutsch: \glqq Routen\grqq{}) geschaffen. Wenn der Client Requests an diese Routen sendet werden Aktionen auf dem Server ausgeführt. Es ist auch möglich, dass anschließend der Client Daten vom Server erhält. (vgl. URLPI04)
 
@@ -264,72 +269,91 @@ Wir verwenden DeepL um englische Texte, welche für unsere Diplomarbeit relevant
 \subsubsection{Bibliotheken Microcontroller}
 Im folgenden werden die verwendeten Bibliotheken im Code des Microcontrollers aufgezählt und kurz beschrieben:
 \vspace{4mm}\newline
-\textbf{Arduino} \\
-Die Arduino-Bibliothek wird verwendet um den ESP32 ähnlich wie einen Arduino programmieren zu können. Es erleichtert dabei die Programmierung enorm, vorallem dann, wenn man schon Vorerfahrung mit der Programmierung von Arduinos hat.
+\textbf{arduino-esp32} \\
+(https://github.com/espressif/arduino-esp32) \\
+Die arduino-esp32-Bibliothek wurde verwendet um den ESP32 ähnlich wie einen Arduino programmieren zu können. Es erleichtert dabei die Programmierung enorm, vorallem dann, wenn man schon Vorerfahrung mit der Programmierung von Arduinos hat. Ein weiterer Vorteil ist, dass diese Bibliothek bereits weitere nüztliche Bibliotheken beinhaltet, welche für die Programmierung benötigt werden.
 \vspace{4mm}\newline
 \textbf{WiFi} \\
-\url{https://github.com/arduino-libraries/WiFi} \\
-Die WiFi-Bibliothek wird verwendet, um die Funktionen der eingebauten WiFi-Antenne des ESP32 zu verwenden. Der ESP32 kann dabei entweder als Access Point oder als Client fungieren. Wenn er als Access Point fungiert, stellt er ein eigenes WiFi-Netzwerk bereit, mit dem sich andere Geräte verbinden können und der ESP32 somit einen Host darstellt. Als Client kann er sich mit anderen WiFi-Netzwerken bzw. Access Points verbinden. In unserem Projekt fungiert der ESP32 sowohl als Access Point, als auch als Client.
+(https://github.com/espressif/arduino-esp32/tree/master/libraries/WiFi) \\
+Die WiFi-Bibliothek ist eine offizielle Bibliothek von Arudino, welche ebenfalls in der arduino-esp32-Bibliothek inkludiert ist. Sie wird verwendet, um die Funktionen der eingebauten WiFi-Antenne des ESP32 zu verwenden. Der ESP32 kann dabei entweder als Access Point oder als Client fungieren. Wenn er als Access Point fungiert, stellt er ein eigenes WiFi-Netzwerk bereit, mit dem sich andere Geräte verbinden können und der ESP32 somit einen Host darstellt. Als Client kann er sich mit anderen WiFi-Netzwerken bzw. Access Points verbinden. In unserem Projekt fungiert der ESP32 sowohl als Access Point, als auch als Client.
 \vspace{4mm}\newline
 \textbf{ArduinoJson} \\
-Die ArduinoJson-Bibliothek wird verwendet, um Daten in das JSON vormat zu kodieren. Der Vorteil dabei ist, dass JSON ein weit verbreitetes Format in der Informatik ist und deshalb mit vielen Schnittstellen kompatibel ist. In unserem Projekt wird die ArduinoJson-Bibliothek für den einheitlichen Datenaustausch zwischen Webserver (ESP32) und Client (Smartphone) verwendet.
+(https://github.com/bblanchon/ArduinoJson) \\
+Die ArduinoJson-Bibliothek wird verwendet, um Daten in das JSON-Format zu kodieren. JSON (Java Script Object Notation) ist ein Datenformat, welches oft für den einheitlichen Datenaustausch zwischen Server und Client verwendet wird. Dabei verwendet JSON sogenannte Schlüssel-Wert-Paare. Das heißt, ein Wert hat immer einen eindeutigen Schlüssel. In unserem Projekt wird die ArduinoJson-Bibliothek für den einheitlichen Datenaustausch zwischen Webserver (ESP32) und Client (Smartphone) verwendet. (vgl. URLPI11)
 \vspace{4mm}\newline
 \textbf{WebServer} \\
-Die WebServer-Bibliothek wird verwendet, um einen Webserver auf dem ESP32 bereitzustellen. Dieser ist wichtig für den Datenaustausch mittels HTTP, zwischen ESP32 und Smartphone. Mithilfe des Webserver wird einerseits das WiFi-Passwort des gewählten WLANs, als auch die URL des Audiostreams an den ESP32 geleitet. In die andere Richtung, werden grundlegende WiFi-Informationen und verfügbare WiFi-Netzwerke vom ESP32 bereitgestellt. 
+Die WebServer-Bibliothek wird verwendet, um einen Webserver auf dem ESP32 bereitzustellen. Dieser ist wichtig für die Funktion als REST-API und somit für den Datenaustausch zwischen ESP32 und Smartphoneapp. Der Webserver erhält Anfragen von Clients und sendet diesen dementsprechende Antworten zurück. Dabei gibt es vordefinierte Routen, welche aufrufbar sind.
 \vspace{4mm}\newline
-\textbf{Audio} \\
-Die Audio-Bibliothek wird verwendet, um die MP3-kodierten Audio-Daten von einem HTTP-Stream zu empfangen, diese in PCM-Daten umzuwandeln und diese dann an den Digital-Analog-Wandler per I2S zu senden. Der ESP32 verfügt bereits standartmäßig über Funktionen, mit deren Hilfe man Audiodaten mittels I2S übertragen kann. Allerdings bereitet dies einen viel höheren Aufwand für Konfiguration usw. Daher verwenden wir in unserem Projekt die Audio-Bibliothek.
+\textbf{ESP32-audioI2S} \\
+(https://github.com/schreibfaul1/ESP32-audioI2S) \\
+Die ESP32-audioI2S-Bibliothek wird verwendet, um die MP3-kodierten Audio-Daten vom HLS-Stream zu empfangen, diese in PCM-Signale umzuwandeln und diese dann an den Digital-Analog-Wandler per I2S-Protokoll zu senden. Der ESP32 verfügt bereits standartmäßig über Funktionen, mit deren Hilfe man Audiodaten mittels I2S übertragen kann. Allerdings sind diese sehr komplex in der Verwendung und Konfiguration. Da die ESP32-audioI2S-Bibliothek bereits die perfekte Lösung für unsere Anforderungen bietet, wird diese in unserer Diplomarbeit verwendet.
 \subsubsection{Softwaretools Smartphoneapp}
-Die Smartphoneapp wurde mit "React Native" entwickelt. Mithilfe von React Native ist es möglich eine zentrale Applikation zu entwickeln und diese dann auf mehreren Plattformen wie IOS, Android und auch im Web zu verwenden. React Native basiert auf React, welches ein Framework für die Frontend-Entwicklung von Web-Applikationen ist. Außerdem wird die Radio-Browser-API für die Bereitstellung diverser Internetradios verwendet. \\
+Im foldenden Teil werden die Softwaretools, welche für die Entwicklung der Smartphoneapp verwendet wurden, genauer beschrieben. \\
 
 \textbf{React Native} \\
 React Native ist ein Framework, welches die plattformübergreifende Entwicklung von Apps ermöglicht. Das heißt, man schreibt einen Code und kann diesen dann für IOS, Anrdoid und fürs Web verwenden. Der Code wird in JavaScript geschrieben. React Native wurde erstmals 2015 von Meta (damals noch Facebook) als Open-Source-Projekt veröffentlicht. Seither wird es weiterhin von Meta instandgehalten und hat eine riesige Community, welche ständig neue Bibliotheken für das Framewok veröffentlicht. React Native basiert auf React, welches man bereits aus der Webentwicklung kennt. Der Vorteil von React im Gegensatz zur normalen Webentwicklung ist, dass man wiederverwendbare Komponenten bauen kann. Dies ist auch mit React Native möglich. In React Native stehen dabei einige Standardkomponenten zur Verfügung, welche dann jeweils in native Komponenten, passend für das jeweilige Betriebssystem, gerendert werden. 
-Wir haben React Native für unsere Smartphoneapp verwendet, weil wir nicht für jede Plattform eigenen Code schreiben wollten. Außerdem haben wir auch schon etwas Erfahrung mit JavaScript und React, was uns den Einstieg erleichterte.
+Wir haben React Native für unsere Smartphoneapp verwendet, weil es sehr aufwendig gewesen wäre, für jede Plattform einen eigenen Code zu schreiben und dies außerdem sehr viel Wissen in unterschiedlichen Bereichen vorausgesetzt hätte. Außerdem hatten wir auch schon etwas Erfahrung mit JavaScript und React, was uns den Einstieg erleichterte.
 (vgl. URLPI07)
 
 \textbf{Expo} \\
-Um das Entwickeln der Smartphoneapp noch einfacher bzw. effizienter zu gestalten, wurde das Expo Framework verwendet. Dieses Framework stellt wichtige Funktionen und eine Projektstruktur standardmäßig zur Verfügung. Dies hat den Vorteil, dass man dann nicht mehr von 0 anfangen muss, sondern schon einen guten Grundaufbau hat. Ein weiterer Vorteil von Expo ist das File-basierte Routing. Mithilfe diesem, ist es möglich die Navigation in der App an die Dateien im Projekt anzupassen.
+Um das Entwickeln der Smartphoneapp noch einfacher bzw. effizienter zu gestalten, wurde das Expo Framework verwendet. Dieses Framework basiert auf React Native und stellt noch zusätzlich hilfreiche Bibliotheken und eine Projektstruktur zur Verfügung. Dies hat den Vorteil, dass man bereits den Grundlegenden Aufbau einer App gegeben hat und diesen dann erweitern kann. Ein weiterer Vorteil von Expo ist das File-basierte Routing. Mithilfe diesem ist es möglich die App-Navigation auf der Ordnerstruktur zu stützen was die Entwicklung noch einfacher und übersichtlicher macht.
 (vgl. URLPI08)
 
 \section{Entwicklung}
 \subsection{Entwicklung Software Adapter}
 In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Software des Adapters beschrieben. 
-Zur Entwicklung der Software des Microcontrollers wurde die IDE Visual Studio Code in Verbindung mit dem Framwork PlatformIO verwendet. Um die Entwicklung in C++ zu ermöglichen und vorgefertigte Bibliotheken zu verwenden, wurde das Arduino-Framework verwendet.
+Zur Entwicklung der Software des Microcontrollers wurde die IDE Visual Studio Code in Verbindung mit dem Framwork PlatformIO verwendet. Um die Entwicklung in C++ zu ermöglichen wurden die bereits erwähnten Bibliotheken verwendet.
 
-\subsubsection{Ziele}
-Der Adapter soll grundsätzlich folgende Funktionen bereitstellen:
-\begin{itemize}
-\item als AP fungieren, um Verbindung mit Smartphone herzustellen
-\item mit WLAN verbinden
-\item Audio-Stream aus Internet empfangen
-\item Audio-Stream dekodieren
-\item dekodierten Audio-Stream an Lautsprecherbox übertragen
-\end{itemize}
+\subsubsection{Anforderungen}
+Im folgenden wird beschrieben, welche Anforderungen an die Software des Adapters gestellt werden: \newline \\
+\textbf{Access Point} \\
+Ein Access Point ist ein Gerät, welches ein WLAN-Netzwerk aufbaut. Dabei können sich WLAN-Clients mit diesem verbinden.
+Der Microcontroller soll im Konfigurationsmodus als Access Point arbeiten. Somit ist es möglich, sich mit der Smartphoneapp als Client zu verbinden und dem Microcontroller mittels HTTP Daten, welche wichtig für die Konfiguration sind(z.B: WLAN-Anmeldedaten), zu senden.  (vgl. URLPI10) \newline \\
+\textbf{WLAN Client} \\
+WLAN-Clients sind die Geräte, welche mit einem Access Point verbunden sind und somit Teilnehmer in einem WLAN darstellen. Sie können dabei untereinander Daten austauschen.
+Wenn der Adapter vollständig konfiguriert ist bzw. alle notwendigen Daten festgelegt sind, soll dieser als WLAN-Client arbeiten. Somit ist es möglich, wenn die Smartphoneapp im gleichen Netzwerk wie der Microcontroller ist, mit diesem zu kommunizieren. Dies geschieht durch die REST-API welcher der Microcontroller zur Verfügung stellt. \newline \\
+\textbf{REST-API} \\
+Der Microcontroller soll eine REST-API zur Verfügung stellen, mithilfe der es möglich ist, Daten an den Microcontroller per HTTP zu senden bzw. Daten von diesem zu empfangen. Eine REST-API ist eine API, welche den Designprinzipien der REST-Architektur folgt. Dies heißt, sie muss bestimmte Regeln erfüllen, welche von der REST-Architektur vorgegeben werden. Sie dient dabei zur Kommunikation zwischen Server und Client. Der Client kann mittels HTTP Anfragen an den Server senden. Der Server liefert dann eine Antwort, welche Daten enthalten kann. Auf diese Weise kommuniziert die Smartphoneapp mit dem Microcontroller. (vgl. URLPI04) \newline \\
+\textbf{Audio-Streaming} \\
+Der Microcontroller sollte in der Lage sein, Audio-Streams aus dem Internet zu empfangen, diese zu dekodieren und die dekodierten Daten als Signale auf dem Line-Out auszugeben. Die meisten Audio-Streams werden mit dem HLS-Protokoll, welches auf dem HTTP-Protokoll basiert, übertragen. Dabei wird das Audiofile in mehrere kleine Stücke zerteilt, welche dann per HTTP an den Client gesendet werden. Dieser fügt diese Stücke dann wieder zu einem Audiofile zusammen. In weiterer Folge wird das MP3-File von dem externen Digital-Analog-Wandler zu einem PCM(\glqq Pulse Code Modulation\grqq{}) - Signale übertragen, welches dann auf der Lautsprecherbox ausgegeben werden kann.
 
 \subsubsection{Programmablauf}
-Der Ablauf des Programmes wird mit folgendem UML-Ablaufdiagramm veranschaulicht: \\
-\textbf{Start} \newline
-Der Microcontroller wird durch einmaliges Drücken auf den Knopf aus dem Standby (Deep Sleep) Modus erweckt. \newline \\
-\textbf{Lesen der WiFi-Zugangsdaten} \newline
-Es wird im EEPROM des Microcontrollers nach einer gespeicherten SSID und nach einem gespeicherten Passwort gesucht. Wenn die Zugansdaten nicht vorhanden sind wird die Status-LED auf rot geschalten. Anschließend werden keine weiteren Prozesse ausgeführt, bis der/die Benutzer/in mit einem weiteren Druck auf den Knopf in den Konfigurationsmodus schaltet. Wenn die Zugangsdaten allerdings gespeichert sind versucht der Microcontroller sich als Client mit dem WLAN zu verbinden. Wenn dies erfolgreich ist, wird in den Standardmodus gewechselt. Wenn die Verbindung allerdings fehlschlägt, wird in den Konfigurationsmodus gewechselt. \newline \\
-\textbf{Standardmodus} \\
-Sobald der Standardmodus aktiviert wird, wechselt die Farbe der Status-LED auf grün. Anschließend wird aus dem EEPROM ausgelesen, ob bereits eine Stream-URL gespeichert ist. Wenn dies der Fall ist, fungiert der Microcontroller als HTTP-Client und empfängt den Stream. Anschließend wird dieser mittels I2S-Protokoll an den Digital-Analog-Wandler übertragen. Wenn allerdings noch keine Stream-URL gespeichert ist, wartet der Microcontroller bis eine Stream-URL vom Client gesendet wird. \newline \\
-\textbf{Konfigurationsmodus} \\
-Wird der Konfigurationsmodus mit Druck auf den Taster aktiviert, wechselt die Status-LED ihre Farbe auf blau. Anschließend wird der WiFi-Chip in den AP-Modus gestellt. Somit bietet der Microcontroller einen Access Point, auf den sich andere Geräte als Clients verbinden können. Dies wird benötigt, damit die Clients in weiterer Folge WiFi-Zugangsdaten an den Microcontroller senden können. Um die Daten zu empfangen wird ein WebServer auf dem Microcontroller gestartet. Dieser erhält dann die WiFi-Zugangsdaten mittels HTTP-Protokoll. \newline \\
-\textbf{Wechsel in normalen Modus} \\
-Sobald der Microcontroller die WiFi-Zugangsdaten vom Client erhalten hat, schreibt er diese in den EEPROM. Anschließend wird der Microcontroller neu gestartet und der Programmablauf fängt wieder von vorne an.
+Da die arduino-esp32-Bibliothek verwendet wurde ist der Programmablauf gleich wie bei einem standardmäßigen Arduino-Programm. Ausgeführt wird das Main-File welches aus einer Funktion setup() und einer Funktion loop() besteht. Die Funktion setup() wird beim Start des Microcontrollers einmalig ausgeführt. Anschließend wird die Funktion loop() in einer Endlosschleife ausgeführt, wenn also das Ende der Funktion loop() erreicht wird, fängt diese wieder von vorne an. Im folgenden Teil wird der Ablauf innerhalb den einzelnen Funktionen genauer beschrieben. \newline \\
+\textbf{Setup} \\
+Im Setup werden zuerst Konstanten, welche später im Programm benötigt werden, definiert. Auch werden am Anfang die entsprechenden Singleton-Klassen instanziert. Anschließend wird mithilfe der Klasse MemoryManager überprüft ob ein Name im EEPROM gesetzt ist. Ist dies der Fall, so wird der Name lokal als Variable gesetzt. Ist der Name allerdings nicht im EEPROM vorhanden, wird der Default-Name verwendet. Der Default-Name setzt sich zusammen aus MSA (kurz für Multiroom Sound Adapter) und den letzten zwei Stellen der Mac. Er ist somit für jeden Adapter einmalig. Der Name wird später als SSID des Access Points bzw. für die mDNS verwendet. Nachdem der Name gesetzt ist, wird wiederum mit der Klasse MemoryManager überprüft ob WLAN-Zugangsdaten im EEPROM gespeichert sind. Ist dies der Fall, wird versucht eine Verbindung mit dem gespeicherten WLAN herzustellen. Ist dies möglich wird der Modus auf Normal gesetzt. Ist dies nicht möglich bzw. sind keine WLAN-Zugangsdaten gespeichert, wird der Modus auf Error gesetzt.
+\begin{figure}[H]
+\includegraphics[scale=0.5]{/software/uml_ablauf_esp32_setup.png}
+\caption{UML-Ablaufdiagramm Microcontroller Setup}
+\end{figure}
+\textbf{Loop} \\
+\begin{figure}[H]
+\includegraphics[scale=0.5]{/software/uml_ablauf_esp32_loop.png}
+\caption{UML-Ablaufdiagramm Microcontroller Loop}
+\end{figure}
+Am Anfang der Loop-Funktion wird abgefragt ob der Modus auf Error gesetzt ist. Ist dies der Fall, wird nichts mehr ausgeführt, das heißt die Funktion springt wieder an den Startpunkt. Ist der Modus allerdings nicht auf Error gesetzt, wird überprüft ob der Knopf gedrückt ist. Wird dieser gedrückt, wird der Modus auf Config gesetzt. Anschließend wird überprüft ob der Modus auf Normal gesetzt ist. Ist dies der Fall wird überprüft ob immer noch eine Verbindung mit dem WLAN besteht. Dies geschieht mithilfe der Klasse NetworkManager. Wenn dies wahr ist, wird mithilfe der Klasse ServerManager überprüft ob der Webserver läuft. Wenn nicht, wird dieser gestartet. Ist der Modus allerdings nicht auf Normal gesetzt, also auf Config, so wird zuerst überprüft ob der Access Point gestartet ist. Wenn nicht, wird dieser schließlich gestartet und die mDNS wird gesetzt. Diese Prozesse werden wieder mithilfe der NetworkManager-Klasse durchgeführt. Anschließend wird ebenfalls der Zustand des Webservers überprüft. Am Schluss der Loop-Funktion wird noch die loop Funktion der Klasse Audio-Manager ausgeführt. Diese regelt das Audio-Streaming.
 \subsubsection{Klassen}
-Bei der Entwicklung der Microcontroller-Software wurde aufgrund der Übersichtlichkeit und um die Design-Patterns der Softwareentwicklung einzuhalten, auf objektorientierte Programmierung gesetzt. Das folgende UML-Klassendiagramm veranschaulicht die Beziehung der verschiedenen Klassen zueinander:
-\begin{figure}
+Um eine hohe Softwarequalität zu gewährleisten, wurde in der Entwicklung der Software für den Adapter auf objektorientierte Programmierung gesetzt. Für einen großteil der Klassen wurde das Singleton-Pattern verwendet. Dies gewährleistet, dass immer nur eine Instanz der Klasse vorhanden ist. Dieses Verhalten macht Sinn, bei Klassen von denen nicht mehrere Instanzen verfügbar sind. Im folgenden Teil werden die dabei erstellten Klassen genauer beschrieben. Das folgende UML-Klassendiagramm veranschaulicht die Beziehung der verschiedenen Klassen zueinander:
+\begin{figure}[H]
 \includegraphics[scale=0.3, angle=90]{/software/uml_microcontroller.png}
 \caption{UML-Klassendiagramm Microcontroller}
 \end{figure}
-hier kommt das UML-Klassendiagramm her
-Im folgenden Teil werden die Klassen und deren Funktionen noch näher beschrieben:
-\newline \\
+\textbf{Mode}
+Im ENUM Mode werden die verschiedenen Modi der Software definiert.
+In der Software des Adapters wird mit Modi gearbeitet. Dabei sind die Modi NORMAL, CONFIG und ERROR verfügbar. Die Modi werden im ENUM Mode definiert. Der Modus NORMAL signalisiert, dass sich der Microcontroller im normalen Ablauf befindet. Im Modus CONFIG fungiert der Microcontroller als Access Point. Somit können sich Client mit diesem verbinden und wichtige Daten, wie z.B. die WLAN-Anmeldedaten senden. Der Modus ERROR wird gesetzt, wenn 
+
 \textbf{StatusLED} \\
-Mithilfe der Klasse StatusLED wird die RGB-LED, welche am ESP32 angeschlossen ist, gesteuert. Mit ihr wird z.B. angezeigt ob der Controller sich im Konfigurationsmodus befindet oder mit dem WLAN verbunden ist.
-\vspace{4mm}\newline
+Mithilfe der Klasse StatusLED wird die RGB-LED, welche am Microcontroller angeschlossen ist, gesteuert. Mit ihr wird der aktuelle Modus des Microcontrollers angezeigt. Die nachstehende Tabelle beschreibt welche Farbe für welchen Modus steht: \\
+\begin{tabularx}{\textwidth}{ |c|c| }
+\hline
+\textbf{Modus} & \textbf{Farbe} \\
+\hline
+NORMAL & Grün \\
+\hline
+CONFIG & Blau \\
+\hline
+ERROR & Rot \\
+\hline
+\end{tabularx}
 \textbf{NetworkManager} \\
 Die Klasse NetworkManager kümmert sich um alle Funktionen, die mit dem WiFi des ESP32 zu tun haben. Dazu gehören: Funktion als Access Point, Funktion als Client.
 \vspace{4mm}\newline
@@ -624,6 +648,7 @@ In diesem Kapitel werden die bei den Tests aufgetretenen Sicherheitslücken gesc
 \section{Einzelnachweise}
 \subsection{Literaturverzeichnis}
 \subsection{Abbildungsverzeichnis}
+\listoffigures
 \subsection{Anhang}
 
 \end{document}

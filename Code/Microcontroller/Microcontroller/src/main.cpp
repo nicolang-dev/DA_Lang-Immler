@@ -109,9 +109,8 @@ void loop(){
         Logger::add(last_log);
         last_log_size = Logger::getLogSize();
     }*/
-
-    //if error mode or config mode is active
-    if(mode == NORMAL){
+    if(mode != ERROR){
+        if(mode == NORMAL){
         //check if still connected to Wlan
         if((actual_time - last_wlan_request_time) >= WLAN_REQUEST_PERIOD){
             if(!network->isConnectedToWlan()){ //if connected to Wlan, set color of status led to green
@@ -126,7 +125,7 @@ void loop(){
          /*if(audio->isStreaming()){
             audio->loop();
         }*/
-    } else if(mode == CONFIG){
+    } else {
         if(!network->isApStarted()){
             Logger::add("starting ap");
             network->startAP(name);
@@ -175,6 +174,7 @@ void loop(){
             audio->setVolume(received_volume);
         }
     }   
+    }
 }
 
 void setMode(Mode m){
