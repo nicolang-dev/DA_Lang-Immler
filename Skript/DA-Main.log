@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.6.26)  15 DEC 2024 21:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.6.26)  16 DEC 2024 18:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -458,232 +458,246 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 24.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 24.
- [1
+<./images//hardware/adapter-nahe_hg-transparent.png, id=235, 2052.66875pt x 164
+2.135pt>
+File: ./images//hardware/adapter-nahe_hg-transparent.png Graphic file (type png
+)
+<use ./images//hardware/adapter-nahe_hg-transparent.png>
+Package pdftex.def Info: ./images//hardware/adapter-nahe_hg-transparent.png  us
+ed on input line 27.
+(pdftex.def)             Requested size: 369.46443pt x 295.57155pt.
+
+Overfull \hbox (10.23807pt too wide) in paragraph at lines 27--28
+ | [] 
+ []
+
+[1
 
 {C:/Users/nicol/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/nico
-l/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 30--41
+l/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc} <./images//hardwa
+re/adapter-nahe_hg-transparent.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 36--47
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 45--46
+Underfull \hbox (badness 10000) in paragraph at lines 51--52
 
  []
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 53.
+(Font)              <10> on input line 59.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 53.
+(Font)              <7> on input line 59.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 53.
+(Font)              <5> on input line 59.
 [3] (DA-Main.toc [4] [5])
 \tf@toc=\write4
 \openout4 = `DA-Main.toc'.
 
  [6]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 9
-9.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
+05.
 
 (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Overfull \hbox (13.50032pt too wide) in paragraph at lines 93--135
+Overfull \hbox (13.50032pt too wide) in paragraph at lines 99--141
 \T1/lmr/m/n/10 Lenovo be-schreibt Line-Ausgänge zum Bei-spiel fol-gen-der-ma-ÿe
 n: ^^RDer Line-Ausgang
  []
 
 
-Overfull \hbox (34.9314pt too wide) in paragraph at lines 93--135
+Overfull \hbox (34.9314pt too wide) in paragraph at lines 99--141
 \T1/lmr/m/n/10 Mehr zu Au-dio-qua-li-tät aber im Teil Äus-wahl in-ter-ne Hardwa
 re/Digital-/Analogwandler" 
  []
 
 
-Overfull \hbox (14.45038pt too wide) in paragraph at lines 93--135
+Overfull \hbox (14.45038pt too wide) in paragraph at lines 99--141
 \T1/lmr/m/n/10 (vgl. []$\T1/lmtt/m/n/10 https : / / www . axis . com / dam / pu
 blic / ad / 35 / af / einf % C3 % BChrung -[] in -[] das -[]
  []
 
 
-Overfull \hbox (1.74901pt too wide) in paragraph at lines 93--135
+Overfull \hbox (1.74901pt too wide) in paragraph at lines 99--141
 \T1/lmtt/m/n/10 thema -[] audio :-[] akustik -[] ,[] -[] lautsprecher -[] und -
 [] audio -[] terminologie -[] de -[] DE -[]
  []
 
 
-Overfull \hbox (41.2003pt too wide) in paragraph at lines 93--135
+Overfull \hbox (41.2003pt too wide) in paragraph at lines 99--141
 \T1/lmr/m/n/10 (vgl. []$\T1/lmtt/m/n/10 https : / / www . baumannmusic . com / 
 de / 2012 / sampleratehz -[] und -[] khz -[] aufloesung -[]
  []
 
 
-Overfull \hbox (16.67302pt too wide) in paragraph at lines 93--135
+Overfull \hbox (16.67302pt too wide) in paragraph at lines 99--141
 \T1/lmr/m/n/10 (vgl. (Fach-buch) []$\T1/lmtt/m/n/10 https : / / books . google 
 . de / books ? id = UI2INugaKwIC & pg = PA219 #
  []
 
 [7] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 136--138
+Underfull \hbox (badness 10000) in paragraph at lines 142--144
 
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 143--153
+Underfull \hbox (badness 10000) in paragraph at lines 149--159
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--153
+Underfull \hbox (badness 10000) in paragraph at lines 149--159
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--153
+Underfull \hbox (badness 10000) in paragraph at lines 149--159
 
  []
 
 
-Overfull \hbox (3.45041pt too wide) in paragraph at lines 143--153
+Overfull \hbox (3.45041pt too wide) in paragraph at lines 149--159
 \T1/lmr/m/n/10 (vgl. []$\T1/lmtt/m/n/10 https : / / www . elektronik -[] kompen
 dium . de / sites / praxis / bauteil _ rgb -[]
  []
 
 [10]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-58.
+64.
  (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 [11] [12{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1
 .enc}]
-Overfull \hbox (20.20036pt too wide) in paragraph at lines 188--189
+Overfull \hbox (20.20036pt too wide) in paragraph at lines 194--195
 []\T1/lmr/m/n/10 (vgl. []$\T1/lmtt/m/n/10 https : / / www . denios . de / servi
 ces / denios -[] magazin / gefahren -[] im -[] umgang -[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 195--202
+Underfull \hbox (badness 10000) in paragraph at lines 201--208
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 195--202
+Underfull \hbox (badness 10000) in paragraph at lines 201--208
 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 203--205
+Underfull \hbox (badness 10000) in paragraph at lines 209--211
 
  []
 
 
-Underfull \hbox (badness 3471) in paragraph at lines 218--218
+Underfull \hbox (badness 3471) in paragraph at lines 224--224
 \T1/lmr/m/n/10 wort des ge-wünsch-ten Netz-
  []
 
 
-Underfull \hbox (badness 3907) in paragraph at lines 218--218
+Underfull \hbox (badness 3907) in paragraph at lines 224--224
 \T1/lmr/m/n/10 wünsch-ten Audio-Streams an
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 218--221
+Underfull \hbox (badness 10000) in paragraph at lines 224--227
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 224--228
+Underfull \hbox (badness 10000) in paragraph at lines 230--234
 
  []
 
 
-Overfull \hbox (76.04161pt too wide) in paragraph at lines 233--236
+Overfull \hbox (76.04161pt too wide) in paragraph at lines 239--242
 \T1/lmr/m/n/10 wählt den Ste-reo-ka-nal aus (links oder rechts). (vgl. htt-ps:/
 /www.mikrocontroller.net/articles/I2S) 
  []
 
 
-Overfull \hbox (8.93584pt too wide) in paragraph at lines 238--258
+Overfull \hbox (8.93584pt too wide) in paragraph at lines 244--264
 \T1/lmr/m/n/10 chen Do-ku-men-ten."(Übersetzung des eng-li-schen Ori-gi-nals vo
 n: https://www.latex-
  []
 
 
-Overfull \hbox (61.1576pt too wide) in paragraph at lines 238--258
+Overfull \hbox (61.1576pt too wide) in paragraph at lines 244--264
 \T1/lmr/m/n/10 Netz-werk-dia-gram-men."(Übersetzung des eng-li-schen Ori-gi-nal
 s von: htt-ps://app.diagrams.net/) 
  []
 
 
-Overfull \hbox (50.89548pt too wide) in paragraph at lines 238--258
+Overfull \hbox (50.89548pt too wide) in paragraph at lines 244--264
 \T1/lmr/m/n/10 de-re Spra-chen und Lauf-zei-ten (wie C++, C#, Ja-va, Py-thon, P
 HP, Go, .NET)."(Übersetzung
  []
 
 
-Overfull \hbox (10.3532pt too wide) in paragraph at lines 238--258
+Overfull \hbox (10.3532pt too wide) in paragraph at lines 244--264
 \T1/lmr/m/n/10 licht."(Übersetzung des eng-li-schen Ori-gi-nals von: https://di
 gital.gov/resources/an-
  []
 
 [15]
-Overfull \hbox (5.67361pt too wide) in paragraph at lines 259--276
+Overfull \hbox (5.67361pt too wide) in paragraph at lines 265--282
 \T1/lmr/m/n/10 ESP32 ge-lei-tet. In die an-de-re Rich-tung, wer-den grund-le-ge
 n-de WiFi-Informationen
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 277--278
+Underfull \hbox (badness 10000) in paragraph at lines 283--284
 
  []
 
 [17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 304--315
+Underfull \hbox (badness 10000) in paragraph at lines 310--321
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 304--315
+Underfull \hbox (badness 10000) in paragraph at lines 310--321
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 304--315
+Underfull \hbox (badness 10000) in paragraph at lines 310--321
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 304--315
+Underfull \hbox (badness 10000) in paragraph at lines 310--321
 
  []
 
 [19]
-<./images//software/uml_microcontroller.png, id=402, 1918.16624pt x 1063.975pt>
+<./images//software/uml_microcontroller.png, id=405, 1918.16624pt x 1063.975pt>
 
 File: ./images//software/uml_microcontroller.png Graphic file (type png)
 <use ./images//software/uml_microcontroller.png>
 Package pdftex.def Info: ./images//software/uml_microcontroller.png  used on in
-put line 318.
+put line 324.
 (pdftex.def)             Requested size: 575.45433pt x 319.19496pt.
 
 
-LaTeX Warning: Float too large for page by 49.39876pt on input line 320.
+LaTeX Warning: Float too large for page by 49.39876pt on input line 326.
 
 
-Overfull \hbox (16.6455pt too wide) in paragraph at lines 316--343
+Overfull \hbox (16.6455pt too wide) in paragraph at lines 322--349
 \T1/lmr/m/n/10 auf ob-jek-t-ori-en-tier-te Pro-gram-mie-rung ge-setzt. Das fol-
 gen-de UML-Klassendiagramm
  []
 
 
-Overfull \hbox (1.3365pt too wide) in paragraph at lines 316--343
+Overfull \hbox (1.3365pt too wide) in paragraph at lines 322--349
 \T1/lmr/m/n/10 ver-an-schau-licht die Be-zie-hung der ver-schie-de-nen Klas-sen
  zu-ein-an-der: hier kommt
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 316--343
+Underfull \hbox (badness 10000) in paragraph at lines 322--349
 
  []
 
@@ -692,33 +706,33 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.343 \subsubsection
+l.349 \subsubsection
                     {Herausforderungen} <./images//software/uml_microcontroller
 .png>]
-Overfull \hbox (17.49892pt too wide) in paragraph at lines 348--358
+Overfull \hbox (17.49892pt too wide) in paragraph at lines 354--364
 \T1/lmr/m/n/10 Suche nach URLs von Audio-Streams von Internet-Radios mit-tels d
 er RadioBrowser-
  []
 
 [22]
-<./images//software/app_layout.png, id=418, 238.491pt x 400.49625pt>
+<./images//software/app_layout.png, id=420, 238.491pt x 400.49625pt>
 File: ./images//software/app_layout.png Graphic file (type png)
 <use ./images//software/app_layout.png>
 Package pdftex.def Info: ./images//software/app_layout.png  used on input line 
-362.
+368.
 (pdftex.def)             Requested size: 119.2452pt x 200.24763pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 365--373
+Underfull \hbox (badness 10000) in paragraph at lines 371--379
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 365--373
+Underfull \hbox (badness 10000) in paragraph at lines 371--379
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 365--373
+Underfull \hbox (badness 10000) in paragraph at lines 371--379
 
  []
 
@@ -727,106 +741,106 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.373 \subsubsection
+l.379 \subsubsection
                     {UI Design} <./images//software/app_layout.png>]
-Underfull \hbox (badness 10000) in alignment at lines 389--389
+Underfull \hbox (badness 10000) in alignment at lines 395--395
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 374--391
+Underfull \hbox (badness 10000) in paragraph at lines 380--397
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 392--409
+Underfull \hbox (badness 10000) in paragraph at lines 398--415
 
  []
 
 
-Overfull \hbox (7.41617pt too wide) in paragraph at lines 392--409
+Overfull \hbox (7.41617pt too wide) in paragraph at lines 398--415
 \T1/lmr/m/n/10 Die Funk-ti-on get-Coun-tries fragt al-le ver-füg-ba-ren Län-der
 -na-men der RadioBrowser-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 392--409
+Underfull \hbox (badness 10000) in paragraph at lines 398--415
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 392--409
+Underfull \hbox (badness 10000) in paragraph at lines 398--415
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 392--409
+Underfull \hbox (badness 10000) in paragraph at lines 398--415
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 392--409
+Underfull \hbox (badness 10000) in paragraph at lines 398--415
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 392--409
+Underfull \hbox (badness 10000) in paragraph at lines 398--415
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 392--409
+Underfull \hbox (badness 10000) in paragraph at lines 398--415
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 392--409
+Underfull \hbox (badness 10000) in paragraph at lines 398--415
 
  []
 
 [24] [25]
-<./images//software/adapter_connected.png, id=434, 1107.13625pt x 226.8475pt>
+<./images//software/adapter_connected.png, id=436, 1107.13625pt x 226.8475pt>
 File: ./images//software/adapter_connected.png Graphic file (type png)
 <use ./images//software/adapter_connected.png>
 Package pdftex.def Info: ./images//software/adapter_connected.png  used on inpu
-t line 415.
+t line 421.
 (pdftex.def)             Requested size: 221.42332pt x 45.36868pt.
-<./images//software/adapter_not_connected.png, id=435, 1055.945pt x 237.88875pt
+<./images//software/adapter_not_connected.png, id=437, 1055.945pt x 237.88875pt
 >
 File: ./images//software/adapter_not_connected.png Graphic file (type png)
 <use ./images//software/adapter_not_connected.png>
 Package pdftex.def Info: ./images//software/adapter_not_connected.png  used on 
-input line 417.
+input line 423.
 (pdftex.def)             Requested size: 221.75499pt x 49.9581pt.
-<./images//software/adapter_selected.png, id=436, 975.645pt x 256.96pt>
+<./images//software/adapter_selected.png, id=438, 975.645pt x 256.96pt>
 File: ./images//software/adapter_selected.png Graphic file (type png)
 <use ./images//software/adapter_selected.png>
 Package pdftex.def Info: ./images//software/adapter_selected.png  used on input
- line 419.
+ line 425.
 (pdftex.def)             Requested size: 224.39363pt x 59.09955pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 412--421
+Underfull \hbox (badness 10000) in paragraph at lines 418--427
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 412--421
+Underfull \hbox (badness 10000) in paragraph at lines 418--427
 
  []
 
-<./images//software/stationlist.jpg, id=437, 1174.3875pt x 1543.7675pt>
+<./images//software/stationlist.jpg, id=439, 1174.3875pt x 1543.7675pt>
 File: ./images//software/stationlist.jpg Graphic file (type jpg)
 <use ./images//software/stationlist.jpg>
 Package pdftex.def Info: ./images//software/stationlist.jpg  used on input line
- 425.
+ 431.
 (pdftex.def)             Requested size: 176.15053pt x 231.55513pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 422--427
+Underfull \hbox (badness 10000) in paragraph at lines 428--433
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 422--427
+Underfull \hbox (badness 10000) in paragraph at lines 428--433
 
  []
 
@@ -835,99 +849,99 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.427 \end{figure}
+l.433 \end{figure}
                   
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.427 \end{figure}
+l.433 \end{figure}
                   
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.427 \end{figure}
+l.433 \end{figure}
                    <./images//software/adapter_connected.png> <./images//softwa
 re/adapter_not_connected.png> <./images//software/adapter_selected.png>]
-<./images//software/stationitem.png, id=448, 1129.21875pt x 222.8325pt>
+<./images//software/stationitem.png, id=450, 1129.21875pt x 222.8325pt>
 File: ./images//software/stationitem.png Graphic file (type png)
 <use ./images//software/stationitem.png>
 Package pdftex.def Info: ./images//software/stationitem.png  used on input line
- 448.
+ 454.
 (pdftex.def)             Requested size: 225.83975pt x 44.5657pt.
-<./images//software/stationitem_selected.png, id=449, 1139.25626pt x 220.825pt>
+<./images//software/stationitem_selected.png, id=451, 1139.25626pt x 220.825pt>
 
 File: ./images//software/stationitem_selected.png Graphic file (type png)
 <use ./images//software/stationitem_selected.png>
 Package pdftex.def Info: ./images//software/stationitem_selected.png  used on i
-nput line 450.
+nput line 456.
 (pdftex.def)             Requested size: 227.84721pt x 44.16422pt.
 
-Overfull \hbox (9.2839pt too wide) in paragraph at lines 428--453
+Overfull \hbox (9.2839pt too wide) in paragraph at lines 434--459
 \T1/lmr/m/n/10 ten Ad-ap-tern auf-ge-lis-tet sind. Die Ad-ap-ter wer-den da-bei
  mit-hil-fe der AdapterItem-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--453
+Underfull \hbox (badness 10000) in paragraph at lines 434--459
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--453
+Underfull \hbox (badness 10000) in paragraph at lines 434--459
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--453
+Underfull \hbox (badness 10000) in paragraph at lines 434--459
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--453
+Underfull \hbox (badness 10000) in paragraph at lines 434--459
 
  []
 
 
-Overfull \hbox (10.14525pt too wide) in paragraph at lines 428--453
+Overfull \hbox (10.14525pt too wide) in paragraph at lines 434--459
 \T1/lmr/m/n/10 Pressable-Komponente rea-li-siert. Das Icon wur-de von der FontA
 wesome-Bibliothek
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--453
+Underfull \hbox (badness 10000) in paragraph at lines 434--459
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--453
+Underfull \hbox (badness 10000) in paragraph at lines 434--459
 
  []
 
 
-Overfull \hbox (3.08412pt too wide) in paragraph at lines 428--453
+Overfull \hbox (3.08412pt too wide) in paragraph at lines 434--459
 \T1/lmr/m/n/10 Die Kom-po-nen-te Fa-vou-ri-teS-ta-tion-List stellt ei-ne Lis-te
  aus meh-re-ren StationItem-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--453
+Underfull \hbox (badness 10000) in paragraph at lines 434--459
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--453
+Underfull \hbox (badness 10000) in paragraph at lines 434--459
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--453
+Underfull \hbox (badness 10000) in paragraph at lines 434--459
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--453
+Underfull \hbox (badness 10000) in paragraph at lines 434--459
 
  []
 
@@ -936,30 +950,30 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.453 \end{figure}
+l.459 \end{figure}
                    <./images//software/stationlist.jpg>] [28]
-Underfull \hbox (badness 10000) in paragraph at lines 454--461
+Underfull \hbox (badness 10000) in paragraph at lines 460--467
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 454--461
+Underfull \hbox (badness 10000) in paragraph at lines 460--467
 
  []
 
 
-Overfull \hbox (2.70175pt too wide) in paragraph at lines 454--461
+Overfull \hbox (2.70175pt too wide) in paragraph at lines 460--467
 \T1/lmr/m/n/10 nem Lautstärke-Icon da-vor. Das Lautstärke-Icon wird von der Fea
 ther-Bibliothek
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 454--461
+Underfull \hbox (badness 10000) in paragraph at lines 460--467
 
  []
 
 
-Overfull \hbox (10.30681pt too wide) in paragraph at lines 454--461
+Overfull \hbox (10.30681pt too wide) in paragraph at lines 460--467
 \T1/lmr/m/n/10 Die Kom-po-nen-te Wi-Fi-Item dient da-zu, die In-for-ma-tio-nen 
 ei-nes WLAN-Netzwerkes
  []
@@ -969,89 +983,161 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.461 \subsubsection
+l.467 \subsubsection
                     {Seiten}
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.461 \subsubsection
+l.467 \subsubsection
                     {Seiten} <./images//software/stationitem.png> <./images//so
 ftware/stationitem_selected.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 462--477
+Underfull \hbox (badness 10000) in paragraph at lines 468--483
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--477
+Underfull \hbox (badness 10000) in paragraph at lines 468--483
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--477
+Underfull \hbox (badness 10000) in paragraph at lines 468--483
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--477
+Underfull \hbox (badness 10000) in paragraph at lines 468--483
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--477
+Underfull \hbox (badness 10000) in paragraph at lines 468--483
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--477
+Underfull \hbox (badness 10000) in paragraph at lines 468--483
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--477
+Underfull \hbox (badness 10000) in paragraph at lines 468--483
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--477
+Underfull \hbox (badness 10000) in paragraph at lines 468--483
 
  []
 
 [30] [31]
-Overfull \hbox (17.3603pt too wide) in paragraph at lines 483--492
+<./images//hardware/stuetzen_fusion.png, id=479, 505.89pt x 399.6359pt>
+File: ./images//hardware/stuetzen_fusion.png Graphic file (type png)
+<use ./images//hardware/stuetzen_fusion.png>
+Package pdftex.def Info: ./images//hardware/stuetzen_fusion.png  used on input 
+line 501.
+(pdftex.def)             Requested size: 252.94437pt x 199.81746pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 493--504
+
+ []
+
+[32]
+<./images//hardware/basis-draufsicht_fusion.png, id=484, 446.09518pt x 379.8476
+7pt>
+File: ./images//hardware/basis-draufsicht_fusion.png Graphic file (type png)
+<use ./images//hardware/basis-draufsicht_fusion.png>
+Package pdftex.def Info: ./images//hardware/basis-draufsicht_fusion.png  used o
+n input line 510.
+(pdftex.def)             Requested size: 223.04704pt x 189.92337pt.
+
+Overfull \hbox (17.3603pt too wide) in paragraph at lines 505--513
 \T1/lmr/m/n/10 In den ge-gen-über-lie-gen-den Ecken der Ba-sis be-fin-den sich 
 der Digital-/Analogwandler
  []
 
-[32]
-Underfull \hbox (badness 10000) in paragraph at lines 493--501
+
+Underfull \hbox (badness 10000) in paragraph at lines 505--513
 
  []
 
-[33]
-Overfull \hbox (16.31136pt too wide) in paragraph at lines 514--528
+[33
+pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.513 \end{figure}
+                   <./images//hardware/stuetzen_fusion.png>]
+<./images//hardware/basis-inhalt_picture.png, id=491, 806.01125pt x 659.46375pt
+>
+File: ./images//hardware/basis-inhalt_picture.png Graphic file (type png)
+<use ./images//hardware/basis-inhalt_picture.png>
+Package pdftex.def Info: ./images//hardware/basis-inhalt_picture.png  used on i
+nput line 516.
+(pdftex.def)             Requested size: 225.68161pt x 184.64859pt.
+<./images//hardware/gitter-schema_fusion.png, id=492, 522.23679pt x 451.6875pt>
+
+File: ./images//hardware/gitter-schema_fusion.png Graphic file (type png)
+<use ./images//hardware/gitter-schema_fusion.png>
+Package pdftex.def Info: ./images//hardware/gitter-schema_fusion.png  used on i
+nput line 528.
+(pdftex.def)             Requested size: 156.67224pt x 135.5073pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 521--531
+
+ []
+
+[34
+pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.531 \end{figure}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.531 \end{figure}
+                   <./images//hardware/basis-draufsicht_fusion.png> <./images//
+hardware/basis-inhalt_picture.png>] [35
+pdfTeX warning (ext4): destination with the same identifier (name{figure.12}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.538 
+       <./images//hardware/gitter-schema_fusion.png>]
+Overfull \hbox (16.31136pt too wide) in paragraph at lines 540--554
 \T1/lmr/m/n/10 vgl. []$\T1/lmtt/m/n/10 https : / / www . printer -[] care . de 
 / de / drucker -[] ratgeber / wie -[] funktioniert -[]
  []
 
-[34]
-Underfull \hbox (badness 10000) in paragraph at lines 542--558
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 569--585
 
  []
 
-[35] [36] [37] [38] (DA-Main.aux)
+
+Overfull \hbox (0.1356pt too wide) in paragraph at lines 586--595
+\T1/lmr/m/n/10 Schmelz-tem-pe-ra-tur un-ter 450\TS1/lmr/m/n/10 °\T1/lmr/m/n/10 
+C wäh-rend Hart-lo-te erst ab 450\TS1/lmr/m/n/10 °\T1/lmr/m/n/10 C bis et-wa 11
+00\TS1/lmr/m/n/10 °\T1/lmr/m/n/10 C
+ []
+
+[37] [38] [39] [40] (DA-Main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `DA-Main.out' has not changed.
-(rerunfilecheck)             Checksum: 5DFA4DAB7CAA7199081B725E7A62B51B;8799.
+(rerunfilecheck)             Checksum: BFB4EE90B14CEB1726869166141297D5;8799.
  ) 
 Here is how much of TeX's memory you used:
- 11068 strings out of 474486
- 177848 string characters out of 5743755
- 1940542 words of memory out of 5000000
- 33078 multiletter control sequences out of 15000+600000
+ 11119 strings out of 474486
+ 180087 string characters out of 5743755
+ 1939542 words of memory out of 5000000
+ 33123 multiletter control sequences out of 15000+600000
  605319 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,10n,79p,1272b,614s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1061,9 +1147,9 @@ b><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb
 ><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb>
 <C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
 
-Output written on DA-Main.pdf (38 pages, 871969 bytes).
+Output written on DA-Main.pdf (40 pages, 2931391 bytes).
 PDF statistics:
- 566 PDF objects out of 1000 (max. 8388607)
- 106 named destinations out of 1000 (max. 500000)
- 505 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 591 PDF objects out of 1000 (max. 8388607)
+ 112 named destinations out of 1000 (max. 500000)
+ 530 words of extra memory for PDF output out of 10000 (max. 10000000)
 
