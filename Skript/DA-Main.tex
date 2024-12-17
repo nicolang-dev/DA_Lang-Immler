@@ -14,7 +14,7 @@
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
 \renewcommand{\listfigurename}{Abbildungen}
-\usepackage[margin=2.5cm]{geometry} % 2 cm Rand auf allen Seiten
+\usepackage[margin=2.5cm]{geometry}
 
 \title{\textbf{Multi-Room Sound Adapter}}
 \author{Nico Lang, Philipp Immler}
@@ -92,7 +92,7 @@ Hier befindet sich die allgemeine Einleitung der Diplomarbeit.
 \subsection{Einleitung Hardware}
 Das Ziel des Hardware-Teils für folgende Diplomarbeit war, einen sinnvollen internen Aufbau des Geräts zu erzielen, die am besten geeigneten Hardware-Komponenten zu finden, das System bzw. die einzelnen Komponenten zusammenzusetzen und zu testen. Dieser Teil der Diplomarbeit wird von Nico Lang übernommen.
 Zudem beschäftigt sich dieser Teil mit dem Gehäuse des Geräts und bestimmt die technischen Anforderungen (Schnittstellen), die der Adapter letztendlich haben soll. 
-Bei der Planung soll darauf geachtet werden, möglichst viele Kosten einzusparen, ohne dabei die Faktoren der Sicherheit und Qualität zu vergessen.
+Bei der Planung soll zudem darauf geachtet werden, möglichst viele Kosten einzusparen, ohne dabei die Faktoren der Sicherheit und Qualität zu vergessen.
 
 \subsection{Einleitung Software}
 Das Ziel des Software-Teils für folgende Diplomarbeit war, einerseits die Software des Adapters, andererseits die Software der Smartphoneapp zu entwickeln. Dieser Teil der Diplomarbeit wurde von Philipp Immler übernommen. Die Software des Adapters wurde mit der Programmiersprache C++ codiert. Die Software der Smartphoneapp wurde mit JavaScript codiert. Bei der Programmierung wurden zahlreiche Bibliotheken und Frameworks verwendet. Dies hat den Vorteil, dass diese schon vorgefertigte Lösungen für bestimmte Probleme bieten und man deshalb nicht alles von Grund auf neu entwickeln muss. 
@@ -147,7 +147,7 @@ Es wird zudem viel Wert auf Benutzerfreundlichkeit gelegt. Das bedeutet, dass si
 Dieser Multi-Room Sound Adapter soll als Hi-Fi Produkt für den klassischen Durchschnittsbürger und/oder Musik-Liebhaber durchgehen. Aufgrund dessen wurde die Bedienung sehr einfach und benutzerfreundlich, jedoch eindeutig nicht so präzise oder vielfältig einstellbar gestaltet wie es bei professionellem Audio-Equipment der Fall ist. Während der Laie das Produkt einfach anstecken und benutzen möchte, hätte ein Audio-Nerd gerne noch einen eingebauten Acht-Band Equalizer und vieles mehr. Das war jedoch nicht das Ziel dieser Diplomarbeit. Es ging eher darum, die Hauptfunktion, also Ton kabellos in Räume zu übertragen, und Einstellungsmöglichkeiten per App ohne großes Kopfzerbrechen zu ermöglichen.\newline
 Wie schon oben erwähnt liefert der Multi Room Sound-Adapter nur einen Audioausgang mit Line-Pegel und es ist ihm nicht möglich, dieses zu verstärken. Man kann also keine Kopfhörer über 80 Ohm direkt an das Gerät anschließen (man kann theoretisch schon, aber der Ton wird sehr leise sein). Das Audiosignal muss also zuerst mit einem Verstärker verstärkt werden.\newline
 \subsubsection{Wie könnte man es erweitern?}
-Unsere Variante des Multi-Room Sound Systems zeichnet sich vor allem durch die beliebige Erweiterbarkeit aus. In der Theorie soll es ein einzelnes Modell, also den Adapter selbst geben. Mit jedem weiteren Adapter kann dementsprechend ein weiterer Lautsprecher oder ein Raum zugefügt werden. In Zukunft wäre es auch vorstellbar, dass man aus mehreren Adaptern Gruppen bilden kann, in denen die Adapter synchronisiert sind und somit der gleiche Audio-Stream auf mehreren Adaptern synchron läuft. Dies ist aber technisch sehr aufwendig, da die Latenz von WiFi ziemlich hoch ist.
+Unsere Variante des Multi-Room Sound Adapter zeichnet sich vor allem durch die beliebige Erweiterbarkeit aus. In der Theorie soll es ein einzelnes Modell, also den Adapter selbst geben. Mit jedem weiteren Adapter kann dementsprechend ein weiterer Lautsprecher oder ein Raum zugefügt werden. In Zukunft wäre es auch vorstellbar, dass man aus mehreren Adaptern Gruppen bilden kann, in denen die Adapter synchronisiert sind und somit der gleiche Audio-Stream auf mehreren Adaptern synchron läuft. Dies ist aber technisch sehr aufwendig, da die Latenz von WiFi ziemlich hoch ist.
 \subsection{Auswahl Hardwarekomponenten}
 Zur Auswahl der Hardwarekomponenten des Adapters wurde zu aller erst die externe Ausstattung des Adapters überlegt. Das bedeutet praktisch alles, mit dem ein Endverbraucher letztendlich zu tun hat. Dann kann der interne Teil, also die Technik dahinter, individuell auf die Anforderungen des externen Teils designet und entwickelt werden.
 \subsubsection{Auswahl externe Hardware}
@@ -168,10 +168,15 @@ Hier ein paar Grundfakten des ESP32-WROOM-32 (der Prozessor selbst):\newline
 Der von uns benutzte ESP32 hat einen Dual-Core 32-bit Prozessor (2x Tensilica-LX6-Kernen). Der Mikrocontroller hat WLAN (802.11b/g/n) und kann ein eigenes WLAN Netzwerk (Access Point) erstellen (kleiner WebServer). Er unterstützt Bluetooth 4.0 (BLE/Bluetooth Smart) und Bluetooth Classic. Dies ist bei vielen SmartHome und IoT-Anwendungen nützlich. Er hat einen geringen Stromverbrauch von 50-70 mA (kleine Programme ohne WiFi). Der Deep-Sleep Modus macht einen Stromverbrauch von unter 0,1mA möglich. Die Anschaffungskosten fallen mit unter 10 Euro im Vergleich zu anderen Mikrocontrollern auch sehr niedrig aus.\newline
 Wie schon erwähnt ist der ESP32 mit der (uns bekannten) Arduino IDE programmierbar und kann auch in industriellen Umgebungen (-40°C bis +125°C) betrieben werden.\newline
 Für den Multi Room Sound-Adapter kommt ein ESP32 Entwicklungsboard (DOIT ESP32 DEVKIT V1) zum Einsatz.\newline
-Hier eine Beschreibung von Dev-Kits auf digitalewelt.at: \glqq Um alle Funktionen des ESP32 Moduls einfach nutzen zu können, gibt es sogenannte Entwicklungsboards. Diese sind nicht nur mit zusätzlichen Schaltungen für die Spannungsversorgung ausgestattet, sondern bieten uns auch die gängigen Anschlussmöglichkeiten für unsere externen Komponenten.\grqq{}
+Hier eine Beschreibung von Dev-Kits auf digitalewelt.at: \glqq Um alle Funktionen des ESP32 Moduls einfach nutzen zu können, gibt es sogenannte Entwicklungsboards. Diese sind nicht nur mit zusätzlichen Schaltungen für die Spannungsversorgung ausgestattet, sondern bieten uns auch die gängigen Anschlussmöglichkeiten für unsere externen Komponenten.\grqq{} \newline
+Erwähnenswert ist auch, dass der ESP32 an manchen GPIOs (general purpose input/output) intere Pullup- /Pulldown-Widerstände hat. \glqq Wenn man einen Pin, an dem z.B. ein Sensor hängt, mit pinMode(5, INPUT) konfiguriert, dann hat der Pin keinen definierten Wert.
+Aus diesem Grund kann er solange zwischen HIGH und LOW schwanken, bis ihm ein Zustand zugeschrieben wird. \grqq{} ... \glqq Dafür hat der ESP32 interne Pullup- / Pulldown-Widerstände, die zugeschaltet werden können. Diese können mit INPUT\_PULLUP als Argument im Befehl pinMode() eingeschaltet werden.
+Bei INPUT\_PULLUP wird der Pin als Eingang deklariert und wenn er nicht beschaltet ist wird dieser auf HIGH gesetzt.
+Bei INPUT\_PULLDOWN hingegen wird der Eingang auf LOW gesetzt.\grqq{} Pullup- /Pulldown-Widerstände sind essenziell für einen sauber konfigurierten Tactile-Button.
 \vspace{4mm} \newline
 (vgl. \url{https://www.espressif.com/en/products/socs/esp32}) \newline
-(vgl. \url {https://digitalewelt.at/esp32-grundlagen/})
+(vgl. \url {https://digitalewelt.at/esp32-grundlagen/})\newline
+(vgl. \url {https://www.xplore-dna.net/mod/page/view.php?id=2741&forceview=1}
 \vspace{4mm}\newline
 \textbf{Digital-/Analogwandler (Audio-Modul)}\newline
 Dieses Modul ist ausschlaggebend für eine gute Audioqualität. Das digitale Audiosignal vom ESP32 (Radiostream) muss nämlich für die Line-Out Buchse auf analog konvertiert werden. Dafür wird ein Modul mit dem PCM5102A (\glqq 2VRMS DirectPath™, 112 dB Audio Stereo DAC mit 32-bit, 384 kHz-PCM-Schnittstelle\grqq{}) DAC verwendet. Auf diesem Modul befinden sich alle Komponenten sowie die Klinkenbuchse die für die Ausgabe des Audiosignals nötig sind.
@@ -199,9 +204,7 @@ Man kann daraus schließen, dass jeder kleinste Fehler beispielsweise zu einem B
 (vgl. \url{https://www.denios.de/services/denios-magazin/gefahren-im-umgang-mit-lithium-ionen-akkus})
 
 \textbf{Laderegler}\newline
-Für einen optimalen Ladeprozess und Schutz des Akkus wird ein Laderegler verwendet. Dieser regelt den Ladevorgang des Akkus und hört auf zu laden, sobald er voll ist.
-
-
+Für einen optimalen Ladeprozess und Schutz des Akkus wird ein Laderegler verwendet. Dieser regelt somit den Ladevorgang des Akkus und hört auf zu laden, sobald dieser voll ist. Der Aufbau dieses Ladereglers ist nicht kompliziert, es gibt jeweils einen Plus- und Minuspol für den Eingang (USB-C Buchse), den Akku (im englischen auch als Battery bezeichnet) und den Ausgang.
 \subsection{Auswahl Technologien}
 \subsubsection{Protokolle}
 In diesem Kapitel geht es um die Recherche und Auswahl von Protokollen, die für den Austausch von Daten verwendet wurden.
@@ -560,15 +563,15 @@ Beim 3D-Drucken durch Fused Deposition Modeling (Schichtschmelzverfahren) wird K
 vgl. \url{https://www.printer-care.de/de/drucker-ratgeber/wie-funktioniert-ein-3d-drucker}\newline
 vgl. \url{https://help.prusa3d.com/de/glossary/175-mm_134816}
 
-\subsubsection{Drucken des Prototyps}
-Die Gehäuse-Prototypen wurden mit einem \glqq PRUSA MK4S\grqq{} 3D-Drucker gefertigt. Alle FFF-Drucker von Prusa sind für 1,75-Filament konfiguriert.
+\subsubsection{Drucken des Prototypen}
+Die Gehäuse-Prototypen wurden mit einem \glqq PRUSA MK4S\grqq{} 3D-Drucker gefertigt. Alle FFF-Drucker von Prusa sind grundsätzlich für 1,75-Filament konfiguriert.
 \vspace{4mm}\newline
 \textbf{Druckeinstellungen} \newline
 Die Temperatur der Build Plate lag bei uns Standartmäßig auf 60°C. Die Drucktemperatur, also die der Nozzle (Düse) wurde beim ersten Layer auf 200°C eingestellt (praktisch 190°C), die finale Temperatur lag bei 185°C. \newline
 Das erste Layer wurde 0,15mm Dick gedruckt, die restlichen 0,2mm dick. \newline
 Als Infill-Pattern wurde \glqq Grid\grqq{} mit 20\% Dichte und 4mm Line-Distance gewählt. \newline
 Das Drucken verlief mit den von uns gewählten Einstellungen reibungslos, jedoch an manchen Stellen etwas unsauber. Beispielsweise war das Ergebnis der Aussparung für den Taster im Deckel des Adapters so ungenau, dass der Durchmesser des Aufsatzes für den Taster um 0,5mm verkleinert werden musste. Sonstige Ungenauheiten stellten, zumindest abgesehen von der Optik, kein Problem dar. \newline
-Für die Basis und den Deckel
+Man darf auch nicht vergessen, dass gewisse Drucke (Gehäusedeckel und -basis) Stützstrukturen erfordern. Stützstrukturen sind Konstruktionen, die der Drucker zur Unterstützung stark überhängender oder freischwebender Strukturen druckt. Jedoch sind diese nur temporär. Da das Stützmaterial nicht so fest an der Druckfigur haftet, wie die Teile der Figur selbst, kann es nach dem Druck mit einer herkömmlichen Zange entfernt werden. Diese Stützstrukturen lassen sich in der Slicer-Software genau einstellen und konfigurieren. So kann man unter anderem sicherstellen, dass das Entfernen einfach möglich ist und die Stützstruktur die Figur selbst nicht all zu stark beeinflusst.
 \vspace{4mm}\newline
 vgl. \url{https://help.prusa3d.com/de/glossary/175-mm_134816}
 \subsection{Zusammensetzen des Prototypen}
@@ -611,19 +614,25 @@ Es gibt unzählbar viele Möglichkeiten einen Prototypen auf Herz und Nieren zu 
 \textbf{Verarbeitung}
 \vspace{4mm}\newline
 Positives:\newline
-Die äußere Verarbeitung des Multi Room Sound-Adapters ist für einen Prototypen sehr gut ausgefallen. Fertig zusammengesetzt wirkt das Gerät stabil und wertig. Es hat etwas Gewicht und nichts klappert wenn man es schüttelt. Die Buchsen halten der für Buchsen normalen Belastung stand. Beide der Buchsen lassen sich problemlos benutzen, beim Ein- und Ausstecken gibt es keine Probleme. Der Taster des Adapters ist, zumindest unseren Erwartungen nach, besonders gut ausgefallen, er hat ein angenehmes Klickfeeling und lässt sich reibungslos betätigen. Die Statusanzeige funktioniert so wie sie soll.
+Die äußere Verarbeitung des Multi Room Sound-Adapters ist für einen Prototypen sehr gut ausgefallen. Fertig zusammengesetzt wirkt das Gerät stabil und wertig. Es hat etwas Gewicht und nichts klappert wenn man es schüttelt. Die Buchsen halten der für Buchsen gemäßen Belastung stand. Beide der Buchsen lassen sich problemlos benutzen, beim Ein- und Ausstecken gibt es keine Probleme. Der Taster des Adapters ist, zumindest unseren Erwartungen nach, besonders gut ausgefallen, er hat ein angenehmes Klickfeeling und lässt sich reibungslos betätigen. Die Statusanzeige funktioniert so wie sie soll.
 
 Negatives:\newline
-Man sieht dem Gehäuse bei guter Beleuchtung eindeutig an, dass es 3D-gedruckt wurde. Manche Oberflächen wirken eher geriffelt als flach. Diese Oberflächeneigenschafen sind jedoch völlig normal für 3D-Drucker und beeinflussen die Funktionsweise des Gesamtsystems nicht. Bei einem tatsächlichen Vetrieb des Produkts müsste man sich jedoch noch einmal genau über Oberflächenbeschaffenheiten beim 3D-Druck informieren oder das Gehäuse, wie auch bei der Auswahl des Fertigungsverfahrens schon kurz diskutiert, gar Spritzgießen lassen. Ein Spritzguss hat nämlich bessere Oberflächeneigenschaften als ein 3D-Druck.
+Man sieht dem Gehäuse bei guter Beleuchtung eindeutig an, dass es 3D-gedruckt wurde. Manche Oberflächen wirken eher geriffelt als flach. Diese Oberflächeneigenschafen sind völlig normal für 3D-Drucker und beeinflussen die Funktionsweise des Gesamtsystems kaum. Bei einem tatsächlichen Vetrieb des Produkts müsste man sich jedoch noch einmal genau über Herstellungsmöglichkeiten für kleinere Gehäuse informieren oder das Gehäuse, wie auch bei der Auswahl des Fertigungsverfahrens schon kurz diskutiert, einfach Spritzgießen lassen. Ein Spritzguss hat nämlich bessere Oberflächeneigenschaften als ein 3D-Druck.
 \vspace{4mm}\newline
 (vgl. \url{https://2d-spritzguss.de/3d-druck-spritzguss})
 \vspace{4mm}\newline
 \textbf{Funktion}\newline
-Der Adapter funktioniert und erfüllt seine Funktionen ohne gröbere Fehler oder Komplikationen.
+Der Adapter funktioniert und erfüllt seine Funktionen ohne grobe Fehler oder Komplikationen.
 \vspace{4mm}\newline
 \textbf{Usability}\newline
-Die Anwendung des Adapter ist grundsätzlich angenehm. Es gilt jedoch zu bedenken, dass uns sowohl Software als auch Hardware schon bekannt sind. Wie sich die Usability verändert, wenn den Adapter jemand benutzt, der ihn noch nie gesehen hat, kann man nur schlecht sagen. Dafür wären mehrere Produkttests nötig. Falls ein Vetrieb des Produkts in betracht gezogen werden würde, wäre dies auf jeden Fall ein wichtiger Punkt.
-\subsection{auftretende Fehler beheben}
+Die Anwendung des Adapter ist grundsätzlich angenehm. Es gilt jedoch zu bedenken, dass uns sowohl Software als auch Hardware schon bekannt sind. Wie sich die Usability verändert, wenn der Adapter von jemandem benutzt wird, der ihn noch nie gesehen hat, kann man nur schlecht sagen. Dafür wären mehrere Produkttests nötig. Falls ein Vetrieb des Produkts in betracht gezogen werden würde, wäre dies auf jeden Fall ein wichtiger Punkt.\newline
+\subsection{Auftretende Fehler beheben}
+Es handelt sich hierbei nicht direkt um einen Fehler, jedoch ist uns wichtig, dass auch die Optik des Gehäuse so gut wie möglich ausfällt. Deshalb wurde viel mit verschiedenen Tricks und Methoden gearbeitet, die 3D-Drucke wertiger ausfallen zu lassen.\newline
+So war anfangs beispielsweise die Druckgenauigkeit in Millimeter nicht auf dem kleinst-möglichen Wert, was für Testdrucks aufgrund der wesentlich kürzeren Druckzeit jedoch völlig in Ordnung ist. Wenn alles passt, macht es aber definitiv Sinn eine lange Druckdauer in Kauf zu nehmen, um das für den vorliegenden 3D-Drucker genauste Ergebnis zu erhalten.\newline
+Eine Herausforderung war die Beschriftung des Deckels. Diese war beim ersten Testdruck teilweise unlesbar ungenau. Das der \glqq Boden\grqq{} der Schrift auf Grund des druckabhängigen Überhanges (die größte Fläche also die Oberseite des Deckels muss praktisch auf der Druckplatte sein) nicht glatt wird, war uns klar. Jedoch hatte dieses Erscheinungsbild augenscheinlich nichts mit dem Überhang zu tun. Bei genauerem Betrachten fiel auf, dass das erste Layer fast wie gepatzt aussah. Ein weiterer Versuch mit simpler Schriftart und bei dem lediglich die Druckgenauigkeit des ersten Layers von 0.15 auf 0.1, die der restlichen Layer von 0.2 auf 0.15 kalibriert wurde, zeigte jedoch schon für einen 3D-Druck schöne Ergebnisse.\newline
+Eine weitere Möglichkeit zum glätten der schon zuvor beschriebenen riffelartigen Oberflächen ist sogenanntes Ironing. \glqq Ironing beschreibt die einstellbare Funktion in einiger Slicer-Software. Ironing bietet dir die Möglichkeit, die letzte 3D-Druckschicht mit der Nozzle zu "bügeln". Die Nozzle deines 3D-Druckers bewegt sich ohne dabei zu extrudieren nochmals über die zuletzt gefertigte Schicht. Durch diesen Vorgang glättet sie die Objekt-Oberfläche. Du bekommst somit eine verbesserte und glatte letzten Schicht.\grqq{} Beim PRUSA MK4S war diese Funktion sehr zufriedenstellend. Oberflächen werden, ohne den gesamten Druck zu beeinflussen, glatter.\newline
+\vspace{4mm}\newline
+(vgl. \url{https://www.3dprima.com/de/3dprima/tipps-tricks-begriffe-3d-druck#Ironing})
 \subsection{Test auf Cybersecurity}
 In diesem Kapitel wird der gesamte Code auf Sicherheitslücken getestet.
 \subsection{Auftretende Sicherheitslücken schließen}
