@@ -14,6 +14,7 @@
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
 \renewcommand{\listfigurename}{Abbildungen}
+\usepackage[margin=2.5cm]{geometry} % 2 cm Rand auf allen Seiten
 
 \title{\textbf{Multi-Room Sound Adapter}}
 \author{Nico Lang, Philipp Immler}
@@ -94,7 +95,7 @@ Zudem beschäftigt sich dieser Teil mit dem Gehäuse des Geräts und bestimmt di
 Bei der Planung soll darauf geachtet werden, möglichst viele Kosten einzusparen, ohne dabei die Faktoren der Sicherheit und Qualität zu vergessen.
 
 \subsection{Einleitung Software}
-Das Ziel des Software-Teils für folgende Diplomarbeit war, einerseits die Software des Adapters, andererseits die Software der Smartphoneapp zu entwickeln. Dieser Teil der Diplomarbeit wurde von Philipp Immler übernommen. Die Software des Adapters wird mit der Programmiersprache C++ codiert. Die Software der Smartphoneapp wird mit JavaScript codiert. Bei der Programmierung wurden zahlreiche Bibliotheken und Frameworks verwendet. Dies hat den Vorteil, dass diese schon vorgefertigte Lösungen für bestimmte Probleme bieten und man deshalb nicht alles von Grund auf entwickeln muss. 
+Das Ziel des Software-Teils für folgende Diplomarbeit war, einerseits die Software des Adapters, andererseits die Software der Smartphoneapp zu entwickeln. Dieser Teil der Diplomarbeit wurde von Philipp Immler übernommen. Die Software des Adapters wurde mit der Programmiersprache C++ codiert. Die Software der Smartphoneapp wurde mit JavaScript codiert. Bei der Programmierung wurden zahlreiche Bibliotheken und Frameworks verwendet. Dies hat den Vorteil, dass diese schon vorgefertigte Lösungen für bestimmte Probleme bieten und man deshalb nicht alles von Grund auf neu entwickeln muss. 
 
 \section{Planung}
 \subsection{Festlegung Funktionsweise}
@@ -203,7 +204,7 @@ Für einen optimalen Ladeprozess und Schutz des Akkus wird ein Laderegler verwen
 
 \subsection{Auswahl Technologien}
 \subsubsection{Protokolle}
-In diesem Kapitel geht es um die Recherche und Auswahl von Protokollen, die für den Austausch von Daten verwendet werden.
+In diesem Kapitel geht es um die Recherche und Auswahl von Protokollen, die für den Austausch von Daten verwendet wurden.
 \newline \\
 \textbf{HTTP} \\
 Das Hyper Text Transfer Protocol ist ein weitverbreitetes Protokoll im Web und wird größtenteils für die Kommunikation zwischen Browsern und Webservern eingesetzt. Dabei basiert das Protokoll auf sogenannten \glqq Requests\grqq{} (auf Deutsch: Anfragen). Es gibt zahlreiche Anwendungen für HTTP. Wir nutzen es einerseits für die Kommunikation zwischen Smartphoneapp (Client) und Microcontroller (Server) mittels REST-API und zum Empfangen der Audio-Streams. (vgl. URLPI02) \newline \\
@@ -214,31 +215,31 @@ Das Inter IC Sound Protocol wird verwendet, um Stereo-Audio-Daten zwischen ICs a
 \item Wortauswahl
 \item mindestens eine Datenleitung
 \end{itemize}
-Die Datenübertragung erfolgt seriell und synchron. Seriell bedeutet, dass die Daten nur durch eine Leitung (die Datenleitung) übertragen werden. Synchron bedeutet, dass die Daten in einem bestimmten Takt übertragen werden. Dieser Takt wird von der Taktleitung vorgegeben. Die Leitung für die Wortauswahl wählt den Stereokanal aus (links oder rechts). (vgl. URLPI12) \\
-In unserem Projekt wird das I2S Protokoll verwendet, um die digitalen Stereo-Audio-Daten vom Microcontroller an den Digital-Analag-Wandler zu übertragen.
-Dabei werden die digitalen Buffer, die der Microcontroller vom Audio-Stream erhält, mittels I2S an den Digital-Analog-Wandler gesendet, welcher die digitalen Daten in analoge Daten umwandelt, so dass diese dann anschließend auf der Lautsprecherbox ausgegeben werden können.
+Die Datenübertragung erfolgt seriell und synchron. Seriell bedeutet, dass die Daten nur durch eine Leitung (die Datenleitung), nacheinander übertragen werden. Synchron bedeutet, dass die Daten in einem bestimmten Takt übertragen werden. Dieser Takt wird von der Taktleitung vorgegeben. Die Leitung für die Wortauswahl wählt den Stereokanal aus (links oder rechts). (vgl. URLPI12) \\
+In unserem Projekt wurde das I2S Protokoll verwendet, um die digitalen Stereo-Audio-Daten vom Microcontroller an den Digital-Analag-Wandler zu übertragen.
+Dabei werden die Buffer, die der Microcontroller vom Audio-Stream erhält, mittels I2S an den Digital-Analog-Wandler gesendet, welcher die digitalen Daten in analoge PCM (Pulse Code Modulation) Daten umwandelt, so dass diese dann anschließend auf der Lautsprecherbox ausgegeben werden können.
 \subsection{Auswahl Softwaretools}
 \subsubsection{Einleitung}
-In diesem Kapitel geht es um die Recherche und Auswahl von geeigneten Softwaretools, welche für die App-Entwicklung, als auch für die Entwicklung der Software des Microcontrollers verwendet werden. Zusätzlich werden auch die Softwaretools zum Schreiben dieser Diplomarbeit kurz beschrieben. 
+In diesem Kapitel geht es um die Recherche und Auswahl von geeigneten Softwaretools, welche für die App-Entwicklung, als auch für die Entwicklung der Software des Microcontrollers verwendet wurden. Zusätzlich werden auch die Softwaretools, welche zum Schreiben dieser Diplomarbeit verwendet wurden, kurz beschrieben. 
 \vspace{4mm}\newline
 \textbf{LaTeX} \\
 "LaTeX ist ein hochwertiges Schriftsatzsystem, das Funktionen für die Erstellung technischer und wissenschaftlicher Dokumentationen enthält. LaTeX ist der De-facto-Standard für die Kommunikation und Veröffentlichung von wissenschaftlichen Dokumenten." (Übersetzung des englischen Originals von: https://www.latex-project.org/) \\
-Wir haben uns für das Schreiben unserer Diplomarbeit in LaTeX entschieden, weil es sich sehr gut für wissenschaftliche Arbeiten eignet und wir somit schon damit vertraut sind, wenn wir es in der Zukunft brauchen.
+Wir haben uns für das Schreiben unserer Diplomarbeit in LaTeX entschieden, weil es sich sehr gut für wissenschaftliche Arbeiten eignet und wir somit schon damit vertraut sind, wenn wir es in der Zukunft, zum Beispiel im Studium benutzen müssen.
 \vspace{4mm}\newline
 \textbf{draw.io}
 "draw.io ist eine kostenlose Online-Diagrammsoftware zur Erstellung von Flussdiagrammen, Prozessdiagrammen, Organigrammen, UML, ER und Netzwerkdiagrammen." (Übersetzung des englischen Originals von: https://app.diagrams.net/) \\
-Wir haben alle Diagramme unserer Diplomarbeit in draw.io erstellt, weil es einfach zu handhaben ist und es eine große Auwahl an Diagrammtypen und Formen gibt.
+Wir haben alle Diagramme, welche in unserer Diplomarbeit zu sehen sind, in draw.io erstellt, weil es einfach zu handhaben ist und es eine große Auwahl an Diagrammtypen und Formen bereitstellt.
 \vspace{4mm}\newline
 \textbf{Visual Studio Code} \\
 "Visual Studio Code ist ein leichtgewichtiger, aber leistungsstarker Quellcode-Editor, der auf Ihrem Desktop läuft und für Windows, macOS und Linux verfügbar ist. Er bietet integrierte Unterstützung für JavaScript, TypeScript und Node.js und verfügt über ein umfangreiches Ökosystem von Erweiterungen für andere Sprachen und Laufzeiten (wie C++, C\#, Java, Python, PHP, Go, .NET)." (Übersetzung des englischen Originals von: https://code.visualstudio.com/docs) \\
-Wir haben Visual Studio Code als IDE für unsere Diplomarbeit gewählt, weil durch die unzähligen Erweiterungen viele verschieden Programmiersprachen und Bibliotheken unterstützt und wir auch schon etwas Erfahrung damit haben. 
+Wir haben Visual Studio Code als IDE für unsere Diplomarbeit gewählt, weil durch die unzähligen Erweiterungen viele verschieden Programmiersprachen und Bibliotheken unterstützt werden und wir somit den gesamten Code, sowohl für den Microcontroller als auch für die Smartphoneapp, darin schreiben konnten.
 \vspace{4mm}\newline
 \textbf{GitHub} \\
 "GitHub ist eine webbasierte Schnittstelle, die Git verwendet, die Open-Source-Software zur Versionskontrolle, mit der mehrere Personen gleichzeitig separate Änderungen an Webseiten vornehmen können. Wie Carpenter anmerkt, fördert GitHub die Zusammenarbeit von Teams bei der Erstellung und Bearbeitung von Website-Inhalten, da es eine Zusammenarbeit in Echtzeit ermöglicht." (Übersetzung des englischen Originals von: https://digital.gov/resources/an-introduction-github/) \\
-Wir verwenden GitHub für die Verwaltung unseres Codes und unserer Dokumente. Der Vorteil dabei ist, dass jedes Projektmitglied auf seinem lokalen PC an den Dokumenten arbeiten kann und die Änderungen dann per GitHub synchronisiert werden können.
+Wir verwenden GitHub für die Verwaltung unseres Codes und unserer Dokumente. Der Vorteil dabei ist, dass jedes Projektmitglied auf seinem lokalen PC an den Dokumenten arbeiten kann und die Änderungen dann per GitHub synchronisiert werden.
 \vspace{4mm}\newline
 \textbf{DeepL} \\
-Wir verwenden DeepL um englische Texte, welche für unsere Diplomarbeit relevant sind, ins Deutsche zu übersetzen. Wir haben uns für DeepL entschieden weil dieser einer der genauesten Übersetzer ist und man dießen außerdem kostenlos nutzen kann.
+Wir verwenden DeepL um englische Texte, welche für unsere Diplomarbeit relevant sind, ins Deutsche zu übersetzen. Wir haben uns für DeepL entschieden weil dieser einer der genauesten Übersetzer, dank integrierter KI, ist und man diesen außerdem kostenlos nutzen kann.
 \subsubsection{Bibliotheken Microcontroller}
 Im folgenden werden die verwendeten Bibliotheken im Code des Microcontrollers aufgezählt und kurz beschrieben:
 \vspace{4mm}\newline
@@ -259,7 +260,7 @@ Die WebServer-Bibliothek wird verwendet, um einen Webserver auf dem ESP32 bereit
 \vspace{4mm}\newline
 \textbf{ESP32-audioI2S} \\
 (https://github.com/schreibfaul1/ESP32-audioI2S) \\
-Die ESP32-audioI2S-Bibliothek wird verwendet, um die MP3-kodierten Audio-Daten vom HLS-Stream zu empfangen, diese in PCM-Signale umzuwandeln und diese dann an den Digital-Analog-Wandler per I2S-Protokoll zu senden. Der ESP32 verfügt bereits standartmäßig über Funktionen, mit deren Hilfe man Audiodaten mittels I2S übertragen kann. Allerdings sind diese sehr komplex in der Verwendung und Konfiguration. Da die ESP32-audioI2S-Bibliothek bereits die perfekte Lösung für unsere Anforderungen bietet, wird diese in unserer Diplomarbeit verwendet. \newline \\
+Die ESP32-audioI2S-Bibliothek wird verwendet, um die MP3-kodierten Audio-Daten vom HLS-Stream zu empfangen, diese in PCM-Signale umzuwandeln und diese dann an den Digital-Analog-Wandler per I2S-Protokoll zu senden. Der ESP32 verfügt bereits standartmäßig über Funktionen, mit deren Hilfe man Audiodaten mittels I2S übertragen kann. Allerdings sind diese sehr komplex in der Verwendung und Konfiguration. Da die ESP32-audioI2S-Bibliothek bereits die perfekte Lösung für unsere Anforderungen bietet, wurde diese in unserer Diplomarbeit verwendet. \newline \\
 \textbf{Preferences} \\
 (https://github.com/espressif/arduino-esp32/tree/master/libraries/Preferences)
 Die Preferences-Bibliothek wird verwendet, um Schreib- und Lesezugriffe auf den eingebauten EEPROM (Electrical Eresable Programmable Read Only Memory) durchzuführen. Dabei werden die im EEPROM gespeicherten Werte mittels eindeutiger Schlüssel identifiziert.
@@ -272,67 +273,56 @@ Wir haben React Native für unsere Smartphoneapp verwendet, weil es sehr aufwend
 (vgl. URLPI07)
 
 \textbf{Expo} \\
-Um das Entwickeln der Smartphoneapp noch einfacher bzw. effizienter zu gestalten, wurde das Expo Framework verwendet. Dieses Framework basiert auf React Native und stellt noch zusätzlich hilfreiche Bibliotheken und eine Projektstruktur zur Verfügung. Dies hat den Vorteil, dass man bereits den Grundlegenden Aufbau einer App gegeben hat und diesen dann erweitern kann. Ein weiterer Vorteil von Expo ist das File-basierte Routing. Mithilfe diesem ist es möglich die App-Navigation auf der Ordnerstruktur zu stützen was die Entwicklung noch einfacher und übersichtlicher macht.
+Um das Entwickeln der Smartphoneapp noch einfacher bzw. effizienter zu gestalten, wurde das Expo Framework verwendet. Dieses Framework basiert auf React Native und stellt noch zusätzlich hilfreiche Bibliotheken und eine Projektstruktur zur Verfügung. Dies hat den Vorteil, dass man bereits den Grundlegenden Aufbau einer App gegeben hat und diesen dann erweitern kann. Ein weiterer Vorteil von Expo ist das File-basierte Routing. Mithilfe diesem ist es möglich, die App-Navigation auf der Ordnerstruktur zu stützen, was die Entwicklung noch einfacher und übersichtlicher macht.
 (vgl. URLPI08)
 
 \section{Entwicklung}
 \subsection{Entwicklung Software Adapter}
 In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Software des Adapters beschrieben. 
-Zur Entwicklung der Software des Microcontrollers wurde die IDE Visual Studio Code in Verbindung mit dem Framwork PlatformIO verwendet. Um die Entwicklung in C++ zu ermöglichen wurden die bereits erwähnten Bibliotheken verwendet.
+Zur Entwicklung der Software des Microcontrollers wurde die IDE Visual Studio Code in Verbindung mit dem Framework PlatformIO verwendet. Um die Entwicklung in C++ zu ermöglichen wurden die bereits erwähnten Bibliotheken verwendet.
 
 \subsubsection{Anforderungen}
-Im folgenden wird beschrieben, welche Anforderungen an die Software des Adapters gestellt werden: \newline \\
+Im folgenden wird beschrieben, welche Anforderungen an die Software des Adapters gestellt wurden: \newline \\
 \textbf{Access Point} \\
-Ein Access Point ist ein Gerät, welches ein WLAN-Netzwerk aufbaut. Dabei können sich WLAN-Clients mit diesem verbinden.
-Der Microcontroller soll im Konfigurationsmodus als Access Point arbeiten. Somit ist es möglich, sich mit der Smartphoneapp als Client zu verbinden und dem Microcontroller mittels HTTP Daten, welche wichtig für die Konfiguration sind(z.B: WLAN-Anmeldedaten), zu senden.  (vgl. URLPI10) \newline \\
+Ein Access Point ist ein Gerät, welches ein WLAN-Netzwerk aufbaut. Dabei können sich WLAN-Clients mit diesem verbinden und somit untereinander Daten austauschen. (vgl. URLPI10)
+Der Microcontroller soll im Konfigurationsmodus als Access Point arbeiten. Dies ermöglicht der Smartphoneapp sich als Client zu verbinden und dem Microcontroller mittels HTTP Daten, welche wichtig für die Konfiguration sind (WLAN-Anmeldedaten und Microcontroller-Name), zu senden. \newline \\
 \textbf{WLAN Client} \\
 WLAN-Clients sind die Geräte, welche mit einem Access Point verbunden sind und somit Teilnehmer in einem WLAN darstellen. Sie können dabei untereinander Daten austauschen.
-Wenn der Adapter vollständig konfiguriert ist bzw. alle notwendigen Daten festgelegt sind, soll dieser als WLAN-Client arbeiten. Somit ist es möglich, wenn die Smartphoneapp im gleichen Netzwerk wie der Microcontroller ist, mit diesem zu kommunizieren. Dies geschieht durch die REST-API welcher der Microcontroller zur Verfügung stellt. \newline \\
+Wenn der Adapter vollständig konfiguriert ist bzw. alle notwendigen Daten festgelegt sind, soll dieser als WLAN-Client arbeiten. Somit ist es möglich, wenn die Smartphoneapp im gleichen Netzwerk wie der Microcontroller ist, mit diesem zu kommunizieren. Dies geschieht durch die REST-API welche der Microcontroller zur Verfügung stellt. \newline \\
 \textbf{REST-API} \\
-Der Microcontroller soll eine REST-API zur Verfügung stellen, mithilfe der es möglich ist, Daten an den Microcontroller per HTTP zu senden bzw. Daten von diesem zu empfangen. Eine REST-API ist eine API, welche den Designprinzipien der REST-Architektur folgt. Dies heißt, sie muss bestimmte Regeln erfüllen, welche von der REST-Architektur vorgegeben werden. Sie dient dabei zur Kommunikation zwischen Server und Client. Der Client kann mittels HTTP Anfragen an den Server senden. Der Server liefert dann eine Antwort, welche Daten enthalten kann. (vgl. URLPI04) Auf diese Weise kommuniziert die Smartphoneapp mit dem Microcontroller. Der Client kann dabei sogenannte Routen aufrufen. Die aufgerufene Route bestimmt die Aktion, welche auf dem Server aufgerufen wird. Im folgenden werden die einzelnen Routen genauer beschrieben: \newline \\
+Der Microcontroller soll eine REST-API zur Verfügung stellen, mithilfe der es möglich ist, per HTTP Daten mit diesem auszutauschen. Eine REST-API ist eine API, welche den Designprinzipien der REST-Architektur folgt. API steht dabei für \glqq Application Programming Interface \grqq{}. Dies ist, wie der Name bereits verrät, eine Schnittstelle von einem Programm. REST steht für \glqq Representational State Transfer \grqq{} und bedeutet so viel wie \glqq repräsentative Zustandsübertragung \grqq{}. Die API muss bestimmte Regeln erfüllen, welche von der REST-Architektur vorgegeben werden. Sie dient dabei zur Kommunikation zwischen Server und Client. Der Client kann mittels HTTP Anfragen an den Server senden. Der Server liefert dann eine Antwort, welche Daten enthalten kann. (vgl. URLPI04) Auf diese Weise kommuniziert die Smartphoneapp mit dem Microcontroller. Der Client kann dabei sogenannte Routen aufrufen. Die aufgerufene Route bestimmt die Aktion, welche auf dem Server aufgerufen wird. Es gibt dabei verschiedene Typen von HTTP-Requests. Jeder Typ is für eine bestimmte Aktion verantwortlich. Die verwendeten Typen in unserem Code sind: GET, POST und PUT. Ein GET-Request wird verwendet, um Daten vom Server abzufragen. Der POST-Request wird verwendet um neue Daten auf dem Server anzulegen. Mit einem PUT-Request werden Daten auf dem Server aktualisiert. (vgl. URLPI13) Im folgenden werden die einzelnen Routen genauer beschrieben: \newline \\
+\begin{figure}[H]
 \begin{tabularx}{\textwidth}{|l|l|X|}
 \hline
 \textbf{Route} & \textbf{Anfragen-Typ} & \textbf{Funktion} \\
 \hline
-/getInfo & GET & Client bekommt die Daten Name, MAC-Addresse, Akkustand, Lautstärke und Stream-URL vom Microcontroller, als JSON kodiert. \\
+/getInfo & GET & Client bekommt die Daten Name, MAC-Addresse, Akkustand, Lautstärke und Stream-URL vom Microcontroller im JSON Format. \\
 \hline 
-/getAvailableNetworks & GET & Client bekommt eine Liste gefüllt mit SSID und RSSI (Stärke) von verfügbaren Netzwerken in der Nähe des Microcontrollers, als JSON kodiert. \\
+/getAvailableNetworks & GET & Client bekommt eine Liste, gefüllt mit SSID und RSSI (Stärke) von verfügbaren Netzwerken welche sich in der Nähe des Microcontrollers befinden im JSON Format. Diese werden in der Smartphoneapp benötigt, um auszuwählen mit welchem Netzwerk sich der Microcontroller verbinden soll.\\
 \hline
-/setConfigData & POST & Client sendet SSID und Passwort, des gewünschten Netzwerks, sowie Name des Adapters als JSON kodiert, an den Microcontroller. Dieser speichert dann die erhaltenen Daten in den EEPROM und startet neu.\\
+/setConfigData & POST & Client sendet SSID und Passwort des gewünschten Netzwerks, sowie Name des Adapters im JSON Format an den Microcontroller. Dieser speichert dann die erhaltenen Daten in den EEPROM und startet neu.\\
 \hline
-/setStreamUrl & PUT & Client sendet die URL des gewünschten Audio-Streams an den Microcontroller. Dieser startet dann den Empfang dieses Streams und gibt diesen auf dem Line-Out aus. \\
+/setStreamUrl & PUT & Client sendet die URL des gewünschten Audio-Streams im Textformat an den Microcontroller. Dieser startet dann den Empfang dieses Streams und gibt diesen auf dem Line-Out aus. \\
 \hline
-/setVolume & PUT & Client sendet die gewünschte Lautstärke (von 0 bis 100, in Prozent) des ausgegebenen Audio-Signals an den Microcontroller. Dieser legt dann die übertragene Lautstärke beim Audio-Modul fest. \\
+/setVolume & PUT & Client sendet die gewünschte Lautstärke (von 0 bis 100, in Prozent)  des ausgegebenen Audio-Signals als Zahl an den Microcontroller. Dieser legt dann die übertragene Lautstärke beim Audio-Modul fest. \\
 \hline
-\end{tabularx} \newline \\
+\end{tabularx} 
+\caption{REST-API Routen}
+\end{figure}
 \textbf{Audio-Streaming} \\
-Der Microcontroller sollte in der Lage sein, Audio-Streams aus dem Internet zu empfangen, diese zu dekodieren und die dekodierten Daten als Signale auf dem Line-Out auszugeben. Die meisten Audio-Streams werden mit dem HLS-Protokoll, welches auf dem HTTP-Protokoll basiert, übertragen. Dabei wird das Audiofile in mehrere kleine Stücke zerteilt, welche dann per HTTP an den Client gesendet werden. Dieser fügt diese Stücke dann wieder zu einem Audiofile zusammen. In weiterer Folge wird das MP3-File von dem externen Digital-Analog-Wandler zu einem PCM(\glqq Pulse Code Modulation\grqq{}) - Signale übertragen, welches dann auf der Lautsprecherbox ausgegeben werden kann.
-
-\subsubsection{Programmablauf}
-Da die arduino-esp32-Bibliothek verwendet wurde ist der Programmablauf gleich wie bei einem standardmäßigen Arduino-Programm. Ausgeführt wird das Main-File welches aus einer Funktion setup() und einer Funktion loop() besteht. Die Funktion setup() wird beim Start des Microcontrollers einmalig ausgeführt. Anschließend wird die Funktion loop() in einer Endlosschleife ausgeführt, wenn also das Ende der Funktion loop() erreicht wird, fängt diese wieder von vorne an. Im folgenden Teil wird der Ablauf innerhalb den einzelnen Funktionen genauer beschrieben. \newline \\
-\textbf{Setup} \\
-Im Setup werden zuerst Konstanten, welche später im Programm benötigt werden, definiert. Auch werden am Anfang die entsprechenden Singleton-Klassen instanziert. Anschließend wird mithilfe der Klasse MemoryManager überprüft ob ein Name im EEPROM gesetzt ist. Ist dies der Fall, so wird der Name lokal als Variable gesetzt. Ist der Name allerdings nicht im EEPROM vorhanden, wird der Default-Name verwendet. Der Default-Name setzt sich zusammen aus MSA (kurz für Multiroom Sound Adapter) und den letzten zwei Stellen der Mac. Er ist somit für jeden Adapter einmalig. Der Name wird später als SSID des Access Points bzw. für die mDNS verwendet. Nachdem der Name gesetzt ist, wird wiederum mit der Klasse MemoryManager überprüft ob WLAN-Zugangsdaten im EEPROM gespeichert sind. Ist dies der Fall, wird versucht eine Verbindung mit dem gespeicherten WLAN herzustellen. Ist dies möglich wird der Modus auf Normal gesetzt. Ist dies nicht möglich bzw. sind keine WLAN-Zugangsdaten gespeichert, wird der Modus auf Error gesetzt.
-\begin{figure}[H]
-\includegraphics[scale=0.5]{/software/uml_ablauf_esp32_setup.png}
-\caption{UML-Ablaufdiagramm Microcontroller Setup}
-\end{figure}
-\textbf{Loop} \\
-\begin{figure}[H]
-\includegraphics[scale=0.5]{/software/uml_ablauf_esp32_loop.png}
-\caption{UML-Ablaufdiagramm Microcontroller Loop}
-\end{figure}
-Am Anfang der Loop-Funktion wird abgefragt ob der Modus auf Error gesetzt ist. Ist dies der Fall, wird nichts mehr ausgeführt, das heißt die Funktion springt wieder an den Startpunkt. Ist der Modus allerdings nicht auf Error gesetzt, wird überprüft ob der Knopf gedrückt ist. Wird dieser gedrückt, wird der Modus auf Config gesetzt. Anschließend wird überprüft ob der Modus auf Normal gesetzt ist. Ist dies der Fall wird überprüft ob immer noch eine Verbindung mit dem WLAN besteht. Dies geschieht mithilfe der Klasse NetworkManager. Wenn dies wahr ist, wird mithilfe der Klasse ServerManager überprüft ob der Webserver läuft. Wenn nicht, wird dieser gestartet. Ist der Modus allerdings nicht auf Normal gesetzt, also auf Config, so wird zuerst überprüft ob der Access Point gestartet ist. Wenn nicht, wird dieser schließlich gestartet und die mDNS wird gesetzt. Diese Prozesse werden wieder mithilfe der NetworkManager-Klasse durchgeführt. Anschließend wird ebenfalls der Zustand des Webservers überprüft. Am Schluss der Loop-Funktion wird noch die loop Funktion der Klasse Audio-Manager ausgeführt. Diese regelt das Audio-Streaming.
+Der Microcontroller sollte in der Lage sein, Audio-Streams aus dem Internet zu empfangen, diese zu dekodieren und die dekodierten Daten als Signale auf dem Line-Out auszugeben. Die meisten Audio-Streams werden mit dem HLS-Protokoll, welches auf dem HTTP-Protokoll basiert, übertragen. Dabei wird das Audiofile in mehrere kleine Stücke zerteilt, welche dann per HTTP an den Client gesendet werden. Dieser fügt diese Stücke dann wieder zu einem Audiofile zusammen. In weiterer Folge wird das MP3-File von dem externen Digital-Analog-Wandler zu einem PCM(\glqq Pulse Code Modulation\grqq{}) - Signal übertragen, welches dann auf der Lautsprecherbox ausgegeben werden kann.
 \subsubsection{Klassen}
-Um eine hohe Softwarequalität zu gewährleisten, wurde in der Entwicklung der Software für den Adapter auf objektorientierte Programmierung gesetzt. Für einen großteil der Klassen wurde das Singleton-Pattern verwendet. Dies gewährleistet, dass immer nur eine Instanz der Klasse vorhanden ist. Dieses Verhalten macht Sinn, bei Klassen von denen nicht mehrere Instanzen verfügbar sind. Im folgenden Teil werden die dabei erstellten Klassen genauer beschrieben. Das folgende UML-Klassendiagramm veranschaulicht die Beziehung der verschiedenen Klassen zueinander:
+Um eine hohe Softwarequalität zu gewährleisten, wurde in der Entwicklung der Software für den Adapter auf objektorientierte Programmierung gesetzt. Für einen Großteil der Klassen wurde das Singleton-Designpattern verwendet. Dies gewährleistet, dass immer nur eine Instanz der Klasse vorhanden ist. Dieses Verhalten macht Sinn, bei Klassen von denen nicht mehrere Instanzen verfügbar sein sollen. (URLPI14) Im folgenden Teil werden die dabei erstellten Klassen genauer beschrieben. Das folgende UML-Klassendiagramm veranschaulicht die Beziehung der verschiedenen Klassen zueinander:
 \begin{figure}[H]
 \includegraphics[scale=0.3, angle=90]{/software/uml_microcontroller.png}
 \caption{UML-Klassendiagramm Microcontroller}
 \end{figure}
 \textbf{Mode} \\
-Im ENUM Mode werden die verschiedenen Modi der Software definiert. Ein ENUM ist wie eine Art Datentyp, der nur bestimmte Werte zulässt. In dem Fall definiert der ENUM die drei Modi NORMAL, CONFIG und ERROR. Diese geben den Status des Microcontrollers an. Der Modus NORMAL signalisiert, dass sich der Microcontroller im normalen Ablauf befindet. Im Modus CONFIG fungiert der Microcontroller als Access Point. Somit können sich Clients mit diesem verbinden und Konfigurationsdaten, wie WLAN-Anmeldedaten und Microcontroller-Name senden. Der Modus ERROR wird gesetzt, wenn ein Fehler im Programm auftritt. Dies ist zum Beispiel der Fall wenn die Verbindung mit dem WLAN-Netzwerk nicht möglich ist.
+Im ENUM Mode werden die verschiedenen Modi der Software definiert. Ein ENUM ist wie eine Art Datentyp, der Konstanten definiert, welche man verwenden darf. (vgl. URLPI15)  In unserem Fall definiert der ENUM die drei Modi NORMAL, CONFIG und ERROR. Diese geben den Status des Microcontrollers an. Der Modus NORMAL signalisiert, dass sich der Microcontroller im normalen Ablauf befindet. Im Modus CONFIG fungiert der Microcontroller als Access Point. Somit können sich Clients mit diesem verbinden und Konfigurationsdaten, wie WLAN-Anmeldedaten und Microcontroller-Name senden. Der Modus ERROR wird gesetzt, wenn ein Fehler im Programm auftritt. Dies ist zum Beispiel der Fall, wenn die Verbindung mit dem WLAN-Netzwerk nicht möglich ist. \newline \\
 \textbf{StatusLED} \\
 Mithilfe der Klasse StatusLED wird die RGB-LED, welche am Microcontroller angeschlossen ist, gesteuert. Mit ihr wird der aktuelle Modus des Microcontrollers angezeigt. Die nachstehende Tabelle beschreibt welche Farbe für welchen Modus steht: \newline \\
-\begin{tabularx}{\textwidth}{ |c|c| }
+\begin{figure}[H]
+\begin{tabular}{|l|l|}
 \hline
 \textbf{Modus} & \textbf{Farbe} \\
 \hline
@@ -342,8 +332,9 @@ CONFIG & Blau \\
 \hline
 ERROR & Rot \\
 \hline
-\newline \\
-\end{tabularx}
+\end{tabular}
+\caption{Status-Farben}
+\end{figure}
 \textbf{NetworkManager} \\
 Die Klasse NetworkManager kümmert sich um alle Funktionen, die mit dem WiFi des ESP32 zu tun haben. Es ist hier möglich den Access Point - Modus bzw. den Client-Modus zu aktivieren, sowie nach verfügbaren Netzwerken zu suchen und die MAC-Addresse des Adapters zu lesen. Diese Funktionen werden alle mithilfe der WiFi-Bibliothek verwirklicht.
 \vspace{4mm}\newline
@@ -353,46 +344,74 @@ Die Klasse AudioManager ist für das Empfangen des Internet-Audio-Streams, für 
 \textbf{Logger} \\
 Die Klasse Logger ist für die Verwaltung von Logs, welche von anderen Klassen geschrieben werden, zuständig. In ihr ist ein Vektor, welcher Tuples, bestehend aus Log-Text und Log-Zeitpunkt, speichert, definiert. Diese Logs sind essentiell für die Fehlerbehebung, da man sehen kann welche Aktionen im Programm ausgeführt wurden. Die Klasse bietet Funktionen zum Hinzufügen von Logs und zum Anzeigen bestehender Logs. Die Funktionen sind alle statisch, das heißt man muss kein Objekt dieser Klasse erzeugen, um die Funktionen auszuführen.
 \vspace{4mm}\newline
-\textbf{ServerManager}
+\textbf{ServerManager} \\
 Die Klasse ServerManager ist für das Verwalten des Webservers, welcher auf dem Microcontroller läuft, zustängig. In ihr werden die Funktionen, welche durch die Aufrufe der REST-API ausgeführt werden, definiert. Die Kernfunktionen der Klasse werden vorallem durch die WebServer-Bibliothek bereitgestellt.
 \vspace{4mm}\newline
-\textbf{MemoryManager}
-Die Klasse MemoryManager ist für das Schreiben in und das Lesen vom EEPROMs des Microcontrollers zuständig. Um das zu erreichen, wird die Preferences-Bibliothek verwendet.
-\textbf{BatteryManager}
-Die Klasse BatteryManager regelt die Ladung des ESP32 und liest den Akkustand aus.
+\textbf{MemoryManager} \\
+Die Klasse MemoryManager ist für das Schreiben in und das Lesen vom EEPROMs des Microcontrollers zuständig. Um das zu erreichen, wird die Preferences-Bibliothek verwendet. \newline \\
+\textbf{BatteryManager} \\
+Die Klasse BatteryManager regelt den Ladevorgang des ESP32 und liest den Akkustand aus.
+\subsubsection{Programmablauf}
+Da die arduino-esp32-Bibliothek verwendet wurde ist der Programmablauf gleich wie bei einem standardmäßigen Arduino-Programm. Ausgeführt wird das Main-File welches aus der Funktion setup() und der Funktion loop() besteht. Die Funktion setup() wird beim Start des Microcontrollers einmalig ausgeführt. Anschließend wird die Funktion loop() in einer Endlosschleife ausgeführt. Wenn also das Ende der Funktion loop() erreicht wird, fängt diese wieder von vorne an. Im folgenden Teil wird der Ablauf innerhalb den einzelnen Funktionen genauer beschrieben. \newline \\
+\textbf{Setup} \\
+\begin{figure}[H]
+\includegraphics[scale=0.5]{/software/uml_ablauf_esp32_setup.png}
+\caption{UML-Ablaufdiagramm Microcontroller Setup}
+\end{figure}
+Im Setup werden zuerst Konstanten, welche später im Programm benötigt werden, definiert. Auch werden am Anfang die entsprechenden Singleton-Klassen instanziert. Anschließend wird mithilfe der Klasse MemoryManager überprüft ob ein Name im EEPROM gesetzt ist. Ist dies der Fall, so wird der Name lokal als Variable gesetzt. Ist der Name allerdings nicht im EEPROM vorhanden, wird der Default-Name verwendet. Der Default-Name setzt sich zusammen aus MSA (kurz für Multiroom Sound Adapter) und den letzten zwei Stellen der Mac. Er ist somit für jeden Adapter eindeutig. Der Name wird später als SSID des Access Points bzw. für die mDNS verwendet. Nachdem der Name gesetzt ist, wird wiederum mit der Klasse MemoryManager überprüft ob WLAN-Zugangsdaten im EEPROM gespeichert sind. Sind die WLAN-Daten vorhanden so versucht der Microcontroller eine Verbindung mit dem gespeicherten WLAN herzustellen. Ist dies möglich wird der Modus auf Normal gesetzt. Ist dies nicht möglich bzw. sind keine WLAN-Zugangsdaten gespeichert, wird der Modus auf Error gesetzt. \newline \\
+\textbf{Loop} \\
+\begin{figure}[H]
+\includegraphics[scale=0.5]{/software/uml_ablauf_esp32_loop.png}
+\caption{UML-Ablaufdiagramm Microcontroller Loop}
+\end{figure}
+Am Anfang der Loop-Funktion wird abgefragt ob der Modus auf Error gesetzt ist. Ist dies der Fall, wird nichts mehr ausgeführt, das heißt die Funktion springt wieder an den Startpunkt. Ist der Modus allerdings nicht auf Error gesetzt, wird überprüft ob der Knopf gedrückt ist. Wird dieser gedrückt, wird der Modus auf Config gesetzt. Anschließend wird überprüft ob der Modus auf Normal gesetzt ist. Ist dies der Fall wird überprüft ob immer noch eine Verbindung mit dem WLAN besteht. Dies geschieht mithilfe der Klasse NetworkManager. Wenn dies wahr ist, wird mithilfe der Klasse ServerManager überprüft ob der Webserver läuft. Wenn nicht, wird dieser gestartet. Ist der Modus allerdings nicht auf Normal gesetzt, also auf Config, so wird zuerst überprüft ob der Access Point gestartet ist. Wenn nicht, wird dieser schließlich gestartet und die mDNS wird gesetzt. Diese Prozesse werden wieder mithilfe der NetworkManager-Klasse durchgeführt. Anschließend wird ebenfalls der Zustand des Webservers überprüft. Am Schluss der Loop-Funktion wird noch die Funktion loop() der Klasse Audio-Manager ausgeführt. Diese regelt das Audio-Streaming.
 \subsubsection{Erweiterungsmöglichkeiten}
-Hier werden Erweiterungsmöglichkeiten der Software erleutert. Es wäre denkbar eine Funktion zu implementieren, die es ermöglicht mehrere Adapter zu Gruppen zu verbinden. In diesen Gruppen soll dann jeweils der gleiche Audio-Stream synchron empfangen und ausgegeben werden. Die Synchronisierung der Adapter bringt aber eine hohe Komplexizität mit sich, da man per WLAN-Verbindung mit sehr großen Latenzen zu rechnen hat.
+In Zukunft sind noch weitere Funktionalitäten für die Software geplant. Im Hinblick auf die Sicherheit wäre es durchaus sinnvoll, den Webserver des Microcontrollers auf HTTPS umzustellen. Somit wäre eine verschlüsselte Kommunikation mit diesem möglich. Zusätzlich wäre es auch denkbar eine Funktion zu implementieren, die es ermöglicht mehrere Adapter zu Gruppen zu verbinden. In diesen Gruppen soll dann jeweils der gleiche Audio-Stream synchron empfangen und ausgegeben werden. Die Synchronisierung der Adapter bringt aber eine hohe Komplexizität mit sich, da man per WLAN-Verbindung mit sehr großen Latenzen zu rechnen hat. Ein Ansatz wäre zum Beispiel, dass jeder Microcontroller in einem bestimmten Intervall die Zeit von einem NTP (Network Time Protocoll) - Server abfragt und somit auf allen Microcontrollern die Zeit annähernd gleich ist. Dann könnte man die Buffer, welche vom Audio-Stream erhalten werden, mit einem Zeitstempel versehen und sie beim Erreichen dieser Zeit abspielen. Das Hauptproblem dieser Lösung wäre, dass die Zeitdifferenz zwischen den Microcontrollern vermutlich zu groß wäre und somit eine hörbare Latenz entsteht.
 \subsection{Entwicklung Smartphone-App}
-In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Smartphone-App beschrieben. Die verwendeten Tools wurden schon genauer im Kapitel ... beschrieben.
+In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Smartphone-App beschrieben.
 \subsubsection{Zielsetzung}
 Es wurde festgelegt, dass die Smartphoneapp folgende Anforderungen erfüllen soll:
 \vspace{4mm}\newline 
-\textbf{Konfiguration der Adapter}  \\
-Mit der App soll es einerseits möglich sein, neue Adapter zu konfiguieren, andererseits, bereits hinzugefügte Adapter zu verwalten. Dabei können von den Adaptern verschiedene Daten, wie z.B. Akkustand eingesehen werden.
+\textbf{Verwalten von Adaptern}  \\
+Mit der App soll es einerseits möglich sein, neue Adapter zu konfiguieren, andererseits, bereits hinzugefügte Adapter zu verwalten. Dabei können von den Adaptern verschiedene Daten, wie z.B. Akkustand und MAC-Adresse eingesehen werden.
 \vspace{4mm}\newline
-\textbf{Verwaltung der Adapter} \\
-Mehrere Adapter abspeichern und bestimmen, welcher Adapter welchen Stream erhalten soll.
-\vspace{4mm}\newline
-\textbf{Suche nach Audio-Streams} \\
-Suche nach URLs von Audio-Streams von Internet-Radios mittels der RadioBrowser-API.
-\subsubsection{Navigation}
-Für die Navigation in der App wurde einerseits die Tab-Navigation und andererseits die Stack-Navigation von Expo Router verwendet. Die App ist grundsätzlich in die drei Tabs Verbindungen, Adapter und Musik gegliedert. Zwischen diesen Tabs kann mittels dem Tab-Navigator gewechselt werden. In den einzelnen Tabs befinden sich jeweils mehrere Seiten. Diese Seiten sind mithilfe des Stack-Navigators aufrufbar. Der Stack-Navigator arbeitet mit einem sogenannten Stack, auf Deutsch "Stapel". Zu diesem werden mittels des Last In - First Out - Prinzipes (kurz LIFO) Seiten hinzugefügt bzw. von diesem entfernt. Mithilfe der Methode router.push() werden dem Stack Seiten hinzugefügt. Es wird also sozusagen eine Seite auf den Stapel gelegt. Mithilfe der Methode router.pop() wird eine Seite vom Stack entfernt. Es wird also sozusagen die oberste Seite vom Stapel heruntergenommen.
-\subsubsection{Struktur}
-\begin{figure}[H]
-\includegraphics[scale=0.5]{/software/app_layout.png}
-\caption{Aufbau Seite}
-\end{figure}
-Die Seiten der App sind alle gleich strukturiert. Ganz oben ist der Header, in welchem der Seitenname steht. Ganz unten ist die Tab Bar, welche die einzelnen Tabs anzeigt und auch sichtbar macht, in welchem Tab man sich aktuell befindet (mehr dazu im Kapitel Navigation). Zwischen dem Header und der Tab Bar ist der jeweilige Inhalt der Seite.
-Die App ist in drei Tabs gegliedert. Im folgenden werden die einzelnen Tabs genauer beschrieben. \newline \\
-\textbf{Verbindungen} \\
-Dieser Tab ist für die Verwaltung von Verbindungen zwischen Adaptern und Audioquellen zuständig. Hier kann konfiguriert werden, welcher Adapter welchen Stream empfangen soll. Es ist außerdem möglich, laufende Streams zu stoppen, deren Lautstärke zu ändern und zu löschen. \newline \\
+\textbf{Verwalten von Radiostationen} \\
+Mit der App soll es außerdem möglich sein, nach Audiostreams von Internetradios zu suchen, und diese in einer Favoritenliste zu verwalten. \newline \\
+\textbf{Verwalten von Verbindungen} \\
+Mit der App soll es letztendlich möglich sein, eine Verbindungen zwischen Adaptern und Internetradio-Streams herzustellen und diese zu verwalten.
+\subsubsection{Klassen}
+In der App wurden folgende Klassen definiert: \newline \\
 \textbf{Adapter} \\
-Dieser Tab ist für die Verwaltung von Adaptern zuständig. Es ist hier möglich, gespeicherte Adapter anzusehen, zu löschen und neue Adapter hinzuzufügen. Der Tab besteht aus den Seiten index und addAdapter, welche im Kapitel Seiten noch genauer beschrieben werden.  \newline \\
-\textbf{Musik} \\
-Dieser Tab ist für die Verwaltung von Audio-Quellen zuständig. Vorerst werden hier als Quellen nur Internet-Radios verwendet. In Zukunft wäre es aber auch denkbar, Streaming-Dienste als Quellen zu implementieren. Mit jetztigem Stand ist es in diesem Tab möglich, neue Radiosender zu der Favoritenliste hinzuzufügen und die Favoritenliste anzusehen bzw. Favoriten zu löschen. Der Tab besteht aus den Seiten index und searchStations, welche im Kapitel Seiten noch genauer beschrieben werden.
-\subsubsection{UI Design}
-Das User Interface der App wurde eher schlicht gehalten und der verwendete Stil wurde durch alle Komponenten durchgezogen. Der globale Style wurde in der App unter constants festgelegt. Folgende Farben wurde in der App verwendet: \\
-\begin{tabularx}{\textwidth}{ |c|c| }
+Die Adapter-Klasse wird zum Erstellen von Adapter-Objekten verwendet. Sie definiert die Attribute, welche jeder Adapter haben muss. Dazu zählen Name, MAC-Addresse, eingestellte Lautstärke des Audio-Moduls, Erreichbarkeit und Akkustand. Diese Objekte werden in der App verwendet, um einfach mit den Daten der Adapter zu arbeiten. \newline \\
+\textbf{Station} \\
+Die Station-Klasse wird zum Erstellen von Station-Objekten verwendet. Sie definiert die Attribute, welche jede Radiostation haben muss. Dazu zählen Name, UUID, Icon-URL und Stream-URL. Das verwenden der Station-Objekte erleichtert die Handhabung von Stationen in der App. \newline \\
+\textbf{Connection} \\
+Die Connection-Klasse wird zum Erstellen von Connection-Objekten verwendet. In ihr wird ein Objekt der Klasse Adapter und ein Objekt der Klasse Station gespeichert. Damit wird die Verbindung zwischen Adapter und Station ersichtlich. Also welcher Adapter empfängt aktuell welchen Radiostream. \newline \\
+\subsubsection{Funktionen}
+In der Datei Utilities wurden Funktionen definiert, welche dabei helfen Daten abzurufen bzw. zu speichern. Dazu gehören Abfragen der RadioBrowser-API, Abfragen an den jeweiligen Adapter und Zugriffe in den Speicher. Speicheroperationen wurden mithilfe der in Expo integrierten Bibliothek \glqq AsyncStorage \grqq{}  durchgeführt. Abfragen mittels HTTP wurden mit der ebenfalls in Expo integrierten Bibliothek \glqq Axios \grqq{} durchgeführt. \newline \\
+\textbf{Asynchrone Funktionen} \\
+Alle der Funktionen in der Utilities-Datei wurden als asynchrone Funktionen deklariert. Asynchrone Funktionen werden immer dann verwendet, wenn eine Funktion ein Ergebnis nicht direkt beim Aufruf liefern kann, sondern dies noch eine gewisse Zeit in Anspruch nimmt. Diese Verhaltensweise wird realisiert, indem die Funktion ein sogenanntes Promise-Objekt zurückgibt. In diesem Objekt sind Callback-Funktionen deklariert, welche je nachdem ob das Ergebnis verfügbar ist oder ein Fehler auftritt ausgeführt werden. Es gibt dabei die Callback-Funktion resolve(ergebnis), welche ausgeführt wird, wenn die Funktion das Ergebnis hat und die Funktion reject(fehler), welche ausgeführt wird, wenn in der Funktion ein Fehler auftritt. Das praktische dabei ist, dass man beim Aufruf einer asynchronen Funktion, hinten eine .then(function(result)) Funktion anhängen kann, welche erst ausgeführt wird, wenn das Ergebnis verfügbar ist. Man kann aber auch mit await warten, bis das Ergebnis verfügbar ist. Mit .catch(function(error)) kann man Fehler abfangen welche eventuell in der Funktion auftreten. \newline \\
+\textbf{Liste von verfügbaren Ländern/Sprachen abrufen} \\
+Mit der Funktion getCountries() ist es möglich alle verfügbaren Ländernamen der RadioBrowser-API abzufragen. Der GET-Request wird dabei mit Axios ausgeführt. Als Rückgabe liefert die Funktion einen Promise, welcher entweder ein String-Array oder null ist. Das String-Array ist gefüllt mit allen verfügbaren Ländernamen. Null wird dann zurückgelifert, wenn bei der Abfrage ein Fehler auftritt. Es gibt außerdem noch eine Funktion um alle Sprachen der RadioBrowser-API aufzurufen. Diese Funktion ist gleich aufgebaut, der einzige Unterschied liegt in der URL, welche abgefragt wird. Die Ländernamen und Sprachen werden später für die Filterung der Radiostationen benötigt. \newline \\
+\textbf{Stationen abfragen} \\
+Die Funktion getStations(language, country) fragt alle Radiostationen, welche in der übergebenen Sprache bzw. dem übergebenen Land verfügbar sind, von der RadioBrowser-API ab und gibt diese dann JSON-Objekt zurück. Wenn bei der Abfrage ein Fehler entsteht, wird null zurückgeliefert. \newline \\
+\textbf{Liste von Elementen vom Speicher lesen} \\
+Die Funktion getFavouriteStations() fragt die Favoritenliste von Radiostationen, welche im Speicher gespeichert ist, ab. Diese wird als Array aus Station-Objekten zurückgegeben. Wenn keine Favoriten im Speicher sind, wird wiederum null zurückgegeben. Die Funktion zur Abfrage der Liste von gespeicherten Adaptern heißt getAdapters() und ist gleich aufgebaut. Der einzige Unterschied liegt im Rückgabetyp. Hier wird nähmlich ein Array aus Adapter-Objekten zurückgegeben.
+\newline \\
+\textbf{Element zum Speicher hinzufügen} \\
+Die Funktion addFavouriteStations(stationList) fügt eine Liste aus Stationen, welche als Array aus Station-Objekten übergeben wird, der gespeicherten Favoritenliste hinzu. Wenn noch keine Favoritenliste gespeichert ist, wird eine neue erstellt. Die Funktion zum Hinzufügen eines neuen Adapters heißt dementsprechend addAdapter(adapter) und erwartet als Parameter ein einzelnes Objekt der Klasse Adapter.
+\newline \\
+\textbf{Element vom Speicher entfernen} \\
+Die Funktion removeFavouriteStation(uuid) entfernt die Station mit der übergebenen UUID von der gespeicherten Favoritenliste, wenn diese dort vorhanden ist. Die UUID wird bereits von der RadioBrowser-API mitgeliefert und hilft dabei, jede Station eindeutig zu identifizieren. Die Funktion zum Entfernen eines Adapters aus dem Speicher heißt removeAdapter() und erwartet die Mac-Addresse des zu entfernenden Adapters als Argument. Durch diese ist auch jeder Adapter eindeutig identifizierbar. \newline \\
+\textbf{Liste im Speicher leeren} \\
+Die Funktion clearFavouriteStationList() wird die Favoritenliste im Speicher geleert, das heißt es sind keine Favoriten mehr gespeichert. Die Funktion zum leeren der Adapter-List heißt clearAdapterList() und löscht die Liste aller konfigurierten Adaptern aus dem Speicher. \newline \\ 
+\subsubsection{Style}
+Bei Style des User Inferface der App wurde auf Übersichtlichkeit und wenig Komplexität gesetzt. Der/Die Benutzer/in soll sich in der App schnellstmöglich zurecht finden. Zusätzlich wurde ein modernes Design im Darkmode erstellt. Der globale Style wurde in der App unter constants festgelegt. Hier sind Farben und Stile für häuig verwendete Komponenten definiert. Die optische Anpassung der Komponenten erfolgt ähnlich wie bei CSS (Cascading Style Sheets) \newline \\
+\textbf{Farben} \\
+Bei der Farbauswahl wurden als Hauptfarben eher dünklere Farben verwendet, um den Darkmode zu realisieren. Im Kontrast zu diesen wurden noch zusätzlich eher knalligere Farben im Turquise-Ton verwendet, um
+bestimmte Zustände zu signalisieren. Im folgenden ist eine Tabelle mit den verwendeten Farben und deren Farbcodes im Hex-Format: \\
+\begin{figure}[H]
+\begin{tabular}{|l|l|}
 \hline
 \textbf{Bezeichnung} & \textbf{Farbcode (hex)} \\
 \hline
@@ -406,45 +425,29 @@ red & \# d90b0b \\
 \hline 
 lightGrey & \# 3e403a \\
 \hline 
-\end{tabularx} \newline \\
-Die Hauptfarben der App sind sehr dunkel und die sekundären eher knalliger, was einen guten Kontrast bildet.
-\subsubsection{Funktionen}
-In der Datei Utilities, wurden Funktionen definiert, welche dabei helfen Aktionen, welche für die App notwendig sind durchzuführen. Dazu gehören Abfragen der RadioBrowser-API und Abfragen an den jeweiligen Adapter. Im folgenden werden die Funktionen genauer beschrieben: \newline \\
-\textbf{getCountries} \\
-Die Funktion getCountries fragt alle verfügbaren Ländernamen der RadioBrowser-API ab. Der GET-Request wird dabei mit Axios ausgeführt. Als Rückgabe liefert die Funktion einen Promise, welcher entweder ein String-Array oder null ist. Das String-Array ist gefüllt mit allen verfügbaren Ländernamen. Null wird dann zurückgelifert. wenn bei der Abfrage ein Fehler auftritt. \newline \\
-\textbf{getLanguages} \\
-Die Funktion getLanguages ist gleich aufgebaut wie die Funktion getCountries. Der einzige Unterschied liegt in der URL. Hier werden nähmlich alle verfügbaren Sprachen der RadioBrowser-API abgefragt. Da die Sprachen, welche zurückgeliefert werden, alle kleingeschrieben sind, werden diese anschließend noch umgewandelt, in groß geschriebene Wörter. Dies hat designtechnische Gründe. \newline \\
-\textbf{getStations} \\
-Die Funktion getStations frägt alle Stations, welche die übergebene Sprache bzw. das übergebene Land haben von der RadioBrowser-API ab und gibt diese dann als String-Array zurück. Wenn bei der Abfrage ein Fehler entsteht, wird null zurückgeliefert. \newline \\
-\textbf{getFavouriteStations} \\
-... \newline \\
-\textbf{addFavouriteStations} \\
-... \newline \\
-\textbf{removeFavouriteStation} \\
-... \newline \\
-\textbf{clearFavouriteStationList} \\
-... \newline \\
-\textbf{Allgemeines} \\
-Für die API-Abfragen wurden asynchrone Funktionen verwendet. Asynchrone Funktionen müssen immer dann verwendet werden, wenn eine Aktion länger dauert, bzw. man auf Daten warten muss. Dies ist bei der Abfrage von APIs der Fall. Asynchrone Funktionen werden in Java Script mit "async function" definiert.
-\subsubsection{Aufbau}
-In diesem Kapitel wird die Strukturierung bzw. Aufteilung der App beschrieben. Zur grundlegenden Navigation wurde ein Tab-Navigator verwendet. Es gibt dabei die Tabs Verbindungen, Adapter und Musik. Neben dem Tab-Navigator wurde auch noch ein Stack-Navigator verwendet. Dieser ermöglicht das Navigieren zwischen Seiten mittels einem Stack. Die Navigation mittels Stack funktioniert nach dem Last In First Out - Prinzip.  Das heißt, wenn eine neue Seite aufgerufen wird, wird diese dem Stack hinzugefügt, also sozusagen auf den Stapel oben drauf gelegt. Wenn man wieder auf die vorherige Seite will, wird die aktuelle Seite einfach vom Stack entfernt, also vom Stapel oben herabgenommen. 
+\end{tabular} 
+\caption{App-Farben}
+\end{figure}
+\subsubsection{Struktur}
+\begin{figure}[H]
+\includegraphics[scale=0.5]{/software/app_layout.png}
+\caption{Aufbau Seite}
+\end{figure}
+Die Seiten der App sind alle gleich strukturiert. Ganz oben ist der Header, in welchem der Seitenname steht. Ganz unten ist die Tab Bar, welche die einzelnen Tabs anzeigt und auch sichtbar macht, in welchem Tab man sich aktuell befindet. Zwischen dem Header und der Tab Bar ist der jeweilige Inhalt der Seite.
+Die App ist in drei Tabs gegliedert. Im folgenden werden die einzelnen Tabs genauer beschrieben. \newline \\
+\textbf{Verbindungen} \\
+Dieser Tab ist für die Verwaltung von Verbindungen zwischen Adaptern und Audioquellen zuständig. Hier kann konfiguriert werden, welcher Adapter welchen Stream empfangen soll. Es ist außerdem möglich, laufende Streams zu stoppen, deren Lautstärke zu ändern und zu löschen. \newline \\
+\textbf{Adapter} \\
+Dieser Tab ist für die Verwaltung von Adaptern zuständig. Es ist hier möglich, gespeicherte Adapter anzusehen, zu löschen und neue Adapter hinzuzufügen. Der Tab besteht aus den Seiten index und addAdapter, welche im Kapitel Seiten noch genauer beschrieben werden.  \newline \\
+\textbf{Musik} \\
+Dieser Tab ist für die Verwaltung von Audio-Quellen zuständig. Vorerst werden hier als Quellen nur Internet-Radios verwendet. In Zukunft wäre es aber auch denkbar, Streaming-Dienste als Quellen zu implementieren. Mit jetztigem Stand ist es in diesem Tab möglich, neue Radiosender zu der Favoritenliste hinzuzufügen und die Favoritenliste anzusehen bzw. Favoriten zu löschen. Der Tab besteht aus den Seiten index und searchStations, welche im Kapitel Seiten noch genauer beschrieben werden. \newline \\
+\subsubsection{Navigation}
+Für die Navigation in der App wurde einerseits die Tab-Navigation und andererseits die Stack-Navigation von Expo Router verwendet. Die App ist grundsätzlich in die drei Tabs Verbindungen, Adapter und Musik gegliedert. Zwischen diesen Tabs kann mittels dem Tab-Navigator gewechselt werden. In den einzelnen Tabs befinden sich jeweils mehrere Seiten. Diese Seiten sind mithilfe des Stack-Navigators aufrufbar. Der Stack-Navigator arbeitet mit einem sogenannten Stack, auf Deutsch \glqq Stapel \grqq{}. Zu diesem werden mittels des Last In - First Out - Prinzipes (kurz LIFO) Seiten hinzugefügt bzw. von diesem entfernt. Mithilfe der Methode router.push() werden dem Stack Seiten hinzugefügt. Es wird also sozusagen eine Seite auf den Stapel gelegt. Mithilfe der Methode router.pop() wird eine Seite vom Stack entfernt. Es wird also sozusagen die oberste Seite vom Stapel heruntergenommen.
 \subsubsection{Komponenten}
 In diesem Kapitel werden die selbst erstellen React-Komponenten genauer beschrieben. \newline \\
 \textbf{AdapterItem} \\
-\begin{figure}[H]
-\includegraphics[scale=0.2]{/software/adapter_connected.png}
-\caption{AdapterItem, verbunden}
-\includegraphics[scale=0.21]{/software/adapter_not_connected.png}
-\caption{AdapterItem, nicht verbunden}
-\includegraphics[scale=0.23]{/software/adapter_selected.png}
-\caption{AdapterItem, ausgewählt}
-\end{figure}
 Die Komponente AdapterItem wird dazu verwendet, die Daten eines einzelnen Adapters abzufragen und diese anzuzeigen. Dabei muss man dieser Komponente ein Objekt der Klasse Adapter als Argument mitgeben. Beim rendern wird direkt versucht eine Verbindung zum Webserver mit der IP-Adresse des übergebenen Adapters herzustellen. Ist dies erfolgreich, so wird ein GET-Request auf die /getInfo - Route des Adapters mittels Axios durchgeführt. Dabei werden die erhaltenen Informationen grafisch dargestellt. Zu diesen Daten zählt Lautstärke und Akkustand des Adapters. Ist der Adapter allerdings nicht erreichbar, werden die Daten nicht angezeigt. Gleichzeitig ändert sich die Hintergrundfarbe der Komponente zu einem helleren Grauton und es erscheint rechts eine durchgestrichene Wolke. Dies soll signalisieren, dass der Adapter nicht erreichbar ist. Diese Informations-Abfrage wird in einem Intervall von 5 Sekunden ausgeführt, um Änderungen in den Daten des Adapters bzw. der Verbindung des Adapters schnellstmöglich zu signalisieren. Dieses Intervall wird mit der JavaScript-Methode setInterval verwirklicht. Am Ende des renderns, wird das Interval noch geschlossen, um zu vermeiden, dass es mehrere Instanzen davon gibt. \newline \\
 \textbf{AdapterList} \\
-\begin{figure}[H]
-\includegraphics[scale=0.15]{/software/stationlist.jpg}
-\caption{StationList, editable}
-\end{figure}
 Die Komponente AdapterList stellt eine Liste dar, in der alle bisher hinzugefügten Adaptern aufgelistet sind. Die Adapter werden dabei mithilfe der AdapterItem-Komponente dargestellt. Die Adapter werden mithilfe der Methode getAdapter() aus dem Speicher abgefragt. Wenn noch keine hinzugefügten Adapter vorhanden sind bzw. die Methode getAdapter() null zurückgibt, wird die Komponente ErrorScreen dargestellt. \newline \\
 \textbf{AddToListButton} \\
 Die Komponente AddToListButton wurde verwendet, um ein drückbares Icon darzustellen, welches symbolisieren soll, ein weiteres Element zu einer Liste hinzuzufügen. Für die Umsetzung der Drück-Funktion wurde die Pressable-Komponente von React Native verwendet. Das Icon wurde von der Entypo-Bibliothek importiert. \newline \\
@@ -462,15 +465,6 @@ Die Komponente FavouriteStationList stellt eine Liste aus mehreren StationItem-K
 Die Komponente LoadingScreen soll signalisieren, dass ein Vorgang durchgeführt wird und deshalb der Screen bzw. die Komponenten noch nicht angezeigt werden können. Dies kann zum Beispiel das Laden von Daten sein. Als Argument wird der Text übergeben, welcher in der Komponente angezeigt wird. Der Ladevorgang wird mit der ActivityIndicator-Komponente siganlisiert. \newline \\
 \textbf{NetworkItem} \\
 Die Komponente NetworkItem stellt Daten von einem Netzwerk dar. Dabei werden als Argumente die SSID und RSSI des Netzwerks übergeben. Die SSID wird mit der Text-Komponente angezeigt. Abhängig von dem Wert der RSSI werden verschiedene Icons angezeigt. Diese Icons stellen die Stärke des Netzwerks dar. Das Argument selected gibt an, ob die Komponente ausgewählt wurde. Wenn dies der Fall ist, verändert sich die Hintergrundfarbe der Komponente. \newline \\
-\textbf{StationItem} \\
-\begin{figure}[H]
-\begin{flushleft}
-\includegraphics[scale=0.2]{/software/stationitem.png}
-\caption{StationItem}
-\includegraphics[scale=0.2]{/software/stationitem_selected.png}
-\caption{StationItem, selected}
-\end{flushleft}
-\end{figure}
 Die Komponente StationItem stellt Name und Icon einer Radiostation dar. Die Radiostation wird dabei bei den Argumenten, als Objekt der Klasse Station übergeben. Das Argument selected gibt an, ob die Station ausgewählt ist. Wenn dies der Fall ist, verändert sich die Hintergrundfarbe der Komponente. \newline \\
 \textbf{TextInputWindow} \\
 Die Komponente TextInputWindow ermöglicht es Text in einem Fenster, welches vor dem anderen Content gerendert wird, einzugeben. Dabei ist unter dem Text ein Knopt "Bestätigen" und ein Knopt "Abbrechen" verfügbar. Der Text, welcher ganz oben angezeigt wird, wird als Argument übergeben. Außerdem wird mit isPassword festgelegt, ob die Eingabe in das Textfeld sichtbar sein soll oder nicht und die übergebenen Funktionen onEnter bzw. onCancel bestimmen, was passiert, wenn man den "Abbrechen"- oder "Bestätigen" Knopf drückt. \newline \\
@@ -483,7 +477,7 @@ In diesem Kapitel werden die einzelnen Seiten der App genauer beschrieben. \newl
 \textbf{Startseite Verbindungen} \\
 Diese Seite ist die Startseite des Tabs Verbindungen. Auf ihr werden aktive Verbindungen zwischen Adaptern und Audio-Quellen angezeigt. Die Darstellunge wird mithilfe der Komponente ConnectionList verwirklicht. Es ist hier möglich neue Verbindungen zu erstellen, aktive Verbindungen zu trennen, die Lautstärke von aktiven Verbindungen zu ändern und aktive Verbindungen zu pausieren bzw. fortzusetzen. \newline \\
 \textbf{Verbindung hinzufügen} \\
-Diese Seite befindet sich im Tab Verbindungen. Hier ist es möglich neue Verbindungen hinzuzufügen. Dazu muss zuerst ein Adapter ausgewählt werden und in weiterer Folge eine Audio-Quelle, von der der Adapter den Stream empfangen soll. Dabei können nur verbundene Adapter, das heißt, Adapter die im Netz erreichbar sind, ausgewählt werden. Zum Anzeigen der Adapter wurde die Komponente AdapterList verwendet, zum Anzeigen der Stationen die Komponente Station List. Der Parameter editable wurde dabei bei beiden Stationen auf false gesetzt, da ein bearbeiten der Listen in dieser Ansicht nicht möglich sein soll. Wenn jeweils ein Adapter und eine Station ausgewählt ist, ist es möglich den Knopf unten zu drücken und die Verbindung wird erstellt.
+Diese Seite befindet sich im Tab Verbindungen. Hier ist es möglich neue Verbindungen hinzuzufügen. Dazu muss zuerst ein Adapter ausgewählt werden und in weiterer Folge eine Audio-Quelle, von der der Adapter den Stream empfangen soll. Dabei können nur verbundene Adapter, das heißt, Adapter die im Netz erreichbar sind, ausgewählt werden. Zum Anzeigen der Adapter wurde die Komponente AdapterList verwendet, zum Anzeigen der Stationen die Komponente Station List. Der Parameter editable wurde dabei bei beiden Stationen auf false gesetzt, da ein bearbeiten der Listen in dieser Ansicht nicht möglich sein soll. Wenn jeweils ein Adapter und eine Station ausgewählt ist, ist es möglich den Knopf unten zu drücken und die Verbindung wird erstellt. \newline \\
 \textbf{Startseite Adapter} \\
 Diese Seite ist die Startseite des Tabs Adapter. Auf ihr werden hinzugefügte Adapter angezeigt. Dies geschieht mithilfe der Komponente AdapterList. Der Parameter editable der AdapterList hat den Wert true, da es hier möglich sein soll neue Adapter hinzuzufügen bzw. bestehende Adapter zu entfernen. \newline \\
 \textbf{Startseite Musik} \\
@@ -634,7 +628,6 @@ Die Anwendung des Adapter ist grundsätzlich angenehm. Es gilt jedoch zu bedenke
 In diesem Kapitel wird der gesamte Code auf Sicherheitslücken getestet.
 \subsection{Auftretende Sicherheitslücken schließen}
 In diesem Kapitel werden die bei den Tests aufgetretenen Sicherheitslücken geschlossen.
-
 \section{Einzelnachweise}
 \subsection{Literaturverzeichnis}
 \subsection{Abbildungsverzeichnis}
