@@ -87,7 +87,14 @@ Wir bedanken uns bei den betreuenden Lehrpersonen Dipl. Ing. Dr. Peter L. Steger
 \tableofcontents
 
 \section{Einleitung}
-Hier befindet sich die allgemeine Einleitung der Diplomarbeit.
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.8]{/allgemein/MSA_Konzept.png}
+\caption{Skizze Gerätekette}
+\end{center}
+\end{figure}
+Hier ist eine vereinfachte Darstellung der Gerätekette und wie sich der Multi-Room Sound Adapter in diese eingliedern lässt.\newline
+Am unteren Bildrand ist eine Wolke mit Information dargestellt. Sie symbolisiert das Internet mit dessen Inhalt. Darüber ein Smartphone, welches mit dem Internet kommuniziert und sich so Informationen wie Stream-URLs holt und sie an den Adapter weitergibt. Der Adapter selbst (hier als blaue Platine dargestellt) holt sich den Stream selbst (also praktisch ein Audiosignal) und stellt ihn als Klinkenausgang zur Verfügung. Man kann diesen dann beispielsweise mit einem Lautsprecher verbinden und Musik hören.
 
 \subsection{Einleitung Hardware}
 Das Ziel des Hardware-Teils für folgende Diplomarbeit war, einen sinnvollen internen Aufbau des Geräts zu erzielen, die am besten geeigneten Hardware-Komponenten zu finden, das System bzw. die einzelnen Komponenten zusammenzusetzen und zu testen. Dieser Teil der Diplomarbeit wird von Nico Lang übernommen.
@@ -105,13 +112,13 @@ Das Hauptziel ist, dass das System in verschiedenen, voneinander getrennten Räu
 \vspace{4mm}\newline
 \textbf{Line-Ausgang}\newline
 Ein Line-Ausgang (Line-Out) ist eine Ausgangs-Schnittstelle für analoge Audiosignale, deren Ausgangsspannung immer grob dem Line-Pegel entspricht. Dieser \glqq Line-Pegel beträgt etwa 0,5 Volt bis 1 Volt\grqq{}. \newline
-Diese geringe Spannung reicht jedoch nicht, um das Audio-Signal auszugeben. Es muss zuerst noch durch einen Verstärker verstärkt werden. Solche Verstärker kommen einzeln also extern der Lautsprecher vor (passive Lautsprecher), sind jedoch häufig in einem Gehäuse mit den Lautsprechern inkludiert (aktive Lautsprecher).
+Diese geringe Spannung reicht jedoch nicht, um das Audio-Signal direkt an einen Lautsprecher auszugeben. Es muss zuerst noch durch einen Verstärker verstärkt werden. Lautsprecher gibt es mit eingebautem Verstärker (aktive Lautsprecher), es gibt sie jedoch auch ohne internen Verstärker (passive Lautsprecher).
 \vspace{4mm}\newline
 (vgl. \url{https://www.monacor.de/magazin/audio-pegel})
 \vspace{4mm}\newline
 \textbf{Aktive vs. Passive Lautsprecher}\newline
 Ein klassisches Beispiel für passive Lautsprecher sind herkömmliche Hi-Fi Stereoanlagen. Diese bestehen meistens aus einem oder mehreren Playern, einem Verstärker und zwei oder mehreren (Surround Sound also Raumklang) passiven Lautsprechern. Der Player liest das Signal (beispielsweise einer CD oder einer Schallplatte) und gibt den Line-Pegel über ein Kabel (im Hi-Fi Bereich meist Cinch oder 3,5mm Klinke) an den Verstärker weiter. Dieser Line-Pegel kann aber auch direkt aus einem TV-Gerät oder wie in unserem Fall aus einem Multi-Room Sound Adapter kommen. Der Verstärker verstärkt das Audiosignal nun von der geringen Spannung des Line-Pegels auf die für die Lautsprecher passende Spannung. Mit dem Lautstärkeregler am Verstärker kann man sich die Spannung (also Lautstärke) letztendlich noch auf persönliche Präferenzen anpassen. \newline
-Ein klassisches Beispiel für aktive Lautsprecher sind Bluetooth-Lautsprecher, deren Hauptziel es ist, möglichst kompakt und leicht transportierbar zu sein. Solche Bluetooth-Lautsprecher enthalten im Normalfall einen Akku, um auch unterwegs, ohne aktive Stromquelle, Musik hören zu können. Somit enthält das Gehäuse den Verstärker, die Lautsprecher, den Akku und sonstige Elektronik wie unter anderem ein Bluetooth-Modul. Hier fungiert meist ein herkömmliches Smartphone als Signalgeber, ob über Bluetooth oder 3,5mm Klinke bleibt dem/der Benutzer/-in überlassen.\newline
+Ein Beispiel für aktive Lautsprecher sind Bluetooth-Lautsprecher, deren Hauptziel es ist, möglichst kompakt und leicht transportierbar zu sein. Solche Bluetooth-Lautsprecher enthalten im Normalfall einen Akku, um auch unterwegs, ohne aktive Stromquelle, Musik hören zu können. Somit enthält das Gehäuse den Verstärker, die Lautsprecher, den Akku und sonstige Elektronik wie unter anderem ein Bluetooth-Modul. Hier fungiert meist ein herkömmliches Smartphone als Signalgeber, ob über Bluetooth oder 3,5mm Klinke bleibt dem/der Benutzer/-in überlassen.\newline
 Lenovo beschreibt Line-Ausgänge zum Beispiel folgendermaßen: \glqq Der Line-Ausgang unterscheidet sich von anderen Audioausgängen wie z. B. Kopfhörerbuchsen, da er ein Signal mit festem Pegel liefert, das nicht von der Lautstärkeregelung Ihres Geräts beeinflusst wird. Er ist für den Anschluss an Geräte gedacht, die das Audiosignal verstärken oder weiterverarbeiten können.\grqq{} \newline
 Man kann also daraus schließen, dass man das Line-Out Signal des Multi-Room Sound Adapter vor dem Lautsprecher noch verstärken muss. Wie genau, ist dem/der Endverbraucher/-in überlassen.
 \vspace{4mm} \newline
@@ -144,10 +151,12 @@ Es wird zudem viel Wert auf Benutzerfreundlichkeit gelegt. Das bedeutet, dass si
 \vspace{4mm} \newline
 (vgl. (Fachbuch) \url{https://books.google.de/books?id=UI2INugaKwIC&pg=PA219#v=onepage})
 \subsubsection{Was muss es nicht können?}
-Dieser Multi-Room Sound Adapter soll als Hi-Fi Produkt für den klassischen Durchschnittsbürger und/oder Musik-Liebhaber durchgehen. Aufgrund dessen wurde die Bedienung sehr einfach und benutzerfreundlich, jedoch eindeutig nicht so präzise oder vielfältig einstellbar gestaltet wie es bei professionellem Audio-Equipment der Fall ist. Während der Laie das Produkt einfach anstecken und benutzen möchte, hätte ein Audio-Nerd gerne noch einen eingebauten Acht-Band Equalizer und vieles mehr. Das war jedoch nicht das Ziel dieser Diplomarbeit. Es ging eher darum, die Hauptfunktion, also Ton kabellos in Räume zu übertragen, und Einstellungsmöglichkeiten per App ohne großes Kopfzerbrechen zu ermöglichen.\newline
-Wie schon oben erwähnt liefert der Multi Room Sound-Adapter nur einen Audioausgang mit Line-Pegel und es ist ihm nicht möglich, dieses zu verstärken. Man kann also keine Kopfhörer über 80 Ohm direkt an das Gerät anschließen (man kann theoretisch schon, aber der Ton wird sehr leise sein). Das Audiosignal muss also zuerst mit einem Verstärker verstärkt werden.\newline
+Dieser Multi-Room Sound Adapter ist als Hi-Fi Produkt für den klassischen Durchschnittsbürger und/oder Musik-Liebhaber gedacht. Aufgrund dessen wurde die Bedienung sehr einfach und benutzerfreundlich, jedoch eindeutig nicht so präzise oder vielfältig einstellbar gestaltet wie es bei professionellem Audio-Equipment der Fall ist. Während der Laie das Produkt einfach anstecken und benutzen möchte, hätte ein Audio-Nerd beispielsweise gerne noch einen eingebauten Acht-Band Equalizer und vieles mehr. Das war jedoch nicht das Ziel dieser Diplomarbeit. Es ging eher darum, die Hauptfunktion, also Ton kabellos in Räume zu übertragen, und Einstellungsmöglichkeiten per App ohne großes Kopfzerbrechen zu ermöglichen.\newline
+Wie schon oben erwähnt liefert der Multi Room Sound-Adapter nur einen Audioausgang mit Line-Pegel und es ist ihm nicht möglich, dieses zu verstärken. Man kann also keine Kopfhörer mit einer Impedanz über 80 Ohm direkt an das Gerät anschließen (man kann theoretisch schon, aber der Ton wird sehr leise sein). Das Audiosignal muss also zuerst mit einem Verstärker verstärkt werden.\newline
 \subsubsection{Wie könnte man es erweitern?}
-Unsere Variante des Multi-Room Sound Adapter zeichnet sich vor allem durch die beliebige Erweiterbarkeit aus. In der Theorie soll es ein einzelnes Modell, also den Adapter selbst geben. Mit jedem weiteren Adapter kann dementsprechend ein weiterer Lautsprecher oder ein Raum zugefügt werden. In Zukunft wäre es auch vorstellbar, dass man aus mehreren Adaptern Gruppen bilden kann, in denen die Adapter synchronisiert sind und somit der gleiche Audio-Stream auf mehreren Adaptern synchron läuft. Dies ist aber technisch sehr aufwendig, da die Latenz von WiFi ziemlich hoch ist.
+Unsere Variante des Multi-Room Sound Adapter zeichnet sich vor allem durch die beliebige Erweiterbarkeit aus. In der Theorie soll es ein einzelnes Modell, also den Adapter selbst geben. Mit jedem weiteren Adapter kann dementsprechend ein weiterer Lautsprecher oder ein Raum zugefügt werden. In Zukunft wäre es auch vorstellbar, dass man aus mehreren Adaptern Gruppen bilden kann, in denen die Adapter synchronisiert sind und somit der gleiche Audio-Stream auf mehreren Adaptern synchron läuft. Dies ist aber technisch sehr aufwendig, da die Latenz von WiFi ziemlich hoch ist.\newline
+
+SKIZZE: Grundriss mit Lautsprechern in allen Räumen und Gruppenbildung
 \subsection{Auswahl Hardwarekomponenten}
 Zur Auswahl der Hardwarekomponenten des Adapters wurde zu aller erst die externe Ausstattung des Adapters überlegt. Das bedeutet praktisch alles, mit dem ein Endverbraucher letztendlich zu tun hat. Dann kann der interne Teil, also die Technik dahinter, individuell auf die Anforderungen des externen Teils designet und entwickelt werden.
 \subsubsection{Auswahl externe Hardware}
@@ -157,19 +166,19 @@ Das Gehäuse soll alle Komponenten auf möglichst kleinem Raum zusammenhalten, s
 \textbf{Taster} \newline
 Für den Taster wurde ein herkömmlicher Tactile-Button mit verlängertem Taster in das Gehäuse geplant. Auf ihm klebt eine Art Aufsatz, auf den der/die Endverbraucher/-in letztendlich drückt, um ein gleichbleibendes optisches Design des Gehäuses zu ermöglichen. Mehr dazu im Teil "Design Adaptergehäuse"\newline \\
 \textbf{LED (Light-Emitting Diode)} \newline
-Als Statusanzeige wurde in diesem Fall eine herkömmliche RGB-LED verwendet. Eine RGB-LED besteht ganz kurz erklärt aus drei farbigen LEDs (Rot, Grün und Blau) in einer Komponente, die insgesamt 4 Pins hat. Ein Pin ist für die Kathode, die restlichen drei sind jeweils für die einzelnen Farben zuständig. Die einzelnen LEDs sind dementsprechend an der Kathode zusammengeschaltet. Zur Erkennung sind die Pins unterschiedlich lang, wobei der längste für die Kathode ist. So ist es theoretisch möglich alle Farben des RGB-Spektrums (16,7 Mio) mit einer LED darzustellen.\newline
-Man muss sich jedoch im klaren darüber sein, für wie viel Spannung die benutzte LED gebaut ist. Dann kann man mit passenden Widerständen arbeiten, um ein kaputtwerden der LED auszuschließen.
+Als Statusanzeige wurde in diesem Fall eine herkömmliche RGB-LED verwendet. Mit dieser ist es theoretisch möglich, alle Farben des RGB-Spektrums (16,7 Mio) mit einer Komponente darzustellen.\newline
+Man muss sich jedoch im klaren darüber sein, für wie viel Spannung die benutzte LED gebaut ist. Dann kann man mit passenden Widerständen arbeiten, um die LED nicht aufgrund zu hoher Spannung zu beschädigen.
 \vspace{4mm} \newline
 (vgl. \url{https://www.elektronik-kompendium.de/sites/praxis/bauteil_rgb-led.htm})
 \subsubsection{Auswahl interne Hardware}
-\textbf{Mikroprozessor (ESP32)}\newline
-Als Herz des Systems wird ein ESP32-WROOM-32 Mikroprozessor mit angebauter Platine (DOIT ESP32 DEVKIT V1) verwendet. Der ESP32 ist ein weit verbreiteter Mikroprozessor. Man kann die Arduino IDE mit C++ als Programmiersprache zum programmieren verwenden. Zudem verfügt er schon Onboard über einen Hybrid WIFI- und Bluetooth-Chip, wodurch externe Module vermieden, und somit Platz eingespart werden kann. Espressif selbst beschreibt den ESP32 als optimal für IoT-Anwendungen; auch wegen der hohen Energieeffizienz.\newline
-Hier ein paar Grundfakten des ESP32-WROOM-32 (der Prozessor selbst):\newline
+\textbf{Mikrocontroller (ESP32)}\newline
+Als Herz des Systems wird ein ESP32-WROOM-32 Mikrocontroller mit angebauter Platine (DOIT ESP32 DEVKIT V1) verwendet. Der ESP32 ist ein weit verbreiteter Mikrocontroller. Das Konzept des Controllers sind GPIOs (general purpose input/output) also Pins die man mit Code mit bestimmten Funktionen beschreiben kann. Man kann die Arduino IDE mit C++ als Programmiersprache zum programmieren verwenden. Zudem verfügt er schon Onboard über einen Hybrid WIFI- und Bluetooth-Chip, wodurch externe Module vermieden, und somit Platz eingespart werden kann. Espressif selbst beschreibt den ESP32 als optimal für IoT-Anwendungen; auch wegen der hohen Energieeffizienz.\newline
+Hier ein paar Grundfakten des ESP32-WROOM-32 (der Controller selbst):\newline
 Der von uns benutzte ESP32 hat einen Dual-Core 32-bit Prozessor (2x Tensilica-LX6-Kernen). Der Mikrocontroller hat WLAN (802.11b/g/n) und kann ein eigenes WLAN Netzwerk (Access Point) erstellen (kleiner WebServer). Er unterstützt Bluetooth 4.0 (BLE/Bluetooth Smart) und Bluetooth Classic. Dies ist bei vielen SmartHome und IoT-Anwendungen nützlich. Er hat einen geringen Stromverbrauch von 50-70 mA (kleine Programme ohne WiFi). Der Deep-Sleep Modus macht einen Stromverbrauch von unter 0,1mA möglich. Die Anschaffungskosten fallen mit unter 10 Euro im Vergleich zu anderen Mikrocontrollern auch sehr niedrig aus.\newline
-Wie schon erwähnt ist der ESP32 mit der (uns bekannten) Arduino IDE programmierbar und kann auch in industriellen Umgebungen (-40°C bis +125°C) betrieben werden.\newline
+Wie schon erwähnt ist der ESP32 mit der (uns vertrauten) Arduino IDE programmierbar und kann auch in industriellen Umgebungen (-40°C bis +125°C) betrieben werden.\newline
 Für den Multi Room Sound-Adapter kommt ein ESP32 Entwicklungsboard (DOIT ESP32 DEVKIT V1) zum Einsatz.\newline
 Hier eine Beschreibung von Dev-Kits auf digitalewelt.at: \glqq Um alle Funktionen des ESP32 Moduls einfach nutzen zu können, gibt es sogenannte Entwicklungsboards. Diese sind nicht nur mit zusätzlichen Schaltungen für die Spannungsversorgung ausgestattet, sondern bieten uns auch die gängigen Anschlussmöglichkeiten für unsere externen Komponenten.\grqq{} \newline
-Erwähnenswert ist auch, dass der ESP32 an manchen GPIOs (general purpose input/output) intere Pullup- /Pulldown-Widerstände hat. \glqq Wenn man einen Pin, an dem z.B. ein Sensor hängt, mit pinMode(5, INPUT) konfiguriert, dann hat der Pin keinen definierten Wert.
+Erwähnenswert ist auch, dass der ESP32 an manchen GPIOs intere Pullup- /Pulldown-Widerstände hat. \glqq Wenn man einen Pin, an dem z.B. ein Sensor hängt, mit pinMode(5, INPUT) konfiguriert, hat der Pin keinen definierten Pegel.
 Aus diesem Grund kann er solange zwischen HIGH und LOW schwanken, bis ihm ein Zustand zugeschrieben wird. \grqq{} ... \glqq Dafür hat der ESP32 interne Pullup- / Pulldown-Widerstände, die zugeschaltet werden können. Diese können mit INPUT\_PULLUP als Argument im Befehl pinMode() eingeschaltet werden.
 Bei INPUT\_PULLUP wird der Pin als Eingang deklariert und wenn er nicht beschaltet ist wird dieser auf HIGH gesetzt.
 Bei INPUT\_PULLDOWN hingegen wird der Eingang auf LOW gesetzt.\grqq{} Pullup- /Pulldown-Widerstände sind essenziell für einen sauber konfigurierten Tactile-Button.
@@ -195,16 +204,16 @@ Eine elektrische Überlast kann etliche Gründe haben, darunter:
 \newline
 Zitat: \glqq Hier kommt es zur Zersetzung der Elektrolytflüssigkeit und infolgedessen zur Bildung leicht brennbarer Gase. Wird anschließend versucht, die tiefentladenen Lithium-Ionen-Zellen wieder aufzuladen, kann die zugeführte Energie durch das Fehlen von Elektrolytflüssigkeit nicht mehr korrekt umgesetzt werden. Es kann zum Kurzschluss beziehungsweise zum Brand kommen.\grqq{} (vgl. \url{https://www.denios.de/services/denios-magazin/gefahren-im-umgang-mit-lithium-ionen-akkus})
 \end{itemize}
-Eine mechanische Beschädigung jeglicher Art kann zu Kurzschlüssen im inneren der Zelle führen. Da unser Gerät nicht dafür gemacht ist, ständig in Bewegung zu sein, spielt dies keine zu große Rolle, es muss jedoch trotzdem ausreichend Schutz (durch das Gehäuse) vorhanden sein.
+Eine mechanische Beschädigung jeglicher Art kann zu Kurzschlüssen im inneren der Zelle führen. Da unser Gerät nicht dafür gemacht ist, ständig in Bewegung zu sein, spielt dies keine zu große Rolle, es muss jedoch trotzdem ausreichend Schutz gegeben sein, was durch das Gehäuse sichergestellt wird.
 \vspace{4mm}\newline
-Wie oben schon kurz erwähnt, muss viel Wert auf die richtige Lagerung/Kühlung des Akkus gelegt werden. Wird dieser zu heiß (etwa durch den Mikroprozessor oder sonstige Bauteile) oder durch äußere Einflüsse beschädigt kann es zum Brand kommen.
+Wie oben schon kurz erwähnt, muss großer Wert auf die richtige Lagerung/Kühlung des Akkus gelegt werden. Wird dieser zu heiß (etwa durch den Mikrocontroller oder sonstige Bauteile) oder durch äußere Einflüsse beschädigt kann es zum Brand kommen.
 \vspace{4mm}\newline
 Man kann daraus schließen, dass jeder kleinste Fehler beispielsweise zu einem Brand oder sogar einer Explosion des Akkus führen kann. Es ist daher wichtig, den Akku mit absoluter Vorsicht zu handhaben. Ausreichend Tests (Betriebstemperatur, etc.), richtige Konfiguration des Ladereglers und die Auswahl des Akkus sind ausschlaggebend für die Sicherheit des Endverbrauchers und dessen Umfeld.
 
 (vgl. \url{https://www.denios.de/services/denios-magazin/gefahren-im-umgang-mit-lithium-ionen-akkus})
 
 \textbf{Laderegler}\newline
-Für einen optimalen Ladeprozess und Schutz des Akkus wird ein Laderegler verwendet. Dieser regelt somit den Ladevorgang des Akkus und hört auf zu laden, sobald dieser voll ist. Der Aufbau dieses Ladereglers ist nicht kompliziert, es gibt jeweils einen Plus- und Minuspol für den Eingang (USB-C Buchse), den Akku (im englischen auch als Battery bezeichnet) und den Ausgang.
+Für einen optimalen Ladeprozess und Schutz des Akkus wird ein spezieller Laderegler verwendet. Dieser regelt somit den Ladevorgang des Akkus und hört auf zu laden, sobald dieser voll ist. Der Aufbau dieses Ladereglers ist nicht kompliziert, es gibt jeweils einen Plus- und Minuspol für den Eingang (USB-C Buchse), den Akku (im englischen auch als Battery bezeichnet) und den Ausgang.
 \subsection{Auswahl Technologien}
 \subsubsection{Protokolle}
 In diesem Kapitel geht es um die Recherche und Auswahl von Protokollen, die für den Austausch von Daten verwendet wurden.
@@ -497,7 +506,7 @@ Das Adaptergehäuse trägt einen wesentlichen Teil zur Sicherheit des Endverbrau
 Die Grundlage für den Prototyp bildet ein Kasten mit Deckel.\newline
 Das Gehäuse wurde mit frei schwebenden, jedoch an den Wänden befestigten Stützen ausgestattet, um den Mikrocontroller fest montieren zu können. Der Prototyp wurde zudem mit kleinen Zylindern auf den Stützen ausgestattet, um den Mikrocontroller mit seinen bereits Vorhandenen Aussparungen darauf platzieren zu können. Der Digital-/Analogwandler und der Akku-Laderegler finden auch auf solchen Stützen ihren Platz. Der Gedanke dahinter war, den Akku unter den Bauteilen zu platzieren. Mehr dazu im Teil "Wärmeableitung". Zudem wurden in einer Wand des Gehäuses Aussparungen für die Buchsen platziert. Die Aussparungen für die RGB-LED und den Taster wurden im Deckel platziert. Eine Art Abdeckung für den Taster selbst wird auf diesen geklebt um ein gleichbleibendes Erscheinungsbild des Gehäuses zu behalten. Der Deckel, der von oben auf das Gehäuse gedrückt wird, schließt dieses. Im Deckel ist zusätzlich ein Belüftungsgitter eingelassen.
 \subsubsection{Wärmeableitung}
-Wärmeableitung ist wichtig, da Mikroprozessoren, wie alle anderen Prozessoren auch, bei intensivem Betrieb Hitze entwickeln. Laut einer eigens durchgeführten Messung wird der in diesem Fall eingesetzte ESP32 meistens nur rund 38°C warm. Bei hoher Rechenleistung sind jedoch auch höhere Temperaturen möglich. Der ESP32 hat laut Hersteller eine mögliche Betriebstemperatur von –40°C bis +125°C. Damit die entstandene Wärme gut ableiten kann und keine der Komponenten beeinflusst (vor allem den Akku, da dieser bei hohen Temperaturen Explosionsgefahr ausgesetzt ist), wird der Mikrocontroller im Gehäuse oben, also auf Stützen angebracht. Die aufsteigende Wärme kann somit nach oben durch das dafür vorgesehene Gitter entweichen und staut sich somit nicht im Inneren des Gehäuses. Der Akku liegt dementsprechend unter dem Mikrocontroller und allen anderen Komponenten und wird durch die abstrahlende Hitze dementsprechend nur etwas wärmer als Raumtemperatur.
+Wärmeableitung ist wichtig, da Mikrocontroller, wie alle anderen Prozessoren auch, bei intensivem Betrieb Hitze entwickeln. Laut einer eigens durchgeführten Messung wird der in diesem Fall eingesetzte ESP32 meistens nur rund 38°C warm. Bei hoher Rechenleistung sind jedoch auch höhere Temperaturen möglich. Der ESP32 hat laut Hersteller eine mögliche Betriebstemperatur (Umgebungstemperatur) von –40°C bis +125°C. Damit die entstandene Wärme gut ableiten kann und keine der Komponenten stark beeinflusst (vor allem den Akku, da dieser bei hohen Temperaturen eine Explosionsgefahr darstellt), wird der Mikrocontroller im Gehäuse oben, also auf Stützen angebracht. Die aufsteigende Wärme kann somit nach oben durch das dafür vorgesehene Gitter entweichen und staut sich somit nicht im Inneren des Gehäuses. Der Akku liegt dementsprechend unter dem Mikrocontroller und allen anderen Komponenten und wird durch die abstrahlende Hitze dementsprechend nur etwas wärmer als Raumtemperatur.
 \vspace{4mm}\newline
 vgl. \url{https://www.espressif.com/en/products/socs/esp32}
 \subsubsection{Virtuelles 3D-Design}
@@ -548,7 +557,7 @@ vgl. \url{https://www.autodesk.com/de/products/fusion-360/overview}\newline
 vgl. \url{https://www.elektronik-kompendium.de/sites/com/2009021.htm}
 
 \subsection{Fertigung Adaptergehäuse}
-Das Material unseres Gehäuses wurde auf Kunststoff begrenzt. Für die Fertigung von Kunststoffgehäusen gibt es hauptsächlich diese Möglichkeiten, welche für uns in Frage kommen:
+Das Material unseres Gehäuses wurde auf Kunststoff begrenzt. Für die Fertigung von Kunststoffgehäusen gibt es hauptsächlich diese Möglichkeiten (in diesem Fall kommt mangels Alternativen nur der 3D-Druck in Frage): 
 \vspace{4mm}\newline
 \textbf{Spritzgießen} \newline
 \glqq Beim Spritzgießen wird der Kunststoff aus einem Plastifiziergerät (erwärmt den Kunststoff auf Schmelztemperatur) in einen Hohlraum (Formwerkzeug) gespritzt, in welchem er erst verdichtet wird und dann erkaltet.\grqq \newline 
@@ -557,7 +566,7 @@ Der große Nachteil sind jedoch die hohen Stückkosten für die Formwerkzeuge.\v
 vgl. \url{https://www.chemie.de/lexikon/Kunststoffverarbeitung.html}
 \vspace{4mm}\newline
 \textbf{3D-Druck} \newline
-Die zwei gängigsten 3D-Druck-Methoden sind Filament und Resin Harz. Aufgrund des hohen Aufwands, den ein Resin-Drucker mit sich bringt, wurde für dieses Projekt die Methode mit Filament gewählt. \newline
+Die zwei gängigsten 3D-Druck-Methoden sind Filament und Resin (Harz). Aufgrund des hohen Aufwands, den ein Resin-Drucker mit sich bringt, wurde für dieses Projekt die Methode mit Filament gewählt. \newline
 Beim 3D-Drucken durch Fused Deposition Modeling (Schichtschmelzverfahren) wird Kunststoff in Drahtform (Filament) (die häufigsten Dicken sind 2,85mm (allgemein als 3mm bezeichnet) und 1,75mm wobei die 1,75mm Version weltweit am häufigsten verbreitet ist) durch beheizte Düsen geleitet und somit geschmolzen. Das nun weiche Filament wird in Schichten auf die Druckplatte aufgetragen und erhärtet kurz darauf. Durch dieses Schichten lassen sich präzise Körper aus Kunststoff bauen.
 \vspace{4mm}\newline
 vgl. \url{https://www.printer-care.de/de/drucker-ratgeber/wie-funktioniert-ein-3d-drucker}\newline
@@ -567,8 +576,8 @@ vgl. \url{https://help.prusa3d.com/de/glossary/175-mm_134816}
 Die Gehäuse-Prototypen wurden mit einem \glqq PRUSA MK4S\grqq{} 3D-Drucker gefertigt. Alle FFF-Drucker von Prusa sind grundsätzlich für 1,75-Filament konfiguriert.
 \vspace{4mm}\newline
 \textbf{Druckeinstellungen} \newline
-Die Temperatur der Build Plate lag bei uns Standartmäßig auf 60°C. Die Drucktemperatur, also die der Nozzle (Düse) wurde beim ersten Layer auf 200°C eingestellt (praktisch 190°C), die finale Temperatur lag bei 185°C. \newline
-Das erste Layer wurde 0,15mm Dick gedruckt, die restlichen 0,2mm dick. \newline
+Die Temperatur der Build Plate lag bei uns Standartmäßig auf 60°C. Die Drucktemperatur, also die der Nozzle (Düse) lag bei etwa 185°C. \newline
+Das erste Layer wurde mit 0,15mm Dicke gedruckt, die restlichen mit 0,2mm Dicke. \newline
 Als Infill-Pattern wurde \glqq Grid\grqq{} mit 20\% Dichte und 4mm Line-Distance gewählt. \newline
 Das Drucken verlief mit den von uns gewählten Einstellungen reibungslos, jedoch an manchen Stellen etwas unsauber. Beispielsweise war das Ergebnis der Aussparung für den Taster im Deckel des Adapters so ungenau, dass der Durchmesser des Aufsatzes für den Taster um 0,5mm verkleinert werden musste. Sonstige Ungenauheiten stellten, zumindest abgesehen von der Optik, kein Problem dar. \newline
 Man darf auch nicht vergessen, dass gewisse Drucke (Gehäusedeckel und -basis) Stützstrukturen erfordern. Stützstrukturen sind Konstruktionen, die der Drucker zur Unterstützung stark überhängender oder freischwebender Strukturen druckt. Jedoch sind diese nur temporär. Da das Stützmaterial nicht so fest an der Druckfigur haftet, wie die Teile der Figur selbst, kann es nach dem Druck mit einer herkömmlichen Zange entfernt werden. Diese Stützstrukturen lassen sich in der Slicer-Software genau einstellen und konfigurieren. So kann man unter anderem sicherstellen, dass das Entfernen einfach möglich ist und die Stützstruktur die Figur selbst nicht all zu stark beeinflusst.
@@ -577,7 +586,7 @@ vgl. \url{https://help.prusa3d.com/de/glossary/175-mm_134816}
 \subsection{Zusammensetzen des Prototypen}
 Die Komponenten werden jeweils einzeln direkt mit dem Mikrocontroller verbunden. Bei diesem Prototyp lässt sich der Mikrocontroller nämlich vorerst als Platine betrachten, welcher zusätzliche Komponenten zugefügt werden.
 \subsubsection{Schaltplan}
-Die Pinbelegung zwischen den Komponenten und dem Mikrocontroller ist folgendermaßen gelöst:
+Die Verdrahtung zwischen den Komponenten und dem Mikrocontroller ist folgendermaßen gelöst:
 \vspace{4mm}\newline
 \textbf{Digital-/Analogwandler} \newline
 BCK (Wandler) an D26 (Mikrocontroller)\newline
@@ -594,17 +603,17 @@ G (LED) an D2 (Mikrocontroller)\newline
 B (LED) an D4 (Mikrocontroller)\newline
 GND (LED) an GND (Mikrocontroller)\newline
 \subsubsection{Verdrahten}
-Bei unserem Prototypen wurden alle Komponenten, der Pinbelegung entsprechend, mit dem Mikrocontroller verbunden. Dabei kamen Drahtkabel, Litzenkabel und Steckkabel (Litze) zur Verwendung. Dies hatte hauptsächlich den Grund, dass zum Beispiel nur mit Drähten nicht alle Verbindungen optimal möglich gewesen wären. Das ist hauptsächlich der Löthaftung an einigen Komponenten zu verschulden. Um keine Wackelkontakte, oder gar unterbrochene Verbindungen zu riskieren, wurde für jede Verbindung einzeln entschieden, welches der genannten Verfahren sich am besten eignet. So entstanden zum Beispiel Steckverbindungen, gelötete Drahtverbindungen oder Mischungen aus gelöteten Litze- und Steckverbindungen (jeweils am anderen Ende des Kabels).
+Bei unserem Prototypen wurden alle Komponenten, der Pinbelegung entsprechend, mit dem Mikrocontroller verbunden. Dabei kamen Drahtkabel, Litzenkabel und Steckkabel (herkömmliche Jumper Kabel) zur Verwendung. Dies hatte hauptsächlich den Grund, dass zum Beispiel nur mit Drähten nicht alle Verbindungen optimal möglich gewesen wären. Das ist hauptsächlich der Löthaftung an einigen Komponenten geschuldet. Um keine Wackelkontakte, oder gar unterbrochene Verbindungen zu riskieren, wurde für jede Verbindung einzeln entschieden, welches der genannten Verfahren sich am besten eignet. So entstanden zum Beispiel Steckverbindungen, gelötete Drahtverbindungen oder Mischungen aus gelöteten Litze- und Steckverbindungen (jeweils am anderen Ende des Kabels).
 \vspace{4mm}\newline
 \textbf{Löten}\newline
 \glqq Das Löten ist das Verbinden von Metallteilen durch eine Metalllegierung (das Lot) unter Einfluss von Wärme/Hitze.\grqq{} \newline
-Man unterscheidet grundsätzlich zwischen Weich- und Hartlöten. Ausschlaggebend dabei ist die Schmelztemperatur des Lots. So haben Weichlote eine Schmelztemperatur unter 450°C während Hartlote erst ab 450°C bis etwa 1100°C schmelzen. \glqq Das Weichlot wird verwendet, wenn die Verbindung zweier Metalle dicht und Leitfähig sein soll und um die mechanische Belastbarkeit keine hohe Anforderung gestellt wird. \grqq{} Weichlöten war für dieses Projekt also die bessere Wahl. \newline
+Man unterscheidet grundsätzlich zwischen Weich- und Hartlöten. Ausschlaggebend dabei ist die Schmelztemperatur des Lots. So haben Weichlote eine Schmelztemperatur unter 450°C während Hartlote erst ab 450°C bis etwa 1100°C schmelzen. \glqq Das Weichlot wird verwendet, wenn die Verbindung zweier Metalle dicht und Leitfähig sein soll und um die mechanische Belastbarkeit keine hohe Anforderung gestellt wird. \grqq{} Da die in diesem Projekt benutzten Bauteile jedoch keine höheren Temperaturen vertragen, war Weichlöten für dieses Projekt die einzige Wahl. \newline
 Um einen Lötvorgang aus eigener Erfahrung möglichst kurz zu beschreiben:\newline
 Man hat beispielsweise zwei Kabel die man verbinden möchte und die Verbindung sollte möglichst fest halten und gut leiten. Zuerst müssen die Enden der Kabel abisoliert werden. Es kann helfen, wenn man die Enden schon vor der eigentlichen Verbindung sozusagen etwas \glqq verzinnt\grqq{}. Nun richtet man die Kabel zueinander so aus, wie sie später fixiert sein sollen. Man fährt mit dem Ende des Lots (umgangssprachlich Lötzinn) an die heiße Spitze des Lötkolben und schmilzt so etwas Lot auf die Verbindungsstelle (nicht zu viel, sonst erhält man dicke Tropfen; jedoch auch nicht zu wenig, da die Verbindung dann möglicherweise nicht ausreichend hält). Nach dem abkühlen macht es Sinn, die Lötverbindung durch leichtes rütteln oder ziehen zu überprüfen. Löten ist letztendlich aber ein Handwerk, das für saubere Ergebnisse Geduld und Übung vorraussetzt.
 \vspace{4mm}\newline
 (vgl. \url{https://www.elektronik-kompendium.de/sites/grd/0705261.htm})
 \subsubsection{Kleben}
-Damit alle Komponenten und Teile sicher im Gehäuse sitzen und nichts klappert oder sich gar bewegt, müssen gewisse Komponenten angeklebt werden. Vorallem bei den Buchsen ist eine feste Verbindung wichtig, da diese bei jedem Ein- und Ausstecken großer Belastung ausgesetzt sind. Somit wurden der Laderegler und der Digital-/Analogwandler an den dafür gedruckten Stützen angeklebt. Zudem wurde der gedruckte Aufsatz in Gehäuseoptik für den Taster auf diesem befestigt. Für alle Klebverbindungen im Adapter wurden entweder herkömmliches Cyanacrylat (Superkleber) oder Schmelzklebstoff (Heißkleber) verwendet.
+Damit alle Komponenten und Teile sicher im Gehäuse sitzen und nichts klappert oder sich gar bewegt, worunter die Lötverbindung leiden würde, müssen gewisse Komponenten angeklebt werden. Vorallem bei den Buchsen ist eine feste Verbindung wichtig, da diese bei jedem Ein- und Ausstecken großer Belastung ausgesetzt sind. Somit wurden der Laderegler und der Digital-/Analogwandler an den dafür gedruckten Stützen angeklebt. Zudem wurde der gedruckte Aufsatz in Gehäuseoptik für den Taster auf diesem befestigt. Für alle Klebverbindungen im Adapter wurden entweder herkömmliches Cyanacrylat (Superkleber) oder Schmelzklebstoff (Heißkleber) verwendet.
 
 \section{Testen und Fehlerbehebung}
 \subsection{Testen des Gesamtsystems}
@@ -617,12 +626,12 @@ Positives:\newline
 Die äußere Verarbeitung des Multi Room Sound-Adapters ist für einen Prototypen sehr gut ausgefallen. Fertig zusammengesetzt wirkt das Gerät stabil und wertig. Es hat etwas Gewicht und nichts klappert wenn man es schüttelt. Die Buchsen halten der für Buchsen gemäßen Belastung stand. Beide der Buchsen lassen sich problemlos benutzen, beim Ein- und Ausstecken gibt es keine Probleme. Der Taster des Adapters ist, zumindest unseren Erwartungen nach, besonders gut ausgefallen, er hat ein angenehmes Klickfeeling und lässt sich reibungslos betätigen. Die Statusanzeige funktioniert so wie sie soll.
 
 Negatives:\newline
-Man sieht dem Gehäuse bei guter Beleuchtung eindeutig an, dass es 3D-gedruckt wurde. Manche Oberflächen wirken eher geriffelt als flach. Diese Oberflächeneigenschafen sind völlig normal für 3D-Drucker und beeinflussen die Funktionsweise des Gesamtsystems kaum. Bei einem tatsächlichen Vetrieb des Produkts müsste man sich jedoch noch einmal genau über Herstellungsmöglichkeiten für kleinere Gehäuse informieren oder das Gehäuse, wie auch bei der Auswahl des Fertigungsverfahrens schon kurz diskutiert, einfach Spritzgießen lassen. Ein Spritzguss hat nämlich bessere Oberflächeneigenschaften als ein 3D-Druck.
+Man sieht dem Gehäuse bei guter Beleuchtung eindeutig an, dass es 3D-gedruckt wurde. Manche Oberflächen wirken eher geriffelt als flach. Diese Oberflächeneigenschafen sind völlig normal für 3D-Drucker und beeinflussen die Funktionsweise des Gesamtsystems kaum. Bei einem tatsächlichen Vetrieb des Produkts müsste man sich jedoch noch einmal genau über Herstellungsmöglichkeiten für kleinere Gehäuse informieren oder das Gehäuse, wie auch bei der Auswahl des Fertigungsverfahrens schon kurz diskutiert, einfach Spritzgießen lassen. Ein Spritzguss hat bessere Oberflächeneigenschaften als ein 3D-Druck.
 \vspace{4mm}\newline
 (vgl. \url{https://2d-spritzguss.de/3d-druck-spritzguss})
 \vspace{4mm}\newline
 \textbf{Funktion}\newline
-Der Adapter funktioniert und erfüllt seine Funktionen ohne grobe Fehler oder Komplikationen.
+Der Adapter funktioniert und erfüllt seine Funktionen ohne Fehler oder Komplikationen.
 \vspace{4mm}\newline
 \textbf{Usability}\newline
 Die Anwendung des Adapter ist grundsätzlich angenehm. Es gilt jedoch zu bedenken, dass uns sowohl Software als auch Hardware schon bekannt sind. Wie sich die Usability verändert, wenn der Adapter von jemandem benutzt wird, der ihn noch nie gesehen hat, kann man nur schlecht sagen. Dafür wären mehrere Produkttests nötig. Falls ein Vetrieb des Produkts in betracht gezogen werden würde, wäre dies auf jeden Fall ein wichtiger Punkt.\newline

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.6.26)  17 DEC 2024 22:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.6.26)  26 DEC 2024 18:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -554,151 +554,140 @@ Underfull \hbox (badness 10000) in paragraph at lines 83--85
 \tf@toc=\write4
 \openout4 = `DA-Main.toc'.
 
- [6]
+<./images//allgemein/MSA_Konzept.png, id=332, 432.61626pt x 572.1375pt>
+File: ./images//allgemein/MSA_Konzept.png Graphic file (type png)
+<use ./images//allgemein/MSA_Konzept.png>
+Package pdftex.def Info: ./images//allgemein/MSA_Konzept.png  used on input lin
+e 92.
+(pdftex.def)             Requested size: 346.09348pt x 457.71062pt.
+ [6] [7
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.103 
+       <./images//allgemein/MSA_Konzept.png>]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-10.
+17.
 
 (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [7]
-Underfull \hbox (badness 10000) in paragraph at lines 147--149
-
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 154--164
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 154--164
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 154--164
+) [8]
+Underfull \hbox (badness 10000) in paragraph at lines 154--156
 
  []
 
 [9]
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--173
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--173
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--173
+
+ []
+
+[10]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-69.
+78.
  (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-[10{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}
+[11{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}
 ]
-Overfull \hbox (19.30779pt too wide) in paragraph at lines 204--205
+Overfull \hbox (19.30779pt too wide) in paragraph at lines 213--214
 []\T1/lmr/m/n/10 (vgl. []$\T1/lmtt/m/n/10 https : / / www . denios . de / servi
 ces / denios -[] magazin / gefahren -[] im -[] umgang -[] mit -[] lithium -[] i
 onen -[] akkus$[]\T1/lmr/m/n/10 ) 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 210--216
+Underfull \hbox (badness 10000) in paragraph at lines 219--225
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 210--216
+Underfull \hbox (badness 10000) in paragraph at lines 219--225
 
  []
 
-[11]
-Overfull \hbox (8.73782pt too wide) in paragraph at lines 226--246
+[12]
+Overfull \hbox (8.73782pt too wide) in paragraph at lines 235--255
 \T1/lmr/m/n/10 fent-li-chung von wis-sen-schaft-li-chen Do-ku-men-ten."(�berset
 zung des eng-li-schen Ori-gi-nals von: https://www.latex-
  []
 
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 247--270
-
- []
-
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 271--272
+Underfull \hbox (badness 10000) in paragraph at lines 256--279
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 288--314
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 288--314
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 288--314
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 288--314
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 288--314
+Underfull \hbox (badness 10000) in paragraph at lines 280--281
 
  []
 
 [15]
-<./images//software/uml_microcontroller.png, id=394, 1918.16624pt x 1063.975pt>
+Underfull \hbox (badness 10000) in paragraph at lines 297--323
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--323
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--323
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--323
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--323
+
+ []
+
+[16]
+<./images//software/uml_microcontroller.png, id=401, 1918.16624pt x 1063.975pt>
 
 File: ./images//software/uml_microcontroller.png Graphic file (type png)
 <use ./images//software/uml_microcontroller.png>
 Package pdftex.def Info: ./images//software/uml_microcontroller.png  used on in
-put line 320.
+put line 329.
 (pdftex.def)             Requested size: 575.45433pt x 319.19496pt.
- [16
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.323 \textbf{Mode}
-                    \\]
-Underfull \hbox (badness 10000) in paragraph at lines 323--340
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 323--340
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 323--340
-
- []
-
-[17
+ [17
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.340 \end{figure}
-                   <./images//software/uml_microcontroller.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 341--357
-
- []
-
-<./images//software/uml_ablauf_esp32_setup.png, id=406, 448.67625pt x 1351.0475
-pt>
-File: ./images//software/uml_ablauf_esp32_setup.png Graphic file (type png)
-<use ./images//software/uml_ablauf_esp32_setup.png>
-Package pdftex.def Info: ./images//software/uml_ablauf_esp32_setup.png  used on
- input line 361.
-(pdftex.def)             Requested size: 224.33757pt x 675.52211pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 358--363
+l.332 \textbf{Mode}
+                    \\]
+Underfull \hbox (badness 10000) in paragraph at lines 332--349
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 358--363
+Underfull \hbox (badness 10000) in paragraph at lines 332--349
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 332--349
 
  []
 
@@ -707,376 +696,404 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.363 \end{figure}
-                  ] [19]
-Overfull \vbox (46.76031pt too high) has occurred while \output is active []
+l.349 \end{figure}
+                   <./images//software/uml_microcontroller.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 350--366
+
+ []
+
+<./images//software/uml_ablauf_esp32_setup.png, id=413, 448.67625pt x 1351.0475
+pt>
+File: ./images//software/uml_ablauf_esp32_setup.png Graphic file (type png)
+<use ./images//software/uml_ablauf_esp32_setup.png>
+Package pdftex.def Info: ./images//software/uml_ablauf_esp32_setup.png  used on
+ input line 370.
+(pdftex.def)             Requested size: 224.33757pt x 675.52211pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 367--372
+
+ []
 
 
-[20
+Underfull \hbox (badness 10000) in paragraph at lines 367--372
+
+ []
+
+[19
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.364 I
-       m Setup werden zuerst Konstanten, welche später im Programm benötig...
- <./images//software/uml_ablauf_esp32_setup.png>]
-<./images//software/uml_ablauf_esp32_loop.png, id=423, 843.15pt x 1325.95375pt>
-
-File: ./images//software/uml_ablauf_esp32_loop.png Graphic file (type png)
-<use ./images//software/uml_ablauf_esp32_loop.png>
-Package pdftex.def Info: ./images//software/uml_ablauf_esp32_loop.png  used on 
-input line 367.
-(pdftex.def)             Requested size: 421.57396pt x 662.97527pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 364--369
-
- []
+l.372 \end{figure}
+                  ] [20]
+Overfull \vbox (46.76031pt too high) has occurred while \output is active []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 364--369
-
- []
-
-[21]
-Overfull \vbox (34.21347pt too high) has occurred while \output is active []
-
-
-[22
+[21
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.370 A
-       m Anfang der Loop-Funktion wird abgefragt ob der Modus auf Error gese...
- <./images//software/uml_ablauf_esp32_loop.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 376--385
+l.373 I
+       m Setup werden zuerst Konstanten, welche später im Programm benötig...
+ <./images//software/uml_ablauf_esp32_setup.png>]
+<./images//software/uml_ablauf_esp32_loop.png, id=430, 843.15pt x 1325.95375pt>
+
+File: ./images//software/uml_ablauf_esp32_loop.png Graphic file (type png)
+<use ./images//software/uml_ablauf_esp32_loop.png>
+Package pdftex.def Info: ./images//software/uml_ablauf_esp32_loop.png  used on 
+input line 376.
+(pdftex.def)             Requested size: 421.57396pt x 662.97527pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 373--378
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 386--393
+Underfull \hbox (badness 10000) in paragraph at lines 373--378
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 386--393
-
- []
+[22]
+Overfull \vbox (34.21347pt too high) has occurred while \output is active []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 386--393
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 386--393
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 386--393
-
- []
-
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 394--411
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 394--411
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 394--411
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 394--411
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 394--411
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 394--411
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 394--411
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 394--411
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 394--411
-
- []
-
-[24]
-Underfull \hbox (badness 10000) in paragraph at lines 412--433
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 412--433
-
- []
-
-[25]
-<./images//software/app_layout.png, id=447, 238.491pt x 400.49625pt>
-File: ./images//software/app_layout.png Graphic file (type png)
-<use ./images//software/app_layout.png>
-Package pdftex.def Info: ./images//software/app_layout.png  used on input line 
-436.
-(pdftex.def)             Requested size: 119.2452pt x 200.24763pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 439--447
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 439--447
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 439--447
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 439--447
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 439--447
-
- []
-
-[26
+[23
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.447 \subsubsection
-                    {Navigation}
+l.379 A
+       m Anfang der Loop-Funktion wird abgefragt ob der Modus auf Error gese...
+ <./images//software/uml_ablauf_esp32_loop.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 385--394
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 395--402
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 395--402
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 395--402
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 395--402
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 395--402
+
+ []
+
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 403--420
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 403--420
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 403--420
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 403--420
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 403--420
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 403--420
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 403--420
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 403--420
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 403--420
+
+ []
+
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 421--442
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 421--442
+
+ []
+
+[26]
+<./images//software/app_layout.png, id=454, 238.491pt x 400.49625pt>
+File: ./images//software/app_layout.png Graphic file (type png)
+<use ./images//software/app_layout.png>
+Package pdftex.def Info: ./images//software/app_layout.png  used on input line 
+445.
+(pdftex.def)             Requested size: 119.2452pt x 200.24763pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 448--456
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 448--456
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 448--456
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 448--456
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 448--456
+
+ []
+
+[27
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.447 \subsubsection
-                    {Navigation} <./images//software/app_layout.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 450--478
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 450--478
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 450--478
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 450--478
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 450--478
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 450--478
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 450--478
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 450--478
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 450--478
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 450--478
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 450--478
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 450--478
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 450--478
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 450--478
-
- []
-
-[27] [28]
-Underfull \hbox (badness 10000) in paragraph at lines 479--494
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 479--494
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 479--494
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 479--494
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 479--494
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 479--494
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 479--494
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 479--494
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 479--494
-
- []
-
-[29]
-<./images//hardware/stuetzen_fusion.png, id=468, 505.89pt x 399.6359pt>
-File: ./images//hardware/stuetzen_fusion.png Graphic file (type png)
-<use ./images//hardware/stuetzen_fusion.png>
-Package pdftex.def Info: ./images//hardware/stuetzen_fusion.png  used on input 
-line 512.
-(pdftex.def)             Requested size: 252.94437pt x 199.81746pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 504--515
-
- []
-
-[30]
-<./images//hardware/basis-draufsicht_fusion.png, id=473, 446.09518pt x 379.8476
-7pt>
-File: ./images//hardware/basis-draufsicht_fusion.png Graphic file (type png)
-<use ./images//hardware/basis-draufsicht_fusion.png>
-Package pdftex.def Info: ./images//hardware/basis-draufsicht_fusion.png  used o
-n input line 521.
-(pdftex.def)             Requested size: 223.04704pt x 189.92337pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 516--524
-
- []
-
-<./images//hardware/basis-inhalt_picture.png, id=474, 806.01125pt x 659.46375pt
->
-File: ./images//hardware/basis-inhalt_picture.png Graphic file (type png)
-<use ./images//hardware/basis-inhalt_picture.png>
-Package pdftex.def Info: ./images//hardware/basis-inhalt_picture.png  used on i
-nput line 527.
-(pdftex.def)             Requested size: 225.68161pt x 184.64859pt.
-[31
+l.456 \subsubsection
+                    {Navigation}
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.530 \end{figure}
-                   <./images//hardware/stuetzen_fusion.png>]
-<./images//hardware/gitter-schema_fusion.png, id=482, 522.23679pt x 451.6875pt>
-
-File: ./images//hardware/gitter-schema_fusion.png Graphic file (type png)
-<use ./images//hardware/gitter-schema_fusion.png>
-Package pdftex.def Info: ./images//hardware/gitter-schema_fusion.png  used on i
-nput line 539.
-(pdftex.def)             Requested size: 156.67224pt x 135.5073pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 532--542
+l.456 \subsubsection
+                    {Navigation} <./images//software/app_layout.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 459--487
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 459--487
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 459--487
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 459--487
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 459--487
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 459--487
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 459--487
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 459--487
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 459--487
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 459--487
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 459--487
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 459--487
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 459--487
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 459--487
+
+ []
+
+[28] [29]
+Underfull \hbox (badness 10000) in paragraph at lines 488--503
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 488--503
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 488--503
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 488--503
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 488--503
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 488--503
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 488--503
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 488--503
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 488--503
+
+ []
+
+[30]
+<./images//hardware/stuetzen_fusion.png, id=475, 505.89pt x 399.6359pt>
+File: ./images//hardware/stuetzen_fusion.png Graphic file (type png)
+<use ./images//hardware/stuetzen_fusion.png>
+Package pdftex.def Info: ./images//hardware/stuetzen_fusion.png  used on input 
+line 521.
+(pdftex.def)             Requested size: 252.94437pt x 199.81746pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 513--524
+
+ []
+
+[31]
+<./images//hardware/basis-draufsicht_fusion.png, id=481, 446.09518pt x 379.8476
+7pt>
+File: ./images//hardware/basis-draufsicht_fusion.png Graphic file (type png)
+<use ./images//hardware/basis-draufsicht_fusion.png>
+Package pdftex.def Info: ./images//hardware/basis-draufsicht_fusion.png  used o
+n input line 530.
+(pdftex.def)             Requested size: 223.04704pt x 189.92337pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 525--533
+
+ []
+
+<./images//hardware/basis-inhalt_picture.png, id=482, 806.01125pt x 659.46375pt
+>
+File: ./images//hardware/basis-inhalt_picture.png Graphic file (type png)
+<use ./images//hardware/basis-inhalt_picture.png>
+Package pdftex.def Info: ./images//hardware/basis-inhalt_picture.png  used on i
+nput line 536.
+(pdftex.def)             Requested size: 225.68161pt x 184.64859pt.
 [32
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.542 \end{figure}
-                  
+l.539 \end{figure}
+                   <./images//hardware/stuetzen_fusion.png>]
+<./images//hardware/gitter-schema_fusion.png, id=489, 522.23679pt x 451.6875pt>
+
+File: ./images//hardware/gitter-schema_fusion.png Graphic file (type png)
+<use ./images//hardware/gitter-schema_fusion.png>
+Package pdftex.def Info: ./images//hardware/gitter-schema_fusion.png  used on i
+nput line 548.
+(pdftex.def)             Requested size: 156.67224pt x 135.5073pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 541--551
+
+ []
+
+[33
 pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.542 \end{figure}
-                   <./images//hardware/basis-draufsicht_fusion.png> <./images//
-hardware/basis-inhalt_picture.png>] [33
+l.551 \end{figure}
+                  
 pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.565 
+l.551 \end{figure}
+                   <./images//hardware/basis-draufsicht_fusion.png> <./images//
+hardware/basis-inhalt_picture.png>] [34
+pdfTeX warning (ext4): destination with the same identifier (name{figure.12}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.574 
        <./images//hardware/gitter-schema_fusion.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 580--596
+Underfull \hbox (badness 10000) in paragraph at lines 589--605
 
  []
 
-[34] [35]
-Underfull \hbox (badness 10000) in paragraph at lines 619--629
+[35] [36]
+Underfull \hbox (badness 10000) in paragraph at lines 628--638
 
  []
 
-[36] (DA-Main.lof [37])
+[37] (DA-Main.lof [38])
 \tf@lof=\write5
 \openout5 = `DA-Main.lof'.
 
- [38] (DA-Main.aux)
+ [39] (DA-Main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -1085,10 +1102,10 @@ Package rerunfilecheck Info: File `DA-Main.out' has not changed.
 (rerunfilecheck)             Checksum: 0066E61FBACE4A01192758F8640E2C6F;9201.
  ) 
 Here is how much of TeX's memory you used:
- 11577 strings out of 474486
- 186448 string characters out of 5743755
+ 11588 strings out of 474486
+ 186821 string characters out of 5743755
  1943542 words of memory out of 5000000
- 33570 multiletter control sequences out of 15000+600000
+ 33579 multiletter control sequences out of 15000+600000
  605319 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,11n,79p,1501b,614s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1098,9 +1115,9 @@ b><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb
 ><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb>
 <C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
 
-Output written on DA-Main.pdf (38 pages, 2525915 bytes).
+Output written on DA-Main.pdf (39 pages, 2544059 bytes).
 PDF statistics:
- 593 PDF objects out of 1000 (max. 8388607)
- 112 named destinations out of 1000 (max. 500000)
- 526 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 601 PDF objects out of 1000 (max. 8388607)
+ 114 named destinations out of 1000 (max. 500000)
+ 531 words of extra memory for PDF output out of 10000 (max. 10000000)
 
