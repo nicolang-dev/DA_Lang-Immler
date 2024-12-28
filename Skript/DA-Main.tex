@@ -1,4 +1,4 @@
-\documentclass[]{article}
+\documentclass[11pt]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -15,6 +15,18 @@
 \graphicspath{ {./images/} }
 \renewcommand{\listfigurename}{Abbildungen}
 \usepackage[margin=2.5cm]{geometry}
+\usepackage[onehalfspacing]{setspace}
+%\usepackage[headsepline]{scrlayer-scrpage}
+%\pagestyle{scrheadings}
+%\ohead{Multi-Room Sound Adapter}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{Multi-Room Sound Adapter}
+%\fancyfoot[LE, RO]{\thepage}
+\fancyfoot[L]{
+\includegraphics[scale=0.3]{/allgemein/htl-reutte_logo.png}
+}
 
 \title{\textbf{Multi-Room Sound Adapter}}
 \author{Nico Lang, Philipp Immler}
@@ -29,7 +41,6 @@
 \hspace*{-0.5cm}\includegraphics[scale=0.18]{/hardware/adapter-nahe_hg-transparent.png}
 \end{center}
 \end{figure}
-\thispagestyle{empty}
 
 \pagebreak
 
@@ -76,6 +87,7 @@ Hiermit versichere ich, dass ich die vorliegende Arbeit selbstständig verfasst 
 \end{flushright}
 
 \pagebreak
+
 \subsection{Abstract Deutsch}
 Die vorliegende Diplomarbeit beschäftigt sich mit der Entwicklung eines Multi-Room Sound Adapters. Ein einzelner Adapter besitzt dabei die Funktion, einen Audiostream aus dem Internet auf einen Line-Output auszugeben. So lassen sich die Adapter beispielsweise mit aktiven Lautsprechern per Klinkenkabel verbinden, um so Musik in voneinander getrennten Räumen abzuspielen. Welche Musik in welchem Raum spielt, ist frei konfigurierbar. Dabei erfolgt die Konfiguration per Smartphone-App. Das Endergebnis der Diplomarbeit sind somit der Adapter selbst (physischer Prototyp) und die dazugehörige Smartphone-App. \newline \\
 Die Diplomarbeit lässt sich grob in die drei Teile Planung, Entwicklung und Testen/Fehlerbehebung gliedern.
@@ -84,7 +96,10 @@ This diploma thesis deals with the development of a multi-room sound adapter. A 
 The thesis can be roughly divided into three parts: planning, development and testing/troubleshooting.
 \subsection{Danksagung}
 Wir bedanken uns bei den betreuenden Lehrpersonen Dipl. Ing. Dr. Peter L. Steger und Dipl. Päd. Johannes Köll für die kompetente Unterstützung.
+
+\pagebreak
 \tableofcontents
+\pagebreak
 
 \section{Einleitung}
 \begin{figure}[H]

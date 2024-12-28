@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.6.26)  26 DEC 2024 18:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.6.26)  28 DEC 2024 18:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -8,8 +8,8 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
 (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
-File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo
+File: size11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count187
 \c@section=\count188
@@ -387,8 +387,25 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@dimlist=\toks29
 
 (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 23
+(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
+Package: setspace 2022/12/04 v6.7b set line spacing
+)
+(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+Package: fancyhdr 2024/12/09 v4.5 Extensive control of page headers and footers
+
+\f@nch@headwidth=\skip56
+\f@nch@O@elh=\skip57
+\f@nch@O@erh=\skip58
+\f@nch@O@olh=\skip59
+\f@nch@O@orh=\skip60
+\f@nch@O@elf=\skip61
+\f@nch@O@erf=\skip62
+\f@nch@O@olf=\skip63
+\f@nch@O@orf=\skip64
+)
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 35
 .
+
 (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -400,25 +417,25 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 ) (DA-Main.aux)
 \openout1 = `DA-Main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-Package hyperref Info: Link coloring OFF on input line 23.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+Package hyperref Info: Link coloring OFF on input line 35.
  (DA-Main.out) (DA-Main.out)
 \@outlinefile=\write3
 \openout3 = `DA-Main.out'.
@@ -468,12 +485,12 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * \topmargin=-38.1381pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=10.0pt
+* \topskip=11.0pt
 * \footskip=30.0pt
-* \marginparwidth=65.0pt
-* \marginparsep=11.0pt
+* \marginparwidth=59.0pt
+* \marginparsep=10.0pt
 * \columnsep=10.0pt
-* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -483,617 +500,1512 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
-6.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
+8.
 (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
-6.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
+8.
 
 (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-26.
+38.
 
 (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-26.
+38.
 
 (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 26.
+(Font)              <12> on input line 38.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 26.
+(Font)              <8> on input line 38.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 26.
+(Font)              <6> on input line 38.
 <./images//hardware/adapter-nahe_hg-transparent.png, id=243, 2052.66875pt x 164
 2.135pt>
 File: ./images//hardware/adapter-nahe_hg-transparent.png Graphic file (type png
 )
 <use ./images//hardware/adapter-nahe_hg-transparent.png>
 Package pdftex.def Info: ./images//hardware/adapter-nahe_hg-transparent.png  us
-ed on input line 29.
+ed on input line 41.
 (pdftex.def)             Requested size: 369.46443pt x 295.57155pt.
  [1
 
 {C:/Users/nicol/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/nico
 l/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc} <./images//hardwa
 re/adapter-nahe_hg-transparent.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 38--49
+Underfull \hbox (badness 10000) in paragraph at lines 49--60
 
  []
 
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 53--54
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+<./images//allgemein/htl-reutte_logo.png, id=254, 264.99pt x 111.2958pt>
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 62.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[2 <./images//allgemein/htl-reutte_logo.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
 
  []
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 61.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 61.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 61.
+(Font)              <10.95> on input line 72.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 90.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 80--82
+Underfull \hbox (badness 10000) in paragraph at lines 92--94
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 83--85
+Underfull \hbox (badness 10000) in paragraph at lines 95--97
 
  []
 
-(DA-Main.toc [4] [5])
+
+Overfull \hbox (9.5906pt too wide) in paragraph at lines 95--97
+\T1/lmr/m/n/10.95 The the-sis can be rough-ly di-vi-ded in-to three parts: plan
+-ning, de-ve-lop-ment and tes-ting/troubleshooting. 
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 101.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[4] (DA-Main.toc
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 25.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[5]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 49.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[6])
 \tf@toc=\write4
 \openout4 = `DA-Main.toc'.
 
-<./images//allgemein/MSA_Konzept.png, id=332, 432.61626pt x 572.1375pt>
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 103.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[7]
+<./images//allgemein/MSA_Konzept.png, id=343, 432.61626pt x 572.1375pt>
 File: ./images//allgemein/MSA_Konzept.png Graphic file (type png)
 <use ./images//allgemein/MSA_Konzept.png>
 Package pdftex.def Info: ./images//allgemein/MSA_Konzept.png  used on input lin
-e 92.
+e 107.
 (pdftex.def)             Requested size: 346.09348pt x 457.71062pt.
- [6] [7
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 113.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[8
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.103 
+l.113 
        <./images//allgemein/MSA_Konzept.png>]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-17.
+32.
 
 (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [8]
-Underfull \hbox (badness 10000) in paragraph at lines 154--156
+)
 
- []
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 168.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 157--158
 
- []
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
 
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--173
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 168.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 163--173
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 163--173
-
- []
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
 
 [10]
+Underfull \hbox (badness 10000) in paragraph at lines 169--171
+
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 171.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 172--173
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--188
+
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 188.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[12]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-78.
+93.
  (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-[11{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}
-]
-Overfull \hbox (19.30779pt too wide) in paragraph at lines 213--214
-[]\T1/lmr/m/n/10 (vgl. []$\T1/lmtt/m/n/10 https : / / www . denios . de / servi
-ces / denios -[] magazin / gefahren -[] im -[] umgang -[] mit -[] lithium -[] i
-onen -[] akkus$[]\T1/lmr/m/n/10 ) 
- []
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
 
-Underfull \hbox (badness 10000) in paragraph at lines 219--225
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
- []
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 213.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 219--225
-
- []
-
-[12]
-Overfull \hbox (8.73782pt too wide) in paragraph at lines 235--255
-\T1/lmr/m/n/10 fent-li-chung von wis-sen-schaft-li-chen Do-ku-men-ten."(Überset
-zung des eng-li-schen Ori-gi-nals von: https://www.latex-
- []
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 256--279
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 213.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[14{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}
+]
+Underfull \hbox (badness 10000) in paragraph at lines 234--240
 
  []
 
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 280--281
+
+Underfull \hbox (badness 10000) in paragraph at lines 234--240
 
  []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 240.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 297--323
 
- []
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
 
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-Underfull \hbox (badness 10000) in paragraph at lines 297--323
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 270.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 297--323
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 297--323
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 297--323
-
- []
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
 
 [16]
-<./images//software/uml_microcontroller.png, id=401, 1918.16624pt x 1063.975pt>
 
-File: ./images//software/uml_microcontroller.png Graphic file (type png)
-<use ./images//software/uml_microcontroller.png>
-Package pdftex.def Info: ./images//software/uml_microcontroller.png  used on in
-put line 329.
-(pdftex.def)             Requested size: 575.45433pt x 319.19496pt.
- [17
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 270.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 271--294
+
+ []
+
+
+Overfull \hbox (38.60347pt too wide) in paragraph at lines 271--294
+\T1/lmr/m/n/10.95 (https://github.com/espressif/arduino-esp32/tree/master/libra
+ries/Preferences) Die Preferences-Bibliothek
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 294.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 295--296
+
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 305.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 312--338
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 312--338
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 312--338
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 312--338
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 312--338
+
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 338.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[20]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 341.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[21
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.332 \textbf{Mode}
-                    \\]
-Underfull \hbox (badness 10000) in paragraph at lines 332--349
+l.341 \subsubsection
+                    {Klassen}]
+<./images//software/uml_microcontroller.png, id=428, 1918.16624pt x 1063.975pt>
+
+File: ./images//software/uml_microcontroller.png Graphic file (type png)
+<use ./images//software/uml_microcontroller.png>
+Package pdftex.def Info: ./images//software/uml_microcontroller.png  used on in
+put line 344.
+(pdftex.def)             Requested size: 575.45433pt x 319.19496pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 347.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 347--364
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 332--349
+Underfull \hbox (badness 10000) in paragraph at lines 347--364
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 332--349
+Underfull \hbox (badness 10000) in paragraph at lines 347--364
 
  []
 
-[18
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 364.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[23
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.349 \end{figure}
+l.364 \end{figure}
                    <./images//software/uml_microcontroller.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 350--366
-
- []
-
-<./images//software/uml_ablauf_esp32_setup.png, id=413, 448.67625pt x 1351.0475
-pt>
-File: ./images//software/uml_ablauf_esp32_setup.png Graphic file (type png)
-<use ./images//software/uml_ablauf_esp32_setup.png>
-Package pdftex.def Info: ./images//software/uml_ablauf_esp32_setup.png  used on
- input line 370.
-(pdftex.def)             Requested size: 224.33757pt x 675.52211pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 367--372
+Underfull \hbox (badness 10000) in paragraph at lines 365--381
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 367--372
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
 
- []
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[19
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 381.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[24
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.372 \end{figure}
-                  ] [20]
-Overfull \vbox (46.76031pt too high) has occurred while \output is active []
+l.381 \subsubsection
+                    {Programmablauf}]
+<./images//software/uml_ablauf_esp32_setup.png, id=444, 448.67625pt x 1351.0475
+pt>
+File: ./images//software/uml_ablauf_esp32_setup.png Graphic file (type png)
+<use ./images//software/uml_ablauf_esp32_setup.png>
+Package pdftex.def Info: ./images//software/uml_ablauf_esp32_setup.png  used on
+ input line 385.
+(pdftex.def)             Requested size: 224.33757pt x 675.52211pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 382--387
+
+ []
 
 
-[21
+Underfull \hbox (badness 10000) in paragraph at lines 382--387
+
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 388.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[25]
+Overfull \vbox (48.54503pt too high) has occurred while \output is active []
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 388.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[26
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.373 I
+l.388 I
        m Setup werden zuerst Konstanten, welche spÃ¤ter im Programm benÃ¶tig...
  <./images//software/uml_ablauf_esp32_setup.png>]
-<./images//software/uml_ablauf_esp32_loop.png, id=430, 843.15pt x 1325.95375pt>
+<./images//software/uml_ablauf_esp32_loop.png, id=456, 843.15pt x 1325.95375pt>
 
 File: ./images//software/uml_ablauf_esp32_loop.png Graphic file (type png)
 <use ./images//software/uml_ablauf_esp32_loop.png>
 Package pdftex.def Info: ./images//software/uml_ablauf_esp32_loop.png  used on 
-input line 376.
+input line 391.
 (pdftex.def)             Requested size: 421.57396pt x 662.97527pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 373--378
+Underfull \hbox (badness 10000) in paragraph at lines 388--393
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 373--378
+Underfull \hbox (badness 10000) in paragraph at lines 388--393
 
  []
 
-[22]
-Overfull \vbox (34.21347pt too high) has occurred while \output is active []
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 394.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[27]
+Overfull \vbox (35.99818pt too high) has occurred while \output is active []
 
 
-[23
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 394.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[28
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.379 A
+l.394 A
        m Anfang der Loop-Funktion wird abgefragt ob der Modus auf Error gese...
  <./images//software/uml_ablauf_esp32_loop.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 385--394
+Underfull \hbox (badness 10000) in paragraph at lines 400--409
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 395--402
+Overfull \hbox (7.42685pt too wide) in paragraph at lines 400--409
+\T1/lmr/m/n/10.95 Mit der App soll es letzt-end-lich mög-lich sein, ei-ne Ver-b
+in-dun-gen zwi-schen Ad-ap-tern und Internetradio-
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 409.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 410--417
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 395--402
+Underfull \hbox (badness 10000) in paragraph at lines 410--417
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 395--402
+Underfull \hbox (badness 10000) in paragraph at lines 410--417
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 395--402
+Underfull \hbox (badness 10000) in paragraph at lines 410--417
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 395--402
-
- []
-
-[24]
-Underfull \hbox (badness 10000) in paragraph at lines 403--420
+Underfull \hbox (badness 10000) in paragraph at lines 410--417
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--420
+Underfull \hbox (badness 10000) in paragraph at lines 418--435
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--420
+Underfull \hbox (badness 10000) in paragraph at lines 418--435
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--420
+Underfull \hbox (badness 10000) in paragraph at lines 418--435
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--420
+Underfull \hbox (badness 10000) in paragraph at lines 418--435
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--420
+Underfull \hbox (badness 10000) in paragraph at lines 418--435
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--420
+Underfull \hbox (badness 10000) in paragraph at lines 418--435
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--420
+Underfull \hbox (badness 10000) in paragraph at lines 418--435
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--420
-
- []
-
-[25]
-Underfull \hbox (badness 10000) in paragraph at lines 421--442
+Underfull \hbox (badness 10000) in paragraph at lines 418--435
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--442
+Underfull \hbox (badness 10000) in paragraph at lines 418--435
 
  []
 
-[26]
-<./images//software/app_layout.png, id=454, 238.491pt x 400.49625pt>
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 435.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[30]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 435.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 436--457
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 436--457
+
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 457.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[32]
+<./images//software/app_layout.png, id=484, 238.491pt x 400.49625pt>
 File: ./images//software/app_layout.png Graphic file (type png)
 <use ./images//software/app_layout.png>
 Package pdftex.def Info: ./images//software/app_layout.png  used on input line 
-445.
+460.
 (pdftex.def)             Requested size: 119.2452pt x 200.24763pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 448--456
+Underfull \hbox (badness 10000) in paragraph at lines 463--471
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 448--456
+Underfull \hbox (badness 10000) in paragraph at lines 463--471
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 448--456
+Underfull \hbox (badness 10000) in paragraph at lines 463--471
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 448--456
+Underfull \hbox (badness 10000) in paragraph at lines 463--471
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 448--456
+Underfull \hbox (badness 10000) in paragraph at lines 463--471
 
  []
 
-[27
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 471.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[33
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.456 \subsubsection
+l.471 \subsubsection
                     {Navigation}
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.456 \subsubsection
+l.471 \subsubsection
                     {Navigation} <./images//software/app_layout.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 459--487
+Underfull \hbox (badness 10000) in paragraph at lines 474--502
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--487
+Underfull \hbox (badness 10000) in paragraph at lines 474--502
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--487
+Underfull \hbox (badness 10000) in paragraph at lines 474--502
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--487
+Underfull \hbox (badness 10000) in paragraph at lines 474--502
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--487
+Underfull \hbox (badness 10000) in paragraph at lines 474--502
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--487
+Underfull \hbox (badness 10000) in paragraph at lines 474--502
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--487
+Underfull \hbox (badness 10000) in paragraph at lines 474--502
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--487
+Underfull \hbox (badness 10000) in paragraph at lines 474--502
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--487
+Underfull \hbox (badness 10000) in paragraph at lines 474--502
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--487
+Underfull \hbox (badness 10000) in paragraph at lines 474--502
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--487
+Underfull \hbox (badness 10000) in paragraph at lines 474--502
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--487
+Underfull \hbox (badness 10000) in paragraph at lines 474--502
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--487
+Underfull \hbox (badness 10000) in paragraph at lines 474--502
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--487
-
- []
-
-[28] [29]
-Underfull \hbox (badness 10000) in paragraph at lines 488--503
+Underfull \hbox (badness 10000) in paragraph at lines 474--502
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 488--503
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 502.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[34]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 502.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[35]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 502.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 503--518
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 488--503
+Underfull \hbox (badness 10000) in paragraph at lines 503--518
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 488--503
+Underfull \hbox (badness 10000) in paragraph at lines 503--518
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 488--503
+Underfull \hbox (badness 10000) in paragraph at lines 503--518
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 488--503
+Underfull \hbox (badness 10000) in paragraph at lines 503--518
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 488--503
+Underfull \hbox (badness 10000) in paragraph at lines 503--518
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 488--503
+Underfull \hbox (badness 10000) in paragraph at lines 503--518
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 488--503
+Underfull \hbox (badness 10000) in paragraph at lines 503--518
 
  []
 
-[30]
-<./images//hardware/stuetzen_fusion.png, id=475, 505.89pt x 399.6359pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 503--518
+
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 518.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[37]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 523.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[38]
+<./images//hardware/stuetzen_fusion.png, id=514, 505.89pt x 399.6359pt>
 File: ./images//hardware/stuetzen_fusion.png Graphic file (type png)
 <use ./images//hardware/stuetzen_fusion.png>
 Package pdftex.def Info: ./images//hardware/stuetzen_fusion.png  used on input 
-line 521.
+line 536.
 (pdftex.def)             Requested size: 252.94437pt x 199.81746pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 513--524
+Underfull \hbox (badness 10000) in paragraph at lines 528--539
 
  []
 
-[31]
-<./images//hardware/basis-draufsicht_fusion.png, id=481, 446.09518pt x 379.8476
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 539.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[39]
+<./images//hardware/basis-draufsicht_fusion.png, id=519, 446.09518pt x 379.8476
 7pt>
 File: ./images//hardware/basis-draufsicht_fusion.png Graphic file (type png)
 <use ./images//hardware/basis-draufsicht_fusion.png>
 Package pdftex.def Info: ./images//hardware/basis-draufsicht_fusion.png  used o
-n input line 530.
+n input line 545.
 (pdftex.def)             Requested size: 223.04704pt x 189.92337pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 525--533
+Underfull \hbox (badness 10000) in paragraph at lines 540--548
 
  []
 
-<./images//hardware/basis-inhalt_picture.png, id=482, 806.01125pt x 659.46375pt
->
-File: ./images//hardware/basis-inhalt_picture.png Graphic file (type png)
-<use ./images//hardware/basis-inhalt_picture.png>
-Package pdftex.def Info: ./images//hardware/basis-inhalt_picture.png  used on i
-nput line 536.
-(pdftex.def)             Requested size: 225.68161pt x 184.64859pt.
-[32
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 548.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[40
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.539 \end{figure}
+l.548 \end{figure}
                    <./images//hardware/stuetzen_fusion.png>]
-<./images//hardware/gitter-schema_fusion.png, id=489, 522.23679pt x 451.6875pt>
+<./images//hardware/basis-inhalt_picture.png, id=526, 806.01125pt x 659.46375pt
+>
+File: ./images//hardware/basis-inhalt_picture.png Graphic file (type png)
+<use ./images//hardware/basis-inhalt_picture.png>
+Package pdftex.def Info: ./images//hardware/basis-inhalt_picture.png  used on i
+nput line 551.
+(pdftex.def)             Requested size: 225.68161pt x 184.64859pt.
+<./images//hardware/gitter-schema_fusion.png, id=527, 522.23679pt x 451.6875pt>
 
 File: ./images//hardware/gitter-schema_fusion.png Graphic file (type png)
 <use ./images//hardware/gitter-schema_fusion.png>
 Package pdftex.def Info: ./images//hardware/gitter-schema_fusion.png  used on i
-nput line 548.
+nput line 563.
 (pdftex.def)             Requested size: 156.67224pt x 135.5073pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 541--551
+Underfull \hbox (badness 10000) in paragraph at lines 556--566
 
  []
 
-[33
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 566.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[41
 pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.551 \end{figure}
+l.566 \end{figure}
                   
 pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.551 \end{figure}
+l.566 \end{figure}
                    <./images//hardware/basis-draufsicht_fusion.png> <./images//
-hardware/basis-inhalt_picture.png>] [34
+hardware/basis-inhalt_picture.png>]
+Overfull \hbox (4.89699pt too wide) in paragraph at lines 575--589
+\T1/lmr/m/n/10.95 vgl. []$\T1/lmtt/m/n/10.95 https : / / www . printer -[] care
+ . de / de / drucker -[] ratgeber / wie -[] funktioniert -[] ein -[] 3d -[] dru
+cker$[] 
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 589.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[42
 pdfTeX warning (ext4): destination with the same identifier (name{figure.12}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.574 
+l.589 
        <./images//hardware/gitter-schema_fusion.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 589--605
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 601.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[43]
+Underfull \hbox (badness 10000) in paragraph at lines 604--620
 
  []
 
-[35] [36]
-Underfull \hbox (badness 10000) in paragraph at lines 628--638
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 620.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[44]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 632.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[45]
+Underfull \hbox (badness 10000) in paragraph at lines 643--653
 
  []
 
-[37] (DA-Main.lof [38])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 653.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[46]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 662.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[47] (DA-Main.lof)
 \tf@lof=\write5
 \openout5 = `DA-Main.lof'.
 
- [39] (DA-Main.aux)
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 671.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[48]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 671.
+(pdftex.def)             Requested size: 79.4976pt x 33.38899pt.
+
+Package fancyhdr Warning: \footskip is too small (30.0pt): 
+(fancyhdr)                Make it at least 37.46902pt, for example:
+(fancyhdr)                \setlength{\footskip}{37.46902pt}.
+
+[49] (DA-Main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -1102,22 +2014,22 @@ Package rerunfilecheck Info: File `DA-Main.out' has not changed.
 (rerunfilecheck)             Checksum: 0066E61FBACE4A01192758F8640E2C6F;9201.
  ) 
 Here is how much of TeX's memory you used:
- 11588 strings out of 474486
- 186821 string characters out of 5743755
- 1943542 words of memory out of 5000000
- 33579 multiletter control sequences out of 15000+600000
- 605319 words of font info for 66 fonts, out of 8000000 for 9000
+ 11874 strings out of 474486
+ 192418 string characters out of 5743755
+ 1944542 words of memory out of 5000000
+ 33853 multiletter control sequences out of 15000+600000
+ 598444 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,79p,1501b,614s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,16n,79p,1501b,620s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
 b><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
 b><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb
 ><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb>
 <C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
 
-Output written on DA-Main.pdf (39 pages, 2544059 bytes).
+Output written on DA-Main.pdf (49 pages, 2599911 bytes).
 PDF statistics:
- 601 PDF objects out of 1000 (max. 8388607)
- 114 named destinations out of 1000 (max. 500000)
- 531 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 650 PDF objects out of 1000 (max. 8388607)
+ 124 named destinations out of 1000 (max. 500000)
+ 536 words of extra memory for PDF output out of 10000 (max. 10000000)
 
