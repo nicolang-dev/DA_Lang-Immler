@@ -3,17 +3,18 @@
 ServerManager* ServerManager::instance = nullptr;
 
 ServerManager::ServerManager(){
-    received_ssid = "";
+    /*received_ssid = "";
     received_password = "";
     received_url = "";
     received_name = "";
-    received_volume = -1;
+    received_volume = -1;*/
     network = NetworkManager::getInstance();
     battery = BatteryManager::getInstance();
     audio = AudioManager::getInstance();
     memory = MemoryManager::getInstance();
     running = false;
 }
+
 ServerManager::~ServerManager(){}
 
 ServerManager* ServerManager::getInstance(){
@@ -23,17 +24,17 @@ ServerManager* ServerManager::getInstance(){
     return instance;
 }
 
-String ServerManager::getAdapterInfo(){
+String ServerManager::getInfo(){
     String name = memory->readName();
     String mac = network->getMac();
     int volume = audio->getVolume();
-    int battery = 10;
+    int battery_status = battery->getBatteryStatus();
     String station_url = audio->getStreamUrl();
     JsonDocument doc;
     doc["name"] = name;
     doc["mac"] = mac;
     doc["volume"] = volume;
-    doc["battery"] = battery;
+    doc["battery"] = battery_status;
     doc["stationUrl"] = station_url;
     String info;
     serializeJson(doc, info);
@@ -45,14 +46,14 @@ void ServerManager::handle_get(){
     server.send(200, "text/plain", "get request received");
 }
 
-void ServerManager::handle_getMac(){
+/*void ServerManager::handle_getMac(){
     String mac = network->getMac();
     server.send(200, "text/plain", mac);
-}
+}*/
 
 void ServerManager::handle_getInfo(){
     Logger::add("get request on route /getInfo received");
-    String adapterInfo = getAdapterInfo();
+    String adapterInfo = getInfo();
     server.send(200, "application/json", adapterInfo);
 }
 
@@ -75,17 +76,18 @@ void ServerManager::handle_getLogs(){
 
 void ServerManager::handle_setConfigData(){
     Logger::add("post request on router /setConfigData received");
-    if(server.hasArg("name") && server.hasArg("ip") && server.hasArg("wifiSsid") && server.hasArg("wifiPassword")){
+    if(server.hasArg("name") && server.hasArg("wifiSsid") && server.hasArg("wifiPassword")){
         String name = server.arg("name");
-        String ip = server.arg("ip");
         String ssid = server.arg("wifiSsid");
         String password = server.arg("wifiPassword");
         memory->writeName(name);
-        memory->writeIp(ip);
         memory->writeWlanSsid(ssid);
         memory->writeWlanPassword(password);
+        server.send(201);
         Logger::add("restarting esp");
         ESP.restart();
+    } else {
+        server.send(400);
     }
 }
 
@@ -111,6 +113,8 @@ void ServerManager::handle_setStreamUrl(){
         String url = server.arg("url");
         audio->startStream(url);
         server.send(200);
+    } else {
+        server.send(400);
     }
 }
 
@@ -125,8 +129,11 @@ void ServerManager::handle_setStreamUrl(){
 void ServerManager::handle_setVolume(){
     Logger::add("put request on route /setVolume received");
     if(server.hasArg("volume")){
-        received_volume = server.arg("volume").toInt();
+        int volume = server.arg("volume").toInt();
+        audio->setVolume(volume);
         server.send(200);
+    } else {
+        server.send(400);
     }
 }
 
@@ -137,7 +144,7 @@ void ServerManager::handle_notFound(){
 bool ServerManager::start(){
     server.begin(SERVER_PORT);
     server.on("/", HTTP_GET, bind(&ServerManager::handle_get, this));
-    server.on("/getMac", HTTP_GET, bind(&ServerManager::handle_getMac, this));
+    //server.on("/getMac", HTTP_GET, bind(&ServerManager::handle_getMac, this));
     server.on("/getAvailableNetworks", HTTP_GET, bind(&ServerManager::handle_getAvailableNetworks, this));
     //server.on("/getBatteryStatus", HTTP_GET, bind(&ServerManager::handle_getBatteryStatus, this));
     server.on("/getLogs", HTTP_GET, bind(&ServerManager::handle_getLogs, this));
@@ -162,7 +169,7 @@ void ServerManager::handleClient(){
     server.handleClient();
 }
 
-bool ServerManager::wlanCredentialsReceived(){
+/*bool ServerManager::wlanCredentialsReceived(){
     return (received_ssid.length() > 0) && (received_password.length() > 0);
 }
 
@@ -206,7 +213,7 @@ int ServerManager::getReceivedVolume(){
     int volume = received_volume;
     received_volume = -1;
     return volume;
-}
+}*/
 
 bool ServerManager::isRunning(){
     return running;

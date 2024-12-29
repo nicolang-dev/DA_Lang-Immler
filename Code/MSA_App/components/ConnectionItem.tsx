@@ -11,10 +11,10 @@ import Station from "./Station";
 import AdapterItem from "./AdapterItem";
 import StationItem from "./StationItem";
 import Connection from "./Connection";
-import { getAdapters } from "./Utilities";
+import { Memory } from "./Utilities";
 import axios from "axios";
 import PlayPauseButton from "./PlayPauseButton";
-import VolumeIndicator from "./VolumeIndicator";
+import VolumeIndicator from "./VolumeSelector";
 
 type Props = {
   connection: Connection

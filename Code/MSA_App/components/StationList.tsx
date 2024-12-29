@@ -6,7 +6,7 @@ import {Picker} from '@react-native-picker/picker';
 import { Colors, GlobalStyle } from "@/constants/Style";
 import StationItem from "@/components/StationItem";
 import Station from "@/components/Station";
-import { getFavouriteStations, removeFavouriteStation } from "@/components/Utilities";
+import { Memory } from "@/components/Utilities";
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { router } from "expo-router";
 import ErrorScreen from "@/components/ErrorScreen";
@@ -31,7 +31,7 @@ export default function StationList({onItemSelect, editable}: Props){
     const [selectedStation, setSelectedStation] = useState(null);
 
     function fetchData(){
-        getFavouriteStations().then(res => {
+        Memory.getFavouriteStations().then(res => {
             setDataFetched(true);
             if(res !== null && res.length > 0){
                 setEmpty(false);
@@ -54,7 +54,7 @@ export default function StationList({onItemSelect, editable}: Props){
 
     function deleteItem(){
         if(selectedStation !== null){
-            removeFavouriteStation(selectedStation.uuid).then(res => {
+            Memory.removeFavouriteStation(selectedStation.uuid).then(res => {
                 setSelectedStation(null);
                 fetchData();
             })
@@ -101,7 +101,7 @@ export default function StationList({onItemSelect, editable}: Props){
                     {
                         editable &&
                         <View style={style.iconContainer}>
-                             <AddToListButton onPress={() => router.push("../radiosearch", { relativeToDirectory: true })}/>
+                             <AddToListButton onPress={() => router.push("/(tabs)/music/radiosearch", { relativeToDirectory: true })}/>
                                 {
                                     selectedStation !== null &&
                                     <DeleteButton onPress={()=>{handleDeletePress()}}/>

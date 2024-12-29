@@ -8,7 +8,7 @@ import { router } from "expo-router";
 import { useEffect, useState } from "react";
 import BatteryIndicator from "./BatteryIndicator";
 import axios from "axios";
-import VolumeIndicator from "./VolumeIndicator";
+import VolumeIndicator from "./VolumeSelector";
 
 type Props = {
   adapter: Adapter,

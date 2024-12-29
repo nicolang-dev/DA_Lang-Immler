@@ -48,7 +48,8 @@
     "react-native-svg": "15.8.0",
     "react-native-udp": "^4.1.7",
     "react-native-web": "~0.19.10",
-    "react-native-zeroconf": "^0.13.8"
+    "react-native-zeroconf": "^0.13.8",
+    "rn-vertical-slider": "^4.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

@@ -6,7 +6,7 @@ import {Picker} from '@react-native-picker/picker';
 import { Colors, GlobalStyle } from "@/constants/Style";
 import StationItem from "@/components/StationItem";
 import Station from "@/components/Station";
-import { getConnections } from "@/components/Utilities";
+import { Memory } from "@/components/Utilities";
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { router } from "expo-router";
 import ErrorScreen from "@/components/ErrorScreen";
@@ -29,7 +29,7 @@ export default function ConnectionList({onItemPress}: Props){
     const [isEmpty, setEmpty] = useState(false);
 
     function fetchData(){
-        getConnections().then(res => {
+        Memory.getConnections().then(res => {
             setDataFetched(true);
             if(res !== null){
                 setEmpty(false);

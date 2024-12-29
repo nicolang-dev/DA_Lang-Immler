@@ -4,6 +4,7 @@ AudioManager* AudioManager::instance = nullptr;
 
 AudioManager::AudioManager(){
     stream_url = "";
+    streaming = false;
 }
 
 AudioManager* AudioManager::getInstance(){
@@ -13,8 +14,8 @@ AudioManager* AudioManager::getInstance(){
     return instance;
 }
 
-bool AudioManager::initialize(int volume){
-    audio.setVolume(volume);
+bool AudioManager::initialize(){
+    audio.setVolume(DEFAULT_VOLUME);
     return audio.setPinout(I2S_BCLK_PIN, I2S_LRC_PIN, I2S_DOUT_PIN);
 }
 
@@ -27,21 +28,27 @@ bool AudioManager::startStream(String url){
     return false;
 }
 
-bool AudioManager::stopStream(){
+String AudioManager::getStreamUrl(){
+    return stream_url;
+}
+
+bool AudioManager::pauseStream(){
     streaming = false;
     return true;
 } 
 
-bool AudioManager::isStreaming(){
+
+bool AudioManager::continueStream(){
+    streaming = true;
+    return true;
+} 
+
+bool AudioManager::isPaused(){
     return streaming;
 }
 
 void AudioManager::loop(){
     audio.loop();
-}
-
-String AudioManager::getStreamUrl(){
-    return stream_url;
 }
 
 int AudioManager::getVolume(){

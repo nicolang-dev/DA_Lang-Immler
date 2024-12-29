@@ -33,6 +33,13 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <MaterialIcons size={28} name="library-music" color={color} />
         }}
       />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Profil',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="account-box" size={28} color={color} />
+        }}
+      />
     </Tabs>
   );
 }

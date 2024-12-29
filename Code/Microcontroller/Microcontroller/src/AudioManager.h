@@ -18,10 +18,9 @@ class AudioManager{
     public:
         static AudioManager* getInstance();
         /**
-         * initializes the I2S-pins and sets the volume
-         * @param volume volume in percent (0-100);
+         * initializes the I2S-pins and sets the volume to the default volume
          */
-        bool initialize(int volume);
+        bool initialize();
 
         /**
          * starts to receive the audio stream from the given url
@@ -30,14 +29,24 @@ class AudioManager{
         bool startStream(String url);
 
         /**
-         * stops to receive the audio stream
-         */
-        bool stopStream();
+        * returns the stream url
+        */
+        String getStreamUrl();
 
         /**
-         * returns if the audio stream is beeing received
+         * stops to receive the audio stream
          */
-        bool isStreaming();
+        bool pauseStream();
+
+        /**
+         * continues the audio stream, if it's paused
+         */
+        bool continueStream();
+
+        /**
+         * returns if the audio stream paused
+         */
+        bool isPaused();
 
         /**
          * handles the audio process
@@ -45,19 +54,13 @@ class AudioManager{
         void loop();
 
         /**
-         * returns the stream url
+         * sets the volume of the output
          */
-        String getStreamUrl();
-
+        void setVolume(int volume);
 
         /**
          * returns the volume set
          */
         int getVolume();
-
-        /**
-         * sets the volume of the output
-         */
-        void setVolume(int volume);
 };
 #endif

@@ -6,7 +6,7 @@ import {Picker} from '@react-native-picker/picker';
 import { Colors, GlobalStyle } from "@/constants/Style";
 import StationItem from "@/components/StationItem";
 import Station from "@/components/Station";
-import { getAdapters, removeAdapter } from "@/components/Utilities";
+import { Memory } from "@/components/Utilities";
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { router } from "expo-router";
 import ErrorScreen from "@/components/ErrorScreen";
@@ -32,7 +32,7 @@ export default function AdapterList({onItemSelect, editable, onlyReachableSelect
     const [selectedAdapter, setSelectedAdapter] = useState(null);
 
     function fetchData(){
-        getAdapters().then(res => {
+        Memory.getAdapters().then(res => {
             setDataFetched(true);
             if(res !== null && res.length > 0){
                 setEmpty(false);
@@ -55,7 +55,7 @@ export default function AdapterList({onItemSelect, editable, onlyReachableSelect
 
     function deleteItem(){
             if(selectedAdapter !== null){
-                removeAdapter(selectedAdapter.mac).then(res => {
+                Memory.removeAdapter(selectedAdapter.mac).then(res => {
                     setSelectedAdapter(null);
                     fetchData();
                 })
@@ -66,7 +66,7 @@ export default function AdapterList({onItemSelect, editable, onlyReachableSelect
         if(selectedAdapter !== null){
             Alert.alert("Adapter löschen", 
                 "Wollen Sie den Adapter '" + selectedAdapter.name + "' wirklich löschen?", 
-                [{text: "Nein", onPress: ()=> {setSelectedAdapter(null)}}, {text: "Ja", onPress: ()=> {removeAdapter(selectedAdapter.mac).then(res => {fetchData()})}}])
+                [{text: "Nein", onPress: ()=> {setSelectedAdapter(null)}}, {text: "Ja", onPress: ()=> {Memory.removeAdapter(selectedAdapter.mac).then(res => {fetchData()})}}])
         }
     }
 
@@ -124,7 +124,7 @@ export default function AdapterList({onItemSelect, editable, onlyReachableSelect
         } else {
             return (
                 <SafeAreaView style={GlobalStyle.page}>
-                    <ErrorScreen errorText="Du hast noch keine Adapter hinzugefügt!" buttonText="Adapter hinzufügen" onButtonPress={() => router.push("/addAdapter")}/>
+                    <ErrorScreen errorText="Du hast noch keine Adapter hinzugefügt!" buttonText="Adapter hinzufügen" onButtonPress={() => router.push("/(tabs)/adapter/addAdapter")}/>
                 </SafeAreaView>
             )
         }

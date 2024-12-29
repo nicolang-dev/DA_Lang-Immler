@@ -1,0 +1,32 @@
+#include <Arduino.h>
+#include "WiFiMulti.h"
+#include "Audio.h"
+
+Audio audio;
+WiFiMulti wifiMulti;
+
+String ssid =     "AP-II";
+String password = "MmrL48!?48y";
+
+#define I2S_LRC     26
+#define I2S_DOUT    25
+#define I2S_BCLK    27
+#define I2S_MCLK     0
+
+void setup() {
+    Serial.begin(9600);
+    wifiMulti.addAP(ssid.c_str(), password.c_str());
+    wifiMulti.run();
+    audio.setPinout(I2S_BCLK, I2S_LRC, I2S_DOUT);
+    audio.setVolume(10); // 0...21
+    audio.connecttohost("http://mp3channels.webradio.rockantenne.de/rockantenne");
+}
+
+void loop(){
+    audio.loop();
+}
+
+// optional
+void audio_info(const char *info){
+    Serial.print("info        "); Serial.println(info);
+}

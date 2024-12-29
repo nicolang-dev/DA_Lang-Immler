@@ -1,0 +1,48 @@
+#include <Arduino.h>
+#include <WiFi.h>
+#include <AudioFileSourceHTTPStream.h>
+#include <AudioGeneratorMP3.h>
+#include <AudioOutputI2S.h>
+
+// WLAN-Credentials
+const char* ssid = "AP-II";
+const char* password = "MmrL48!?48y";
+
+// HTTP-Stream-URL
+const char* streamURL = "https://st01.sslstream.dlf.de/dlf/01/128/mp3/stream.mp3?aggregator=web";
+
+// Audio-Objekte
+AudioGeneratorMP3 *mp3;
+AudioFileSourceHTTPStream *file;
+AudioOutputI2S *out;
+
+void setup() {
+  Serial.begin(115200);
+
+  // WLAN verbinden
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.println("Verbinde mit WLAN...");
+  }
+  Serial.println("WLAN verbunden!");
+
+  // Audio-Setup
+  file = new AudioFileSourceHTTPStream(streamURL);
+  out = new AudioOutputI2S(0, 1); // 0: Links, 1: Rechts
+  out->SetPinout(26, 25, 22);    // BCK, DIN, LCK
+  mp3 = new AudioGeneratorMP3();
+  mp3->begin(file, out);
+}
+
+void loop() {
+  if (mp3->isRunning()) {
+    if (!mp3->loop()) {
+      mp3->stop();
+    }
+  } else {
+    Serial.println("Audio-Stream beendet!");
+    delay(1000); // Warte und starte neu
+    mp3->begin(file, out);
+  }
+}
