@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[11pt, twoside]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -14,19 +14,22 @@
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
 \renewcommand{\listfigurename}{Abbildungen}
-\usepackage[margin=2.5cm]{geometry}
+\usepackage[margin=2.5cm, footskip=2cm]{geometry} % 2,5cm Abstand von den Seiten, 1,5cm Abstand zwischen Text und Footer
 \usepackage[onehalfspacing]{setspace}
 %\usepackage[headsepline]{scrlayer-scrpage}
 %\pagestyle{scrheadings}
 %\ohead{Multi-Room Sound Adapter}
 \usepackage{fancyhdr}
-\pagestyle{fancy}
 \fancyhf{}
 \fancyhead[R]{Multi-Room Sound Adapter}
-%\fancyfoot[LE, RO]{\thepage}
-\fancyfoot[L]{
-\includegraphics[scale=0.3]{/allgemein/htl-reutte_logo.png}
+\fancyfoot[LE, RO]{\thepage}
+\fancyfoot[LO, RE]{
+	\includegraphics[scale=0.3]{/allgemein/htl-reutte_logo.png}
 }
+\renewcommand{\footrulewidth}{0.4pt} %für Strich über Footer
+\usepackage{pdfpages}
+
+\pagestyle{empty} %footer und header auf den ersten seiten nicht anzeigen
 
 \title{\textbf{Multi-Room Sound Adapter}}
 \author{Nico Lang, Philipp Immler}
@@ -34,15 +37,17 @@
 
 \begin{document}
 
-\maketitle
-\vspace{25mm}
-\begin{figure}[H]
-\begin{center}
-\hspace*{-0.5cm}\includegraphics[scale=0.18]{/hardware/adapter-nahe_hg-transparent.png}
-\end{center}
-\end{figure}
+\includepdf[pages=-]{images/allgemein/Deckblatt.pdf}
 
-\pagebreak
+%\maketitle
+%\vspace{25mm}
+%\begin{figure}[H]
+%\begin{center}
+%\hspace*{-0.5cm}\includegraphics[scale=0.18]{/hardware/adapter-nahe_hg-%transparent.png}
+%\end{center}
+%\end{figure}
+
+%\pagebreak
 
 \section{Projekt}
 \subsection{Projektteam}
@@ -100,6 +105,9 @@ Wir bedanken uns bei den betreuenden Lehrpersonen Dipl. Ing. Dr. Peter L. Steger
 \pagebreak
 \tableofcontents
 \pagebreak
+
+\pagestyle{fancy} % header und footer ab hier anzeigen
+\setcounter{page}{1} %setzt den Zähler der Seiten hier auf 1
 
 \section{Einleitung}
 \begin{figure}[H]
