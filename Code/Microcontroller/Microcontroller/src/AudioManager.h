@@ -2,15 +2,22 @@
 #define AUDIOMANAGER_H
 
 #include <Arduino.h>
-#include <Audio.h>
 #include "constants.h"
+#include "AudioFileSourceICYStream.h"
+#include "AudioFileSourceBuffer.h"
+#include "AudioGeneratorMP3.h"
+#include "AudioOutputI2S.h"
 
 class AudioManager{
     private:
         static AudioManager* instance;
-        Audio audio;
+        AudioGeneratorMP3 *gen;
+        AudioFileSourceICYStream *src;
+        AudioFileSourceBuffer *buff;
+        AudioOutputI2S *out;
         bool streaming;
         String stream_url;
+        int volume;
 
         AudioManager();
         ~AudioManager();
@@ -55,11 +62,12 @@ class AudioManager{
 
         /**
          * sets the volume of the output
+         * @param volume the desired volume, in the range between 0 an 100
          */
         void setVolume(int volume);
 
         /**
-         * returns the volume set
+         * returns the volume, which is currently set
          */
         int getVolume();
 };

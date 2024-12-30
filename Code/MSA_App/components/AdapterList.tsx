@@ -22,21 +22,38 @@ import { Alert } from "react-native";
 type Props = {
     onItemSelect: Function,
     editable: boolean,
-    onlyReachableSelectable: boolean
+    showOnlyAvailable: boolean
 }
 
-export default function AdapterList({onItemSelect, editable, onlyReachableSelectable}: Props){
+export default function AdapterList({onItemSelect, editable, showOnlyAvailable}: Props){
     const [adapterList, setAdapterList] = useState(new Array());
     const [isDataFetched, setDataFetched] = useState(false);
     const [isEmpty, setEmpty] = useState(false);
     const [selectedAdapter, setSelectedAdapter] = useState(null);
 
     function fetchData(){
-        Memory.getAdapters().then(res => {
+        const result: Adapter[] = [];
+        Memory.getAdapters().then(adapters => {
             setDataFetched(true);
-            if(res !== null && res.length > 0){
+            if(adapters !== null && adapters.length > 0){
+                const allAdapters: Adapter[] = adapters;
+                if(showOnlyAvailable){
+                    Memory.getConnections().then(connections => {
+                        if(connections !== null && connections.length > 0){
+                            const usedAdapter: Adapter[] = [];
+                            for(let connection of connections){
+                                usedAdapter.push(connection.adapter);
+                            }
+                            for(let adapter of allAdapters){
+                                if(usedAdapter.includes(adapter)){
+                                    result.push(adapter);
+                                }
+                            }
+                        }
+                    })
+                }
                 setEmpty(false);
-                setAdapterList(res);
+                setAdapterList(result);
             } else {
                 setEmpty(true);
             }
@@ -72,7 +89,7 @@ export default function AdapterList({onItemSelect, editable, onlyReachableSelect
 
     function isSelected(item: Adapter){
         if(selectedAdapter !== null && selectedAdapter.mac == item.mac){
-            if((onlyReachableSelectable && item.connected) || !onlyReachableSelectable){
+            if((showOnlyAvailable && item.connected) || !showOnlyAvailable){
                 return true;
             }
         }

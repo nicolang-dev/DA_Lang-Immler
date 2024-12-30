@@ -32,9 +32,14 @@ const String LOGS_KEY = "logs";
 const String NAME_KEY = "name";
 const String IP_KEY = "ip";
 
-//I2S
-const int I2S_BITSPERSAMPLE = 16;
-const int I2S_SAMPLERATE = 44100;
+//audio
+const int AUDIO_BUFFERSIZE = 16384;
+const int AUDIO_BITSPERSAMPLE = 16;
+const int AUDIO_SAMPLERATE = 44100;
+const int AUDIO_CHANNELS = 2;
+
+//button
+const int BUTTON_CONFIG_DURATION = 3000; //time for which the button has to be pressed, that config mode is activated
 
 //other constants
 const unsigned long SERIAL_BAUDRATE = 9600;

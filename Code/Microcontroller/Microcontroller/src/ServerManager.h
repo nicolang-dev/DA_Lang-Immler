@@ -29,7 +29,7 @@ class ServerManager{
          * 
          * @return info info about the adapter as a serialized json
          */
-        String getAdapterInfo();
+        String getInfo();
 
         /**
          * handles a get request to the standard / route

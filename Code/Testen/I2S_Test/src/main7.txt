@@ -1,0 +1,164 @@
+#include <WiFi.h> 
+//Includes from ESP8266audio
+#include "AudioFileSourceICYStream.h" //input stream
+#include "AudioFileSourceBuffer.h"    //input buffer
+#include "AudioGeneratorMP3.h"        //decoder
+#include "AudioOutputI2S.h"           //output stream
+
+//WLAN access fill with your credentials
+#define SSID "AP-II"
+#define PSK "MmrL48!?48y"
+
+//structure for station list
+typedef struct {
+  char * url;  //stream url
+  char * name; //stations name
+} Station;
+
+#define STATIONS 25 //number of stations in the list
+
+//station list can easily be modified to support other stations
+Station stationlist[STATIONS] PROGMEM = {
+{"http://icecast.ndr.de/ndr/ndr2/niedersachsen/mp3/128/stream.mp3","NDR2 Niedersachsen"},
+{"http://icecast.ndr.de/ndr/ndr1niedersachsen/hannover/mp3/128/stream.mp3","NDR1 Hannover"},
+{"http://wdr-1live-live.icecast.wdr.de/wdr/1live/live/mp3/128/stream.mp3","WDR1"},
+{"http://wdr-cosmo-live.icecast.wdr.de/wdr/cosmo/live/mp3/128/stream.mp3","WDR COSMO"},
+{"http://radiohagen.cast.addradio.de/radiohagen/simulcast/high/stream.mp3","Radio Hagen"},
+{"http://st01.sslstream.dlf.de/dlf/01/128/mp3/stream.mp3","Deutschlandfunk"},
+{"http://dispatcher.rndfnk.com/br/br1/nbopf/mp3/low","Bayern1"},
+{"http://dispatcher.rndfnk.com/br/br3/live/mp3/low","Bayern3"},
+{"http://dispatcher.rndfnk.com/hr/hr3/live/mp3/48/stream.mp3","Hessen3"},
+{"http://stream.antenne.de/antenne","Antenne Bayern"},
+{"http://stream.1a-webradio.de/saw-deutsch/","Radio 1A Deutsche Hits"},
+{"http://stream.1a-webradio.de/saw-rock/","Radio 1A Rock"},
+{"http://streams.80s80s.de/ndw/mp3-192/streams.80s80s.de/","Neue Deutsche Welle"},
+{"http://dispatcher.rndfnk.com/br/brklassik/live/mp3/low","Bayern Klassik"},
+{"http://mdr-284280-1.cast.mdr.de/mdr/284280/1/mp3/low/stream.mp3","MDR"},
+{"http://icecast.ndr.de/ndr/njoy/live/mp3/128/stream.mp3","N-JOY"},
+{"http://dispatcher.rndfnk.com/rbb/rbb888/live/mp3/mid","RBB"},
+{"http://dispatcher.rndfnk.com/rbb/antennebrandenburg/live/mp3/mid","Antenne Brandenburg"},
+{"http://wdr-wdr3-live.icecastssl.wdr.de/wdr/wdr3/live/mp3/128/stream.mp3","WDR3"},
+{"http://wdr-wdr2-aachenundregion.icecastssl.wdr.de/wdr/wdr2/aachenundregion/mp3/128/stream.mp3","WDR 2"},
+{"http://rnrw.cast.addradio.de/rnrw-0182/deinschlager/low/stream.mp3","NRW Schlagerradio"},
+{"http://rnrw.cast.addradio.de/rnrw-0182/deinrock/low/stream.mp3","NRW Rockradio"},
+{"http://rnrw.cast.addradio.de/rnrw-0182/dein90er/low/stream.mp3","NRW 90er"},
+{"http://mp3.hitradiort1.c.nmdn.net/rt1rockwl/livestream.mp3","RT1 Rock"},
+{"http://sluchaj.radiorodzina.pl/RadioRodzinaWroclawLIVE.mp3","Polen"}};
+
+//buffer size for stream buffering
+const int preallocateBufferSize = 80*1024; //40 KB
+const int preallocateCodecSize = 29192;         // MP3 codec max mem needed
+//pointer to preallocated memory
+void *preallocateBuffer = NULL;
+void *preallocateCodec = NULL;
+
+//instances for audio components
+AudioGenerator *decoder = NULL;
+AudioFileSourceICYStream *file = NULL;
+AudioFileSourceBuffer *buff = NULL;
+AudioOutputI2S *out;
+
+//global variables
+uint8_t curStation = 0;   //index for current selected station in stationlist
+uint8_t actStation = 0;   //index for current station in station list used for streaming 
+uint32_t lastchange = 0;  //time of last selection change
+
+//callback function will be called if meta data were found in input stream
+void MDCallback(void *cbData, const char *type, bool isUnicode, const char *string)
+{
+  const char *ptr = reinterpret_cast<const char *>(cbData);
+  (void) isUnicode; // Punt this ball for now
+  // Note that the type and string may be in PROGMEM, so copy them to RAM for printf
+  char s1[32], s2[64];
+  strncpy_P(s1, type, sizeof(s1));
+  s1[sizeof(s1)-1]=0;
+  strncpy_P(s2, string, sizeof(s2));
+  s2[sizeof(s2)-1]=0;
+  Serial.printf("METADATA(%s) '%s' = '%s'\n", ptr, s1, s2);
+  Serial.flush();
+}
+
+//stop playing the input stream release memory, delete instances
+void stopPlaying() {
+  if (decoder)  {
+    decoder->stop();
+    delete decoder;
+    decoder = NULL;
+  }
+  if (buff)  {
+    buff->close();
+    delete buff;
+    buff = NULL;
+  }
+  if (file)  {
+    file->close();
+    delete file;
+    file = NULL;
+  }
+}
+
+//start playing a stream from current active station
+void startUrl() {
+  stopPlaying();  //first close existing streams
+  //open input file for selected url
+  Serial.printf("Active station %s\n",stationlist[actStation].url);
+  file = new AudioFileSourceICYStream(stationlist[actStation].url);
+  //register callback for meta data
+  //file->RegisterMetadataCB(MDCallback, NULL); 
+  //create a new buffer which uses the preallocated memory
+  buff = new AudioFileSourceBuffer(file, preallocateBuffer, preallocateBufferSize);
+  Serial.printf_P(PSTR("sourcebuffer created - Free mem=%d\n"), ESP.getFreeHeap());
+  //create and start a new decoder
+  decoder = (AudioGenerator*) new AudioGeneratorMP3(preallocateCodec, preallocateCodecSize);
+  Serial.printf_P(PSTR("created decoder\n"));
+  Serial.printf_P("Decoder start...\n");
+  decoder->begin(buff, out);
+}
+
+//setup
+void setup() {
+  Serial.begin(9600);
+  delay(1000);
+  Serial.printf("free heap:", ESP.getFreeHeap());
+  //reserve buffer for decoder and stream
+  preallocateBuffer = malloc(preallocateBufferSize);          // Stream-file-buffer
+  preallocateCodec = malloc(preallocateCodecSize);            // Decoder- buffer
+  if (!preallocateBuffer || !preallocateCodec)
+  {
+    Serial.printf_P(PSTR("FATAL ERROR:  Unable to preallocate %d bytes for app\n"), preallocateBufferSize+preallocateCodecSize);
+    while(1){
+      yield(); // Infinite halt
+    }
+  } 
+  //init WiFi
+  Serial.println("Connecting to WiFi");
+  WiFi.disconnect();
+  WiFi.softAPdisconnect(true);
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(SSID, PSK);
+  // Try forever
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.println("...Connecting to WiFi");
+    delay(1000);
+  }
+  Serial.println("Connected");
+  //create I2S output do use with decoder
+  out = new AudioOutputI2S();
+  startUrl();
+}
+
+void loop() {
+  //check if stream has ended normally not on ICY streams
+  if (decoder->isRunning()) {
+    if (!decoder->loop()) {
+      decoder->stop();
+    }
+  } else {
+    Serial.printf("MP3 done\n");
+
+    // Restart ESP when streaming is done or errored
+    delay(10000);
+
+    ESP.restart();
+  }
+}

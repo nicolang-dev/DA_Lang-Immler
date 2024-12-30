@@ -31,7 +31,6 @@ BatteryManager* battery;
 
 void setMode(Mode m);
 void handleButton();
-void activateStandby();
 
 void setup(){
     //set serial baudrate
@@ -48,9 +47,12 @@ void setup(){
     server = ServerManager::getInstance();
     battery = BatteryManager::getInstance();
 
-    //initializing pins of status led and battery
+    //initializing pins of status led
     statusLED->initializePins();
     battery->initializePins();
+
+    //initialize i2s
+    //audio->initialize(DEFAULT_VOLUME);
 
     //if logs are already set in the memory, read logs and add them
     /*if(memory->areLogsSet()){
@@ -68,17 +70,18 @@ void setup(){
     } else {
         Logger::add("name not set in memory - using default name");
         String mac = network->getMac();
-        name = "MSA_" + mac.substring(0,1); //setting default name
+        name = "MSA_" + mac.substring(name.length()-4); //setting default name
     }
-    Logger::add("Name: " + name);
+    Logger::add(name);
 
     //if WLAN-credentials are set, read them and try to connect to WLAN
     if(memory->isWlanSsidSet() && memory->isWlanPasswordSet()){
         Logger::add("wlan credentials set in memory");
         String wlan_ssid = memory->readWlanSsid();
         String wlan_password = memory->readWlanPassword();
-        Logger::add("SSID: " + wlan_ssid);
-        Logger::add("password: " + wlan_password);
+        Logger::add("wlan credentials:");
+        Logger::add(wlan_ssid);
+        Logger::add(wlan_password);
         Logger::add("starting wlan client");
         network->startClient(wlan_ssid, wlan_password);
         setMode(NORMAL);
@@ -106,27 +109,62 @@ void loop(){
                 setMode(ERROR);
             } else if(!server->isRunning()){
                 Logger::add("starting web server");
-                server->start();
-                network->setmDns(name);
+            server->start();
+            network->setmDns(name);
             }
         }
          /*if(audio->isStreaming()){
             audio->loop();
         }*/
-        } else { //mode is config
-            if(!network->isApStarted()){
-                Logger::add("starting ap");
-                network->startAP(name);
-            } else if(!server->isRunning()){
-                Logger::add("starting web server");
-                server->start();
-                network->setmDns(name);
-            }
+    } else {
+        if(!network->isApStarted()){
+            Logger::add("starting ap");
+            network->startAP(name);
+        } else if(!server->isRunning()){
+            Logger::add("starting web server");
+            server->start();
+            network->setmDns(name);
         }
-        //if webserver is running
-        if(server->isRunning()){
-            server->handleClient(); //handle client
-        }   
+    }
+    //if webserver is running
+    if(server->isRunning()){
+        server->handleClient(); //handle client
+        //if Wlan credentials are received, read Wlan credentials and restart microcontroller
+        if(server->wlanCredentialsReceived()){
+            Logger::add("wlan credentials received from client");
+            String received_ssid = server->getReceivedSsid(); //read received ssid
+            String received_password = server->getReceivedPassword(); //read received password
+            Logger::add(received_ssid);
+            Logger::add(received_password);
+            Logger::add("writing wlan credentials to memory");
+            //String all_logs = Logger::getLogsAsString();
+            memory->writeWlanSsid(received_ssid); //write ssid to memory
+            memory->writeWlanPassword(received_password); //write password to memory
+            //memory->writeLogs(all_logs);
+            Logger::add("restarting esp32");
+            ESP.restart(); //restart microcontroller
+        }
+        //if server has received a stream-url, the audio class should start streaming
+        if(server->urlReceived()){
+            String url = server->getReceivedUrl();
+            Logger::add("starting audio stream");
+            Logger::add(url);
+            audio->startStream(url);
+        }
+        if(server->nameReceived()){
+            String received_name = server->getReceivedName();
+            Logger::add("name received");
+            Logger::add(received_name);
+            network->setmDns(received_name);
+            memory->writeName(received_name);
+        }
+        if(server->volumeReceived()){
+            int received_volume = server->getReceivedVolume();
+            Logger::add("volume received");
+            Logger::add(String(received_volume));
+            audio->setVolume(received_volume);
+        }
+    }   
     }
 }
 
@@ -156,10 +194,8 @@ void handleButton(){
     if(press_start > 0 && press_end > 0){
         if((press_end - press_start) >= 3000){
              Serial.println("pressed for over 3000ms");
-             setMode(CONFIG);
         } else {
             Serial.println("pressed for under 3000ms");
-            activateStandby();
         }
         press_start = 0;
         press_end = 0;

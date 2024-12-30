@@ -1,24 +1,29 @@
 #include <Arduino.h>
-#include <WiFi.h>
-#include <HTTPClient.h>
-
-HTTPClient http;
 
 void setup(){
     Serial.begin(9600);
-    WiFi.disconnect();
-    WiFi.mode(WIFI_STA);
-    WiFi.begin("AP-II", "MmrL48!?48y");
-    while(WiFi.status() != WL_CONNECTED){
-        delay(500);
-    }
-    Serial.println("connected!");
-
-    http.begin("http://http://s5-webradio.rockantenne.de/rockantenne");
-    WiFiClient cli = http.getStream();
-    cli.
+    pinMode(23, INPUT_PULLDOWN);
 }
 
-void loop(){
+bool last_state = 0;
+unsigned long press_start = 0;
+unsigned long press_end = 0;
 
+void loop(){
+    int state = digitalRead(23);
+    if(state == 1 && last_state == 0){ //button has been pressed
+        press_start = millis();
+    } else if(state == 0 && last_state == 1){ //button has been released
+        press_end = millis();
+    }
+    if(press_start > 0 && press_end > 0){
+        if((press_end - press_start) >= 3000){
+             Serial.println("pressed for over 3000ms");
+        } else {
+            Serial.println("pressed for under 3000ms");
+        }
+        press_start = 0;
+        press_end = 0;
+    }
+    last_state = state;
 }

@@ -1,8 +1,8 @@
-const express = require("express");
-const bonjour = require("bonjour")();
-const app = express();
-
 class Adapter{
+    express = require("express");
+    bonjour = require("bonjour")();
+    app = express();
+
     mac = "02:1A:6B:4C:D7:9F";
     name = "msa_79f";
     volume = 20;
@@ -19,7 +19,7 @@ class Adapter{
     start(){
         let url = "/" + this.name;
         app.get(url + "/", (req, res) => {
-            res.send("this is " + this.name);
+            res.sendStatus(200);
         })
     
         app.get(url + "/getAvailableNetworks", (req, res) => {
@@ -64,18 +64,11 @@ class Adapter{
             res.sendStatus(200);
             console.log("paused: ", paused);
         })
+    
+        app.listen(80, ()=>{
+            console.log("listening!");
+        })
+        const host = this.name + ".local";
+        bonjour.publish({name: this.name, type: 'http', port: 80, host: host});
     }
 }
-
-const adpater1 = new Adapter("test", "adapter1");
-adpater1.start();
-
-const adpater2 = new Adapter("test", "adapter2");
-adpater1.start();
-
-app.listen(80, ()=>{
-    console.log("listening!");
-})
-
-bonjour.publish({name: "adapter1", type: 'http', port: 80, host: "adapter1.local", txt: {path: "/adapter1"}});
-bonjour.publish({name: "adapter2", type: 'http', port: 80, host: "adapter2.local", txt: {path: "/adapter2"}});    
