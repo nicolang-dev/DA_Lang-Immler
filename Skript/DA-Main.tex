@@ -211,7 +211,7 @@ Bei INPUT\_PULLDOWN hingegen wird der Eingang auf LOW gesetzt.\grqq{} Pullup- /P
 (vgl. \url {https://www.xplore-dna.net/mod/page/view.php?id=2741&forceview=1}
 \vspace{4mm}\newline
 \textbf{Digital-/Analogwandler (Audio-Modul)}\newline
-Dieses Modul ist ausschlaggebend für eine gute Audioqualität. Das digitale Audiosignal vom ESP32 (Radiostream) muss nämlich für die Line-Out Buchse auf analog konvertiert werden. Dafür wird ein Modul mit dem PCM5102A (\glqq 2VRMS DirectPath™, 112 dB Audio Stereo DAC mit 32-bit, 384 kHz-PCM-Schnittstelle\grqq{}) DAC verwendet. Auf diesem Modul befinden sich alle Komponenten sowie die Klinkenbuchse die für die Ausgabe des Audiosignals nötig sind.
+Dieses Modul ist ausschlaggebend für eine gute Audioqualität. Das digitale Audiosignal vom ESP32 (Radiostream) muss nämlich für die Line-Out Buchse auf analog konvertiert werden. Dafür wird ein Modul mit dem PCM5102A (\glqq 2VRMS DirectPath™, 112 dB Audio Stereo DAC mit 32-bit, 384 kHz-PCM-Schnittstelle\grqq{}) DAC (Digital-Analog-Converter) verwendet. Auf diesem Modul befinden sich alle Komponenten sowie die Klinkenbuchse die für die Ausgabe des Audiosignals nötig sind.
 \vspace{4mm} \newline
 (vgl. \url{https://www.ti.com/product/de-de/PCM5102A})
 \vspace{4mm}\newline
@@ -563,8 +563,8 @@ In den gegenüberliegenden Ecken der Basis befinden sich der Digital-/Analogwand
 \vspace{4mm}
 \textbf{Deckel} \newline
 Der Deckel des Adapters ist grundsätzlich, wie die Wände der Basis, 71x58x2mm groß. Dieser hat jedoch eine zentrierte 67x54x1mm große Stufe. Mit dieser Stufe lässt sich der Deckel kleberlos auf den Adapter setzen und hält aufgrund der Eigenschaften des 3D-Drucks auch, zumindest für den Prototypen, fest genug.
-Wie schon erwähnt, wird der DAW durch eine herabstehende Wand zusätzlich gestützt. Die Maße dieser Wand sind 32x2x10mm. Es würde keinen Sinn machen, die Wand wie beim Laderegler von der Außenwand aus überhängend zu machen, da der DAW länger als der Laderegler ist und die Buchse sich eher mittig in der entsprechenden Außenwand der Basis befindet.\newline
-An der freien Seite der Stützwand (nicht die des DAW) befindet sich ein runder Schacht für die RGB-LED mit 5mm Durchmesser und eine Aussparung für den Aufsatz des Tasters mit 10,10mm Durchmesser. Der Taster mit den Grundmaßen 6x6mm wird durch eine Art U-Form aus Wänden im Gehäuse gehalten. Eine Wand davon bildet die gerade eben beschriebene Stützwand. Die untere Wand, auf der der Taster aufliegt, hat zudem zwei auf den Taster angepasste, 1mm große Aussparungen für die zwei Pole des Tasters.\newline
+Wie schon erwähnt, wird der DAC durch eine herabstehende Wand zusätzlich gestützt. Die Maße dieser Wand sind 32x2x10mm. Es würde keinen Sinn machen, die Wand wie beim Laderegler von der Außenwand aus überhängend zu machen, da der DAC länger als der Laderegler ist und die Buchse sich eher mittig in der entsprechenden Außenwand der Basis befindet.\newline
+An der freien Seite der Stützwand (nicht die des DAC) befindet sich ein runder Schacht für die RGB-LED mit 5mm Durchmesser und eine Aussparung für den Aufsatz des Tasters mit 10,10mm Durchmesser. Der Taster mit den Grundmaßen 6x6mm wird durch eine Art U-Form aus Wänden im Gehäuse gehalten. Eine Wand davon bildet die gerade eben beschriebene Stützwand. Die untere Wand, auf der der Taster aufliegt, hat zudem zwei auf den Taster angepasste, 1mm große Aussparungen für die zwei Pole des Tasters.\newline
 Wenn man in der Draufsicht auf den Deckel schaut, ist dort wo sich der Prozessor selbst befindet, ein Gitter in den Deckel eingelassen. Dieses Gitter hat die Maße 19,9x21,6mm, was etwas größer als der Prozessor des ESP32 ist. Das Gitter besteht aus diagonalen Streben, die jeweils 1,5mm breit sowie 1,5mm weit voneinander entfernt sind. So entsteht eine einfache und stabile Möglichkeit, Wärme durch den Deckel abzuleiten.\newline
 \begin{figure}[H]
 \begin{flushleft}
@@ -669,6 +669,10 @@ Eine weitere Möglichkeit zum glätten der schon zuvor beschriebenen riffelartig
 In diesem Kapitel wird der gesamte Code auf Sicherheitslücken getestet.
 \subsection{Auftretende Sicherheitslücken schließen}
 In diesem Kapitel werden die bei den Tests aufgetretenen Sicherheitslücken geschlossen.
+\section{Schluss}
+\subsection{Konklusion Hardware}
+Ziel des Hardware-Teils in dieser Diplomarbeit war es, passende Komponenten zu finden und diese in einem selbst designten Gehäuse zu einem Prototypen des Multi-Room Sound Adapter zusammenzusetzen. Dies wurde, wie geplant, umgesetzt. Dabei kamen grundlegende Methoden wie 3D-Design, 3D-Druck, Löten, Online-Recherche und weitere zum Einsatz. Grundsätzlich lief alles wie geplant, es ergaben sich jedoch öfters größere Herausforderungen dort, wo man eigentlich keine erwartet. Für diese fand sich aber immer eine passende Lösung.
+\subsection{Konklusion Software}
 \section{Einzelnachweise}
 \subsection{Literaturverzeichnis}
 \subsection{Abbildungsverzeichnis}
