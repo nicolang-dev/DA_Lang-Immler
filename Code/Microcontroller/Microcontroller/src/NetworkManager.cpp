@@ -59,30 +59,27 @@ bool NetworkManager::startAP(String ssid){
 /**
  * starts esp32 wlan client which connects to the access point with the given credentials
  */
-bool NetworkManager::startClient(String ssid, String password){
+bool NetworkManager::startClient(String ssid, String password, String hostname){
     if(WiFi.getMode() == WIFI_AP){ //if wifi is in ap mode, ap mode will be disabled and station mode will be enabled
         WiFi.softAPdisconnect();
         WiFi.mode(WIFI_STA);
     }
-    if(WiFi.status() == WL_CONNECTED){
-        WiFi.disconnect();
-    }
-    WiFi.begin(ssid, password);
-    //Log::add("connecting to wifi");
-    unsigned long start_connection_time = millis();
-    while(!isConnectedToWlan()){
-        if(millis() - start_connection_time >= MAX_CONNECTION_TIME){
-            //Log::add("connection to wifi failed (too long)");
-            return false;
+    WiFi.disconnect();
+    int n = WiFi.scanNetworks();
+    for(int i = 0; i < n; i++){
+        if(WiFi.SSID(i) == ssid){
+            String bssid = WiFi.BSSIDstr(i);
+            Logger::add("ap mac: " + bssid);
+            WiFi.setHostname(hostname.c_str());
+            WiFi.begin(WiFi.SSID(i), password, 0, WiFi.BSSID(i));
+            return true;
         }
     }
-    if(isConnectedToWlan()){
-        //Log::add("connected to wifi");
-        //Log::add(WiFi.localIP().toString());
-        //Log::add("connected to wifi");
-        return true;
-    }
     return false;
+}
+
+void NetworkManager::reconnect(){
+    WiFi.reconnect();
 }
 
 bool NetworkManager::isApModeActive(){
@@ -97,7 +94,7 @@ bool NetworkManager::isConnectedToWlan(){
 }
 
 bool NetworkManager::setmDns(String name){
-    return MDNS.begin(name);
+    return MDNS.begin(name) && MDNS.addService("http", "tcp", 80);
 }
 
 bool NetworkManager::isApStarted(){
@@ -109,4 +106,11 @@ String NetworkManager::getUtcTime(){
     configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
     getLocalTime(&timeinfo);
     return "example";
+}
+
+int NetworkManager::getRssi(){
+    if(this->isConnectedToWlan()){
+        return WiFi.RSSI();
+    }
+    return 0;
 }

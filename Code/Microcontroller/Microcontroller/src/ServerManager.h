@@ -82,6 +82,16 @@ class ServerManager{
         void handle_setVolume();
 
         /**
+         * handles a post request to the /pauseStream route
+         */
+        void handle_pauseStream();
+
+        /**
+         * handles a post request to the /continueStream route
+         */
+        void handle_continueStream();
+
+        /**
          * handles a request to a undefined route
          */
         void handle_notFound();

@@ -111,7 +111,8 @@ void ServerManager::handle_setStreamUrl(){
     Logger::add("post request on route /setStreamUrl received");
     if(server.hasArg("url")){
         String url = server.arg("url");
-        audio->startStream(url);
+        audio->setStreamUrl(url);
+        audio->startStream();
         server.send(200);
     } else {
         server.send(400);
@@ -137,6 +138,18 @@ void ServerManager::handle_setVolume(){
     }
 }
 
+void ServerManager::handle_pauseStream(){
+    Logger::add("put request on route /pauseStream received");
+    audio->stopStream();
+    server.send(200);
+}
+
+void ServerManager::handle_continueStream(){
+    Logger::add("put request on route /continueStream received");
+    audio->startStream();
+    server.send(200);
+}
+
 void ServerManager::handle_notFound(){
     server.send(404, "not found!");
 }
@@ -154,6 +167,8 @@ bool ServerManager::start(){
     //server.on("/setName", HTTP_POST, bind(&ServerManager::handle_setName, this));
     server.on("/setVolume", HTTP_PUT, bind(&ServerManager::handle_setVolume, this));
     server.on("/setConfigData", HTTP_POST, bind(&ServerManager::handle_setConfigData, this));
+    server.on("/pauseStream", HTTP_POST, bind(&ServerManager::handle_pauseStream, this));
+    server.on("/continueStream", HTTP_POST, bind(&ServerManager::handle_continueStream, this));
     server.onNotFound(bind(&ServerManager::handle_notFound, this));
     running = true;
     return true;

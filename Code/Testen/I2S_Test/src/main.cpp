@@ -1,29 +1,121 @@
 #include <Arduino.h>
 
-void setup(){
-    Serial.begin(9600);
-    pinMode(23, INPUT_PULLDOWN);
+#if defined(ARDUINO_ARCH_RP2040)
+void setup() {}
+void loop() {}
+
+#else
+#if defined(ESP32)
+    #include <WiFi.h>
+#else
+    #include <ESP8266WiFi.h>
+#endif
+#include "AudioFileSourceICYStream.h"
+#include "AudioFileSourceBuffer.h"
+#include "AudioGeneratorMP3.h"
+#include "AudioOutputI2S.h"
+
+// To run, set your ESP8266 build to 160MHz, update the SSID info, and upload.
+
+// Enter your WiFi setup here:
+#ifndef STASSID
+#define STASSID "AP-II"
+#define STAPSK  "MmrL48!?48y"
+#endif
+
+const char* ssid = STASSID;
+const char* password = STAPSK;
+
+// Randomly picked URL
+const char *URL="http://mp3channels.webradio.rockantenne.de/rockantenne";
+
+AudioGeneratorMP3 *mp3;
+AudioFileSourceICYStream *file;
+AudioFileSourceBuffer *buff;
+AudioOutputI2S *out;
+
+// Called when a metadata event occurs (i.e. an ID3 tag, an ICY block, etc.
+void MDCallback(void *cbData, const char *type, bool isUnicode, const char *string)
+{
+  const char *ptr = reinterpret_cast<const char *>(cbData);
+  (void) isUnicode; // Punt this ball for now
+  // Note that the type and string may be in PROGMEM, so copy them to RAM for printf
+  char s1[32], s2[64];
+  strncpy_P(s1, type, sizeof(s1));
+  s1[sizeof(s1)-1]=0;
+  strncpy_P(s2, string, sizeof(s2));
+  s2[sizeof(s2)-1]=0;
+  Serial.printf("METADATA(%s) '%s' = '%s'\n", ptr, s1, s2);
+  Serial.flush();
 }
 
-bool last_state = 0;
-unsigned long press_start = 0;
-unsigned long press_end = 0;
-
-void loop(){
-    int state = digitalRead(23);
-    if(state == 1 && last_state == 0){ //button has been pressed
-        press_start = millis();
-    } else if(state == 0 && last_state == 1){ //button has been released
-        press_end = millis();
-    }
-    if(press_start > 0 && press_end > 0){
-        if((press_end - press_start) >= 3000){
-             Serial.println("pressed for over 3000ms");
-        } else {
-            Serial.println("pressed for under 3000ms");
-        }
-        press_start = 0;
-        press_end = 0;
-    }
-    last_state = state;
+// Called when there's a warning or error (like a buffer underflow or decode hiccup)
+void StatusCallback(void *cbData, int code, const char *string)
+{
+  const char *ptr = reinterpret_cast<const char *>(cbData);
+  // Note that the string may be in PROGMEM, so copy it to RAM for printf
+  char s1[64];
+  strncpy_P(s1, string, sizeof(s1));
+  s1[sizeof(s1)-1]=0;
+  Serial.printf("STATUS(%s) '%d' = '%s'\n", ptr, code, s1);
+  Serial.flush();
 }
+
+
+void setup()
+{
+  Serial.begin(9600);
+  delay(1000);
+  Serial.println("Connecting to WiFi");
+
+  WiFi.disconnect();
+  int n = WiFi.scanNetworks();
+  for(int i = 0; i < n; i++){
+    if(WiFi.SSID(i) == ssid){
+        WiFi.begin(WiFi.SSID(i), password, 0, WiFi.BSSID(i));
+        break;
+    }
+  }
+  // Try forever
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.println("...Connecting to WiFi");
+    delay(1000);
+  }
+  Serial.println("Connected");
+  Serial.println(String(WiFi.RSSI()));
+
+  audioLogger = &Serial;
+  file = new AudioFileSourceICYStream();
+  file->open(URL);
+  file->RegisterMetadataCB(MDCallback, (void*)"ICY");
+  buff = new AudioFileSourceBuffer(file, 65536);
+  buff->RegisterStatusCB(StatusCallback, (void*)"buffer");
+  out = new AudioOutputI2S();
+  out->SetPinout(27, 26, 25);
+  out->SetBitsPerSample(16);
+  out->SetChannels(2);
+  out->SetRate(44100);
+  out->SetGain(1);
+  mp3 = new AudioGeneratorMP3();
+  mp3->RegisterStatusCB(StatusCallback, (void*)"mp3");
+  mp3->begin(buff, out);
+}
+
+
+void loop()
+{
+  static int lastms = 0;
+
+  if (mp3->isRunning()) {
+    if (millis()-lastms > 1000) {
+      lastms = millis();
+      Serial.printf("Running for %d ms...\n", lastms);
+      Serial.flush();
+     }
+    if (!mp3->loop()) mp3->stop();
+  } else {
+    Serial.printf("MP3 done\n");
+    delay(1000);
+  }
+}
+#endif

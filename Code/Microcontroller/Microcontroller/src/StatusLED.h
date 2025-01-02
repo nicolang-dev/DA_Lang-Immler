@@ -18,11 +18,6 @@ class StatusLED{
         static StatusLED* getInstance();
 
         /**
-         * initializes the pins / sets them all as an output
-         */
-        void initializePins();
-
-        /**
          * sets the color of the led to red
          */
         void setRed();

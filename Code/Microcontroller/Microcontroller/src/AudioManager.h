@@ -7,6 +7,7 @@
 #include "AudioFileSourceBuffer.h"
 #include "AudioGeneratorMP3.h"
 #include "AudioOutputI2S.h"
+#include "Logger.h"
 
 class AudioManager{
     private:
@@ -24,31 +25,27 @@ class AudioManager{
 
     public:
         static AudioManager* getInstance();
+
         /**
-         * initializes the I2S-pins and sets the volume to the default volume
+         * sets the url, from which the audio stream should be received
          */
-        bool initialize();
+        void setStreamUrl(String url);
 
         /**
          * starts to receive the audio stream from the given url
          * @param url URL of the audio stream, which should be received
          */
-        bool startStream(String url);
+        void startStream();
+
+        /**
+         * stops the current audio stream
+         */
+        void stopStream();
 
         /**
         * returns the stream url
         */
         String getStreamUrl();
-
-        /**
-         * stops to receive the audio stream
-         */
-        bool pauseStream();
-
-        /**
-         * continues the audio stream, if it's paused
-         */
-        bool continueStream();
 
         /**
          * returns if the audio stream paused

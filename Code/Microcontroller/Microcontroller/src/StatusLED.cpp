@@ -3,7 +3,10 @@
 StatusLED* StatusLED::instance = nullptr;
 
 StatusLED::StatusLED(){
-    //empty
+    //initializing led pins
+    pinMode(LED_RED, OUTPUT);
+    pinMode(LED_GREEN, OUTPUT);
+    pinMode(LED_BLUE, OUTPUT);
 }
 
 StatusLED::~StatusLED(){
@@ -15,15 +18,6 @@ StatusLED* StatusLED::getInstance(){
         instance = new StatusLED();
     }
     return instance;
-}
-
-/**
- * initializes the pins / sets them all as an output
- */
-void StatusLED::initializePins(){
-    pinMode(LED_RED, OUTPUT);
-    pinMode(LED_GREEN, OUTPUT);
-    pinMode(LED_BLUE, OUTPUT);
 }
 
 /**

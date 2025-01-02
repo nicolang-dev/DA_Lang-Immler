@@ -51,7 +51,12 @@ class NetworkManager{
          * @param password WLAN-Password, as a String
          * @return connection successful, as a bool
          */
-        bool startClient(String ssid, String password);
+        bool startClient(String ssid, String password, String hostname);
+
+        /**
+         * reconnects to the ap
+         */
+        void reconnect();
 
         /**
          * returns the MAC-Address of the ESP32, as a String
@@ -102,5 +107,10 @@ class NetworkManager{
          * @return utc time, as a string
          */
         String getUtcTime();
+
+        /**
+         * returns the RSSI of the network currently connected
+         */
+        int getRssi();
 };
 #endif

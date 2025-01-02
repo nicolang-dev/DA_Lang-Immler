@@ -12,10 +12,13 @@
 Mode mode = NORMAL;
 unsigned long actual_time = 0;
 unsigned long last_wlan_request_time = 0;
+int wlan_reconnect_tries = 0;
 unsigned long last_log_size = 0;
 String last_log = "";
 String name;
-int network_reconnect_tries = 0;
+
+unsigned long wlan_connection_start = 0;
+int wlan_reconnection_tries = 0;
 
 //for button:
 unsigned long press_start = 0;
@@ -39,7 +42,7 @@ void setup(){
 
     //initialize button pin and attach interrupt to button
     pinMode(BUTTON_PIN, INPUT_PULLDOWN);
-    esp_sleep_enable_ext0_wakeup(GPIO_NUM_12, 1); //wakes the esp32 up from deep sleep, when gpio 12 is HIGH
+    esp_sleep_enable_ext0_wakeup(GPIO_NUM_12, 1); //wakes the esp32 up from deep sleep, when gpio 12 (button pin) is HIGH
 
     //getting instances of singleton classes
     network = NetworkManager::getInstance();
@@ -47,10 +50,7 @@ void setup(){
     memory = MemoryManager::getInstance();
     server = ServerManager::getInstance();
     battery = BatteryManager::getInstance();
-
-    //initializing pins of status led and battery
-    statusLED->initializePins();
-    battery->initializePins();
+    audio = AudioManager::getInstance();
 
     //if logs are already set in the memory, read logs and add them
     /*if(memory->areLogsSet()){
@@ -80,17 +80,29 @@ void setup(){
         Logger::add("SSID: " + wlan_ssid);
         Logger::add("password: " + wlan_password);
         Logger::add("starting wlan client");
-        network->startClient(wlan_ssid, wlan_password);
-        setMode(NORMAL);
-    } else { //when Wlan credentials are not set, status led is set to red
+        network->startClient(wlan_ssid, wlan_password, name);
+        wlan_connection_start = millis();
+        while(!network->isConnectedToWlan() && mode != ERROR){
+            Serial.print(".");
+            delay(100);
+            if((millis() - wlan_connection_start) >= MAX_CONNECTION_TIME){ //if the max connection time for the wifi is exceeded, activate error mode
+                Logger::add("max wlan connection time exceeded");
+                setMode(ERROR);
+            }
+        }
+        if(network->isConnectedToWlan()){ //if connected to wlan, set mode to normal
+            Logger::add("connected to wlan");
+            setMode(NORMAL);
+        }
+    } else { //if wlan credentials are not set, set mode to error
         Logger::add("wlan credentials not set in memory");
         setMode(ERROR);
     }
 }
 
 void loop(){
-    handleButton();
-    actual_time = millis();    
+    handleButton(); //check if button is pressed
+    actual_time = millis(); //time since start in ms
     //if theres a new log entry, print it on the serial monitor
     /*if(Logger::getLogSize() > last_log_size){
         String last_log = Logger::getLastLog();
@@ -101,35 +113,49 @@ void loop(){
         if(mode == NORMAL){
         //check if still connected to Wlan
         if((actual_time - last_wlan_request_time) >= WLAN_REQUEST_PERIOD){
-            if(!network->isConnectedToWlan()){ //if connected to Wlan, set color of status led to green
-                Logger::add("not connected to wlan");
-                setMode(ERROR);
-            } else if(!server->isRunning()){
-                Logger::add("starting web server");
-                server->start();
-                network->setmDns(name);
+            if(!network->isConnectedToWlan()){ //if not connected to wlan, try to reconnect
+                if(wlan_reconnection_tries <= MAX_RECONNECTION_TRIES){
+                    network->reconnect();
+                    wlan_reconnect_tries ++;
+                    Logger::add("reconnecting to wlan");
+                } else {
+                    Logger::add("not connected to wlan");
+                    setMode(ERROR);
+                }
+            } else {
+                int rssi = network->getRssi();
+                Logger::add("wifi rssi: " + String(rssi));
+                wlan_reconnect_tries = 0;
             }
+            last_wlan_request_time = actual_time;
         }
-         /*if(audio->isStreaming()){
+        if(!audio->isPaused()){ //if audio routine is running, execute audio loop
             audio->loop();
-        }*/
+        }
         } else { //mode is config
-            if(!network->isApStarted()){
+            if(!network->isApStarted()){ //if ap is not running, start ap
                 Logger::add("starting ap");
                 network->startAP(name);
-            } else if(!server->isRunning()){
-                Logger::add("starting web server");
-                server->start();
-                network->setmDns(name);
             }
         }
-        //if webserver is running
-        if(server->isRunning()){
-            server->handleClient(); //handle client
-        }   
+        
+        if(server->isRunning()){ //if server is running, it should handle clients
+            server->handleClient(); 
+        } else {
+            Logger::add("starting web server");
+            server->start();
+            Logger::add("setting mDNS");
+            if(!network->setmDns(name)){
+                Logger::add("mDNS couldn't be set");
+            }
+        }
     }
 }
 
+/**
+ * method for setting modes
+ * @param m Mode which should be set
+ */
 void setMode(Mode m){
     if(m == NORMAL){
         Logger::add("setting mode to normal");
@@ -146,6 +172,9 @@ void setMode(Mode m){
     }
 }
 
+/**
+ * method for checkin if button is pressed
+ */
 void handleButton(){
     int state = digitalRead(BUTTON_PIN);
     if(state == 1 && last_state == 0){ //button has been pressed
@@ -167,15 +196,10 @@ void handleButton(){
     last_state = state;
 }
 
+/**
+ * method for activating standby mode (deep sleep)
+ */
 void activateStandby(){
     statusLED->setOff();
     esp_deep_sleep_start();
 }
-
-/*void IRAM_ATTR handle_buttonPress() {
-    config_mode = true;
-}*/
-
-/**
- * starts config mode
- */
