@@ -125,37 +125,36 @@ export const Memory = {
     async getAdapters(): Promise<Adapter[]|null>{
         const savedAdapters = await AsyncStorage.getItem(adaptersKey);
         if(savedAdapters !== null){
-            const reachableAdapters: Adapter[] = [];
-            const unreachableAdapters: Adapter[] = [];
             const adapterList: [] = JSON.parse(savedAdapters);
+            const allAdapters: Adapter[] = [];
             adapterList.forEach((element) => {
-                unreachableAdapters.push(new Adapter(element.name, element.mac, -1, -1, false, ""));
+                allAdapters.push(new Adapter(element.name, element.mac, element.volume, element.battery, element.connected, element.streamUrl));
             })
             const promiseList: any[] = [];
             adapterList.forEach((adapter: Adapter) => {
-                const url = "http://" + adapter.name + ".local/getInfo";
-                const instance = axios.create({timeout: 500});
-                const promise = instance.get(url);
+                const url = "http://" + adapter.name + ".local:8080/getInfo";
+                //const instance = axios.create({timeout: 2500});
+                const promise = axios.get(url, {timeout: 1000});
                 promiseList.push(promise);
             })
             const results = await Promise.allSettled(promiseList);
+            const reachableAdapters: Adapter[] = [];
             results.forEach((element) => {
                 if(element.status == "fulfilled"){
                     const val = element.value.data;
                     reachableAdapters.push(new Adapter(val.name, val.mac, val.volume, val.battery, true, val.streamUrl));
                 }
             })
-            for(let i = 0; i < unreachableAdapters.length; i++){
+            for(let i = 0; i < allAdapters.length; i++){
                 for(let j = 0; j < reachableAdapters.length; j++){
-                    if(unreachableAdapters[i].mac == reachableAdapters[j].mac){
-                        unreachableAdapters.splice(i, 1);
+                    if(allAdapters[i].mac == reachableAdapters[j].mac){
+                        allAdapters[i] = reachableAdapters[j];
                     }
                 }
             }
-            const result = reachableAdapters.concat(unreachableAdapters);
-            return Promise.resolve(result);
+            return Promise.resolve(allAdapters);
         }
-        return Promise.reject("no adapters available");
+        return Promise.resolve(null);
     },
     async addAdapter(adapter: Adapter){
         let newAdapterList = await Memory.getAdapters();
@@ -185,29 +184,27 @@ export const Memory = {
             if(adapterList !== null){
                 for(let adapter of adapterList){
                     if(adapter.connected){
-                        const instance = axios.create({timeout: 2500});
-                        let url = "http://" + adapter.name + ".local/getStreamUrl";
-                        const adapterRes = await instance.get(url);
-                        url = "http://de1.api.radio-browser.info/json/stations/byurl?url=" + adapterRes.data;
-                        const apiRes = await instance.get(url);
+                        const url = "http://de1.api.radio-browser.info/json/stations/byurl?url=" + adapter.streamUrl;
+                        const apiRes = await axios.get(url);
                         const obj = apiRes.data[0];
-                        const station = new Station(obj.stationuuid, obj.name, obj.favicon, obj.url);
-                        const connection = new Connection(adapter, station);
-                        connectionList.push(connection);
-                        if(connectionList.length > 0){
-                            return connectionList;
-                        } else {
-                            return null;
+                        if(obj !== undefined){
+                            const station = new Station(obj.stationuuid, obj.name, obj.favicon, obj.url);
+                            const connection = new Connection(adapter, station);
+                            console.log(connection);
+                            connectionList.push(connection);
                         }
                     }
                 }
-            }
-        return null;
+                if(connectionList.length > 0){
+                    return Promise.resolve(connectionList);
+                }
+                return Promise.resolve(null);
+            }   
+        return Promise.resolve(null);
     },
     clearAdapterList(){
         AsyncStorage.setItem(adaptersKey, "");
-    },
-
+    }
 }
 
 export const AdapterAPI = {   
@@ -223,7 +220,12 @@ export const AdapterAPI = {
     sendVolume(adapterName: String, volume: number){
         const url = "http://" + adapterName + ".local/setVolume";
         const data = "volume=" + volume;
-        axios.post(url, data);
+        axios.put(url, data);
+    },
+    async sendStreamUrl(adapterName: string, streamUrl: string){
+        const url = "http://" + adapterName + ".local/setStreamUrl";
+        const data = "streamUrl=" + streamUrl;
+        return axios.put(url, data);
     }
 }
 

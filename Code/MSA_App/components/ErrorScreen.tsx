@@ -11,7 +11,7 @@ const style = StyleSheet.create({
     container:{
         height: '70%',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     text: {
         fontSize: 20,

@@ -7,7 +7,7 @@ import ErrorScreen from "@/components/ErrorScreen";
 export default function AdapterScreen(){
     return(
         <SafeAreaView style={GlobalStyle.page}>
-            <AdapterList editable onlyReachableSelectable={false} onItemSelect={() => {}}/>
+            <AdapterList editable showOnlyAvailable={false} onItemSelect={() => {}}/>
         </SafeAreaView>
     )
 }

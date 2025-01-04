@@ -46,5 +46,10 @@ class Logger{
          * sets log vector to the given log vector
          */
         static void setLogs(std::vector<std::tuple<String,unsigned long>> logs);
+
+        /**
+         * clears the vector
+         */
+        static void clearLogs();
 };
 #endif

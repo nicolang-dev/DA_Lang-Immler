@@ -124,7 +124,6 @@ void loop(){
                 }
             } else {
                 int rssi = network->getRssi();
-                Logger::add("wifi rssi: " + String(rssi));
                 wlan_reconnect_tries = 0;
             }
             last_wlan_request_time = actual_time;
@@ -183,11 +182,9 @@ void handleButton(){
         press_end = millis();
     }
     if(press_start > 0 && press_end > 0){
-        if((press_end - press_start) >= 3000){
-             Serial.println("pressed for over 3000ms");
-             setMode(CONFIG);
+        if((press_end - press_start) >= 3000){ 
+            setMode(CONFIG);
         } else {
-            Serial.println("pressed for under 3000ms");
             activateStandby();
         }
         press_start = 0;

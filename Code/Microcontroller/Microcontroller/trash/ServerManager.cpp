@@ -3,6 +3,11 @@
 ServerManager* ServerManager::instance = nullptr;
 
 ServerManager::ServerManager(){
+    /*received_ssid = "";
+    received_password = "";
+    received_url = "";
+    received_name = "";
+    received_volume = -1;*/
     network = NetworkManager::getInstance();
     battery = BatteryManager::getInstance();
     audio = AudioManager::getInstance();

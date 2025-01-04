@@ -8,6 +8,7 @@ import Station from "@/components/Station";
 import Connection from "@/components/Connection";
 import { router } from "expo-router";
 import StationList from "@/components/StationList";
+import { AdapterAPI } from "@/components/Utilities";
 
 export default function AddConnection(){
     const [selectedAdapter, setSelectedAdapter] = useState(null);
@@ -25,13 +26,14 @@ export default function AddConnection(){
     return(
         <SafeAreaView style={GlobalStyle.page}>
             <Text style={GlobalStyle.textBig}>Adapter auswählen:</Text>
-            <AdapterList editable={false} onlyReachableSelectable onItemSelect={(item) => {setSelectedAdapter(item)}}/>
+            <AdapterList editable={false} showOnlyAvailable onItemSelect={(item: Adapter) => {setSelectedAdapter(item)}}/>
             <Text style={GlobalStyle.textBig}>Station auswählen:</Text>
-            <StationList editable={false} onItemSelect={(item) => {setSelectedStation(item)}}/>
+            <StationList editable={false} onItemSelect={(item: Station) => {setSelectedStation(item)}}/>
             <Button title="Bestätigen" disabled={buttonDisabled} color={Colors.lightTurquoise} onPress={() => {
                 if((selectedAdapter !== null) && (selectedStation !== null)){
-                    const con = new Connection(selectedAdapter, selectedStation);
-                    router.navigate({pathname: "/(tabs)/connection", params: {connection: con}})
+                    AdapterAPI.sendStreamUrl(selectedAdapter.name, selectedStation.url).then(() => {
+                        router.back();
+                    })  
                 }
             }}/>
         </SafeAreaView>

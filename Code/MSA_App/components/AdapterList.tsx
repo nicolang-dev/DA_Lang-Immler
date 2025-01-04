@@ -32,27 +32,39 @@ export default function AdapterList({onItemSelect, editable, showOnlyAvailable}:
     const [selectedAdapter, setSelectedAdapter] = useState(null);
 
     function fetchData(){
-        const result: Adapter[] = [];
-        Memory.getAdapters().then(adapters => {
-            setDataFetched(true);
-            if(adapters !== null && adapters.length > 0){
-                const allAdapters: Adapter[] = adapters;
+        let result: Adapter[] = [];
+        Memory.getAdapters().then(allAdapters => {
+            if(allAdapters !== null && allAdapters.length > 0){
                 if(showOnlyAvailable){
                     Memory.getConnections().then(connections => {
                         if(connections !== null && connections.length > 0){
-                            const usedAdapter: Adapter[] = [];
+                            const usedAdapterMacs: String[] = [];
                             for(let connection of connections){
-                                usedAdapter.push(connection.adapter);
+                                usedAdapterMacs.push(connection.adapter.mac);
                             }
                             for(let adapter of allAdapters){
-                                if(usedAdapter.includes(adapter)){
+                                if(adapter.connected && !usedAdapterMacs.includes(adapter.mac)){
+                                    result.push(adapter);
+                                }
+                            }
+                        } else {
+                            for(let adapter of allAdapters){
+                                if(adapter.connected){
                                     result.push(adapter);
                                 }
                             }
                         }
                     })
+                } else {
+                    result = allAdapters;
                 }
-                setEmpty(false);
+                console.log("result: ", result);
+                setDataFetched(true);
+                if(result.length > 0){
+                    setEmpty(false);
+                } else {
+                    setEmpty(true);
+                }
                 setAdapterList(result);
             } else {
                 setEmpty(true);
@@ -139,11 +151,15 @@ export default function AdapterList({onItemSelect, editable, showOnlyAvailable}:
                 </View>
             )
         } else {
-            return (
-                <SafeAreaView style={GlobalStyle.page}>
+            if(showOnlyAvailable){
+                return (
+                    <ErrorScreen errorText="Keine Adapter verfügbar!" buttonText="Neuen Adapter hinzufügen" onButtonPress={() => router.push("/(tabs)/adapter/addAdapter")}/>
+                )
+            } else{
+                return (
                     <ErrorScreen errorText="Du hast noch keine Adapter hinzugefügt!" buttonText="Adapter hinzufügen" onButtonPress={() => router.push("/(tabs)/adapter/addAdapter")}/>
-                </SafeAreaView>
-            )
+                )
+            }
         }
     } else {
         return (

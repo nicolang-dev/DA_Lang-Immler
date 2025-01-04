@@ -39,3 +39,7 @@ std::vector<String> Logger::getLogsFromString(String logs_str){
 void Logger::setLogs(std::vector<std::tuple<String,unsigned long>> logs){
     Logger::logs = logs;
 }
+
+void Logger::clearLogs(){
+    Logger::logs.clear();
+}
