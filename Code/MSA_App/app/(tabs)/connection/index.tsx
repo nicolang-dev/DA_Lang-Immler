@@ -18,11 +18,9 @@ import ConnectionList from "@/components/ConnectionList";
 import Connection from "@/components/Connection";
 
 export default function ConnectionScreen(){
-    useEffect(() => {
+    useEffect(()=>{
         Memory.getConnections().then(res => {
-            console.log(res);
-        }).catch(err => {
-            console.error(err);
+            console.log("connections: ", res);
         })
     })
     return (

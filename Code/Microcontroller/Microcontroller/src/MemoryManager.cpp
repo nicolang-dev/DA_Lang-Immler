@@ -76,7 +76,7 @@ String MemoryManager::readLogs(){
 }
 
 String MemoryManager::readName(){
-    Logger::add("reading name from memory");
+    //Logger::add("reading name from memory");
     preferences.begin(MEMORY_NAMESPACE.c_str());
     String name = preferences.getString(NAME_KEY.c_str());
     preferences.end();

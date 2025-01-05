@@ -3,6 +3,11 @@
 ServerManager* ServerManager::instance = nullptr;
 
 ServerManager::ServerManager(){
+    /*received_ssid = "";
+    received_password = "";
+    received_url = "";
+    received_name = "";
+    received_volume = -1;*/
     network = NetworkManager::getInstance();
     battery = BatteryManager::getInstance();
     audio = AudioManager::getInstance();
@@ -47,7 +52,7 @@ void ServerManager::handle_get(){
 }*/
 
 void ServerManager::handle_getInfo(){
-    Logger::add("get request on route /getInfo received");
+    //Logger::add("get request on route /getInfo received");
     String adapterInfo = getInfo();
     server.send(200, "application/json", adapterInfo);
 }
@@ -103,7 +108,7 @@ void ServerManager::handle_setConfigData(){
 }*/
 
 void ServerManager::handle_setStreamUrl(){
-    Logger::add("post request on route /setStreamUrl received");
+    Logger::add("put request on route /setStreamUrl received");
     if(server.hasArg("url")){
         String url = server.arg("url");
         audio->setStreamUrl(url);

@@ -31,7 +31,7 @@ export default function ConnectionList({onItemPress}: Props){
     function fetchData(){
         Memory.getConnections().then(res => {
             setDataFetched(true);
-            if(res !== null){
+            if(res !== null && res.length > 0){
                 setEmpty(false);
                 setConnectionList(res);
             } else {
@@ -41,7 +41,7 @@ export default function ConnectionList({onItemPress}: Props){
     }
 
     useEffect(()=>{
-        fetchData();
+        setInterval(fetchData, 5000);
     },[]);
 
     const style = StyleSheet.create({
@@ -63,6 +63,7 @@ export default function ConnectionList({onItemPress}: Props){
                             <ConnectionItem connection={item}/> 
                         </Pressable>
                     }/>
+                    <AddToListButton onPress={() => router.push("/(tabs)/connection/addConnection")}/> 
                 </View>
             )
         } else {

@@ -113,6 +113,7 @@ void loop(){
         if(mode == NORMAL){
         //check if still connected to Wlan
         if((actual_time - last_wlan_request_time) >= WLAN_REQUEST_PERIOD){
+            Serial.println("free heap: " + String(esp_get_free_heap_size()));
             if(!network->isConnectedToWlan()){ //if not connected to wlan, try to reconnect
                 if(wlan_reconnection_tries <= MAX_RECONNECTION_TRIES){
                     network->reconnect();
@@ -197,6 +198,7 @@ void handleButton(){
  * method for activating standby mode (deep sleep)
  */
 void activateStandby(){
+    Logger::add("enabling standby");
     statusLED->setOff();
     esp_deep_sleep_start();
 }

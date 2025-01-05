@@ -32,44 +32,19 @@ export default function AdapterList({onItemSelect, editable, showOnlyAvailable}:
     const [selectedAdapter, setSelectedAdapter] = useState(null);
 
     function fetchData(){
-        let result: Adapter[] = [];
-        Memory.getAdapters().then(allAdapters => {
-            if(allAdapters !== null && allAdapters.length > 0){
-                if(showOnlyAvailable){
-                    Memory.getConnections().then(connections => {
-                        if(connections !== null && connections.length > 0){
-                            const usedAdapterMacs: String[] = [];
-                            for(let connection of connections){
-                                usedAdapterMacs.push(connection.adapter.mac);
-                            }
-                            for(let adapter of allAdapters){
-                                if(adapter.connected && !usedAdapterMacs.includes(adapter.mac)){
-                                    result.push(adapter);
-                                }
-                            }
-                        } else {
-                            for(let adapter of allAdapters){
-                                if(adapter.connected){
-                                    result.push(adapter);
-                                }
-                            }
-                        }
-                    })
-                } else {
-                    result = allAdapters;
-                }
-                console.log("result: ", result);
+        if(showOnlyAvailable){
+            Memory.getAvailableAdapters().then(res => {
+                setAdapterList(res);
                 setDataFetched(true);
-                if(result.length > 0){
-                    setEmpty(false);
-                } else {
-                    setEmpty(true);
-                }
-                setAdapterList(result);
-            } else {
-                setEmpty(true);
-            }
-        })
+                setEmpty(false);
+            })
+        } else {
+            Memory.getAllAdapters().then(res => {
+                setAdapterList(res);
+                setDataFetched(true);
+                setEmpty(false);
+            })
+        }
     }
 
     function handleItemPress(item: Adapter){

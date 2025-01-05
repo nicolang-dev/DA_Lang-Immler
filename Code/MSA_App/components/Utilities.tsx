@@ -122,7 +122,7 @@ export const Memory = {
     clearFavouriteStationList(){
         AsyncStorage.setItem(favouriteStationsKey, "");
     },
-    async getAdapters(): Promise<Adapter[]|null>{
+    async getAllAdapters(): Promise<Adapter[]|null>{
         const savedAdapters = await AsyncStorage.getItem(adaptersKey);
         if(savedAdapters !== null){
             const adapterList: [] = JSON.parse(savedAdapters);
@@ -142,7 +142,7 @@ export const Memory = {
             results.forEach((element) => {
                 if(element.status == "fulfilled"){
                     const val = element.value.data;
-                    reachableAdapters.push(new Adapter(val.name, val.mac, val.volume, val.battery, true, val.streamUrl));
+                    reachableAdapters.push(new Adapter(val.name, val.mac, val.volume, val.battery, true, val.stationUrl));
                 }
             })
             for(let i = 0; i < allAdapters.length; i++){
@@ -157,7 +157,7 @@ export const Memory = {
         return Promise.resolve(null);
     },
     async addAdapter(adapter: Adapter){
-        let newAdapterList = await Memory.getAdapters();
+        let newAdapterList = await Memory.getAllAdapters();
         if(newAdapterList === null){
             newAdapterList = [];
         }
@@ -165,7 +165,7 @@ export const Memory = {
         return AsyncStorage.setItem(adaptersKey, JSON.stringify(newAdapterList));
     },
     async removeAdapter(mac: string){
-        let newAdapterList = await Memory.getAdapters();
+        let newAdapterList = await Memory.getAllAdapters();
         if(newAdapterList !== null){
             for(let i = 0; i < newAdapterList.length; i++){
                 if(newAdapterList[i].mac == mac){
@@ -180,10 +180,11 @@ export const Memory = {
     },
     async getConnections(): Promise<Connection[]|null>{
         const connectionList: Connection[] = [];
-        const adapterList = await Memory.getAdapters();
+        const adapterList = await Memory.getAllAdapters();
             if(adapterList !== null){
                 for(let adapter of adapterList){
-                    if(adapter.connected){
+                    console.log(adapter);
+                    if(adapter.connected && (adapter.streamUrl.length > 0)){
                         const url = "http://de1.api.radio-browser.info/json/stations/byurl?url=" + adapter.streamUrl;
                         const apiRes = await axios.get(url);
                         const obj = apiRes.data[0];
@@ -204,28 +205,66 @@ export const Memory = {
     },
     clearAdapterList(){
         AsyncStorage.setItem(adaptersKey, "");
+    },
+    async getAvailableAdapters(): Promise<Adapter[]|null>{
+        let result: Adapter[] = [];
+        const allAdapters = await Memory.getAllAdapters();
+        const connections = await Memory.getConnections();
+        if(allAdapters !== null && allAdapters.length > 0){
+            if(connections !== null && connections.length > 0){
+                const usedAdapterMacs: String[] = [];
+                for(let connection of connections){
+                    usedAdapterMacs.push(connection.adapter.mac);
+                }
+                for(let adapter of allAdapters){
+                    if(adapter.connected && !usedAdapterMacs.includes(adapter.mac)){
+                        result.push(adapter);
+                    }
+                }
+            } else {
+                for(let adapter of allAdapters){
+                    if(adapter.connected){
+                        result.push(adapter);
+                    }
+                }
+            }
+            return Promise.resolve(result);
+        } else {
+            return Promise.resolve(null);
+        }
     }
 }
 
 export const AdapterAPI = {   
     async getInfo(adapterName: string){
-        const url = "http://" + adapterName + ".local/getInfo";
-        return axios.get(url);
+        const url = "http://" + adapterName + ".local:8080/getInfo";
+        axios.get(url).then(res => {
+            return res.data;
+        })
     },
-    sendConfigData(adapterName: string, wifiSsid: string, wifiPassword: string, newAdapterName: string){
-        const url = "http://" + adapterName + ".local/setConfigData";
+    async sendConfigData(adapterName: string, wifiSsid: string, wifiPassword: string, newAdapterName: string){
+        const url = "http://" + adapterName + ".local:8080/setConfigData";
         const data = "ssid=" + wifiSsid + "&password=" + wifiPassword + "&name=" + newAdapterName;
-        axios.post(url, data);
+        return axios.post(url, data);
     },
-    sendVolume(adapterName: String, volume: number){
-        const url = "http://" + adapterName + ".local/setVolume";
+    async sendVolume(adapterName: String, volume: number){
+        const url = "http://" + adapterName + ".local:8080/setVolume";
         const data = "volume=" + volume;
-        axios.put(url, data);
+        return axios.put(url, data);
     },
     async sendStreamUrl(adapterName: string, streamUrl: string){
-        const url = "http://" + adapterName + ".local/setStreamUrl";
-        const data = "streamUrl=" + streamUrl;
+        const url = "http://" + adapterName + ".local:8080/setStreamUrl";
+        const data = "url=" + streamUrl;
+        console.log("data: ", data);
         return axios.put(url, data);
+    },
+    async sendPauseStream(adapterName: string){
+        const url = "http://" + adapterName + ".local:8080/pauseStream";
+        return axios.post(url);
+    },
+    async sendContinueStream(adapterName: string){
+        const url = "http://" + adapterName + ".local:8080/continueStream";
+        return axios.post(url);
     }
 }
 
