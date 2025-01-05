@@ -18,8 +18,8 @@
 \contentsline {subsubsection}{\numberline {3.2.2}Auswahl interne Hardware}{6}{subsubsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.3}Auswahl Technologien}{9}{subsection.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.1}Protokolle}{9}{subsubsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.4}Auswahl Softwaretools}{9}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Einleitung}{9}{subsubsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4}Auswahl Softwaretools}{10}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Einleitung}{10}{subsubsection.3.4.1}%
 \contentsline {subsubsection}{\numberline {3.4.2}Bibliotheken Microcontroller}{11}{subsubsection.3.4.2}%
 \contentsline {subsubsection}{\numberline {3.4.3}Softwaretools Smartphoneapp}{12}{subsubsection.3.4.3}%
 \contentsline {section}{\numberline {4}Entwicklung}{13}{section.4}%
