@@ -1,4 +1,4 @@
-import Adapter from "@/components/Adapter";
+import Adapter from "@/app/models/Adapter";
 import AdapterItem from "@/components/AdapterItem";
 import { FlatList, Pressable, SafeAreaView, StyleSheet } from "react-native";
 import { addAdapter, getAdapters } from "@/components/Utilities";

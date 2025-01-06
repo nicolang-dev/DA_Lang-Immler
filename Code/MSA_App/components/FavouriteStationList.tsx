@@ -1,16 +1,9 @@
-import { AutocompleteDropdown } from "react-native-autocomplete-dropdown";
 import { useEffect, useState } from "react";
-import { View, FlatList, Text, StyleSheet, ScrollView, Button, Image, Pressable } from "react-native";
-import axios from "axios";
-import {Picker} from '@react-native-picker/picker';
-import { Colors, GlobalStyle } from "@/constants/Style";
+import { View, FlatList, Text, StyleSheet, Pressable } from "react-native";
+import { GlobalStyle } from "@/constants/Style";
 import StationItem from "@/components/StationItem";
-import Station from "@/components/Station";
-import { getFavouriteStations, removeFavouriteStation } from "@/components/Utilities";
-import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { router } from "expo-router";
 import ErrorScreen from "@/components/ErrorScreen";
-import Entypo from '@expo/vector-icons/Entypo';
 import { SafeAreaView } from "react-native-safe-area-context";
 import DeleteButton from "./DeleteButton";
 import AddToListButton from "./AddToListButton";

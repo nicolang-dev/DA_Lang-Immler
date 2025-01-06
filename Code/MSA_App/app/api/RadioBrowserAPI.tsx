@@ -1,25 +1,26 @@
 import axios from "axios";
-import Station from "@/components/Station";
+import Station from "@/app/models/Station";
 import { Memory } from "@/components/Utilities";
 
 export const RadioBrowserAPI = {
-    async getCountries(): Promise<string []|null>{
-        return axios.get("https://de1.api.radio-browser.info/json/countries?order=stationcount&reverse=true&limit=50").then(resp => {
-            const countries = resp.data;
+    async getCountries(): Promise<string []>{
+        try{
+            const res = await axios.get("https://de1.api.radio-browser.info/json/countries?order=stationcount&reverse=true&limit=50");
+            const countries = res.data;
             const countryNames: string[] = [];
             for(let country of countries){
                 countryNames.push(country.name);
             }
             const sortedCountryNames = countryNames.sort();
             return sortedCountryNames;
-        }).catch(err => {
-            console.error(err);
-            return null;
-        })
+        } catch(err) {
+            throw err;
+        }
     },
-    async getLanguages(): Promise<string []|null>{
-        return axios.get("https://de1.api.radio-browser.info/json/languages?order=stationcount&reverse=true&limit=20").then(resp => {
-            const languages = resp.data;
+    async getLanguages(): Promise<string []>{
+        try{
+            const res = await axios.get("https://de1.api.radio-browser.info/json/languages?order=stationcount&reverse=true&limit=20");
+            const languages = res.data;
             const languageNames: string[] = [];
             for(let language of languages){
                 languageNames.push(language.name);
@@ -35,17 +36,17 @@ export const RadioBrowserAPI = {
                 bigSortedLanguageNames.push(newName);
             }
             return bigSortedLanguageNames;
-        }).catch(err => {
-            console.error(err);
-            return null;
-        })
+        } catch(err) {
+            throw err;
+        }
     },
-    async getStations(country: string, language:string, maxStations: number): Promise<Station[]|null>{
+    async getStations(country: string, language:string, maxStations: number): Promise<Station[]>{
         const stationsUrl = "http://de1.api.radio-browser.info/json/stations/search" + "?language=" + language.toLowerCase() + "&country=" + country + "&order=clickcount&reverse=true&limit=" + maxStations;
-        const favouriteStations = await Memory.getFavouriteStations();
-        return axios.get(stationsUrl).then(resp => {
+        try{
+            const favouriteStations = await Memory.getFavouriteStations();
+            const stations = await axios.get(stationsUrl);
             const result: Station[] = [];
-            resp.data.map((val: any, idx: number) => {
+            stations.data.forEach((val: any) => {
                 if(favouriteStations !== null){
                     let containsUuid = false;
                     for(let favStation of favouriteStations){ //check if station is already in favourite stations
@@ -63,9 +64,8 @@ export const RadioBrowserAPI = {
                 }
             })
             return result;
-        }).catch(err => {
-            console.error(err);
-            return null;
-        });
+        } catch(err) {
+            throw err;
+        }
     }
 }

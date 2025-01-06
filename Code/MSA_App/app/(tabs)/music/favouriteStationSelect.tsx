@@ -1,11 +1,7 @@
-import { AutocompleteDropdown } from "react-native-autocomplete-dropdown";
 import { useEffect, useState } from "react";
-import { View, FlatList, Text, StyleSheet, ScrollView, Button, Image, Pressable, SafeAreaView } from "react-native";
-import axios from "axios";
-import {Picker} from '@react-native-picker/picker';
+import { FlatList, StyleSheet, Pressable, SafeAreaView } from "react-native";
 import { Colors, GlobalStyle } from "@/constants/Style";
-import StationList from "@/components/StationList";
-import Station from "@/components/Station";
+import Station from "@/app/models/Station";
 import { Memory, RadioBrowserAPI } from "@/components/Utilities";
 import { router, useLocalSearchParams } from "expo-router";
 import AntDesign from '@expo/vector-icons/AntDesign';

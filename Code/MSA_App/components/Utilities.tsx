@@ -1,7 +1,7 @@
 import axios from "axios";
-import Station from "./Station";
-import Adapter from "./Adapter";
-import Connection from "./Connection";
+import Station from "../app/models/Station";
+import Adapter from "../app/models/Adapter";
+import Connection from "../app/models/Connection";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const favouriteStationsKey = "favouriteStations";

@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import Station from "@/components/Station";
-import Adapter from "@/components/Adapter";
+import Station from "@/app/models/Station";
+import Adapter from "@/app/models/Adapter";
 import axios from "axios";
 
 const favouriteStationsKey = "favouriteStations";
@@ -16,17 +16,21 @@ type AdapterType = {
 }
  
 export const MemoryService = {
-    async getFavouriteStations(): Promise<Station[]|null>{
-        const favouriteStations = await AsyncStorage.getItem(favouriteStationsKey);
-        if(favouriteStations != null){
-            const stationList = JSON.parse(favouriteStations);
-            let result: Station[] = [];
-            for(let station of stationList){
-                result.push(new Station(station.uuid, station.name, station.iconUrl, station.url));
+    async getFavouriteStations(): Promise<Station[]| null>{
+        try{
+            const favouriteStations = await AsyncStorage.getItem(favouriteStationsKey);
+            if(favouriteStations != null){
+                const stationList = JSON.parse(favouriteStations);
+                let result: Station[] = [];
+                for(let station of stationList){
+                    result.push(new Station(station.uuid, station.name, station.iconUrl, station.url));
+                }
+                return result;
+            } else {
+                return null;
             }
-            return result;
-        } else {
-            return null;
+        } catch(err) {
+            throw err;
         }
     },
     async addFavouriteStations(stations: Station[]): Promise<boolean>{

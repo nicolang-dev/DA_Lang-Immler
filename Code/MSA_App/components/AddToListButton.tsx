@@ -1,7 +1,6 @@
 import { Pressable } from "react-native";
 import Entypo from "@expo/vector-icons/Entypo";
 import { Colors } from "@/constants/Style";
-import { StyleSheet } from "react-native";
 
 type Props = {
     onPress: Function

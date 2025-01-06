@@ -1,11 +1,22 @@
 import axios from "axios";
 
+type InfoType = {
+    name: string,
+    mac: string,
+    volume: number,
+    battery: number,
+    stationUrl: string
+};
+
 export const AdapterAPI = {   
-    async getInfo(adapterName: string){
+    async getInfo(adapterName: string): Promise<InfoType>{
         const url = "http://" + adapterName + ".local:8080/getInfo";
-        axios.get(url).then(res => {
+        try{
+            const res = await axios.get(url);
             return res.data;
-        })
+        } catch(err) {
+            throw err;
+        }
     },
     async sendConfigData(adapterName: string, wifiSsid: string, wifiPassword: string, newAdapterName: string){
         const url = "http://" + adapterName + ".local:8080/setConfigData";
@@ -15,20 +26,35 @@ export const AdapterAPI = {
     async sendVolume(adapterName: String, volume: number){
         const url = "http://" + adapterName + ".local:8080/setVolume";
         const data = "volume=" + volume;
-        return axios.put(url, data);
+        try{
+            return axios.put(url, data);
+        } catch(err){
+            throw err;
+        }
     },
     async sendStreamUrl(adapterName: string, streamUrl: string){
         const url = "http://" + adapterName + ".local:8080/setStreamUrl";
         const data = "url=" + streamUrl;
-        console.log("data: ", data);
-        return axios.put(url, data);
+        try{
+            return axios.put(url, data);
+        } catch(err){
+            throw err;
+        }
     },
     async sendPauseStream(adapterName: string){
         const url = "http://" + adapterName + ".local:8080/pauseStream";
-        return axios.post(url);
+        try{
+            return axios.post(url);
+        } catch(err){
+            throw err;
+        }
     },
     async sendContinueStream(adapterName: string){
         const url = "http://" + adapterName + ".local:8080/continueStream";
-        return axios.post(url);
+        try{
+            return axios.post(url);
+        } catch(err){
+            throw err;
+        }
     }
 }

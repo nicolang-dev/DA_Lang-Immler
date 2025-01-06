@@ -5,7 +5,7 @@ import axios from "axios";
 import {Picker} from '@react-native-picker/picker';
 import { Colors, GlobalStyle } from "@/constants/Style";
 import StationItem from "@/components/StationItem";
-import Station from "@/components/Station";
+import Station from "@/app/models/Station";
 import { getFavouriteStations, removeFavouriteStation } from "@/components/Utilities";
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { router } from "expo-router";

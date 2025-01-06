@@ -8,7 +8,7 @@ import { router } from "expo-router";
 import NetworkItem from "@/components/NetworkItem";
 import TextInputWindow from "@/components/TextInputWindow";
 import { addAdapter, sendWlanCredentials } from "@/components/Utilities";
-import Adapter from "@/components/Adapter";
+import Adapter from "@/app/models/Adapter";
 import { GlobalStyle, Colors } from "@/constants/Style";
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 

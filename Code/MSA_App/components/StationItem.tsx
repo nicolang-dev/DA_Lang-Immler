@@ -1,9 +1,7 @@
 import { useEffect } from "react";
 import { Text, View, Image, StyleSheet, Pressable } from "react-native";
 import { Colors, GlobalStyle } from '@/constants/Style';
-import AntDesign from '@expo/vector-icons/AntDesign';
-import { useState } from "react";
-import Station from "./Station";
+import Station from "../app/models/Station";
 
 type Props = {
   station: Station,

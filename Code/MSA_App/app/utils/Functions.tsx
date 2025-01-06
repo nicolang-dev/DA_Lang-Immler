@@ -1,7 +1,7 @@
 import axios from "axios";
-import Connection from "@/components/Connection";
-import Adapter from "@/components/Adapter";
-import Station from "@/components/Station";
+import Connection from "@/app/models/Connection";
+import Adapter from "@/app/models/Adapter";
+import Station from "@/app/models/Station";
 import { MemoryService } from "../services/MemoryService";
 
 export const Functions = {

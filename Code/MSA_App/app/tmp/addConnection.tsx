@@ -3,9 +3,9 @@ import { GlobalStyle, Colors } from "@/constants/Style";
 import { useState, useEffect } from "react";
 import AdapterList from "@/components/AdapterList";
 import FavouriteStationList from "@/components/FavouriteStationList";
-import Adapter from "@/components/Adapter";
-import Station from "@/components/Station";
-import Connection from "@/components/Connection";
+import Adapter from "@/app/models/Adapter";
+import Station from "@/app/models/Station";
+import Connection from "@/app/models/Connection";
 import { router } from "expo-router";
 import StationList from "@/components/StationList";
 

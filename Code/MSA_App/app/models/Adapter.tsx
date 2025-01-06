@@ -1,5 +1,3 @@
-import Station from "./Station";
-
 class Adapter{
     name: string;
     mac: string;

@@ -1,7 +1,7 @@
 import { Text, View, StyleSheet, SafeAreaView } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
-import Adapter from "@/components/Adapter";
+import Adapter from "@/app/models/Adapter";
 import Slider from '@react-native-community/slider';
 import { GlobalStyle } from "@/constants/Style";
 import { Colors } from "react-native/Libraries/NewAppScreen";

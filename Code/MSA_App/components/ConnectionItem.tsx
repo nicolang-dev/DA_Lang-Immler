@@ -1,22 +1,13 @@
-import { Text, View, Pressable } from "react-native";
-import Ionicons from '@expo/vector-icons/Ionicons';
+import { View, Pressable } from "react-native";
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { StyleSheet } from "react-native";
-import {Colors, GlobalStyle} from "@/constants/Style";
-import Adapter from "./Adapter";
-import { router } from "expo-router";
-import { useEffect } from "react";
-import BatteryIndicator from "./BatteryIndicator";
-import Station from "./Station";
+import {Colors} from "@/constants/Style";
 import AdapterItem from "./AdapterItem";
 import StationItem from "./StationItem";
-import Connection from "./Connection";
-import { AdapterAPI, Memory } from "./Utilities";
-import axios from "axios";
+import Connection from "../app/models/Connection";
+import { AdapterAPI } from "./Utilities";
 import PlayPauseButton from "./PlayPauseButton";
-import VolumeIndicator from "./VolumeSelector";
 import VolumeSelector from "./VolumeSelector";
-import Feather from '@expo/vector-icons/Feather';
 
 type Props = {
   connection: Connection

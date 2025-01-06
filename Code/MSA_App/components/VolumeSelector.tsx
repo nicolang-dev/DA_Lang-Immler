@@ -1,11 +1,8 @@
 import { Text, View, Button} from "react-native";
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import Feather from '@expo/vector-icons/Feather';
 import { GlobalStyle, Colors } from "@/constants/Style";
 import Slider from "@react-native-community/slider";
 import { useState } from "react";
-import { StyleSheet, Pressable } from "react-native";
+import { StyleSheet } from "react-native";
 
 type Props = {
     initVolumePercentage: number,

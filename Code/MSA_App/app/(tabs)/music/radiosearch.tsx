@@ -1,7 +1,5 @@
-import { AutocompleteDropdown } from "react-native-autocomplete-dropdown";
 import { useEffect, useState } from "react";
-import { View, FlatList, Text, StyleSheet, ScrollView, Button } from "react-native";
-import axios from "axios";
+import { StyleSheet, ScrollView, Button } from "react-native";
 import {Picker} from '@react-native-picker/picker';
 import { Colors, GlobalStyle } from "@/constants/Style";
 import { router } from "expo-router";

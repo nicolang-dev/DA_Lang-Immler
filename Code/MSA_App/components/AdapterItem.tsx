@@ -1,14 +1,9 @@
-import { Text, View, Pressable } from "react-native";
+import { Text, View } from "react-native";
 import Ionicons from '@expo/vector-icons/Ionicons';
-import AntDesign from '@expo/vector-icons/AntDesign';
 import { StyleSheet } from "react-native";
 import {Colors, GlobalStyle} from "@/constants/Style";
-import Adapter from "./Adapter";
-import { router } from "expo-router";
-import { useEffect, useState } from "react";
+import Adapter from "../app/models/Adapter";
 import BatteryIndicator from "./BatteryIndicator";
-import axios from "axios";
-import VolumeIndicator from "./VolumeSelector";
 
 type Props = {
   adapter: Adapter,

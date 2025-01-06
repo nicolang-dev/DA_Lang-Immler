@@ -6,7 +6,7 @@ import {Picker} from '@react-native-picker/picker';
 import {Colors} from "../../constants/Style";
 import StationItem from "../../components/StationItem";
 import StationList from "../../components/StationList";
-import Station from "@/components/Station";
+import Station from "@/app/models/Station";
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { router } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";

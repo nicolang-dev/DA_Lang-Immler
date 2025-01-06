@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Text, View, Button, FlatList, Modal, SafeAreaView, Pressable } from "react-native";
+import { Text, View, Button, FlatList, SafeAreaView, Pressable } from "react-native";
 import { StyleSheet } from "react-native";
 import ErrorScreen from "@/components/ErrorScreen";
 import LoadingScreen from "@/components/LoadingScreen";
-import { router } from "expo-router";
 import NetworkItem from "@/components/NetworkItem";
 import TextInputWindow from "@/components/TextInputWindow";
-import { addAdapter, sendWlanCredentials } from "@/components/Utilities";
-import Adapter from "@/components/Adapter";
+import { MemoryService } from "@/app/services/MemoryService";
+import { AdapterAPI } from "@/app/api/AdapterAPI";
+import Adapter from "@/app/models/Adapter";
 import { GlobalStyle, Colors } from "@/constants/Style";
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 

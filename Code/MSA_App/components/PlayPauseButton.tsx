@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, View } from "react-native";
+import { Pressable } from "react-native";
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { Colors } from "@/constants/Style";
 import Entypo from '@expo/vector-icons/Entypo';
