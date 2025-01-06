@@ -20,31 +20,31 @@
 \contentsline {subsubsection}{\numberline {3.3.1}Protokolle}{9}{subsubsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.4}Auswahl Softwaretools}{10}{subsection.3.4}%
 \contentsline {subsubsection}{\numberline {3.4.1}Einleitung}{10}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Bibliotheken Microcontroller}{11}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Softwaretools Smartphoneapp}{12}{subsubsection.3.4.3}%
-\contentsline {section}{\numberline {4}Entwicklung}{13}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Entwicklung Software Adapter}{13}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Anforderungen}{13}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Klassen}{15}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}Programmablauf}{18}{subsubsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {3.4.2}Bibliotheken Microcontroller}{12}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Softwaretools Smartphoneapp}{13}{subsubsection.3.4.3}%
+\contentsline {section}{\numberline {4}Entwicklung}{14}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Entwicklung Software Adapter}{14}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Anforderungen}{14}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Klassen}{16}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Programmablauf}{19}{subsubsection.4.1.3}%
 \contentsline {subsubsection}{\numberline {4.1.4}Erweiterungsmöglichkeiten}{22}{subsubsection.4.1.4}%
 \contentsline {subsection}{\numberline {4.2}Entwicklung Smartphone-App}{22}{subsection.4.2}%
 \contentsline {subsubsection}{\numberline {4.2.1}Zielsetzung}{22}{subsubsection.4.2.1}%
 \contentsline {subsubsection}{\numberline {4.2.2}Klassen}{23}{subsubsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.3}Funktionen}{24}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.3}Funktionen}{23}{subsubsection.4.2.3}%
 \contentsline {subsubsection}{\numberline {4.2.4}Style}{25}{subsubsection.4.2.4}%
 \contentsline {subsubsection}{\numberline {4.2.5}Struktur}{26}{subsubsection.4.2.5}%
 \contentsline {subsubsection}{\numberline {4.2.6}Navigation}{27}{subsubsection.4.2.6}%
-\contentsline {subsubsection}{\numberline {4.2.7}Komponenten}{27}{subsubsection.4.2.7}%
+\contentsline {subsubsection}{\numberline {4.2.7}Komponenten}{28}{subsubsection.4.2.7}%
 \contentsline {subsubsection}{\numberline {4.2.8}Seiten}{30}{subsubsection.4.2.8}%
-\contentsline {subsection}{\numberline {4.3}Design Adaptergehäuse}{31}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.3}Design Adaptergehäuse}{32}{subsection.4.3}%
 \contentsline {subsubsection}{\numberline {4.3.1}Grundsätzlicher Aufbau}{32}{subsubsection.4.3.1}%
 \contentsline {subsubsection}{\numberline {4.3.2}Wärmeableitung}{32}{subsubsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {4.3.3}Virtuelles 3D-Design}{32}{subsubsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.3}Virtuelles 3D-Design}{33}{subsubsection.4.3.3}%
 \contentsline {subsection}{\numberline {4.4}Fertigung Adaptergehäuse}{36}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}Drucken des Prototypen}{36}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.1}Drucken des Prototypen}{37}{subsubsection.4.4.1}%
 \contentsline {subsection}{\numberline {4.5}Zusammensetzen des Prototypen}{37}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}Schaltplan}{37}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.1}Schaltplan}{38}{subsubsection.4.5.1}%
 \contentsline {subsubsection}{\numberline {4.5.2}Verdrahten}{38}{subsubsection.4.5.2}%
 \contentsline {subsubsection}{\numberline {4.5.3}Kleben}{39}{subsubsection.4.5.3}%
 \contentsline {section}{\numberline {5}Testen und Fehlerbehebung}{39}{section.5}%
@@ -55,10 +55,10 @@
 \contentsline {subsection}{\numberline {5.4}Auftretende Sicherheitslücken schließen}{41}{subsection.5.4}%
 \contentsline {section}{\numberline {6}Schluss}{41}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Konklusion Hardware}{41}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Konklusion Software}{41}{subsection.6.2}%
-\contentsline {section}{\numberline {7}Einzelnachweise}{41}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Literaturverzeichnis}{41}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Abbildungsverzeichnis}{41}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Anhang}{42}{subsection.7.3}%
-\contentsline {subsubsection}{\numberline {7.3.1}Code Microcontroller}{42}{subsubsection.7.3.1}%
-\contentsline {subsubsection}{\numberline {7.3.2}Code Smartphoneapp}{42}{subsubsection.7.3.2}%
+\contentsline {subsection}{\numberline {6.2}Konklusion Software}{42}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Einzelnachweise}{42}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Literaturverzeichnis}{42}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Abbildungsverzeichnis}{42}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Anhang}{43}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}Code Microcontroller}{43}{subsubsection.7.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.2}Code Smartphoneapp}{43}{subsubsection.7.3.2}%
