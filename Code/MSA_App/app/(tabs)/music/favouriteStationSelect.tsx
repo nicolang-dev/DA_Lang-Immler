@@ -6,7 +6,7 @@ import {Picker} from '@react-native-picker/picker';
 import { Colors, GlobalStyle } from "@/constants/Style";
 import StationList from "@/components/StationList";
 import Station from "@/components/Station";
-import { Memory, RadioBrowser } from "@/components/Utilities";
+import { Memory, RadioBrowserAPI } from "@/components/Utilities";
 import { router, useLocalSearchParams } from "expo-router";
 import AntDesign from '@expo/vector-icons/AntDesign';
 import StationItem from "@/components/StationItem";
@@ -55,7 +55,7 @@ export default function Radios(){
 
     useEffect(()=>{
         if(typeof country === "string" && typeof language === "string"){
-            RadioBrowser.getStations(country, language, maxStations).then(res =>{
+            RadioBrowserAPI.getStations(country, language, maxStations).then(res =>{
                 if(res != null){
                     setStations(res);
                 }

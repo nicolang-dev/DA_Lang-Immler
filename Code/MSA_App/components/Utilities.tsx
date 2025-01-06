@@ -7,7 +7,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const favouriteStationsKey = "favouriteStations";
 const adaptersKey = "adapters";
 
-export const RadioBrowser = {
+export const RadioBrowserAPI = {
     async getCountries(): Promise<string []|null>{
         return axios.get("https://de1.api.radio-browser.info/json/countries?order=stationcount&reverse=true&limit=50").then(resp => {
             const countries = resp.data;
@@ -267,5 +267,3 @@ export const AdapterAPI = {
         return axios.post(url);
     }
 }
-
-

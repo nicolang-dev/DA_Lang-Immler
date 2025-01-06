@@ -5,7 +5,7 @@ import axios from "axios";
 import {Picker} from '@react-native-picker/picker';
 import { Colors, GlobalStyle } from "@/constants/Style";
 import { router } from "expo-router";
-import { RadioBrowser } from "@/components/Utilities";
+import { RadioBrowserAPI } from "@/components/Utilities";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const Item = Picker.Item;
@@ -28,7 +28,7 @@ export default function RadioSearch(){
     useEffect(()=>{
         setSelectedCountry(defaultCountry);
         setSelectedLanguage(defaultLanguage);
-        RadioBrowser.getCountries().then(res => {
+        RadioBrowserAPI.getCountries().then(res => {
             if(res != null){
                 setCountryDataset(res);
             }
@@ -36,7 +36,7 @@ export default function RadioSearch(){
             console.error(err);
         });
 
-        RadioBrowser.getLanguages().then(res => {
+        RadioBrowserAPI.getLanguages().then(res => {
             if(res != null){
                 setLanguageDataset(res);
             }
