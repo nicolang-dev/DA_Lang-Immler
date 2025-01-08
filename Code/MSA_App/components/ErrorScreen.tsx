@@ -14,16 +14,14 @@ const style = StyleSheet.create({
         alignItems: 'center',
     },
     text: {
-        fontSize: 20,
         textAlign: 'center',
-        marginBottom: 10
     }
 })
 
 export default function ErrorScreen({errorText, buttonText, onButtonPress}: Props){
     return(
         <View style={style.container}>
-            <Text style={GlobalStyle.textBig}>{errorText}</Text>
+            <Text style={[GlobalStyle.textBig, style.text]}>{errorText}</Text>
             <Button color={Colors.lightTurquoise} title={buttonText} onPress={() => onButtonPress()}/>
         </View>
     )

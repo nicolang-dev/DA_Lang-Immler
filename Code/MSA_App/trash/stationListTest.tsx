@@ -1,5 +1,5 @@
 import StationList from "@/components/StationList";
-import Station from "@/app/models/Station";
+import Station from "@/app/types/Station";
 
 export default function StationListTest(){
     const station1 = new Station("name1", "", "url1");

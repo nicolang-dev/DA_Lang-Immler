@@ -1,8 +1,9 @@
-import axios from "axios";
-import Connection from "@/app/models/Connection";
-import Adapter from "@/app/models/Adapter";
-import Station from "@/app/models/Station";
+import Connection from "@/app/types/Connection";
+import Adapter from "@/app/types/Adapter";
+import Station from "@/app/types/Station";
 import { MemoryService } from "../services/MemoryService";
+import { RadioBrowserAPI } from "../api/RadioBrowserAPI";
+import { AdapterAPI } from "../api/AdapterAPI";
 
 export const Functions = {
     async getConnections(): Promise<Connection[]|null>{
@@ -10,51 +11,47 @@ export const Functions = {
         const adapterList = await MemoryService.getAllAdapters();
             if(adapterList !== null){
                 for(let adapter of adapterList){
-                    console.log(adapter);
                     if(adapter.connected && (adapter.streamUrl.length > 0)){
-                        const url = "http://de1.api.radio-browser.info/json/stations/byurl?url=" + adapter.streamUrl;
-                        const apiRes = await axios.get(url);
-                        const obj = apiRes.data[0];
-                        if(obj !== undefined){
-                            const station = new Station(obj.stationuuid, obj.name, obj.favicon, obj.url);
-                            const connection = new Connection(adapter, station);
-                            console.log(connection);
+                        const staInfo = await RadioBrowserAPI.getStationInfo(adapter.streamUrl);
+                        if(staInfo !== undefined){
+                            const station: Station = {uuid: staInfo.stationuuid, name: staInfo.name, iconUrl: staInfo.favicon, url: staInfo.url};
+                            const connection: Connection = {adapter: adapter, station: station, paused: false};
                             connectionList.push(connection);
                         }
                     }
                 }
                 if(connectionList.length > 0){
-                    return Promise.resolve(connectionList);
+                    return connectionList;
                 }
-                return Promise.resolve(null);
+                return null;
             }   
-        return Promise.resolve(null);
+        return null;
     },
     async getAvailableAdapters(): Promise<Adapter[]|null>{
-        let result: Adapter[] = [];
         const allAdapters = await MemoryService.getAllAdapters();
-        const connections = await Functions.getConnections();
-        if(allAdapters !== null && allAdapters.length > 0){
-            if(connections !== null && connections.length > 0){
-                const usedAdapterMacs: String[] = [];
-                for(let connection of connections){
-                    usedAdapterMacs.push(connection.adapter.mac);
+        if(allAdapters !== null){
+            const promiseList: any[] = [];
+            for(let adapter of allAdapters){
+                const promise = AdapterAPI.getInfo(adapter.name);
+                promiseList.push(promise);
+            }
+            const results = await Promise.allSettled(promiseList);
+            const reachableAdapters: Adapter[] = [];
+            for(let result of results){
+                if(result.status == "fulfilled"){
+                    const val = result.value.data;
+                    reachableAdapters.push({name: val.name, mac: val.mac, volume: val.volume, battery: val.battery, connected: true, streamUrl: val.stationUrl});
                 }
-                for(let adapter of allAdapters){
-                    if(adapter.connected && !usedAdapterMacs.includes(adapter.mac)){
-                        result.push(adapter);
-                    }
-                }
-            } else {
-                for(let adapter of allAdapters){
-                    if(adapter.connected){
-                        result.push(adapter);
+            }
+            for(let i = 0; i < allAdapters.length; i++){
+                for(let j = 0; j < reachableAdapters.length; j++){
+                    if(allAdapters[i].mac == reachableAdapters[j].mac){
+                        allAdapters[i] = reachableAdapters[j];
                     }
                 }
             }
-            return Promise.resolve(result);
-        } else {
-            return Promise.resolve(null);
+            return allAdapters;
         }
+        return null;
     }
 }

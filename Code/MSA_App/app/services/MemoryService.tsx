@@ -1,7 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import Station from "@/app/models/Station";
-import Adapter from "@/app/models/Adapter";
-import axios from "axios";
+import Station from "@/app/types/Station";
+import Adapter from "@/app/types/Adapter";
+import { AdapterAPI } from "../api/AdapterAPI";
 
 const favouriteStationsKey = "favouriteStations";
 const adaptersKey = "adapters";
@@ -14,26 +14,28 @@ type AdapterType = {
     connected: boolean,
     streamUrl: string
 }
+
+type StationType = {
+    uuid: string,
+    name: string,
+    iconUrl: string,
+    url: string,
+}
  
 export const MemoryService = {
     async getFavouriteStations(): Promise<Station[]| null>{
         try{
             const favouriteStations = await AsyncStorage.getItem(favouriteStationsKey);
-            if(favouriteStations != null){
-                const stationList = JSON.parse(favouriteStations);
-                let result: Station[] = [];
-                for(let station of stationList){
-                    result.push(new Station(station.uuid, station.name, station.iconUrl, station.url));
-                }
-                return result;
-            } else {
+            if(favouriteStations !== null){
+                return JSON.parse(favouriteStations);
+            } else{
                 return null;
             }
         } catch(err) {
             throw err;
         }
     },
-    async addFavouriteStations(stations: Station[]): Promise<boolean>{
+    async addFavouriteStations(stations: Station[]): Promise<void>{
         let stationList = await MemoryService.getFavouriteStations();
         let existingUuidList: string[] = [];
         stationList?.forEach((station) => {
@@ -47,10 +49,13 @@ export const MemoryService = {
                 stationList.push(station);
             }
         }
-        await AsyncStorage.setItem(favouriteStationsKey, JSON.stringify(stationList));
-        return true;
+        try{
+            return AsyncStorage.setItem(favouriteStationsKey, JSON.stringify(stationList));
+        } catch(err) {
+            throw err;
+        }
     },
-    async removeFavouriteStation(uuid: string): Promise<boolean>{
+    async removeFavouriteStation(uuid: string): Promise<void>{
         let stationList = await MemoryService.getFavouriteStations();
         if(stationList !== null){
             for(let i = 0; i < stationList.length; i++){
@@ -58,49 +63,33 @@ export const MemoryService = {
                     stationList.splice(i, 1);
                 }
             }
-            await AsyncStorage.setItem(favouriteStationsKey, JSON.stringify(stationList));
-            return true;
+            try{
+                return AsyncStorage.setItem(favouriteStationsKey, JSON.stringify(stationList));
+            } catch(err) {
+                throw err;
+            }
         } 
-        return false;
     },
-    clearFavouriteStationList(){
-        AsyncStorage.setItem(favouriteStationsKey, "");
+    async clearFavouriteStationList(): Promise<void>{
+        try{
+            return AsyncStorage.setItem(favouriteStationsKey, "");
+        } catch(err) {
+            throw err;
+        }
     },
     async getAllAdapters(): Promise<Adapter[]|null>{
-        const savedAdapters = await AsyncStorage.getItem(adaptersKey);
-        if(savedAdapters !== null){
-            const adapterList: [] = JSON.parse(savedAdapters);
-            const allAdapters: Adapter[] = [];
-            adapterList.forEach((element: AdapterType) => {
-                allAdapters.push(new Adapter(element.name, element.mac, element.volume, element.battery, element.connected, element.streamUrl));
-            })
-            const promiseList: any[] = [];
-            adapterList.forEach((adapter: Adapter) => {
-                const url = "http://" + adapter.name + ".local:8080/getInfo";
-                //const instance = axios.create({timeout: 2500});
-                const promise = axios.get(url, {timeout: 1000});
-                promiseList.push(promise);
-            })
-            const results = await Promise.allSettled(promiseList);
-            const reachableAdapters: Adapter[] = [];
-            results.forEach((element) => {
-                if(element.status == "fulfilled"){
-                    const val = element.value.data;
-                    reachableAdapters.push(new Adapter(val.name, val.mac, val.volume, val.battery, true, val.stationUrl));
-                }
-            })
-            for(let i = 0; i < allAdapters.length; i++){
-                for(let j = 0; j < reachableAdapters.length; j++){
-                    if(allAdapters[i].mac == reachableAdapters[j].mac){
-                        allAdapters[i] = reachableAdapters[j];
-                    }
-                }
+        try{
+            const adapters = await AsyncStorage.getItem(adaptersKey);
+            if(adapters !== null){
+                return JSON.parse(adapters);
+            } else {
+                return null;
             }
-            return Promise.resolve(allAdapters);
+        } catch(err) {
+            throw err;
         }
-        return Promise.resolve(null);
     },
-    async addAdapter(adapter: Adapter){
+    async addAdapter(adapter: Adapter): Promise<void>{
         let newAdapterList = await MemoryService.getAllAdapters();
         if(newAdapterList === null){
             newAdapterList = [];
@@ -108,7 +97,7 @@ export const MemoryService = {
         newAdapterList.push(adapter);
         return AsyncStorage.setItem(adaptersKey, JSON.stringify(newAdapterList));
     },
-    async removeAdapter(mac: string){
+    async removeAdapter(mac: string): Promise<void>{
         let newAdapterList = await MemoryService.getAllAdapters();
         if(newAdapterList !== null){
             for(let i = 0; i < newAdapterList.length; i++){
@@ -116,13 +105,18 @@ export const MemoryService = {
                     newAdapterList.splice(i, 1);
                 }
             }
-            await AsyncStorage.setItem(adaptersKey, JSON.stringify(newAdapterList));
-            return Promise.resolve();
-        } else {
-            return Promise.reject("adapter list is empty");
+            try{
+                return AsyncStorage.setItem(adaptersKey, JSON.stringify(newAdapterList));
+            } catch(err){
+                throw err;
+            }
         }
     },
-    clearAdapterList(){
-        AsyncStorage.setItem(adaptersKey, "");
+    async clearAdapterList(): Promise<void>{
+        try{
+            return AsyncStorage.setItem(adaptersKey, "");
+        } catch(err) {
+            throw err;
+        }
     }
 }

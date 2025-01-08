@@ -1,79 +1,40 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { Text, View, Button, FlatList, SafeAreaView, Pressable } from "react-native";
+import { Text, View, Button, SafeAreaView, TextInput } from "react-native";
 import { StyleSheet } from "react-native";
 import ErrorScreen from "@/components/ErrorScreen";
 import LoadingScreen from "@/components/LoadingScreen";
-import NetworkItem from "@/components/NetworkItem";
 import TextInputWindow from "@/components/TextInputWindow";
-import { MemoryService } from "@/app/services/MemoryService";
 import { AdapterAPI } from "@/app/api/AdapterAPI";
-import Adapter from "@/app/models/Adapter";
+import Adapter from "@/app/types/Adapter";
 import { GlobalStyle, Colors } from "@/constants/Style";
-import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import Network from "@/app/types/Network";
+import NetworkList from "@/components/NetworkList";
 
 export default function AddAdapter(){
     const [isReachable, setReachable] = useState(false);
     const [loading, setLoading] = useState(true);
-    const requestTimeout = 2500;
-    const [adapter, setAdapter] = useState(null);
-    const [networkList, setNetworkList] = useState(Array());
-    const [selectedSsid, setSelectedSsid] = useState(null);
-    const [changeName, setChangeName] = useState(false);
+    const [adapter, setAdapter] = useState<Adapter|null>(null);
+    const [networkList, setNetworkList] = useState<Network[]|null>(null);
+    const [selectedSsid, setSelectedSsid] = useState("");
+    const [name, setName] = useState("");
 
-    const serverUrl = "http://192.168.178.38"; //for testing purposes
-
-    function requestAdapter(){
-        setLoading(true);
-        const instance = axios.create({
-            timeout: requestTimeout
-        });
-        const url = serverUrl;
-        instance.get(url).then(res => {
-            setLoading(false);
-            setReachable(true);
-            fetchData();
-        }).catch(err => {
-            setLoading(false);
-            console.error(err);
-            setReachable(false);
-        })
-    }
-
-    function fetchData(){
-        let url = serverUrl + "/getInfo";
-        axios.get(url).then(res => {
-            const newAdapter = new Adapter(res.data.name, res.data.mac, serverUrl);
-            console.log(newAdapter);
-            setAdapter(newAdapter);
-            url = serverUrl + "/getAvailableNetworks";
-            axios.get(url).then(res => {
-                setNetworkList(res.data);
-            }).catch(err => {
-                console.error(err);
-                setReachable(false);
-            })
-        }).catch(err => {
-            console.error(err);
-            setReachable(false);
-        })
-    }
-
-    function changeAdapterName(name: string){
-        const url = serverUrl + "/setName";
-        const data = "name=" + name;
-        axios.post(url, data).then(res => {
-            const newAdapter = new Adapter(name, adapter.mac, adapter.ip);
-            setAdapter(newAdapter);
-            setChangeName(false);
-        }).catch(err => {
-            console.error(err);
-        })
-    }
+    const host = "http://192.168.0.1:8080";
 
     useEffect(() => {
-        requestAdapter();
-    },[]);
+        setLoading(true);
+        AdapterAPI.getInfoFromHost(host).then((res) => {
+            setAdapter({name: res.name, mac: res.mac, battery: res.battery, volume: res.volume, connected: false, streamUrl: res.stationUrl});
+            setLoading(false);
+            setReachable(true);
+            AdapterAPI.getAvailableNetworks(host).then(res => {
+                setNetworkList(res);
+            })
+        }).catch(err => {
+            setLoading(false);
+            console.error(err);
+            setReachable(false);
+        })
+    }, []);
 
     const style = StyleSheet.create({
         container: {
@@ -97,37 +58,30 @@ export default function AddAdapter(){
             </SafeAreaView>
         )
     } else {
-        if(isReachable && (adapter !== null) && (networkList.length > 0)){
+        if(isReachable && (adapter !== null) && (networkList !== null)){
             return(
                 <SafeAreaView style={GlobalStyle.page}>
                     <View style={style.container2}>
                         <Text style={GlobalStyle.textBig}>{"Name: " + adapter.name}</Text>
-                        <Pressable style={style.icon} onPress={() => setChangeName(true)}>
-                            <FontAwesome6 name="edit" size={21} color={Colors.lightTurquoise}/>
-                        </Pressable>
+                        <TextInput value={adapter.name} onChangeText={(text) => {setName(text)}}/>
                     </View>
                     <Text style={GlobalStyle.textBig}>{"Mac: " + adapter.mac}</Text>
                     <Text style={GlobalStyle.textBig}>Mit WLAN verbinden:</Text>
                     <View style={style.listContainer}>
-                        <FlatList data={networkList} renderItem={({item}) => 
-                            <Pressable onPress={() => setSelectedSsid(item.ssid)}>
-                                <NetworkItem ssid={item.ssid} rssi={item.rssi} selected={selectedSsid == item.ssid}/>
-                            </Pressable> 
-                        }/>
+                        <NetworkList networks={networkList} onItemSelect={(item: Network) => setSelectedSsid(item.ssid)}/>
                     </View>
                     <Button title="Adapter hinzufügen" color={Colors.lightTurquoise}/> 
-                    {selectedSsid !== null && 
-                        <TextInputWindow text={"Passwort für " + selectedSsid + " eingeben:"} isPassword={true} onEnter={(password: string) => {alert(password)}} onCancel={() => {setSelectedSsid(null)}}/>
-                    }
-                    {changeName &&
-                        <TextInputWindow text={"Neuen Namen für " + adapter.name + " eingeben:"} isPassword={false} onEnter={(name: string) => changeAdapterName(name)} onCancel={() => setChangeName(false)}/>
+                    {selectedSsid.length > 0 && 
+                        <TextInputWindow text={"Passwort für " + selectedSsid + " eingeben:"} isPassword={true} onEnter={(password: string) => {alert(password)}} onCancel={() => {setSelectedSsid("")}}/>
                     }
                 </SafeAreaView>
             )
         } else {
             return(
                 <SafeAreaView style={GlobalStyle.page}>
-                    <ErrorScreen errorText="Adapter nicht erreichbar. Versichere dich, dass du mit dem WLAN des Adapters verbunden bist!" buttonText="Nochmal Versuchen" onButtonPress={() => requestAdapter()}/>
+                    <ErrorScreen errorText="Adapter nicht erreichbar. Versichere dich, dass du mit dem WLAN des Adapters verbunden bist!" buttonText="Nochmal Versuchen" onButtonPress={() => {
+                        console.error("function not available!");
+                    }}/>
                 </SafeAreaView>
             )
         }

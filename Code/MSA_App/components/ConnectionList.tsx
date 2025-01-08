@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { View, FlatList, Text, StyleSheet, Pressable } from "react-native";
 import { GlobalStyle } from "@/constants/Style";
-import { Memory } from "@/components/Utilities";
 import { router } from "expo-router";
 import ErrorScreen from "@/components/ErrorScreen";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AddToListButton from "./AddToListButton";
 import ConnectionItem from "./ConnectionItem";
 import LoadingScreen from "./LoadingScreen";
+import { Functions } from "@/app/utils/Functions";
 
 type Props = {
     onItemPress: Function
@@ -19,7 +19,7 @@ export default function ConnectionList({onItemPress}: Props){
     const [isEmpty, setEmpty] = useState(false);
 
     function fetchData(){
-        Memory.getConnections().then(res => {
+        Functions.getConnections().then(res => {
             setDataFetched(true);
             if(res !== null && res.length > 0){
                 setEmpty(false);

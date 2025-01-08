@@ -5,10 +5,11 @@ import Entypo from '@expo/vector-icons/Entypo';
 import { useState } from "react";
 
 type Props = {
+    initVal: boolean,
     onSwitch: Function
 }
 
-export default function PlayPauseButton({onSwitch}: Props){
+export default function PlayPauseButton({initVal, onSwitch}: Props){
     const [paused, setPaused] = useState(false);
     return(
         <Pressable onPress={() => {

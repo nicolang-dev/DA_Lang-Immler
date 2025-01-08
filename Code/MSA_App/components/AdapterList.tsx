@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { View, FlatList, StyleSheet, Pressable } from "react-native";
-import { Memory } from "@/components/Utilities";
 import { router } from "expo-router";
 import ErrorScreen from "@/components/ErrorScreen";
 import DeleteButton from "./DeleteButton";
 import AddToListButton from "./AddToListButton";
-import Adapter from "../app/models/Adapter";
+import Adapter from "../app/types/Adapter";
 import AdapterItem from "./AdapterItem";
 import LoadingScreen from "./LoadingScreen";
 import { Alert } from "react-native";
+import { MemoryService } from "@/app/services/MemoryService";
+import { Functions } from "@/app/utils/Functions";
 
 type Props = {
     onItemSelect: Function,
@@ -17,23 +18,31 @@ type Props = {
 }
 
 export default function AdapterList({onItemSelect, editable, showOnlyAvailable}: Props){
-    const [adapterList, setAdapterList] = useState(new Array());
+    const [adapterList, setAdapterList] = useState<Adapter[]>(new Array());
     const [isDataFetched, setDataFetched] = useState(false);
     const [isEmpty, setEmpty] = useState(false);
-    const [selectedAdapter, setSelectedAdapter] = useState(null);
+    const [selectedAdapter, setSelectedAdapter] = useState<Adapter|null>(null);
 
     function fetchData(){
         if(showOnlyAvailable){
-            Memory.getAvailableAdapters().then(res => {
-                setAdapterList(res);
+            Functions.getAvailableAdapters().then(res => {
                 setDataFetched(true);
-                setEmpty(false);
+                if(res !== null){
+                    setAdapterList(res);
+                    setEmpty(false);
+                } else {
+                    setEmpty(true);
+                }
             })
         } else {
-            Memory.getAllAdapters().then(res => {
-                setAdapterList(res);
+            MemoryService.getAllAdapters().then(res => {
                 setDataFetched(true);
-                setEmpty(false);
+                if(res !== null){
+                    setAdapterList(res);
+                    setEmpty(false);
+                } else {
+                    setEmpty(true);
+                }
             })
         }
     }
@@ -50,7 +59,7 @@ export default function AdapterList({onItemSelect, editable, showOnlyAvailable}:
 
     function deleteItem(){
             if(selectedAdapter !== null){
-                Memory.removeAdapter(selectedAdapter.mac).then(res => {
+                MemoryService.removeAdapter(selectedAdapter.mac).then(res => {
                     setSelectedAdapter(null);
                     fetchData();
                 })
@@ -61,7 +70,7 @@ export default function AdapterList({onItemSelect, editable, showOnlyAvailable}:
         if(selectedAdapter !== null){
             Alert.alert("Adapter löschen", 
                 "Wollen Sie den Adapter '" + selectedAdapter.name + "' wirklich löschen?", 
-                [{text: "Nein", onPress: ()=> {setSelectedAdapter(null)}}, {text: "Ja", onPress: ()=> {Memory.removeAdapter(selectedAdapter.mac).then(res => {fetchData()})}}])
+                [{text: "Nein", onPress: ()=> {setSelectedAdapter(null)}}, {text: "Ja", onPress: ()=> {MemoryService.removeAdapter(selectedAdapter.mac).then(() => {fetchData()})}}])
         }
     }
 

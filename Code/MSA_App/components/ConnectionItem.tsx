@@ -4,10 +4,10 @@ import { StyleSheet } from "react-native";
 import {Colors} from "@/constants/Style";
 import AdapterItem from "./AdapterItem";
 import StationItem from "./StationItem";
-import Connection from "../app/models/Connection";
-import { AdapterAPI } from "./Utilities";
+import Connection from "../app/types/Connection";
 import PlayPauseButton from "./PlayPauseButton";
 import VolumeSelector from "./VolumeSelector";
+import { AdapterAPI } from "@/app/api/AdapterAPI";
 
 type Props = {
   connection: Connection
@@ -45,11 +45,13 @@ export default function ConnectionItem({connection}: Props) {
       <AdapterItem adapter={connection.adapter} selected={false}/>
       <StationItem station={connection.station} selected={false}/>
       <View style={style.controlElementContainer}>
-        <PlayPauseButton onSwitch={(paused: boolean) => {
+        <PlayPauseButton initVal={connection.paused} onSwitch={(paused: boolean) => {
           if(paused){
             AdapterAPI.sendPauseStream(connection.adapter.name);
+            connection.paused = true;
           } else {
             AdapterAPI.sendContinueStream(connection.adapter.name);
+            connection.paused = false;
           }
         }}/>
         <VolumeSelector initVolumePercentage={connection.adapter.volume} onValueChange={(val: number) => {AdapterAPI.sendVolume(connection.adapter.name, val)}}/> 

@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
 import { FlatList, StyleSheet, Pressable, SafeAreaView } from "react-native";
 import { Colors, GlobalStyle } from "@/constants/Style";
-import Station from "@/app/models/Station";
-import { Memory, RadioBrowserAPI } from "@/components/Utilities";
+import Station from "@/app/types/Station";
 import { router, useLocalSearchParams } from "expo-router";
 import AntDesign from '@expo/vector-icons/AntDesign';
 import StationItem from "@/components/StationItem";
+import { MemoryService } from "@/app/services/MemoryService";
+import { RadioBrowserAPI } from "@/app/api/RadioBrowserAPI";
 
 export default function Radios(){
     const [stations, setStations] = useState(Array());
     const [selectedStations, setSelectedStations] = useState(Array());
     const maxStations = 50;
-    const {country, language} = useLocalSearchParams();
+    const {countryName, languageName} = useLocalSearchParams();
 
     function handleStationPress(station: Station){
         let newSelectedStations = [... selectedStations];
@@ -50,8 +51,9 @@ export default function Radios(){
     })
 
     useEffect(()=>{
-        if(typeof country === "string" && typeof language === "string"){
-            RadioBrowserAPI.getStations(country, language, maxStations).then(res =>{
+        if(typeof countryName === "string" && typeof languageName === "string"){
+            RadioBrowserAPI.getStations(countryName, languageName, maxStations).then(res =>{
+                console.log(res);
                 if(res != null){
                     setStations(res);
                 }
@@ -69,7 +71,7 @@ export default function Radios(){
                 </Pressable>
             }/>
             <Pressable onPress={() => {
-                Memory.addFavouriteStations(selectedStations).then(res => {
+                MemoryService.addFavouriteStations(selectedStations).then(res => {
                     router.back();
                     router.back();
                 })

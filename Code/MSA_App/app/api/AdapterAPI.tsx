@@ -1,4 +1,5 @@
 import axios from "axios";
+import Network from "../types/Network";
 
 type InfoType = {
     name: string,
@@ -8,12 +9,44 @@ type InfoType = {
     stationUrl: string
 };
 
-export const AdapterAPI = {   
+export const AdapterAPI = {
+    /**
+     * get information of adapter
+     * @param {string} adapterName - name of adapter
+     * @returns {Promise<InfoType>} - Promise, with Data as InfoType (name: string, mac: string, volume: number, battery: number, stationUrl: string)
+     */ 
     async getInfo(adapterName: string): Promise<InfoType>{
         const url = "http://" + adapterName + ".local:8080/getInfo";
         try{
+            const res = await axios.get(url, {timeout: 2500});
+            return JSON.parse(res.data);
+        } catch(err) {
+            throw err;
+        }
+    },
+    async getInfoFromHost(hostName: string): Promise<InfoType>{
+        const url = hostName + "/getInfo";
+        try{
+            const res = await axios.get(url, {timeout: 2500});
+            return JSON.parse(res.data);
+        } catch(err) {
+            throw err;
+        }
+    },
+    async getAvailableNetworks(hostName: string): Promise<Network[]>{
+        const url = hostName + ".local:8080/getAvailableNetworks";
+        try{
             const res = await axios.get(url);
-            return res.data;
+            return JSON.parse(res.data);
+        } catch(err) {
+            throw err;
+        }
+    },
+    async getPaused(adapterName: string): Promise<boolean>{
+        const url = "http://" + adapterName + ".local:8080/getPaused";
+        try{
+            const res = await axios.get(url);
+            return JSON.parse(res.data).paused;
         } catch(err) {
             throw err;
         }

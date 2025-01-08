@@ -1,50 +1,72 @@
 import axios from "axios";
-import Station from "@/app/models/Station";
-import { Memory } from "@/components/Utilities";
+import Station from "@/app/types/Station";
+import { MemoryService } from "../services/MemoryService";
+import Country from "../types/Country";
+import Language from "../types/Language";
 
 export const RadioBrowserAPI = {
-    async getCountries(): Promise<string []>{
+    async getCountryNames(): Promise<Country []>{
         try{
             const res = await axios.get("https://de1.api.radio-browser.info/json/countries?order=stationcount&reverse=true&limit=50");
             const countries = res.data;
-            const countryNames: string[] = [];
+            const countryList: Country[] = [];
             for(let country of countries){
-                countryNames.push(country.name);
+                countryList.push({name: country.name, code: country.iso_3166_1});
             }
-            const sortedCountryNames = countryNames.sort();
-            return sortedCountryNames;
+            const sortedCountries = countryList.sort((a, b) => {
+                if(a.name == b.name){
+                    return 0;
+                } else if(a.name > b.name) {
+                    return 1;
+                } else {
+                    return -1;
+                }
+            });
+            return sortedCountries;
         } catch(err) {
             throw err;
         }
     },
-    async getLanguages(): Promise<string []>{
+    async getLanguageNames(): Promise<Language []>{
         try{
             const res = await axios.get("https://de1.api.radio-browser.info/json/languages?order=stationcount&reverse=true&limit=20");
             const languages = res.data;
-            const languageNames: string[] = [];
+            const languageList: Language[] = [];
             for(let language of languages){
-                languageNames.push(language.name);
-            }
-            const sortedLanguageNames = languageNames.sort();
-            const bigSortedLanguageNames: string[] = [];
-            for(let name of sortedLanguageNames){
-                let newName = name.charAt(0).toUpperCase() + name.slice(1);
-                if(name.includes(' ')){
+                let oldName = language.name;
+                let newName = oldName.charAt(0).toUpperCase() + oldName.slice(1);
+                if(oldName.includes(' ')){
                     let spaceIdx = newName.indexOf(' ');
                     newName = newName.slice(0, spaceIdx) + ' ' + newName.charAt(spaceIdx+1).toUpperCase() + newName.slice(spaceIdx+2);
                 }
-                bigSortedLanguageNames.push(newName);
+                languageList.push({name: newName, code: language.iso_639});
             }
-            return bigSortedLanguageNames;
+            const sortedLanguages = languageList.sort((a, b) => {
+                if(a.name == b.name){
+                    return 0;
+                } else if(a.name > b.name) {
+                    return 1;
+                } else {
+                    return -1;
+                }
+            });
+            return sortedLanguages;
         } catch(err) {
             throw err;
         }
     },
-    async getStations(country: string, language:string, maxStations: number): Promise<Station[]>{
-        const stationsUrl = "http://de1.api.radio-browser.info/json/stations/search" + "?language=" + language.toLowerCase() + "&country=" + country + "&order=clickcount&reverse=true&limit=" + maxStations;
+    async getStations(countryName: string, languageName: string, maxStations: number): Promise<Station[]>{
+        let url = "http://de1.api.radio-browser.info/json/stations/search?order=clickcount&reverse=true&hidebroken=true&codec=mp3&limit=" + maxStations;
+        if(languageName !== null && languageName !== "-"){
+            url += "&language=" + languageName.toLowerCase();
+        }
+        if(countryName !== null && languageName !== "-"){
+            url += "&country=" + countryName;
+        }
+        console.log(url);
         try{
-            const favouriteStations = await Memory.getFavouriteStations();
-            const stations = await axios.get(stationsUrl);
+            const favouriteStations = await MemoryService.getFavouriteStations();
+            const stations = await axios.get(url);
             const result: Station[] = [];
             stations.data.forEach((val: any) => {
                 if(favouriteStations !== null){
@@ -55,15 +77,24 @@ export const RadioBrowserAPI = {
                         }
                     }
                     if(!containsUuid){
-                        const station = new Station(val.stationuuid, val.name, val.favicon, val.url);
+                        const station = {uuid: val.stationuuid, name: val.name, iconUrl: val.favicon, url: val.url};
                         result.push(station);
                     }
                 } else {
-                    const station = new Station(val.stationuuid, val.name, val.favicon, val.url);
+                    const station = {uuid: val.stationuuid, name: val.name, iconUrl: val.favicon, url: val.url};
                     result.push(station);
                 }
             })
             return result;
+        } catch(err) {
+            throw err;
+        }
+    },
+    async getStationInfo(streamUrl: string){
+        const url = "http://de1.api.radio-browser.info/json/stations/byurl?url=" + streamUrl;
+        try{
+            const apiRes = await axios.get(url);
+            return apiRes.data[0];
         } catch(err) {
             throw err;
         }

@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { View, FlatList, StyleSheet, Pressable } from "react-native";
 import { GlobalStyle } from "@/constants/Style";
 import StationItem from "@/components/StationItem";
-import Station from "@/app/models/Station";
-import { Memory } from "@/components/Utilities";
+import Station from "@/app/types/Station";
 import { router } from "expo-router";
 import ErrorScreen from "@/components/ErrorScreen";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -11,6 +10,7 @@ import DeleteButton from "./DeleteButton";
 import AddToListButton from "./AddToListButton";
 import LoadingScreen from "./LoadingScreen";
 import { Alert } from "react-native";
+import { MemoryService } from "@/app/services/MemoryService";
 
 type Props = {
     onItemSelect: Function,
@@ -21,10 +21,10 @@ export default function StationList({onItemSelect, editable}: Props){
     const [stationList, setStationList] = useState(new Array());
     const [isDataFetched, setDataFetched] = useState(false);
     const [isEmpty, setEmpty] = useState(false);
-    const [selectedStation, setSelectedStation] = useState(null);
+    const [selectedStation, setSelectedStation] = useState<Station|null>(null);
 
     function fetchData(){
-        Memory.getFavouriteStations().then(res => {
+        MemoryService.getFavouriteStations().then(res => {
             setDataFetched(true);
             if(res !== null && res.length > 0){
                 setEmpty(false);
@@ -47,7 +47,7 @@ export default function StationList({onItemSelect, editable}: Props){
 
     function deleteItem(){
         if(selectedStation !== null){
-            Memory.removeFavouriteStation(selectedStation.uuid).then(res => {
+            MemoryService.removeFavouriteStation(selectedStation.uuid).then(res => {
                 setSelectedStation(null);
                 fetchData();
             })

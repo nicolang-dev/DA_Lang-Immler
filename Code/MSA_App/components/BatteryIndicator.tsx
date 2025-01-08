@@ -2,23 +2,26 @@ import { Text, View } from "react-native";
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { GlobalStyle, Colors } from "@/constants/Style";
+import { useState } from "react";
 
 type Props = {
     batteryPercentage: number
 };
 
-export default function BatteryIndicator({batteryPercentage}: Props){
-    let iconName: string;
-    if(batteryPercentage < 0){
+type IconNameType = "battery-empty" | "battery-full" | "battery-three-quarters" | "battery-half" | "battery-quarter";
 
-    } else if(batteryPercentage > 75){
+export default function BatteryIndicator({batteryPercentage}: Props){
+    let iconName: IconNameType;
+    if(batteryPercentage > 75){
         iconName = "battery-full";
     } else if(batteryPercentage > 50){
         iconName = "battery-three-quarters";
     } else if(batteryPercentage > 25){
         iconName = "battery-half";
-    } else {
+    } else if(batteryPercentage > 0){
         iconName = "battery-quarter";
+    } else {
+        iconName = "battery-empty";
     }
 
     if(batteryPercentage > 0){
