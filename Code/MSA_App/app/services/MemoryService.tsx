@@ -5,22 +5,7 @@ import { AdapterAPI } from "../api/AdapterAPI";
 
 const favouriteStationsKey = "favouriteStations";
 const adaptersKey = "adapters";
-
-type AdapterType = {
-    name: string,
-    mac: string,
-    volume: number,
-    battery: number,
-    connected: boolean,
-    streamUrl: string
-}
-
-type StationType = {
-    uuid: string,
-    name: string,
-    iconUrl: string,
-    url: string,
-}
+const userIdKey = "userId";
  
 export const MemoryService = {
     async getFavouriteStations(): Promise<Station[]| null>{
@@ -37,7 +22,7 @@ export const MemoryService = {
         }
     },
     async addFavouriteStations(stations: Station[]): Promise<void>{
-        let stationList = await MemoryService.getFavouriteStations();
+        let stationList = await this.getFavouriteStations();
         let existingUuidList: string[] = [];
         stationList?.forEach((station) => {
             existingUuidList.push(station.uuid);
@@ -51,13 +36,14 @@ export const MemoryService = {
             }
         }
         try{
-            return AsyncStorage.setItem(favouriteStationsKey, JSON.stringify(stationList));
+            await AsyncStorage.setItem(favouriteStationsKey, JSON.stringify(stationList));
+            return
         } catch(err) {
             throw err;
         }
     },
     async removeFavouriteStation(uuid: string): Promise<void>{
-        let stationList = await MemoryService.getFavouriteStations();
+        let stationList = await this.getFavouriteStations();
         if(stationList !== null){
             for(let i = 0; i < stationList.length; i++){
                 if(stationList[i].uuid == uuid){
@@ -65,7 +51,8 @@ export const MemoryService = {
                 }
             }
             try{
-                return AsyncStorage.setItem(favouriteStationsKey, JSON.stringify(stationList));
+                await AsyncStorage.setItem(favouriteStationsKey, JSON.stringify(stationList));
+                return
             } catch(err) {
                 throw err;
             }
@@ -114,15 +101,16 @@ export const MemoryService = {
         }
     },
     async addAdapter(adapter: Adapter): Promise<void>{
-        let newAdapterList = await MemoryService.getAllAdapters();
+        let newAdapterList = await this.getAllAdapters();
         if(newAdapterList === null){
             newAdapterList = [];
         }
         newAdapterList.push(adapter);
-        return AsyncStorage.setItem(adaptersKey, JSON.stringify(newAdapterList));
+        await AsyncStorage.setItem(adaptersKey, JSON.stringify(newAdapterList));
+        return
     },
     async removeAdapter(mac: string): Promise<void>{
-        let newAdapterList = await MemoryService.getAllAdapters();
+        let newAdapterList = await this.getAllAdapters();
         if(newAdapterList !== null){
             for(let i = 0; i < newAdapterList.length; i++){
                 if(newAdapterList[i].mac == mac){
@@ -130,7 +118,8 @@ export const MemoryService = {
                 }
             }
             try{
-                return AsyncStorage.setItem(adaptersKey, JSON.stringify(newAdapterList));
+                await AsyncStorage.setItem(adaptersKey, JSON.stringify(newAdapterList));
+                return
             } catch(err){
                 throw err;
             }
@@ -138,8 +127,32 @@ export const MemoryService = {
     },
     async clearAdapterList(): Promise<void>{
         try{
-            return AsyncStorage.setItem(adaptersKey, "");
+            await AsyncStorage.setItem(adaptersKey, "");
+            return
         } catch(err) {
+            throw err;
+        }
+    },
+    async getUserId(): Promise<string | null>{
+        try{
+            return AsyncStorage.getItem(userIdKey);
+        } catch(err){
+            throw err;
+        }
+    },
+    async setUserId(userId: string): Promise<void>{
+        try{
+            await AsyncStorage.setItem(userIdKey, userId);
+            return
+        } catch(err){
+            throw err;
+        }
+    },
+    async deleteUserId(): Promise<void>{
+        try{
+            await AsyncStorage.removeItem(userIdKey);
+            return
+        } catch(err){
             throw err;
         }
     }

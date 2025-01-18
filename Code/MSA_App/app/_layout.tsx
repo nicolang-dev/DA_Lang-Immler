@@ -1,9 +1,12 @@
 import { Stack } from 'expo-router';
+import { UserDataProvider } from './UserDataContext';
 
 export default function Layout() {
   return (
-    <Stack>
+    <UserDataProvider>
+      <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }}/>
-    </Stack>
+      </Stack>
+    </UserDataProvider>
   );
 }

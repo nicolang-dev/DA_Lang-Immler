@@ -5,12 +5,15 @@ import { router } from "expo-router";
 import { Authentication, Storage } from "@/app/api/FirebaseAPI";
 import Adapter from "@/app/types/Adapter";
 import Station from "@/app/types/Station";
+import { useUserData } from "@/app/UserDataContext";
 
 export default function ProfileScreen(){
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
+  const userData = useUserData();
 
   useEffect(()=>{
+    console.log(userData);
     /*Authentication.register("pippo230306@outlook.de", "examplepw").then(() => {
         console.log("user registered");
     }).catch(err => {

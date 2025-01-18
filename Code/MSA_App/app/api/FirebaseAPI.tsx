@@ -5,6 +5,7 @@ import { getFirestore, setDoc, collection, doc, getDoc } from "firebase/firestor
 import User from "../types/User";
 import Station from "../types/Station";
 import Adapter from "../types/Adapter";
+import UserData from "../types/UserData";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBYW16NMGumkvA27llE6VyTszrAR80UDbo",
@@ -40,12 +41,6 @@ export const Authentication = {
             throw err;
         }
     }
-}
-
-type UserData = {
-    uid: string,
-    stationList: Station[],
-    adapterList: Adapter[]
 }
 
 export const Storage = {

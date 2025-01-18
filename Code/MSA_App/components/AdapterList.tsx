@@ -85,7 +85,10 @@ export default function AdapterList({onItemSelect, editable, showOnlyAvailable}:
 
     useEffect(()=>{
         fetchData();
-        setInterval(fetchData, 5000);
+        const interval = setInterval(fetchData, 5000);
+        return () =>{
+            clearInterval(interval);
+        }
     },[]);
 
     const style = StyleSheet.create({
