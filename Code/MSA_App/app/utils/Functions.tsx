@@ -29,28 +29,24 @@ export const Functions = {
     },
     async getAvailableAdapters(): Promise<Adapter[]|null>{
         const allAdapters = await MemoryService.getAllAdapters();
+        const availableAdapters: Adapter[] = [];
+        const connections = await this.getConnections();
         if(allAdapters !== null){
-            const promiseList: any[] = [];
             for(let adapter of allAdapters){
-                const promise = AdapterAPI.getInfo(adapter.name);
-                promiseList.push(promise);
-            }
-            const results = await Promise.allSettled(promiseList);
-            const reachableAdapters: Adapter[] = [];
-            for(let result of results){
-                if(result.status == "fulfilled"){
-                    const val = result.value.data;
-                    reachableAdapters.push({name: val.name, mac: val.mac, volume: val.volume, battery: val.battery, connected: true, streamUrl: val.stationUrl});
-                }
-            }
-            for(let i = 0; i < allAdapters.length; i++){
-                for(let j = 0; j < reachableAdapters.length; j++){
-                    if(allAdapters[i].mac == reachableAdapters[j].mac){
-                        allAdapters[i] = reachableAdapters[j];
+                console.log("adapter: ", adapter);
+                if(connections !== null){
+                    let adapterIdx = connections?.findIndex(connection => connection.adapter.name == adapter.name);
+                    if(adapterIdx == -1 && adapter.connected){
+                        availableAdapters.push(adapter);
+                    }
+                } else {
+                    if(adapter.connected){
+                        availableAdapters.push(adapter);
                     }
                 }
+                
             }
-            return allAdapters;
+            return availableAdapters;
         }
         return null;
     }

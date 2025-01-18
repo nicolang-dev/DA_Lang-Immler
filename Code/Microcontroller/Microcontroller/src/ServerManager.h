@@ -36,10 +36,10 @@ class ServerManager{
          */
         void handle_get();  
 
-        /**
-         * handles a get request to the /getMac route
+         /**
+         * handles a put request to the /getInfo route
          */
-        void handle_getMac();
+        void handle_getInfo();
 
         /**
          * handles a get request to the /getAvailableNetworks route
@@ -47,24 +47,14 @@ class ServerManager{
         void handle_getAvailableNetworks();
 
         /**
-         * handles a get request to the /getBatteryStatus route
-         */
-        void handle_getBatteryStatus();
-
-        /**
          * handles a get request to the /getLogs route
          */
         void handle_getLogs();
 
         /**
-         * handles a post request to the /setConfigData route
+         * handles a post request to the /setWifiCredentials route
          */
-        void handle_setConfigData();
-        
-        /**
-         * handles a post request to the /setWiFiCredentials route
-         */
-        void handle_setWiFiCredentials();
+        void handle_setWifiCredentials();
 
         /**
          * handles a post request to the /setStreamUrl route
@@ -95,11 +85,6 @@ class ServerManager{
          * handles a request to a undefined route
          */
         void handle_notFound();
-
-        /**
-         * handles a put request to the /getInfo route
-         */
-        void handle_getInfo();
     public:
         static ServerManager* getInstance();
 

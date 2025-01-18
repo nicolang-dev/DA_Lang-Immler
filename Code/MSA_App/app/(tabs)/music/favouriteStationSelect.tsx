@@ -71,9 +71,8 @@ export default function Radios(){
                 </Pressable>
             }/>
             <Pressable onPress={() => {
-                MemoryService.addFavouriteStations(selectedStations).then(res => {
-                    router.back();
-                    router.back();
+                MemoryService.addFavouriteStations(selectedStations).then(() => {
+                    router.navigate("/(tabs)/music");
                 })
             }}>
                 <AntDesign style={style.icon} name="check" size={50} color={Colors.lightTurquoise}/>

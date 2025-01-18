@@ -8,9 +8,11 @@ import Connection from "../app/types/Connection";
 import PlayPauseButton from "./PlayPauseButton";
 import VolumeSelector from "./VolumeSelector";
 import { AdapterAPI } from "@/app/api/AdapterAPI";
+import { useState } from "react";
 
 type Props = {
-  connection: Connection
+  connection: Connection,
+  onEndConnection: Function
 };
 
 const style = StyleSheet.create({
@@ -28,13 +30,18 @@ const style = StyleSheet.create({
     xButton: {
       alignSelf: 'flex-end',
       paddingBottom: 15
-    }
+    },
 })
 
-export default function ConnectionItem({connection}: Props) {
+export default function ConnectionItem({connection, onEndConnection}: Props) {
+  const [paused, setPaused] = useState(false);
+
   function endConnection(){
-    AdapterAPI.sendPauseStream(connection.adapter.name);
-    AdapterAPI.sendStreamUrl(connection.adapter.name, "");
+    AdapterAPI.sendPauseStream(connection.adapter.name).then(() => {
+      AdapterAPI.sendStreamUrl(connection.adapter.name, "").then(() =>{
+        onEndConnection();
+      })
+    })
   }
 
   return (
@@ -45,13 +52,17 @@ export default function ConnectionItem({connection}: Props) {
       <AdapterItem adapter={connection.adapter} selected={false}/>
       <StationItem station={connection.station} selected={false}/>
       <View style={style.controlElementContainer}>
-        <PlayPauseButton initVal={connection.paused} onSwitch={(paused: boolean) => {
-          if(paused){
-            AdapterAPI.sendPauseStream(connection.adapter.name);
-            connection.paused = true;
+        <PlayPauseButton paused={paused} onPress={() => {
+          if(!paused){
+            AdapterAPI.sendPauseStream(connection.adapter.name).then(() =>{
+              connection.paused = true;
+              setPaused(true);
+            })
           } else {
-            AdapterAPI.sendContinueStream(connection.adapter.name);
-            connection.paused = false;
+            AdapterAPI.sendContinueStream(connection.adapter.name).then(() =>{
+              connection.paused = false;
+              setPaused(false);
+            })
           }
         }}/>
         <VolumeSelector initVolumePercentage={connection.adapter.volume} onValueChange={(val: number) => {AdapterAPI.sendVolume(connection.adapter.name, val)}}/> 

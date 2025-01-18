@@ -128,7 +128,7 @@ export default function AdapterList({onItemSelect, editable, showOnlyAvailable}:
         } else {
             if(showOnlyAvailable){
                 return (
-                    <ErrorScreen errorText="Keine Adapter verfügbar!" buttonText="Neuen Adapter hinzufügen" onButtonPress={() => router.push("/(tabs)/adapter/addAdapter")}/>
+                    <ErrorScreen errorText="Kein Adapter verfügbar!" buttonText="Neuen Adapter hinzufügen" onButtonPress={() => router.push("/(tabs)/adapter/addAdapter")}/>
                 )
             } else{
                 return (

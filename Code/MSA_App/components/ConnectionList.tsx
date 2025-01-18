@@ -50,7 +50,7 @@ export default function ConnectionList({onItemPress}: Props){
                 <View style={style.container}>
                     <FlatList data={connectionList} renderItem={({item}) => 
                         <Pressable onPress={() => onItemPress(item)}>
-                            <ConnectionItem connection={item}/> 
+                            <ConnectionItem connection={item} onEndConnection={() => {fetchData()}}/> 
                         </Pressable>
                     }/>
                     <AddToListButton onPress={() => router.push("/(tabs)/connection/addConnection")}/> 

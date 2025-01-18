@@ -25,6 +25,7 @@ type StationType = {
 export const MemoryService = {
     async getFavouriteStations(): Promise<Station[]| null>{
         try{
+        
             const favouriteStations = await AsyncStorage.getItem(favouriteStationsKey);
             if(favouriteStations !== null){
                 return JSON.parse(favouriteStations);
@@ -80,12 +81,35 @@ export const MemoryService = {
     async getAllAdapters(): Promise<Adapter[]|null>{
         try{
             const adapters = await AsyncStorage.getItem(adaptersKey);
+            let adapterList: Adapter[] = [];
             if(adapters !== null){
-                return JSON.parse(adapters);
-            } else {
-                return null;
+                adapterList = JSON.parse(adapters);
             }
+            if(adapterList.length > 0){
+                const promiseList = [];
+                for(let adapter of adapterList){
+                    const promise = AdapterAPI.getInfo(adapter.name);
+                    promiseList.push(promise);
+                }
+                const results = await Promise.allSettled(promiseList);
+                for(let result of results){
+                    if(result.status == "fulfilled"){
+                        const info = result.value;
+                        for(let adapter of adapterList){
+                            if(adapter.name == info.name){
+                                adapter.battery = info.battery;
+                                adapter.volume = info.volume;
+                                adapter.streamUrl = info.stationUrl;
+                                adapter.connected = true;
+                            } 
+                        }
+                    }
+                }
+                return adapterList;
+            }
+            return null;
         } catch(err) {
+            console.error(err);
             throw err;
         }
     },

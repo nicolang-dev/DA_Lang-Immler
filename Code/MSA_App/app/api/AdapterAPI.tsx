@@ -16,10 +16,10 @@ export const AdapterAPI = {
      * @returns {Promise<InfoType>} - Promise, with Data as InfoType (name: string, mac: string, volume: number, battery: number, stationUrl: string)
      */ 
     async getInfo(adapterName: string): Promise<InfoType>{
-        const url = "http://" + adapterName + ".local:8080/getInfo";
+        const url = "http://" + adapterName.toLowerCase() + ".local:8080/getInfo";
         try{
             const res = await axios.get(url, {timeout: 2500});
-            return JSON.parse(res.data);
+            return res.data;
         } catch(err) {
             throw err;
         }
@@ -43,7 +43,7 @@ export const AdapterAPI = {
         }
     },
     async getPaused(adapterName: string): Promise<boolean>{
-        const url = "http://" + adapterName + ".local:8080/getPaused";
+        const url = "http://" + adapterName.toLowerCase() + ".local:8080/getPaused";
         try{
             const res = await axios.get(url);
             return JSON.parse(res.data).paused;
@@ -52,12 +52,12 @@ export const AdapterAPI = {
         }
     },
     async sendConfigData(adapterName: string, wifiSsid: string, wifiPassword: string, newAdapterName: string){
-        const url = "http://" + adapterName + ".local:8080/setConfigData";
+        const url = "http://" + adapterName.toLowerCase() + ".local:8080/setConfigData";
         const data = "ssid=" + wifiSsid + "&password=" + wifiPassword + "&name=" + newAdapterName;
         return axios.post(url, data);
     },
     async sendVolume(adapterName: String, volume: number){
-        const url = "http://" + adapterName + ".local:8080/setVolume";
+        const url = "http://" + adapterName.toLowerCase() + ".local:8080/setVolume";
         const data = "volume=" + volume;
         try{
             return axios.put(url, data);
@@ -66,7 +66,7 @@ export const AdapterAPI = {
         }
     },
     async sendStreamUrl(adapterName: string, streamUrl: string){
-        const url = "http://" + adapterName + ".local:8080/setStreamUrl";
+        const url = "http://" + adapterName.toLowerCase() + ".local:8080/setStreamUrl";
         const data = "url=" + streamUrl;
         try{
             return axios.put(url, data);
@@ -75,7 +75,7 @@ export const AdapterAPI = {
         }
     },
     async sendPauseStream(adapterName: string){
-        const url = "http://" + adapterName + ".local:8080/pauseStream";
+        const url = "http://" + adapterName.toLowerCase() + ".local:8080/pauseStream";
         try{
             return axios.post(url);
         } catch(err){
@@ -83,7 +83,7 @@ export const AdapterAPI = {
         }
     },
     async sendContinueStream(adapterName: string){
-        const url = "http://" + adapterName + ".local:8080/continueStream";
+        const url = "http://" + adapterName.toLowerCase() + ".local:8080/continueStream";
         try{
             return axios.post(url);
         } catch(err){

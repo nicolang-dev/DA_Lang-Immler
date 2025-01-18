@@ -16,6 +16,7 @@ export default function RadioSearch(){
     const [selectedLanguageName, setSelectedLanguageName] = useState("");
     const [countryDataset, setCountryDataset] = useState<Country[] | null>(null);
     const [languageDataset, setLanguageDataset] = useState<Language[] | null>(null);
+    const [isDataFetched, setDataFetched] = useState(false);
 
     useEffect(()=>{
         RadioBrowserAPI.getCountryNames().then(res => {
@@ -33,7 +34,9 @@ export default function RadioSearch(){
         }).catch(err => {
             console.error(err);
         })
-        
+    },[]);
+
+    useEffect(() => {
         const systemCountryCode = SystemService.getRegionCode();
         const systemLanguageCode = SystemService.getLanguageCode();
         if(countryDataset !== null){
@@ -48,7 +51,7 @@ export default function RadioSearch(){
                 setSelectedLanguageName(systemLanguage.name);
             }
         }
-    },[]);
+    }, [countryDataset, languageDataset]);
 
     if(countryDataset !== null && languageDataset !== null){
         return(
