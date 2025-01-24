@@ -6,7 +6,7 @@ import {Picker} from '@react-native-picker/picker';
 import {Colors, GlobalStyle} from "../../constants/Style";
 import StationItem from "../../components/StationItem";
 import StationList from "../../components/StationList";
-import Station from "@/app/types/Station";
+import Station from "@/types/Station";
 import { addFavouriteStations, getStations } from "@/components/Utilities";
 import { router, useLocalSearchParams } from "expo-router";
 import AntDesign from '@expo/vector-icons/AntDesign';

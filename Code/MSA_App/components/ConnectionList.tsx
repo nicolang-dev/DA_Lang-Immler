@@ -7,7 +7,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import AddToListButton from "./AddToListButton";
 import ConnectionItem from "./ConnectionItem";
 import LoadingScreen from "./LoadingScreen";
-import { Functions } from "@/app/utils/Functions";
+import { Functions } from "@/utils/Functions";
 
 type Props = {
     onItemPress: Function

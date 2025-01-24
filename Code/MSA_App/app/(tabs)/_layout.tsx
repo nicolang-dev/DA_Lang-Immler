@@ -7,11 +7,12 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 export default function TabLayout() {
   return (
-    <Tabs screenOptions={{tabBarActiveTintColor: Colors.darkTurquoise, 
+    <Tabs screenOptions={{
+      tabBarActiveTintColor: Colors.darkTurquoise, 
       tabBarStyle: {backgroundColor: Colors.grey},
       tabBarInactiveTintColor: Colors.white,
       headerShown: false
-      }}>
+    }}>
       <Tabs.Screen
         name="connection"
         options={{

@@ -2,7 +2,7 @@ import { Text, View } from "react-native";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { StyleSheet } from "react-native";
 import {Colors, GlobalStyle} from "@/constants/Style";
-import Adapter from "../app/types/Adapter";
+import Adapter from "../types/Adapter";
 import BatteryIndicator from "./BatteryIndicator";
 
 type Props = {

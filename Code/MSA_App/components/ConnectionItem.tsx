@@ -4,10 +4,10 @@ import { StyleSheet } from "react-native";
 import {Colors} from "@/constants/Style";
 import AdapterItem from "./AdapterItem";
 import StationItem from "./StationItem";
-import Connection from "../app/types/Connection";
+import Connection from "../types/Connection";
 import PlayPauseButton from "./PlayPauseButton";
 import VolumeSelector from "./VolumeSelector";
-import { AdapterAPI } from "@/app/api/AdapterAPI";
+import { AdapterAPI } from "@/api/AdapterAPI";
 import { useState } from "react";
 
 type Props = {

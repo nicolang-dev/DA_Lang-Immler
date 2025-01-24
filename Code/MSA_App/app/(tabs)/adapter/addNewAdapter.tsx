@@ -4,10 +4,10 @@ import { StyleSheet } from "react-native";
 import ErrorScreen from "@/components/ErrorScreen";
 import LoadingScreen from "@/components/LoadingScreen";
 import TextInputWindow from "@/components/TextInputWindow";
-import { AdapterAPI } from "@/app/api/AdapterAPI";
-import Adapter from "@/app/types/Adapter";
+import { AdapterAPI } from "@/api/AdapterAPI";
+import Adapter from "@/types/Adapter";
 import { GlobalStyle, Colors } from "@/constants/Style";
-import Network from "@/app/types/Network";
+import Network from "@/types/Network";
 import NetworkList from "@/components/NetworkList";
 
 export default function AddNewAdapter(){

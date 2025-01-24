@@ -1,38 +1,17 @@
-import { Redirect }  from "expo-router";
-import { useEffect, useState } from "react";
-import { SafeAreaView, Text } from "react-native";
-import { router } from "expo-router";
-import * as Network from "expo-network";
+import { useContext, useEffect } from "react";
+import { UserDataContext } from "./UserDataContext";
+import { Redirect } from "expo-router";
 
 export default function Index(){
-    const [connectedToInternet, setConnectedToInternet] = useState(false);
+    const { dataLoaded, user } = useContext(UserDataContext);
 
-    useEffect(() => {
-        Network.getNetworkStateAsync().then(res => {
-            if(res.isInternetReachable !== undefined){
-                setConnectedToInternet(res.isInternetReachable);
-            }
-        })
-
-        Network.addNetworkStateListener((state) => {
-            if(state.isInternetReachable !== undefined){
-                setConnectedToInternet(state.isInternetReachable);
-                if(!state.isInternetReachable){
-                    router.navigate("/");
-                }
-            }
-        })
-    }, []);
-
-    if(connectedToInternet){
+    if(dataLoaded && user !== null){
         return (
             <Redirect href={"/(tabs)/connection"}/>
         )
     } else {
-        return(
-            <SafeAreaView>
-                <Text>Not connected to internet!</Text>
-            </SafeAreaView>
+        return (
+            <Redirect href={"/(auth)"}/>
         )
     }
 }

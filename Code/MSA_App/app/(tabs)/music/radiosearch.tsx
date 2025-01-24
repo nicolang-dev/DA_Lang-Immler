@@ -4,10 +4,10 @@ import {Picker} from '@react-native-picker/picker';
 import { Colors, GlobalStyle } from "@/constants/Style";
 import { router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { RadioBrowserAPI } from "@/app/api/RadioBrowserAPI";
-import Language from "@/app/types/Language";
-import Country from "@/app/types/Country";
-import { SystemService } from "@/app/services/SystemService";
+import { RadioBrowserAPI } from "@/api/RadioBrowserAPI";
+import Language from "@/types/Language";
+import Country from "@/types/Country";
+import { SystemService } from "@/services/SystemService";
 
 const Item = Picker.Item;
 

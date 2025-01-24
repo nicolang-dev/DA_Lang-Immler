@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Text, View, Image, StyleSheet, Pressable } from "react-native";
 import { Colors, GlobalStyle } from '@/constants/Style';
-import Station from "../app/types/Station";
+import Station from "../types/Station";
 
 type Props = {
   station: Station,

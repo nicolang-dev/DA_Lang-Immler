@@ -4,12 +4,12 @@ import { router } from "expo-router";
 import ErrorScreen from "@/components/ErrorScreen";
 import DeleteButton from "./DeleteButton";
 import AddToListButton from "./AddToListButton";
-import Adapter from "../app/types/Adapter";
+import Adapter from "../types/Adapter";
 import AdapterItem from "./AdapterItem";
 import LoadingScreen from "./LoadingScreen";
 import { Alert } from "react-native";
-import { MemoryService } from "@/app/services/MemoryService";
-import { Functions } from "@/app/utils/Functions";
+import { MemoryService } from "@/services/MemoryService";
+import { Functions } from "@/utils/Functions";
 
 type Props = {
     onItemSelect: Function,

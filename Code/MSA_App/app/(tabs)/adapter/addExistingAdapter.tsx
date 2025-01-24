@@ -1,7 +1,7 @@
 import { SafeAreaView, Text, TextInput, Button } from "react-native";
 import { GlobalStyle } from "@/constants/Style";
 import { useState } from "react";
-import { AdapterAPI } from "@/app/api/AdapterAPI";
+import { AdapterAPI } from "@/api/AdapterAPI";
 
 export default function AddExistingAdapter(){
     const [name, setName] = useState("");

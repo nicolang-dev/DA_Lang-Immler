@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { FlatList, StyleSheet, Pressable, SafeAreaView } from "react-native";
 import { Colors, GlobalStyle } from "@/constants/Style";
-import Station from "@/app/types/Station";
+import Station from "@/types/Station";
 import { router, useLocalSearchParams } from "expo-router";
 import AntDesign from '@expo/vector-icons/AntDesign';
 import StationItem from "@/components/StationItem";
-import { MemoryService } from "@/app/services/MemoryService";
-import { RadioBrowserAPI } from "@/app/api/RadioBrowserAPI";
+import { MemoryService } from "@/services/MemoryService";
+import { RadioBrowserAPI } from "@/api/RadioBrowserAPI";
 
 export default function Radios(){
     const [stations, setStations] = useState(Array());

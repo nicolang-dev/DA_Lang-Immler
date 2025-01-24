@@ -2,11 +2,11 @@ import { Button, SafeAreaView, Text } from "react-native";
 import { GlobalStyle, Colors } from "@/constants/Style";
 import { useState, useEffect } from "react";
 import AdapterList from "@/components/AdapterList";
-import Adapter from "@/app/types/Adapter";
-import Station from "@/app/types/Station";
+import Adapter from "@/types/Adapter";
+import Station from "@/types/Station";
 import { router } from "expo-router";
 import StationList from "@/components/StationList";
-import { AdapterAPI } from "@/app/api/AdapterAPI";
+import { AdapterAPI } from "@/api/AdapterAPI";
 
 export default function AddConnection(){
     const [selectedAdapter, setSelectedAdapter] = useState<Adapter|null>(null);

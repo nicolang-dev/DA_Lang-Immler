@@ -1,4 +1,4 @@
-import Adapter from "@/app/types/Adapter";
+import Adapter from "@/types/Adapter";
 
 type Props = {
     adapter: Adapter
