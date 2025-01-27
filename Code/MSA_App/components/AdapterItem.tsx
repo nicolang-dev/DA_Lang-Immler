@@ -7,7 +7,8 @@ import BatteryIndicator from "./BatteryIndicator";
 
 type Props = {
   adapter: Adapter,
-  selected: boolean
+  selected: boolean,
+  reachable: boolean
 };
 
 const style = StyleSheet.create({
@@ -33,11 +34,11 @@ const style = StyleSheet.create({
         width: '20%'
     }
 })
-export default function AdapterItem({adapter, selected}: Props) {
+export default function AdapterItem({adapter, selected, reachable}: Props) {
   let backgroundColor = "lightgrey";
   if(selected){
     backgroundColor = Colors.lightTurquoise;
-  } else if(adapter.connected){
+  } else if(reachable){
     backgroundColor = Colors.grey;
   } else {
     backgroundColor = "lightgrey";
@@ -49,7 +50,7 @@ export default function AdapterItem({adapter, selected}: Props) {
         <Text style={GlobalStyle.textBig}>{adapter.name}</Text>
         <Text style={GlobalStyle.textMedium}>{adapter.mac}</Text>
       </View>
-      {adapter.connected 
+      {reachable 
         ? 
           <BatteryIndicator batteryPercentage={adapter.battery}/>
         : <Ionicons name="cloud-offline" size={24} color={Colors.white}/>

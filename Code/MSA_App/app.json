@@ -1,5 +1,6 @@
 {
   "expo": {
+    "newArchEnabled": true,
     "name": "MSA_App",
     "slug": "MSA_App",
     "version": "1.0.0",

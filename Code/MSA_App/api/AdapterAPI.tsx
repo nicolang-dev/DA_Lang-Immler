@@ -1,5 +1,6 @@
 import axios from "axios";
 import Network from "../types/Network";
+import Adapter from "@/types/Adapter";
 
 type InfoType = {
     name: string,
@@ -15,11 +16,11 @@ export const AdapterAPI = {
      * @param {string} adapterName - name of adapter
      * @returns {Promise<InfoType>} - Promise, with Data as InfoType (name: string, mac: string, volume: number, battery: number, stationUrl: string)
      */ 
-    async getInfo(adapterName: string): Promise<InfoType>{
+    async getInfo(adapterName: string): Promise<Adapter>{
         const url = "http://" + adapterName.toLowerCase() + ".local:8080/getInfo";
         try{
             const res = await axios.get(url, {timeout: 2500});
-            return res.data;
+            return {name: adapterName, mac: res.data.mac, volume: res.data.volume, battery: res.data.battery, connected: true, streamUrl: res.data.stationUrl};
         } catch(err) {
             throw err;
         }

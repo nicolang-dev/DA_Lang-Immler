@@ -1,8 +1,10 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, initializeAuth, getReactNativePersistence, NextOrObserver } from "firebase/auth";
-import { getFirestore, setDoc, doc, getDoc } from "firebase/firestore";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, initializeAuth, getReactNativePersistence, signOut, sendPasswordResetEmail, confirmPasswordReset } from "firebase/auth";
+import { getFirestore, setDoc, doc, getDoc, onSnapshot } from "firebase/firestore";
 import User from "../types/User";
+import Adapter from "@/types/Adapter";
+import Station from "@/types/Station";
 import UserData from "../types/UserData";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -40,6 +42,9 @@ export const Authentication = {
             throw err;
         }
     },
+    async logOut(){
+        return signOut(auth);
+    },
     onAuthChange(callback: (user: User | null) => void){
         auth.onAuthStateChanged((user) => {
             let newUser;
@@ -52,32 +57,128 @@ export const Authentication = {
         });
     },
     onAuthReady(callback: () => void){
-        auth.authStateReady().then(() => callback);
+        auth.authStateReady().then(() => callback())
+        .catch(err => {
+            console.error(err);
+        });
+    },
+    getUser(): User | null{
+        const user = auth.currentUser;
+        if(user !== null && user.email !== null){
+            return {uid: user.uid, email: user.email};
+        }
+        return null;
+    },
+    async sendPwResetEmail(email: string){
+        return sendPasswordResetEmail(auth, email);
+    },
+    async confirmPwReset(code: string, newPw: string){
+        return confirmPasswordReset(auth, code, newPw);
     }
 }
 
 export const CloudStorage = {
-    async setUserData(userData: UserData): Promise<void>{
-        try{
-            const docName = "user_" + userData.uid;
-            await setDoc(doc(storage, "userData", docName), userData);
-            return
-        } catch(err){
-            throw err;
+    async getAdapterList(): Promise<Adapter[]>{
+        if(auth.currentUser !== null){
+            let uid = auth.currentUser.uid;
+            try{
+                const docName = "user_" + uid;
+                const res = await getDoc(doc(storage, "adapter", docName));
+                const data = res.data();
+                if(data === undefined || data.adapterList === undefined){
+                    throw "data is undefined";
+                }
+                console.log("adapter data:", data.adapterList);
+                return data.adapterList;
+            } catch(err) {
+                throw err;
+            }
+        } else {
+            throw "user is null";
         }
     },
-    async getUserData(uid: string): Promise<UserData>{
-        try{
-            const docName = "user_" + uid;
-            const res = await getDoc(doc(storage, "userData", docName));
-            console.log(res.data());
-            const data = res.data();
-            if(data === undefined){
-                throw "result data is undefined";
+    async getStationList(): Promise<Station[]>{
+        if(auth.currentUser !== null){
+            let uid = auth.currentUser.uid;
+            try{
+                const docName = "user_" + uid;
+                const res = await getDoc(doc(storage, "station", docName));
+                const data = res.data();
+                if(data === undefined || data.stationList === undefined){
+                    throw "data is undefined";
+                }
+                return data.stationList;
+            } catch(err) {
+                throw err;
             }
-            return {uid: data.uid, stationList: data.stationList, adapterList: data.adapterList};
-        } catch(err) {
-            throw err;
+        } else {
+            throw "user is null";
+        }
+    },
+    async setAdapterList(newAdapterList: Adapter[]): Promise<void>{
+        if(auth.currentUser !== null){
+            let uid = auth.currentUser.uid;
+            try{
+                const docName = "user_" + uid;
+                const data = {adapterList: newAdapterList};
+                await setDoc(doc(storage, "adapter", docName), data);
+                return
+            } catch(err){
+                throw err;
+            }
+        } else {
+            throw "user is null";
+        }
+    },
+    async setStationList(newStationList: Station[]): Promise<void>{
+        if(auth.currentUser !== null){
+            let uid = auth.currentUser.uid;
+            try{
+                const docName = "user_" + uid;
+                const data = {stationList: newStationList};
+                await setDoc(doc(storage, "station", docName), data);
+                return
+            } catch(err){
+                throw err;
+            }
+        } else {
+            throw "user is null";
+        }
+    },
+    onAdapterChange(callback: (newAdapterList: Adapter[]) => void){
+        console.log("test");
+        if(auth.currentUser !== null){
+            let uid = auth.currentUser.uid;
+            const docName = "user_" + uid;
+            const document = doc(storage, "adapter", docName);
+            onSnapshot(document, (newDoc) => {
+                const data = newDoc.data();
+                console.log("data:" , data);
+                let adapterList = [];
+                if(data !== undefined){
+                    adapterList = data.adapterList;
+                }
+                callback(adapterList);
+            })
+        } else {
+            throw "user is null";
+        }
+    },
+    onStationChange(callback: (newStationList: Station[]) => void){
+        if(auth.currentUser !== null){
+            let uid = auth.currentUser.uid;
+            const docName = "user_" + uid;
+            const document = doc(storage, "station", docName);
+            onSnapshot(document, (newDoc) => {
+                const data = newDoc.data();
+                let stationList = [];
+                if(data !== undefined){
+                    stationList = data.stationList;
+                }
+                callback(stationList);
+            })
+        } else {
+            throw "user is null";
         }
     }
 }

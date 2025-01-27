@@ -8,8 +8,6 @@ export default function Layout() {
               headerTitleStyle: {color: Colors.white}
               }}>
         <Stack.Screen name='index' options={{headerTitle: 'Profil'}}/>
-        <Stack.Screen name='login' options={{headerTitle: 'Anmelden'}}/>
-        <Stack.Screen name='register' options={{headerTitle: 'Registrieren'}}/>
     </Stack>
   );
 }

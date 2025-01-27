@@ -3,6 +3,7 @@ import Station from "@/types/Station";
 import { MemoryService } from "../services/MemoryService";
 import Country from "../types/Country";
 import Language from "../types/Language";
+import { useContext } from "react";
 
 export const RadioBrowserAPI = {
     async getCountryNames(): Promise<Country []>{
@@ -55,7 +56,7 @@ export const RadioBrowserAPI = {
             throw err;
         }
     },
-    async getStations(countryName: string, languageName: string, maxStations: number): Promise<Station[]>{
+    async getStations(countryName: string, languageName: string, maxStations: number, dontShow: Station[] | null): Promise<Station[]>{
         let url = "http://de1.api.radio-browser.info/json/stations/search?order=clickcount&reverse=true&hidebroken=true&codec=mp3&limit=" + maxStations;
         if(languageName !== null && languageName !== "-"){
             url += "&language=" + languageName.toLowerCase();
@@ -65,13 +66,12 @@ export const RadioBrowserAPI = {
         }
         console.log(url);
         try{
-            const favouriteStations = await MemoryService.getFavouriteStations();
             const stations = await axios.get(url);
             const result: Station[] = [];
             stations.data.forEach((val: any) => {
-                if(favouriteStations !== null){
+                if(dontShow !== null){
                     let containsUuid = false;
-                    for(let favStation of favouriteStations){ //check if station is already in favourite stations
+                    for(let favStation of dontShow){ //check if station is already in favourite stations
                         if(favStation.uuid == val.stationuuid){
                             containsUuid = true;
                         }
