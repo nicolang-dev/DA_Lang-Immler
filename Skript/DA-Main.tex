@@ -9,8 +9,8 @@
 \usepackage[hyphens]{url}
 \usepackage{hyperref}
 \usepackage{float}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{1em}
+% \setlength{\parindent}{0pt}
+% \setlength{\parskip}{1em}
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
 \renewcommand{\listfigurename}{Abbildungen}
@@ -29,6 +29,9 @@
 \renewcommand{\footrulewidth}{0.4pt} %für Strich über Footer
 \usepackage{pdfpages}
 \usepackage{enumitem}
+
+\usepackage[style=authoryear-ibid,backend=biber]{biblatex}
+\addbibresource{zitate_pi.bib}
 
 \pagestyle{empty} %footer und header auf den ersten seiten nicht anzeigen
 
@@ -51,6 +54,7 @@
 %\pagebreak
 
 \section{Projekt}
+\vspace{-100mm}
 \subsection{Projektteam}
 \textbf{Nico Lang}\\
 Wirtschaftsingenieure/Betriebsinformatik\\
@@ -126,7 +130,7 @@ Zudem beschäftigt sich dieser Teil mit dem Gehäuse des Geräts und bestimmt di
 Bei der Planung soll zudem darauf geachtet werden, möglichst viele Kosten einzusparen, ohne dabei die Faktoren der Sicherheit und Qualität zu vergessen.
 
 \subsection{Einleitung Software}
-Das Ziel des Software-Teils für folgende Diplomarbeit war, einerseits die Software des Adapters, andererseits die Software der Smartphoneapp zu entwickeln. Dieser Teil der Diplomarbeit wurde von Philipp Immler übernommen. Die Software des Adapters wurde mit der Programmiersprache C++ codiert. Die Software der Smartphoneapp wurde mit JavaScript codiert. Bei der Programmierung wurden zahlreiche Bibliotheken und Frameworks verwendet. Dies hat den Vorteil, dass diese schon vorgefertigte Lösungen für bestimmte Probleme bieten und man deshalb nicht alles von Grund auf neu entwickeln muss. 
+Das Ziel des Software-Teils für folgende Diplomarbeit war, einerseits die Software des Adapters, andererseits die Software der Smartphoneapp zu entwickeln. Dieser Teil der Diplomarbeit wurde von Philipp Immler übernommen. Die Software des Adapters wurde mit der Programmiersprache C++ codiert. Die Software der Smartphoneapp wurde mit JavaScript codiert. Bei der Programmierung wurden zahlreiche Bibliotheken und Frameworks verwendet. Dies hat den Vorteil, dass diese schon vorgefertigten Code für bestimmte Probleme bieten und deshalb nicht alles von Grund auf neu entwickeln werden muss.
 
 \section{Planung}
 \subsection{Festlegung Funktionsweise}
@@ -241,25 +245,24 @@ Für einen optimalen Ladeprozess und Schutz des Akkus wird ein spezieller Ladere
 \subsection{Auswahl Technologien}
 \subsubsection{Protokolle}
 In diesem Kapitel geht es um die Recherche und Auswahl von Protokollen, die für den Austausch von Daten verwendet wurden. \newline \\
-\textbf{Allgemein} \\
-Protokolle ermöglichen in der Informatik eine standartisierte Kommunikation zwischen zwei oder mehreren Computern. Diese standartisierte Kommunikation wird durch das Festlegen von Standards und Normen erreicht. (vgl. URLPI16)
+Protokolle werden in der Informatik verwendet um eine standartisierte Kommunikation zwischen zwei oder mehreren Computern zu ermöglichen. Diese standartisierte Kommunikation wird durch das Festlegen von Standards und Normen erreicht. (vgl. URLPI16)
 \newline \\
 \textbf{HTTP} \\
-Das Hyper Text Transfer Protocol ist ein weitverbreitetes Protokoll im Web und wird größtenteils für die Kommunikation zwischen Browsern und Webservern eingesetzt. Dabei basiert das Protokoll auf sogenannten \glqq Requests\grqq{} (auf Deutsch: Anfragen). Es gibt zahlreiche Anwendungen für HTTP. Wir nutzen es einerseits für die Kommunikation zwischen Smartphoneapp (Client) und Microcontroller (Server) mittels REST-API und zum Empfangen der Audio-Streams. (vgl. URLPI02)
+Das Hyper Text Transfer Protocol ist ein weitverbreitetes Protokoll im Web und wird größtenteils für die Kommunikation zwischen Browsern und Webservern eingesetzt. Dabei basiert das Protokoll auf sogenannten \glqq Requests\grqq{} (auf Deutsch: Anfragen). Es gibt zahlreiche Anwendungen für HTTP. Wir nutzen es einerseits für die Kommunikation zwischen Smartphoneapp (Client) und Microcontroller (Server) mittels REST-API und zum Empfangen der Audio-Streams (HLS). \parencite[vgl.][]{noauthor_urlpi01_2020}
 \newline \\
 \textbf{mDNS} \\
-Das Multicast Domain Name Service - Protokoll hilft in kleineren, lokalen Netzwerken zur Namensauflösung. Im Web wird bereits seit einiger Zeit das bekanntere DNS (Domain Name Service) - Protokoll verwendet. Dieses dient dazu, die IP-Addresse einer Domain zu ermitteln. Dabei sendet der Client den Domain-Namen an einen DNS-Server, welcher dann die zugehörige IP-Adresse an den Client sendet. Mithilfe dieser IP-Adresse weiß der Client jetzt, mit welchem Server er sich verbinden muss. Der Vorteil bei mDNS hingegen ist, dass kein DNS-Server benötigt wird. mDNS funktioniert mithilfe von Multicast. Beim Multicast sendet ein Teilnehmer eines Netzwerkes eine Nachricht an alle Teilnehmer im gleichen Netzwerk. Bei mDNS fragt also das Gerät, welches sich mit einem anderen Gerät verbinden will, jedes Gerät im Netzwerk ob der entsprechende Domain-Name zu diesem gehört. Wenn dies der Fall ist, weiß das Gerät die IP-Adresse des anderen Gerätes und kann somit mit diesem kommunizieren. (vgl. URLPI19) Wir verwenden mDNS in unserer Diplomarbeit, zur Verbindung mit den einzelnen Adaptern. Da standardmäßig im Netzwerk ein sogenannter DHCP (Dynamic Host Configuration Protocol) - Server vorhanden ist, der die IP-Adressen automatisch vergibt, kann man die Adapter nicht anhand deren IP-Adresse identifizieren, da sich diese ständig ändert. (vgl. URLPI20) Mit mDNS ist dies allerdings möglich. Dabei ist jeder Adapter unter seinem Namen gefolgt von .local auffindbar. Wenn der Name des Adapters also z.B. Adapter1 ist, ist er unter adapter1.local im Netzwerk auffindbar.
+Das Multicast Domain Name Service - Protokoll hilft in kleineren, lokalen Netzwerken zur Namensauflösung. Im Web wird bereits seit einiger Zeit das bekanntere DNS (Domain Name Service) - Protokoll verwendet. Dieses dient dazu, die IP-Addresse einer Domain zu ermitteln. Dabei sendet der Client den Domain-Namen an einen DNS-Server, welcher dann die zugehörige IP-Adresse an den Client sendet. Mithilfe dieser IP-Adresse weiß der Client jetzt, mit welchem Server er sich verbinden muss. Der Vorteil bei mDNS hingegen ist, dass kein DNS-Server benötigt wird. mDNS funktioniert mithilfe von Multicast. Beim Multicast sendet ein Teilnehmer eines Netzwerkes eine Nachricht an alle Teilnehmer im gleichen Netzwerk. Bei mDNS fragt also das Gerät, welches sich mit einem anderen Gerät verbinden will, jedes Gerät im Netzwerk ob der entsprechende Domain-Name zu diesem gehört. Wenn dies der Fall ist, weiß das Gerät die IP-Adresse des anderen Gerätes und kann somit mit diesem kommunizieren. (vgl. URLPI19) Wir verwenden mDNS in unserer Diplomarbeit, zur Verbindung mit den einzelnen Adaptern. Da in den meisten Netzwerken ein DHCP (Dynamic Host Configuration Protocol) - Server vorhanden ist, der die IP-Adressen automatisch vergibt, kann man die Adapter nicht anhand deren IP-Adresse eindeutig identifizieren, da sich diese ständig ändert. (vgl. URLPI20) Mit mDNS ist dies allerdings möglich. Dabei ist jeder Adapter unter seinem Namen gefolgt von .local auffindbar. Ein Adapter mit dem Namen MSA\_3C4D5E ist also im lokalen Netzwerk unter MSA\_3C4D5E.local aufrufbar.
 \newline \\
 \textbf{I2S}\\
-Das Inter IC Sound Protocol wird verwendet, um Stereo-Audio-Daten zwischen ICs auszutauschen. Es ist dabei zu unterscheiden von dem I2C (Inter IC Circuit) - Protokoll, welches sich rein um den Datenaustausch zwischen ICs kümmert. Für die Datenübertragung benötigt das I2S-Protokoll folgende Leitungen:
+Das Inter IC Sound Protocol wird verwendet, um Stereo-Audio-Daten zwischen ICs (Integrated Circuits) auszutauschen. Es ist dabei zu unterscheiden von dem I2C (Inter-integrated circuit) - Protokoll, welches rein für den Datenaustausch zwischen ICs verwendet wird. Für die Datenübertragung benötigt das I2S-Protokoll folgende Leitungen:
 \begin{itemize}
 \item Taktleitung
 \item Wortauswahl
 \item mindestens eine Datenleitung
 \end{itemize}
-Die Datenübertragung erfolgt seriell und synchron. Seriell bedeutet, dass die Daten nur durch eine Leitung (die Datenleitung), nacheinander übertragen werden. Synchron bedeutet, dass die Daten in einem bestimmten Takt übertragen werden. Dieser Takt wird von der Taktleitung vorgegeben. Die Leitung für die Wortauswahl wählt den Stereokanal aus (links oder rechts). (vgl. URLPI12) \\
+Die Datenübertragung erfolgt seriell und synchron. Das heißt, dass die Daten nacheinander durch eine Leitung (die Datenleitung), in einem bestimmten Takt, welcher von der Taktleitung vorgegeben wird, übertragen werden. Wenn ein Audiodaten im Stereo-Format (linker und rechter Kanal) übetragen werden, wählt die Wortauswahl-Leitung jeweils den Kanal aus aus. (vgl. URLPI12) \\
 In unserem Projekt wurde das I2S Protokoll verwendet, um die digitalen Stereo-Audio-Daten vom Microcontroller an den Digital-Analag-Wandler zu übertragen.
-Dabei werden die Buffer, die der Microcontroller vom Audio-Stream erhält, mittels I2S an den Digital-Analog-Wandler gesendet, welcher die digitalen Daten in analoge PCM (Pulse Code Modulation) Daten umwandelt, so dass diese dann anschließend auf der Lautsprecherbox ausgegeben werden können.
+Dabei werden die Buffer, die der Microcontroller vom Audio-Stream erhält, mittels I2S an den Digital-Analog-Wandler gesendet, welcher die digitalen Daten in analoge PCM (Pulse Code Modulation) Daten umwandelt, so dass diese dann anschließend auf der Lautsprecherbox ausgegeben werden können. 
 \subsection{Auswahl Softwaretools}
 \subsubsection{Einleitung}
 In diesem Kapitel geht es um die Recherche und Auswahl von geeigneten Softwaretools, welche für die App-Entwicklung, als auch für die Entwicklung der Software des Microcontrollers verwendet wurden. Zusätzlich werden auch die Softwaretools, welche zum Schreiben dieser Diplomarbeit verwendet wurden, kurz beschrieben. 
@@ -288,11 +291,11 @@ Im folgenden werden die verwendeten Bibliotheken im Code des Microcontrollers au
 \vspace{4mm}\newline
 \textbf{arduino-esp32} \\
 (https://github.com/espressif/arduino-esp32) \\
-Die arduino-esp32-Bibliothek wurde verwendet um den ESP32 ähnlich wie einen Arduino programmieren zu können. Es erleichtert dabei die Programmierung enorm, vorallem dann, wenn man schon Vorerfahrung mit der Programmierung von Arduinos hat. Ein weiterer Vorteil ist, dass diese Bibliothek bereits weitere nüztliche Bibliotheken beinhaltet, welche für die Programmierung benötigt werden.
+Die arduino-esp32-Bibliothek wurde verwendet um den ESP32 ähnlich wie ein Arduino-Board programmieren zu können. Es erleichtert dabei die Programmierung enorm, vorallem dann, wenn man schon Vorerfahrung mit der Programmierung von Arduino-Boards hat. Ein weiterer Vorteil ist, dass diese Bibliothek bereits weitere nüztliche Bibliotheken beinhaltet, welche für die Programmierung benötigt werden.
 \vspace{4mm}\newline
 \textbf{WiFi} \\
 (https://github.com/espressif/arduino-esp32/tree/master/libraries/WiFi) \\
-Die WiFi-Bibliothek ist eine offizielle Bibliothek von Arudino, welche ebenfalls in der arduino-esp32-Bibliothek inkludiert ist. Sie wird verwendet, um die Funktionen der eingebauten WiFi-Antenne des ESP32 zu verwenden. Der ESP32 kann dabei entweder als Access Point oder als Client fungieren. Wenn er als Access Point fungiert, stellt er ein eigenes WiFi-Netzwerk bereit, mit dem sich andere Geräte verbinden können und der ESP32 somit einen Host darstellt. Als Client kann er sich mit anderen WiFi-Netzwerken bzw. Access Points verbinden. In unserem Projekt fungiert der ESP32 sowohl als Access Point, als auch als Client.
+Die WiFi-Bibliothek ist eine offizielle Bibliothek von Arudino, welche ebenfalls in der arduino-esp32-Bibliothek inkludiert ist. Sie wird verwendet, um die Funktionen der eingebauten WiFi-Antenne des ESP32 zu nutzen. Der ESP32 kann dabei entweder als Access Point oder als Client fungieren. Wenn er als Access Point fungiert, stellt er ein eigenes WiFi-Netzwerk bereit, mit dem sich andere Geräte verbinden können und der ESP32 somit einen Host darstellt. Als Client kann er sich mit anderen WiFi-Netzwerken bzw. Access Points verbinden. In unserem Projekt fungiert der ESP32 sowohl als Access Point, als auch als Client.
 \vspace{4mm}\newline
 \textbf{ArduinoJson} \\
 (https://github.com/bblanchon/ArduinoJson) \\
@@ -416,20 +419,20 @@ In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Smartpho
 Es wurde festgelegt, dass die Smartphoneapp folgende Anforderungen erfüllen soll:
 \vspace{4mm}\newline 
 \textbf{Verwalten von Adaptern}  \\
-Mit der App soll es einerseits möglich sein, neue Adapter zu konfiguieren, andererseits, bereits hinzugefügte Adapter zu verwalten. Dabei können von den Adaptern verschiedene Daten, wie z.B. Akkustand und MAC-Adresse eingesehen werden. Die MAC-Addresse wird zur eindeutigen Identifizierung der Adapter verwendet, weil diese im Gegensatz zur IP-Addresse weltweit eindeutig ist.
+Mit der App soll es einerseits möglich sein, neue Adapter zu konfiguieren, andererseits, bereits hinzugefügte Adapter zu verwalten. Dabei können von den Adaptern Daten wie beispielsweise MAC-Adresse und Akkustand angezeigt werden. Außerdem soll regelmäßig überprüft werden, ob der Adapter vom Smartphone aus erreichbar ist.
 \vspace{4mm}\newline
 \textbf{Verwalten von Radiostationen} \\
 Mit der App soll es außerdem möglich sein, nach Audiostreams von Internetradios zu suchen, und diese in einer Favoritenliste zu verwalten. \newline \\
 \textbf{Verwalten von Verbindungen} \\
-Mit der App soll es letztendlich möglich sein, eine Verbindungen zwischen Adaptern und Internetradio-Streams herzustellen und diese zu verwalten.
-\subsubsection{Klassen}
-In der App wurden folgende Klassen definiert: \newline \\
-\textbf{Adapter} \\
-Die Adapter-Klasse wird zum Erstellen von Adapter-Objekten verwendet. Sie definiert die Attribute, welche jeder Adapter haben muss. Dazu zählen Name, MAC-Addresse, eingestellte Lautstärke des Audio-Moduls, Erreichbarkeit und Akkustand. Diese Objekte werden in der App verwendet, um einfach mit den Daten der Adapter zu arbeiten. \newline \\
-\textbf{Station} \\
-Die Station-Klasse wird zum Erstellen von Station-Objekten verwendet. Sie definiert die Attribute, welche jede Radiostation haben muss. Dazu zählen Name, UUID, Icon-URL und Stream-URL. Das verwenden der Station-Objekte erleichtert die Handhabung von Stationen in der App. \newline \\
-\textbf{Connection} \\
-Die Connection-Klasse wird zum Erstellen von Connection-Objekten verwendet. In ihr wird ein Objekt der Klasse Adapter und ein Objekt der Klasse Station gespeichert. Damit wird die Verbindung zwischen Adapter und Station ersichtlich. Also welcher Adapter empfängt aktuell welchen Radiostream. \newline \\
+Letztendlich soll es mit der App möglich sein, eine Verbindungen zwischen Adaptern und Internetradio-Streams herzustellen und diese zu verwalten. Dabei soll der Stream gestoppt und fortgesetzt werden können und die Lautstärke der Audio-Ausgabe des MSA einstellbar sein.
+\subsubsection{APIs}
+\textbf{RadioBrowser-API}
+Die RadioBrowser-API ist eine open-source API welche eine sehr umfangreiche Sammlung von Internet-Radios bereitstellt. Dabei ist es einerseits möglich, mithilfe dieser API neue Radiostationen zu der Sammlung hinzuzufügen und andererseits, nach bestehenden Radiostationen gefiltert nach vorgegebenen Kriterien zu suchen und die Daten derer dann abzufragen. (vgl. URLPI21) Wir haben die RadioBrowser-API in unserer Smartphoneapp verwendet um nach Radiosendern zu suchen, und in weiterer Folge die bereitgestellten Streams dieser, an den MSA zu senden. 
+\textbf{Firebase}
+Firebase ist eine Entwicklungsplattform von Google welche verschiedene Dienste, welche hilfreich für die Entwicklung von Apps bzw. Web-Apps sind, beretstellt. Firebase dient dabei als Backend. Das heißt, dass Firebase Funktionen wie z.B. Benutzerauthentifizierung, Speicherung von Benutzern und Speicherung von Daten bereitstellt und dies somit nicht in der App selber passieren muss. (vgl. URLPI22) Wir haben Firebase zur Benutzerverwaltung in unserer Smartphoneapp verwendet. Dabei benutzen wir einerseits den Firebase Authentication Dienst und andererseits den Cloud Firestore Dienst. Wir haben uns für Firebase entschieden, da wir so Benutzerdaten in der Cloud speichern können und somit nicht auf ein Gerät angewiesen sind, sondern die Daten von jedem beliebigen Gerät abgerufen werden können. Außerdem bietet Firebase Authentication eine sehr sichere Benutzerauthentifizierung.
+\subsubsection{Struktur}
+Im folgenden ist die Ordnerstruktur der App ersichtlich:
+
 \subsubsection{Funktionen}
 In der Datei Utilities wurden Funktionen definiert, welche dabei helfen Daten abzurufen bzw. zu speichern. Dazu gehören Abfragen der RadioBrowser-API, Abfragen an den jeweiligen Adapter und Zugriffe in den Speicher. Speicheroperationen wurden mithilfe der in Expo integrierten Bibliothek \glqq AsyncStorage \grqq{}  durchgeführt. Abfragen mittels HTTP wurden mit der ebenfalls in Expo integrierten Bibliothek \glqq Axios \grqq{} durchgeführt. \newline \\
 \textbf{Asynchrone Funktionen} \\
@@ -485,7 +488,7 @@ Dieser Tab ist für die Verwaltung von Adaptern zuständig. Es ist hier möglich
 \textbf{Musik} \\
 Dieser Tab ist für die Verwaltung von Audio-Quellen zuständig. Vorerst werden hier als Quellen nur Internet-Radios verwendet. In Zukunft wäre es aber auch denkbar, Streaming-Dienste als Quellen zu implementieren. Mit jetztigem Stand ist es in diesem Tab möglich, neue Radiosender zu der Favoritenliste hinzuzufügen und die Favoritenliste anzusehen bzw. Favoriten zu löschen. Der Tab besteht aus den Seiten index und searchStations, welche im Kapitel Seiten noch genauer beschrieben werden. \newline \\
 \subsubsection{Navigation}
-Für die Navigation in der App wurde einerseits die Tab-Navigation und andererseits die Stack-Navigation von Expo Router verwendet. Die App ist grundsätzlich in die drei Tabs Verbindungen, Adapter und Musik gegliedert. Zwischen diesen Tabs kann mittels dem Tab-Navigator gewechselt werden. In den einzelnen Tabs befinden sich jeweils mehrere Seiten. Diese Seiten sind mithilfe des Stack-Navigators aufrufbar. Der Stack-Navigator arbeitet mit einem sogenannten Stack, auf Deutsch \glqq Stapel \grqq{}. Zu diesem werden mittels des Last In - First Out - Prinzipes (kurz LIFO) Seiten hinzugefügt bzw. von diesem entfernt. Mithilfe der Methode router.push() werden dem Stack Seiten hinzugefügt. Es wird also sozusagen eine Seite auf den Stapel gelegt. Mithilfe der Methode router.pop() wird eine Seite vom Stack entfernt. Es wird also sozusagen die oberste Seite vom Stapel heruntergenommen. Im folgenden wird die Navigations-Hierarchie dargestellt:
+Für die Navigation in der App wurde einerseits die Tab-Navigation und andererseits die Stack-Navigation von Expo Router verwendet. Dabei wird grob zwischen dem Ordner auth und dem Ordner tabs unterschieden. Der Ordner auth enthält die Seiten, welche für die Benutzerauthentifizierung, also Login und Registrierung, notwendig sind. Der Ordner tabs hingegen enthält alle Seiten, welche für registrierte Benutzer sichtbar sind und somit die eigentliche App darstellen. Tabs ist dabei in die drei Tabs Verbindungen, Adapter und Musik gegliedert. Zwischen diesen Tabs kann mittels dem Tab-Navigator gewechselt werden. In den einzelnen Tabs befinden sich jeweils mehrere Seiten. Diese Seiten sind mithilfe des Stack-Navigators aufrufbar. Der Stack-Navigator arbeitet dabei nach dem sogenannten Last In - First Out - Prinzip (LIFO). Das heißt, dass die Seite welche als letztes zum Stack (auf Deutsch: Stapel) hinzugefügt wurde, als erstes wieder von diesem entfernt wird. Im folgenden wird die Navigations-Hirarchie dargestellt:
 \begin{itemize}[label=-]
 \item Tabs-Navigation
 \begin{itemize}[label=-]
@@ -506,8 +509,25 @@ Für die Navigation in der App wurde einerseits die Tab-Navigation und andererse
 \item Stationen auswählen
 \item Favoriten-Auswahl
 \end{itemize}
+\item Profil
+\begin{itemize}[label=-]
+\item Startseite Profil
 \end{itemize}
 \end{itemize}
+\end{itemize}
+\subsubsection{Zustandsverwaltung}
+Um Zustände, welche in mehreren Teilen der App benötigt werden, global bereitzustellen, wird der Context von React verwendet. Context ermöglicht es Zustände global in der App bereitzustellen und diese in den einzelnen Komponenten aufzurufen. Dabei werden bei der Änderung eines Zustands die betroffenen Komponenten sofort aktualisiert. Um den Context zu bereitzustellen, wird ein sogenannter Context-Provider verwendet. Alle Komponenten welche in den Context-Provider eingebettet sind, können auf den Zustand von diesem zugreifen. (vgl. URLPI23) In unserer Smartphoneapp gibt es folgende ContextProvider:
+\begin{itemize}
+	\item UserContext
+	\par Stellt das Benutzerobjekt bereit. Dieses beinhaltet wichtige Benutzerdaten, welche an mehreren Stellen der App verwendet werden. Das Benutzerobjekt wird von Firebase Authentication abgefragt.
+	\item AdapterContext
+	\par Stellt eine Liste von hinzugefügten Adaptern bereit. Diese Liste wird von Firebase Firestore abgefragt. Falls sich die in Firestore gespeicherte Liste ändert, wird die Liste, welche der AdapterContext bereitstellt, automatisch aktualisiert. 
+	\item StationContext
+	\par Stellt eine Liste von hinzugefügten Radiostationen bereit. Diese Liste wird ebenfalls von Firebase Firestore abgefragt. Die hier gespeicherte Liste wird ebenfalls automatisch aktualisiert, falls sich die Liste in Firestore ändert.
+\end{itemize}
+\subsubsection{Benutzerverwaltung}
+Die Benutzerdaten sind durch ein im UserContext gespeichertes Benutzerobjekt in der gesamten App global verfügbar. Das Objekt wird am Anfang der App, falls vorhanden, aus dem lokalen Gerätespeicher ausgelesen oder mittels Login von Firebase abgefragt. Der Status des Benutzerobjektes wird mittels eines EventHandlers verfolgt. Das heißt, wenn sich der Status des Benutzerobjektes, z.B. durch einen Logout, ändert, wird 
+Die Verwaltung von Benutzerdaten wurde primär mit Firebase (siehe APIs) verwirklicht. Beim Start der App wird abgefragt ob im lokalen Speicher ein Benutzer-Objekt gespeichert ist. Wenn dies der Fall ist, ist der Teil Tabs für den/die Benutzer/in erreichbar. Ist dies nicht der Fall, so wird der/die Benutzer/in zur Login-Seite weitergeleitet. Dort ist es möglich 
 \subsubsection{Komponenten}
 In diesem Kapitel werden die selbst erstellen React-Komponenten genauer beschrieben. \newline \\
 \textbf{AdapterItem} \\
@@ -695,16 +715,13 @@ Eine Herausforderung war die Beschriftung des Deckels. Diese war beim ersten Tes
 Eine weitere Möglichkeit zum glätten der schon zuvor beschriebenen riffelartigen Oberflächen ist sogenanntes Ironing. \glqq Ironing beschreibt die einstellbare Funktion in einiger Slicer-Software. Ironing bietet dir die Möglichkeit, die letzte 3D-Druckschicht mit der Nozzle zu "bügeln". Die Nozzle deines 3D-Druckers bewegt sich ohne dabei zu extrudieren nochmals über die zuletzt gefertigte Schicht. Durch diesen Vorgang glättet sie die Objekt-Oberfläche. Du bekommst somit eine verbesserte und glatte letzten Schicht.\grqq{} Beim PRUSA MK4S war diese Funktion sehr zufriedenstellend. Oberflächen werden, ohne den gesamten Druck zu beeinflussen, glatter.\newline
 \vspace{4mm}\newline
 (vgl. \url{https://www.3dprima.com/de/3dprima/tipps-tricks-begriffe-3d-druck#Ironing})
-\subsection{Test auf Cybersecurity}
-In diesem Kapitel wird der gesamte Code auf Sicherheitslücken getestet.
-\subsection{Auftretende Sicherheitslücken schließen}
-In diesem Kapitel werden die bei den Tests aufgetretenen Sicherheitslücken geschlossen.
 \section{Schluss}
 \subsection{Konklusion Hardware}
 Ziel des Hardware-Teils in dieser Diplomarbeit war es, passende Komponenten zu finden und diese in einem selbst designten Gehäuse zu einem Prototypen des Multi-Room Audio Adapter zusammenzusetzen. Dies wurde, wie geplant, umgesetzt. Dabei kamen grundlegende Methoden wie 3D-Design, 3D-Druck, Löten, Online-Recherche und weitere zum Einsatz. Grundsätzlich lief alles wie geplant, es ergaben sich jedoch öfters größere Herausforderungen dort, wo man eigentlich keine erwartet. Für diese fand sich aber immer eine passende Lösung.
 \subsection{Konklusion Software}
 \section{Einzelnachweise}
 \subsection{Literaturverzeichnis}
+\printbibliography
 \subsection{Abbildungsverzeichnis}
 \listoffigures
 \subsection{Anhang}

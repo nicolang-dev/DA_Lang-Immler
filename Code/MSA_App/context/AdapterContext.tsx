@@ -9,89 +9,95 @@ import { CloudStorage } from "../api/FirebaseAPI";
 import Adapter from "../types/Adapter";
 import { AdapterAPI } from "@/api/AdapterAPI";
 import { UserContext } from "./UserContext";
+import AdapterData from "@/types/AdapterData";
 
 type Props = {
   children: ReactNode;
 };
 
 type AdapterContextType = {
-  adapterList: Adapter[];
-  reachableAdapterMacs: string[];
+  adapterDataList: AdapterData[];
 };
 
 const defaultContext: AdapterContextType = {
-  adapterList: [],
-  reachableAdapterMacs: [],
+  adapterDataList: [],
 };
 
 export const AdapterContext = createContext<AdapterContextType>(defaultContext);
 
 export const AdapterProvider = ({ children }: Props) => {
   const { user } = useContext(UserContext);
-  const [adapterList, setAdapterList] = useState<Adapter[]>(
-    defaultContext.adapterList
-  );
-  const [reachableAdapterMacs, setReachableAdapterMacs] = useState(
-    defaultContext.reachableAdapterMacs
+  const [adapterList, setAdapterList] = useState<Adapter[]>([]);
+  const [adapterDataList, setAdapterDataList] = useState<AdapterData[]>(
+    defaultContext.adapterDataList
   );
 
   function requestAdapters() {
     if (adapterList !== null) {
+      let newAdapterDataList: AdapterData[] = [];
       let promiseList = [];
-      let reachableAdapters: Adapter[] = [];
-      for (let adapter of adapterList) {
-        let promise = AdapterAPI.getInfo(adapter.name);
+      for(let adapter of adapterList) {
+        let promise = AdapterAPI.getInfo(adapter);
         promiseList.push(promise);
       }
       Promise.allSettled(promiseList).then((results) => {
         for (let result of results) {
           if (result.status == "fulfilled") {
-            reachableAdapters.push(result.value);
-            let newReachableAdapterMacs = [...reachableAdapterMacs];
-            newReachableAdapterMacs.push(result.value.mac);
-            setReachableAdapterMacs(newReachableAdapterMacs);
+            let val = result.value;
+            let newAdapterData = {
+              name: val.name,
+              mac: val.mac,
+              battery: val.battery,
+              volume: val.volume,
+              streamUrl: val.streamUrl,
+              connected: true,
+            };
+            newAdapterDataList.push(newAdapterData);
           }
         }
       });
-      let newAdapterList = [...adapterList];
-      for (let adapter of newAdapterList) {
-        let reachable = false;
-        for (let reachableAdapter of reachableAdapters) {
-          if (reachableAdapter.mac == adapter.mac) {
-            adapter = reachableAdapter;
-            reachable = true;
+      for(let adapter of adapterList) {
+        let containsMac = false;
+        for(let newAdapterData of newAdapterDataList){
+          if(newAdapterData.mac == adapter.mac){
+            containsMac = true;
             break;
           }
         }
+        if(!containsMac){
+          let newAdapterData = {
+            name: adapter.name,
+            mac: adapter.mac,
+            battery: 0,
+            volume: 0,
+            streamUrl: "",
+            connected: false,
+          };
+        }
       }
-      console.log("setting adapter list");
-      setAdapterList(newAdapterList);
+      console.log("setting new adapter data list");
+      setAdapterDataList(newAdapterDataList);
     }
   }
 
   useEffect(() => {
+    console.log("use effect");
     let intervalId = 0;
-    if(user !== null){
-        console.log("user is not null");
-        CloudStorage.getAdapterList().then((initAdapterList: Adapter[]) => {
-            console.log("adapterlist:", adapterList);
-            console.log("setting adapter list");
-            setAdapterList(initAdapterList);
-            //setInterval(() => requestAdapters(), 5000);
-            /*CloudStorage.onAdapterChange((newAdapterList: Adapter[]) => {
-                setAdapterList(newAdapterList);
-            });*/
-        }).catch(err => {
-            console.error(err);
-        })
+    if (user !== null) {
+      console.log("user is not null");
+      CloudStorage.onAdapterChange((newAdapterList: Adapter[]) => {
+        console.log("adapter changed");
+        setAdapterList(newAdapterList);
+        setInterval(() => requestAdapters(), 5000);
+      });
     } else {
-        console.log("user is null");
+      console.log("user is null");
     }
     return () => clearInterval(intervalId);
-  },[user]);
+  }, [user]);
 
   return (
-    <AdapterContext.Provider value={{ adapterList, reachableAdapterMacs }}>
+    <AdapterContext.Provider value={{ adapterDataList }}>
       {children}
     </AdapterContext.Provider>
   );

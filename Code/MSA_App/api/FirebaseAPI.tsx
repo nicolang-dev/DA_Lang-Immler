@@ -5,7 +5,6 @@ import { getFirestore, setDoc, doc, getDoc, onSnapshot } from "firebase/firestor
 import User from "../types/User";
 import Adapter from "@/types/Adapter";
 import Station from "@/types/Station";
-import UserData from "../types/UserData";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const firebaseConfig = {

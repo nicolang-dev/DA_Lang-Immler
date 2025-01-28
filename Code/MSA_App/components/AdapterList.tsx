@@ -16,13 +16,13 @@ type Props = {
   showOnlyAvailable: boolean;
 };
 
-export default function AdapterList({
+export default function adapterDataList({
   onItemSelect,
   editable,
   showOnlyAvailable,
 }: Props) {
   const [selectedAdapter, setSelectedAdapter] = useState<Adapter | null>(null);
-  const { adapterList, reachableAdapterMacs } = useContext(AdapterContext);
+  const { adapterDataList } = useContext(AdapterContext);
 
   function handleItemPress(item: Adapter) {
     if (selectedAdapter !== null && selectedAdapter.mac == item.mac) {
@@ -35,20 +35,20 @@ export default function AdapterList({
   }
 
   function deleteItem() {
-    if (selectedAdapter !== null && adapterList.length > 0) {
-      let newAdapterList = [...adapterList];
-      for (let i = 0; i < newAdapterList.length; i++) {
-        if (newAdapterList[i].mac == selectedAdapter.mac) {
-          newAdapterList.splice(i, 1);
+    if (selectedAdapter !== null && adapterDataList.length > 0) {
+      let newAdapterDataList = [...adapterDataList];
+      for (let i = 0; i < newAdapterDataList.length; i++) {
+        if (newAdapterDataList[i].mac == selectedAdapter.mac) {
+          newAdapterDataList.splice(i, 1);
           break;
         }
       }
-      if (newAdapterList.length > 0) {
-        CloudStorage.setAdapterList(newAdapterList);
-        console.log("new adapterlist:", newAdapterList);
+      if (newAdapterDataList.length > 0) {
+        CloudStorage.setAdapterDataList(newAdapterDataList);
+        console.log("new adapterDataList:", newAdapterDataList);
       } else {
-        console.log("new adapterlist:", []);
-        CloudStorage.setAdapterList([]);
+        console.log("new adapterDataList:", []);
+        CloudStorage.setAdapterDataList([]);
       }
     }
   }
@@ -103,11 +103,11 @@ export default function AdapterList({
     },
   });
 
-  if (adapterList.length > 0) {
+  if (adapterDataList.length > 0) {
     return (
       <View style={style.container}>
         <FlatList
-          data={adapterList}
+          data={adapterDataList}
           renderItem={({ item }) => (
             <Pressable
               onPress={() => {

@@ -2,25 +2,21 @@ import { useEffect, useContext } from "react";
 import { Text, Button, SafeAreaView, StyleSheet } from "react-native";
 import { GlobalStyle, Colors } from "@/constants/Style";
 import { UserContext } from "@/context/UserContext";
-import { Authentication, CloudStorage } from "@/api/FirebaseAPI";
+import { Authentication } from "@/api/FirebaseAPI";
 import { router } from "expo-router";
-import Adapter from "@/types/Adapter";
 
 export default function ProfileScreen(){
   const { user } = useContext(UserContext);
 
   useEffect(()=>{
-  /*const stations: Station[] = [
-    {uuid: "1", name: "one", iconUrl: "icon1", url: "url1"},
-    {uuid: "2", name: "two", iconUrl: "icon2", url: "url2"}
-  ];*/
-  const adapters: Adapter[] = [
-    {name: "adapter1", mac: "1", volume: 100, battery: 100, streamUrl: "example"},
-    {name: "adapter2", mac: "2", volume: 100, battery: 100, streamUrl: "example"}
-  ];
-  CloudStorage.setAdapterList(adapters).then(() => {
-    console.log("set");
-  })
+    /*const adapters = [
+      {name: "Adapter1", mac: "A4:8C:DB:3F:72:1A"},
+      {name: "Adapter2", mac: "C0:FF:EE:12:34:56"},
+      {name: "Adapter3", mac: "7A:2B:9C:88:45:DE"},
+    ]
+    CloudStorage.setAdapterList(adapters).then(() => {
+      console.log("set");
+    })*/
   }, []);
 
   const style = StyleSheet.create({

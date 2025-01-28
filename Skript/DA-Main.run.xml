@@ -54,8 +54,9 @@
       <file>blx-compat.def</file>
       <file>biblatex.def</file>
       <file>standard.bbx</file>
-      <file>alphabetic.bbx</file>
-      <file>alphabetic.cbx</file>
+      <file>authoryear.bbx</file>
+      <file>authoryear-ibid.bbx</file>
+      <file>authoryear-ibid.cbx</file>
       <file>biblatex.cfg</file>
       <file>german.lbx</file>
       <file>ngerman.lbx</file>
@@ -80,7 +81,7 @@
       <file>DA-Main.bcf</file>
     </requires>
     <requires type="editable">
-      <file>quellen_pi.bib</file>
+      <file>zitate_pi.bib</file>
     </requires>
   </external>
 </requests>
