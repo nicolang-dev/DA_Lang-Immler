@@ -1,10 +1,10 @@
 \babel@toc {ngerman}{}\relax 
-\contentsline {section}{\numberline {1}Projekt}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Projektteam}{2}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Eidesstattliche Erklärung}{3}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Abstract Deutsch}{4}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Abstract English}{4}{subsection.1.4}%
-\contentsline {subsection}{\numberline {1.5}Danksagung}{4}{subsection.1.5}%
+\contentsline {section}{\numberline {1}Projekt}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Projektteam}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Eidesstattliche Erklärung}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Abstract Deutsch}{3}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Abstract English}{3}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Danksagung}{3}{subsection.1.5}%
 \contentsline {section}{\numberline {2}Einleitung}{1}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Einleitung Hardware}{2}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Einleitung Software}{2}{subsection.2.2}%
@@ -26,40 +26,40 @@
 \contentsline {subsection}{\numberline {4.1}Entwicklung Software Adapter}{13}{subsection.4.1}%
 \contentsline {subsubsection}{\numberline {4.1.1}Anforderungen}{13}{subsubsection.4.1.1}%
 \contentsline {subsubsection}{\numberline {4.1.2}Klassen}{15}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}Programmablauf}{18}{subsubsection.4.1.3}%
-\contentsline {subsubsection}{\numberline {4.1.4}Erweiterungsmöglichkeiten}{21}{subsubsection.4.1.4}%
-\contentsline {subsection}{\numberline {4.2}Entwicklung Smartphone-App}{21}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Zielsetzung}{21}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}APIs}{22}{subsubsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.3}Struktur}{22}{subsubsection.4.2.3}%
-\contentsline {subsubsection}{\numberline {4.2.4}Funktionen}{22}{subsubsection.4.2.4}%
-\contentsline {subsubsection}{\numberline {4.2.5}Style}{24}{subsubsection.4.2.5}%
-\contentsline {subsubsection}{\numberline {4.2.6}Struktur}{25}{subsubsection.4.2.6}%
-\contentsline {subsubsection}{\numberline {4.2.7}Navigation}{26}{subsubsection.4.2.7}%
-\contentsline {subsubsection}{\numberline {4.2.8}Zustandsverwaltung}{26}{subsubsection.4.2.8}%
-\contentsline {subsubsection}{\numberline {4.2.9}Benutzerverwaltung}{27}{subsubsection.4.2.9}%
-\contentsline {subsubsection}{\numberline {4.2.10}Komponenten}{27}{subsubsection.4.2.10}%
-\contentsline {subsubsection}{\numberline {4.2.11}Seiten}{30}{subsubsection.4.2.11}%
-\contentsline {subsection}{\numberline {4.3}Design Adaptergehäuse}{31}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Grundsätzlicher Aufbau}{31}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Wärmeableitung}{32}{subsubsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {4.3.3}Virtuelles 3D-Design}{32}{subsubsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.4}Fertigung Adaptergehäuse}{35}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}Drucken des Prototypen}{36}{subsubsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.5}Zusammensetzen des Prototypen}{37}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}Schaltplan}{37}{subsubsection.4.5.1}%
-\contentsline {subsubsection}{\numberline {4.5.2}Verdrahten}{37}{subsubsection.4.5.2}%
-\contentsline {subsubsection}{\numberline {4.5.3}Kleben}{38}{subsubsection.4.5.3}%
-\contentsline {section}{\numberline {5}Testen und Fehlerbehebung}{38}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Testen des Gesamtsystems}{38}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}Testen des Prototypen}{38}{subsubsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.2}Auftretende Fehler beheben}{39}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Schluss}{40}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Konklusion Hardware}{40}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Konklusion Software}{40}{subsection.6.2}%
-\contentsline {section}{\numberline {7}Einzelnachweise}{40}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Literaturverzeichnis}{40}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Abbildungsverzeichnis}{41}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Programmablauf}{17}{subsubsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.4}Erweiterungsmöglichkeiten}{18}{subsubsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.2}Entwicklung Smartphone-App}{18}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Zielsetzung}{18}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}APIs}{19}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Struktur}{19}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Funktionen}{19}{subsubsection.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.2.5}Style}{21}{subsubsection.4.2.5}%
+\contentsline {subsubsection}{\numberline {4.2.6}Struktur}{22}{subsubsection.4.2.6}%
+\contentsline {subsubsection}{\numberline {4.2.7}Navigation}{23}{subsubsection.4.2.7}%
+\contentsline {subsubsection}{\numberline {4.2.8}Zustandsverwaltung}{23}{subsubsection.4.2.8}%
+\contentsline {subsubsection}{\numberline {4.2.9}Benutzerverwaltung}{24}{subsubsection.4.2.9}%
+\contentsline {subsubsection}{\numberline {4.2.10}Komponenten}{24}{subsubsection.4.2.10}%
+\contentsline {subsubsection}{\numberline {4.2.11}Seiten}{27}{subsubsection.4.2.11}%
+\contentsline {subsection}{\numberline {4.3}Design Adaptergehäuse}{28}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Grundsätzlicher Aufbau}{28}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Wärmeableitung}{29}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Virtuelles 3D-Design}{29}{subsubsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.4}Fertigung Adaptergehäuse}{32}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Drucken des Prototypen}{33}{subsubsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.5}Zusammensetzen des Prototypen}{34}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Schaltplan}{34}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.2}Verdrahten}{34}{subsubsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.3}Kleben}{35}{subsubsection.4.5.3}%
+\contentsline {section}{\numberline {5}Testen und Fehlerbehebung}{35}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Testen des Gesamtsystems}{35}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Testen des Prototypen}{35}{subsubsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.2}Auftretende Fehler beheben}{36}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Schluss}{38}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Konklusion Hardware}{38}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Konklusion Software}{38}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Einzelnachweise}{39}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Literaturverzeichnis}{39}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Abbildungsverzeichnis}{40}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}Anhang}{41}{subsection.7.3}%
 \contentsline {subsubsection}{\numberline {7.3.1}Code Microcontroller}{41}{subsubsection.7.3.1}%
 \contentsline {subsubsection}{\numberline {7.3.2}Code Smartphoneapp}{41}{subsubsection.7.3.2}%
