@@ -1,0 +1,19 @@
+#include <Arduino.h>
+#include <WiFi.h>
+#include <ESPmDNS.h>
+
+void setup(){
+    Serial.begin(9600);
+    WiFi.begin("AP-II", "MmrL48!?48y");
+    while(WiFi.status() != WL_CONNECTED){
+        Serial.print(".");
+    }
+    Serial.println("connected!");
+    MDNS.begin("esp32");
+    String ip = WiFi.localIP().toString();
+    Serial.println(ip);
+}
+
+void loop(){
+
+}

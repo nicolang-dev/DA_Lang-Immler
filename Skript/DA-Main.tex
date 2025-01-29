@@ -9,6 +9,7 @@
 \usepackage[hyphens]{url}
 \usepackage{hyperref}
 \usepackage{float}
+\setlength{\textfloatsep}{10pt}
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
 \renewcommand{\listfigurename}{Abbildungen}
@@ -28,6 +29,25 @@
 \usepackage[style=authoryear-ibid,backend=biber]{biblatex}
 \addbibresource{zitate_pi.bib}
 
+% Für Darstellung des Codes im Anhang:
+\usepackage{listings} % Paket für die Code-Darstellung
+\usepackage{xcolor}   % Für Farbanpassungen
+
+\lstset{
+  basicstyle=\ttfamily\footnotesize, % Schriftart und -größe
+  keywordstyle=\color{blue},         % Farben für Schlüsselwörter
+  commentstyle=\color{green},        % Farben für Kommentare
+  stringstyle=\color{red},           % Farben für Strings
+  numbers=left,                     % Zeilennummern links
+  numberstyle=\tiny\color{gray},     % Stil der Zeilennummern
+  stepnumber=1,                     % Zeilennummern schrittweise erhöhen
+  numbersep=5pt,                    % Abstand der Zeilennummern
+  backgroundcolor=\color{white},    % Hintergrundfarbe des Code-Blocks
+  frame=single,                     % Rahmen um den Code
+  breaklines=true,                  % Zeilenumbruch
+  showstringspaces=false,           % Leere Stellen in Strings nicht zeigen
+}
+
 \pagestyle{empty} %footer und header auf den ersten seiten nicht anzeigen
 
 \title{\textbf{Multi-Room Audio Adapter}}
@@ -38,9 +58,7 @@
 
 \maketitle
 \pagenumbering{gobble}
-
 \newpage
-
 \pagenumbering{arabic}
 
 \section{Projekt}
@@ -104,7 +122,7 @@ Wir bedanken uns bei den betreuenden Lehrpersonen Dipl. Ing. Dr. Peter L. Steger
 \section{Einleitung}
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=0.8]{/allgemein/MSA_Konzept.png}
+\includegraphics[scale=0.6]{/allgemein/MSA_Konzept.png}
 \caption{Skizze Gerätekette}
 \end{center}
 \end{figure}
@@ -232,27 +250,30 @@ Für einen optimalen Ladeprozess und Schutz des Akkus wird ein spezieller Ladere
 \subsection{Auswahl Technologien}
 \subsubsection{Protokolle}
 In diesem Kapitel geht es um die Recherche und Auswahl von Protokollen, die für den Austausch von Daten verwendet wurden. \newline \\
-Protokolle werden in der Informatik verwendet um eine standartisierte Kommunikation zwischen zwei oder mehreren Computern zu ermöglichen. Diese standartisierte Kommunikation wird durch das Festlegen von Standards und Normen erreicht. (vgl. URLPI16)
+Protokolle werden in der Informatik verwendet um eine standartisierte Kommunikation zwischen zwei oder mehreren Computern zu ermöglichen. Diese standartisierte Kommunikation wird durch das Festlegen von Standards und Normen erreicht. \parencite[vgl.][]{noauthor_urlpi16_nodate}
 \newline \\
 \textbf{HTTP} \\
-Das Hyper Text Transfer Protocol ist ein weitverbreitetes Protokoll im Web und wird größtenteils für die Kommunikation zwischen Browsern und Webservern eingesetzt. Dabei basiert das Protokoll auf sogenannten \glqq Requests\grqq{} (auf Deutsch: Anfragen). Es gibt zahlreiche Anwendungen für HTTP. Wir nutzen es einerseits für die Kommunikation zwischen Smartphoneapp (Client) und Microcontroller (Server) mittels REST-API und zum Empfangen der Audio-Streams (HLS). \parencite[vgl.][]{noauthor_urlpi01_2020}
+Das Hyper Text Transfer Protocol ist ein weitverbreitetes Protokoll im Web und wird größtenteils für die Kommunikation zwischen Browsern und Webservern eingesetzt. Dabei basiert das Protokoll auf sogenannten \glqq Requests\grqq{} (auf Deutsch: Anfragen). Es gibt zahlreiche Anwendungen für HTTP. Wir nutzen es einerseits für die Kommunikation zwischen Smartphoneapp (Client) und Microcontroller (Server) mittels REST-API und andererseits zum Streamen der Audio-Files aus dem Internet, mittels HLS (siehe HLS). \parencite[vgl.][]{noauthor_urlpi01_2020}
+\newline \\
+\textbf{HLS} \\
+Hier kommt der Text fürs HLS-Protokoll hin
 \newline \\
 \textbf{mDNS} \\
-Das Multicast Domain Name Service - Protokoll hilft in kleineren, lokalen Netzwerken zur Namensauflösung. Im Web wird bereits seit einiger Zeit das bekanntere DNS (Domain Name Service) - Protokoll verwendet. Dieses dient dazu, die IP-Addresse einer Domain zu ermitteln. Dabei sendet der Client den Domain-Namen an einen DNS-Server, welcher dann die zugehörige IP-Adresse an den Client sendet. Mithilfe dieser IP-Adresse weiß der Client jetzt, mit welchem Server er sich verbinden muss. Der Vorteil bei mDNS hingegen ist, dass kein DNS-Server benötigt wird. mDNS funktioniert mithilfe von Multicast. Beim Multicast sendet ein Teilnehmer eines Netzwerkes eine Nachricht an alle Teilnehmer im gleichen Netzwerk. Bei mDNS fragt also das Gerät, welches sich mit einem anderen Gerät verbinden will, jedes Gerät im Netzwerk ob der entsprechende Domain-Name zu diesem gehört. Wenn dies der Fall ist, weiß das Gerät die IP-Adresse des anderen Gerätes und kann somit mit diesem kommunizieren. (vgl. URLPI19) Wir verwenden mDNS in unserer Diplomarbeit, zur Verbindung mit den einzelnen Adaptern. Da in den meisten Netzwerken ein DHCP (Dynamic Host Configuration Protocol) - Server vorhanden ist, der die IP-Adressen automatisch vergibt, kann man die Adapter nicht anhand deren IP-Adresse eindeutig identifizieren, da sich diese ständig ändert. (vgl. URLPI20) Mit mDNS ist dies allerdings möglich. Dabei ist jeder Adapter unter seinem Namen gefolgt von .local auffindbar. Ein Adapter mit dem Namen MSA\_3C4D5E ist also im lokalen Netzwerk unter MSA\_3C4D5E.local aufrufbar.
+Das Multicast Domain Name Service - Protokoll hilft in kleineren, lokalen Netzwerken zur Namensauflösung. Im Web dominiert das bekanntere DNS (Domain Name Service) - Protokoll. Dieses dient dazu, die IP-Addresse hinter einer Domain zu ermitteln. Dabei gibt es einen DNS-Server, welcher eine Art Liste führt, in der aufgeführt ist, welcher Domainname zu welcher IP-Adresse gehört. Wenn man also im Browser eine URL eingibt, stellt der Client dem DNS-Server eine Anfrage. Dieser sendet anschließend die zugehörige IP-Adresse zurück, mit der sich der Client dann verbindet. Dieser Ansatz ist allerdings in kleineren, lokalen Netzwerken eher unpraktisch, da ein eigener Server benötigt wird. Als Alternative dazu dient das sogenannte mDNS -Protokoll, welches mit Multicast arbeitet und daher keinen DNS-Server benötigt. Beim Multicast sendet ein Teilnehmer eines Netzwerkes eine Nachricht an alle Teilnehmer im gleichen Netzwerk. Bei mDNS fragt also das Gerät, welches sich mit einem anderen Gerät verbinden will, jedes Gerät im Netzwerk ob der entsprechende Domain-Name zu diesem gehört. Wenn dies der Fall ist, meldet sich das zugehörige Gerät und somit lässt sich eine Verbindung mit diesem herstellen. \parencite[vgl.][]{noauthor_urlpi19_2022} In der Diplomarbeit wird mDNS verwendet, um eine Verbindung mit den MSA aufzubauen. Der Hostname eines MSA setzt sich dabei aus MSA gefolgt von den letzten 3 Byte der Mac-Adresse, getrennt durch einen Unterstrich, zusammen. Dies macht deshalb Sinn, weil somit jeder MSA einen eindeutigen Namen bekommt, da die letzten 3 Byte eines jeden Netzwerkgerätes weltweit eindeutig sind. Da in den meisten Netzwerken ein DHCP (Dynamic Host Configuration Protocol) - Server vorhanden ist, der die IP-Adressen automatisch vergibt, kann man die Adapter nicht anhand deren IP-Adresse eindeutig identifizieren, da sich diese ständig ändert. \parencite[vgl.][]{noauthor_urlpi20_nodate} Mit mDNS ist dies allerdings möglich. Dabei ist jeder Adapter unter seinem Namen gefolgt von .local auffindbar. Ein Adapter mit dem Namen MSA\_3C4D5E ist also im lokalen Netzwerk unter MSA\_3C4D5E.local aufrufbar.
 \newline \\
 \textbf{I2S}\\
-Das Inter IC Sound Protocol wird verwendet, um Stereo-Audio-Daten zwischen ICs (Integrated Circuits) auszutauschen. Es ist dabei zu unterscheiden von dem I2C (Inter-integrated circuit) - Protokoll, welches rein für den Datenaustausch zwischen ICs verwendet wird. Für die Datenübertragung benötigt das I2S-Protokoll folgende Leitungen:
+Das Inter IC Sound Protocol wird verwendet, um Stereo-Audio-Daten zwischen ICs (Integrated Circuits) auszutauschen. Es ist dabei zu unterscheiden von dem I2C (Inter-integrated circuit) - Protokoll, welches rein für den Datenaustausch zwischen ICs verwendet wird und somit nicht für Audiodaten spezialisiert ist. Für die Datenübertragung benötigt das I2S-Protokoll folgende Leitungen:
 \begin{itemize}
 \item Taktleitung
 \item Wortauswahl
 \item mindestens eine Datenleitung
 \end{itemize}
-Die Datenübertragung erfolgt seriell und synchron. Das heißt, dass die Daten nacheinander durch eine Leitung (die Datenleitung), in einem bestimmten Takt, welcher von der Taktleitung vorgegeben wird, übertragen werden. Wenn ein Audiodaten im Stereo-Format (linker und rechter Kanal) übetragen werden, wählt die Wortauswahl-Leitung jeweils den Kanal aus aus. (vgl. URLPI12) \\
-In unserem Projekt wurde das I2S Protokoll verwendet, um die digitalen Stereo-Audio-Daten vom Microcontroller an den Digital-Analag-Wandler zu übertragen.
+Die Datenübertragung erfolgt seriell und synchron. Das heißt, dass die Daten nacheinander durch eine Leitung (die Datenleitung), in einem bestimmten Takt, welcher von der Taktleitung vorgegeben wird, übertragen werden. Wenn Audiodaten im Stereo-Format (linker und rechter Kanal) übetragen werden, wählt die Wortauswahl-Leitung jeweils den Kanal aus, welcher übertragen werden soll. \parencite[vgl.][]{noauthor_urlpi12_nodate} \\
+In der Diplomarbeit wurde das I2S Protokoll verwendet, um die digitalen Stereo-Audio-Daten vom Microcontroller an den Digital-Analag-Wandler zu übertragen.
 Dabei werden die Buffer, die der Microcontroller vom Audio-Stream erhält, mittels I2S an den Digital-Analog-Wandler gesendet, welcher die digitalen Daten in analoge PCM (Pulse Code Modulation) Daten umwandelt, so dass diese dann anschließend auf der Lautsprecherbox ausgegeben werden können. 
 \subsection{Auswahl Softwaretools}
 \subsubsection{Einleitung}
-In diesem Kapitel geht es um die Recherche und Auswahl von geeigneten Softwaretools, welche für die App-Entwicklung, als auch für die Entwicklung der Software des Microcontrollers verwendet wurden. Zusätzlich werden auch die Softwaretools, welche zum Schreiben dieser Diplomarbeit verwendet wurden, kurz beschrieben. 
+In diesem Kapitel geht es um die Recherche und Auswahl von geeigneten Softwaretools, welche für die App-Entwicklung, als auch für die Entwicklung der Software des Microcontrollers verwendet wurden. Im folgenden werden zusätzlich noch die Tools beschrieben, welche für das Schreiben der Diplomarbeit verwendet wurden:
 \vspace{4mm}\newline
 \textbf{LaTeX} \\
 "LaTeX ist ein hochwertiges Schriftsatzsystem, das Funktionen für die Erstellung technischer und wissenschaftlicher Dokumentationen enthält. LaTeX ist der De-facto-Standard für die Kommunikation und Veröffentlichung von wissenschaftlichen Dokumenten." (Übersetzung des englischen Originals von: https://www.latex-project.org/) \\
@@ -267,77 +288,76 @@ Wir haben alle Diagramme, welche in unserer Diplomarbeit zu sehen sind, in draw.
 Wir haben Visual Studio Code als IDE für unsere Diplomarbeit gewählt, weil durch die unzähligen Erweiterungen viele verschieden Programmiersprachen und Bibliotheken unterstützt werden und wir somit den gesamten Code, sowohl für den Microcontroller als auch für die Smartphoneapp, darin schreiben konnten.
 \vspace{4mm}\newline
 \textbf{GitHub} \\
-Git im Allgemeinen ist das meist verbreitete Versionskontrollsystem. Ein Versionskontrollsystem wird verwendet, um den Versionsverlauf einer Software zu erfassen. Dies hat den Vorteil, dass man bei auftretenden Fehlern jederzeit wieder auf eine ältere Version der Software umsteigen kann. Ein weiterer Vorteil beim Einsatz eines Versionskontrollsystems ist, dass mehrere Entwickler gleichzeitig an derselben Software arbeiten können. Git gehört zu den DVCS (Distributed Version Control Systems), also verteilten Versionskontrollsystemen. Das heißt, dass der Versionsverlauf der Software nicht zentral auf einem Server gespeichert ist, sondern auf den Rechnern der Benutzer, in einem sogenannten Repository. Dies bietet höhere Sicherheit, Performance und Flexibilität. (vgl. URLPI17) \\ 
-GitHub ist eine Software, die Git verwendet. Dabei ist Github cloud-basiert, das heißt es ist online zugänglich und man muss nicht eine eigene Software dafür auf dem Rechner installieren. Außerdem hat Github  eine sehr benutzerfreundliche Oberfläche, was es auch für Einsteiger leichter verständlich macht. (vgl. URLPI18)
+Git im Allgemeinen ist das meist verbreitete Versionskontrollsystem. Ein Versionskontrollsystem wird verwendet, um den Versionsverlauf einer Software zu erfassen. Dies hat den Vorteil, dass man bei auftretenden Fehlern jederzeit wieder auf eine ältere Version der Software umsteigen kann. Ein weiterer Vorteil beim Einsatz eines Versionskontrollsystems ist, dass mehrere Entwickler gleichzeitig an derselben Software arbeiten können. Git gehört zu den DVCS (Distributed Version Control Systems), also verteilten Versionskontrollsystemen. Das heißt, dass der Versionsverlauf der Software nicht zentral auf einem Server gespeichert ist, sondern auf den Rechnern der Benutzer, in einem sogenannten Repository. Dies bietet höhere Sicherheit, Performance und Flexibilität. \parencite[vgl.][]{atlassian_urlpi17_nodate} \\ 
+GitHub ist eine Software, die Git verwendet. Dabei ist Github cloud-basiert, das heißt es ist online zugänglich und man muss nicht eine eigene Software dafür auf dem Rechner installieren. Außerdem hat Github  eine sehr benutzerfreundliche Oberfläche, was es auch für Einsteiger leichter verständlich macht. \parencite[vgl.][]{noauthor_urlpi18_nodate}
 Wir verwenden GitHub für die Verwaltung unseres Codes und unserer Dokumente. Der Vorteil dabei ist, dass jedes Projektmitglied auf seinem lokalen PC an den Dokumenten arbeiten kann und die Änderungen dann per GitHub synchronisiert werden.
 \vspace{4mm}\newline
 \textbf{DeepL} \\
-Wir verwenden DeepL um englische Texte, welche für unsere Diplomarbeit relevant sind, ins Deutsche zu übersetzen. Wir haben uns für DeepL entschieden weil dieser dank integrierter KI einer der genauesten Übersetzer und zudem kostenlos ist.
+Bei DeepL handelt es sich um einen Übersetzer, der KI einsetzt und somit einer der genausten Übersetzer weltweit ist. Wir haben DeepL in unserer Diplomarbeit verwendet, um englische Texte ins Deutsche zu übersetzen. Wir haben uns aufgrund der hohen Genauigkeit und weil dieser kostenlos ist für DeepL entschieden.
 \subsubsection{Bibliotheken Microcontroller}
-Im folgenden werden die verwendeten Bibliotheken im Code des Microcontrollers aufgezählt und kurz beschrieben:
+Im folgenden werden die Bibliotheken, welche für die Protgrammierung der Microcontroller-Software verwendet wurden, aufgezählt und beschrieben:
 \vspace{4mm}\newline
-\textbf{arduino-esp32} \\
+\textbf{Arduino Core} \\
 (https://github.com/espressif/arduino-esp32) \\
-Die arduino-esp32-Bibliothek wurde verwendet um den ESP32 ähnlich wie ein Arduino-Board programmieren zu können. Es erleichtert dabei die Programmierung enorm, vorallem dann, wenn man schon Vorerfahrung mit der Programmierung von Arduino-Boards hat. Ein weiterer Vorteil ist, dass diese Bibliothek bereits weitere nüztliche Bibliotheken beinhaltet, welche für die Programmierung benötigt werden.
+Die Arduino-Core-Bibliothek wurde verwendet, um den ESP32 ähnlich wie ein Arduino-Board programmieren zu können. Es erleichtert dabei die Programmierung enorm. Vorallem dann, wenn man schon Vorerfahrung mit der Programmierung von Arduino-Boards hat. Ein weiterer Vorteil ist, dass diese Bibliothek bzw. dieses Framework bereits weitere nüztliche Bibliotheken beinhaltet, welche für die Programmierung benötigt werden.
 \vspace{4mm}\newline
 \textbf{WiFi} \\
 (https://github.com/espressif/arduino-esp32/tree/master/libraries/WiFi) \\
-Die WiFi-Bibliothek ist eine offizielle Bibliothek von Arudino, welche ebenfalls in der arduino-esp32-Bibliothek inkludiert ist. Sie wird verwendet, um die Funktionen der eingebauten WiFi-Antenne des ESP32 zu nutzen. Der ESP32 kann dabei entweder als Access Point oder als Client fungieren. Wenn er als Access Point fungiert, stellt er ein eigenes WiFi-Netzwerk bereit, mit dem sich andere Geräte verbinden können und der ESP32 somit einen Host darstellt. Als Client kann er sich mit anderen WiFi-Netzwerken bzw. Access Points verbinden. In unserem Projekt fungiert der ESP32 sowohl als Access Point, als auch als Client.
+Die WiFi-Bibliothek ist eine offizielle Bibliothek von Arudino, welche in der Arduino-Core-Bibliothek inkludiert ist. Sie wird verwendet, um die Funktionen der eingebauten WiFi-Antenne des ESP32 zu nutzen. Der ESP32 kann dabei entweder als Access Point oder als Client fungieren. Wenn er als Access Point fungiert, stellt er ein eigenes WiFi-Netzwerk bereit, mit dem sich andere Geräte verbinden können und der ESP32 somit einen Host darstellt. Als Client kann er sich mit anderen WiFi-Netzwerken bzw. Access Points verbinden. In unserem Projekt fungiert der ESP32 sowohl als Access Point, als auch als Client. \parencite[vgl.][]{noauthor_urlpi24_nodate}
 \vspace{4mm}\newline
 \textbf{ArduinoJson} \\
 (https://github.com/bblanchon/ArduinoJson) \\
-Die ArduinoJson-Bibliothek wird verwendet, um Daten in das JSON-Format zu kodieren. JSON (Java Script Object Notation) ist ein Datenformat, welches  für den einheitlichen Datenaustausch zwischen Server und Client verwendet wird. Dabei verwendet JSON sogenannte Schlüssel-Wert-Paare. Das heißt, ein Wert hat immer einen eindeutigen Schlüssel. In unserem Projekt wird die ArduinoJson-Bibliothek für den einheitlichen Datenaustausch zwischen Webserver (ESP32) und Client (Smartphone) verwendet. (vgl. URLPI11)
+Die ArduinoJson-Bibliothek wird verwendet, um Daten in das JSON-Format zu kodieren. JSON (Java Script Object Notation) ist ein Datenformat, welches  für den einheitlichen Datenaustausch zwischen Server und Client verwendet wird. Dabei verwendet JSON sogenannte Schlüssel-Wert-Paare. Das heißt, ein Wert hat immer einen eindeutigen Schlüssel. In unserem Projekt wird die ArduinoJson-Bibliothek für den einheitlichen Datenaustausch zwischen Webserver (ESP32) und Client (Smartphone) verwendet. \parencite[vgl.][]{noauthor_urlpi11_nodate}
 \vspace{4mm}\newline
 \textbf{WebServer} \\
-Die WebServer-Bibliothek wird verwendet, um einen Webserver auf dem ESP32 bereitzustellen. Dieser ist wichtig für die Funktion als REST-API und somit für den Datenaustausch zwischen ESP32 und Smartphoneapp. Der Webserver erhält Anfragen von Clients und sendet diesen dementsprechende Antworten zurück. Dabei gibt es vordefinierte Routen, welche aufrufbar sind.
+Die WebServer-Bibliothek wird verwendet, um einen Webserver auf dem ESP32 bereitzustellen. Dieser ist wichtig für die Funktion als REST-API und somit für den Datenaustausch zwischen ESP32 und Smartphoneapp. Der Webserver kann Anfragen von Clients entgegennehmen und diesen Antworten zurücksenden. Dabei gibt es vordefinierte Routen, welche aufrufbar sind. Diese Routen werden im Kapitel ... beschrieben.
 \vspace{4mm}\newline
-\textbf{ESP32-audioI2S} \\
-(https://github.com/schreibfaul1/ESP32-audioI2S) \\
-Die ESP32-audioI2S-Bibliothek wird verwendet, um die MP3-kodierten Audio-Daten vom HLS-Stream zu empfangen, diese in PCM-Signale umzuwandeln und diese dann an den Digital-Analog-Wandler per I2S-Protokoll zu senden. Der ESP32 verfügt bereits standartmäßig über Funktionen, mit deren Hilfe man Audiodaten mittels I2S übertragen kann. Allerdings sind diese sehr komplex in der Verwendung und Konfiguration. Da die ESP32-audioI2S-Bibliothek bereits die perfekte Lösung für unsere Anforderungen bietet, wurde diese in unserer Diplomarbeit verwendet. \newline \\
+\textbf{ESP8266Audio} \\
+(https://github.com/earlephilhower/ESP8266Audio) \\
+Die ESP8266Audio-Bibliothek wurde ursprünglich für das Vorgängermodell des ESP32, den ESP8266, programmiert. Es wurde allerdings mittlerweile von den Entwicklern angepasst, so dass man es auch für den ESP32 verwenden kann. Die Bibliothek stellt Funktionen zum Empfangen, Dekodieren und Ausgeben von Audio-Daten bereit. Wir haben diese Bibliothek verwendet, um MP3-Streams vom Internet zu empfangen, diese zu dekodieren und die dekodierten PCM-Signale über I2S an den DAC zu senden. Der ESP32 verfügt zwar bereits standartmäßig über Funktionen, mit deren Hilfe man Audiodaten mittels I2S übertragen kann, allerdings sind diese sehr komplex in der Verwendung und Konfiguration. Da die ESP8266Audio-Bibliothek bereits die perfekte Lösung für unsere Anforderungen bietet, wurde diese in unserer Diplomarbeit verwendet. \newline \\
 \textbf{Preferences} \\
 (https://github.com/espressif/arduino-esp32/tree/master/libraries/Preferences)
 Die Preferences-Bibliothek wird verwendet, um Schreib- und Lesezugriffe auf den eingebauten EEPROM (Electrical Eresable Programmable Read Only Memory) durchzuführen. Dabei werden die im EEPROM gespeicherten Werte mittels eindeutiger Schlüssel identifiziert.
 \subsubsection{Softwaretools Smartphoneapp}
-Im foldenden Teil werden die Softwaretools, welche für die Entwicklung der Smartphoneapp verwendet wurden, genauer beschrieben. \\
-
+Im foldenden Teil werden die Softwaretools, welche für die Entwicklung der Smartphoneapp verwendet wurden, genauer beschrieben.
+\vspace{4mm}\newline
+\textbf{Node.js} \\
+Bei Node.js handelt es sich um eine JavaScript-Laufzeitumgebung, welche es ermöglicht JavaScript-Code lokal auf dem Rechner auszuführen. Normalerweise ist JavaScript eine Programmiersprache, welche für die Frontend-Entwicklung eingesetzt wird und nur im Browser läuft. Mit der Verwendung von Node.js ist es allerdings möglich, JavaScript auch im Backend, also lokal auf dem Rechner zu verwenden. Node.js stellt außerdem einen eigenen Paket-Manager namens npm (Node Package Manager) bereit, der es ermöglicht zahlreiche Open-Source-Pakete, für unterschiedlichste Anwendungen zu installieren. Somit können mithilfe von Node.js die Vorteile, welche JavaScript bietet, zur Entwicklung zahlreicher Apps verwendet werden. \parencite[vgl.][]{noauthor_urlpi25_2021}
+Wir haben Node.js für unsere Diplomarbeit verwendet, weil dieses für React Native und somit auch für Expo benötigt wird.
+\vspace{4mm}\newline
 \textbf{React Native} \\
-React Native ist ein Framework, welches die plattformübergreifende Entwicklung von Apps ermöglicht. Das heißt, man schreibt einen Code und kann diesen dann für IOS, Anrdoid und fürs Web verwenden. Der Code wird in JavaScript geschrieben. React Native wurde erstmals 2015 von Meta (damals noch Facebook) als Open-Source-Projekt veröffentlicht. Seither wird es weiterhin von Meta gewartet bzw. weiterentwickelt und hat eine riesige Community, welche ständig neue Bibliotheken für das Framewok veröffentlicht. React Native basiert auf React, welches man bereits aus der Webentwicklung kennt. Der Vorteil von React im Gegensatz zur normalen Webentwicklung ist, dass man wiederverwendbare Komponenten bauen kann. Dies ist auch mit React Native möglich. In React Native stehen dabei einige Standardkomponenten zur Verfügung, welche dann jeweils in native Komponenten, passend für das jeweilige Betriebssystem, gerendert werden. 
-Wir haben React Native für unsere Smartphoneapp verwendet, weil es sehr aufwendig gewesen wäre, für jede Plattform einen eigenen Code zu schreiben und dies außerdem sehr viel Wissen in unterschiedlichen Bereichen vorausgesetzt hätte. Außerdem hatten wir auch schon etwas Erfahrung mit JavaScript und React, was uns den Einstieg erleichterte.
-(vgl. URLPI07)
-
+React Native ist ein Framework, welches die plattformübergreifende Entwicklung von Apps ermöglicht.Das heißt, man schreibt einen Code in JavaScript und kann aus diesem dann eine IOS-, Anrdoid- und fürs Web-App bauen. Um eine React Native App auszuführen, wird die Node.js-Laufzeitumgebung benötigt, welche im vorherigen Teil beschrieben wurde. React Native wurde erstmals 2015 von Meta (damals noch Facebook) als Open-Source-Projekt veröffentlicht. Seither wird es weiterhin von Meta gewartet bzw. weiterentwickelt und hat eine riesige Community, welche ständig neue Bibliotheken für das Framewok veröffentlicht. React Native basiert auf React, welches man bereits aus der Webentwicklung kennt. Der Vorteil von React im Gegensatz zur normalen Webentwicklung ist, dass man wiederverwendbare Komponenten bauen kann. Dies ist auch mit React Native möglich. In React Native stehen dabei einige Standardkomponenten zur Verfügung, welche dann jeweils in native Komponenten, passend für das jeweilige Betriebssystem, gerendert werden. 
+Wir haben React Native für unsere Smartphoneapp verwendet, weil es sehr aufwendig gewesen wäre, für jede Plattform einen eigenen Code zu schreiben und dies außerdem sehr viel Wissen in unterschiedlichen Bereichen vorausgesetzt hätte. Außerdem konnten wir von der bereits gesammelten Erfahrung in der Entwicklung von JavaScript und React profitieren, was uns den Einstieg erleichterte. \parencite[vgl.][]{noauthor_urlpi07_nodate}
+\vspace{4mm}\newline
 \textbf{Expo} \\
-Um das Entwickeln der Smartphoneapp noch einfacher bzw. effizienter zu gestalten, wurde das Expo Framework verwendet. Dieses Framework basiert auf React Native und stellt noch zusätzlich hilfreiche Bibliotheken und eine Projektstruktur zur Verfügung. Dies hat den Vorteil, dass man bereits den Grundlegenden Aufbau einer App gegeben hat und diesen dann erweitern kann. Ein weiterer Vorteil von Expo ist das File-basierte Routing. Mithilfe diesem ist es möglich, die App-Navigation auf der Ordnerstruktur zu stützen, was die Entwicklung noch einfacher und übersichtlicher macht.
-(vgl. URLPI08)
-
+Um das Entwickeln der Smartphoneapp noch einfacher bzw. effizienter zu gestalten, wurde das Expo Framework verwendet. Dieses Framework basiert wiederum auf React Native und stellt zusätzlich hilfreiche Bibliotheken und eine Projektstruktur zur Verfügung. Dies hat den Vorteil, dass der grundlegende Aufbau einer App bereits vorgegeben wird und man somit bereits eine solide Basis hat auf der man weiterentwickeln kann. Expo bietet außerdem das sogenannte \glqq File-based routing \grqq{}, welches die Entwicklung der App-Navigation sehr erleichtert. Ein weiterer Vorteil von Expo ist, dass für das Testen der App die ExpoGo-App verwendet werden kann. Diese ermöglicht es, die App bereits bevor diese vollständig gebaut ist, auf dem Smartphone auszuführen. Dies erleichtert die Entwicklung um ein Vielfaches. \parencite[vgl.][]{noauthor_urlpi08_nodate}
 \section{Entwicklung}
 \subsection{Entwicklung Software Adapter}
-In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Software des Adapters beschrieben. 
-Zur Entwicklung der Software des Microcontrollers wurde die IDE Visual Studio Code in Verbindung mit dem Framework PlatformIO verwendet. Um die Entwicklung in C++ zu ermöglichen wurden die bereits erwähnten Bibliotheken verwendet.
-
+In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Software des Microcontrollers, welcher im MSA verbaut ist beschrieben. 
+Zur Entwicklung der Software des Microcontrollers wurde die IDE Visual Studio Code in Verbindung mit dem Framework PlatformIO verwendet. PlatformIO ist ein Framework, welches für die Entwicklung von Embedded Systems verwendet wird und somit einige hilfreiche Funktionen in Verbindung mit dem ESP32 bietet. \parencite[vgl.][]{noauthor_urlpi26_nodate} Um die Entwicklung so effizient wie möglich zu gestalten, wurden die Bibliotheken, welche bereits im Kapitel ... beschrieben wurden, verwendet.
 \subsubsection{Anforderungen}
 Im folgenden wird beschrieben, welche Anforderungen an die Software des Adapters gestellt wurden: \newline \\
 \textbf{Access Point} \\
-Ein Access Point ist ein Gerät, welches ein WLAN-Netzwerk aufbaut. Dabei können sich WLAN-Clients mit diesem verbinden und somit untereinander Daten austauschen. (vgl. URLPI10)
-Der Microcontroller soll im Konfigurationsmodus als Access Point arbeiten. Dies ermöglicht der Smartphoneapp sich als Client zu verbinden und dem Microcontroller mittels HTTP Daten, welche wichtig für die Konfiguration sind (WLAN-Anmeldedaten und Microcontroller-Name), zu senden. \newline \\
+Ein Access Point ist ein Gerät, welches ein WLAN aufbaut. Dabei können sich WLAN-Clients mit diesem verbinden und somit untereinander Daten austauschen. \parencite[vgl.][]{noauthor_urlpi10_nodate-1}
+Der Microcontroller soll im Konfigurationsmodus als Access Point arbeiten. Dabei wird dem/der Benutzer/in ermöglicht, sich mittels Smartphoneapp mit dem Netzwerk des Microcontrollers zu verbinden und somit die Anmeldedaten des gewünschten Netzwerkes zu senden. Somit kann sich dann der Microcontroller in weiterer Folge mit dem gewünschten WLAN verbinden. Die Daten sollen dabei als JSON-Datei mittels HTTP von der Smartphoneapp an den Microcontroller gesendet werden. \newline \\
 \textbf{WLAN Client} \\
-WLAN-Clients sind die Geräte, welche mit einem Access Point verbunden sind und somit Teilnehmer in einem WLAN darstellen. Sie können dabei untereinander Daten austauschen.
-Wenn der Adapter vollständig konfiguriert ist bzw. alle notwendigen Daten festgelegt sind, soll dieser als WLAN-Client arbeiten. Somit ist es möglich, wenn die Smartphoneapp im gleichen Netzwerk wie der Microcontroller ist, mit diesem zu kommunizieren. Dies geschieht durch die REST-API welche der Microcontroller zur Verfügung stellt. \newline \\
+Ein WLAN-Client ist ein Gerät, welche mit einem Access Point verbunden ist und somit einen Teilnehmer in einem WLAN darstellt. Der WLAN-Client kann dabei Daten mit anderen Clients im Netzwerk austauschen. Wenn der MSA vollständig konfiguriert ist bzw. die Anmeldedaten des WLANs hat, soll sich dieser als WLAN-Client mit dem WLAN verbinden. Um den Datenaustausch zwischen Smartphone und MSA zu ermöglichen, müssen sich beide Geräte im gleichen Netzwerk befinden. Damit der MSA in weiterer Folge Audio-Streams von Internetradios empfangen kann, muss zusätlich eine Verbindung zum Internet bestehen. \newline \\
 \textbf{REST-API} \\
-Der Microcontroller soll eine REST-API zur Verfügung stellen, mithilfe der es möglich ist, per HTTP Daten mit diesem auszutauschen. Eine REST-API ist eine API, welche den Designprinzipien der REST-Architektur folgt. API steht dabei für \glqq Application Programming Interface \grqq{}. Dies ist, wie der Name bereits verrät, eine Schnittstelle von einem Programm. REST steht für \glqq Representational State Transfer \grqq{} und bedeutet so viel wie \glqq repräsentative Zustandsübertragung \grqq{}. Die API muss bestimmte Regeln erfüllen, welche von der REST-Architektur vorgegeben werden. Sie dient dabei zur Kommunikation zwischen Server und Client. Der Client kann mittels HTTP Anfragen an den Server senden. Der Server liefert dann eine Antwort, welche Daten enthalten kann. (vgl. URLPI04) Auf diese Weise kommuniziert die Smartphoneapp mit dem Microcontroller. Der Client kann dabei sogenannte Routen aufrufen. Die aufgerufene Route bestimmt die Aktion, welche auf dem Server aufgerufen wird. Es gibt dabei verschiedene Typen von HTTP-Requests. Jeder Typ ist für eine bestimmte Aktion verantwortlich. Die verwendeten Typen in unserem Code sind: GET, POST und PUT. Ein GET-Request wird verwendet, um Daten vom Server abzufragen. Der POST-Request wird verwendet um neue Daten auf dem Server anzulegen. Mit einem PUT-Request werden Daten auf dem Server aktualisiert. (vgl. URLPI13) Im folgenden werden die einzelnen Routen genauer beschrieben: \newline \\
+Der Microcontroller soll eine REST-API bereitstellen, mithilfe der es möglich ist, per HTTP Daten mit diesem auszutauschen. Eine REST-API ist eine API, welche den Designprinzipien der REST-Architektur folgt. API steht dabei für \glqq Application Programming Interface \grqq{}. Eine API bietet im Allgemeinen eine Möglichkeit für den einheitlichen Datenaustausch zwischen Programmen. Eine REST-API (Representational State Transfer Application Programming Interface) ist dabei eine API, welche die von der REST-Architektur vorgegebenen Regeln befolgt. Sie dient  zur Kommunikation zwischen Server und Client. Der Client kann mittels HTTP, Anfragen an den Server senden. Der Server liefert dann eine Antwort, welche Daten enthalten kann. \parencite[vgl.][]{noauthor_urlpi04_nodate} Auf diese Weise kommuniziert die Smartphoneapp mit dem Microcontroller. Der Client kann dabei sogenannte Routen aufrufen. Die aufgerufene Route bestimmt die Aktion, welche auf dem Server ausgeführt wird. Es gibt dabei verschiedene Typen von HTTP-Requests. Jeder Typ ist für eine bestimmte Aktion verantwortlich. Die verwendeten Typen in unserem Programm sind: GET, POST und PUT. Ein GET-Request wird verwendet, um Daten vom Server abzufragen. Der POST-Request wird verwendet um neue Daten auf dem Server anzulegen. Mit einem PUT-Request werden Daten auf dem Server aktualisiert. \parencite[vgl.][]{noauthor_urlpi13_nodate} Im folgenden werden die verfügbaren Routen der REST-API des MSA genauer beschrieben: \newline \\
 \begin{figure}[H]
 \begin{tabularx}{\textwidth}{|l|l|X|}
 \hline
 \textbf{Route} & \textbf{Anfragen-Typ} & \textbf{Funktion} \\
 \hline
-/getInfo & GET & Client bekommt die Daten Name, MAC-Addresse, Akkustand, Lautstärke und Stream-URL vom Microcontroller im JSON Format. \\
+/getInfo & GET & Client erhält die Daten: Name, MAC-Addresse, Akkustand, Lautstärke und Stream-URL vom Microcontroller im JSON-Format. \\
 \hline 
-/getAvailableNetworks & GET & Client bekommt eine Liste, gefüllt mit SSID und RSSI (Stärke) von verfügbaren Netzwerken welche sich in der Nähe des Microcontrollers befinden im JSON Format. Diese werden in der Smartphoneapp benötigt, um auszuwählen mit welchem Netzwerk sich der Microcontroller verbinden soll.\\
+/getAvailableNetworks & GET & Client erhält eine Liste, welche SSID und RSSI (Stärke) von für den MSA verfügbaren Netzwerken enthält, im JSON Format. Diese werden in der Smartphoneapp benötigt, um auszuwählen mit welchem Netzwerk sich der MSA verbinden soll.\\
 \hline
-/setConfigData & POST & Client sendet SSID und Passwort des gewünschten Netzwerks, sowie Name des Adapters im JSON Format an den Microcontroller. Dieser speichert dann die erhaltenen Daten in den EEPROM und startet neu.\\
+/setConfigData & POST & Client sendet SSID und Passwort des Netzwerks, mit welchem sich der MSA verbinden soll, im JSON Format an den MSA. Dieser speichert dann die erhaltenen Daten in den EEPROM und startet neu.\\
 \hline
-/setStreamUrl & PUT & Client sendet die URL des gewünschten Audio-Streams im Textformat an den Microcontroller. Dieser startet dann den Empfang dieses Streams und gibt diesen auf dem Line-Out aus. \\
+/setStreamUrl & PUT & Client sendet die URL des Internetradios, von welchem der MSA einen Audio-Stream erhalten soll,  im Textformat an den Microcontroller. Dieser startet dann den Empfang dieses Streams und Verarbeitet diesen bzw. gibt diesen in weiterer Folge auf dem Line-Out aus. \\
 \hline
-/setVolume & PUT & Client sendet die gewünschte Lautstärke (von 0 bis 100, in Prozent)  des ausgegebenen Audio-Signals als Zahl an den Microcontroller. Dieser legt dann die übertragene Lautstärke beim Audio-Modul fest. \\
+/setVolume & PUT & Client sendet die Lautstärke (zwischen 0\% und 100\%), an den MSA. Dieser setzt dann den Gain des Audio-Signals auf einen Wert zwischen 0 und 1; \\
 \hline
 \end{tabularx} 
 \caption{REST-API Routen}
@@ -345,61 +365,65 @@ Der Microcontroller soll eine REST-API zur Verfügung stellen, mithilfe der es m
 \textbf{Audio-Streaming} \\
 Der Microcontroller sollte in der Lage sein, Audio-Streams aus dem Internet zu empfangen, diese zu dekodieren und die dekodierten Daten als Signale auf dem Line-Out auszugeben. Die meisten Audio-Streams werden mit dem HLS-Protokoll, welches auf dem HTTP-Protokoll basiert, übertragen. Dabei wird das Audiofile in mehrere kleine Stücke zerteilt, welche dann per HTTP an den Client gesendet werden. Dieser fügt diese Stücke dann wieder zu einem Audiofile zusammen. In weiterer Folge wird das MP3-File von dem externen Digital-Analog-Wandler zu einem PCM(\glqq Pulse Code Modulation\grqq{}) - Signal übertragen, welches dann auf der Lautsprecherbox ausgegeben werden kann.
 \subsubsection{Klassen}
-Um eine hohe Softwarequalität zu gewährleisten, wurde in der Entwicklung der Software für den Adapter auf objektorientierte Programmierung gesetzt. Für einen Großteil der Klassen wurde das Singleton-Designpattern verwendet. Dies gewährleistet, dass immer nur eine Instanz der Klasse vorhanden ist. Dieses Verhalten macht Sinn, bei Klassen von denen nicht mehrere Instanzen verfügbar sein sollen. (URLPI14) Im folgenden Teil werden die dabei erstellten Klassen genauer beschrieben. Das folgende UML-Klassendiagramm veranschaulicht die Beziehung der verschiedenen Klassen zueinander:
+Um die Modularität und somit die Wiederverwendbarkeit und Wartbarkeit des Codes zu gewährleisten, wurde in der Entwicklung der Software für den Adapter auf objektorientierte Programmierung gesetzt. Dies ist möglich, da für die Programmierung die Programmiersprache C++ verwendet wurde. Für einen Großteil der Klassen wurde außerdem das Singleton-Designpattern verwendet. Dies gewährleistet, dass immer nur eine Instanz der Klasse vorhanden ist, was Sinn macht, wenn von einer Klasse nicht mehrere Instanzen verfügbar sein sollen. \parencite[vgl.][]{noauthor_urlpi14_nodate} Im folgenden Teil werden die erstellten Klassen genauer beschrieben. Das folgende UML-Klassendiagramm veranschaulicht die Beziehung der verschiedenen Klassen zueinander:
 %\begin{figure}[H]
-%\includegraphics[scale=0.3, angle=90]{/software/%uml_microcontroller.png}
-%\caption{UML-Klassendiagramm Microcontroller}
+%	\includegraphics[scale=0.3, angle=90]{/software/uml_microcontroller.png}
+%	\caption{UML-Klassendiagramm Microcontroller}
 %\end{figure}
 \newline
 \textbf{Mode} \newline
-Im ENUM Mode werden die verschiedenen Modi der Software definiert. Ein ENUM ist wie eine Art Datentyp, der Konstanten definiert, welche man verwenden darf. (vgl. URLPI15)  In unserem Fall definiert der ENUM die drei Modi NORMAL, CONFIG und ERROR. Diese geben den Status des Microcontrollers an. Der Modus NORMAL signalisiert, dass sich der Microcontroller im normalen Ablauf befindet. Im Modus CONFIG fungiert der Microcontroller als Access Point. Somit können sich Clients mit diesem verbinden und Konfigurationsdaten, wie WLAN-Anmeldedaten und Microcontroller-Name senden. Der Modus ERROR wird gesetzt, wenn ein Fehler im Programm auftritt. Dies ist zum Beispiel der Fall, wenn die Verbindung mit dem WLAN-Netzwerk nicht möglich ist. \newline \\
+Im ENUM Mode werden die verschiedenen Modi der Software definiert. Ein ENUM ist wie eine Art Datentyp, der Konstanten definiert, welche man verwenden darf. \parencite[vgl.][]{noauthor_urlpi15_nodate} In unserem Fall definiert der ENUM die drei Modi NORMAL, CONFIG und ERROR. Diese geben den Status des MSA an. Der Modus NORMAL signalisiert, dass sich der MSA im normalen Zustand befindet, dieser also voll funktionsfähig ist. Im Modus CONFIG fungiert der MSA als Access Point. Somit können sich Clients mit diesem verbinden und die Anmeldedaten des WLANs senden. Der Modus ERROR wird gesetzt, wenn ein Fehler im Programm auftritt. Dies ist zum Beispiel der Fall, wenn die Verbindung mit dem WLAN unterbrochen wird. Der aktuelle Modus wird mithilfe der Status-LED signalisiert, welche als nächstes genauer beschrieben wird. \newline \\
 \textbf{StatusLED} \\
-Mithilfe der Klasse StatusLED wird die RGB-LED, welche am Microcontroller angeschlossen ist, gesteuert. Mit ihr wird der aktuelle Modus des Microcontrollers angezeigt. Die nachstehende Tabelle beschreibt welche Farbe für welchen Modus steht: \newline \\
+Mithilfe der Klasse StatusLED wird die RGB-LED, welche am Microcontroller angeschlossen ist, gesteuert. Mit ihr wird der aktuelle Modus des MSA dem/der Benutzer/in angezeigt. Die nachstehende Tabelle beschreibt welche Farbe für welchen Modus steht: \newline \\
 \begin{figure}[H]
-\begin{tabular}{|l|l|}
-\hline
-\textbf{Modus} & \textbf{Farbe} \\
-\hline
-NORMAL & Grün \\
-\hline
-CONFIG & Blau \\
-\hline
-ERROR & Rot \\
-\hline
-\end{tabular}
-\caption{Status-Farben}
+	\centering
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Modus} & \textbf{Farbe} \\
+		\hline
+		NORMAL & Grün \\
+		\hline
+		CONFIG & Blau \\
+		\hline
+		ERROR & Rot \\
+		\hline
+	\end{tabular}
+	\caption{Status-Farben}
 \end{figure}
+\noindent %dass Text nach figure nicht eingerückt wird
 \textbf{NetworkManager}\newline
-Die Klasse NetworkManager kümmert sich um alle Funktionen, die mit dem WiFi des ESP32 zu tun haben. Es ist hier möglich den Access Point - Modus bzw. den Client-Modus zu aktivieren, sowie nach verfügbaren Netzwerken zu suchen und die MAC-Addresse des Adapters zu lesen. Diese Funktionen werden alle mithilfe der WiFi-Bibliothek verwirklicht.
+Die Klasse NetworkManager beinhaltet Funktionen, welche das WiFi des ESP32 verwenden. Es ist hier möglich den Access Point - und den Client-Modus zu aktivieren, nach verfügbaren Netzwerken zu suchen, sowie die MAC-Addresse des Adapters zu lesen. Diese Funktionen werden alle mithilfe der WiFi-Bibliothek (siehe Kapitel ...) verwirklicht.
 \vspace{4mm}\newline
 \textbf{AudioManager}\newline
-Die Klasse AudioManager ist für das Empfangen des Internet-Audio-Streams, für das dekodieren und für die Ausgabe der Audio-Signale zuständig. Dafür wird größtenteils die ESP32-I2SAudio Bibliothek verwendet.
+Die Klasse AudioManager ist für den Empfang des Internet-Audio-Streams, für das Dekodieren dieses Streams und für die Ausgabe des dekodierten Audio-Signals zuständig. Dafür wird primär die ESP8266Audio-Bibliothek (siehe Kapitel ...) verwendet.
 \vspace{4mm}\newline
 \textbf{Logger}\newline
-Die Klasse Logger ist für die Verwaltung von Logs, welche von anderen Klassen geschrieben werden, zuständig. In ihr ist ein Vektor, welcher Tuples, bestehend aus Log-Text und Log-Zeitpunkt, speichert, definiert. Diese Logs sind essentiell für die Fehlerbehebung, da man sehen kann welche Aktionen im Programm ausgeführt wurden. Die Klasse bietet Funktionen zum Hinzufügen von Logs und zum Anzeigen bestehender Logs. Die Funktionen sind alle statisch, das heißt man muss kein Objekt dieser Klasse erzeugen, um die Funktionen auszuführen.
+Die Klasse Logger ist für die Verwaltung von Logs, welche von anderen Klassen geschrieben werden, zuständig. In ihr befindet sich ein Vektor, welcher Tuples, bestehend aus Log-Text und Log-Zeitpunkt, speichert, definiert. Diese Logs sind essentiell für die Fehlerbehebung, da man sehen kann welche Aktionen im Programm ausgeführt wurden und wo Fehler aufgetreten sind. Die Klasse bietet Funktionen zum Hinzufügen von Logs und zum Anzeigen bestehender Logs. Die Funktionen sind alle statisch, das heißt man muss kein Objekt dieser Klasse erzeugen, um die Funktionen auszuführen. Dies macht Sinn, weil es möglich sein soll, von jeder Klasse direkt auf die Log-Funktionen zuzugreifen.
 \vspace{4mm}\newline
 \textbf{ServerManager}\newline
-Die Klasse ServerManager ist für das Verwalten des Webservers, welcher auf dem Microcontroller läuft, zustängig. In ihr werden die Funktionen, welche durch die Aufrufe der REST-API ausgeführt werden, definiert. Die Kernfunktionen der Klasse werden vorallem durch die WebServer-Bibliothek bereitgestellt.
+Die Klasse ServerManager ist für das Verwalten des Webservers, welcher auf dem MSA läuft, zustängig. In ihr werden die Funktionen, die durch die Aufrufe der Routen der REST-API ausgeführt werden, definiert. Die Kernfunktionen der Klasse werden vorallem durch die WebServer-Bibliothek (siehe Kapitel ...) bereitgestellt.
 \vspace{4mm}\newline
 \textbf{MemoryManager} \newline
-Die Klasse MemoryManager ist für das Schreiben in und das Lesen vom EEPROMs des Microcontrollers zuständig. Um das zu erreichen, wird die Preferences-Bibliothek verwendet. \newline \\
+Die Klasse MemoryManager ist für das Schreiben in und das Lesen aus dem EEPROM des Microcontrollers zuständig. Der EEPROM ist ein nichtflüchtiger Speicher, das heißt er behält die Daten auch nach einem Spannungsverlust des Microcontrollers. Dies macht vorallem für Daten Sinn, welche nicht jedes Mal neu definiert werden, wie z.B. Anmeldedaten des WLANs. \parencite[vgl.][]{santos_urlpi27_2018}
+Um die Funktionen des EEPROMs des ESP32 zu nutzen, wurde die Preferences-Bibliothek (siehe Kapitel ...) verwendet. Diese ist so aufgebaut, dass Daten mit Schlüssel-Wert-Paaren gespeichert werden. Gespeicherte Variabeln werden also eindeutig durch einen Schlüssel identifiziert.
+\newline \\
 \textbf{BatteryManager} \newline
 Die Klasse BatteryManager regelt den Ladevorgang des ESP32 und liest den Akkustand aus. 
 \subsubsection{Programmablauf}
-Da die arduino-esp32-Bibliothek verwendet wurde ist der Programmablauf gleich wie bei einem standardmäßigen Arduino-Programm. Ausgeführt wird das Main-File welches aus der Funktion setup() und der Funktion loop() besteht. Die Funktion setup() wird beim Start des Microcontrollers einmalig ausgeführt. Anschließend wird die Funktion loop() in einer Endlosschleife ausgeführt. Wenn also das Ende der Funktion loop() erreicht wird, fängt diese wieder von vorne an. Im folgenden Teil wird der Ablauf innerhalb den einzelnen Funktionen genauer beschrieben
+Da die Arduino-Core-Bibliothek verwendet wurde ist der Programmablauf gleich wie bei einem standardmäßigen Arduino-Programm. Ausgeführt wird die Main-Datei welche aus den Funktionen \glqq setup \grqq{} und \glqq loop \grqq{} besteht. Die Setup-Funktion wird beim Start des Microcontrollers einmalig ausgeführt. In ihr werden z.B. Variabeln initialisiert und Aus- bzw. Eingänge initialisiert. Anschließend wird die Loop-Funktion in einer Endlosschleife ausgeführt. Wenn also das Ende der Loop-Funktion erreicht wird, fängt diese wieder von vorne an. Im folgenden Teil wird der Ablauf innerhalb der einzelnen Funktionen genauer beschrieben.
 \vspace{4mm}\newline
 \textbf{Setup} \newline
 %\begin{figure}[H]
 %	\includegraphics[scale=0.4]{/software/%uml_ablauf_esp32_setup.png}
 %\caption{UML-Ablaufdiagramm Microcontroller Setup}
 %\end{figure}
-Im Setup werden zuerst Konstanten, welche später im Programm benötigt werden, definiert. Auch werden am Anfang die entsprechenden Instanzen der Singleton-Klassen zugewiesen. Anschließend wird mithilfe der Klasse MemoryManager überprüft ob ein Name im EEPROM gesetzt ist. Ist dies der Fall, so wird der Name lokal als Variable gesetzt. Ist der Name allerdings nicht im EEPROM vorhanden, wird der Default-Name verwendet. Der Default-Name setzt sich zusammen aus MSA (kurz für Multiroom Sound Adapter) und den letzten zwei Stellen der Mac. Er ist somit für jeden Adapter eindeutig. Der Name wird später als SSID des Access Points bzw. für die mDNS verwendet. Nachdem der Name gesetzt ist, wird wiederum mit der Klasse MemoryManager überprüft ob WLAN-Zugangsdaten im EEPROM gespeichert sind. Sind die WLAN-Daten vorhanden so versucht der Microcontroller eine Verbindung mit dem gespeicherten WLAN herzustellen. Ist dies möglich wird der Modus auf Normal gesetzt. Ist dies nicht möglich bzw. sind keine WLAN-Zugangsdaten gespeichert, wird der Modus auf Error gesetzt. \newline \\
+Im Setup werden zuerst Konstanten, welche später im Programm benötigt werden, definiert. Auch werden am Anfang die entsprechenden Instanzen der Singleton-Klassen abgerufen. Anschließend wird der Name des Adapters definiert. Dieser setzt sich, wie bereits im Kapitel ... erwähnt, aus MSA und den letzten drei Byte der MAC-Adresse zusammen. Er ist somit für jeden Adapter eindeutig. Der Name wird später als SSID des Access Points bzw. als Hostname für den Webserver verwendet. Nachdem der Name gesetzt ist, wird mit der Klasse MemoryManager abgefragt ob WLAN-Anmeldedaten im EEPROM gespeichert sind. Sind diese vorhanden, so versucht der Microcontroller eine Verbindung mit dem WLAN herzustellen. Ist dies möglich wird der Modus auf Normal gesetzt. Schlägt die Verbindung mit dem WLAN, z.B. durch falsche Anmeldedaten, fehl, wird der Modus auf Error gesetzt. \newline \\
 \textbf{Loop} \newline
 %\begin{figure}[H]
 %\includegraphics[scale=0.2]{/software/uml_ablauf_esp32_loop.png}
 %\caption{UML-Ablaufdiagramm Microcontroller Loop}
 %\end{figure}
-Am Anfang der Loop-Funktion wird abgefragt ob der Modus auf Error gesetzt ist. Ist dies der Fall, wird nichts mehr ausgeführt, das heißt die Funktion springt wieder an den Startpunkt. Ist der Modus allerdings nicht auf Error gesetzt, wird überprüft ob der Knopf gedrückt ist. Ist dieser gedrückt, wird der Modus auf Config gesetzt. Anschließend wird überprüft ob der Modus auf Normal gesetzt ist. Ist dies der Fall wird überprüft ob immer noch eine Verbindung mit dem WLAN besteht. Dies geschieht mithilfe der Klasse NetworkManager. Wenn dies wahr ist, wird mithilfe der Klasse ServerManager überprüft ob der Webserver läuft. Wenn nicht, wird dieser gestartet. Ist der Modus allerdings nicht auf Normal gesetzt, also auf Config, so wird zuerst überprüft ob der Access Point gestartet ist. Wenn nicht, wird dieser schließlich gestartet und die mDNS wird gesetzt. Diese Prozesse werden wieder mithilfe der NetworkManager-Klasse durchgeführt. Anschließend wird ebenfalls der Zustand des Webservers überprüft. Am Schluss der Loop-Funktion wird noch die Funktion loop() der Klasse Audio-Manager ausgeführt. Diese regelt das Audio-Streaming.
+Am Anfang der Loop-Funktion wird abgefragt ob der Modus auf Error gesetzt ist. Ist dies der Fall, wird nichts mehr ausgeführt, das heißt die Funktion springt wieder an den Startpunkt. Ist der Modus allerdings nicht auf Error gesetzt, wird überprüft ob der Knopf gedrückt ist. Ist dieser gedrückt, wird der Modus auf Config gesetzt. Anschließend wird überprüft ob der Modus auf Normal gesetzt ist. Ist dies der Fall wird überprüft ob immer noch eine Verbindung mit dem WLAN besteht. Dies geschieht mithilfe der Klasse NetworkManager. Wenn eine WLAN-Verbindung besteht, wird mithilfe der Klasse ServerManager überprüft ob der Webserver läuft. Wenn nicht, wird dieser gestartet. Ist der Modus allerdings nicht auf Normal gesetzt, also auf Config, so wird zuerst überprüft ob der Access Point - Modus gestartet ist, da dieser für die Verbindung zwischen Client (Smartphone) und Server (MSA) benötigt wird. Wenn nicht, wird dieser schließlich gestartet und das mDNS-Protokoll (siehe Kapitel ...) wird konfiguriert. Diese Prozesse werden wieder mithilfe der NetworkManager-Klasse durchgeführt. Anschließend wird ebenfalls der Zustand des Webservers überprüft. Am Schluss der Loop-Funktion wird noch die Loop-Funktion der Klasse Audio-Manager ausgeführt. Diese regelt das Audio-Streaming.
 \subsubsection{Erweiterungsmöglichkeiten}
 In Zukunft sind noch weitere Funktionalitäten, welche außerhalb der Diplomarbeit implementiert werden, für die Software geplant. Im Hinblick auf die Sicherheit wäre es durchaus sinnvoll, den Webserver des Microcontrollers auf HTTPS umzustellen. Somit wäre eine verschlüsselte Kommunikation mit diesem möglich. Zusätzlich wäre es auch denkbar eine Funktion zu implementieren, die es ermöglicht mehrere Adapter zu Gruppen zu verbinden. In diesen Gruppen soll dann jeweils der gleiche Audio-Stream synchron empfangen und ausgegeben werden. Die Synchronisierung der Adapter bringt aber eine hohe Komplexizität mit sich, da man per WLAN-Verbindung mit sehr großen Latenzen zu rechnen hat. Ein Ansatz wäre zum Beispiel, dass jeder Microcontroller in einem bestimmten Intervall die Zeit von einem NTP (Network Time Protocoll) - Server abfragt und somit auf allen Microcontrollern die Zeit annähernd gleich ist. Dann könnte man die Buffer, welche vom Audio-Stream erhalten werden, mit einem Zeitstempel versehen und sie beim Erreichen dieser Zeit abspielen. Das Hauptproblem dieser Lösung wäre, dass die Zeitdifferenz zwischen den Microcontrollern vermutlich zu groß wäre und somit eine hörbare Latenz entsteht.
 \subsection{Entwicklung Smartphone-App}
@@ -408,20 +432,25 @@ In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Smartpho
 Es wurde festgelegt, dass die Smartphoneapp folgende Anforderungen erfüllen soll:
 \vspace{4mm}\newline 
 \textbf{Verwalten von Adaptern}  \\
-Mit der App soll es einerseits möglich sein, neue Adapter zu konfiguieren, andererseits, bereits hinzugefügte Adapter zu verwalten. Dabei können von den Adaptern Daten wie beispielsweise MAC-Adresse und Akkustand angezeigt werden. Außerdem soll regelmäßig überprüft werden, ob der Adapter vom Smartphone aus erreichbar ist.
+Mit der App soll es einerseits möglich sein, neue Adapter zu konfiguieren, andererseits, bereits hinzugefügte Adapter zu verwalten. Dabei können von den Adaptern Daten, wie beispielsweise MAC-Adresse und Akkustand angezeigt werden. Außerdem soll regelmäßig überprüft werden, ob der Adapter vom Smartphone aus erreichbar ist.
 \vspace{4mm}\newline
 \textbf{Verwalten von Radiostationen} \\
 Mit der App soll es außerdem möglich sein, nach Audiostreams von Internetradios zu suchen, und diese in einer Favoritenliste zu verwalten. \newline \\
 \textbf{Verwalten von Verbindungen} \\
-Letztendlich soll es mit der App möglich sein, eine Verbindungen zwischen Adaptern und Internetradio-Streams herzustellen und diese zu verwalten. Dabei soll der Stream gestoppt und fortgesetzt werden können und die Lautstärke der Audio-Ausgabe des MSA einstellbar sein.
+Letztendlich soll es mit der App möglich sein, Verbindungen zwischen Adaptern und Internetradio-Streams herzustellen und diese zu verwalten. Dabei soll der Stream gestoppt und fortgesetzt werden können und die Lautstärke der Audio-Ausgabe des MSA einstellbar sein.
+\subsubsection{Struktur}
+In diesem Kapitel wird der Aufbau bzw. die Struktur der Smartphone-App genauer beschrieben. Die folgende Grafik stellt dabei die grobe Struktur der App dar:
+%\begin{figure}[H]
+%	\includegraphics[scale=0.6]{/software/app_struktur.png}
+%\caption{Struktur Smartphone-App}
+%\end{figure}
+\textbf{Navigation} \newline
+Für die Navigation zwischen den Seiten der App wurde einerseits die Tab-Navigation und andererseits die Stack-Navigation von Expo Router verwendet. Dabei wird grob zwischen dem Ordner auth und dem Ordner tabs unterschieden. Der Ordner auth enthält die Seiten, welche für die Benutzerauthentifizierung, also Login und Registrierung, notwendig sind. Der Ordner tabs hingegen enthält alle Seiten, welche für registrierte Benutzer sichtbar sind und somit die eigentliche App darstellen. Tabs ist dabei in die drei Tabs: Verbindungen, Adapter und Musik gegliedert. Zwischen diesen Tabs kann mithilfe der Tab-Bar, welche unten in der App sichtbar ist, gewechselt werden. In den einzelnen Tabs befinden sich jeweils mehrere Seiten. Zwischen diesen Seite wird mittels Stack-Navigator gewechselt. Der Stack-Navigator arbeitet dabei nach dem sogenannten Last In - First Out - Prinzip (LIFO). Das heißt, dass die Seite welche als letztes zum Stack (auf Deutsch: Stapel) hinzugefügt wurde, als erstes wieder von diesem entfernt wird. Somit wird die Navigations-Historie festgehalten und der/die Benutzer/in kann jederzeit wieder auf die vorherigen Seiten zurückgehen. \parencite[vgl.][]{noauthor_urlpi28_nodate}
 \subsubsection{APIs}
 \textbf{RadioBrowser-API}\\
-Die RadioBrowser-API ist eine open-source API welche eine sehr umfangreiche Sammlung von Internet-Radios bereitstellt. Dabei ist es einerseits möglich, mithilfe dieser API neue Radiostationen zu der Sammlung hinzuzufügen und andererseits, nach bestehenden Radiostationen gefiltert nach vorgegebenen Kriterien zu suchen und die Daten derer dann abzufragen. (vgl. URLPI21) Wir haben die RadioBrowser-API in unserer Smartphoneapp verwendet um nach Radiosendern zu suchen, und in weiterer Folge die bereitgestellten Streams dieser, an den MSA zu senden. \newline \\
+Die RadioBrowser-API ist eine open-source API welche eine sehr umfangreiche Sammlung von Internet-Radios bereitstellt. Dabei ist es einerseits möglich, mithilfe dieser API neue Radiostationen zu der Sammlung hinzuzufügen und andererseits, bestehenden Radiostationen nach bestimmten Suchkriterien zu suchen und die Daten derer abzufragen. \parencite[vgl.][]{noauthor_urlpi21_nodate} Wir haben die RadioBrowser-API in unserer Smartphoneapp verwendet um nach Radiosendern zu suchen, und in weiterer Folge Stream-URLs dieser, an den MSA zu senden. Der MSA ruft in weiterer Folge den jeweiligen Audio-Stream auf und empfängt diesen. \newline \\
 \textbf{Firebase}\\
-Firebase ist eine Entwicklungsplattform von Google welche verschiedene Dienste, welche hilfreich für die Entwicklung von Apps bzw. Web-Apps sind, beretstellt. Firebase dient dabei als Backend. Das heißt, dass Firebase Funktionen wie z.B. Benutzerauthentifizierung, Speicherung von Benutzern und Speicherung von Daten bereitstellt und dies somit nicht in der App selber passieren muss. (vgl. URLPI22) Wir haben Firebase zur Benutzerverwaltung in unserer Smartphoneapp verwendet. Dabei benutzen wir einerseits den Firebase Authentication Dienst und andererseits den Cloud Firestore Dienst. Wir haben uns für Firebase entschieden, da wir so Benutzerdaten in der Cloud speichern können und somit nicht auf ein Gerät angewiesen sind, sondern die Daten von jedem beliebigen Gerät abgerufen werden können. Außerdem bietet Firebase Authentication eine sehr sichere Benutzerauthentifizierung.
-\subsubsection{Struktur}
-Im folgenden ist die Ordnerstruktur der App ersichtlich:
-
+Firebase ist eine Entwicklungsplattform von Google, welche verschiedene Dienste, die hilfreich für die Entwicklung von Apps bzw. Web-Apps sind, beretstellt. Firebase stellt dabei ein Backend für diese Apps bereit. Damit werden Prozesse, wie z.B. Benutzerauthentifizierung, Speicherung von Benutzern und Speicherung von Daten nicht lokal auf dem Gerät, sondern in der Cloud ausgeführt \parencite[vgl.][]{noauthor_urlpi22_nodate} Wir haben Firebase zur Benutzerverwaltung in unserer Smartphoneapp verwendet. Dabei benutzen wir einerseits den Firebase Authentication Dienst für die Benutzerauthentifizierung und andererseits den Cloud Firestore Dienst für das Speichern von Benutzerdaten. Wir haben uns für Firebase entschieden, da wir dadurch den Ressourcenverbrauch unserer App minimieren und der/die Benutzer/in dadurch von jedem Gerät aus Zugriff auf seine/ihre Daten hat und somit nicht auf ein bestimmtes Gerät angewiesen ist. Außerdem müssen Dienste, wie z.B. die Benutzerauthentifizierung nicht neu entwickelt werden, was die App sicherer macht.
 \subsubsection{Funktionen}
 In der Datei Utilities wurden Funktionen definiert, welche dabei helfen Daten abzurufen bzw. zu speichern. Dazu gehören Abfragen der RadioBrowser-API, Abfragen an den jeweiligen Adapter und Zugriffe in den Speicher. Speicheroperationen wurden mithilfe der in Expo integrierten Bibliothek \glqq AsyncStorage \grqq{}  durchgeführt. Abfragen mittels HTTP wurden mit der ebenfalls in Expo integrierten Bibliothek \glqq Axios \grqq{} durchgeführt. \newline \\
 \textbf{Asynchrone Funktionen} \\
@@ -440,11 +469,10 @@ Die Funktion addFavouriteStations(stationList) fügt eine Liste aus Stationen, w
 Die Funktion removeFavouriteStation(uuid) entfernt die Station mit der übergebenen UUID von der gespeicherten Favoritenliste, wenn diese dort vorhanden ist. Die UUID wird bereits von der RadioBrowser-API mitgeliefert und hilft dabei, jede Station eindeutig zu identifizieren. Die Funktion zum Entfernen eines Adapters aus dem Speicher heißt removeAdapter() und erwartet die Mac-Addresse des zu entfernenden Adapters als Argument. Durch diese ist auch jeder Adapter eindeutig identifizierbar. \newline \\
 \textbf{Liste im Speicher leeren} \\
 Die Funktion clearFavouriteStationList() wird die Favoritenliste im Speicher geleert, das heißt es sind keine Favoriten mehr gespeichert. Die Funktion zum leeren der Adapter-List heißt clearAdapterList() und löscht die Liste aller konfigurierten Adaptern aus dem Speicher.
-\subsubsection{Style}
-Bei Style des User Inferface der App wurde auf Übersichtlichkeit und wenig Komplexität gesetzt. Der/Die Benutzer/in soll sich in der App schnellstmöglich zurecht finden. Zusätzlich wurde ein modernes Design im Darkmode erstellt. Der globale Style wurde in der App unter constants festgelegt. Hier sind Farben und Stile für häuig verwendete Komponenten definiert. Die optische Anpassung der Komponenten erfolgt ähnlich wie bei CSS (Cascading Style Sheets) \newline \\
+\subsubsection{Design}
+Beim Style des User Inferface der App wurde auf Übersichtlichkeit und wenig Komplexität gesetzt. Der/Die Benutzer/in soll sich in der App schnellstmöglich zurecht finden. Durch die gute Benutzbarkeit werden allerdings gleichzeitig die Konfigurationsmöglichkeiten eingeschränkt, was die Flexibilität der App senkt. Bei der Auswahl der Farben, welche in der App wurde darauf geachtet, dass diese die App modern und schlicht erscheinen lassen. Für die App wurde eine Darkmode implementiert, weil dieser in den meisten modernen Applikationen verwendet wird und dieser die App somit moderner aussehen lässt.
 \textbf{Farben} \\
-Bei der Farbauswahl wurden als Hauptfarben eher dunklere Farben verwendet, um den Darkmode zu realisieren. Im Kontrast zu diesen wurden noch zusätzlich eher knalligere Farben im Turquise-Ton verwendet, um
-bestimmte Zustände zu signalisieren. Im folgenden ist eine Tabelle mit den verwendeten Farben und deren Farbcodes im Hex-Format: \\
+Bei der Farbauswahl wurden als Hauptfarben eher dunklere Farben verwendet, um die App im Darkmode darzustellen. Im Kontrast zu den primär dunklen Farben wurden knallige, satte Farben im Torquise-Ton für die Steuerelemente, wie z.B. Buttons verwendet. Im folgenden ist eine Tabelle mit den verwendeten Farben und deren Farbcodes im Hex-Format abgebildet: \\
 \begin{figure}[H]
 \begin{tabular}{|l|l|}
 \hline
@@ -476,42 +504,14 @@ Dieser Tab ist für die Verwaltung von Verbindungen zwischen Adaptern und Audioq
 Dieser Tab ist für die Verwaltung von Adaptern zuständig. Es ist hier möglich, gespeicherte Adapter anzusehen, zu löschen und neue Adapter hinzuzufügen. Der Tab besteht aus den Seiten index und addAdapter, welche im Kapitel Seiten noch genauer beschrieben werden.  \newline \\
 \textbf{Musik} \\
 Dieser Tab ist für die Verwaltung von Audio-Quellen zuständig. Vorerst werden hier als Quellen nur Internet-Radios verwendet. In Zukunft wäre es aber auch denkbar, Streaming-Dienste als Quellen zu implementieren. Mit jetztigem Stand ist es in diesem Tab möglich, neue Radiosender zu der Favoritenliste hinzuzufügen und die Favoritenliste anzusehen bzw. Favoriten zu löschen. Der Tab besteht aus den Seiten index und searchStations, welche im Kapitel Seiten noch genauer beschrieben werden. \newline \\
-\subsubsection{Navigation}
-Für die Navigation in der App wurde einerseits die Tab-Navigation und andererseits die Stack-Navigation von Expo Router verwendet. Dabei wird grob zwischen dem Ordner auth und dem Ordner tabs unterschieden. Der Ordner auth enthält die Seiten, welche für die Benutzerauthentifizierung, also Login und Registrierung, notwendig sind. Der Ordner tabs hingegen enthält alle Seiten, welche für registrierte Benutzer sichtbar sind und somit die eigentliche App darstellen. Tabs ist dabei in die drei Tabs Verbindungen, Adapter und Musik gegliedert. Zwischen diesen Tabs kann mittels dem Tab-Navigator gewechselt werden. In den einzelnen Tabs befinden sich jeweils mehrere Seiten. Diese Seiten sind mithilfe des Stack-Navigators aufrufbar. Der Stack-Navigator arbeitet dabei nach dem sogenannten Last In - First Out - Prinzip (LIFO). Das heißt, dass die Seite welche als letztes zum Stack (auf Deutsch: Stapel) hinzugefügt wurde, als erstes wieder von diesem entfernt wird. Im folgenden wird die Navigations-Hirarchie dargestellt:
-\begin{itemize}[label=-]
-\item Tabs-Navigation
-\begin{itemize}[label=-]
-\item Verbindungen
-\begin{itemize}[label=-]
-\item Startseite Verbindungen
-\item Verbindung hinzufügen
-\end{itemize}
-\item Adapter
-\begin{itemize}[label=-]
-\item Startseite Adapter
-\item Adapter hinzufügen
-\end{itemize}
-\item Musik
-\begin{itemize}[label=-]
-\item Startseite Musik
-\item Stationen filtern
-\item Stationen auswählen
-\item Favoriten-Auswahl
-\end{itemize}
-\item Profil
-\begin{itemize}[label=-]
-\item Startseite Profil
-\end{itemize}
-\end{itemize}
-\end{itemize}
 \subsubsection{Zustandsverwaltung}
-Um Zustände, welche in mehreren Teilen der App benötigt werden, global bereitzustellen, wird der Context von React verwendet. Context ermöglicht es Zustände global in der App bereitzustellen und diese in den einzelnen Komponenten aufzurufen. Dabei werden bei der Änderung eines Zustands die betroffenen Komponenten sofort aktualisiert. Um den Context zu bereitzustellen, wird ein sogenannter Context-Provider verwendet. Alle Komponenten welche in den Context-Provider eingebettet sind, können auf den Zustand von diesem zugreifen. (vgl. URLPI23) In unserer Smartphoneapp gibt es folgende ContextProvider:
+Um Zustände, welche in mehreren Teilen der App benötigt werden, global bereitzustellen, wird der Context von React verwendet. Context ermöglicht es Zustände global in der App bereitzustellen und diese in den einzelnen Komponenten aufzurufen. Dabei werden bei der Änderung eines Zustands die betroffenen Komponenten sofort aktualisiert. Um den Context zu bereitzustellen, wird ein sogenannter Context-Provider verwendet. Alle Komponenten welche in den Context-Provider eingebettet sind, können auf den Zustand von diesem zugreifen. \parencite[vgl.][]{noauthor_urlpi23_nodate} In unserer Smartphoneapp gibt es folgende ContextProvider:
 \begin{itemize}
-	\item UserContext
+	\item \textbf{UserContext}
 	\par Stellt das Benutzerobjekt bereit. Dieses beinhaltet wichtige Benutzerdaten, welche an mehreren Stellen der App verwendet werden. Das Benutzerobjekt wird von Firebase Authentication abgefragt.
-	\item AdapterContext
+	\item \textbf{AdapterContext}
 	\par Stellt eine Liste von hinzugefügten Adaptern bereit. Diese Liste wird von Firebase Firestore abgefragt. Falls sich die in Firestore gespeicherte Liste ändert, wird die Liste, welche der AdapterContext bereitstellt, automatisch aktualisiert. 
-	\item StationContext
+	\item \textbf{StationContext}
 	\par Stellt eine Liste von hinzugefügten Radiostationen bereit. Diese Liste wird ebenfalls von Firebase Firestore abgefragt. Die hier gespeicherte Liste wird ebenfalls automatisch aktualisiert, falls sich die Liste in Firestore ändert.
 \end{itemize}
 \subsubsection{Benutzerverwaltung}

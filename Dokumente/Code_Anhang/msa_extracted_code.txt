@@ -1,0 +1,1875 @@
+\textbf{AudioManager.h:}
+\begin{lstlisting} 
+#ifndef AUDIOMANAGER_H
+#define AUDIOMANAGER_H
+
+#include <Arduino.h>
+#include "constants.h"
+#include "AudioFileSourceICYStream.h"
+#include "AudioFileSourceBuffer.h"
+#include "AudioGeneratorMP3.h"
+#include "AudioOutputI2S.h"
+#include "Logger.h"
+
+class AudioManager{
+    private:
+        static AudioManager* instance;
+        AudioGeneratorMP3 *gen;
+        AudioFileSourceICYStream *src;
+        AudioFileSourceBuffer *buff;
+        AudioOutputI2S *out;
+        bool streaming;
+        String stream_url;
+        int volume;
+
+        AudioManager();
+        ~AudioManager();
+
+    public:
+        static AudioManager* getInstance();
+
+        /**
+         * sets the url, from which the audio stream should be received
+         */
+        void setStreamUrl(String url);
+
+        /**
+         * starts to receive the audio stream from the given url
+         * @param url URL of the audio stream, which should be received
+         */
+        void startStream();
+
+        /**
+         * stops the current audio stream
+         */
+        void stopStream();
+
+        /**
+        * returns the stream url
+        */
+        String getStreamUrl();
+
+        /**
+         * returns if the audio stream paused
+         */
+        bool isPaused();
+
+        /**
+         * handles the audio process
+         */
+        void loop();
+
+        /**
+         * sets the volume of the output
+         * @param volume the desired volume, in the range between 0 an 100
+         */
+        void setVolume(int volume);
+
+        /**
+         * returns the volume, which is currently set
+         */
+        int getVolume();
+};
+#endif
+\end{lstlisting}
+
+\textbf{AudioManger.cpp:}
+\begin{lstlisting} 
+#include "AudioManager.h"
+
+AudioManager* AudioManager::instance = nullptr;
+
+void MDCallback(void *cbData, const char *type, bool isUnicode, const char *string)
+{
+  const char *ptr = reinterpret_cast<const char *>(cbData);
+  (void) isUnicode; // Punt this ball for now
+  // Note that the type and string may be in PROGMEM, so copy them to RAM for printf
+  char s1[32], s2[64];
+  strncpy_P(s1, type, sizeof(s1));
+  s1[sizeof(s1)-1]=0;
+  strncpy_P(s2, string, sizeof(s2));
+  s2[sizeof(s2)-1]=0;
+  Serial.printf("METADATA(%s) '%s' = '%s'\n", ptr, s1, s2);
+  Serial.flush();
+}
+
+void StatusCallback(void *cbData, int code, const char *string)
+{
+  const char *ptr = reinterpret_cast<const char *>(cbData);
+  // Note that the string may be in PROGMEM, so copy it to RAM for printf
+  char s1[64];
+  strncpy_P(s1, string, sizeof(s1));
+  s1[sizeof(s1)-1]=0;
+  Serial.printf("STATUS(%s) '%d' = '%s'\n", ptr, code, s1);
+  Serial.flush();
+}
+
+AudioManager::AudioManager(){
+    stream_url = "";
+    streaming = false;
+    volume = 100;
+    audioLogger = &Serial;
+    src = new AudioFileSourceICYStream();
+    src->RegisterMetadataCB(MDCallback, (void*)"ICY");
+    buff = new AudioFileSourceBuffer(src, AUDIO_BUFFERSIZE);
+    buff->RegisterStatusCB(StatusCallback, (void*)"buffer");
+    out = new AudioOutputI2S();
+    out->SetPinout(I2S_BCLK_PIN, I2S_LRC_PIN, I2S_DOUT_PIN);
+    out->SetBitsPerSample(AUDIO_BITSPERSAMPLE);
+    out->SetChannels(AUDIO_CHANNELS);
+    out->SetRate(AUDIO_SAMPLERATE);
+    gen = new AudioGeneratorMP3();
+    gen->RegisterStatusCB(StatusCallback, (void*)"mp3");
+}
+
+AudioManager* AudioManager::getInstance(){
+    if(instance == nullptr){
+        instance = new AudioManager();
+    }
+    return instance;
+}
+
+void AudioManager::setStreamUrl(String url){
+    this->stream_url = url;
+}
+
+void AudioManager::stopStream(){
+    Logger::add("stopping audio stream");
+    streaming = false;
+    if(gen->isRunning()){
+        gen->stop();
+    }
+    if(src->isOpen()){
+        src->close();
+    }
+}
+
+void AudioManager::startStream(){
+    Logger::add("start streaming audio from " + stream_url);
+    stopStream();
+    src->open(stream_url.c_str());
+    gen->begin(buff, out);
+    streaming = true;
+}
+
+String AudioManager::getStreamUrl(){
+    return stream_url;
+}
+
+bool AudioManager::isPaused(){
+    return !streaming;
+}
+
+void AudioManager::loop(){
+    gen->loop();
+}
+
+void AudioManager::setVolume(int volume){
+    if(volume >= 0 && volume <= 100){
+        this->volume = volume;
+        float gain = (float)volume/(float)100;
+        Logger::add("setting gain to " + String(gain));
+        out->SetGain(gain);
+    }
+}
+
+int AudioManager::getVolume(){
+    return volume;
+}
+\end{lstlisting}
+
+\textbf{BatteryManager.cpp:}
+\begin{lstlisting} 
+#include "BatteryManager.h"
+
+BatteryManager* BatteryManager::instance = nullptr;
+
+BatteryManager::BatteryManager(){
+    //empty
+}
+
+BatteryManager::~BatteryManager(){
+    //empty
+}
+
+BatteryManager* BatteryManager::getInstance(){
+    if(instance == nullptr){
+        instance = new BatteryManager();
+    }
+    return instance;
+}
+
+/**
+ * initializes the needed pins
+ */
+void BatteryManager::initializePins(){
+    // ...
+}
+
+/**
+ * returns the charging status of the battery
+ * 
+ * @return charging status of the battery, in percent (0 - 100), as a String
+ */
+int BatteryManager::getBatteryStatus(){
+    return 100; //default
+}
+\end{lstlisting}
+
+\textbf{BatteryManager.h:}
+\begin{lstlisting} 
+#ifndef BATTERYMANAGER_H
+#define BATTERYMANAGER_H
+
+#include <Arduino.h>
+#include <constants.h>
+
+/**
+ * manages the loading and status of the battery
+ */
+class BatteryManager{
+    private:
+        static BatteryManager *instance;
+
+        BatteryManager();
+        ~BatteryManager();
+
+    public:
+        static BatteryManager* getInstance();
+        void initializePins();
+        int getBatteryStatus();
+};
+#endif
+\end{lstlisting}
+
+\textbf{constants.h:}
+\begin{lstlisting} 
+/**
+ * file with constants, which are needed in the code
+ */
+
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
+
+#include <Arduino.h>
+
+//pins
+const int I2S_BCLK_PIN = 27;
+const int I2S_LRC_PIN = 26;
+const int I2S_DOUT_PIN = 25;
+const int BUTTON_PIN = 12;
+const int LED_RED = 15;
+const int LED_GREEN = 2;
+const int LED_BLUE = 4;
+
+//network
+const IPAddress AP_LOCAL_IP(192,168,0,1);
+const IPAddress AP_GATEWAY_IP(192,168,0,1);
+const IPAddress AP_SUBNET_IP(255,255,255,0);
+//const String AP_SSID = "Microcontroller";
+const int MAX_RECONNECTION_TRIES = 2;
+const unsigned long MAX_CONNECTION_TIME = 5000;
+
+//memory
+const String MEMORY_NAMESPACE = "variables";
+
+const String SSID_KEY = "ssid";
+const String PASSWORD_KEY = "password";
+const String URL_KEY = "wifi";
+const String LOGS_KEY = "logs";
+const String NAME_KEY = "name";
+const String IP_KEY = "ip";
+
+//audio
+const int AUDIO_BUFFERSIZE = 32768;
+const int AUDIO_BITSPERSAMPLE = 16;
+const int AUDIO_SAMPLERATE = 44100;
+const int AUDIO_CHANNELS = 2;
+
+//button
+const int BUTTON_CONFIG_DURATION = 3000; //time for which the button has to be pressed, that config mode is activated
+
+//other constants
+const unsigned long SERIAL_BAUDRATE = 9600;
+const int BUTTON_PRESS_SLEEP_TIME = 2000;
+const unsigned long WLAN_REQUEST_PERIOD = 10000;
+const int AUDIO_VOLUME = 10; //0-21
+const int SERVER_PORT = 8080;
+//const String DEFAULT_NAME = "MSA";
+const String TIME_URL = "http://worldtimeapi.org/api/ip";
+const int DEFAULT_VOLUME = 10;
+#endif
+\end{lstlisting}
+
+\textbf{Logger.cpp:}
+\begin{lstlisting} 
+#include "Logger.h"
+
+std::vector<std::tuple<String,unsigned long>> Logger::logs;
+
+void Logger::add(String log_entry){
+    Serial.println(log_entry); //for debug purposes
+    int time = 0;
+    Logger::logs.push_back(std::make_tuple(log_entry, time));
+}
+
+std::vector<std::tuple<String,unsigned long>> Logger::getLogs(){
+    return logs;
+}
+
+String Logger::getLogsAsJSON(){
+    JsonDocument doc;
+    for(int i = 0; i < logs.size(); i++){
+        doc[i]["log_entry"] = std::get<0>(logs.at(i));
+        doc[i]["time"] = std::get<1>(logs.at(i));
+    }
+    String logs;
+    serializeJson(doc, logs);
+    return logs;
+}
+
+std::tuple<String, unsigned long> Logger::getLastLog(){
+    int log_size = getLogSize();
+    return logs.at(log_size);
+}
+
+unsigned long Logger::getLogSize(){
+    return logs.size();
+}
+
+std::vector<String> Logger::getLogsFromString(String logs_str){
+    //empty
+}
+
+void Logger::setLogs(std::vector<std::tuple<String,unsigned long>> logs){
+    Logger::logs = logs;
+}
+
+void Logger::clearLogs(){
+    Logger::logs.clear();
+}
+\end{lstlisting}
+
+\textbf{Logger.h:}
+\begin{lstlisting} 
+#ifndef LOGGER_H
+#define LOGGER_H
+#include <Arduino.h>
+#include <vector>
+#include <ArduinoJson.h>
+
+class Logger{
+    private:
+        /**
+         * vector, in which the logs are written as a String
+         */
+        static std::vector<std::tuple<String, unsigned long>> logs;
+
+    public:
+        /**
+         * adds a log entry to the logs vector
+         */
+        static void add(String log_entry);
+
+        /**
+         * returns the vector of all logs
+         */
+        static std::vector<std::tuple<String,unsigned long>> getLogs();
+
+        /**
+         * returns the last log of the logs vector
+         */
+        static std::tuple<String, unsigned long> getLastLog();
+
+        /**
+         * returns the size of the logs vecotor, as an unsigned long
+         */
+        static unsigned long getLogSize();
+
+        /**
+         * returns the logs as a serialized json
+         */
+        static String getLogsAsJSON();
+
+        /**
+         * reconverts a string with logs, seperated with commas to a log vector
+         */
+        static std::vector<String> getLogsFromString(String logs_str);
+
+        /**
+         * sets log vector to the given log vector
+         */
+        static void setLogs(std::vector<std::tuple<String,unsigned long>> logs);
+
+        /**
+         * clears the vector
+         */
+        static void clearLogs();
+};
+#endif
+\end{lstlisting}
+
+\textbf{main.cpp:}
+\begin{lstlisting} 
+//including libraries
+#include <Arduino.h>
+#include <constants.h>
+#include "NetworkManager.h"
+#include "StatusLED.h"
+#include "MemoryManager.h"
+#include "Logger.h"
+#include "ServerManager.h"
+#include "AudioManager.h"
+#include "Mode.h"
+
+Mode mode = NORMAL;
+unsigned long actual_time = 0;
+unsigned long last_wlan_request_time = 0;
+int wlan_reconnect_tries = 0;
+unsigned long last_log_size = 0;
+String last_log = "";
+String name;
+
+unsigned long wlan_connection_start = 0;
+int wlan_reconnection_tries = 0;
+
+//for button:
+unsigned long press_start = 0;
+unsigned long press_end = 0;
+bool last_state = 0;
+
+NetworkManager* network;
+StatusLED* statusLED;
+MemoryManager* memory;
+ServerManager* server;
+AudioManager* audio;
+BatteryManager* battery;
+
+void setMode(Mode m);
+void handleButton();
+void activateStandby();
+
+void setup(){
+    //set serial baudrate
+    Serial.begin(SERIAL_BAUDRATE);
+
+    //initialize button pin and attach interrupt to button
+    pinMode(BUTTON_PIN, INPUT_PULLDOWN);
+    esp_sleep_enable_ext0_wakeup(GPIO_NUM_12, 1); //wakes the esp32 up from deep sleep, when gpio 12 (button pin) is HIGH
+
+    //getting instances of singleton classes
+    network = NetworkManager::getInstance();
+    statusLED = StatusLED::getInstance();
+    memory = MemoryManager::getInstance();
+    server = ServerManager::getInstance();
+    battery = BatteryManager::getInstance();
+    audio = AudioManager::getInstance();
+
+    //if logs are already set in the memory, read logs and add them
+    /*if(memory->areLogsSet()){
+        String logs_str = memory->readLogs();
+        std::vector<String> logs = Logger::getLogsFromString(logs_str);
+        Logger::setLogs(logs);
+    }*/
+
+    //turn status led off at the beginning
+    statusLED->setOff();
+
+    //if name is set in memory, read name and use it
+    if(memory->isNameSet()){
+        name = memory->readName();
+    } else {
+        Logger::add("name not set in memory - using default name");
+        String mac = network->getMac();
+        name = "MSA_" + mac.substring(0,1); //setting default name
+    }
+    Logger::add("Name: " + name);
+
+    //if WLAN-credentials are set, read them and try to connect to WLAN
+    if(memory->isWlanSsidSet() && memory->isWlanPasswordSet()){
+        Logger::add("wlan credentials set in memory");
+        String wlan_ssid = memory->readWlanSsid();
+        String wlan_password = memory->readWlanPassword();
+        Logger::add("SSID: " + wlan_ssid);
+        Logger::add("password: " + wlan_password);
+        Logger::add("starting wlan client");
+        network->startClient(wlan_ssid, wlan_password, name);
+        wlan_connection_start = millis();
+        while(!network->isConnectedToWlan() && mode != ERROR){
+            Serial.print(".");
+            delay(100);
+            if((millis() - wlan_connection_start) >= MAX_CONNECTION_TIME){ //if the max connection time for the wifi is exceeded, activate error mode
+                Logger::add("max wlan connection time exceeded");
+                setMode(ERROR);
+            }
+        }
+        if(network->isConnectedToWlan()){ //if connected to wlan, set mode to normal
+            Logger::add("connected to wlan");
+            setMode(NORMAL);
+        }
+    } else { //if wlan credentials are not set, set mode to error
+        Logger::add("wlan credentials not set in memory");
+        setMode(ERROR);
+    }
+}
+
+void loop(){
+    handleButton(); //check if button is pressed
+    actual_time = millis(); //time since start in ms
+    //if theres a new log entry, print it on the serial monitor
+    /*if(Logger::getLogSize() > last_log_size){
+        String last_log = Logger::getLastLog();
+        Logger::add(last_log);
+        last_log_size = Logger::getLogSize();
+    }*/
+    if(mode != ERROR){
+        if(mode == NORMAL){
+        //check if still connected to Wlan
+        if((actual_time - last_wlan_request_time) >= WLAN_REQUEST_PERIOD){
+            Serial.println("free heap: " + String(esp_get_free_heap_size()));
+            if(!network->isConnectedToWlan()){ //if not connected to wlan, try to reconnect
+                if(wlan_reconnection_tries <= MAX_RECONNECTION_TRIES){
+                    network->reconnect();
+                    wlan_reconnect_tries ++;
+                    Logger::add("reconnecting to wlan");
+                } else {
+                    Logger::add("not connected to wlan");
+                    setMode(ERROR);
+                }
+            } else {
+                int rssi = network->getRssi();
+                wlan_reconnect_tries = 0;
+            }
+            last_wlan_request_time = actual_time;
+        }
+        if(!audio->isPaused()){ //if audio routine is running, execute audio loop
+            audio->loop();
+        }
+        } else { //mode is config
+            if(!network->isApStarted()){ //if ap is not running, start ap
+                Logger::add("starting ap");
+                network->startAP(name);
+            }
+        }
+        
+        if(server->isRunning()){ //if server is running, it should handle clients
+            server->handleClient(); 
+        } else {
+            Logger::add("starting web server");
+            server->start();
+            Logger::add("setting mDNS");
+            if(!network->setmDns(name)){
+                Logger::add("mDNS couldn't be set");
+            }
+        }
+    }
+}
+
+/**
+ * method for setting modes
+ * @param m Mode which should be set
+ */
+void setMode(Mode m){
+    if(m == NORMAL){
+        Logger::add("setting mode to normal");
+        mode = NORMAL;
+        statusLED->setGreen();
+    } else if(m == ERROR){
+        Logger::add("setting mode to error");
+        mode = ERROR;
+        statusLED->setRed();
+    } else if(m == CONFIG){
+        Logger::add("setting mode to config");
+        mode = CONFIG;
+        statusLED->setBlue();
+    }
+}
+
+/**
+ * method for checkin if button is pressed
+ */
+void handleButton(){
+    int state = digitalRead(BUTTON_PIN);
+    if(state == 1 && last_state == 0){ //button has been pressed
+        press_start = millis();
+    } else if(state == 0 && last_state == 1){ //button has been released
+        press_end = millis();
+    }
+    if(press_start > 0 && press_end > 0){
+        if((press_end - press_start) >= 3000){ 
+            setMode(CONFIG);
+        } else {
+            activateStandby();
+        }
+        press_start = 0;
+        press_end = 0;
+    }
+    last_state = state;
+}
+
+/**
+ * method for activating standby mode (deep sleep)
+ */
+void activateStandby(){
+    Logger::add("enabling standby");
+    statusLED->setOff();
+    esp_deep_sleep_start();
+}
+\end{lstlisting}
+
+\textbf{main1.txt:}
+\begin{lstlisting} 
+#include <Arduino.h>
+
+void setup(){
+    Serial.begin(9600);
+}
+
+void loop(){
+    int val = analogRead(12);
+    Serial.println(val);
+    delay(500);
+}
+\end{lstlisting}
+
+\textbf{main2.txt:}
+\begin{lstlisting} 
+#include <Arduino.h>
+#include <WiFi.h>
+#include <ESPmDNS.h>
+
+void setup(){
+    Serial.begin(9600);
+    WiFi.begin("AP-II", "MmrL48!?48y");
+    while(WiFi.status() != WL_CONNECTED){
+        Serial.print(".");
+    }
+    Serial.println("connected!");
+    MDNS.begin("esp32");
+    String ip = WiFi.localIP().toString();
+    Serial.println(ip);
+}
+
+void loop(){
+
+}
+\end{lstlisting}
+
+\textbf{main3.txt:}
+\begin{lstlisting} 
+//including libraries
+#include <Arduino.h>
+#include <constants.h>
+#include "NetworkManager.h"
+#include "StatusLED.h"
+#include "MemoryManager.h"
+#include "Logger.h"
+#include "ServerManager.h"
+#include "AudioManager.h"
+#include "Mode.h"
+
+Mode mode = NORMAL;
+unsigned long actual_time = 0;
+unsigned long last_wlan_request_time = 0;
+unsigned long last_log_size = 0;
+String last_log = "";
+String name;
+int network_reconnect_tries = 0;
+
+NetworkManager* network;
+StatusLED* statusLED;
+MemoryManager* memory;
+ServerManager* server;
+AudioManager* audio;
+BatteryManager* battery;
+
+//void IRAM_ATTR handle_buttonPress();
+
+void setMode(Mode m);
+
+void setup(){
+    //set serial baudrate
+    Serial.begin(SERIAL_BAUDRATE);
+
+    //initialize button pin and attach interrupt to button
+    pinMode(BUTTON_PIN, INPUT_PULLDOWN);
+    //attachInterrupt(BUTTON_PIN, handle_buttonPress, RISING);
+
+    //getting instances of singleton classes
+    network = NetworkManager::getInstance();
+    statusLED = StatusLED::getInstance();
+    memory = MemoryManager::getInstance();
+    server = ServerManager::getInstance();
+    audio = AudioManager::getInstance();
+    battery = BatteryManager::getInstance();
+
+    //initializing pins of status led
+    statusLED->initializePins();
+    battery->initializePins();
+
+    //initialize i2s
+    audio->initialize(DEFAULT_VOLUME);
+
+    //if logs are already set in the memory, read logs and add them
+    /*if(memory->areLogsSet()){
+        String logs_str = memory->readLogs();
+        std::vector<String> logs = Logger::getLogsFromString(logs_str);
+        Logger::setLogs(logs);
+    }*/
+
+    //turn status led off at the beginning
+    statusLED->setOff();
+
+    //if name is set in memory, read name and use it
+    if(memory->isNameSet()){
+        name = memory->readName();
+    } else {
+        Logger::add("name not set in memory - using default name", actual_time);
+        String mac = network->getMac();
+        name = "MSA_" + mac; //setting default name
+    }
+    Logger::add(name, actual_time);
+
+    //if WLAN-credentials are set, read them and try to connect to WLAN
+    if(memory->isWlanSsidSet() && memory->isWlanPasswordSet()){
+        Logger::add("wlan credentials set in memory", actual_time);
+        String wlan_ssid = memory->readWlanSsid();
+        String wlan_password = memory->readWlanPassword();
+        Logger::add("wlan credentials:", actual_time);
+        Logger::add(wlan_ssid, actual_time);
+        Logger::add(wlan_password, actual_time);
+        Logger::add("starting wlan client", actual_time);
+        network->startClient(wlan_ssid, wlan_password);
+        setMode(NORMAL);
+    } else { //when Wlan credentials are not set, status led is set to red
+        Logger::add("wlan credentials not set in memory", actual_time);
+        setMode(ERROR);
+    }
+}
+
+void loop(){
+    actual_time = millis();
+    //if button is pressed and config mode is not already active, activate config mode
+    if((digitalRead(BUTTON_PIN) == 1) && (mode != CONFIG)){
+        setMode(CONFIG);
+    }
+
+    //if theres a new log entry, print it on the serial monitor
+    /*if(Logger::getLogSize() > last_log_size){
+        String last_log = Logger::getLastLog();
+        Logger::add(last_log);
+        last_log_size = Logger::getLogSize();
+    }*/
+
+    //if error mode or config mode is active
+    if(mode == NORMAL){
+        //check if still connected to Wlan
+        if((actual_time - last_wlan_request_time) >= WLAN_REQUEST_PERIOD){
+            if(!network->isConnectedToWlan()){ //if connected to Wlan, set color of status led to green
+                Logger::add("not connected to wlan", actual_time);
+                setMode(ERROR);
+            } else if(!server->isRunning()){
+                Logger::add("starting web server", actual_time);
+            server->start();
+            network->setmDns(name);
+            }
+        }
+         if(audio->isStreaming()){
+            audio->loop();
+        }
+    } else if(mode == CONFIG){
+        if(!network->isApStarted()){
+            Logger::add("starting ap", actual_time);
+            network->startAP(name);
+        } else if(!server->isRunning()){
+            Logger::add("starting web server", actual_time);
+            server->start();
+            network->setmDns(name);
+        }
+    }
+    //if webserver is running
+    if(server->isRunning()){
+        server->handleClient(); //handle client
+        //if Wlan credentials are received, read Wlan credentials and restart microcontroller
+        if(server->wlanCredentialsReceived()){
+            Logger::add("wlan credentials received from client", actual_time);
+            String received_ssid = server->getReceivedSsid(); //read received ssid
+            String received_password = server->getReceivedPassword(); //read received password
+            Logger::add(received_ssid, actual_time);
+            Logger::add(received_password, actual_time);
+            Logger::add("writing wlan credentials to memory", actual_time);
+            //String all_logs = Logger::getLogsAsString();
+            memory->writeWlanSsid(received_ssid); //write ssid to memory
+            memory->writeWlanPassword(received_password); //write password to memory
+            //memory->writeLogs(all_logs);
+            Logger::add("restarting esp32", actual_time);
+            ESP.restart(); //restart microcontroller
+        }
+        //if server has received a stream-url, the audio class should start streaming
+        if(server->urlReceived()){
+            String url = server->getReceivedUrl();
+            Logger::add("starting audio stream", actual_time);
+            Logger::add(url, actual_time);
+            audio->startStream(url);
+        }
+        if(server->nameReceived()){
+            String received_name = server->getReceivedName();
+            Logger::add("name received", actual_time);
+            Logger::add(received_name, actual_time);
+            network->setmDns(received_name);
+            memory->writeName(received_name);
+        }
+        if(server->volumeReceived()){
+            int received_volume = server->getReceivedVolume();
+            Logger::add("volume received", actual_time);
+            Logger::add(String(received_volume), actual_time);
+            audio->setVolume(received_volume);
+        }
+    }   
+}
+
+void setMode(Mode m){
+    if(m == NORMAL){
+        Logger::add("setting mode to normal", actual_time);
+        mode = NORMAL;
+        statusLED->setGreen();
+    } else if(m == ERROR){
+        Logger::add("setting mode to error", actual_time);
+        mode = ERROR;
+        statusLED->setRed();
+    } else if(m == CONFIG){
+        Logger::add("setting mode to config", actual_time);
+        mode = CONFIG;
+        statusLED->setBlue();
+    }
+}
+
+/*void IRAM_ATTR handle_buttonPress() {
+    config_mode = true;
+}*/
+
+/**
+ * starts config mode
+ */
+\end{lstlisting}
+
+\textbf{main5.txt:}
+\begin{lstlisting} 
+#include <Arduino.h>
+#include <WiFi.h>
+
+void setup(){
+    Serial.begin(9600);   
+    String ssid = "AP-II"; 
+    int n = WiFi.scanNetworks();
+    for(int i = 0; i < n; i++){
+        if(WiFi.SSID(i) == ssid){
+            String bssid = WiFi.BSSIDstr(i);
+            Serial.println(bssid);
+            WiFi.disconnect();
+            WiFi.mode(WIFI_STA);
+            WiFi.begin(ssid, "MmrL48!?48y", 0, WiFi.BSSID(i));
+            break;
+        }
+    }
+    while(WiFi.status()!= WL_CONNECTED){
+        Serial.print(".");
+        delay(100);
+    }
+    Serial.println("connected!");
+}
+
+void loop(){
+    int rssi = WiFi.RSSI();
+    Serial.println(String(rssi));
+}
+\end{lstlisting}
+
+\textbf{MemoryManager.cpp:}
+\begin{lstlisting} 
+#include "MemoryManager.h"
+
+MemoryManager* MemoryManager::instance = nullptr;
+
+MemoryManager::MemoryManager(){}
+MemoryManager::~MemoryManager(){}
+
+MemoryManager* MemoryManager::getInstance(){
+    if (!instance) {
+        instance = new MemoryManager();
+    }
+    return instance;
+}
+
+bool MemoryManager::isWlanSsidSet(){
+    preferences.begin(MEMORY_NAMESPACE.c_str());
+    return preferences.isKey(SSID_KEY.c_str());
+    preferences.end();
+}
+
+bool MemoryManager::isWlanPasswordSet(){
+    preferences.begin(MEMORY_NAMESPACE.c_str());
+    return preferences.isKey(PASSWORD_KEY.c_str());
+    preferences.end();
+}
+
+bool MemoryManager::isStreamUrlSet(){
+    preferences.begin(MEMORY_NAMESPACE.c_str());
+    return preferences.isKey(URL_KEY.c_str());
+    preferences.end();
+}
+
+bool MemoryManager::isNameSet(){
+    preferences.begin(MEMORY_NAMESPACE.c_str());
+    return preferences.isKey(NAME_KEY.c_str());
+    preferences.end();
+}
+
+bool MemoryManager::areLogsSet(){
+    preferences.begin(MEMORY_NAMESPACE.c_str());
+    return preferences.isKey(LOGS_KEY.c_str());
+    preferences.end();
+}
+
+String MemoryManager::readWlanSsid(){
+    Logger::add("reading wlan ssid from memory");
+    preferences.begin(MEMORY_NAMESPACE.c_str());
+    String ssid = preferences.getString(SSID_KEY.c_str());
+    preferences.end();
+    return ssid;
+}
+
+String MemoryManager::readWlanPassword(){
+    Logger::add("reading wlan password from memory");
+    preferences.begin(MEMORY_NAMESPACE.c_str());
+    String ssid = preferences.getString(PASSWORD_KEY.c_str());
+    preferences.end();
+    return ssid;
+}
+
+
+String MemoryManager::readStreamUrl(){
+    Logger::add("reading stream url from memory");
+    preferences.begin(MEMORY_NAMESPACE.c_str());
+    String url = preferences.getString(URL_KEY.c_str());
+    preferences.end();
+    return url;
+}
+
+String MemoryManager::readLogs(){
+    Logger::add("reading logs from memory");
+    preferences.begin(MEMORY_NAMESPACE.c_str());
+    String logs = preferences.getString(LOGS_KEY.c_str());
+    preferences.end();
+    return logs;
+}
+
+String MemoryManager::readName(){
+    //Logger::add("reading name from memory");
+    preferences.begin(MEMORY_NAMESPACE.c_str());
+    String name = preferences.getString(NAME_KEY.c_str());
+    preferences.end();
+    return name;
+}
+
+String MemoryManager::readIp(){
+    Logger::add("reading ip from memory");
+    preferences.begin(MEMORY_NAMESPACE.c_str());
+    String ip = preferences.getString(IP_KEY.c_str());
+    preferences.end();
+    return ip;
+}
+
+void MemoryManager::writeWlanSsid(String ssid){
+    Logger::add("writing wlan ssid in memory");
+    preferences.begin(MEMORY_NAMESPACE.c_str());
+    preferences.putString(SSID_KEY.c_str(), ssid);
+    preferences.end();
+}
+
+void MemoryManager::writeWlanPassword(String password){
+    Logger::add("writing wlan password in memory");
+    preferences.begin(MEMORY_NAMESPACE.c_str());
+    preferences.putString(PASSWORD_KEY.c_str(), password);
+    preferences.end();
+}
+
+void MemoryManager::writeStreamUrl(String url){
+    Logger::add("writing stream url in memory");
+    preferences.begin(MEMORY_NAMESPACE.c_str());
+    preferences.putString(URL_KEY.c_str(), url);
+    preferences.end();
+}
+
+void MemoryManager::writeLogs(String logs){
+    Logger::add("writing logs in memory");
+    preferences.begin(MEMORY_NAMESPACE.c_str());
+    preferences.putString(LOGS_KEY.c_str(), logs);
+    preferences.end();
+}
+
+void MemoryManager::writeName(String name){
+    Logger::add("writing name in memory");
+    preferences.begin(MEMORY_NAMESPACE.c_str());
+    preferences.putString(NAME_KEY.c_str(), name);
+    preferences.end();
+}
+
+void MemoryManager::writeIp(String ip){
+    Logger::add("writing ip in memory");
+    preferences.begin(MEMORY_NAMESPACE.c_str());
+    preferences.putString(IP_KEY.c_str(), ip);
+    preferences.end();
+}
+
+void MemoryManager::clear(){
+    preferences.begin(MEMORY_NAMESPACE.c_str());
+    preferences.clear();
+    preferences.end();
+}
+\end{lstlisting}
+
+\textbf{MemoryManager.h:}
+\begin{lstlisting} 
+#ifndef MEMORYMANAGER_H
+#define MEMORYMANAGER_H
+
+#include <Arduino.h>
+#include <Preferences.h>
+#include <constants.h>
+#include "Logger.h"
+
+class MemoryManager{
+    private:
+        static MemoryManager* instance;
+        MemoryManager();
+        ~MemoryManager();
+        MemoryManager(const MemoryManager&) = delete;
+        MemoryManager& operator = (const MemoryManager&) = delete;
+        Preferences preferences;
+
+    public:
+        static MemoryManager* getInstance();
+
+        /**
+         * returns, if the wlan ssid is set to the memory
+         * 
+         * @return if WLAN-SSID is set to the memory
+         */
+        bool isWlanSsidSet();
+
+        /**
+         * returns, if the wlan password is set to the memory
+         * 
+         * @return if WLAN-Password is set to the memory
+         */
+        bool isWlanPasswordSet();
+
+        /**
+         * returns, if the stream url is set to the memory
+         * 
+         * @return if Stream-URL is set to the memory
+         */
+        bool isStreamUrlSet();
+
+        /**
+         * returns, if the name is set to the memory
+         * 
+         * @return if name of the microcontroller is set to the memory
+         */
+        bool isNameSet();
+
+        /**
+         * returns, if the last logs are set to the memory
+         * 
+         * @return if Last logs are set to the memory
+         */
+        bool areLogsSet();
+
+        /**
+         * returns, if the ip-address is set to the memory
+         * 
+         * @return if ip address is set to the memory
+         */
+        bool isIpSet();
+
+        /**
+         * reads the wlan ssid from the memory
+         * @return WLAN-SSID, as a String
+         */
+        String readWlanSsid();
+
+        /**
+         * reads the wlan password from the memory
+         * @return WLAN-Password, as a String
+         */
+        String readWlanPassword();
+
+        /**
+         * reads the last stream url from the memory
+         * @return last Stream-URL, as a String
+         */
+        String readStreamUrl();
+
+        /**
+         * reads the last logs from the memory
+         * @return last Logs, as a String
+         */
+        String readLogs();
+
+        /**
+         * reads the name from the memory
+         * 
+         * @return name of the microcontroller, as a String
+         */
+        String readName();
+
+        /**
+         * reads the ip address from the memory
+         * 
+         * @return ip address of the microcontroller, as a String
+         */
+        String readIp();
+
+        /**
+         * writes the given ssid to the memory
+         * 
+         * @param ssid WLAN-SSID which should be written to the memory
+         */
+        void writeWlanSsid(String ssid);
+
+        /**
+         * writes the given password to the memory
+         * 
+         * @param password WLAN-Password which should be written to the memory
+         */
+        void writeWlanPassword(String password);
+
+        /**
+         * writes the given url to the memory
+         * 
+         * @param url Stream-URL which should be written to the memory
+         */
+        void writeStreamUrl(String url);
+
+        /**
+         * writes the given logs to the memory
+         * 
+         * @param logs Logs which should be written to the memory
+         */
+        void writeLogs(String logs);
+
+        /**
+         * writes the given name to the memory
+         * 
+         * @param name Name of the microcontroller, as a String
+         */
+        void writeName(String name);
+
+        /**
+         * writes the given ip address to the memory
+         * 
+         * @param ip IP Address of the microcontroller, as a String
+         */
+        void writeIp(String ip);
+
+        /**
+         * clears the memory
+         */
+        void clear();
+};
+#endif
+\end{lstlisting}
+
+\textbf{Mode.h:}
+\begin{lstlisting} 
+enum Mode{
+    NORMAL,
+    ERROR,
+    CONFIG
+};
+\end{lstlisting}
+
+\textbf{NetworkManager.cpp:}
+\begin{lstlisting} 
+//including header file
+#include "NetworkManager.h"
+
+NetworkManager* NetworkManager::instance = nullptr;
+
+
+/**
+ * constructor
+ * declares the needed variables
+ */
+NetworkManager::NetworkManager(){
+    ap_started = false;
+    //Log::add("network manager class created");
+}
+
+NetworkManager* NetworkManager::getInstance(){
+    if(instance == nullptr){
+        instance = new NetworkManager();
+    }
+    return instance;
+}
+
+/**
+ * returns the mac address of the esp32
+ */
+String NetworkManager::getMac(){
+    return WiFi.macAddress();
+}
+
+/**
+ * scans for available networks and returns the ssid and rssi (strength) of the found networks as a json
+ */
+String NetworkManager::getAvailableNetworks(){
+    JsonDocument networks;
+    if(WiFi.getMode() == WIFI_AP){
+        int available_networks = WiFi.scanNetworks(false);
+        for(int i = 0; i < available_networks; i++){
+            networks[i]["ssid"] = WiFi.SSID(i);
+            networks[i]["rssi"] = WiFi.RSSI(i);
+        }
+    }
+    String result;
+    serializeJson(networks, result);
+    return result;
+}
+
+/**
+ * starts an access point
+ */
+bool NetworkManager::startAP(String ssid){
+    //Log::add("starting ap");
+    if(WiFi.getMode() != WIFI_AP){
+        WiFi.mode(WIFI_AP);
+    }
+    ap_started = true;
+    return WiFi.softAPConfig(AP_LOCAL_IP, AP_GATEWAY_IP, AP_SUBNET_IP) && WiFi.softAP(ssid);
+}
+
+/**
+ * starts esp32 wlan client which connects to the access point with the given credentials
+ */
+bool NetworkManager::startClient(String ssid, String password, String hostname){
+    if(WiFi.getMode() == WIFI_AP){ //if wifi is in ap mode, ap mode will be disabled and station mode will be enabled
+        WiFi.softAPdisconnect();
+        WiFi.mode(WIFI_STA);
+    }
+    WiFi.disconnect();
+    int n = WiFi.scanNetworks();
+    for(int i = 0; i < n; i++){
+        if(WiFi.SSID(i) == ssid){
+            String bssid = WiFi.BSSIDstr(i);
+            Logger::add("ap mac: " + bssid);
+            WiFi.setHostname(hostname.c_str());
+            WiFi.begin(WiFi.SSID(i), password, 0, WiFi.BSSID(i));
+            return true;
+        }
+    }
+    return false;
+}
+
+void NetworkManager::reconnect(){
+    WiFi.reconnect();
+}
+
+bool NetworkManager::isApModeActive(){
+    return WiFi.getMode() == WIFI_AP;
+}
+
+bool NetworkManager::isConnectedToWlan(){
+    if(!isApModeActive()){
+        return WiFi.status() == WL_CONNECTED;
+    }
+    return false;
+}
+
+bool NetworkManager::setmDns(String name){
+    return MDNS.begin(name) && MDNS.addService("http", "tcp", 80);
+}
+
+bool NetworkManager::isApStarted(){
+    return ap_started;
+}
+
+String NetworkManager::getUtcTime(){
+    struct tm timeinfo;
+    configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
+    getLocalTime(&timeinfo);
+    return "example";
+}
+
+int NetworkManager::getRssi(){
+    if(this->isConnectedToWlan()){
+        return WiFi.RSSI();
+    }
+    return 0;
+}
+\end{lstlisting}
+
+\textbf{NetworkManager.h:}
+\begin{lstlisting} 
+#ifndef NETWORKMANAGER_H
+#define NETWORKMANAGER_H
+
+//including needed libraries
+#include <Arduino.h>
+#include <WiFi.h>
+#include <constants.h>
+#include <ArduinoJson.h>
+#include "MemoryManager.h"
+#include "Logger.h"
+#include <ESPmDNS.h>
+#include <HTTPClient.h>
+#include "time.h"
+
+//using namespace std for String an vectors
+using namespace std;
+
+/**
+ * responsible for network tasks, like:
+ * providing an access point
+ * acting as a WiFi client
+ */
+class NetworkManager{
+    private:
+        static NetworkManager* instance;
+        NetworkManager();
+        ~NetworkManager();
+        NetworkManager(const NetworkManager*) = delete;
+        NetworkManager& operator = (const NetworkManager&) = delete;
+        bool ap_started;
+        HTTPClient http;
+        const char* ntpServer = "pool.ntp.org";
+        const long gmtOffset_sec = 0;
+        const int daylightOffset_sec = 3600;
+
+    public:
+        static NetworkManager* getInstance();
+
+        /**
+         * starts the access point
+         * 
+         * @param ssid SSID of the access point, as a String
+         * @return starting process successful, as a boolean
+         */
+        bool startAP(String ssid);
+
+        /**
+         * starts a wifi client
+         * 
+         * @param ssid WLAN-SSID, as a String
+         * @param password WLAN-Password, as a String
+         * @return connection successful, as a bool
+         */
+        bool startClient(String ssid, String password, String hostname);
+
+        /**
+         * reconnects to the ap
+         */
+        void reconnect();
+
+        /**
+         * returns the MAC-Address of the ESP32, as a String
+         * 
+         * @return Mac-Address of the ESP32, as a String
+         */
+        String getMac();
+
+        /**
+         * scans for available networks and returns the ssid and rssi (strength)
+         * of the found networks as a JSON converted to a String
+         * 
+         * @return all available networks, as a serialized json
+         */
+        String getAvailableNetworks();
+
+        /**
+         * returns if wifi module is in access point mode
+         * 
+         * @return Acces Point Mode active, as a bool
+         */
+        bool isApModeActive();
+
+        /**
+         * returns if wifi client is connected to WLAN
+         * 
+         * @return connected to WLAN, as a bool
+         */
+        bool isConnectedToWlan();
+
+        /**
+         * sets mDNS
+         * 
+         * @param name Name of the domain
+         */
+        bool setmDns(String name);
+
+        /**
+         * returns if ap is started
+         * 
+         * @return ap started, as a bool
+         */
+        bool isApStarted();
+
+        /**
+         * returns the current utc time, requested from a time server, as a String
+         * 
+         * @return utc time, as a string
+         */
+        String getUtcTime();
+
+        /**
+         * returns the RSSI of the network currently connected
+         */
+        int getRssi();
+};
+#endif
+\end{lstlisting}
+
+\textbf{ServerManager.cpp:}
+\begin{lstlisting} 
+#include "ServerManager.h"
+
+ServerManager* ServerManager::instance = nullptr;
+
+ServerManager::ServerManager(){
+    network = NetworkManager::getInstance();
+    battery = BatteryManager::getInstance();
+    audio = AudioManager::getInstance();
+    memory = MemoryManager::getInstance();
+    running = false;
+}
+
+ServerManager::~ServerManager(){}
+
+ServerManager* ServerManager::getInstance(){
+    if (!instance) {
+        instance = new ServerManager();
+    }
+    return instance;
+}
+
+String ServerManager::getInfo(){
+    String name = memory->readName();
+    String mac = network->getMac();
+    int volume = audio->getVolume();
+    int battery_status = battery->getBatteryStatus();
+    String station_url = audio->getStreamUrl();
+    JsonDocument doc;
+    doc["name"] = name;
+    doc["mac"] = mac;
+    doc["volume"] = volume;
+    doc["battery"] = battery_status;
+    doc["stationUrl"] = station_url;
+    String info;
+    serializeJson(doc, info);
+    return info;
+}
+
+void ServerManager::handle_get(){
+    Logger::add("get request on route / received");
+    server.send(200, "text/plain", "get request received");
+}
+
+void ServerManager::handle_getInfo(){
+    //Logger::add("get request on route /getInfo received");
+    String adapterInfo = getInfo();
+    server.send(200, "application/json", adapterInfo);
+}
+
+void ServerManager::handle_getAvailableNetworks(){
+    Logger::add("get request on route /getAvailableNetworks received");
+    String availableNetworks = network->getAvailableNetworks();
+    server.send(200, "application/json", availableNetworks);
+}
+
+void ServerManager::handle_getLogs(){
+    Logger::add("get request on route /getLogs received");
+    String logs = Logger::getLogsAsJSON();
+    server.send(200, "application/json", logs);
+}
+
+void ServerManager::handle_setWifiCredentials(){
+    Logger::add("post request on route /setWifiCredentials received");
+    if(server.hasArg("ssid") && server.hasArg("password")){
+        String ssid = server.arg("ssid");
+        String password = server.arg("password");
+        Logger::add("writing ssid: " + ssid + " to memory");
+        memory->writeWlanSsid(ssid);
+        Logger::add("writing password: " + password + " to memory");
+        memory->writeWlanPassword(password);
+        server.send(201);
+        Logger::add("restarting esp");
+        ESP.restart();
+    } else {
+        server.send(400);
+    }
+}
+
+void ServerManager::handle_setStreamUrl(){
+    Logger::add("put request on route /setStreamUrl received");
+    if(server.hasArg("url")){
+        String url = server.arg("url");
+        audio->setStreamUrl(url);
+        audio->startStream();
+        server.send(200);
+    } else {
+        server.send(400);
+    }
+}
+
+void ServerManager::handle_setName(){
+    Logger::add("put request on route /setName received");
+    if(server.hasArg("name")){
+        String name = server.arg("name");
+        Logger::add("setting new name: " + name + " to memory");
+        memory->writeName(name);
+        server.send(200);
+        Logger::add("restarting esp");
+        ESP.restart();
+    } else {
+        server.send(400);
+    }
+}
+
+void ServerManager::handle_setVolume(){
+    Logger::add("put request on route /setVolume received");
+    if(server.hasArg("volume")){
+        int volume = server.arg("volume").toInt();
+        audio->setVolume(volume);
+        server.send(200);
+    } else {
+        server.send(400);
+    }
+}
+
+void ServerManager::handle_pauseStream(){
+    Logger::add("put request on route /pauseStream received");
+    audio->stopStream();
+    server.send(200);
+}
+
+void ServerManager::handle_continueStream(){
+    Logger::add("put request on route /continueStream received");
+    audio->startStream();
+    server.send(200);
+}
+
+void ServerManager::handle_notFound(){
+    server.send(404, "not found!");
+}
+
+bool ServerManager::start(){
+    server.begin(SERVER_PORT);
+    server.on("/", HTTP_GET, bind(&ServerManager::handle_get, this));
+    server.on("/getAvailableNetworks", HTTP_GET, bind(&ServerManager::handle_getAvailableNetworks, this));
+    server.on("/getLogs", HTTP_GET, bind(&ServerManager::handle_getLogs, this));
+    server.on("/getInfo", HTTP_GET, bind(&ServerManager::handle_getInfo, this));
+    server.on("/setName", HTTP_PUT, bind(&ServerManager::handle_setName, this));
+    server.on("/setStreamUrl", HTTP_PUT, bind(&ServerManager::handle_setStreamUrl, this));
+    server.on("/setVolume", HTTP_PUT, bind(&ServerManager::handle_setVolume, this));
+    server.on("/setWifiCredentials", HTTP_POST, bind(&ServerManager::handle_setWifiCredentials, this));
+    server.on("/pauseStream", HTTP_POST, bind(&ServerManager::handle_pauseStream, this));
+    server.on("/continueStream", HTTP_POST, bind(&ServerManager::handle_continueStream, this));
+    server.onNotFound(bind(&ServerManager::handle_notFound, this));
+    running = true;
+    return true;
+}
+
+bool ServerManager::stop(){
+    server.stop();
+    running = false;
+    return true;
+}
+
+void ServerManager::handleClient(){
+    server.handleClient();
+}
+
+bool ServerManager::isRunning(){
+    return running;
+}
+\end{lstlisting}
+
+\textbf{ServerManager.h:}
+\begin{lstlisting} 
+#ifndef ServerManager_H
+#define ServerManager_H
+
+#include <Arduino.h>
+#include <WebServer.h>
+#include "constants.h"
+#include "NetworkManager.h"
+#include "BatteryManager.h"
+#include <ArduinoJson.h>
+#include "AudioManager.h"
+#include "MemoryManager.h"
+
+class ServerManager{
+    private:
+        static ServerManager* instance;
+        ServerManager();
+        ~ServerManager();
+        ServerManager(const ServerManager*) = delete;
+        ServerManager& operator = (const ServerManager&) = delete;
+        WebServer server;
+        NetworkManager* network;
+        BatteryManager* battery;
+        AudioManager* audio;
+        MemoryManager* memory;
+        bool running;
+
+        /**
+         * creates a json, filed with info about the adapter
+         * 
+         * @return info info about the adapter as a serialized json
+         */
+        String getInfo();
+
+        /**
+         * handles a get request to the standard / route
+         */
+        void handle_get();  
+
+         /**
+         * handles a put request to the /getInfo route
+         */
+        void handle_getInfo();
+
+        /**
+         * handles a get request to the /getAvailableNetworks route
+         */
+        void handle_getAvailableNetworks();
+
+        /**
+         * handles a get request to the /getLogs route
+         */
+        void handle_getLogs();
+
+        /**
+         * handles a post request to the /setWifiCredentials route
+         */
+        void handle_setWifiCredentials();
+
+        /**
+         * handles a post request to the /setStreamUrl route
+         */
+        void handle_setStreamUrl();
+
+        /**
+         * handles a post request to the /setName route
+         */
+        void handle_setName();
+
+        /**
+         * handles a post request to the /setVolume route
+         */
+        void handle_setVolume();
+
+        /**
+         * handles a post request to the /pauseStream route
+         */
+        void handle_pauseStream();
+
+        /**
+         * handles a post request to the /continueStream route
+         */
+        void handle_continueStream();
+
+        /**
+         * handles a request to a undefined route
+         */
+        void handle_notFound();
+    public:
+        static ServerManager* getInstance();
+
+        /**
+         * starts the webserver
+         * @return if the start process was successful
+         */
+        bool start();
+
+        /**
+         * stops the webserver
+         * @return if the stop process was successful
+         */
+        bool stop();
+
+        /**
+         * handles the clients
+         */
+        void handleClient();
+
+        /**
+         * returns if the wifi credentials are received from the client
+         * @return if webserver received WiFi-credentials from client
+         */
+        bool wlanCredentialsReceived();
+
+        /**
+         * handles if the stream url is received from the client
+         * @return if webserver received Stream-URL from client
+         */
+        bool urlReceived();
+
+        /**
+         * handles if the name is received from the client
+         * @return if webserver received name of microcontroller from client
+         */
+        bool nameReceived();
+
+        /**
+         * handles if the volume is received from the client
+         * @return if webserver received volume for audio output from client
+         */
+        bool volumeReceived();
+
+        /**
+         * returns the ssid, which was received from the client
+         * @return WLAN-SSID, which the webserver received from the client, as a String
+         */
+        String getReceivedSsid();
+
+        /**
+         * returns the password, which was received from the client
+         * @return WLAN-Password, which the webserver received from the client, as a String
+         */
+        String getReceivedPassword();
+
+        /**
+         * returns the url, which was received from the client
+         * @return Stream-URL, which the webserver received from the client, as a String
+         */
+        String getReceivedUrl();
+
+         /**
+         * returns the name, which was received from the client
+         * @return name of the microcontroller, which the webserver received from the client, as a String
+         */
+        String getReceivedName();
+
+        /**
+         * returns the volume, which was received from the client
+         * @return value of the volume which the webserver received from the client, as a int
+         */
+        int getReceivedVolume();
+
+
+        /**
+         * returns if the webserver is running
+         * @return if webserver is running
+         */
+        bool isRunning();
+};
+#endif
+\end{lstlisting}
+
+\textbf{StatusLED.cpp:}
+\begin{lstlisting} 
+#include "StatusLED.h"
+
+StatusLED* StatusLED::instance = nullptr;
+
+StatusLED::StatusLED(){
+    //initializing led pins
+    pinMode(LED_RED, OUTPUT);
+    pinMode(LED_GREEN, OUTPUT);
+    pinMode(LED_BLUE, OUTPUT);
+}
+
+StatusLED::~StatusLED(){
+    //empty
+}
+
+StatusLED* StatusLED::getInstance(){
+    if(instance == nullptr){
+        instance = new StatusLED();
+    }
+    return instance;
+}
+
+/**
+ * sets the color of the led to red
+ */
+void StatusLED::setRed(){
+    digitalWrite(LED_RED, HIGH);
+    digitalWrite(LED_GREEN, LOW);
+    digitalWrite(LED_BLUE, LOW);
+}
+
+/**
+ * sets the color of the led to green
+ */
+void StatusLED::setGreen(){
+    digitalWrite(LED_RED, LOW);
+    digitalWrite(LED_GREEN, HIGH);
+    digitalWrite(LED_BLUE, LOW);
+}
+
+/**
+ * sets the color of the led to blue
+ */
+void StatusLED::setBlue(){
+    digitalWrite(LED_RED, LOW);
+    digitalWrite(LED_GREEN, LOW);
+    digitalWrite(LED_BLUE, HIGH);
+}
+
+/**
+ * sets the led off (no light)
+ */
+void StatusLED::setOff(){
+    digitalWrite(LED_RED, LOW);
+    digitalWrite(LED_GREEN, LOW);
+    digitalWrite(LED_BLUE, LOW);
+}
+\end{lstlisting}
+
+\textbf{StatusLED.h:}
+\begin{lstlisting} 
+#ifndef STATUSLED_H
+#define STATUSLED_H
+
+#include <Arduino.h>
+#include <constants.h>
+
+/**
+ * manages the state of the connected RGB led
+ */
+class StatusLED{
+    private:
+        static StatusLED *instance;
+
+        StatusLED();
+        ~StatusLED();
+
+    public:
+        static StatusLED* getInstance();
+
+        /**
+         * sets the color of the led to red
+         */
+        void setRed();
+
+        /**
+         * sets the color of the led to green
+         */
+        void setGreen();
+
+        /**
+         * sets the color of the led to blue
+         */
+        void setBlue();
+
+        /**
+         * sets the led off (no light)
+         */
+        void setOff();
+};
+#endif
+\end{lstlisting}
+

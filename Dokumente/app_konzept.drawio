@@ -1,0 +1,55 @@
+<mxfile host="Electron" modified="2025-01-29T20:06:53.440Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="K7Q7tpjhkWNtAEMiyBkX" version="22.0.3" type="device">
+  <diagram name="Seite-1" id="h93vkBnYVpROoobqjMyH">
+    <mxGraphModel dx="1407" dy="570" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="dohwVCKUsx_c7tLCm-D--15" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="dohwVCKUsx_c7tLCm-D--11" target="dohwVCKUsx_c7tLCm-D--12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dohwVCKUsx_c7tLCm-D--19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" edge="1" parent="1" source="dohwVCKUsx_c7tLCm-D--11" target="dohwVCKUsx_c7tLCm-D--10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dohwVCKUsx_c7tLCm-D--11" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.phone2;strokeColor=#c0c0c0;" vertex="1" parent="1">
+          <mxGeometry x="385" y="730" width="70" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="dohwVCKUsx_c7tLCm-D--13" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="512.5" y="714.54" width="65" height="90.92999999999995" as="geometry" />
+        </mxCell>
+        <mxCell id="dohwVCKUsx_c7tLCm-D--8" value="MSA_" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="dohwVCKUsx_c7tLCm-D--13">
+          <mxGeometry x="2.5" y="60.92999999999995" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="dohwVCKUsx_c7tLCm-D--10" value="" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.hardware_board;fillColor=#5294CF;gradientColor=none;" vertex="1" parent="dohwVCKUsx_c7tLCm-D--13">
+          <mxGeometry width="65" height="60.93" as="geometry" />
+        </mxCell>
+        <mxCell id="dohwVCKUsx_c7tLCm-D--14" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="350" y="565" width="140" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="dohwVCKUsx_c7tLCm-D--1" value="" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="dohwVCKUsx_c7tLCm-D--14">
+          <mxGeometry width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="dohwVCKUsx_c7tLCm-D--4" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/azure_stack/User_Subscriptions.svg;" vertex="1" parent="dohwVCKUsx_c7tLCm-D--14">
+          <mxGeometry x="70" y="21.25" width="38.64" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="dohwVCKUsx_c7tLCm-D--5" value="" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/database.svg;" vertex="1" parent="dohwVCKUsx_c7tLCm-D--14">
+          <mxGeometry x="30" y="26.5" width="36.49" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="dohwVCKUsx_c7tLCm-D--12" value="Firebase" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="dohwVCKUsx_c7tLCm-D--14">
+          <mxGeometry x="40" y="80" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="dohwVCKUsx_c7tLCm-D--16" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="510" y="800.0000000000001" width="65" height="90.92999999999995" as="geometry" />
+        </mxCell>
+        <mxCell id="dohwVCKUsx_c7tLCm-D--18" value="" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.hardware_board;fillColor=#5294CF;gradientColor=none;" vertex="1" parent="dohwVCKUsx_c7tLCm-D--16">
+          <mxGeometry x="2.5" y="14.54" width="65" height="60.93" as="geometry" />
+        </mxCell>
+        <mxCell id="dohwVCKUsx_c7tLCm-D--20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="dohwVCKUsx_c7tLCm-D--11" target="dohwVCKUsx_c7tLCm-D--18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dohwVCKUsx_c7tLCm-D--17" value="MSA_" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="515" y="870" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

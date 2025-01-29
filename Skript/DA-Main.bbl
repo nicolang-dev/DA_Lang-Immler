@@ -19,6 +19,87 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global}
+    \entry{atlassian_urlpi17_nodate}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a8fd8cd0b6d2cfda939a8ef257e60192}{%
+           family={Atlassian},
+           familyi={A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {de}%
+      }
+      \strng{namehash}{a8fd8cd0b6d2cfda939a8ef257e60192}
+      \strng{fullhash}{a8fd8cd0b6d2cfda939a8ef257e60192}
+      \strng{bibnamehash}{a8fd8cd0b6d2cfda939a8ef257e60192}
+      \strng{authorbibnamehash}{a8fd8cd0b6d2cfda939a8ef257e60192}
+      \strng{authornamehash}{a8fd8cd0b6d2cfda939a8ef257e60192}
+      \strng{authorfullhash}{a8fd8cd0b6d2cfda939a8ef257e60192}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Git ist ein ausgereiftes, aktiv gewartetes Open-Source-Revisionskontrollsystem, das von Tausenden Entwicklern auf der ganzen Welt verwendet wird. Mit diesem Leitfaden wirst du zum Git-Profi}
+      \field{journaltitle}{Atlassian}
+      \field{shorttitle}{Was ist {Git}?}
+      \field{title}{{URLPI17}}
+      \field{urlday}{6}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\LCNM2T85\\what-is-git.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.atlassian.com/de/git/tutorials/what-is-git
+      \endverb
+      \verb{url}
+      \verb https://www.atlassian.com/de/git/tutorials/what-is-git
+      \endverb
+    \endentry
+    \entry{santos_urlpi27_2018}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e014db1a146e2a292d12c6ed591dcf18}{%
+           family={Santos},
+           familyi={S\bibinitperiod},
+           given={Sara},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en-US}%
+      }
+      \strng{namehash}{e014db1a146e2a292d12c6ed591dcf18}
+      \strng{fullhash}{e014db1a146e2a292d12c6ed591dcf18}
+      \strng{bibnamehash}{e014db1a146e2a292d12c6ed591dcf18}
+      \strng{authorbibnamehash}{e014db1a146e2a292d12c6ed591dcf18}
+      \strng{authornamehash}{e014db1a146e2a292d12c6ed591dcf18}
+      \strng{authorfullhash}{e014db1a146e2a292d12c6ed591dcf18}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Learn how to use the ESP32 flash memory to store permanent data. To write data to the flash memory, you use the EEPROM.write() function that accepts as arguments}
+      \field{month}{11}
+      \field{title}{{URLPI27}}
+      \field{urlday}{29}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\CJP29GWF\\esp32-flash-memory.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://randomnerdtutorials.com/esp32-flash-memory/
+      \endverb
+      \verb{url}
+      \verb https://randomnerdtutorials.com/esp32-flash-memory/
+      \endverb
+    \endentry
     \entry{noauthor_urlpi01_2020}{misc}{}
       \list{language}{1}{%
         {de}%
@@ -45,6 +126,501 @@
       \endverb
       \verb{url}
       \verb https://www.ionos.de/digitalguide/hosting/hosting-technik/http-request-erklaert/
+      \endverb
+    \endentry
+    \entry{noauthor_urlpi04_nodate}{misc}{}
+      \list{language}{1}{%
+        {de}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Eine REST-API (oder RESTful API) ist eine Programmierschnittstelle (API) oder Web-API, die den Austausch von Daten zwischen Systemen ermöglicht und dabei REST-Prinzipien folgt.}
+      \field{shorttitle}{Was ist eine {REST}-{API}?}
+      \field{title}{{URLPI04}}
+      \field{urlday}{23}
+      \field{urlmonth}{9}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\RI6BT5W5\\what-is-a-rest-api.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.redhat.com/de/topics/api/what-is-a-rest-api
+      \endverb
+      \verb{url}
+      \verb https://www.redhat.com/de/topics/api/what-is-a-rest-api
+      \endverb
+    \endentry
+    \entry{noauthor_urlpi07_nodate}{misc}{}
+      \list{language}{1}{%
+        {en}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{React Native is a name you hear a lot in the mobile app development world. But what is React Native, and what makes it so popular amongst developers?}
+      \field{shorttitle}{What {Is} {React} {Native}?}
+      \field{title}{{URLPI07}}
+      \field{urlday}{30}
+      \field{urlmonth}{10}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\M2IKPW4Y\\react-native.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.netguru.com/glossary/react-native
+      \endverb
+      \verb{url}
+      \verb https://www.netguru.com/glossary/react-native
+      \endverb
+    \endentry
+    \entry{noauthor_urlpi08_nodate}{misc}{}
+      \list{language}{1}{%
+        {en}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Get started creating apps with Expo.}
+      \field{journaltitle}{Expo Documentation}
+      \field{title}{{URLPI08}}
+      \field{urlday}{30}
+      \field{urlmonth}{10}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\IH4QNL7B\\introduction.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://docs.expo.dev/get-started/introduction/
+      \endverb
+      \verb{url}
+      \verb https://docs.expo.dev/get-started/introduction/
+      \endverb
+    \endentry
+    \entry{noauthor_urlpi10_nodate-1}{misc}{}
+      \list{language}{1}{%
+        {de}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{In unserem IT-Lexikon findest du alle wichtigen IT-Begriffe einfach und verständlich erklärt. Für Unternehmer und alle, die sich für IT interessieren.}
+      \field{note}{Publication Title: techbold}
+      \field{shorttitle}{Was ist ein {Access} {Point}?}
+      \field{title}{{URLPI10}}
+      \field{urlday}{16}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\M5RPE4U7\\access-point.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.techbold.at/lexikon-eintrag/access-point
+      \endverb
+      \verb{url}
+      \verb https://www.techbold.at/lexikon-eintrag/access-point
+      \endverb
+    \endentry
+    \entry{noauthor_urlpi11_nodate}{misc}{}
+      \list{language}{1}{%
+        {de}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{abstract}{JSON ist ein einfaches textbasiertes Datenformat, das von Menschen leicht gelesen und von Computern analysiert werden kann. Sie finden es im Zentrum der meisten mobilen und Webanwendungen.}
+      \field{title}{{URLPI11}}
+      \field{urlday}{16}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\KSCRBJHQ\\what-is-json.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.oracle.com/at/database/what-is-json/
+      \endverb
+      \verb{url}
+      \verb https://www.oracle.com/at/database/what-is-json/
+      \endverb
+    \endentry
+    \entry{noauthor_urlpi12_nodate}{misc}{}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{title}{{URLPI12}}
+      \field{urlday}{16}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb I2S – Mikrocontroller.net:C\:\\Users\\pippo\\Zotero\\storage\\A9WXE4Q3\\I2S.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mikrocontroller.net/articles/I2S
+      \endverb
+      \verb{url}
+      \verb https://www.mikrocontroller.net/articles/I2S
+      \endverb
+    \endentry
+    \entry{noauthor_urlpi13_nodate}{misc}{}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{title}{{URLPI13}}
+      \field{urlday}{17}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb HTTP request methods explained:C\:\\Users\\pippo\\Zotero\\storage\\8C6GP63W\\HTTP-methods.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/HTTP-methods
+      \endverb
+      \verb{url}
+      \verb https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/HTTP-methods
+      \endverb
+    \endentry
+    \entry{noauthor_urlpi14_nodate}{misc}{}
+      \list{language}{1}{%
+        {de}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A Computer Science portal for geeks. It contains well written, well thought and well explained computer science and programming articles, quizzes and practice/competitive programming/company interview Questions.}
+      \field{journaltitle}{GeeksforGeeks}
+      \field{note}{Section: Design Pattern}
+      \field{title}{{URLPI14}}
+      \field{urlday}{17}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\UBJ54WC9\\singleton-design-pattern.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.geeksforgeeks.org/singleton-design-pattern/
+      \endverb
+      \verb{url}
+      \verb https://www.geeksforgeeks.org/singleton-design-pattern/
+      \endverb
+    \endentry
+    \entry{noauthor_urlpi15_nodate}{misc}{}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{title}{{URLPI15}}
+      \field{urlday}{17}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Enumeration declaration - cppreference.com:C\:\\Users\\pippo\\Zotero\\storage\\RDAU528Q\\enum.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://en.cppreference.com/w/cpp/language/enum
+      \endverb
+      \verb{url}
+      \verb https://en.cppreference.com/w/cpp/language/enum
+      \endverb
+    \endentry
+    \entry{noauthor_urlpi16_nodate}{misc}{}
+      \list{language}{1}{%
+        {de}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Protokoll Ein Protokoll ist der Oberbegriff für Standards und Normen, in denen die Art und Weise von Datenübertragungen zwischen verschiedenen Computer-Komponenten, Peripherie-Geräten, Rechnersystemen, Netzwerken, Telekommunikationsleitungen …}
+      \field{journaltitle}{Informatik - für Schüler und Studenten}
+      \field{title}{{URLPI16}}
+      \field{urlday}{5}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\YYRAYIBZ\\protokoll.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.informatik-verstehen.de/lexikon/protokoll/
+      \endverb
+      \verb{url}
+      \verb https://www.informatik-verstehen.de/lexikon/protokoll/
+      \endverb
+    \endentry
+    \entry{noauthor_urlpi18_nodate}{misc}{}
+      \list{language}{1}{%
+        {de}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Fragst du dich, was GitHub ist? In diesem Beitrag geben wir dir eine Einführung in GitHub, Git und Versionskontrolle für Anfänger. Dann geben wir dir auch eine einfache Tour durch ein GitHub-Repository und teilen dir dann einige Möglichkeiten, wie du Git oder GitHub benutzen kannst, um dein Leben einfacher zu machen.}
+      \field{journaltitle}{Kinsta®}
+      \field{shorttitle}{Was ist {GitHub}?}
+      \field{title}{{URLPI18}}
+      \field{urlday}{6}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\JGP33HUV\\was-ist-github.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://kinsta.com/de/wissensdatenbank/was-ist-github/
+      \endverb
+      \verb{url}
+      \verb https://kinsta.com/de/wissensdatenbank/was-ist-github/
+      \endverb
+    \endentry
+    \entry{noauthor_urlpi19_2022}{misc}{}
+      \list{language}{1}{%
+        {de}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Multicast DNS (mDNS) ist eine Alternative zum klassischen DNS für kleine Netzwerke. Anwender können verschiedene Geräte damit einfacher verbinden.}
+      \field{journaltitle}{IONOS Digital Guide}
+      \field{month}{2}
+      \field{shorttitle}{Multicast {DNS}}
+      \field{title}{{URLPI19}}
+      \field{urlday}{6}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\8DWNASC5\\multicast-dns.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.ionos.at/digitalguide/server/knowhow/multicast-dns/
+      \endverb
+      \verb{url}
+      \verb https://www.ionos.at/digitalguide/server/knowhow/multicast-dns/
+      \endverb
+    \endentry
+    \entry{noauthor_urlpi20_nodate}{misc}{}
+      \list{language}{1}{%
+        {de}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{abstract}{DHCP}
+      \field{title}{{URLPI20}}
+      \field{urlday}{6}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\7UUGKMXF\\dhcp.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://zid.univie.ac.at/dhcp/
+      \endverb
+      \verb{url}
+      \verb https://zid.univie.ac.at/dhcp/
+      \endverb
+    \endentry
+    \entry{noauthor_urlpi21_nodate}{misc}{}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{title}{{URLPI21}}
+      \field{urlday}{28}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb radio-browser.info:C\:\\Users\\pippo\\Zotero\\storage\\9DSWD769\\www.radio-browser.info.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.radio-browser.info/
+      \endverb
+      \verb{url}
+      \verb https://www.radio-browser.info/
+      \endverb
+    \endentry
+    \entry{noauthor_urlpi22_nodate}{misc}{}
+      \list{language}{1}{%
+        {de}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Firebase ist eine umfassende Entwicklungsplattform von Google, die speziell für die Entwicklung von Apps und Web-Apps konzipiert wurde.}
+      \field{journaltitle}{IT intouch}
+      \field{title}{{URLPI22}}
+      \field{urlday}{28}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\TH9PJRJV\\firebase.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.it-intouch.de/glossar/firebase/
+      \endverb
+      \verb{url}
+      \verb https://www.it-intouch.de/glossar/firebase/
+      \endverb
+    \endentry
+    \entry{noauthor_urlpi23_nodate}{misc}{}
+      \list{language}{1}{%
+        {en}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Eine JavaScript Bibliothek zum Erstellen von Benutzeroberflächen}
+      \field{title}{{URLPI23}}
+      \field{urlday}{28}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\WDLHJ9PX\\context.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://de.legacy.reactjs.org/docs/context.html
+      \endverb
+      \verb{url}
+      \verb https://de.legacy.reactjs.org/docs/context.html
+      \endverb
+    \endentry
+    \entry{noauthor_urlpi24_nodate}{misc}{}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{title}{{URLPI24}}
+      \field{urlday}{29}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Wi-Fi API - - — Arduino ESP32 latest documentation:C\:\\Users\\pippo\\Zotero\\storage\\T8C5QU9H\\wifi.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://docs.espressif.com/projects/arduino-esp32/en/latest/api/wifi.html
+      \endverb
+      \verb{url}
+      \verb https://docs.espressif.com/projects/arduino-esp32/en/latest/api/wifi.html
+      \endverb
+    \endentry
+    \entry{noauthor_urlpi25_2021}{misc}{}
+      \list{language}{1}{%
+        {de}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Hier erfahrt ihr, wie die Programmiersprachen Node.js und Javascript eingesetzt werden, was sie unterscheidet und wo die Stärken von Node.js liegen.}
+      \field{journaltitle}{Reseller Hosting, Webhosting für Agenturen \& Freelancer}
+      \field{month}{9}
+      \field{title}{{URLPI25}}
+      \field{urlday}{29}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\HZSK3UEA\\was-ist-eigentlich-node-js.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mittwald.de/blog/hosting/was-ist-eigentlich-node-js
+      \endverb
+      \verb{url}
+      \verb https://www.mittwald.de/blog/hosting/was-ist-eigentlich-node-js
+      \endverb
+    \endentry
+    \entry{noauthor_urlpi26_nodate}{misc}{}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{title}{{URLPI26}}
+      \field{urlday}{29}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb What is PlatformIO? — PlatformIO latest documentation:C\:\\Users\\pippo\\Zotero\\storage\\MZCPNJ3Z\\what-is-platformio.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://docs.platformio.org/en/latest/what-is-platformio.html
+      \endverb
+      \verb{url}
+      \verb https://docs.platformio.org/en/latest/what-is-platformio.html
+      \endverb
+    \endentry
+    \entry{noauthor_urlpi28_nodate}{misc}{}
+      \list{language}{1}{%
+        {en}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Expo Router is an open-source routing library for Universal React Native applications built with Expo.}
+      \field{journaltitle}{Expo Documentation}
+      \field{title}{{URLPI28}}
+      \field{urlday}{29}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\DN9RCG84\\introduction.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://docs.expo.dev/router/introduction/
+      \endverb
+      \verb{url}
+      \verb https://docs.expo.dev/router/introduction/
       \endverb
     \endentry
   \enddatalist

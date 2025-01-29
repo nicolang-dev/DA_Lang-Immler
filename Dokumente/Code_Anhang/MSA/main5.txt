@@ -1,0 +1,28 @@
+#include <Arduino.h>
+#include <WiFi.h>
+
+void setup(){
+    Serial.begin(9600);   
+    String ssid = "AP-II"; 
+    int n = WiFi.scanNetworks();
+    for(int i = 0; i < n; i++){
+        if(WiFi.SSID(i) == ssid){
+            String bssid = WiFi.BSSIDstr(i);
+            Serial.println(bssid);
+            WiFi.disconnect();
+            WiFi.mode(WIFI_STA);
+            WiFi.begin(ssid, "MmrL48!?48y", 0, WiFi.BSSID(i));
+            break;
+        }
+    }
+    while(WiFi.status()!= WL_CONNECTED){
+        Serial.print(".");
+        delay(100);
+    }
+    Serial.println("connected!");
+}
+
+void loop(){
+    int rssi = WiFi.RSSI();
+    Serial.println(String(rssi));
+}
