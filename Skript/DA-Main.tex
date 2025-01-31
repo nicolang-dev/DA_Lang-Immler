@@ -50,7 +50,18 @@
 
 \pagestyle{empty} %footer und header auf den ersten seiten nicht anzeigen
 
-\usepackage{placeins} %Test: statt float für figures
+\usepackage{placeins} %statt float für figures
+
+\usepackage{caption} %testweise
+\usepackage{subcaption} %testweise
+
+\usepackage{xcolor} %für das Einfügen von Farben
+%Definition der Farben, für die spätere Anzeige in der Tabelle:
+\definecolor{grey}{HTML}{2B2C28}
+\definecolor{lightTurquoise}{HTML}{7DE2D1}
+\definecolor{whiteColor}{HTML}{FFFAFB}
+\definecolor{redColor}{HTML}{D90B0B}
+\definecolor{lightGrey}{HTML}{3E403A}
 
 \title{\textbf{Multi-Room Audio Adapter}}
 \author{Nico Lang, Philipp Immler}
@@ -351,7 +362,7 @@ Der Mikrocontroller soll im Konfigurationsmodus als Access Point arbeiten. Dabei
 Ein WLAN-Client ist ein Gerät, welches mit einem Access Point verbunden ist und somit einen Teilnehmer in einem WLAN darstellt. Der WLAN-Client kann dabei Daten mit anderen Clients im Netzwerk austauschen. Wenn der MSA vollständig konfiguriert ist bzw. die Anmeldedaten des WLANs hat, soll sich dieser als WLAN-Client mit dem WLAN verbinden. Um den Datenaustausch zwischen Smartphone und MSA zu ermöglichen, müssen sich beide Geräte im gleichen Netzwerk befinden. Damit der MSA in weiterer Folge Audiostreams von Internetradios empfangen kann, muss zusätzlich eine Verbindung zum Internet bestehen. \newline \\
 \textbf{REST-API} \\
 Der Mikrocontroller soll eine REST-API bereitstellen, mithilfe der es möglich ist, per HTTP Daten mit diesem auszutauschen. Eine REST-API ist eine API, welche den Designprinzipien der REST-Architektur folgt. API steht dabei für \glqq Application Programming Interface \grqq{}. Eine API bietet im Allgemeinen eine Möglichkeit für den einheitlichen Datenaustausch zwischen Programmen. Eine REST-API (Representational State Transfer Application Programming Interface) ist dabei eine API, welche die von der REST-Architektur vorgegebenen Regeln befolgt. Sie dient  zur Kommunikation zwischen Server und Client. Der Client kann mittels HTTP Anfragen an den Server senden. Der Server liefert dann eine Antwort, welche Daten enthalten kann. \parencite[vgl.][]{noauthor_urlpi04_nodate} Auf diese Weise kommuniziert die Smartphone-App mit dem Mikrocontroller. Der Client kann dabei sogenannte Routen aufrufen. Die aufgerufene Route bestimmt die Aktion, welche auf dem Server ausgeführt wird. Es gibt dabei verschiedene Typen von HTTP-Requests. Jeder Typ ist für eine bestimmte Aktion verantwortlich. Die verwendeten Typen in unserem Programm sind: GET, POST und PUT. Ein GET-Request wird verwendet, um Daten vom Server abzufragen. Der POST-Request wird verwendet, um neue Daten auf dem Server anzulegen. Mit einem PUT-Request werden Daten auf dem Server aktualisiert. \parencite[vgl.][]{noauthor_urlpi13_nodate} Im Folgenden werden die verfügbaren Routen der REST-API des MSA genauer beschrieben: \newline \\
-\begin{figure}[H]
+\begin{table}[H]
 \begin{tabularx}{\textwidth}{|l|l|X|}
 \hline
 \textbf{Route} & \textbf{Anfragen-Typ} & \textbf{Aktion} \\
@@ -368,7 +379,7 @@ Der Mikrocontroller soll eine REST-API bereitstellen, mithilfe der es möglich i
 \hline
 \end{tabularx} 
 \caption{REST-API Routen}
-\end{figure}
+\end{table}
 \textbf{Audiostreaming} \\
 Der Mikrocontroller sollte in der Lage sein, Audiostreams aus dem Internet zu empfangen, diese zu dekodieren und die dekodierten Daten als Signale auf dem Line-Out auszugeben. Die meisten Audiostreams werden mit dem HLS-Protokoll, welches auf dem HTTP-Protokoll basiert, übertragen. Dabei wird das Audiofile in mehrere kleine Stücke zerteilt, welche dann per HTTP an den Client gesendet werden. Dieser fügt diese Stücke dann wieder zu einem Audiofile zusammen. In weiterer Folge wird das MP3-File von dem externen Digital-Analog-Wandler zu einem PCM(Pulse Code Modulation) - Signal übertragen, welches dann auf der Lautsprecherbox ausgegeben werden kann.
 \subsubsection{Klassen}
@@ -383,7 +394,7 @@ Im Folgenden werden die einzelnen Klassen genauer erklärt.
 Im ENUM \glqq Mode \grqq{} werden die verschiedenen Modi der Software definiert. Ein ENUM ist wie eine Art Datentyp, der Konstanten definiert, welche man verwenden darf. \parencite[vgl.][]{noauthor_urlpi15_nodate} In unserem Fall definiert der ENUM die drei Modi \glqq NORMAL \grqq{}, \glqq CONFIG \grqq{} und \glqq ERROR \grqq{}. Diese geben den Status des MSA an. Der Modus \glqq NORMAL \grqq{} signalisiert, dass sich der MSA im normalen Zustand befindet, dieser also voll funktionsfähig ist. Im Modus \glqq CONFIG \grqq{} fungiert der MSA als Access Point. Somit können sich Clients mit diesem verbinden und die Anmeldedaten des WLANs senden. Der Modus \glqq ERROR \grqq{} wird gesetzt, wenn ein Fehler im Programm auftritt. Dies ist zum Beispiel der Fall, wenn die Verbindung mit dem WLAN unterbrochen wird. Der aktuelle Modus wird mithilfe der Status-LED signalisiert, welche als nächstes genauer beschrieben wird. \newline \\
 \textbf{StatusLED} \\
 Mithilfe der Klasse \glqq StatusLED \grqq{} wird die RGB-LED, welche am Mikrocontroller angeschlossen ist, gesteuert. Mit ihr wird der aktuelle Modus des MSA dem/der Benutzer/in angezeigt. Die nachstehende Tabelle beschreibt, welche Farbe für welchen Modus steht: \newline \\
-\begin{figure}[H]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|l|l|}
 		\hline
@@ -397,7 +408,7 @@ Mithilfe der Klasse \glqq StatusLED \grqq{} wird die RGB-LED, welche am Mikrocon
 		\hline
 	\end{tabular}
 	\caption{Status-Farben}
-\end{figure}
+\end{table}
 \noindent %dass Text nach figure nicht eingerückt wird
 \textbf{NetworkManager}\newline
 Die Klasse \glqq NetworkManager \grqq{} beinhaltet Funktionen, welche das Wi-Fi des ESP32 verwenden. Es ist hier möglich, den Access Point - und den Client-Modus zu aktivieren, nach verfügbaren Netzwerken zu suchen, sowie die MAC-Adresse des Adapters zu lesen. Diese Funktionen werden alle mithilfe der \glqq TEXTYEAH \grqq{} -Bibliothek (siehe Kapitel ...) verwirklicht.
@@ -443,79 +454,117 @@ Es wurde festgelegt, dass die Smartphone-App folgende Anforderungen erfüllen so
 Mit der App soll es einerseits möglich sein, neue Adapter zu konfigurieren, andererseits bereits hinzugefügte Adapter zu verwalten. Dabei können von den Adaptern Daten, wie beispielsweise MAC-Adresse und Akkustand, angezeigt werden. Außerdem soll regelmäßig überprüft werden, ob die Adapter vom Smartphone aus erreichbar sind.
 \vspace{4mm}\newline
 \textbf{Verwalten von Radiostationen} \\
-Mit der App soll es zudem möglich sein, nach Audiostreams von Internetradios zu suchen und diese in einer Favoritenliste zu verwalten. \newline \\
+Es sollte zudem möglich sein, nach Audiostreams von Internetradios zu suchen und diese einer persönlichen Favoritenliste hinzuzufügen.
+\vspace{4mm}\newline
 \textbf{Verwalten von Verbindungen} \\
-Letztendlich soll es mit der App möglich sein, Verbindungen zwischen Adaptern und Internetradio-Streams herzustellen und diese zu verwalten. Dabei soll der Stream gestoppt und fortgesetzt werden können und die Lautstärke der Audio-Ausgabe des MSA einstellbar sein.
+In weiterer Folge soll es möglich sein, Verbindungen zwischen Adaptern und Internetradio-Streams herzustellen und diese zu verwalten. Dabei soll der Stream gestoppt und fortgesetzt werden können und die Lautstärke der Audio-Ausgabe des MSA einstellbar sein.
+\vspace{4mm}\newline
+\textbf{Speicherung von Benutzerdaten} \\
+Letztendlich soll es noch möglich sein, sich als Benutzer/in anzumelden bzw. zu registrieren und Benutzerdaten, wie Favoritenliste und hinzugefügte Adapter, welche in der Cloud gespeichert sind, abzurufen. Die Speicherung in der Cloud hat dabei den Vorteil, dass der/die Benutzer/in sich auf jedem beliebigen Gerät mit seinen/ihren Anmeldedaten anmelden und somit seine/ihre Daten abrufen kann.
 \subsubsection{Struktur}
 In diesem Kapitel wird der Aufbau bzw. die Struktur der Smartphone-App genauer beschrieben. Die folgende Grafik stellt dabei die grobe Struktur der App dar:
-%\begin{figure}[H]
-%	\includegraphics[scale=0.6]{/software/app_struktur.png}
-%\caption{Struktur Smartphone-App}
-%\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{/software/app_struktur.png}
+\caption{Struktur Smartphone-App}
+\end{figure}
+\FloatBarrier
 \textbf{Navigation} \newline
-Für die Navigation zwischen den Seiten der App wurde einerseits die Tab-Navigation und andererseits die Stack-Navigation von \glqq Expo Router \grqq{} verwendet. Dabei wird grob zwischen dem Ordner \glqq auth \grqq{} und dem Ordner \glqq tabs \grqq{} unterschieden. Der Ordner \glqq auth \grqq{} enthält die Seiten, welche für die Benutzerauthentifizierung, also Login und Registrierung, notwendig sind. Der Ordner \glqq tabs \grqq{} hingegen enthält alle Seiten, welche für registrierte Benutzer sichtbar sind und somit die eigentliche App darstellen. \glqq Tabs \grqq{} ist dabei in die drei Tabs: \glqq Verbindungen \grqq{}, \glqq Adapter \grqq{} und \glqq Musik \grqq{} gegliedert. Zwischen diesen Tabs kann mithilfe der Tab-Bar, welche unten in der App sichtbar ist, gewechselt werden. In den einzelnen Tabs befinden sich jeweils mehrere Seiten. Zwischen diesen Seite wird mittels Stack-Navigator gewechselt. Der Stack-Navigator arbeitet dabei nach dem sogenannten Last In - First Out - Prinzip (LIFO). Das heißt, dass die Seite, welche als letztes zum Stack (Stapel) hinzugefügt wurde, als Erstes wieder von diesem entfernt wird. Somit wird die Navigations-Historie festgehalten und der/die Benutzer/in kann jederzeit wieder auf die vorherigen Seiten zurückgehen. \parencite[vgl.][]{noauthor_urlpi28_nodate}
-\subsubsection{APIs}
-\textbf{RadioBrowser-API}\\
-Die RadioBrowser-API ist eine open-source API welche eine sehr umfangreiche Sammlung von Internet-Radios bereitstellt. Dabei ist es einerseits möglich, mithilfe dieser API neue Radiostationen zu der Sammlung hinzuzufügen und andererseits, bestehenden Radiostationen nach bestimmten Suchkriterien zu suchen und die Daten derer abzufragen. \parencite[vgl.][]{noauthor_urlpi21_nodate} Wir haben die RadioBrowser-API in unserer Smartphone-App verwendet um nach Radiosendern zu suchen, und in weiterer Folge Stream-URLs dieser, an den MSA zu senden. Der MSA ruft in weiterer Folge den jeweiligen Audiostream auf und empfängt diesen. \newline \\
-\textbf{Firebase}\\
-Firebase ist eine Entwicklungsplattform von Google, welche verschiedene Dienste, die hilfreich für die Entwicklung von Apps bzw. Web-Apps sind, bereitstellt. Firebase stellt dabei ein Backend für die Apps dar. Damit werden Prozesse, wie z.B. Benutzerauthentifizierung, Speicherung von Benutzern und Speicherung von Daten nicht lokal auf dem Gerät, sondern in der Cloud ausgeführt \parencite[vgl.][]{noauthor_urlpi22_nodate} Wir haben Firebase zur Benutzerverwaltung in unserer Smartphone-App verwendet. Dabei benutzen wir einerseits den \glqq Firebase Authentication \grqq{} -Dienst für die Benutzerauthentifizierung und andererseits den \glqq Cloud Firestore \grqq{} -Dienst für das Speichern von Benutzerdaten. Wir haben uns für Firebase entschieden, da wir dadurch den Ressourcenverbrauch unserer App minimieren und der/die Benutzer/in von jedem Gerät aus Zugriff auf seine/ihre Daten hat und somit nicht auf ein bestimmtes Gerät angewiesen ist. Außerdem müssen Dienste, wie z.B. die Benutzerauthentifizierung nicht neu entwickelt werden.
-\subsubsection{Funktionen}
-In der Datei Utilities wurden Funktionen definiert, welche dabei helfen Daten abzurufen bzw. zu speichern. Dazu gehören Abfragen der RadioBrowser-API, Abfragen an den jeweiligen Adapter und Zugriffe in den Speicher. Speicheroperationen wurden mithilfe der in Expo integrierten Bibliothek \glqq AsyncStorage \grqq{}  durchgeführt. Abfragen mittels HTTP wurden mit der ebenfalls in Expo integrierten Bibliothek \glqq Axios \grqq{} durchgeführt. \newline \\
-\textbf{Asynchrone Funktionen} \\
-Alle der Funktionen in der Utilities-Datei wurden als asynchrone Funktionen deklariert. Asynchrone Funktionen werden immer dann verwendet, wenn eine Funktion ein Ergebnis nicht direkt beim Aufruf liefern kann, sondern dies noch eine gewisse Zeit in Anspruch nimmt. Diese Verhaltensweise wird realisiert, indem die Funktion ein sogenanntes Promise-Objekt zurückgibt. In diesem Objekt sind Callback-Funktionen deklariert, welche je nachdem ob das Ergebnis verfügbar ist oder ein Fehler auftritt ausgeführt werden. Es gibt dabei die Callback-Funktion resolve(ergebnis), welche ausgeführt wird, wenn die Funktion das Ergebnis hat und die Funktion reject(fehler), welche ausgeführt wird, wenn in der Funktion ein Fehler auftritt. Das praktische dabei ist, dass man beim Aufruf einer asynchronen Funktion, hinten eine .then(function(result)) Funktion anhängen kann, welche erst ausgeführt wird, wenn das Ergebnis verfügbar ist. Man kann aber auch mit await warten, bis das Ergebnis verfügbar wird. Mit .catch(function(error)) kann man Fehler abfangen welche eventuell in der Funktion auftreten. \newline \\
-\textbf{Liste von verfügbaren Ländern/Sprachen abrufen} \\
-Mit der Funktion getCountries() ist es möglich alle verfügbaren Ländernamen der RadioBrowser-API abzufragen. Der GET-Request wird dabei mit Axios ausgeführt. Als Rückgabe liefert die Funktion einen Promise, welcher entweder ein String-Array oder null ist. Das String-Array ist gefüllt mit allen verfügbaren Ländernamen. Null wird dann zurückgelifert, wenn bei der Abfrage ein Fehler auftritt. Es gibt außerdem noch eine Funktion um alle Sprachen der RadioBrowser-API aufzurufen. Diese Funktion ist gleich aufgebaut, der einzige Unterschied liegt in der URL, welche abgefragt wird. Die Ländernamen und Sprachen werden später für die Filterung der Radiostationen benötigt. \newline \\
-\textbf{Stationen abfragen} \\
-Die Funktion getStations(language, country) fragt alle Radiostationen, welche in der übergebenen Sprache bzw. dem übergebenen Land verfügbar sind, von der RadioBrowser-API ab und gibt diese dann als JSON-Objekt zurück. Wenn bei der Abfrage ein Fehler entsteht, wird null zurückgeliefert. \newline \\
-\textbf{Liste von Elementen vom Speicher lesen} \\
-Die Funktion getFavouriteStations() fragt die Favoritenliste von Radiostationen, welche im Speicher gespeichert ist, ab. Diese wird als Array aus Station-Objekten zurückgegeben. Wenn keine Favoriten im Speicher sind, wird wiederum null zurückgegeben. Die Funktion zur Abfrage der Liste von gespeicherten Adaptern heißt getAdapters() und ist gleich aufgebaut. Der einzige Unterschied liegt im Rückgabetyp. Hier wird nähmlich ein Array aus Adapter-Objekten zurückgegeben.
-\newline \\
-\textbf{Element zum Speicher hinzufügen} \\
-Die Funktion addFavouriteStations(stationList) fügt eine Liste aus Stationen, welche als Array aus Station-Objekten übergeben wird, der gespeicherten Favoritenliste hinzu. Wenn noch keine Favoritenliste gespeichert ist, wird eine neue erstellt. Die Funktion zum Hinzufügen eines neuen Adapters heißt dementsprechend addAdapter(adapter) und erwartet als Parameter ein einzelnes Objekt der Klasse Adapter.
-\newline \\
-\textbf{Element vom Speicher entfernen} \\
-Die Funktion removeFavouriteStation(uuid) entfernt die Station mit der übergebenen UUID von der gespeicherten Favoritenliste, wenn diese dort vorhanden ist. Die UUID wird bereits von der RadioBrowser-API mitgeliefert und hilft dabei, jede Station eindeutig zu identifizieren. Die Funktion zum Entfernen eines Adapters aus dem Speicher heißt removeAdapter() und erwartet die Mac-Addresse des zu entfernenden Adapters als Argument. Durch diese ist auch jeder Adapter eindeutig identifizierbar. \newline \\
-\textbf{Liste im Speicher leeren} \\
-Die Funktion clearFavouriteStationList() wird die Favoritenliste im Speicher geleert, das heißt es sind keine Favoriten mehr gespeichert. Die Funktion zum leeren der Adapter-List heißt clearAdapterList() und löscht die Liste aller konfigurierten Adaptern aus dem Speicher.
+Für die Navigation zwischen den Seiten der App wurde einerseits die Tab-Navigation und andererseits die Stack-Navigation von \glqq Expo Router \grqq{} verwendet. Dabei wird grob zwischen dem Ordner \glqq auth \grqq{} und dem Ordner \glqq tabs \grqq{} unterschieden. Der Ordner \glqq auth \grqq{} enthält die Seiten, welche für die Benutzerauthentifizierung, also Login und Registrierung, notwendig sind. Der Ordner \glqq tabs \grqq{} hingegen enthält alle Seiten, welche für registrierte Benutzer sichtbar sind und somit die eigentliche App darstellen. Die App ist grundlegend in die vier Tabs \glqq Verbindungen \grqq{}, \glqq Adapter \grqq{}, \glqq Musik \grqq{} und \glqq Profil \grqq{}  gegliedert. Zwischen diesen Tabs kann mithilfe der Tab-Bar, welche unten in der App sichtbar ist, gewechselt werden. In den einzelnen Tabs befinden sich jeweils mehrere Seiten. Zwischen diesen Seite kann mittels Stack-Navigator gewechselt werden. Der Stack-Navigator arbeitet dabei nach dem sogenannten Last In - First Out - Prinzip (LIFO). Das heißt, dass die Seite, welche als letztes zum Stack (Stapel) hinzugefügt wurde, als Erstes wieder von diesem entfernt wird. Somit wird die Navigations-Historie festgehalten und der/die Benutzer/in kann jederzeit wieder auf die vorherigen Seiten zurückgehen. \parencite[vgl.][]{noauthor_urlpi28_nodate}
 \subsubsection{Design}
-Beim Style des User Inferface der App wurde auf Übersichtlichkeit und wenig Komplexität gesetzt. Der/Die Benutzer/in soll sich in der App schnellstmöglich zurecht finden. Durch die gute Benutzbarkeit werden allerdings gleichzeitig die Konfigurationsmöglichkeiten eingeschränkt, was die Flexibilität der App senkt. Bei der Auswahl der Farben, welche in der App wurde darauf geachtet, dass diese die App modern und schlicht erscheinen lassen. Für die App wurde eine Darkmode implementiert, weil dieser in den meisten modernen Applikationen verwendet wird und dieser die App somit moderner aussehen lässt.
+Beim Style des User Inferface der App wurde auf Übersichtlichkeit und wenig Komplexität gesetzt. Der/Die Benutzer/in soll sich in der App schnellstmöglich zurecht finden. Durch die gute Benutzbarkeit werden allerdings gleichzeitig die Konfigurationsmöglichkeiten eingeschränkt, was die Flexibilität der App senkt. Bei der Auswahl der Farben, welche in der App sichtbar sind, wurde darauf geachtet, dass diese die App modern und schlicht erscheinen lassen. Für die App wurde ein Darkmode implementiert, weil dieser in den meisten modernen Applikationen verwendet wird und dieser die App somit moderner aussehen lässt.
 \textbf{Farben} \\
 Bei der Farbauswahl wurden als Hauptfarben eher dunklere Farben verwendet, um die App im Darkmode darzustellen. Im Kontrast zu den primär dunklen Farben wurden knallige, satte Farben im Torquise-Ton für die Steuerelemente, wie z.B. Buttons verwendet. Im folgenden ist eine Tabelle mit den verwendeten Farben und deren Farbcodes im Hex-Format abgebildet: \\
-\begin{figure}
-\begin{tabular}{|l|l|}
-\hline
-\textbf{Bezeichnung} & \textbf{Farbcode (hex)} \\
-\hline
-grey & \# 2B2C28 \\
-\hline 
-lightTurquoise & \# 7DE2D1 \\
-\hline 
-white & \# FFFAFB \\
-\hline 
-red & \# d90b0b \\
-\hline 
-lightGrey & \# 3e403a \\
-\hline 
-\end{tabular} 
-\caption{App-Farben}
-\end{figure}
+\begin{table}
+	\centering
+	\begin{tabular}{|l|l|l|}
+        \hline
+        \textbf{Bezeichnung} & \textbf{Farbcode (hex)} & \textbf{Farbe} \\ 
+        \hline
+        grey & \#2B2C28 & \fcolorbox{black}{grey}{\phantom{XX}} \\ 
+        \hline 
+        lightTurquoise & \#7DE2D1 & \fcolorbox{black}{lightTurquoise}{\phantom{XX}} \\ 
+        \hline 
+        white & \#FFFAFB & \fcolorbox{black}{whiteColor}{\phantom{XX}} \\ 
+        \hline 
+        red & \#D90B0B & \fcolorbox{black}{redColor}{\phantom{XX}} \\ 
+        \hline 
+        lightGrey & \#3E403A & \fcolorbox{black}{lightGrey}{\phantom{XX}} \\ 
+        \hline 
+    \end{tabular} 
+	\caption{App-Farben}
+\end{table}
 \FloatBarrier
-\subsubsection{Struktur}
-\begin{figure}
-\includegraphics[scale=0.5]{/software/app_layout.png}
-\caption{Aufbau Seite}
+\subsubsection{Komponenten}
+Wie bereits im Kapitel 3.4.3 erwähnt, ist es in React Native möglich, eigene Komponenten zu erstellen. Als Grundlage dafür dienen die Standardkomponenten von React Native. Der Vorteil bei der Verwendung von Komponenten ist, dass diese wiederverwendbar sind und ein bestimmtes Verhalten aufweisen. Man muss also den Code für eine Komponente nur einmal schreiben und kann diese Komponente dann in der gesamten App verwenden. Im Folgenden werden die wichtigsten Komponenten, welche selbst erstellt wurden, aufgezählt und kurz beschrieben. \newline \\
+\begin{itemize}
+	\item \textbf{AdapterItem} 
+	\par Zeigt die Daten eines Adapters an. Wenn dieser nicht verbunden ist, wird dies mit einem grauen Hintergrund und einem Symbol signalisiert.
+	
+	  \parbox{0.7\textwidth}{
+        \begin{minipage}{0.45\linewidth}
+            \includegraphics[width=\linewidth]{/software/adapter_connected.png}
+            {AdapterItem, erreichbar}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.45\linewidth}
+            \includegraphics[width=\linewidth]{/software/adapter_not_connected.png}
+            {AdapterItem, nicht erreichbar}
+        \end{minipage}
+    }
+    \captionof{figure}{AdapterItem-Komponente}
+    
+	\item \textbf{StationItem}
+	\par Zeigt die Daten einer Internetradiostation an.
+	\item \textbf{ConnectionItem}
+	\par Stellt eine Verbindung zwischen Radiostation und Adapter dar. Dabei werden die StationItem-Komponente und die AdapterItem-Komponente verwendet. Die Komponente ermöglicht es auch, den aktuellen Stream des Adapters zu stoppen bzw. die Lautstärke des Streams zu regeln.
+	\par Stellt die Daten einer einzelnen Internetradiostation dar.
+	\item \textbf{AdapterList}
+	\par Erstellt eine Liste aus mehreren AdapterItem-Komponenten. Realisiert außerdem die Möglichkeit, einen Adapter zu löschen.
+	\item \textbf{FavouriteStationList}
+	\par Erstellt eine Liste, in der alle Stationen, welche sich in der Favoritenliste des Benutzers befinden, mithilfe von StationItem-Komponenten dar.
+	\item \textbf{Connectionlist}
+	\par Erstellt eine Liste, in der sich die aktuellen Verbindungen zwischen Adaptern und Radiostationen, dargestellt durch ConnectionItem-Komponenten, dar. Die Komponente ermöglicht es außerdem Verbindungen zu trennen.
+	\item \textbf{ErrorScreen}
+	\par Stellt eine Ansicht bereit, die signalisiert, dass irgendwo ein Fehler aufgetreten ist. Als Parameter wird dieser Komponente der Fehlertext und die Aktion, welche der/die Benutzer/in als Reaktion auf den Fehler ausführen kann, mitgegeben.
+	\item \textbf{LoadingScreen}
+	\par Stellt eine Lade-Animation dar und einen Text, der als Parameter übergeben wird. Diese Ansicht soll signalisieren, dass Daten in der App geladen werden und der/die Benutzer/in deshalb warten muss.
+\end{itemize}
+\subsubsection{Seiten}
+Wie bereits im Kapitel Struktur erwähnt, besteht die App aus mehreren Seiten, zwischen diesen mit verschiedenen Navigationsarten gewechselt werden kann. Eine Seite setzt sich dabei aus den Grundkomponenten von React Native und den selbst erstellten Komponenten, welche im Kapitel Komponenten genauer beschrieben wurden, zusammen. Dabei ist die Grundstruktur jeder Seite gleich. Wie man in Abbildung ... sehen kann, befindet sich oben ein Header, der den Namen der aktuellen Seite anzeigt, und unten die Tab-Bar welche anzeigt, in welchem Tab man sich aktuell befindet.
+\begin{figure}[H]
+	\includegraphics[scale=0.5]{/hardware/stuetzen_fusion.png}
+	\caption{Grundstruktur Seite Smartphone-App}
 \end{figure}
-\FloatBarrier
-Die Seiten der App sind alle gleich strukturiert. Ganz oben ist der Header, in welchem der Seitenname steht. Ganz unten ist die Tab Bar, welche die einzelnen Tabs anzeigt und auch sichtbar macht, in welchem Tab man sich aktuell befindet. Zwischen dem Header und der Tab Bar ist der jeweilige Inhalt der Seite.
-Die App ist in drei Tabs gegliedert. Im Folgenden werden die einzelnen Tabs genauer beschrieben. \newline \\
-\textbf{Verbindungen} \\
-Dieser Tab ist für die Verwaltung von Verbindungen zwischen Adaptern und Audioquellen zuständig. Hier kann konfiguriert werden, welcher Adapter welchen Stream empfangen soll. Es ist außerdem möglich, laufende Streams zu stoppen, deren Lautstärke zu ändern und zu löschen. \newline \\
-\textbf{Adapter} \\
-Dieser Tab ist für die Verwaltung von Adaptern zuständig. Es ist hier möglich, gespeicherte Adapter anzusehen, zu löschen und neue Adapter hinzuzufügen. Der Tab besteht aus den Seiten index und addAdapter, welche im Kapitel Seiten noch genauer beschrieben werden.  \newline \\
-\textbf{Musik} \\
-Dieser Tab ist für die Verwaltung von Audio-Quellen zuständig. Vorerst werden hier als Quellen nur Internet-Radios verwendet. In Zukunft wäre es aber auch denkbar, Streaming-Dienste als Quellen zu implementieren. Mit jetztigem Stand ist es in diesem Tab möglich, neue Radiosender zu der Favoritenliste hinzuzufügen und die Favoritenliste anzusehen bzw. Favoriten zu löschen. Der Tab besteht aus den Seiten index und searchStations, welche im Kapitel Seiten noch genauer beschrieben werden. \newline \\
+Im Folgenden werden die einzelnen Seiten der App aufgezählt und kurz beschrieben.
+\begin{itemize}
+	\item \textbf{Anmelden} 
+	\par Ermöglicht es einem Benutzer / einer Benutzerin, sich in der App anzumelden.
+	\item \textbf{Registrieren} 
+	\par Ermöglicht es einem Benutzer / einer Benutzerin, sich neu zu registrieren.
+	\item \textbf{Startseite Verbindungen} 
+	\par Zeigt die aktuellen Verbindungen mithilfe der ConnectionList-Komponente an. Auf dieser Seite ist es möglich, bestehende Verbindungen zu verwalten und zu trennen.
+	\item \textbf{Verbindung hinzufügen}
+	\par Ermöglicht es, eine neue Verbindung zwischen einem Adapter und einer Internetradiostation anzulegen.
+	\item \textbf{Startseite Adapter}
+	\par Zeigt alle gespeicherten Adapter des Benutzers / der Benutzerin an. Hier ist es außerdem möglich, Adapter zu löschen.
+	\item \textbf{Adapter hinzufügen}
+	\par Ermöglicht es, einen neuen Adapter hinzuzufügen bzw. diesen zu konfigurieren.
+	\item \textbf{Stationen filtern}
+	\par Ermöglicht es, das Land bzw. die Sprache auszuwählen, nach denen dann in weiterer Folge die Stationen, welche auf der Seite \glqq Stationen auswählen \grqq{} angezeigt werden.
+	\item \textbf{Stationen auswählen}
+	\par Ermöglicht es, mehrere Stationen auszuwählen, welche dann in die Favoritenliste des Benutzers / der Benutzerin übernommen werden. Es werden nur Stationen angezeigt, die den Filteroptionen, welche auf der Seite \glqq Stationen filtern \grqq{} festgelegt wurden, angezeigt.
+	\item \textbf{Profil}
+	\par Hier werden Informationen zum Profil des Benutzers / der Benutzerin angezeigt. Auf dieser Seite wird dem/der Benutzer/in außerdem ermöglicht sich abzumelden bzw. sein/ihr Passwort zurückzusetzen.
+\end{itemize}
+\subsubsection{APIs}
+In diesem Kapitel werden die APIs (Application Programming Interfaces) beschrieben, mit welchen die App Daten austauscht. \newline \\
+\textbf{RadioBrowser-API}\\
+Die RadioBrowser-API ist eine open-source API welche eine sehr umfangreiche Sammlung von Internet-Radios bereitstellt. Dabei ist es einerseits möglich, mithilfe dieser API neue Radiostationen zu der Sammlung hinzuzufügen und andererseits, bestehenden Radiostationen nach bestimmten Suchkriterien zu suchen und die Daten derer abzufragen. \parencite[vgl.][]{noauthor_urlpi21_nodate} In der Smartphone-App wird die RadioBrowser-API verwendet, um nach Radiosendern zu suchen und in weiterer Folge die Stream-URLs dieser an den MSA zu senden. Der MSA ruft in weiterer Folge den jeweiligen Audiostream auf und empfängt diesen. \newline \\
+\textbf{Firebase}\\
+Firebase ist eine Entwicklungsplattform von Google, welche verschiedene Dienste, die hilfreich für die Entwicklung von Apps bzw. Web-Apps sind, bereitstellt. Firebase stellt dabei ein Backend für die Apps dar. Damit werden Prozesse, wie z.B. Benutzerauthentifizierung, Speicherung von Benutzern und Speicherung von Daten nicht lokal auf dem Gerät, sondern in der Cloud ausgeführt \parencite[vgl.][]{noauthor_urlpi22_nodate} In der Smartphone-App wurde Firebase zur Benutzerverwaltung verwendet. Dabei wurde einerseits der \glqq Firebase Authentication \grqq{} -Dienst für die Benutzerauthentifizierung und andererseits der \glqq Cloud Firestore \grqq{} -Dienst für die Speicherung von Benutzerdaten verwendet. Firebase wurde für die Entwicklung der Smartphone-App gewählt, da dadurch der Ressourcenverbrauch der App minimiert wird und der/die Benutzer/in von jedem Gerät aus Zugriff auf seine/ihre Daten hat und somit nicht auf ein bestimmtes Gerät angewiesen ist. Außerdem müssen Dienste, wie z.B. die Benutzerauthentifizierung nicht neu entwickelt werden.
 \subsubsection{Zustandsverwaltung}
-Um Zustände, welche in mehreren Teilen der App benötigt werden, global bereitzustellen, wird der Context von React verwendet. Context ermöglicht es Zustände global in der App bereitzustellen und diese in den einzelnen Komponenten aufzurufen. Dabei werden bei der Änderung eines Zustands die betroffenen Komponenten sofort aktualisiert. Um den Context zu bereitzustellen, wird ein sogenannter Context-Provider verwendet. Alle Komponenten welche in den Context-Provider eingebettet sind, können auf den Zustand von diesem zugreifen. \parencite[vgl.][]{noauthor_urlpi23_nodate} In unserer Smartphone-App gibt es folgende ContextProvider:
+Um Zustände, welche in mehreren Teilen der App benötigt werden, global bereitzustellen, wird die Context-Funktion von React verwendet. Context ermöglicht es Zustände global in der App bereitzustellen und diese in den einzelnen Komponenten aufzurufen. Dabei werden bei der Änderung eines Zustands die betroffenen Komponenten sofort aktualisiert. Um den Context bereitzustellen, wird ein sogenannter Context-Provider verwendet. Alle Komponenten welche in den Context-Provider eingebettet sind, können auf den Zustand von diesem zugreifen. \parencite[vgl.][]{noauthor_urlpi23_nodate} In der Smartphone-App wurden folgende ContextProvider definiert:
 \begin{itemize}
 	\item \textbf{UserContext}
 	\par Stellt das Benutzerobjekt bereit. Dieses beinhaltet wichtige Benutzerdaten, welche an mehreren Stellen der App verwendet werden. Das Benutzerobjekt wird von Firebase Authentication abgefragt.
@@ -525,55 +574,10 @@ Um Zustände, welche in mehreren Teilen der App benötigt werden, global bereitz
 	\par Stellt eine Liste von hinzugefügten Radiostationen bereit. Diese Liste wird ebenfalls von Firebase Firestore abgefragt. Die hier gespeicherte Liste wird ebenfalls automatisch aktualisiert, falls sich die Liste in Firestore ändert.
 \end{itemize}
 \subsubsection{Benutzerverwaltung}
-Die Benutzerdaten sind durch ein im UserContext gespeichertes Benutzerobjekt in der gesamten App global verfügbar. Das Objekt wird am Anfang der App, falls vorhanden, aus dem lokalen Gerätespeicher ausgelesen oder mittels Login von Firebase abgefragt. Der Status des Benutzerobjektes wird mittels eines EventHandlers verfolgt. Das heißt, wenn sich der Status des Benutzerobjektes, z.B. durch einen Logout, ändert, wird 
+Die Benutzerdaten sind durch ein im UserContext gespeichertes Benutzerobjekt in der gesamten App global verfügbar. Das Objekt wird am Anfang der App, falls vorhanden, aus dem lokalen Gerätespeicher ausgelesen oder mittels Login von Firebase abgefragt. Der Status des Benutzerobjektes wird mittels eines Event-Handlers verfolgt. Das heißt, wenn sich der Status des Benutzerobjektes, z.B. durch einen Logout, ändert, wird 
 Die Verwaltung von Benutzerdaten wurde primär mit Firebase (siehe APIs) verwirklicht. Beim Start der App wird abgefragt ob im lokalen Speicher ein Benutzer-Objekt gespeichert ist. Wenn dies der Fall ist, ist der Teil Tabs für den/die Benutzer/in erreichbar. Ist dies nicht der Fall, so wird der/die Benutzer/in zur Login-Seite weitergeleitet. Dort ist es möglich 
-\subsubsection{Komponenten}
-In diesem Kapitel werden die selbst erstellen React-Komponenten genauer beschrieben. \newline \\
-\textbf{AdapterItem} \\
-Die Komponente AdapterItem wird dazu verwendet, die Daten eines einzelnen Adapters abzufragen und diese anzuzeigen. Dabei muss man dieser Komponente ein Objekt der Klasse Adapter als Argument mitgeben. Beim Rendern wird direkt versucht eine Verbindung zum Webserver mit der IP-Adresse des übergebenen Adapters herzustellen. Ist dies erfolgreich, so wird ein GET-Request auf die /getInfo - Route des Adapters mittels Axios durchgeführt. Dabei werden die erhaltenen Informationen grafisch dargestellt. Zu diesen Daten zählt Lautstärke und Akkustand des Adapters. Ist der Adapter allerdings nicht erreichbar, werden die Daten nicht angezeigt. Gleichzeitig ändert sich die Hintergrundfarbe der Komponente zu einem helleren Grauton und es erscheint rechts eine durchgestrichene Wolke. Dies soll signalisieren, dass der Adapter nicht erreichbar ist. Diese Informations-Abfrage wird in einem Intervall von 5 Sekunden ausgeführt, um Änderungen in den Daten des Adapters bzw. der Verbindung des Adapters schnellstmöglich zu signalisieren. Dieses Intervall wird mit der JavaScript-Methode setInterval verwirklicht. Am Ende des renderns, wird das Interval noch geschlossen, um zu vermeiden, dass es mehrere Instanzen davon gibt. \newline \\
-\textbf{AdapterList} \\
-Die Komponente AdapterList stellt eine Liste dar, in der alle bisher hinzugefügten Adaptern aufgelistet sind. Die Adapter werden dabei mithilfe der AdapterItem-Komponente dargestellt. Die Adapter werden mithilfe der Methode getAdapter() aus dem Speicher abgefragt. Wenn noch keine hinzugefügten Adapter vorhanden sind bzw. die Methode getAdapter() null zurückgibt, wird die Komponente ErrorScreen dargestellt. \newline \\
-\textbf{AddToListButton} \\
-Die Komponente AddToListButton wurde verwendet, um ein drückbares Icon darzustellen, welches symbolisieren soll, ein weiteres Element zu einer Liste hinzuzufügen. Für die Umsetzung der Drück-Funktion wurde die Pressable-Komponente von React Native verwendet. Das Icon wurde von der Entypo-Bibliothek importiert. \newline \\
-\textbf{BatteryIndicator} \\
-Die Komponente BatteryIndicator zeigt die Batterieladung in Prozent mit dazugehörigem Icon an. Dabei erwartet sie als Argument die Batterieladung in Prozent. Je nachdem, in welchem Bereich diese Batterialadung liegt, wird ein entsprechendes Icon gerendert. Wenn für die Batterieladung ein negativer Wert (-1) übergeben wird, bedeutet dies, dass der Akku aktuell geladen wird. In diesem Fall, wird ein Lade-Icon dargestellt. \newline \\
-\textbf{ConnectionItem} \\
-... \newline \\
-\textbf{DeleteButton} \\
-Die Komponente DeleteButton stellt ein drückbares Icon dar, welches signalisieren soll, ein Element zu löschen. Dabei wurde die Drück-Funktion mit der Pressable-Komponente realisiert. Das Icon wurde von der FontAwesome-Bibliothek importiert. \newline \\
-\textbf{ErrorScreen} \\
-Die Komponente ErrorScreen stellt eine Ansicht bereit, die signalisieren soll, dass ein Fehler aufgetreten ist. Dabei wird die Fehlermeldung als Text angezeigt und man hat die Möglichkeit auf einen Knopf zu drücken, welcher dann eine Aktion ausführt. Als Parameter werden der zu anzeigende Text, der Text des Knopfs und die Funktion, welche beim Druck auf den Knopf ausgeführt wird, übergeben. Der Fehlertext wird durch die Text-Komponente angezeigt und für den Knopf wurde eine Button-Komponnte verwendet. \newline \\
-\textbf{FavouriteStationList} \\
-Die Komponente FavouriteStationList stellt eine Liste aus mehreren StationItem-Komponenten dar. Die Daten dafür, werden beim Rendern der Komponente mithilfe der Funktion getFavouriteStations() aus dem Speicher ausgelesen. Wenn noch keine Favoriten im Speicher sind, wird die ErrorScreen-Komponente gerendert. Dabei ist es möglich, bei längerem Drücken auf ein FavouriteStationItem dieses zu selektieren und in weiterer Folge aus der Liste zu löschen. Die Selektierung wird mit einem kurzen Klick auf ein FavouriteStationItem wieder aufgehoben. Beim Druck auf die AddToListButton-Komponente, wird zum Screen \glqq Stationsearch \grqq{} navigiert. Beim Druck auf die DeleteButton-Komponente, wird die ausgewählte Komponente aus dem Speicher gelöscht. \newline \\
-\textbf{LoadingScreen} \\
-Die Komponente LoadingScreen soll signalisieren, dass ein Vorgang durchgeführt wird und deshalb der Screen bzw. die Komponenten noch nicht angezeigt werden können. Dies kann zum Beispiel das Laden von Daten sein. Als Argument wird der Text übergeben, welcher in der Komponente angezeigt wird. Der Ladevorgang wird mit der ActivityIndicator-Komponente signalisiert. \newline \\
-\textbf{NetworkItem} \\
-Die Komponente NetworkItem stellt Daten von einem Netzwerk dar. Dabei werden als Argumente die SSID und RSSI des Netzwerks übergeben. Die SSID wird mit der Text-Komponente angezeigt. Abhängig von dem Wert der RSSI werden verschiedene Icons angezeigt. Diese Icons stellen die Stärke des Netzwerks dar. Das Argument selected gibt an, ob die Komponente ausgewählt wurde. Wenn dies der Fall ist, verändert sich die Hintergrundfarbe der Komponente. \newline \\
-Die Komponente StationItem stellt Name und Icon einer Radiostation dar. Die Radiostation wird dabei bei den Argumenten, als Objekt der Klasse Station übergeben. Das Argument selected gibt an, ob die Station ausgewählt ist. Wenn dies der Fall ist, verändert sich die Hintergrundfarbe der Komponente. \newline \\
-\textbf{TextInputWindow} \\
-Die Komponente TextInputWindow ermöglicht es Text in einem Fenster, welches vor dem anderen Content gerendert wird, einzugeben. Dabei ist unter dem Text ein Knopt \glqq Bestätigen \grqq{} und ein Knopt \glqq Abbrechen \grqq{} verfügbar. Der Text, welcher ganz oben angezeigt wird, wird als Argument übergeben. Außerdem wird mit isPassword festgelegt, ob die Eingabe in das Textfeld sichtbar sein soll oder nicht und die übergebenen Funktionen onEnter bzw. onCancel bestimmen, was passiert, wenn man den \glqq Abbrechen \grqq{}- oder \glqq Bestätigen \grqq{} Knopf drückt. \newline \\
-\textbf{VolumeIndicator} \\
-Die Komponente VolumeIndicator zeigt eine Lautstärke in Prozent an, mit einem Lautstärke-Icon davor. Das Lautstärke-Icon wird von der Feather-Bibliothek importiert. Die Lautstärke in Prozent wird mit einer Text-Komponente angezeigt. Als Argument wird die Lautstärke in Prozent übergeben. Wenn diese kleiner als 0 ist, wird ein Icon angezeigt, welches symbolisiert, dass die Lautstärke stumm ist. \newline \\
-\textbf{WifiItem} \\
-Die Komponente WiFiItem dient dazu, die Informationen eines WLAN-Netzwerkes darzustellen. Zu diesen Informationen zählt die SSID, welche sozusagen der Name des Netzwerks ist und die RSSI, welche die Signalstärke des Netzwerks angibt. Diese zwei Werte werden als Parameter der Komponente übergeben.
-\subsubsection{Seiten}
-In diesem Kapitel werden die einzelnen Seiten der App genauer beschrieben. \newline \\
-\textbf{Startseite Verbindungen} \\
-Diese Seite ist die Startseite des Tabs Verbindungen. Auf ihr werden aktive Verbindungen zwischen Adaptern und Audio-Quellen angezeigt. Die Darstellunge wird mithilfe der Komponente ConnectionList verwirklicht. Es ist hier möglich neue Verbindungen zu erstellen, aktive Verbindungen zu trennen, die Lautstärke von aktiven Verbindungen zu ändern und aktive Verbindungen zu pausieren bzw. fortzusetzen. \newline \\
-\textbf{Verbindung hinzufügen} \\
-Diese Seite befindet sich im Tab Verbindungen. Hier ist es möglich neue Verbindungen hinzuzufügen. Dazu muss zuerst ein Adapter ausgewählt werden und in weiterer Folge eine Audio-Quelle, von der der Adapter den Stream empfangen soll. Dabei können nur verbundene Adapter, das heißt, Adapter die im Netz erreichbar sind, ausgewählt werden. Zum Anzeigen der Adapter wurde die Komponente AdapterList verwendet, zum Anzeigen der Stationen die Komponente Station List. Der Parameter editable wurde dabei bei beiden Stationen auf false gesetzt, da ein bearbeiten der Listen in dieser Ansicht nicht möglich sein soll. Wenn jeweils ein Adapter und eine Station ausgewählt ist, ist es möglich den Knopf unten zu drücken und die Verbindung wird erstellt. \newline \\
-\textbf{Startseite Adapter} \\
-Diese Seite ist die Startseite des Tabs Adapter. Auf ihr werden hinzugefügte Adapter angezeigt. Dies geschieht mithilfe der Komponente AdapterList. Der Parameter editable der AdapterList hat den Wert true, da es hier möglich sein soll neue Adapter hinzuzufügen bzw. bestehende Adapter zu entfernen. \newline \\
-\textbf{Startseite Musik} \\
-Diese Seite ist die Startseite des Tabs Musik. Auf ihr werden die Favoriten der Radiostationen mithilfe der Komponente StationList dargestellt. Der Parameter selectable der StationList-Komponente hat dabei den Wert true, da es auf dieser Seite möglich sein soll, neue Favoriten hinzuzufügen bzw. bestehende Favoriten zu entfernen. In Zukunft wäre denkbar, dass hier noch Streaming-Dienste implementiert werden, welche dann auch als Audio-Quelle benutzt werden können. \newline \\
-\textbf{Stationen filtern} \\
-Diese Seite befindet sich im Tab Musik. Hier ist es möglich Land und Sprache auswählen, nach denen in weiterer Folge die Stationen auf der Seite Stationen auswählen gefiltert werden. Der Sprachen-Datensatz wird dabei mithilfe der Methode getLanguages() von Utilities abgerufen. Der Länder-Datensatz wird mit der Methode getCountries() von Utilities aufgerufen. Mit druck auf den Knopf wird die Seite Stationen auswählen aufgerufen und die Paramter werden an diese übergeben. \newline \\
-\textbf{Stationen auswählen} \\
-Diese Seite befindet sich im Tab Musik. Hier ist es möglich Stationen, welche zu der Favoritenliste hinzugefügt werden sollen, auszuwählen. Als Parameter werden Ländername und Sprache übergeben. Dementsprechend werden die zu auswählenden Stationen nach diesen Parametern gefiltert. Das Abrufen der Stationen erfolgt mithilfe der Methode getStations() und die Darstellung mithilfe der StationList-Komponente. Nach klick auf den Haken rechts unten werden die Stationen mithilfe der Funktion addFavouriteStations() zur Favoritenliste hinzugefügt. \newline\\
-\textbf{Favoriten-Auswahl} \newline
-Auf dieser Seite wird eine Liste, mit allen Stationen, welche dem ausgewählten Land und der ausgewählten Sprache entsprechen, angezeigt. Hier kann man Radio-Stationen markieren und mit Klick auf den Haken diese zu seiner Favoritenliste hinzufügen. \newline 
-\subsection{Design Adaptergehäuse}
-Das Adaptergehäuse trägt einen wesentlichen Teil zur Sicherheit des Endverbrauchers sowie zur optimalen Funktionalität der Komponenten bei. Zudem soll es möglichst kompakt sein.
+\subsubsection{Erweiterungsmöglichkeiten}
+In Zukunft wäre es noch denkbar, außerhalb der Diplomarbeit weitere Funktionen in die Smartphone-App zu implementieren. Dabei wäre es durchaus sinnvoll mehrere Audio-Streaming-Quellen, wie zum Beispiel Musikstreamingdienste (Spotify, Amazon Music etc.) einzubinden. Außerdem könnte man das Erstellen von Adapter-Gruppen realisieren, so dass mehrere Adapter zu einer Gruppe zusammengefügt werden können und diese dann den gleichen Stream ausgeben. Um dies umzusetzen, müsste allerdings auch die Software des Adapters weiterentwickelt werden.
 \subsubsection{Grundsätzlicher Aufbau}
 Die Grundlage für den Prototyp bildet ein Kasten mit Deckel.\newline
 Das Gehäuse wurde mit frei schwebenden, jedoch an den Wänden befestigten Stützen ausgestattet, um den Mikrocontroller fest montieren zu können. Der Prototyp wurde zudem mit kleinen Zylindern auf den Stützen ausgestattet, um den Mikrocontroller mit seinen bereits Vorhandenen Aussparungen darauf platzieren zu können. Der Digital-/Analogwandler und der Akku-Laderegler finden auch auf solchen Stützen ihren Platz. Der Gedanke dahinter war, den Akku unter den Bauteilen zu platzieren. Mehr dazu im Teil "Wärmeableitung". Zudem wurden in einer Wand des Gehäuses Aussparungen für die Buchsen platziert. Die Aussparungen für die RGB-LED und den Taster wurden im Deckel platziert. Eine Art Abdeckung für den Taster selbst wird auf diesen geklebt um ein gleichbleibendes Erscheinungsbild des Gehäuses zu behalten. Der Deckel, der von oben auf das Gehäuse gedrückt wird, schließt dieses. Im Deckel ist zusätzlich ein Belüftungsgitter eingelassen.
@@ -724,6 +728,8 @@ Ziel des Hardware-Teils in dieser Diplomarbeit war es, passende Komponenten zu f
 \newpage
 \subsection{Abbildungsverzeichnis}
 \listoffigures
+\subsection{Tabellenverzeichnis}
+\listoftables
 \newpage
 \subsection{Anhang}
 \subsubsection{Code Mikrocontroller}

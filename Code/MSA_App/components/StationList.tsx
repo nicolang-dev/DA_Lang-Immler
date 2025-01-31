@@ -77,6 +77,7 @@ export default function StationList({ onItemSelect, editable }: Props) {
     container: {
       width: "95%",
       alignSelf: "center",
+      marginTop: 20
     },
     icon: {
       alignSelf: "flex-start",
