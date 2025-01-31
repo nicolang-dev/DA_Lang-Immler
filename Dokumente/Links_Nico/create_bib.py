@@ -1,52 +1,45 @@
+import os
 import requests
+from datetime import datetime
+from bs4 import BeautifulSoup
 
-# Deine Zotero-API-Details
-ZOTERO_USER_ID = '16288101'  # Ersetze mit deiner Zotero User-ID
-ZOTERO_API_KEY = 'P6McbI9lnxpuR8A45NkSpyuQ'  # Ersetze mit deinem Zotero API-Schlüssel
-LIBRARY_ID = ZOTERO_USER_ID  # Dies ist normalerweise deine User-ID
-API_URL = f'https://api.zotero.org/users/{LIBRARY_ID}/items'
+def generate_bibtex_key(url, index):
+    return f"noauthor_urlnl{index:02d}_{datetime.now().year}"
 
-# Dateipfad der .txt-Datei mit den URLs
-TXT_FILE_PATH = 'links.txt'  # Ersetze dies mit dem Pfad deiner Datei
+def fetch_metadata(url):
+    try:
+        response = requests.get(url, timeout=5)
+        response.raise_for_status()
+        soup = BeautifulSoup(response.text, 'html.parser')
+        
+        title = soup.title.string if soup.title else "Unknown Title"
+        return title
+    except Exception as e:
+        print(f"Fehler beim Abrufen der URL {url}: {e}")
+        return "Unknown Title"
 
-# Funktion zum Hinzufügen eines Links als Webseite in Zotero
-def add_link_to_zotero(url, index):
-    headers = {
-        'Zotero-API-Key': ZOTERO_API_KEY,
-        'Content-Type': 'application/json'
-    }
-
-    # Generiere den fortlaufenden Schlüssel im Format URLNL01, URLNL02, ...
-    key = f"URLNL{index:02d}"
-
-    # Erstelle das JSON-Datenformat, das Zotero erwartet
-    data = {
-        "itemType": "webpage",
-        "title": url,  # Optional: Du kannst hier auch eine andere Titel-Logik einbauen
-        "url": url,
-        "accessDate": "2025-01-30T00:00:00Z",  # Optional: Du kannst das Zugriffsdatum anpassen
-        "key": key  # Setze den benutzerdefinierten Schlüssel
-    }
-
-    # POST-Anfrage an die Zotero API
-    response = requests.post(API_URL, json=[data], headers=headers)
-
-    if response.status_code == 200:
-        print(f"Link erfolgreich hinzugefügt: {url} mit Schlüssel {key}")
-    else:
-        print(f"Fehler beim Hinzufügen des Links: {url} - {response.status_code}")
-
-# Funktion zum Auslesen der Links aus der .txt-Datei
-def read_links_from_file():
-    with open(TXT_FILE_PATH, 'r') as file:
-        links = file.readlines()
-    return [link.strip() for link in links]
-
-# Hauptfunktion
-def main():
-    links = read_links_from_file()
-    for index, link in enumerate(links, start=1):
-        add_link_to_zotero(link, index)
-
+def write_bib_file(input_txt, output_bib):
+    with open(input_txt, 'r', encoding='utf-8') as file:
+        links = [line.strip() for line in file.readlines() if line.strip()]
+    
+    with open(output_bib, 'w', encoding='utf-8') as bib_file:
+        for i, link in enumerate(links, start=1):
+            bib_key = generate_bibtex_key(link, i)
+            title = fetch_metadata(link)
+            
+            bib_entry = f"""
+@misc{{{bib_key},
+    title = {{{title}}},
+    url = {{{link}}},
+    language = {{de}},
+    urldate = {{{datetime.now().strftime('%Y-%m-%d')}}},
+    year = {{{datetime.now().year}}},
+}}
+"""
+            bib_file.write(bib_entry)
+    
 if __name__ == "__main__":
-    main()
+    input_txt = "links.txt"  # Hier den Namen der Eingabedatei anpassen
+    output_bib = "output.bib"
+    write_bib_file(input_txt, output_bib)
+    print(f"BibTeX-Datei '{output_bib}' wurde erfolgreich erstellt.")
