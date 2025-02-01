@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useState } from "react";
 import { View, FlatList, StyleSheet, Pressable } from "react-native";
 import { router } from "expo-router";
 import ErrorScreen from "@/components/ErrorScreen";
@@ -7,22 +7,23 @@ import AddToListButton from "./AddToListButton";
 import Adapter from "../types/Adapter";
 import AdapterItem from "./AdapterItem";
 import { Alert } from "react-native";
-import { AdapterContext } from "@/context/AdapterContext";
-import { CloudStorage } from "@/api/FirebaseAPI";
+import AdapterData from "@/types/AdapterData";
 
 type Props = {
+  adapterList: AdapterData[];
   onItemSelect: Function;
   editable: boolean;
   showOnlyAvailable: boolean;
 };
 
-export default function adapterDataList({
+export default function AdapterList({
+  adapterList,
   onItemSelect,
   editable,
   showOnlyAvailable,
 }: Props) {
   const [selectedAdapter, setSelectedAdapter] = useState<Adapter | null>(null);
-  const { adapterDataList } = useContext(AdapterContext);
+  //const { adapterDataList } = useContext(AdapterContext);
 
   function handleItemPress(item: Adapter) {
     if (selectedAdapter !== null && selectedAdapter.mac == item.mac) {
@@ -34,7 +35,7 @@ export default function adapterDataList({
     }
   }
 
-  function deleteItem() {
+  /*function deleteItem() {
     if (selectedAdapter !== null && adapterDataList.length > 0) {
       let newAdapterDataList = [...adapterDataList];
       for (let i = 0; i < newAdapterDataList.length; i++) {
@@ -51,7 +52,7 @@ export default function adapterDataList({
         CloudStorage.setAdapterDataList([]);
       }
     }
-  }
+  }*/
 
   function handleDeletePress() {
     if (selectedAdapter !== null) {
@@ -70,7 +71,7 @@ export default function adapterDataList({
           {
             text: "Ja",
             onPress: () => {
-              deleteItem();
+              //deleteItem();
             },
           },
         ]
@@ -80,9 +81,10 @@ export default function adapterDataList({
 
   function isSelected(item: Adapter) {
     if (selectedAdapter !== null && selectedAdapter.mac == item.mac) {
-      if ((showOnlyAvailable && (reachableAdapterMacs.includes(item.mac))) || !showOnlyAvailable) {
+      /*if ((showOnlyAvailable && (reachableAdapterMacs.includes(item.mac))) || !showOnlyAvailable) {
         return true;
-      }
+      }*/
+     return true;
     }
     return false;
   }
@@ -103,18 +105,18 @@ export default function adapterDataList({
     },
   });
 
-  if (adapterDataList.length > 0) {
+  if (adapterList.length > 0) {
     return (
       <View style={style.container}>
         <FlatList
-          data={adapterDataList}
+          data={adapterList}
           renderItem={({ item }) => (
             <Pressable
               onPress={() => {
                 handleItemPress(item);
               }}
             >
-              <AdapterItem adapter={item} selected={isSelected(item)} reachable={reachableAdapterMacs.includes(item.mac)}/>
+              <AdapterItem adapter={item} selected={isSelected(item)} reachable={item.connected}/>
             </Pressable>
           )}
         />

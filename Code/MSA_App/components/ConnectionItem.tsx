@@ -22,7 +22,8 @@ const style = StyleSheet.create({
         width: '100%',
         backgroundColor: Colors.lightGrey,
         padding: 10,
-        borderRadius: 10
+        borderRadius: 20,
+        marginBottom: 7
     },
     controlElementContainer: {
       alignItems: 'center'
@@ -34,11 +35,9 @@ const style = StyleSheet.create({
 })
 
 export default function ConnectionItem({connection, onEndConnection}: Props) {
-  const [paused, setPaused] = useState(false);
-
   function endConnection(){
-    AdapterAPI.sendPauseStream(connection.adapter.name).then(() => {
-      AdapterAPI.sendStreamUrl(connection.adapter.name, "").then(() =>{
+    AdapterAPI.sendPauseStream(connection.adapter).then(() => {
+      AdapterAPI.sendStreamUrl(connection.adapter, "").then(() =>{
         onEndConnection();
       })
     })
@@ -49,23 +48,11 @@ export default function ConnectionItem({connection, onEndConnection}: Props) {
       <Pressable style={style.xButton} onPress={() => endConnection()}>
         <AntDesign name="disconnect" size={24} color={Colors.lightTurquoise} />
       </Pressable>
-      <AdapterItem adapter={connection.adapter} selected={false}/>
+      <AdapterItem adapter={connection.adapter} selected={false} reachable={true}/>
       <StationItem station={connection.station} selected={false}/>
       <View style={style.controlElementContainer}>
-        <PlayPauseButton paused={paused} onPress={() => {
-          if(!paused){
-            AdapterAPI.sendPauseStream(connection.adapter.name).then(() =>{
-              connection.paused = true;
-              setPaused(true);
-            })
-          } else {
-            AdapterAPI.sendContinueStream(connection.adapter.name).then(() =>{
-              connection.paused = false;
-              setPaused(false);
-            })
-          }
-        }}/>
-        <VolumeSelector initVolumePercentage={connection.adapter.volume} onValueChange={(val: number) => {AdapterAPI.sendVolume(connection.adapter.name, val)}}/> 
+        <PlayPauseButton paused={connection.paused} onPress={() => {}}/>
+        <VolumeSelector initVolumePercentage={/*connection.adapter.volume*/ 50} onValueChange={/*(val: number) => {AdapterAPI.sendVolume(connection.adapter.name, val)}*/ () =>{}}/> 
       </View>
     </View>
   );

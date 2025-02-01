@@ -8,17 +8,18 @@ import AddToListButton from "./AddToListButton";
 import ConnectionItem from "./ConnectionItem";
 import LoadingScreen from "./LoadingScreen";
 import { Functions } from "@/utils/Functions";
+import Connection from "@/types/Connection";
 
 type Props = {
+    connectionList: Connection[]
     onItemPress: Function
 }
 
-export default function ConnectionList({onItemPress}: Props){
-    const [connectionList, setConnectionList] = useState(new Array());
+export default function ConnectionList({connectionList, onItemPress}: Props){
     const [isDataFetched, setDataFetched] = useState(false);
     const [isEmpty, setEmpty] = useState(false);
 
-    function fetchData(){
+    /*function fetchData(){
         Functions.getConnections().then(res => {
             setDataFetched(true);
             if(res !== null && res.length > 0){
@@ -28,10 +29,12 @@ export default function ConnectionList({onItemPress}: Props){
                 setEmpty(true);
             }
         })
-    }
+    }*/
 
     useEffect(()=>{
-        setInterval(fetchData, 5000);
+        console.log("connection list:", connectionList);
+        setDataFetched(true);
+        //setInterval(fetchData, 5000);
     },[]);
 
     const style = StyleSheet.create({
@@ -50,7 +53,7 @@ export default function ConnectionList({onItemPress}: Props){
                 <View style={style.container}>
                     <FlatList data={connectionList} renderItem={({item}) => 
                         <Pressable onPress={() => onItemPress(item)}>
-                            <ConnectionItem connection={item} onEndConnection={() => {fetchData()}}/> 
+                            <ConnectionItem connection={item} onEndConnection={() => {/*fetchData()*/}}/> 
                         </Pressable>
                     }/>
                     <AddToListButton onPress={() => router.push("/(tabs)/connection/addConnection")}/> 

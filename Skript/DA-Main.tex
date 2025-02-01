@@ -52,8 +52,8 @@
 
 \usepackage{placeins} %statt float für figures
 
-\usepackage{caption} %testweise
-\usepackage{subcaption} %testweise
+\usepackage{caption}
+\captionsetup{justification=raggedright,singlelinecheck=false}
 
 \usepackage{xcolor} %für das Einfügen von Farben
 %Definition der Farben, für die spätere Anzeige in der Tabelle:
@@ -76,12 +76,17 @@
 
 \section{Projekt}
 \subsection{Projektteam}
+\begin{figure}[H]
+	\includegraphics[scale=0.3]{/allgemein/bild_nico.jpg}
+\end{figure}
 \textbf{Nico Lang}\newline
 Wirtschaftsingenieure/Betriebsinformatik\newline
 6651 Häselgehr AT\newline
 Nico.Lang@hak-reutte.ac.at\newline
-\newline
-\textbf{Philipp Immler}\newline
+\begin{figure}[H]
+	\includegraphics[scale=0.4]{/allgemein/bild_philipp.jpg}
+\end{figure}
+\noindent \textbf{Philipp Immler}\newline
 Wirtschaftsingenieure/Betriebsinformatik\newline
 6682 Vils AT\newline
 Philipp.Immler@hak-reutte.ac.at
@@ -135,7 +140,7 @@ Wir bedanken uns bei den betreuenden Lehrpersonen Dipl. Ing. Dr. Peter L. Steger
 \section{Einleitung}
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=0.6]{/allgemein/MSA_Konzept.png}
+\includegraphics[width=\linewidth]{/allgemein/MSA_Konzept.png}
 \caption{Skizze Gerätekette}
 \end{center}
 \end{figure}
@@ -268,9 +273,6 @@ Protokolle werden in der Informatik im Allgemeinen verwendet, um eine standardis
 \textbf{HTTP} \\
 Das \glqq Hyper Text Transfer Protocol \grqq{} ist ein weitverbreitetes Protokoll im Web und wird größtenteils für die Kommunikation zwischen Browsern und Webservern eingesetzt. Dabei basiert es grundlegend auf Anfragen (Requests) und Antworten (Responses). Wenn also z.B. ein Client einen HTTP-Request (Anfrage) an einen Server sendet, antwortet dieser im Idealfall mit einer HTTP-Response (Antwort). Das HTTP-Protokoll basiert auf dem TCP/IP-Protokoll, auf dieses aber in dieser Diplomarbeit nicht genauer eingegangen wird. In der Diplomarbeit wurde HTTP einerseits für die Kommunikation zwischen Smartphone-App (Client) und Mikrocontroller (Server) mittels REST-API und andererseits zum Streamen der Audio-Daten aus dem Internet, mittels HLS (HTTP-Streaming) verwendet. \parencite[vgl.][]{noauthor_urlpi01_2020}
 \newline \\
-\textbf{HLS} \\
-Hier kommt der Text fürs HLS-Protokoll hin
-\newline \\
 \textbf{mDNS} \\
 Das Multicast Domain Name Service - Protokoll hilft in kleineren, lokalen Netzwerken zur Namensauflösung. Im Web dominiert das bekanntere DNS (Domain Name Service) - Protokoll. Dieses dient dazu, die IP-Adresse hinter einer Domain zu ermitteln. Dabei gibt es einen DNS-Server, welcher sozusagen eine Liste führt, in der aufgeführt ist, welcher Domainname zu welcher IP-Adresse gehört. Wenn man also im Browser eine URL eingibt, stellt der Client dem DNS-Server eine Anfrage, welche den Domainnamen der angefragten URL beinhaltet. Dieser sendet anschließend die zugehörige IP-Adresse zurück, mit der sich der Client dann verbindet. Dieser Ansatz ist allerdings in kleineren, lokalen Netzwerken eher unpraktisch, da ein eigener Server benötigt wird. Als Alternative dazu dient das sogenannte mDNS -Protokoll, welches mit Multicast arbeitet und daher keinen DNS-Server benötigt. Beim Multicast sendet ein Teilnehmer eines Netzwerks eine Nachricht an mehrere Teilnehmer im Netzwerk. Bei mDNS fragt also das Gerät, welches sich mit einem anderen Gerät verbinden will, andere Geräte im Netzwerk, ob der entsprechende Domainname zu diesen gehört. Wenn dies der Fall ist, meldet sich das zugehörige Gerät und somit lässt sich eine Verbindung mit diesem herstellen. \parencite[vgl.][]{noauthor_urlpi19_2022} In der Diplomarbeit wird mDNS verwendet, um eine Verbindung mit den MSA aufzubauen. Der Hostname eines MSA setzt sich dabei aus \glqq MSA \grqq{} und den letzten drei Byte der MAC-Adresse, getrennt durch einen Unterstrich, zusammen. Dies macht deshalb Sinn, weil somit jeder MSA einen eindeutigen Namen bekommt, da die letzten drei Byte eines jeden Netzwerkgerätes weltweit eindeutig sind. Die IP-Adresse der MSA kann nicht zur eindeutigen Identifizierung dieser verwendet werden, da in den meisten Netzwerken ein DHCP (Dynamic Host Configuration Protocol) - Server vorhanden ist, der die IP-Adressen automatisch vergibt. Deshalb ändert sich diese ständig. Die MAC-Adresse hingegen bleibt immer gleich. \parencite[vgl.][]{noauthor_urlpi20_nodate} Mithilfe von mDNS ist jeder Adapter unter seinem Namen gefolgt von \glqq .local \grqq{} auffindbar. Ein Adapter mit dem Namen \glqq MSA\_3C4D5E \grqq{} ist also im lokalen Netzwerk unter \glqq MSA\_3C4D5E.local \grqq{} auffindbar.
 \newline \\
@@ -384,18 +386,16 @@ Der Mikrocontroller soll eine REST-API bereitstellen, mithilfe der es möglich i
 Der Mikrocontroller sollte in der Lage sein, Audiostreams aus dem Internet zu empfangen, diese zu dekodieren und die dekodierten Daten als Signale auf dem Line-Out auszugeben. Die meisten Audiostreams werden mit dem HLS-Protokoll, welches auf dem HTTP-Protokoll basiert, übertragen. Dabei wird das Audiofile in mehrere kleine Stücke zerteilt, welche dann per HTTP an den Client gesendet werden. Dieser fügt diese Stücke dann wieder zu einem Audiofile zusammen. In weiterer Folge wird das MP3-File von dem externen Digital-Analog-Wandler zu einem PCM(Pulse Code Modulation) - Signal übertragen, welches dann auf der Lautsprecherbox ausgegeben werden kann.
 \subsubsection{Klassen}
 Um die Modularität und somit die Wiederverwendbarkeit und Wartbarkeit des Codes zu gewährleisten, wurde in der Entwicklung der Software für den Adapter auf objektorientierte Programmierung gesetzt. Dies ist möglich, da für die Programmierung die Programmiersprache C++ verwendet wurde. Für einen Großteil der Klassen wurde außerdem das Singleton-Designpattern verwendet. Dies gewährleistet, dass immer nur eine Instanz der Klasse vorhanden ist, was Sinn macht, wenn von einer Klasse nicht mehrere Instanzen verfügbar sein sollen. \parencite[vgl.][]{noauthor_urlpi14_nodate} Im folgenden Teil werden die erstellten Klassen genauer beschrieben. Das folgende UML-Klassendiagramm veranschaulicht die Beziehung der verschiedenen Klassen zueinander:
-%\begin{figure}[H]
-%	\includegraphics[scale=0.3, angle=90]{/software/uml_microcontroller.png}
-%	\caption{UML-Klassendiagramm Mikrocontroller}
-%\end{figure}
-\newline
+\begin{figure}[H]
+	\includegraphics[width=0.9\textheight, angle=90]{/software/uml_microcontroller.png}
+	\caption{UML-Klassendiagramm Mikrocontroller}
+\end{figure}
 Im Folgenden werden die einzelnen Klassen genauer erklärt.
 \textbf{Mode} \newline
 Im ENUM \glqq Mode \grqq{} werden die verschiedenen Modi der Software definiert. Ein ENUM ist wie eine Art Datentyp, der Konstanten definiert, welche man verwenden darf. \parencite[vgl.][]{noauthor_urlpi15_nodate} In unserem Fall definiert der ENUM die drei Modi \glqq NORMAL \grqq{}, \glqq CONFIG \grqq{} und \glqq ERROR \grqq{}. Diese geben den Status des MSA an. Der Modus \glqq NORMAL \grqq{} signalisiert, dass sich der MSA im normalen Zustand befindet, dieser also voll funktionsfähig ist. Im Modus \glqq CONFIG \grqq{} fungiert der MSA als Access Point. Somit können sich Clients mit diesem verbinden und die Anmeldedaten des WLANs senden. Der Modus \glqq ERROR \grqq{} wird gesetzt, wenn ein Fehler im Programm auftritt. Dies ist zum Beispiel der Fall, wenn die Verbindung mit dem WLAN unterbrochen wird. Der aktuelle Modus wird mithilfe der Status-LED signalisiert, welche als nächstes genauer beschrieben wird. \newline \\
 \textbf{StatusLED} \\
 Mithilfe der Klasse \glqq StatusLED \grqq{} wird die RGB-LED, welche am Mikrocontroller angeschlossen ist, gesteuert. Mit ihr wird der aktuelle Modus des MSA dem/der Benutzer/in angezeigt. Die nachstehende Tabelle beschreibt, welche Farbe für welchen Modus steht: \newline \\
 \begin{table}[H]
-	\centering
 	\begin{tabular}{|l|l|}
 		\hline
 		\textbf{Modus} & \textbf{Farbe} \\
@@ -432,31 +432,33 @@ Die Klasse \glqq BatteryManager \grqq{} ist für das Auslesen des Akkustands des
 Da die \glqq Arduino-Core \grqq{} -Bibliothek verwendet wurde, ist der Programmablauf gleich wie bei einem standardmäßigen Arduino-Programm. Ausgeführt wird die Main-Datei, welche aus den Funktionen \glqq setup \grqq{} und \glqq loop \grqq{} besteht. Die Setup-Funktion wird beim Start des Mikrocontrollers einmalig ausgeführt. In ihr werden also alle Funktionen, die für den weiteren Verlauf des Programms essenziell sind, ausgeführt. Anschließend wird die Loop-Funktion in einer Endlosschleife ausgeführt. Wenn also das Ende der Loop-Funktion erreicht wird, fängt diese wieder von vorne an. Im folgenden Teil wird der Ablauf innerhalb der einzelnen Funktionen genauer beschrieben.
 \vspace{4mm}\newline
 \textbf{Setup} \newline
-%\begin{figure}[H]
-%	\includegraphics[scale=0.4]{/software/%uml_ablauf_esp32_setup.png}
-%\caption{UML-Ablaufdiagramm Mikrocontroller Setup}
-%\end{figure}
+Im folgenden UML-Ablaufdiagramm wird der grobe Programmablauf der Setup-Funktion dargestellt:
+\begin{figure}[H]
+	\includegraphics[height=0.95\textheight]{/software/uml_ablauf_esp32_setup.png}
+\caption{UML-Ablaufdiagramm Mikrocontroller Setup}
+\end{figure}
 In der Setup-Funktion werden zuerst Konstanten, welche später im Programm benötigt werden, definiert. Auch werden am Anfang die entsprechenden Instanzen der Singleton-Klassen abgerufen. Anschließend wird der Name des Adapters definiert. Dieser setzt sich, wie bereits im Kapitel ... erwähnt, aus \glqq MSA \grqq{} und den letzten drei Byte der MAC-Adresse zusammen. Er ist somit für jeden Adapter eindeutig. Der Name wird später als SSID des Access Points bzw. als Hostname für den Webserver verwendet. Nachdem der Name gesetzt ist, wird mit der Klasse \glqq MemoryManager \grqq{} abgefragt, ob WLAN-Anmeldedaten im EEPROM gespeichert sind. Sind diese vorhanden, so versucht der MSA eine Verbindung mit dem WLAN herzustellen. Ist dies möglich, wird der Modus auf \glqq NORMAL \grqq{} gesetzt. Schlägt die Verbindung mit dem WLAN, z.B. durch falsche Anmeldedaten, fehl, wird der Modus auf \glqq ERROR \grqq{} gesetzt. \newline \\
 \textbf{Loop} \newline
-%\begin{figure}[H]
-%\includegraphics[scale=0.2]{/software/uml_ablauf_esp32_loop.png}
-%\caption{UML-Ablaufdiagramm Mikrocontroller Loop}
-%\end{figure}
+Im folgenden UML-Ablaufdiagramm wird der grobe Programmablauf der Loop-Funktion dargestellt:
+\begin{figure}[H]
+	\includegraphics[height=0.95\textheight]{/software/uml_ablauf_esp32_loop.png}
+	\caption{UML-Ablaufdiagramm Mikrocontroller Loop}
+\end{figure}
 Am Anfang der Loop-Funktion wird abgefragt, ob der Modus auf \glqq ERROR \grqq{} gesetzt ist. Ist dies der Fall, wird nichts mehr ausgeführt, das heißt, die Funktion springt wieder an den Startpunkt. Ist der Modus allerdings nicht auf \glqq ERROR \grqq{} gesetzt, wird überprüft, ob der Knopf gedrückt ist. Ist dieser gedrückt, wird der Modus auf \glqq CONFIG \grqq{} gesetzt. Anschließend wird überprüft, ob der Modus auf \glqq NORMAL \grqq{} gesetzt ist. Ist dies der Fall, wird überprüft, ob immer noch eine Verbindung mit dem WLAN besteht. Dies geschieht mithilfe der Klasse \glqq NetworkManager \grqq{}. Wenn eine WLAN-Verbindung besteht, wird mithilfe der Klasse \glqq ServerManager \grqq{} überprüft, ob der Webserver läuft. Wenn nicht, wird dieser gestartet. Ist der Modus allerdings nicht auf \glqq NORMAL \grqq{} gesetzt, also auf \glqq CONFIG \grqq{}, so wird zuerst überprüft, ob der Access Point - Modus gestartet ist, da dieser für die Verbindung zwischen Client (Smartphone) und Server (MSA) benötigt wird. Wenn nicht, wird dieser schließlich gestartet und das mDNS-Protokoll (siehe Kapitel ...) wird konfiguriert. Diese Prozesse werden wieder mithilfe der \glqq NetworkManager \grqq{} -Klasse durchgeführt. Anschließend wird ebenfalls der Zustand des Webservers überprüft. Am Schluss der Loop-Funktion wird noch die Loop-Funktion der Klasse Audio-Manager ausgeführt. Diese regelt das Audiostreaming.
 \subsubsection{Erweiterungsmöglichkeiten}
 In Zukunft sind noch weitere Funktionalitäten, welche außerhalb der Diplomarbeit implementiert werden, für die Software geplant. Im Hinblick auf die Sicherheit wäre es durchaus sinnvoll, den Webserver des Mikrocontrollers auf HTTPS umzustellen. Somit wäre eine verschlüsselte Kommunikation mit diesem möglich. Zusätzlich wäre es auch denkbar eine Funktion zu implementieren, die es ermöglicht mehrere Adapter zu Gruppen zu verbinden. In diesen Gruppen soll dann jeweils der gleiche Audiostream synchron empfangen und ausgegeben werden. Die Synchronisierung der Adapter bringt aber eine hohe Komplexität mit sich, da man per WLAN-Verbindung mit sehr großen Latenzen zu rechnen hat. Ein Ansatz wäre zum Beispiel, dass jeder Mikrocontroller in einem bestimmten Intervall die Zeit von einem NTP (Network Time Protocol) - Server abfragt und somit auf allen Mikrocontrollern die Zeit annähernd gleich ist. Dann könnte man die Buffer, welche vom Audiostream erhalten werden, mit einem Zeitstempel versehen und sie beim Erreichen dieser Zeit abspielen. Das Hauptproblem dieser Lösung wäre, dass die Zeitdifferenz zwischen den Mikrocontrollern vermutlich zu groß wäre und somit eine hörbare Latenz entsteht.
 \subsection{Entwicklung Smartphone-App}
 In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Smartphone-App beschrieben.
 \subsubsection{Zielsetzung}
-Es wurde festgelegt, dass die Smartphone-App folgende Anforderungen erfüllen soll:
+Es wurde festgelegt, dass die Smartphone-App die folgenden Funktionalitäten bereitstellen soll:
 \vspace{4mm}\newline 
-\textbf{Verwalten von Adaptern}  \\
+\textbf{Verwaltung von Adaptern}  \\
 Mit der App soll es einerseits möglich sein, neue Adapter zu konfigurieren, andererseits bereits hinzugefügte Adapter zu verwalten. Dabei können von den Adaptern Daten, wie beispielsweise MAC-Adresse und Akkustand, angezeigt werden. Außerdem soll regelmäßig überprüft werden, ob die Adapter vom Smartphone aus erreichbar sind.
 \vspace{4mm}\newline
-\textbf{Verwalten von Radiostationen} \\
+\textbf{Verwaltung von Radiostationen} \\
 Es sollte zudem möglich sein, nach Audiostreams von Internetradios zu suchen und diese einer persönlichen Favoritenliste hinzuzufügen.
 \vspace{4mm}\newline
-\textbf{Verwalten von Verbindungen} \\
+\textbf{Verwaltung von Verbindungen} \\
 In weiterer Folge soll es möglich sein, Verbindungen zwischen Adaptern und Internetradio-Streams herzustellen und diese zu verwalten. Dabei soll der Stream gestoppt und fortgesetzt werden können und die Lautstärke der Audio-Ausgabe des MSA einstellbar sein.
 \vspace{4mm}\newline
 \textbf{Speicherung von Benutzerdaten} \\
@@ -464,8 +466,7 @@ Letztendlich soll es noch möglich sein, sich als Benutzer/in anzumelden bzw. zu
 \subsubsection{Struktur}
 In diesem Kapitel wird der Aufbau bzw. die Struktur der Smartphone-App genauer beschrieben. Die folgende Grafik stellt dabei die grobe Struktur der App dar:
 \begin{figure}
-	\centering
-	\includegraphics[scale=0.6]{/software/app_struktur.png}
+	\includegraphics[width=\textwidth]{/software/app_struktur.png}
 \caption{Struktur Smartphone-App}
 \end{figure}
 \FloatBarrier
@@ -476,7 +477,6 @@ Beim Style des User Inferface der App wurde auf Übersichtlichkeit und wenig Kom
 \textbf{Farben} \\
 Bei der Farbauswahl wurden als Hauptfarben eher dunklere Farben verwendet, um die App im Darkmode darzustellen. Im Kontrast zu den primär dunklen Farben wurden knallige, satte Farben im Torquise-Ton für die Steuerelemente, wie z.B. Buttons verwendet. Im folgenden ist eine Tabelle mit den verwendeten Farben und deren Farbcodes im Hex-Format abgebildet: \\
 \begin{table}
-	\centering
 	\begin{tabular}{|l|l|l|}
         \hline
         \textbf{Bezeichnung} & \textbf{Farbcode (hex)} & \textbf{Farbe} \\ 
@@ -496,35 +496,45 @@ Bei der Farbauswahl wurden als Hauptfarben eher dunklere Farben verwendet, um di
 \end{table}
 \FloatBarrier
 \subsubsection{Komponenten}
-Wie bereits im Kapitel 3.4.3 erwähnt, ist es in React Native möglich, eigene Komponenten zu erstellen. Als Grundlage dafür dienen die Standardkomponenten von React Native. Der Vorteil bei der Verwendung von Komponenten ist, dass diese wiederverwendbar sind und ein bestimmtes Verhalten aufweisen. Man muss also den Code für eine Komponente nur einmal schreiben und kann diese Komponente dann in der gesamten App verwenden. Im Folgenden werden die wichtigsten Komponenten, welche selbst erstellt wurden, aufgezählt und kurz beschrieben. \newline \\
+Wie bereits im Kapitel 3.4.3 erwähnt, bietet React Native die Möglichkeit eigene Komponenten zu erstellen. Als Grundlage dafür dienen die Standardkomponenten von React Native. Der Vorteil bei der Verwendung von Komponenten ist, dass diese wiederverwendbar sind und ein bestimmtes Verhalten aufweisen. Man muss also den Code für eine Komponente nur einmal schreiben und kann diese Komponente dann in der gesamten App verwenden. Im Folgenden werden die wichtigsten Komponenten, welche selbst erstellt wurden, aufgezählt und kurz beschrieben. \newline \\
 \begin{itemize}
 	\item \textbf{AdapterItem} 
-	\par Zeigt die Daten eines Adapters an. Wenn dieser nicht verbunden ist, wird dies mit einem grauen Hintergrund und einem Symbol signalisiert.
-	
-	  \parbox{0.7\textwidth}{
-        \begin{minipage}{0.45\linewidth}
-            \includegraphics[width=\linewidth]{/software/adapter_connected.png}
-            {AdapterItem, erreichbar}
-        \end{minipage}
-        \hfill
-        \begin{minipage}{0.45\linewidth}
-            \includegraphics[width=\linewidth]{/software/adapter_not_connected.png}
-            {AdapterItem, nicht erreichbar}
-        \end{minipage}
-    }
-    \captionof{figure}{AdapterItem-Komponente}
-    
+	\par Zeigt die Daten eines Adapters an. Wenn dieser nicht verbunden ist, wird dies mit einem grauen Hintergrund und einem Symbol einer durchgestrichenen Wolke signalisiert.
+	\begin{flushleft}
+    		\captionsetup{type=figure}
+     	\includegraphics[width=0.4\textwidth]{/software/adapter_item.png}
+    		\caption{AdapterItem-Komponente}
+    	\end{flushleft}
 	\item \textbf{StationItem}
 	\par Zeigt die Daten einer Internetradiostation an.
+	\begin{flushleft}
+    		\captionsetup{type=figure}
+     	\includegraphics[width=0.4\textwidth]{/software/station_item.png}
+    		\caption{StationItem-Komponente}
+    	\end{flushleft}
 	\item \textbf{ConnectionItem}
 	\par Stellt eine Verbindung zwischen Radiostation und Adapter dar. Dabei werden die StationItem-Komponente und die AdapterItem-Komponente verwendet. Die Komponente ermöglicht es auch, den aktuellen Stream des Adapters zu stoppen bzw. die Lautstärke des Streams zu regeln.
-	\par Stellt die Daten einer einzelnen Internetradiostation dar.
+	\begin{flushleft}
+    		\captionsetup{type=figure}
+     	\includegraphics[width=0.4\textwidth]{/software/connection_item.png}
+    		\caption{FavouriteStationList-Komponente}
+    	\end{flushleft}
 	\item \textbf{AdapterList}
 	\par Erstellt eine Liste aus mehreren AdapterItem-Komponenten. Realisiert außerdem die Möglichkeit, einen Adapter zu löschen.
 	\item \textbf{FavouriteStationList}
 	\par Erstellt eine Liste, in der alle Stationen, welche sich in der Favoritenliste des Benutzers befinden, mithilfe von StationItem-Komponenten dar.
+	\begin{flushleft}
+    		\captionsetup{type=figure}
+     	\includegraphics[width=0.4\textwidth]{/software/station_list.png}
+    		\caption{FavouriteStationList-Komponente}
+    	\end{flushleft}
 	\item \textbf{Connectionlist}
 	\par Erstellt eine Liste, in der sich die aktuellen Verbindungen zwischen Adaptern und Radiostationen, dargestellt durch ConnectionItem-Komponenten, dar. Die Komponente ermöglicht es außerdem Verbindungen zu trennen.
+	\begin{flushleft}
+    		\captionsetup{type=figure}
+     	\includegraphics[width=0.4\textwidth]{/software/connection_list.png}
+    		\caption{FavouriteStationList-Komponente}
+    	\end{flushleft}
 	\item \textbf{ErrorScreen}
 	\par Stellt eine Ansicht bereit, die signalisiert, dass irgendwo ein Fehler aufgetreten ist. Als Parameter wird dieser Komponente der Fehlertext und die Aktion, welche der/die Benutzer/in als Reaktion auf den Fehler ausführen kann, mitgegeben.
 	\item \textbf{LoadingScreen}
@@ -532,10 +542,6 @@ Wie bereits im Kapitel 3.4.3 erwähnt, ist es in React Native möglich, eigene K
 \end{itemize}
 \subsubsection{Seiten}
 Wie bereits im Kapitel Struktur erwähnt, besteht die App aus mehreren Seiten, zwischen diesen mit verschiedenen Navigationsarten gewechselt werden kann. Eine Seite setzt sich dabei aus den Grundkomponenten von React Native und den selbst erstellten Komponenten, welche im Kapitel Komponenten genauer beschrieben wurden, zusammen. Dabei ist die Grundstruktur jeder Seite gleich. Wie man in Abbildung ... sehen kann, befindet sich oben ein Header, der den Namen der aktuellen Seite anzeigt, und unten die Tab-Bar welche anzeigt, in welchem Tab man sich aktuell befindet.
-\begin{figure}[H]
-	\includegraphics[scale=0.5]{/hardware/stuetzen_fusion.png}
-	\caption{Grundstruktur Seite Smartphone-App}
-\end{figure}
 Im Folgenden werden die einzelnen Seiten der App aufgezählt und kurz beschrieben.
 \begin{itemize}
 	\item \textbf{Anmelden} 
@@ -578,6 +584,9 @@ Die Benutzerdaten sind durch ein im UserContext gespeichertes Benutzerobjekt in 
 Die Verwaltung von Benutzerdaten wurde primär mit Firebase (siehe APIs) verwirklicht. Beim Start der App wird abgefragt ob im lokalen Speicher ein Benutzer-Objekt gespeichert ist. Wenn dies der Fall ist, ist der Teil Tabs für den/die Benutzer/in erreichbar. Ist dies nicht der Fall, so wird der/die Benutzer/in zur Login-Seite weitergeleitet. Dort ist es möglich 
 \subsubsection{Erweiterungsmöglichkeiten}
 In Zukunft wäre es noch denkbar, außerhalb der Diplomarbeit weitere Funktionen in die Smartphone-App zu implementieren. Dabei wäre es durchaus sinnvoll mehrere Audio-Streaming-Quellen, wie zum Beispiel Musikstreamingdienste (Spotify, Amazon Music etc.) einzubinden. Außerdem könnte man das Erstellen von Adapter-Gruppen realisieren, so dass mehrere Adapter zu einer Gruppe zusammengefügt werden können und diese dann den gleichen Stream ausgeben. Um dies umzusetzen, müsste allerdings auch die Software des Adapters weiterentwickelt werden.
+\subsection{Design Adaptergehäuse}
+Das Adaptergehäuse trägt einen wesentlichen Teil zur Sicherheit des Endverbrauchers sowie zur optimalen
+Funktionalität der Komponenten bei. Zudem soll es möglichst kompakt sein.
 \subsubsection{Grundsätzlicher Aufbau}
 Die Grundlage für den Prototyp bildet ein Kasten mit Deckel.\newline
 Das Gehäuse wurde mit frei schwebenden, jedoch an den Wänden befestigten Stützen ausgestattet, um den Mikrocontroller fest montieren zu können. Der Prototyp wurde zudem mit kleinen Zylindern auf den Stützen ausgestattet, um den Mikrocontroller mit seinen bereits Vorhandenen Aussparungen darauf platzieren zu können. Der Digital-/Analogwandler und der Akku-Laderegler finden auch auf solchen Stützen ihren Platz. Der Gedanke dahinter war, den Akku unter den Bauteilen zu platzieren. Mehr dazu im Teil "Wärmeableitung". Zudem wurden in einer Wand des Gehäuses Aussparungen für die Buchsen platziert. Die Aussparungen für die RGB-LED und den Taster wurden im Deckel platziert. Eine Art Abdeckung für den Taster selbst wird auf diesen geklebt um ein gleichbleibendes Erscheinungsbild des Gehäuses zu behalten. Der Deckel, der von oben auf das Gehäuse gedrückt wird, schließt dieses. Im Deckel ist zusätzlich ein Belüftungsgitter eingelassen.
@@ -721,6 +730,7 @@ Eine weitere Möglichkeit zum glätten der schon zuvor beschriebenen riffelartig
 \subsection{Konklusion Hardware}
 Ziel des Hardware-Teils in dieser Diplomarbeit war es, passende Komponenten zu finden und diese in einem selbst designten Gehäuse zu einem Prototypen des Multi-Room Audio Adapter zusammenzusetzen. Dies wurde, wie geplant, umgesetzt. Dabei kamen grundlegende Methoden wie 3D-Design, 3D-Druck, Löten, Online-Recherche und weitere zum Einsatz. Grundsätzlich lief alles wie geplant, es ergaben sich jedoch öfters größere Herausforderungen dort, wo man eigentlich keine erwartet. Für diese fand sich aber immer eine passende Lösung.
 \subsection{Konklusion Software}
+Abschließend kann man sagen, dass das Ziel, eine funktionierende Software für den Adapter sowie eine funktionierende Smartphone-App im Zuge der Diplomarbeit zu entwickeln, erfüllt wurde. Das heißt aber nicht, dass der Code dieser beiden Applikationen fertiggestellt ist. Wie bereits beschrieben können in Zukunft bei noch zahlreiche neue Features für die Applikationen entwickelt werden, welche ansonsten den Rahmen der Diplomarbeit gesprengt hätten.
 \newpage
 \section{Einzelnachweise}
 \subsection{Literaturverzeichnis}
