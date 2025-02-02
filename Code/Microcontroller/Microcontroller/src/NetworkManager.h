@@ -2,14 +2,14 @@
 #define NETWORKMANAGER_H
 
 //including needed libraries
-#include <Arduino.h>
-#include <WiFi.h>
-#include <constants.h>
-#include <ArduinoJson.h>
+#include "Arduino.h"
+#include "WiFi.h"
+#include "constants.h"
+#include "ArduinoJson.h"
 #include "MemoryManager.h"
 #include "Logger.h"
-#include <ESPmDNS.h>
-#include <HTTPClient.h>
+#include "ESPmDNS.h"
+#include "HTTPClient.h"
 #include "time.h"
 
 //using namespace std for String an vectors

@@ -1,12 +1,12 @@
 #ifndef ServerManager_H
 #define ServerManager_H
 
-#include <Arduino.h>
-#include <WebServer.h>
+#include "Arduino.h"
+#include "WebServer.h"
 #include "constants.h"
 #include "NetworkManager.h"
 #include "BatteryManager.h"
-#include <ArduinoJson.h>
+#include "ArduinoJson.h"
 #include "AudioManager.h"
 #include "MemoryManager.h"
 

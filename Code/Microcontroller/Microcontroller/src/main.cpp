@@ -1,6 +1,6 @@
 //including libraries
-#include <Arduino.h>
-#include <constants.h>
+#include "Arduino.h"
+#include "constants.h"
 #include "NetworkManager.h"
 #include "StatusLED.h"
 #include "MemoryManager.h"
@@ -52,25 +52,11 @@ void setup(){
     battery = BatteryManager::getInstance();
     audio = AudioManager::getInstance();
 
-    //if logs are already set in the memory, read logs and add them
-    /*if(memory->areLogsSet()){
-        String logs_str = memory->readLogs();
-        std::vector<String> logs = Logger::getLogsFromString(logs_str);
-        Logger::setLogs(logs);
-    }*/
+    //setting name
+    //name = "MAA_" + network->getMac()
 
     //turn status led off at the beginning
     statusLED->setOff();
-
-    //if name is set in memory, read name and use it
-    if(memory->isNameSet()){
-        name = memory->readName();
-    } else {
-        Logger::add("name not set in memory - using default name");
-        String mac = network->getMac();
-        name = "MSA_" + mac.substring(0,1); //setting default name
-    }
-    Logger::add("Name: " + name);
 
     //if WLAN-credentials are set, read them and try to connect to WLAN
     if(memory->isWlanSsidSet() && memory->isWlanPasswordSet()){
@@ -103,12 +89,7 @@ void setup(){
 void loop(){
     handleButton(); //check if button is pressed
     actual_time = millis(); //time since start in ms
-    //if theres a new log entry, print it on the serial monitor
-    /*if(Logger::getLogSize() > last_log_size){
-        String last_log = Logger::getLastLog();
-        Logger::add(last_log);
-        last_log_size = Logger::getLogSize();
-    }*/
+    
     if(mode != ERROR){
         if(mode == NORMAL){
         //check if still connected to Wlan

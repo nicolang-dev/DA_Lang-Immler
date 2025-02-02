@@ -5,7 +5,7 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
-#include <Arduino.h>
+#include "Arduino.h"
 
 //pins
 const int I2S_BCLK_PIN = 27;
@@ -15,6 +15,7 @@ const int BUTTON_PIN = 12;
 const int LED_RED = 15;
 const int LED_GREEN = 2;
 const int LED_BLUE = 4;
+const int BATTERY_PIN = 35;
 
 //network
 const IPAddress AP_LOCAL_IP(192,168,0,1);

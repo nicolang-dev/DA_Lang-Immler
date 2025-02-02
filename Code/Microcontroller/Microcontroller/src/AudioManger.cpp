@@ -2,11 +2,10 @@
 
 AudioManager* AudioManager::instance = nullptr;
 
-void MDCallback(void *cbData, const char *type, bool isUnicode, const char *string)
+void MDCallback(void *cbData, const char *type, bool isUnicode, const char *string) //for debugging
 {
   const char *ptr = reinterpret_cast<const char *>(cbData);
-  (void) isUnicode; // Punt this ball for now
-  // Note that the type and string may be in PROGMEM, so copy them to RAM for printf
+  (void) isUnicode;
   char s1[32], s2[64];
   strncpy_P(s1, type, sizeof(s1));
   s1[sizeof(s1)-1]=0;
@@ -16,7 +15,7 @@ void MDCallback(void *cbData, const char *type, bool isUnicode, const char *stri
   Serial.flush();
 }
 
-void StatusCallback(void *cbData, int code, const char *string)
+void StatusCallback(void *cbData, int code, const char *string) //for debugging
 {
   const char *ptr = reinterpret_cast<const char *>(cbData);
   // Note that the string may be in PROGMEM, so copy it to RAM for printf

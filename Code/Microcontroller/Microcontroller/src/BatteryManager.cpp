@@ -3,12 +3,10 @@
 BatteryManager* BatteryManager::instance = nullptr;
 
 BatteryManager::BatteryManager(){
-    //empty
+    pinMode(BATTERY_PIN, INPUT);
 }
 
-BatteryManager::~BatteryManager(){
-    //empty
-}
+BatteryManager::~BatteryManager(){}
 
 BatteryManager* BatteryManager::getInstance(){
     if(instance == nullptr){
@@ -18,17 +16,11 @@ BatteryManager* BatteryManager::getInstance(){
 }
 
 /**
- * initializes the needed pins
- */
-void BatteryManager::initializePins(){
-    // ...
-}
-
-/**
  * returns the charging status of the battery
  * 
  * @return charging status of the battery, in percent (0 - 100), as a String
  */
 int BatteryManager::getBatteryStatus(){
-    return 100; //default
+    int val = analogRead(BATTERY_PIN);
+    return val/4095 * 100; //to get percent (of the max. value)
 }
