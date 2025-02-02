@@ -2375,7 +2375,7 @@
     <bcf:citekey order="9" intorder="1">noauthor_urlnl03_nodate</bcf:citekey>
     <bcf:citekey order="10" intorder="1">noauthor_urlnl04_nodate</bcf:citekey>
     <bcf:citekey order="11" intorder="1">noauthor_urlnl05_nodate</bcf:citekey>
-    <bcf:citekey order="12" intorder="1">noauthor_urlnl07_nodate</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">noauthor_urlnl07_2023</bcf:citekey>
     <bcf:citekey order="13" intorder="1">noauthor_urlnl08_nodate</bcf:citekey>
     <bcf:citekey order="14" intorder="1">noauthor_urlnl06_nodate</bcf:citekey>
     <bcf:citekey order="15" intorder="1">noauthor_urlnl07_2023</bcf:citekey>
@@ -2406,7 +2406,7 @@
     <bcf:citekey order="40" intorder="1">noauthor_urlpi26_nodate</bcf:citekey>
     <bcf:citekey order="41" intorder="1">noauthor_urlpi14_nodate</bcf:citekey>
     <bcf:citekey order="42" intorder="1">noauthor_urlpi15_nodate</bcf:citekey>
-    <bcf:citekey order="43" intorder="1">santos_urlpi27_2018</bcf:citekey>
+    <bcf:citekey order="43" intorder="1">noauthor_urlpi27_2018</bcf:citekey>
     <bcf:citekey order="44" intorder="1">noauthor_urlpi28_nodate</bcf:citekey>
     <bcf:citekey order="45" intorder="1">noauthor_urlpi21_nodate</bcf:citekey>
     <bcf:citekey order="46" intorder="1">noauthor_urlpi22_nodate</bcf:citekey>
@@ -2423,7 +2423,7 @@
     <bcf:citekey order="57" intorder="1">noauthor_urlnl13_nodate</bcf:citekey>
     <bcf:citekey order="58" intorder="1">noauthor_urlnl13_nodate</bcf:citekey>
     <bcf:citekey order="59" intorder="1">noauthor_urlnl13_nodate</bcf:citekey>
-    <bcf:citekey order="60" intorder="1">redaktion_urlnl18_2020</bcf:citekey>
+    <bcf:citekey order="60" intorder="1">noauthor_urlnl18_2020</bcf:citekey>
     <bcf:citekey order="61" intorder="1">noauthor_urlnl19_nodate</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->

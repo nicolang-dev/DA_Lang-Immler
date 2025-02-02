@@ -384,6 +384,33 @@
       \verb https://www.elektronik-kompendium.de/sites/com/2009021.htm
       \endverb
     \endentry
+    \entry{noauthor_urlnl18_2020}{misc}{}
+      \list{language}{1}{%
+        {de-DE}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Spritzguss oder 3D-Druck? Was ist die bessere Fertigungstechnik für Kunststoffteile? Wann lohnt sich der Umstieg von 3D-Druck zum Spritzguss? Antworten findest du hier!}
+      \field{month}{12}
+      \field{title}{{URLNL18}}
+      \field{urlday}{2}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\nicol\\Zotero\\storage\\DPW5CZMZ\\3d-druck-spritzguss.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://2d-spritzguss.de/3d-druck-spritzguss
+      \endverb
+      \verb{url}
+      \verb https://2d-spritzguss.de/3d-druck-spritzguss
+      \endverb
+    \endentry
     \entry{noauthor_urlnl19_nodate}{misc}{}
       \list{language}{1}{%
         {de}%
@@ -929,6 +956,33 @@
       \verb https://docs.platformio.org/en/latest/what-is-platformio.html
       \endverb
     \endentry
+    \entry{noauthor_urlpi27_2018}{misc}{}
+      \list{language}{1}{%
+        {en-US}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Learn how to use the ESP32 flash memory to store permanent data. To write data to the flash memory, you use the EEPROM.write() function that accepts as arguments}
+      \field{month}{11}
+      \field{title}{{URLPI27}}
+      \field{urlday}{29}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\CJP29GWF\\esp32-flash-memory.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://randomnerdtutorials.com/esp32-flash-memory/
+      \endverb
+      \verb{url}
+      \verb https://randomnerdtutorials.com/esp32-flash-memory/
+      \endverb
+    \endentry
     \entry{noauthor_urlpi28_nodate}{misc}{}
       \list{language}{1}{%
         {en}%
@@ -1051,9 +1105,6 @@
       \endverb
     \endentry
   \enddatalist
-  \missing{noauthor_urlnl07_nodate}
-  \missing{redaktion_urlnl18_2020}
-  \missing{santos_urlpi27_2018}
 \endrefsection
 \endinput
 

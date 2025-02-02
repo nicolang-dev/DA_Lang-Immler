@@ -188,8 +188,8 @@ Es gibt drei wichtige Grundgrößen, wenn es um Audioqualität geht: Samplerate,
 \vspace{4mm}\newline
 \glqq Die \textbf{Auflösung} (Einheit Bit) gibt an, wie viel Speicher für so einen Sample-Wert genutzt wird. Zum Beispiel erlauben 16 Bit (2-hoch-16) eine Skala von 65.536 Werten für jeden einzelnen Sample-Wert. Wenn wir viel Speicher für einen Wert haben, können wir das Signal also mit mehr Genauigkeit verarbeiten. Übliche Werte sind 16 Bit (Musik CD) oder 24 Bit bzw. 32 Bit im Studio.\grqq{} \parencite{noauthor_urlnl04_nodate}
 \vspace{4mm}\newline 
-\glqq Die \textbf{Bitrate} bzw. Datenrate (kBit/s) wird oft mit der Auflösung verwechselt. Sie steht für die “Bandbreite” der Audiodatei, also welche Datenmenge in einer Sekunde verarbeitet wird. Für unkomprimierte Formate wie WAV und AIFF berechnet man die Bitrate ganz einfach, indem man die drei Werte von oben multipliziert:\grqq{}\newline
-Mehr zu Audioqualität aber im Teil \glqq Auswahl interne Hardware/Digital-/Analogwandler\grqq{} \parencite{noauthor_urlnl04_nodate}
+\glqq Die \textbf{Bitrate} bzw. Datenrate (kBit/s) wird oft mit der Auflösung verwechselt. Sie steht für die “Bandbreite” der Audiodatei, also welche Datenmenge in einer Sekunde verarbeitet wird. Für unkomprimierte Formate wie WAV und AIFF berechnet man die Bitrate ganz einfach, indem man die drei Werte von oben multipliziert.\grqq{}\parencite{noauthor_urlnl04_nodate}\newline
+Mehr zu Audioqualität aber im Teil \glqq Auswahl interne Hardware/Digital-/Analogwandler\grqq{}
 \vspace{4mm} \newline
 \parencite[vgl.][]{noauthor_urlnl03_nodate}
 \parencite[vgl.][]{noauthor_urlnl04_nodate}
@@ -227,7 +227,7 @@ Hier ein paar Grundfakten des ESP32-WROOM-32 (der Controller selbst):\newline
 Der von uns benutzte ESP32 hat einen Dual-Core 32-Bit-Prozessor (2x Tensilica-LX6-Kernen). Der Mikrocontroller hat WLAN (802.11b/g/n) und kann ein eigenes WLAN-Netzwerk (Access Point) erstellen (kleiner Webserver). Er unterstützt Bluetooth 4.0 (BLE/Bluetooth Smart) und Bluetooth Classic. Dies ist bei vielen SmartHome und IoT-Anwendungen nützlich. Er hat einen geringen Stromverbrauch von 50-70 mA (kleine Programme ohne Wi-Fi). Der Deep-Sleep Modus macht einen Stromverbrauch von unter 0,1mA möglich. Die Anschaffungskosten fallen mit unter 10 Euro im Vergleich zu anderen Mikrocontrollern auch sehr niedrig aus.\newline
 Wie schon erwähnt ist der ESP32 mit der (uns vertrauten) Arduino IDE programmierbar und kann auch in industriellen Umgebungen (-40°C bis +125°C) betrieben werden.\newline
 Für den Multi Room Sound-Adapter kommt ein ESP32 Entwicklungsboard (DOIT ESP32 DEVKIT V1) zum Einsatz.\newline
-Hier eine Beschreibung von Dev-Kits auf digitalewelt.at: \glqq Um alle Funktionen des ESP32 Moduls einfach nutzen zu können, gibt es sogenannte Entwicklungsboards. Diese sind nicht nur mit zusätzlichen Schaltungen für die Spannungsversorgung ausgestattet, sondern bieten uns auch die gängigen Anschlussmöglichkeiten für unsere externen Komponenten.\grqq{} \parencite{noauthor_urlnl07_nodate}\newline \newline
+Hier eine Beschreibung von Dev-Kits auf digitalewelt.at: \glqq Um alle Funktionen des ESP32 Moduls einfach nutzen zu können, gibt es sogenannte Entwicklungsboards. Diese sind nicht nur mit zusätzlichen Schaltungen für die Spannungsversorgung ausgestattet, sondern bieten uns auch die gängigen Anschlussmöglichkeiten für unsere externen Komponenten.\grqq{} \parencite{noauthor_urlnl07_2023}\newline \newline
 Erwähnenswert ist auch, dass der ESP32 an manchen GPIOs interne Pullup- /Pulldown-Widerstände hat. \glqq Wenn man einen Pin, an dem z.B. ein Sensor hängt, mit pinMode(5, INPUT) konfiguriert, hat der Pin keinen definierten Pegel.
 Aus diesem Grund kann er so lange zwischen HIGH und LOW schwanken, bis ihm ein Zustand zugeschrieben wird. Dafür hat der ESP32 interne Pullup- / Pulldown-Widerstände, die zugeschaltet werden können. Diese können mit INPUT\_PULLUP als Argument im Befehl pinMode() eingeschaltet werden.
 Bei INPUT\_PULLUP wird der Pin als Eingang deklariert und wenn er nicht beschaltet ist wird dieser auf HIGH gesetzt.
@@ -259,10 +259,9 @@ Eine mechanische Beschädigung jeglicher Art kann zu Kurzschlüssen im Inneren d
 \vspace{4mm}\newline
 Wie oben schon kurz erwähnt, muss großer Wert auf die richtige Lagerung/Kühlung des Akkus gelegt werden. Wird dieser zu heiß (etwa durch den Mikrocontroller oder sonstige Bauteile) oder durch äußere Einflüsse beschädigt, kann es zum Brand kommen.
 \vspace{4mm}\newline
-Man kann daraus schließen, dass jeder kleinste Fehler beispielsweise zu einem Brand oder sogar einer Explosion des Akkus führen kann. Es ist daher wichtig, den Akku mit absoluter Vorsicht zu handhaben. Ausreichend Tests (Betriebstemperatur, etc.), richtige Konfiguration des Ladereglers und die Auswahl des Akkus sind ausschlaggebend für die Sicherheit des Endverbrauchers und dessen Umfeld.
-
+Man kann daraus schließen, dass jeder kleinste Fehler beispielsweise zu einem Brand oder sogar einer Explosion des Akkus führen kann. Es ist daher wichtig, den Akku mit absoluter Vorsicht zu handhaben. Ausreichend Tests (Betriebstemperatur, etc.), richtige Konfiguration des Ladereglers und die Auswahl des Akkus sind ausschlaggebend für die Sicherheit des Endverbrauchers und dessen Umfeld.\newline
 \parencite[vgl.][]{noauthor_urlnl11_nodate}
-
+\vspace{4mm}\newline
 \textbf{Laderegler}\newline
 Für einen optimalen Ladeprozess und Schutz des Akkus wird ein spezieller Laderegler verwendet. Dieser regelt somit den Ladevorgang des Akkus und hört auf zu laden, sobald dieser voll ist. Der Aufbau dieses Ladereglers ist nicht kompliziert, es gibt jeweils einen Plus- und Minuspol für den Eingang (USB-C Buchse), den Akku (im Englischen auch als Battery bezeichnet) und den Ausgang.
 \subsection{Anforderungen Software Adapter}
@@ -343,8 +342,8 @@ In der Diplomarbeit wurde das I2S Protokoll verwendet, um die digitalen Stereo-A
 In diesem Kapitel geht es um die Recherche und Auswahl von geeigneten Softwaretools, welche für die App-Entwicklung, als auch für die Entwicklung der Software des Mikrocontrollers verwendet wurden. Des Weiteren werden auch noch die Tools beschrieben, welche für das Schreiben der Diplomarbeit verwendet wurden.
 \subsubsection{Softwaretools zum Schreiben der Diplomarbeit}
 Im Folgenden werden die Softwaretools, welche zum Schreiben der Diplomarbeit benutzt wurden, aufgezählt und beschrieben.
-\vspace{4mm}\newline
-\textbf{\LaTeX} \\
+\newpage
+\noindent \textbf{\LaTeX} \\
 "LaTeX ist ein hochwertiges Schriftsatzsystem, das Funktionen für die Erstellung technischer und wissenschaftlicher Dokumentationen enthält. LaTeX ist der De-facto-Standard für die Kommunikation und Veröffentlichung von wissenschaftlichen Dokumenten." \parencite{noauthor_urlpi29_nodate} \\
 LaTeX wurde für die Diplomarbeit gewählt, weil es sich sehr gut für das Schreiben von wissenschaftlichen Arbeiten, vor allem mit technischem Bezug, eignet und wir somit schon damit vertraut sind, wenn wir es in Zukunft, z.B. im Studium, benutzen müssen.
 \vspace{4mm}\newline
@@ -408,7 +407,7 @@ Zur Entwicklung der Software des Mikrocontrollers wurde die IDE Visual Studio Co
 \subsubsection{Klassen}
 Um die Modularität und somit die Wiederverwendbarkeit und Wartbarkeit des Codes zu gewährleisten, wurde in der Entwicklung der Software für den Adapter auf objektorientierte Programmierung gesetzt. Dies ist möglich, da die Programmiersprache C++, welche für das Schreiben der Software verwendet wurde, objektorientierte Programmierung unterstützt. Für einen Großteil der Klassen wurde das Singleton-Designpattern verwendet. Dieses gewährleistet, dass immer nur eine Instanz der Klasse vorhanden ist, was Sinn ergibt, wenn von einer Klasse nicht mehrere Instanzen verfügbar sein sollen. \parencite[vgl.][]{noauthor_urlpi14_nodate}. Das folgende UML-Klassendiagramm veranschaulicht die Beziehung der verschiedenen Klassen zueinander:
 \begin{figure}[H]
-	\includegraphics[width=0.9\textheight, angle=90]{/software/uml_microcontroller.png}
+	\includegraphics[width=\textwidth]{/software/uml_microcontroller.png}
 	\caption{UML-Klassendiagramm Mikrocontroller}
 \end{figure}
 \noindent
@@ -416,7 +415,7 @@ Im Folgenden werden die einzelnen Klassen genauer beschrieben: \\
 \textbf{Mode} \newline
 Im ENUM \glqq Mode\grqq{} werden die verschiedenen Modi der Software definiert. Ein ENUM ist wie eine Art Datentyp, der Konstanten definiert, welche man verwenden darf. \parencite[vgl.][]{noauthor_urlpi15_nodate} In unserem Fall definiert der ENUM die drei Modi \glqq NORMAL\grqq{}, \glqq CONFIG\grqq{} und \glqq ERROR\grqq{}. Diese geben den Status des MAA an. Der Modus \glqq NORMAL\grqq{} signalisiert, dass sich der MAA im normalen Zustand befindet, dieser also voll funktionsfähig ist. Im Modus \glqq CONFIG\grqq{} fungiert der MAA als Access Point. Somit können sich Clients mit diesem verbinden und die Anmeldedaten des WLANs senden. Der Modus \glqq ERROR\grqq{} wird gesetzt, wenn ein Fehler im Programm auftritt. Dies ist zum Beispiel der Fall, wenn die Verbindung mit dem WLAN unterbrochen wird. Der aktuelle Modus wird mithilfe der Status-LED signalisiert, welche als nächstes genauer beschrieben wird. \newline \\
 \textbf{StatusLED} \\
-Mithilfe der Klasse \glqq StatusLED\grqq{} wird die RGB-LED, welche am Mikrocontroller angeschlossen ist, gesteuert. Mit ihr wird der aktuelle Modus des MAA dem/der Benutzer/in angezeigt. Die nachstehende Tabelle beschreibt, welche Farbe für welchen Modus steht: \newline \\
+Mithilfe der Klasse \glqq StatusLED\grqq{} wird die RGB-LED, welche am Mikrocontroller angeschlossen ist, gesteuert. Mit ihr wird der aktuelle Modus des MAA dem/der Benutzer/in angezeigt. Die nachstehende Tabelle beschreibt, welche Farbe für welchen Modus steht: \newline
 \begin{table}[H]
 	\begin{tabular}{|l|l|}
 		\hline
@@ -440,12 +439,12 @@ Die Klasse \glqq AudioManager\grqq{} ist für den Empfang des Internetradio-Stre
 \vspace{4mm}\newline
 \textbf{Logger}\newline
 Die Klasse \glqq Logger\grqq{} ist für die Verwaltung von Logs, welche von anderen Klassen geschrieben werden, zuständig. In ihr befindet sich ein Vektor, welcher Tupels, bestehend aus Log-Text und Log-Zeitpunkt, speichert, definiert. Diese Logs sind essenziell für die Fehlerbehebung, da man sehen kann, welche Aktionen im Programm ausgeführt wurden und wo Fehler aufgetreten sind. Die Klasse bietet Funktionen zum Hinzufügen von Logs und zum Anzeigen bestehender Logs. Die Funktionen sind alle statisch, das heißt, man muss kein Objekt dieser Klasse erzeugen, um die Funktionen auszuführen. Dies ist sinnvoll, weil es möglich sein soll, von jeder Klasse direkt auf die Log-Funktionen zuzugreifen.
-\vspace{4mm}\newline
-\textbf{ServerManager}\newline
+\newpage
+\noindent \textbf{ServerManager}\newline
 Die Klasse \glqq ServerManager\grqq{} ist für das Verwalten des Webservers, welcher auf dem MAA läuft, zuständig. In ihr werden die Funktionen, die durch die Aufrufe der Routen der REST-API ausgeführt werden, definiert. Die Kernfunktionen der Klasse werden vor allem durch die im Kapitel 3.6.2 erwähnte \glqq WebServer\grqq{}-Bibliothek bereitgestellt.
 \vspace{4mm}\newline
 \textbf{MemoryManager} \newline
-Die Klasse \glqq MemoryManager\grqq{} ist für das Schreiben in und das Lesen aus dem EEPROM des Mikrocontrollers zuständig. Der EEPROM ist ein nichtflüchtiger Speicher, das heißt, er behält die Daten auch nach einem Spannungsverlust des Mikrocontrollers. Dies ist vor allem für Daten sinnvoll, welche nicht jedes Mal neu definiert werden, wie z.B. Anmeldedaten des WLANs. \parencite[vgl.][]{santos_urlpi27_2018}
+Die Klasse \glqq MemoryManager\grqq{} ist für das Schreiben in und das Lesen aus dem EEPROM des Mikrocontrollers zuständig. Der EEPROM ist ein nichtflüchtiger Speicher, das heißt, er behält die Daten auch nach einem Spannungsverlust des Mikrocontrollers. Dies ist vor allem für Daten sinnvoll, welche nicht jedes Mal neu definiert werden, wie z.B. Anmeldedaten des WLANs. \parencite[vgl.][]{noauthor_urlpi27_2018}
 Um die Funktionen des EEPROMs des ESP32 zu nutzen, wurde die \glqq Preferences\grqq{}-Bibliothek, welche ebenfalls im Kapitel 3.6.2 beschrieben wurde, verwendet. Diese arbeitet mit Schlüssel-Wert-Paaren. Das heißt, auf die gespeicherten Variablen kann mittels eindeutigem Schlüssel zugegriffen werden.
 \newline \\
 \textbf{BatteryManager} \newline
@@ -455,18 +454,20 @@ Da die \glqq Arduino-Core\grqq{}-Bibliothek verwendet wurde, ist der Programmabl
 \vspace{4mm}\newline
 \textbf{Setup} \newline
 Im folgenden UML-Ablaufdiagramm wird der grobe Programmablauf der Setup-Funktion dargestellt:
+\newpage
 \begin{figure}[H]
-	\includegraphics[height=0.95\textheight]{/software/uml_ablauf_esp32_setup.png}
-\caption{UML-Ablaufdiagramm Mikrocontroller Setup}
+	\includegraphics[height=\textheight]{/software/uml_ablauf_esp32_setup.png}
+	\caption{UML-Ablaufdiagramm Mikrocontroller Setup}
 \end{figure}
-In der Setup-Funktion werden zuerst Konstanten, welche später im Programm benötigt werden, definiert. Auch werden am Anfang die entsprechenden Instanzen der Singleton-Klassen abgerufen. Anschließend wird der Name des Adapters definiert. Dieser setzt sich, wie bereits im Kapitel 3.5.1 erwähnt, aus \glqq MAA\grqq{} und den letzten drei Byte der MAC-Adresse zusammen. Er ist somit für jeden Adapter eindeutig. Der Name wird später als SSID des Access Points bzw. als Hostname für den Webserver verwendet. Nachdem der Name gesetzt ist, wird mit der Klasse \glqq MemoryManager\grqq{} abgefragt, ob WLAN-Anmeldedaten im EEPROM gespeichert sind. Sind diese vorhanden, so versucht der MAA eine Verbindung mit dem WLAN herzustellen. Ist dies möglich, wird der Modus auf \glqq NORMAL\grqq{} gesetzt. Schlägt die Verbindung mit dem WLAN, z.B. durch falsche Anmeldedaten, fehl, wird der Modus auf \glqq ERROR\grqq{} gesetzt. \newline \\
+\noindent In der Setup-Funktion werden zuerst Konstanten, welche später im Programm benötigt werden, definiert. Auch werden am Anfang die entsprechenden Instanzen der Singleton-Klassen abgerufen. Anschließend wird der Name des Adapters definiert. Dieser setzt sich, wie bereits im Kapitel 3.5.1 erwähnt, aus \glqq MAA\grqq{} und den letzten drei Byte der MAC-Adresse zusammen. Er ist somit für jeden Adapter eindeutig. Der Name wird später als SSID des Access Points bzw. als Hostname für den Webserver verwendet. Nachdem der Name gesetzt ist, wird mit der Klasse \glqq MemoryManager\grqq{} abgefragt, ob WLAN-Anmeldedaten im EEPROM gespeichert sind. Sind diese vorhanden, so versucht der MAA eine Verbindung mit dem WLAN herzustellen. Ist dies möglich, wird der Modus auf \glqq NORMAL\grqq{} gesetzt. Schlägt die Verbindung mit dem WLAN, z.B. durch falsche Anmeldedaten, fehl, wird der Modus auf \glqq ERROR\grqq{} gesetzt. \newline \\
 \textbf{Loop} \newline
 Im folgenden UML-Ablaufdiagramm wird der grobe Programmablauf der Loop-Funktion dargestellt:
+\newpage
 \begin{figure}[H]
-	\includegraphics[height=0.95\textheight]{/software/uml_ablauf_esp32_loop.png}
+	\includegraphics[height=\textheight]{/software/uml_ablauf_esp32_loop.png}
 	\caption{UML-Ablaufdiagramm Mikrocontroller Loop}
 \end{figure}
-Am Anfang der Loop-Funktion wird abgefragt, ob der Modus auf \glqq ERROR\grqq{} gesetzt ist. Ist dies der Fall, wird nichts mehr ausgeführt, das heißt, die Funktion springt wieder an den Startpunkt. Ist der Modus allerdings nicht auf \glqq ERROR\grqq{} gesetzt, wird überprüft, ob der Knopf gedrückt ist. Ist dieser gedrückt, wird der Modus auf \glqq CONFIG\grqq{} gesetzt. Anschließend wird überprüft, ob der Modus auf \glqq NORMAL\grqq{} gesetzt ist. Ist dies der Fall, wird überprüft, ob immer noch eine Verbindung mit dem WLAN besteht. Dies geschieht mithilfe der Klasse \glqq NetworkManager\grqq{}. Wenn eine WLAN-Verbindung besteht, wird mithilfe der Klasse \glqq ServerManager\grqq{} überprüft, ob der Webserver läuft. Wenn nicht, wird dieser gestartet. Ist der Modus allerdings nicht auf \glqq NORMAL\grqq{} gesetzt, also auf \glqq CONFIG\grqq{}, so wird zuerst überprüft, ob der Access Point - Modus gestartet ist, da dieser für die Verbindung zwischen Client (Smartphone) und Server (MAA) benötigt wird. Wenn nicht, wird dieser schließlich gestartet und das mDNS-Protokoll, welches bereits im Kapitel 3.5.1 beschrieben wurde, wird konfiguriert. Diese Prozesse werden wieder mithilfe der \glqq NetworkManager\grqq{}-Klasse durchgeführt. Anschließend wird ebenfalls der Zustand des Webservers überprüft. Am Schluss der Loop-Funktion wird noch die Loop-Funktion der Klasse Audio-Manager ausgeführt. Diese regelt das Audiostreaming.
+\noindent Am Anfang der Loop-Funktion wird abgefragt, ob der Modus auf \glqq ERROR\grqq{} gesetzt ist. Ist dies der Fall, wird nichts mehr ausgeführt, das heißt, die Funktion springt wieder an den Startpunkt. Ist der Modus allerdings nicht auf \glqq ERROR\grqq{} gesetzt, wird überprüft, ob der Knopf gedrückt ist. Ist dieser gedrückt, wird der Modus auf \glqq CONFIG\grqq{} gesetzt. Anschließend wird überprüft, ob der Modus auf \glqq NORMAL\grqq{} gesetzt ist. Ist dies der Fall, wird überprüft, ob immer noch eine Verbindung mit dem WLAN besteht. Dies geschieht mithilfe der Klasse \glqq NetworkManager\grqq{}. Wenn eine WLAN-Verbindung besteht, wird mithilfe der Klasse \glqq ServerManager\grqq{} überprüft, ob der Webserver läuft. Wenn nicht, wird dieser gestartet. Ist der Modus allerdings nicht auf \glqq NORMAL\grqq{} gesetzt, also auf \glqq CONFIG\grqq{}, so wird zuerst überprüft, ob der Access Point - Modus gestartet ist, da dieser für die Verbindung zwischen Client (Smartphone) und Server (MAA) benötigt wird. Wenn nicht, wird dieser schließlich gestartet und das mDNS-Protokoll, welches bereits im Kapitel 3.5.1 beschrieben wurde, wird konfiguriert. Diese Prozesse werden wieder mithilfe der \glqq NetworkManager\grqq{}-Klasse durchgeführt. Anschließend wird ebenfalls der Zustand des Webservers überprüft. Am Schluss der Loop-Funktion wird noch die Loop-Funktion der Klasse Audio-Manager ausgeführt. Diese regelt das Audiostreaming.
 \subsubsection{Erweiterungsmöglichkeiten}
 In Zukunft sind noch weitere Funktionalitäten, welche außerhalb der Diplomarbeit implementiert werden, für die Software geplant. Im Hinblick auf die Sicherheit wäre es durchaus sinnvoll, den Webserver des Mikrocontrollers auf HTTPS umzustellen. Somit wäre eine verschlüsselte Kommunikation mit diesem möglich. Zusätzlich wäre es auch denkbar eine Funktion zu implementieren, die es ermöglicht mehrere Adapter zu Gruppen zu verbinden. In diesen Gruppen soll dann jeweils der gleiche Audiostream synchron empfangen und ausgegeben werden. Die Synchronisierung der Adapter bringt aber eine hohe Komplexität mit sich, da man per WLAN-Verbindung mit sehr großen Latenzen zu rechnen hat. Ein Ansatz wäre zum Beispiel, dass jeder Mikrocontroller in einem bestimmten Intervall die Zeit von einem NTP (Network Time Protocol) - Server abfragt und somit auf allen Mikrocontrollern die Zeit annähernd gleich ist. Dann könnte man die Buffer, welche vom Audiostream erhalten werden, mit einem Zeitstempel versehen und sie beim Erreichen dieser Zeit abspielen. Das Hauptproblem dieser Lösung wäre, dass die Zeitdifferenz zwischen den Mikrocontrollern vermutlich zu groß wäre und somit eine hörbare Latenz entsteht.
 \subsection{Entwicklung Smartphone-App}
@@ -478,12 +479,13 @@ In diesem Kapitel wird der Aufbau bzw. die Struktur der Smartphone-App genauer b
 \caption{Struktur Smartphone-App}
 \end{figure}
 \FloatBarrier
-\textbf{Navigation} \newline
+\noindent \textbf{Navigation} \newline
 Für die Navigation zwischen den Seiten der App wurde einerseits die Tab-Navigation und andererseits die Stack-Navigation von \glqq Expo Router\grqq{} verwendet. Dabei wird grob zwischen dem Ordner \glqq auth\grqq{} und dem Ordner \glqq tabs\grqq{} unterschieden. Der Ordner \glqq auth\grqq{} enthält die Seiten, welche für die Benutzerauthentifizierung, also Login und Registrierung, notwendig sind. Der Ordner \glqq tabs\grqq{} hingegen enthält alle Seiten, welche für registrierte Benutzer sichtbar sind und somit die eigentliche App darstellen. Die App ist grundlegend in die vier Tabs \glqq Verbindungen\grqq{}, \glqq Adapter\grqq{}, \glqq Musik\grqq{} und \glqq Profil\grqq{}  gegliedert. Zwischen diesen Tabs kann mithilfe der Tab-Bar, welche unten in der App sichtbar ist, gewechselt werden. In den einzelnen Tabs befinden sich jeweils mehrere Seiten. Zwischen diesen Seite kann mittels Stack-Navigator gewechselt werden. Der Stack-Navigator arbeitet dabei nach dem sogenannten \glqq Last In - First Out\grqq{}- Prinzip (LIFO). Das heißt, dass die Seite, welche als letztes zum Stack (Stapel) hinzugefügt wurde, als Erstes wieder von diesem entfernt wird. Somit wird die Navigations-Historie festgehalten und der/die Benutzer/in kann jederzeit wieder auf die vorherigen Seiten zurückgehen. \parencite[vgl.][]{noauthor_urlpi28_nodate}
 \subsubsection{Design}
 Beim Style des User Interface der App wurde auf Übersichtlichkeit und wenig Komplexität gesetzt. Der/Die Benutzer/in soll sich in der App schnellstmöglich zurechtfinden. Durch die gute Benutzbarkeit werden allerdings gleichzeitig die Konfigurationsmöglichkeiten eingeschränkt, was die Flexibilität der App senkt. Bei der Auswahl der Farben, welche in der App sichtbar sind, wurde darauf geachtet, dass diese die App modern und schlicht erscheinen lassen. Für die App wurde ein Darkmode implementiert, weil dieser in den meisten modernen Applikationen verwendet wird und dieser die App somit moderner aussehen lässt.
+\vspace{4mm}\newline
 \textbf{Farben} \\
-Bei der Farbauswahl wurden als Hauptfarben eher dunklere Farben verwendet, um die App im Darkmode darzustellen. Im Kontrast zu den primär dunklen Farben wurden knallige, satte Farben im Torquise-Ton für die Steuerelemente, wie z.B. Buttons verwendet. Im Folgenden ist eine Tabelle mit den verwendeten Farben und deren Farbcodes im Hex-Format abgebildet: \\
+Bei der Farbauswahl wurden als Hauptfarben eher dunklere Farben verwendet, um die App im Darkmode darzustellen. Im Kontrast zu den primär dunklen Farben wurden knallige, satte Farben im Torquise-Ton für die Steuerelemente, wie z.B. Buttons verwendet. Im Folgenden ist eine Tabelle mit den verwendeten Farben und deren Farbcodes im Hex-Format abgebildet: 
 \begin{table}
 	\begin{tabular}{|l|l|l|}
         \hline
@@ -504,7 +506,7 @@ Bei der Farbauswahl wurden als Hauptfarben eher dunklere Farben verwendet, um di
 \end{table}
 \FloatBarrier
 \subsubsection{Komponenten}
-Wie bereits im Kapitel 3.4.3 erwähnt, bietet React Native die Möglichkeit eigene Komponenten zu erstellen. Als Grundlage dafür dienen die Standardkomponenten von React Native. Der Vorteil bei der Verwendung von Komponenten ist, dass diese wiederverwendbar sind und ein bestimmtes Verhalten aufweisen. Man muss also den Code für eine Komponente nur einmal schreiben und kann diese Komponente dann in der gesamten App verwenden. Im Folgenden werden die wichtigsten Komponenten, welche selbst erstellt wurden, aufgezählt und kurz beschrieben. \newline \\
+Wie bereits im Kapitel 3.4.3 erwähnt, bietet React Native die Möglichkeit eigene Komponenten zu erstellen. Als Grundlage dafür dienen die Standardkomponenten von React Native. Der Vorteil bei der Verwendung von Komponenten ist, dass diese wiederverwendbar sind und ein bestimmtes Verhalten aufweisen. Man muss also den Code für eine Komponente nur einmal schreiben und kann diese Komponente dann in der gesamten App verwenden. Im Folgenden werden die wichtigsten Komponenten, welche selbst erstellt wurden, aufgezählt und kurz beschrieben. \newline
 \begin{itemize}
 	\item \textbf{AdapterItem} 
 	\par Zeigt die Daten eines Adapters an. Wenn dieser nicht verbunden ist, wird dies mit einem grauen Hintergrund und einem Symbol einer durchgestrichenen Wolke signalisiert.
@@ -608,13 +610,13 @@ Wenn man schon früh beachtet, dass die Prototypen mit einem 3D-Drucker gefertig
 \vspace{4mm}\newline
 \textbf{Basis} \newline
 Die Basis des Adapters bildet ein 71x58x27mm großer Kasten mit 2 mm Wanddicke. Aus Erfahrung kann man sagen, dass diese Dicke bei 3D-Drucken stabil ist, während sie jedoch nicht zu klobig wirkt.\newline
-Die Stützen des Mikrocontrollers beginnen auf 11 mm Höhe und sind auf einer Längenseite 6x6x5mm und auf der anderen 6,9x6x5mm groß. Sie sind jeweils mit einer oder zwei Seiten an der Wand der Basis und somit überhängend. Dies wird im Teil "Drucken des Prototyps/Stützstruktur" noch wichtig.\newline
-\begin{figure}[H]
+Die Stützen des Mikrocontrollers beginnen auf 11 mm Höhe und sind auf einer Längenseite 6x6x5mm und auf der anderen 6,9x6x5mm groß. Sie sind jeweils mit einer oder zwei Seiten an der Wand der Basis und somit überhängend. Dies wird im Teil "Drucken des Prototyps/Stützstruktur" noch wichtig.
+\newpage
+\begin{figure}
 	\includegraphics[scale=0.5]{/hardware/stuetzen_fusion.png}
 	\caption{Stützen für die Komponenten}
 \end{figure}
-\noindent
-Auf den Stützen befinden sich jeweils Zylinder, die genau auf die Aussparungen des Mikrocontrollers vermessen wurden. Die Zylinder haben einen Durchmesser von exakt 3 mm. Der Abstand der Mittelpunkte dieser Zylinder war bei unserem Modell 47,10 mm in der Länge und 23,10 mm in der Breite. Auf einer Seite befindet sich zwischen Wand und Zylinder etwas mehr Platz, da der USB-C-Port des Mikrocontrollers etwas über diesen herausragt. Deswegen auch der zuletzt erwähnte Versatz der Stütze von 0,9 mm.\newline
+\noindent Auf den Stützen befinden sich jeweils Zylinder, die genau auf die Aussparungen des Mikrocontrollers vermessen wurden. Die Zylinder haben einen Durchmesser von exakt 3 mm. Der Abstand der Mittelpunkte dieser Zylinder war bei unserem Modell 47,10 mm in der Länge und 23,10 mm in der Breite. Auf einer Seite befindet sich zwischen Wand und Zylinder etwas mehr Platz, da der USB-C-Port des Mikrocontrollers etwas über diesen herausragt. Deswegen auch der zuletzt erwähnte Versatz der Stütze von 0,9 mm.\newline
 Die Breite der Basis ist also genau auf die Länge des von uns benutzten Mikrocontroller zugeschnitten.\newline
 In den gegenüberliegenden Ecken der Basis befinden sich der Digital-/Analogwandler und der Laderegler. Die Maße des Digital-/Analogwandlers sind 31,8x17,2 mm. Die Maße des Laderegler sind 28x17,45 mm. Beide liegen, wie der Mikrocontroller auch, auf überhängenden, 5 mm hohen Stützen auf. Aufgrund der USB-C Buchse wird der Halt des Laderegler noch von einer 3,5 mm breiten 2 mm-Erhöhung am Ende der Stütze verstärkt. Die USB-C Buchse wurde passend zum Laderegler und der Norm entsprechend (8,34x2,56 mm Größe) eingelassen. Der Digital-/Analogwandler wird aufgrund der 3,5 mm Klinkenbuchse von einer herab stehenden Wand gestützt, die im Teil "Deckel" genauer beschrieben wird. Die Aussparung der AUX-Buchse wurde auch passend für den Digital-/Analogwandler platziert und hat einen Durchmesser von 6 mm.\newline
 \begin{figure}[H]
@@ -696,10 +698,9 @@ Da die in diesem Projekt benutzten Bauteile jedoch keine höheren Temperaturen v
 Um einen Lötvorgang aus eigener Erfahrung möglichst kurz zu beschreiben:\newline
 Man hat beispielsweise zwei Kabel, die man verbinden möchte, und die Verbindung sollte möglichst fest halten und gut leiten. Zuerst müssen die Enden der Kabel abisoliert werden. Es kann helfen, wenn man die Enden schon vor der eigentlichen Verbindung sozusagen etwas \glqq verzinnt\grqq{}. Nun richtet man die Kabel zueinander so aus, wie sie später fixiert sein sollen. Man fährt mit dem Ende des Lots (umgangssprachlich Lötzinn) an die heiße Spitze des Lötkolbens und schmilzt so etwas Lot auf die Verbindungsstelle (nicht zu viel, sonst erhält man dicke Tropfen; jedoch auch nicht zu wenig, da die Verbindung dann möglicherweise nicht ausreichend hält). Nach dem Abkühlen macht es Sinn, die Lötverbindung durch leichtes Rütteln oder ziehen zu überprüfen. Löten ist letztendlich aber ein Handwerk, das für saubere Ergebnisse Geduld und Übung voraussetzt.
 \vspace{4mm}\newline
-\parencite[vgl.][]{noauthor_urlnl13_nodate}
+\parencite[vgl.][]{noauthor_urlnl13_nodate}\newline
 \subsubsection{Kleben}
 Damit alle Komponenten und Teile sicher im Gehäuse sitzen und nichts klappert oder sich gar bewegt, worunter die Lötverbindung leiden würde, müssen gewisse Komponenten angeklebt werden. Vor allem bei den Buchsen ist eine feste Verbindung wichtig, da diese bei jedem Ein- und Ausstecken großer Belastung ausgesetzt sind. Somit wurden der Laderegler und der Digital-/Analogwandler an den dafür gedruckten Stützen angeklebt. Zudem wurde der gedruckte Aufsatz in Gehäuseoptik für den Taster auf diesem befestigt. Für alle Klebverbindungen im Adapter wurden entweder herkömmliches Cyanacrylat (Superkleber) oder Schmelzklebstoff (Heißkleber) verwendet.
-
 \section{Testen und Fehlerbehebung}
 \subsection{Testen des Gesamtsystems}
 \subsubsection{Testen des Prototyps}
@@ -713,7 +714,7 @@ Die äußere Verarbeitung des MAA ist für einen Prototyp sehr gut ausgefallen. 
 Negatives:\newline
 Man sieht dem Gehäuse bei guter Beleuchtung eindeutig an, dass es 3D-gedruckt wurde. Manche Oberflächen wirken eher geriffelt als flach. Diese Oberflächeneigenschaften sind völlig normal für 3D-Drucker und beeinflussen die Funktionsweise des Gesamtsystems kaum. Bei einem tatsächlichen Vertrieb des Produkts müsste man sich jedoch noch einmal genau über Herstellungsmöglichkeiten für kleinere Gehäuse informieren oder das Gehäuse, wie auch bei der Auswahl des Fertigungsverfahrens schon kurz diskutiert, einfach Spritzgießen lassen. Ein Spritzguss hat bessere Oberflächeneigenschaften als ein 3D-Druck.
 \vspace{4mm}\newline
-\parencite[vgl.][]{redaktion_urlnl18_2020}
+\parencite[vgl.][]{noauthor_urlnl18_2020}
 \vspace{4mm}\newline
 \textbf{Funktion}\newline
 Der MAA funktioniert und erfüllt seine Funktionen ohne Fehler oder Komplikationen.

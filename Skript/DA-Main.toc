@@ -21,38 +21,38 @@
 \contentsline {section}{\numberline {3}Entwicklung}{16}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Entwicklung Software Adapter}{16}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Klassen}{17}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Programmablauf}{20}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}Erweiterungsmöglichkeiten}{24}{subsubsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.2}Entwicklung Smartphone-App}{24}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Struktur}{24}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Design}{26}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Komponenten}{27}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}Seiten}{29}{subsubsection.3.2.4}%
-\contentsline {subsubsection}{\numberline {3.2.5}APIs}{30}{subsubsection.3.2.5}%
-\contentsline {subsubsection}{\numberline {3.2.6}Zustandsverwaltung}{31}{subsubsection.3.2.6}%
-\contentsline {subsubsection}{\numberline {3.2.7}Benutzerverwaltung}{32}{subsubsection.3.2.7}%
-\contentsline {subsubsection}{\numberline {3.2.8}Erweiterungsmöglichkeiten}{32}{subsubsection.3.2.8}%
-\contentsline {subsection}{\numberline {3.3}Design Adaptergehäuse}{32}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Grundsätzlicher Aufbau}{32}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Wärmeableitung}{33}{subsubsection.3.3.2}%
-\contentsline {subsubsection}{\numberline {3.3.3}Virtuelles 3D-Design}{33}{subsubsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.4}Fertigung Adaptergehäuse}{36}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Drucken des Prototyps}{37}{subsubsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.5}Zusammensetzen des Prototyps}{38}{subsection.3.5}%
-\contentsline {subsubsection}{\numberline {3.5.1}Schaltplan}{38}{subsubsection.3.5.1}%
-\contentsline {subsubsection}{\numberline {3.5.2}Verdrahten}{38}{subsubsection.3.5.2}%
-\contentsline {subsubsection}{\numberline {3.5.3}Kleben}{39}{subsubsection.3.5.3}%
-\contentsline {section}{\numberline {4}Testen und Fehlerbehebung}{40}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Testen des Gesamtsystems}{40}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Testen des Prototyps}{40}{subsubsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.2}Auftretende Fehler beheben}{41}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Schluss}{42}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Konklusion Hardware}{42}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Konklusion Software}{42}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Einzelnachweise}{43}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Literaturverzeichnis}{43}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Abbildungsverzeichnis}{46}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Tabellenverzeichnis}{46}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Anhang}{47}{subsection.6.4}%
-\contentsline {subsubsection}{\numberline {6.4.1}Code Mikrocontroller}{47}{subsubsection.6.4.1}%
-\contentsline {subsubsection}{\numberline {6.4.2}Code Smartphone-App}{47}{subsubsection.6.4.2}%
+\contentsline {subsubsection}{\numberline {3.1.2}Programmablauf}{19}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Erweiterungsmöglichkeiten}{23}{subsubsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.2}Entwicklung Smartphone-App}{23}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Struktur}{23}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Design}{25}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Komponenten}{26}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Seiten}{28}{subsubsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.5}APIs}{29}{subsubsection.3.2.5}%
+\contentsline {subsubsection}{\numberline {3.2.6}Zustandsverwaltung}{30}{subsubsection.3.2.6}%
+\contentsline {subsubsection}{\numberline {3.2.7}Benutzerverwaltung}{31}{subsubsection.3.2.7}%
+\contentsline {subsubsection}{\numberline {3.2.8}Erweiterungsmöglichkeiten}{31}{subsubsection.3.2.8}%
+\contentsline {subsection}{\numberline {3.3}Design Adaptergehäuse}{31}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Grundsätzlicher Aufbau}{31}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Wärmeableitung}{32}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Virtuelles 3D-Design}{32}{subsubsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.4}Fertigung Adaptergehäuse}{35}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Drucken des Prototyps}{36}{subsubsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.5}Zusammensetzen des Prototyps}{37}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Schaltplan}{37}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Verdrahten}{37}{subsubsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.3}Kleben}{38}{subsubsection.3.5.3}%
+\contentsline {section}{\numberline {4}Testen und Fehlerbehebung}{39}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Testen des Gesamtsystems}{39}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Testen des Prototyps}{39}{subsubsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.2}Auftretende Fehler beheben}{40}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Schluss}{41}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Konklusion Hardware}{41}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Konklusion Software}{41}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Einzelnachweise}{42}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Literaturverzeichnis}{42}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Abbildungsverzeichnis}{45}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Tabellenverzeichnis}{45}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Anhang}{46}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}Code Mikrocontroller}{46}{subsubsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.2}Code Smartphone-App}{46}{subsubsection.6.4.2}%
