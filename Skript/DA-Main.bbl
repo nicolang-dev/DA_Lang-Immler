@@ -41,7 +41,6 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{Git ist ein ausgereiftes, aktiv gewartetes Open-Source-Revisionskontrollsystem, das von Tausenden Entwicklern auf der ganzen Welt verwendet wird. Mit diesem Leitfaden wirst du zum Git-Profi}
-      \field{journaltitle}{Atlassian}
       \field{shorttitle}{Was ist {Git}?}
       \field{title}{{URLPI17}}
       \field{urlday}{6}
@@ -100,22 +99,19 @@
     \endentry
     \entry{santos_urlpi27_2018}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=e014db1a146e2a292d12c6ed591dcf18}{%
+        {{un=0,uniquepart=base,hash=f3e3016c9f958241aff430cf4941fae3}{%
            family={Santos},
-           familyi={S\bibinitperiod},
-           given={Sara},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
+           familyi={S\bibinitperiod}}}%
       }
       \list{language}{1}{%
         {en-US}%
       }
-      \strng{namehash}{e014db1a146e2a292d12c6ed591dcf18}
-      \strng{fullhash}{e014db1a146e2a292d12c6ed591dcf18}
-      \strng{bibnamehash}{e014db1a146e2a292d12c6ed591dcf18}
-      \strng{authorbibnamehash}{e014db1a146e2a292d12c6ed591dcf18}
-      \strng{authornamehash}{e014db1a146e2a292d12c6ed591dcf18}
-      \strng{authorfullhash}{e014db1a146e2a292d12c6ed591dcf18}
+      \strng{namehash}{f3e3016c9f958241aff430cf4941fae3}
+      \strng{fullhash}{f3e3016c9f958241aff430cf4941fae3}
+      \strng{bibnamehash}{f3e3016c9f958241aff430cf4941fae3}
+      \strng{authorbibnamehash}{f3e3016c9f958241aff430cf4941fae3}
+      \strng{authornamehash}{f3e3016c9f958241aff430cf4941fae3}
+      \strng{authorfullhash}{f3e3016c9f958241aff430cf4941fae3}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{extradatescope}{labelyear}
@@ -568,9 +564,8 @@
       \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{url}
-      \field{labeltitlesource}{shorttitle}
+      \field{labeltitlesource}{title}
       \field{abstract}{Eine REST-API (oder RESTful API) ist eine Programmierschnittstelle (API) oder Web-API, die den Austausch von Daten zwischen Systemen ermöglicht und dabei REST-Prinzipien folgt.}
-      \field{shorttitle}{Was ist eine {REST}-{API}?}
       \field{title}{{URLPI04}}
       \field{urlday}{23}
       \field{urlmonth}{9}
@@ -636,33 +631,6 @@
       \endverb
       \verb{url}
       \verb https://docs.expo.dev/get-started/introduction/
-      \endverb
-    \endentry
-    \entry{noauthor_urlpi10_nodate-1}{misc}{}
-      \list{language}{1}{%
-        {de}%
-      }
-      \field{sortinit}{U}
-      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{url}
-      \field{labeltitlesource}{shorttitle}
-      \field{abstract}{In unserem IT-Lexikon findest du alle wichtigen IT-Begriffe einfach und verständlich erklärt. Für Unternehmer und alle, die sich für IT interessieren.}
-      \field{note}{Publication Title: techbold}
-      \field{shorttitle}{Was ist ein {Access} {Point}?}
-      \field{title}{{URLPI10}}
-      \field{urlday}{16}
-      \field{urlmonth}{12}
-      \field{urlyear}{2024}
-      \field{urldateera}{ce}
-      \verb{file}
-      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\M5RPE4U7\\access-point.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://www.techbold.at/lexikon-eintrag/access-point
-      \endverb
-      \verb{url}
-      \verb https://www.techbold.at/lexikon-eintrag/access-point
       \endverb
     \endentry
     \entry{noauthor_urlpi11_nodate}{misc}{}
@@ -1122,8 +1090,38 @@
       \verb https://code.visualstudio.com/docs
       \endverb
     \endentry
+    \entry{noauthor_urlpi32_2023}{misc}{}
+      \list{language}{1}{%
+        {de}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Dieses TypeScript-Tutorial bietet eine umfassende Einführung in die Definition, Anwendungsbereiche und die zahlreichen Vorteile der JavaScript-Erweiterung.}
+      \field{journaltitle}{IONOS Digital Guide}
+      \field{month}{12}
+      \field{shorttitle}{{TypeScript}}
+      \field{title}{{URLPI32}}
+      \field{urlday}{2}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\6FJYTNTA\\typescript.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.ionos.at/digitalguide/websites/web-entwicklung/typescript/
+      \endverb
+      \verb{url}
+      \verb https://www.ionos.at/digitalguide/websites/web-entwicklung/typescript/
+      \endverb
+    \endentry
   \enddatalist
-  \missing{noauthor_urlpi32_2023}
+  \missing{noauthor_urlnl07_nodate}
+  \missing{noauthor_urlpi10_nodate-1}
 \endrefsection
 \endinput
 

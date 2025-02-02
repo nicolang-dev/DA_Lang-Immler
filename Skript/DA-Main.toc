@@ -37,15 +37,15 @@
 \contentsline {subsubsection}{\numberline {3.3.2}Wärmeableitung}{33}{subsubsection.3.3.2}%
 \contentsline {subsubsection}{\numberline {3.3.3}Virtuelles 3D-Design}{33}{subsubsection.3.3.3}%
 \contentsline {subsection}{\numberline {3.4}Fertigung Adaptergehäuse}{36}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Drucken des Prototypen}{37}{subsubsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.5}Zusammensetzen des Prototypen}{38}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.4.1}Drucken des Prototyps}{37}{subsubsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.5}Zusammensetzen des Prototyps}{38}{subsection.3.5}%
 \contentsline {subsubsection}{\numberline {3.5.1}Schaltplan}{38}{subsubsection.3.5.1}%
 \contentsline {subsubsection}{\numberline {3.5.2}Verdrahten}{38}{subsubsection.3.5.2}%
 \contentsline {subsubsection}{\numberline {3.5.3}Kleben}{39}{subsubsection.3.5.3}%
-\contentsline {section}{\numberline {4}Testen und Fehlerbehebung}{39}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Testen des Gesamtsystems}{39}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Testen des Prototypen}{39}{subsubsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.2}Auftretende Fehler beheben}{40}{subsection.4.2}%
+\contentsline {section}{\numberline {4}Testen und Fehlerbehebung}{40}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Testen des Gesamtsystems}{40}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Testen des Prototyps}{40}{subsubsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.2}Auftretende Fehler beheben}{41}{subsection.4.2}%
 \contentsline {section}{\numberline {5}Schluss}{42}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Konklusion Hardware}{42}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Konklusion Software}{42}{subsection.5.2}%
