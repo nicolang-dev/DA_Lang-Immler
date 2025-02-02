@@ -19,83 +19,6 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global}
-    \entry{atlassian_urlpi17_nodate}{misc}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=a8fd8cd0b6d2cfda939a8ef257e60192}{%
-           family={Atlassian},
-           familyi={A\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {de}%
-      }
-      \strng{namehash}{a8fd8cd0b6d2cfda939a8ef257e60192}
-      \strng{fullhash}{a8fd8cd0b6d2cfda939a8ef257e60192}
-      \strng{bibnamehash}{a8fd8cd0b6d2cfda939a8ef257e60192}
-      \strng{authorbibnamehash}{a8fd8cd0b6d2cfda939a8ef257e60192}
-      \strng{authornamehash}{a8fd8cd0b6d2cfda939a8ef257e60192}
-      \strng{authorfullhash}{a8fd8cd0b6d2cfda939a8ef257e60192}
-      \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{url}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{shorttitle}
-      \field{abstract}{Git ist ein ausgereiftes, aktiv gewartetes Open-Source-Revisionskontrollsystem, das von Tausenden Entwicklern auf der ganzen Welt verwendet wird. Mit diesem Leitfaden wirst du zum Git-Profi}
-      \field{shorttitle}{Was ist {Git}?}
-      \field{title}{{URLPI17}}
-      \field{urlday}{6}
-      \field{urlmonth}{1}
-      \field{urlyear}{2025}
-      \field{urldateera}{ce}
-      \verb{file}
-      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\LCNM2T85\\what-is-git.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://www.atlassian.com/de/git/tutorials/what-is-git
-      \endverb
-      \verb{url}
-      \verb https://www.atlassian.com/de/git/tutorials/what-is-git
-      \endverb
-    \endentry
-    \entry{santos_urlpi27_2018}{misc}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=f3e3016c9f958241aff430cf4941fae3}{%
-           family={Santos},
-           familyi={S\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {en-US}%
-      }
-      \strng{namehash}{f3e3016c9f958241aff430cf4941fae3}
-      \strng{fullhash}{f3e3016c9f958241aff430cf4941fae3}
-      \strng{bibnamehash}{f3e3016c9f958241aff430cf4941fae3}
-      \strng{authorbibnamehash}{f3e3016c9f958241aff430cf4941fae3}
-      \strng{authornamehash}{f3e3016c9f958241aff430cf4941fae3}
-      \strng{authorfullhash}{f3e3016c9f958241aff430cf4941fae3}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Learn how to use the ESP32 flash memory to store permanent data. To write data to the flash memory, you use the EEPROM.write() function that accepts as arguments}
-      \field{month}{11}
-      \field{title}{{URLPI27}}
-      \field{urlday}{29}
-      \field{urlmonth}{1}
-      \field{urlyear}{2025}
-      \field{year}{2018}
-      \field{urldateera}{ce}
-      \verb{file}
-      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\CJP29GWF\\esp32-flash-memory.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://randomnerdtutorials.com/esp32-flash-memory/
-      \endverb
-      \verb{url}
-      \verb https://randomnerdtutorials.com/esp32-flash-memory/
-      \endverb
-    \endentry
     \entry{noauthor_urlnl01_nodate}{misc}{}
       \list{language}{1}{%
         {de}%
@@ -591,6 +514,33 @@
       \verb https://docs.expo.dev/get-started/introduction/
       \endverb
     \endentry
+    \entry{noauthor_urlpi10_nodate-1}{misc}{}
+      \list{language}{1}{%
+        {de}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{In unserem IT-Lexikon findest du alle wichtigen IT-Begriffe einfach und verständlich erklärt. Für Unternehmer und alle, die sich für IT interessieren.}
+      \field{note}{Publication Title: techbold}
+      \field{shorttitle}{Was ist ein {Access} {Point}?}
+      \field{title}{{URLPI10}}
+      \field{urlday}{16}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\M5RPE4U7\\access-point.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.techbold.at/lexikon-eintrag/access-point
+      \endverb
+      \verb{url}
+      \verb https://www.techbold.at/lexikon-eintrag/access-point
+      \endverb
+    \endentry
     \entry{noauthor_urlpi11_nodate}{misc}{}
       \list{language}{1}{%
         {de}%
@@ -732,6 +682,32 @@
       \verb https://www.informatik-verstehen.de/lexikon/protokoll/
       \endverb
     \endentry
+    \entry{noauthor_urlpi17_nodate}{misc}{}
+      \list{language}{1}{%
+        {de}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Git ist ein ausgereiftes, aktiv gewartetes Open-Source-Revisionskontrollsystem, das von Tausenden Entwicklern auf der ganzen Welt verwendet wird. Mit diesem Leitfaden wirst du zum Git-Profi}
+      \field{journaltitle}{Atlassian}
+      \field{title}{{URLPI17}}
+      \field{urlday}{2}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\YSALG392\\what-is-git.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.atlassian.com/de/git/tutorials/what-is-git
+      \endverb
+      \verb{url}
+      \verb https://www.atlassian.com/de/git/tutorials/what-is-git
+      \endverb
+    \endentry
     \entry{noauthor_urlpi18_nodate}{misc}{}
       \list{language}{1}{%
         {de}%
@@ -740,10 +716,9 @@
       \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{url}
-      \field{labeltitlesource}{shorttitle}
+      \field{labeltitlesource}{title}
       \field{abstract}{Fragst du dich, was GitHub ist? In diesem Beitrag geben wir dir eine Einführung in GitHub, Git und Versionskontrolle für Anfänger. Dann geben wir dir auch eine einfache Tour durch ein GitHub-Repository und teilen dir dann einige Möglichkeiten, wie du Git oder GitHub benutzen kannst, um dein Leben einfacher zu machen.}
       \field{journaltitle}{Kinsta®}
-      \field{shorttitle}{Was ist {GitHub}?}
       \field{title}{{URLPI18}}
       \field{urlday}{6}
       \field{urlmonth}{1}
@@ -767,11 +742,10 @@
       \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
-      \field{labeltitlesource}{shorttitle}
+      \field{labeltitlesource}{title}
       \field{abstract}{Multicast DNS (mDNS) ist eine Alternative zum klassischen DNS für kleine Netzwerke. Anwender können verschiedene Geräte damit einfacher verbinden.}
       \field{journaltitle}{IONOS Digital Guide}
       \field{month}{2}
-      \field{shorttitle}{Multicast {DNS}}
       \field{title}{{URLPI19}}
       \field{urlday}{6}
       \field{urlmonth}{1}
@@ -1056,11 +1030,10 @@
       \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
-      \field{labeltitlesource}{shorttitle}
+      \field{labeltitlesource}{title}
       \field{abstract}{Dieses TypeScript-Tutorial bietet eine umfassende Einführung in die Definition, Anwendungsbereiche und die zahlreichen Vorteile der JavaScript-Erweiterung.}
       \field{journaltitle}{IONOS Digital Guide}
       \field{month}{12}
-      \field{shorttitle}{{TypeScript}}
       \field{title}{{URLPI32}}
       \field{urlday}{2}
       \field{urlmonth}{2}
@@ -1079,8 +1052,8 @@
     \endentry
   \enddatalist
   \missing{noauthor_urlnl07_nodate}
-  \missing{noauthor_urlpi10_nodate-1}
   \missing{redaktion_urlnl18_2020}
+  \missing{santos_urlpi27_2018}
 \endrefsection
 \endinput
 
