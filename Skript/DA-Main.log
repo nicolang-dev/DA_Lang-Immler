@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.4)  1 FEB 2025 23:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.4)  2 FEB 2025 15:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -901,90 +901,157 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'DA-Main.bbl' found.
- (DA-Main.bbl)
+ (DA-Main.bbl
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                noauthor_urlpi29_nodate
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                noauthor_urlpi30_nodate
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                noauthor_urlpi31_nodate
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+)
 Package biblatex Info: Reference section=0 on input line 70.
 Package biblatex Info: Reference segment=0 on input line 70.
 \c@lstlisting=\count445
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 7
-3.
 
+
+pdfTeX warning: pdflatex (file ./Deckblatt.pdf): PDF inclusion: found PDF versi
+on <1.7>, but at most version <1.5> allowed
+<Deckblatt.pdf, id=255, 597.55246pt x 845.07724pt>
+File: Deckblatt.pdf Graphic file (type pdf)
+<use Deckblatt.pdf>
+Package pdftex.def Info: Deckblatt.pdf  used on input line 77.
+(pdftex.def)             Requested size: 597.551pt x 845.07518pt.
+
+
+pdfTeX warning: pdflatex (file ./Deckblatt.pdf): PDF inclusion: found PDF versi
+on <1.7>, but at most version <1.5> allowed
+File: Deckblatt.pdf Graphic file (type pdf)
+<use Deckblatt.pdf>
+Package pdftex.def Info: Deckblatt.pdf  used on input line 77.
+(pdftex.def)             Requested size: 597.551pt x 845.07518pt.
+
+
+pdfTeX warning: pdflatex (file ./Deckblatt.pdf): PDF inclusion: found PDF versi
+on <1.7>, but at most version <1.5> allowed
+
+
+pdfTeX warning: pdflatex (file ./Deckblatt.pdf): PDF inclusion: found PDF versi
+on <1.7>, but at most version <1.5> allowed
+<Deckblatt.pdf, id=258, page=1, 597.55246pt x 845.07724pt>
+File: Deckblatt.pdf Graphic file (type pdf)
+<use Deckblatt.pdf, page 1>
+Package pdftex.def Info: Deckblatt.pdf , page1 used on input line 77.
+(pdftex.def)             Requested size: 597.551pt x 845.07518pt.
+File: Deckblatt.pdf Graphic file (type pdf)
+<use Deckblatt.pdf, page 1>
+Package pdftex.def Info: Deckblatt.pdf , page1 used on input line 77.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: Deckblatt.pdf Graphic file (type pdf)
+<use Deckblatt.pdf, page 1>
+Package pdftex.def Info: Deckblatt.pdf , page1 used on input line 77.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: Deckblatt.pdf Graphic file (type pdf)
+<use Deckblatt.pdf, page 1>
+Package pdftex.def Info: Deckblatt.pdf , page1 used on input line 77.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: Deckblatt.pdf Graphic file (type pdf)
+<use Deckblatt.pdf, page 1>
+Package pdftex.def Info: Deckblatt.pdf , page1 used on input line 77.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+[1
+
+
+ <./Deckblatt.pdf>]
+<./images//allgemein/bild_nico.jpg, id=290, 444.66125pt x 666.49pt>
+File: ./images//allgemein/bild_nico.jpg Graphic file (type jpg)
+<use ./images//allgemein/bild_nico.jpg>
+Package pdftex.def Info: ./images//allgemein/bild_nico.jpg  used on input line 
+82.
+(pdftex.def)             Requested size: 133.3994pt x 199.94853pt.
+<./images//allgemein/bild_philipp.jpg, id=291, 333.49594pt x 499.8675pt>
+File: ./images//allgemein/bild_philipp.jpg Graphic file (type jpg)
+<use ./images//allgemein/bild_philipp.jpg>
+Package pdftex.def Info: ./images//allgemein/bild_philipp.jpg  used on input li
+ne 89.
+(pdftex.def)             Requested size: 133.39601pt x 199.94345pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--90
+
+ []
+
+[2{C:/Users/pippo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/pi
+ppo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc} <./images//allg
+emein/bild_nico.jpg> <./images//allgemein/bild_philipp.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 99--100
+
+ []
+
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
+07.
 (C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 7
-3.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
+07.
 
 (C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-73.
+107.
 
 (C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-73.
+107.
 
 (C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 73.
+(Font)              <10.95> on input line 107.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 73.
+(Font)              <8> on input line 107.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 73.
- [1
-
-{C:/Users/pippo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/pipp
-o/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}]
-<./images//allgemein/bild_nico.jpg, id=262, 444.66125pt x 666.49pt>
-File: ./images//allgemein/bild_nico.jpg Graphic file (type jpg)
-<use ./images//allgemein/bild_nico.jpg>
-Package pdftex.def Info: ./images//allgemein/bild_nico.jpg  used on input line 
-80.
-(pdftex.def)             Requested size: 133.3994pt x 199.94853pt.
-<./images//allgemein/bild_philipp.jpg, id=263, 333.49594pt x 499.8675pt>
-File: ./images//allgemein/bild_philipp.jpg Graphic file (type jpg)
-<use ./images//allgemein/bild_philipp.jpg>
-Package pdftex.def Info: ./images//allgemein/bild_philipp.jpg  used on input li
-ne 87.
-(pdftex.def)             Requested size: 133.39601pt x 199.94345pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 82--88
-
- []
-
-[1 <./images//allgemein/bild_nico.jpg> <./images//allgemein/bild_philipp.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 97--98
-
- []
-
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 105.
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 125--127
+(Font)              <6> on input line 107.
+ [3]
+Underfull \hbox (badness 10000) in paragraph at lines 127--129
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--130
+Underfull \hbox (badness 10000) in paragraph at lines 130--132
 
  []
 
-[3] (DA-Main.toc [4])
+[4] (DA-Main.toc [5])
 \tf@toc=\write5
 \openout5 = `DA-Main.toc'.
 
- [5]
-<./images//allgemein/MSA_Konzept.png, id=352, 855.195pt x 679.53876pt>
+ [6]
+<./images//allgemein/MSA_Konzept.png, id=381, 855.195pt x 679.53876pt>
 File: ./images//allgemein/MSA_Konzept.png Graphic file (type png)
 <use ./images//allgemein/MSA_Konzept.png>
 Package pdftex.def Info: ./images//allgemein/MSA_Konzept.png  used on input lin
-e 143.
+e 145.
 (pdftex.def)             Requested size: 472.03123pt x 375.07469pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -998,22 +1065,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-<./images//allgemein/htl-reutte_logo.png, id=354, 264.99pt x 111.2958pt>
+<./images//allgemein/htl-reutte_logo.png, id=383, 264.99pt x 111.2958pt>
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 154.
+ line 156.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.154 
+l.156 
        [1 <./images//allgemein/MSA_Konzept.png> <./images//allgemein/htl-reutte
 _logo.png>]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-68.
+69.
 
 (C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -1029,14 +1096,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 204.
+ line 205.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.204 \subsubsection
+l.205 \subsubsection
                     {Was muss es nicht kÃ¶nnen?} [2]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1052,21 +1119,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 204.
+ line 205.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.204 \subsubsection
+l.205 \subsubsection
                     {Was muss es nicht kÃ¶nnen?} [3]
-Underfull \hbox (badness 10000) in paragraph at lines 205--207
+Underfull \hbox (badness 10000) in paragraph at lines 206--208
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 208--209
+Underfull \hbox (badness 10000) in paragraph at lines 209--210
 
  []
 
@@ -1085,26 +1152,26 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 209.
+ line 210.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.209 
+l.210 
        [4]
-Underfull \hbox (badness 10000) in paragraph at lines 214--224
+Underfull \hbox (badness 10000) in paragraph at lines 215--225
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--224
+Underfull \hbox (badness 10000) in paragraph at lines 215--225
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--224
+Underfull \hbox (badness 10000) in paragraph at lines 215--225
 
  []
 
@@ -1119,17 +1186,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 224.
+ line 225.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.224 \subsubsection
+l.225 \subsubsection
                     {Auswahl interne Hardware} [5]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
-29.
+30.
 
 (C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -1145,9 +1212,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 249.
+ line 250.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
-[6{C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.250 
+       [6{C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts
+1.enc}]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1159,27 +1233,37 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 263.
+ line 264.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [7]
-Overfull \hbox (14.65797pt too wide) in paragraph at lines 264--265
+Overfull \hbox (14.65797pt too wide) in paragraph at lines 265--266
 []\T1/lmr/m/n/10.95 (vgl. []$\T1/lmtt/m/n/10.95 https : / / www . denios . de /
  services / denios -[] magazin / gefahren -[] im -[] umgang -[] mit -[] lithium
  -[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 270--282
+Underfull \hbox (badness 10000) in paragraph at lines 270--299
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 270--282
+Underfull \hbox (badness 10000) in paragraph at lines 270--299
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 270--282
+Underfull \hbox (badness 10000) in paragraph at lines 270--299
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 270--299
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 270--299
 
  []
 
@@ -1194,9 +1278,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 282.
+ line 299.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [8]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1208,23 +1295,79 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 289.
+ line 300.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [9]
 
-LaTeX Warning: Citation 'noauthor_urlpi29_nodate' on page 10 undefined on input
- line 299.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 317.
+(pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 319--331
+
+ []
 
 
-LaTeX Warning: Citation 'noauthor_urlpi30_nodate' on page 10 undefined on input
- line 303.
+Underfull \hbox (badness 10000) in paragraph at lines 319--331
+
+ []
 
 
-LaTeX Warning: Citation 'noauthor_urlpi31_nodate' on page 10 undefined on input
- line 307.
+Underfull \hbox (badness 10000) in paragraph at lines 319--331
+
+ []
 
 
-Overfull \hbox (70.0625pt too wide) in paragraph at lines 296--317
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 331.
+(pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
+[11]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 338.
+(pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
+[12]
+
+LaTeX Warning: Citation 'noauthor_urlpi29_nodate' on page 13 undefined on input
+ line 348.
+
+
+LaTeX Warning: Citation 'noauthor_urlpi30_nodate' on page 13 undefined on input
+ line 352.
+
+
+LaTeX Warning: Citation 'noauthor_urlpi31_nodate' on page 13 undefined on input
+ line 356.
+
+
+Overfull \hbox (70.0625pt too wide) in paragraph at lines 345--366
 \T1/lmr/m/n/10.95 men, Pro-zess-dia-gram-men, Or-ga-ni-gram-men, UML, ER und Ne
 tzwerkdiagrammen."([]) 
  []
@@ -1240,84 +1383,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 317.
-(pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 318--341
-
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
-<use ./images//allgemein/htl-reutte_logo.png>
-Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 341.
-(pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
-[11]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
-<use ./images//allgemein/htl-reutte_logo.png>
-Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 341.
-(pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
-[12]
-Overfull \hbox (36.7852pt too wide) in paragraph at lines 342--354
-\T1/lmr/m/n/10.95 Android- oder Web-App bau-en. Um ei-ne Re-act Na-ti-ve App au
-s-zu-füh-ren, wird die Node.js-Laufzeitumgebung
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
-<use ./images//allgemein/htl-reutte_logo.png>
-Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 354.
+ line 366.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 359--384
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 359--384
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 359--384
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 359--384
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 359--384
+Underfull \hbox (badness 10000) in paragraph at lines 367--390
 
  []
 
@@ -1332,7 +1401,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 384.
+ line 390.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [14]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1349,16 +1418,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 385.
+ line 390.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [15]
-<./images//software/uml_microcontroller.png, id=487, 1918.16624pt x 1063.975pt>
-
-File: ./images//software/uml_microcontroller.png Graphic file (type png)
-<use ./images//software/uml_microcontroller.png>
-Package pdftex.def Info: ./images//software/uml_microcontroller.png  used on in
-put line 390.
-(pdftex.def)             Requested size: 587.43161pt x 325.83505pt.
+Overfull \hbox (36.7852pt too wide) in paragraph at lines 391--403
+\T1/lmr/m/n/10.95 Android- oder Web-App bau-en. Um ei-ne Re-act Na-ti-ve App au
+s-zu-füh-ren, wird die Node.js-Laufzeitumgebung
+ []
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1371,20 +1437,45 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 392.
+ line 403.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 393--411
+<./images//software/uml_microcontroller.png, id=517, 1918.16624pt x 1063.975pt>
+
+File: ./images//software/uml_microcontroller.png Graphic file (type png)
+<use ./images//software/uml_microcontroller.png>
+Package pdftex.def Info: ./images//software/uml_microcontroller.png  used on in
+put line 410.
+(pdftex.def)             Requested size: 587.43161pt x 325.83505pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 413.
+(pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 413--432
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 393--411
+Underfull \hbox (badness 10000) in paragraph at lines 413--432
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 393--411
+Underfull \hbox (badness 10000) in paragraph at lines 413--432
 
  []
 
@@ -1403,10 +1494,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 411.
+ line 432.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
-[17 <./images//software/uml_microcontroller.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 412--431
+[18 <./images//software/uml_microcontroller.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 433--452
 
  []
 
@@ -1421,15 +1512,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 431.
+ line 452.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
-[18]
-<./images//software/uml_ablauf_esp32_setup.png, id=509, 448.67625pt x 1351.0475
+[19]
+<./images//software/uml_ablauf_esp32_setup.png, id=542, 448.67625pt x 1351.0475
 pt>
 File: ./images//software/uml_ablauf_esp32_setup.png Graphic file (type png)
 <use ./images//software/uml_ablauf_esp32_setup.png>
 Package pdftex.def Info: ./images//software/uml_ablauf_esp32_setup.png  used on
- input line 437.
+ input line 458.
 (pdftex.def)             Requested size: 205.92804pt x 620.06891pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1446,18 +1537,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 440.
+ line 461.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
-[19]
-<./images//software/uml_ablauf_esp32_loop.png, id=516, 843.15pt x 1325.95375pt>
+[20]
+<./images//software/uml_ablauf_esp32_loop.png, id=548, 843.15pt x 1325.95375pt>
 
 File: ./images//software/uml_ablauf_esp32_loop.png Graphic file (type png)
 <use ./images//software/uml_ablauf_esp32_loop.png>
 Package pdftex.def Info: ./images//software/uml_ablauf_esp32_loop.png  used on 
-input line 444.
+input line 465.
 (pdftex.def)             Requested size: 394.2864pt x 620.06891pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 440--446
+Underfull \hbox (badness 10000) in paragraph at lines 461--467
 
  []
 
@@ -1476,9 +1567,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 446.
+ line 467.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
-[20 <./images//software/uml_ablauf_esp32_setup.png>]
+[21 <./images//software/uml_ablauf_esp32_setup.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1493,9 +1584,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 447.
+ line 468.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
-[21]
+[22]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1510,28 +1601,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 448.
+ line 469.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
-[22 <./images//software/uml_ablauf_esp32_loop.png>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
-<use ./images//allgemein/htl-reutte_logo.png>
-Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 466.
-(pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
-[23]
-<./images//software/app_struktur.png, id=537, 597.23125pt x 570.13pt>
+[23 <./images//software/uml_ablauf_esp32_loop.png>]
+<./images//software/app_struktur.png, id=565, 597.23125pt x 570.13pt>
 File: ./images//software/app_struktur.png Graphic file (type png)
 <use ./images//software/app_struktur.png>
 Package pdftex.def Info: ./images//software/app_struktur.png  used on input lin
-e 469.
+e 476.
 (pdftex.def)             Requested size: 472.03123pt x 450.61526pt.
 
 
@@ -1545,7 +1622,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 472.
+ line 479.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [24]
 
@@ -1559,7 +1636,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 472.
+ line 479.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [25 <./images//software/app_struktur.png>]
 
@@ -1573,35 +1650,35 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 497.
+ line 504.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 499--501
+Underfull \hbox (badness 10000) in paragraph at lines 506--508
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 499--501
+Underfull \hbox (badness 10000) in paragraph at lines 506--508
 
  []
 
-<./images//software/adapter_item.png, id=557, 1016.79875pt x 246.9225pt>
+<./images//software/adapter_item.png, id=585, 1016.79875pt x 246.9225pt>
 File: ./images//software/adapter_item.png Graphic file (type png)
 <use ./images//software/adapter_item.png>
 Package pdftex.def Info: ./images//software/adapter_item.png  used on input lin
-e 505.
+e 512.
 (pdftex.def)             Requested size: 188.8096pt x 45.84949pt.
-<./images//software/station_item.png, id=558, 938.50626pt x 268.00125pt>
+<./images//software/station_item.png, id=586, 938.50626pt x 268.00125pt>
 File: ./images//software/station_item.png Graphic file (type png)
 <use ./images//software/station_item.png>
 Package pdftex.def Info: ./images//software/station_item.png  used on input lin
-e 512.
+e 519.
 (pdftex.def)             Requested size: 188.8096pt x 53.91417pt.
-<./images//software/connection_item.png, id=559, 543.02875pt x 463.7325pt>
+<./images//software/connection_item.png, id=587, 543.02875pt x 463.7325pt>
 File: ./images//software/connection_item.png Graphic file (type png)
 <use ./images//software/connection_item.png>
 Package pdftex.def Info: ./images//software/connection_item.png  used on input 
-line 519.
+line 526.
 (pdftex.def)             Requested size: 188.8096pt x 161.24033pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1618,21 +1695,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 520.
+ line 527.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [27 <./images//software/adapter_item.png> <./images//software/station_item.png>
 ]
-<./images//software/station_list.png, id=568, 617.30624pt x 407.5225pt>
+<./images//software/station_list.png, id=596, 617.30624pt x 407.5225pt>
 File: ./images//software/station_list.png Graphic file (type png)
 <use ./images//software/station_list.png>
 Package pdftex.def Info: ./images//software/station_list.png  used on input lin
-e 528.
+e 535.
 (pdftex.def)             Requested size: 188.8096pt x 124.64551pt.
-<./images//software/connection_list.png, id=569, 391.4625pt x 641.39626pt>
+<./images//software/connection_list.png, id=597, 391.4625pt x 641.39626pt>
 File: ./images//software/connection_list.png Graphic file (type png)
 <use ./images//software/connection_list.png>
 Package pdftex.def Info: ./images//software/connection_list.png  used on input 
-line 535.
+line 542.
 (pdftex.def)             Requested size: 188.8096pt x 309.35431pt.
 
 Underfull \vbox (badness 5817) has occurred while \output is active []
@@ -1649,7 +1726,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 536.
+ line 543.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [28 <./images//software/connection_item.png> <./images//software/station_list.p
 ng>]
@@ -1664,15 +1741,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 548.
+ line 555.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [29 <./images//software/connection_list.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 567--572
+Underfull \hbox (badness 10000) in paragraph at lines 574--579
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 567--572
+Underfull \hbox (badness 10000) in paragraph at lines 574--579
 
  []
 
@@ -1687,7 +1764,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 572.
+ line 579.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [30]
 
@@ -1701,10 +1778,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 581.
+ line 588.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [31]
-Overfull \hbox (1.52551pt too wide) in paragraph at lines 586--587
+Overfull \hbox (1.52551pt too wide) in paragraph at lines 593--594
 \T1/lmr/m/n/10.95 In Zu-kunft wä-re es noch denk-bar, au-ÿer-halb der Di-plom-a
 r-beit wei-te-re Funk-tio-nen in die Smartphone-
  []
@@ -1720,17 +1797,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 593.
+ line 600.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [32]
-<./images//hardware/stuetzen_fusion.png, id=607, 505.89pt x 399.6359pt>
+<./images//hardware/stuetzen_fusion.png, id=635, 505.89pt x 399.6359pt>
 File: ./images//hardware/stuetzen_fusion.png Graphic file (type png)
 <use ./images//hardware/stuetzen_fusion.png>
 Package pdftex.def Info: ./images//hardware/stuetzen_fusion.png  used on input 
-line 606.
+line 613.
 (pdftex.def)             Requested size: 252.94437pt x 199.81746pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 598--609
+Underfull \hbox (badness 10000) in paragraph at lines 605--616
 
  []
 
@@ -1749,27 +1826,27 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 610.
+ line 617.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [33]
-<./images//hardware/basis-draufsicht_fusion.png, id=612, 446.09518pt x 379.8476
+<./images//hardware/basis-draufsicht_fusion.png, id=640, 446.09518pt x 379.8476
 7pt>
 File: ./images//hardware/basis-draufsicht_fusion.png Graphic file (type png)
 <use ./images//hardware/basis-draufsicht_fusion.png>
 Package pdftex.def Info: ./images//hardware/basis-draufsicht_fusion.png  used o
-n input line 615.
+n input line 622.
 (pdftex.def)             Requested size: 223.04704pt x 189.92337pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 610--618
+Underfull \hbox (badness 10000) in paragraph at lines 617--625
 
  []
 
-<./images//hardware/basis-inhalt_picture.png, id=613, 806.01125pt x 659.46375pt
+<./images//hardware/basis-inhalt_picture.png, id=641, 806.01125pt x 659.46375pt
 >
 File: ./images//hardware/basis-inhalt_picture.png Graphic file (type png)
 <use ./images//hardware/basis-inhalt_picture.png>
 Package pdftex.def Info: ./images//hardware/basis-inhalt_picture.png  used on i
-nput line 621.
+nput line 628.
 (pdftex.def)             Requested size: 225.68161pt x 184.64859pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1786,18 +1863,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 624.
+ line 631.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [34 <./images//hardware/stuetzen_fusion.png>]
-<./images//hardware/gitter-schema_fusion.png, id=620, 522.23679pt x 451.6875pt>
+<./images//hardware/gitter-schema_fusion.png, id=648, 522.23679pt x 451.6875pt>
 
 File: ./images//hardware/gitter-schema_fusion.png Graphic file (type png)
 <use ./images//hardware/gitter-schema_fusion.png>
 Package pdftex.def Info: ./images//hardware/gitter-schema_fusion.png  used on i
-nput line 632.
+nput line 639.
 (pdftex.def)             Requested size: 156.67224pt x 135.5073pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 625--635
+Underfull \hbox (badness 10000) in paragraph at lines 632--642
 
  []
 
@@ -1812,11 +1889,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 635.
+ line 642.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [35 <./images//hardware/basis-draufsicht_fusion.png> <./images//hardware/basis-
 inhalt_picture.png>]
-Overfull \hbox (4.89699pt too wide) in paragraph at lines 643--657
+Overfull \hbox (4.89699pt too wide) in paragraph at lines 650--664
 \T1/lmr/m/n/10.95 vgl. []$\T1/lmtt/m/n/10.95 https : / / www . printer -[] care
  . de / de / drucker -[] ratgeber / wie -[] funktioniert -[] ein -[] 3d -[] dru
 cker$[] 
@@ -1833,7 +1910,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 657.
+ line 664.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [36 <./images//hardware/gitter-schema_fusion.png>]
 
@@ -1847,10 +1924,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 671.
+ line 678.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 672--688
+Underfull \hbox (badness 10000) in paragraph at lines 679--695
 
  []
 
@@ -1865,10 +1942,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 698.
+ line 705.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 704--721
+Underfull \hbox (badness 10000) in paragraph at lines 711--728
 
  []
 
@@ -1883,7 +1960,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 721.
+ line 728.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [39]
 
@@ -1897,7 +1974,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 728.
+ line 735.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [40]
 
@@ -1911,7 +1988,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 728.
+ line 735.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [41]
 
@@ -1925,17 +2002,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 734.
+ line 741.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [42]
-Overfull \hbox (14.22438pt too wide) in paragraph at lines 738--738
+Overfull \hbox (14.22438pt too wide) in paragraph at lines 745--745
 [][]\T1/lmr/m/it/10.95 URLPI12 \T1/lmr/m/n/10.95 (2024). \T1/lmr/m/sc/10.95 url
 \T1/lmr/m/n/10.95 : []$\T1/lmtt/m/n/10.95 https : / / www . mikrocontroller . n
 et / articles / I2S$[] \T1/lmr/m/n/10.95 (be-sucht am 16.12.2024). 
  []
 
 
-Overfull \hbox (1.51349pt too wide) in paragraph at lines 738--738
+Overfull \hbox (1.51349pt too wide) in paragraph at lines 745--745
 [][]\T1/lmr/m/it/10.95 URLPI14 \T1/lmr/m/n/10.95 (2024). de. Sec-ti-on: De-sign
  Pat-tern. \T1/lmr/m/sc/10.95 url\T1/lmr/m/n/10.95 : []$\T1/lmtt/m/n/10.95 http
 s : / / www . geeksforgeeks . org / singleton -[]
@@ -1952,10 +2029,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 737.
+ line 744.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [43]
-Overfull \hbox (0.40324pt too wide) in paragraph at lines 738--738
+Overfull \hbox (0.40324pt too wide) in paragraph at lines 745--745
 [][]\T1/lmr/m/it/10.95 URLPI25 \T1/lmr/m/n/10.95 (Sep. 2021). de. \T1/lmr/m/sc/
 10.95 url\T1/lmr/m/n/10.95 : []$\T1/lmtt/m/n/10.95 https : / / www . mittwald .
  de / blog / hosting / was -[] ist -[] eigentlich -[]
@@ -1972,7 +2049,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 738.
+ line 745.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [44] (DA-Main.lof)
 \tf@lof=\write6
@@ -1994,7 +2071,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 743.
+ line 750.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [45]
 
@@ -2008,7 +2085,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 747.
+ line 754.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [46] (DA-Main.aux)
  ***********
@@ -2020,7 +2097,7 @@ L3 programming layer <2024-01-04>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `DA-Main.out' has not changed.
-(rerunfilecheck)             Checksum: 0532D32D3BF5C6FD7984D2A445B49162;9764.
+(rerunfilecheck)             Checksum: E555AFDA16F82E2BF7249907CA50F0C6;9923.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                DA-Main
@@ -2031,24 +2108,23 @@ Package logreq Info: Writing requests to 'DA-Main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 23647 strings out of 474486
- 420329 string characters out of 5743756
+ 23602 strings out of 474486
+ 419977 string characters out of 5743756
  1945542 words of memory out of 5000000
- 45468 multiletter control sequences out of 15000+600000
- 605502 words of font info for 63 fonts, out of 8000000 for 9000
+ 45427 multiletter control sequences out of 15000+600000
+ 595880 words of font info for 58 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 75i,16n,81p,2372b,2371s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,17n,81p,2389b,2371s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
 b><C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
 b><C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.p
 fb><C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pf
-b><C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb
-><C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb
-><C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb
->
-Output written on DA-Main.pdf (52 pages, 2724510 bytes).
+b><C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pf
+b><C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pf
+b>
+Output written on DA-Main.pdf (52 pages, 2974991 bytes).
 PDF statistics:
- 813 PDF objects out of 1000 (max. 8388607)
- 157 named destinations out of 1000 (max. 500000)
- 590 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 836 PDF objects out of 1000 (max. 8388607)
+ 156 named destinations out of 1000 (max. 500000)
+ 610 words of extra memory for PDF output out of 10000 (max. 10000000)
 
