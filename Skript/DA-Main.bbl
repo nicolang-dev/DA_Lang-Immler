@@ -58,6 +58,46 @@
       \verb https://www.atlassian.com/de/git/tutorials/what-is-git
       \endverb
     \endentry
+    \entry{redaktion_urlnl18_2020}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5de107469109347220a0d684344bc41e}{%
+           family={{Redaktion}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {de-DE}%
+      }
+      \strng{namehash}{5de107469109347220a0d684344bc41e}
+      \strng{fullhash}{5de107469109347220a0d684344bc41e}
+      \strng{bibnamehash}{5de107469109347220a0d684344bc41e}
+      \strng{authorbibnamehash}{5de107469109347220a0d684344bc41e}
+      \strng{authornamehash}{5de107469109347220a0d684344bc41e}
+      \strng{authorfullhash}{5de107469109347220a0d684344bc41e}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Spritzguss oder 3D-Druck? Was ist die bessere Fertigungstechnik für Kunststoffteile? Wann lohnt sich der Umstieg von 3D-Druck zum Spritzguss? Antworten findest du hier!}
+      \field{month}{12}
+      \field{shorttitle}{Spritzguss vs. {3D}-{Druck}}
+      \field{title}{{URLNL18}}
+      \field{urlday}{2}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\nicol\\Zotero\\storage\\DPW5CZMZ\\3d-druck-spritzguss.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://2d-spritzguss.de/3d-druck-spritzguss
+      \endverb
+      \verb{url}
+      \verb https://2d-spritzguss.de/3d-druck-spritzguss
+      \endverb
+    \endentry
     \entry{santos_urlpi27_2018}{misc}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=e014db1a146e2a292d12c6ed591dcf18}{%
@@ -98,6 +138,398 @@
       \endverb
       \verb{url}
       \verb https://randomnerdtutorials.com/esp32-flash-memory/
+      \endverb
+    \endentry
+    \entry{noauthor_urlnl01_nodate}{misc}{}
+      \list{language}{1}{%
+        {de}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Der Audio-Pegel erklärt: So funktioniert das „Level“ bei Soundsignalen für Lautsprecher, Leitungen und Mikrofone}
+      \field{title}{{URLNL01}}
+      \field{urlday}{2}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\nicol\\Zotero\\storage\\I3YNLSFY\\audio-pegel.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.monacor.de/magazin/audio-pegel
+      \endverb
+      \verb{url}
+      \verb https://www.monacor.de/magazin/audio-pegel
+      \endverb
+    \endentry
+    \entry{noauthor_urlnl02_nodate}{misc}{}
+      \list{language}{1}{%
+        {de}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{shorttitle}
+      \field{shorttitle}{Was ist ein {Line}-{Ausgang}?}
+      \field{title}{{URLNL02}}
+      \field{urlday}{2}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\nicol\\Zotero\\storage\\D4MJIMNH\\line-out.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.lenovo.com/at/de/glossary/line-out/
+      \endverb
+      \verb{url}
+      \verb https://www.lenovo.com/at/de/glossary/line-out/
+      \endverb
+    \endentry
+    \entry{noauthor_urlnl03_nodate}{misc}{}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{title}{{URLNL03}}
+      \field{urlday}{2}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb https\://www.axis.com/dam/public/ad/35/af/einf%C3%BChrung-in-das-thema-audio\:-akustik-,-lautsprecher-und-audio-terminologie-de-DE-191125.pdf:C\:\\Users\\nicol\\Zotero\\storage\\HIZC3UWF\\einführung-in-das-thema-audio-akustik-,-lautsprecher-und-audio-terminologie-de-DE-191125.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.axis.com/dam/public/ad/35/af/einf%C3%BChrung-in-das-thema-audio:-akustik-,-lautsprecher-und-audio-terminologie-de-DE-191125.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.axis.com/dam/public/ad/35/af/einf%C3%BChrung-in-das-thema-audio:-akustik-,-lautsprecher-und-audio-terminologie-de-DE-191125.pdf
+      \endverb
+    \endentry
+    \entry{noauthor_urlnl04_nodate}{misc}{}
+      \list{language}{1}{%
+        {de-DE}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{title}{{URLNL04}}
+      \field{urlday}{2}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\nicol\\Zotero\\storage\\5PQK9LFL\\sampleratehz-und-khz-aufloesung-bit-und-bitrate-kbits.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.baumannmusic.com/de/2012/sampleratehz-und-khz-aufloesung-bit-und-bitrate-kbits/
+      \endverb
+      \verb{url}
+      \verb https://www.baumannmusic.com/de/2012/sampleratehz-und-khz-aufloesung-bit-und-bitrate-kbits/
+      \endverb
+    \endentry
+    \entry{noauthor_urlnl05_nodate}{misc}{}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{title}{{URLNL05}}
+      \field{urlday}{2}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb RGB-LED:C\:\\Users\\nicol\\Zotero\\storage\\2GKUCDLX\\bauteil_rgb-led.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.elektronik-kompendium.de/sites/praxis/bauteil_rgb-led.htm
+      \endverb
+      \verb{url}
+      \verb https://www.elektronik-kompendium.de/sites/praxis/bauteil_rgb-led.htm
+      \endverb
+    \endentry
+    \entry{noauthor_urlnl06_nodate}{misc}{}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{title}{{URLNL06}}
+      \field{urlday}{2}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.espressif.com/en/products/socs/esp32
+      \endverb
+      \verb{url}
+      \verb https://www.espressif.com/en/products/socs/esp32
+      \endverb
+    \endentry
+    \entry{noauthor_urlnl07_2023}{misc}{}
+      \list{language}{1}{%
+        {de}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Lerne den ESP32 Mikrocontroller kennen. Wie Programmiert man ein ESP32-Board mit der Arduino IDE etc. Welche Boards und Module gibt es. ESP32 Grundlagen}
+      \field{month}{4}
+      \field{note}{Section: ESP32}
+      \field{title}{{URLNL07}}
+      \field{urlday}{2}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://digitalewelt.at/esp32-grundlagen/
+      \endverb
+      \verb{url}
+      \verb https://digitalewelt.at/esp32-grundlagen/
+      \endverb
+    \endentry
+    \entry{noauthor_urlnl08_nodate}{misc}{}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{title}{{URLNL08}}
+      \field{urlday}{2}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Coding ESP32\: Pullup- / Pulldownwiderstände:C\:\\Users\\nicol\\Zotero\\storage\\3EZNSFUH\\view.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.xplore-dna.net/mod/page/view.php?id=2741&forceview=1
+      \endverb
+      \verb{url}
+      \verb https://www.xplore-dna.net/mod/page/view.php?id=2741&forceview=1
+      \endverb
+    \endentry
+    \entry{noauthor_urlnl09_nodate}{misc}{}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{title}{{URLNL09}}
+      \field{urlday}{2}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb PCM5102A Datenblatt, Produktinformationen und Support | TI.com:C\:\\Users\\nicol\\Zotero\\storage\\QNHVY3J7\\PCM5102A.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.ti.com/product/de-de/PCM5102A
+      \endverb
+      \verb{url}
+      \verb https://www.ti.com/product/de-de/PCM5102A
+      \endverb
+    \endentry
+    \entry{noauthor_urlnl10_nodate}{misc}{}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{title}{{URLNL10}}
+      \field{urlday}{2}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.chemie.de/lexikon/Lithium-Ionen-Akkumulator.html
+      \endverb
+      \verb{url}
+      \verb https://www.chemie.de/lexikon/Lithium-Ionen-Akkumulator.html
+      \endverb
+    \endentry
+    \entry{noauthor_urlnl11_nodate}{misc}{}
+      \list{language}{1}{%
+        {de-DE}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Gefahren von Lithium-Ionen-Akkus ✓ Nachteile ✓ häufige Brandursachen ✓ Thermal Runaway ✓ Nachteile von Lithium-Batterien ► Jetzt informieren!}
+      \field{shorttitle}{Lithium-{Ionen}-{Akkus}}
+      \field{title}{{URLNL11}}
+      \field{urlday}{2}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\nicol\\Zotero\\storage\\5TF3KKHK\\gefahren-im-umgang-mit-lithium-ionen-akkus.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.denios.de/beratung-planung/denios-magazin/gefahren-im-umgang-mit-lithium-ionen-akkus
+      \endverb
+      \verb{url}
+      \verb https://www.denios.de/beratung-planung/denios-magazin/gefahren-im-umgang-mit-lithium-ionen-akkus
+      \endverb
+    \endentry
+    \entry{noauthor_urlnl12_nodate}{misc}{}
+      \list{language}{1}{%
+        {de-DE}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Autodesk Fusion, formerly Fusion 360, is a platform for 3D CAD, modeling, manufacturing, industrial design, electronics, and mechanical engineering. Subscribe or download for free.}
+      \field{title}{{URLNL12}}
+      \field{urlday}{2}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.autodesk.com/de/products/fusion-360/overview
+      \endverb
+      \verb{url}
+      \verb https://www.autodesk.com/de/products/fusion-360/overview
+      \endverb
+    \endentry
+    \entry{noauthor_urlnl13_nodate}{misc}{}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{title}{{URLNL13}}
+      \field{urlday}{2}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.elektronik-kompendium.de/sites/grd/0705261.htm
+      \endverb
+      \verb{url}
+      \verb https://www.elektronik-kompendium.de/sites/grd/0705261.htm
+      \endverb
+    \endentry
+    \entry{noauthor_urlnl14_nodate}{misc}{}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{title}{{URLNL14}}
+      \field{urlday}{2}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.chemie.de/lexikon/Kunststoffverarbeitung.html
+      \endverb
+      \verb{url}
+      \verb https://www.chemie.de/lexikon/Kunststoffverarbeitung.html
+      \endverb
+    \endentry
+    \entry{noauthor_urlnl15_nodate}{misc}{}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{title}{{URLNL15}}
+      \field{urlday}{2}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.printer-care.de/de/drucker-ratgeber/wie-funktioniert-ein-3d-drucker
+      \endverb
+      \verb{url}
+      \verb https://www.printer-care.de/de/drucker-ratgeber/wie-funktioniert-ein-3d-drucker
+      \endverb
+    \endentry
+    \entry{noauthor_urlnl16_nodate}{misc}{}
+      \list{language}{1}{%
+        {de}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{abstract}{1,75 mm - alles, was Sie über 3D-Druck wissen müssen, an einem…}
+      \field{title}{{URLNL16}}
+      \field{urlday}{2}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\nicol\\Zotero\\storage\\D8U4VDUK\\175-mm_134816.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://help.prusa3d.com/glossary/175-mm_134816
+      \endverb
+      \verb{url}
+      \verb https://help.prusa3d.com/glossary/175-mm_134816
+      \endverb
+    \endentry
+    \entry{noauthor_urlnl17_nodate}{misc}{}
+      \list{language}{1}{%
+        {de-DE}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{title}{{URLNL17}}
+      \field{urlday}{2}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.elektronik-kompendium.de/sites/com/2009021.htm
+      \endverb
+      \verb{url}
+      \verb https://www.elektronik-kompendium.de/sites/com/2009021.htm
+      \endverb
+    \endentry
+    \entry{noauthor_urlnl19_nodate}{misc}{}
+      \list{language}{1}{%
+        {de}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Du möchtest mehr über den 3D-Druck wissen? Hier findest du die wichtigsten Tipps, Tricks und Begriffe zum 3D-Druck gratis. Hier klicken!}
+      \field{title}{{URLNL19}}
+      \field{urlday}{2}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\nicol\\Zotero\\storage\\GSBUKKEU\\tipps-tricks-begriffe-3d-druck.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.3dprima.com/de/3dprima/tipps-tricks-begriffe-3d-druck
+      \endverb
+      \verb{url}
+      \verb https://www.3dprima.com/de/3dprima/tipps-tricks-begriffe-3d-druck
       \endverb
     \endentry
     \entry{noauthor_urlpi01_2020}{misc}{}
