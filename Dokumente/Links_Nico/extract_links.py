@@ -1,52 +1,47 @@
 import fitz  # PyMuPDF
-import requests
+import re  # Reguläre Ausdrücke, um nach URLs zu suchen
 
-# Funktion, um alle Links aus einem PDF zu extrahieren und zu überprüfen, ob sie erreichbar sind
-def extract_links_from_pdf(pdf_path, txt_output_path):
-    # Öffne das PDF-Dokument
+def extract_links_from_pdf(pdf_path, output_txt_path):
+    # Öffnen des PDF-Dokuments
     document = fitz.open(pdf_path)
-    
-    # Set, um alle einzigartigen Links zu speichern (Duplikate werden automatisch entfernt)
-    links = set()
-    unreachable_links = set()
 
-    # Iteriere über jede Seite im Dokument
+    # Regulärer Ausdruck, um URLs zu erkennen
+    url_pattern = re.compile(r'https?://[^\s]+')
+
+    links = []
+
+    # Schleife durch jede Seite im PDF
     for page_num in range(len(document)):
         page = document.load_page(page_num)
-        
-        # Extrahiere Links von der Seite
-        page_links = page.get_links()
-        
-        # Füge alle gefundenen Links zur Set hinzu
-        for link in page_links:
-            uri = link.get('uri', None)
-            if uri:
-                links.add(uri)
 
-    # Prüfe, ob die Links erreichbar sind
-    for link in links:
-        try:
-            response = requests.get(link, timeout=5)
-            if response.status_code != 200:
-                unreachable_links.add(link)
-        except requests.exceptions.RequestException:
-            # Falls eine Ausnahme (z.B. Verbindungsfehler) auftritt, als unerreichbar markieren
-            unreachable_links.add(link)
+        # Extrahiere den gesamten Text der Seite (inklusive Leerzeichen und Zeilenumbrüche)
+        text = page.get_text("text")
 
-    # Schreibe die einzigartigen Links und die unerreichbaren Links in eine Textdatei
-    with open(txt_output_path, 'w') as file:
-        file.write("Erreichbare Links:\n")
-        for link in sorted(links - unreachable_links):  # Links, die erreichbar sind
-            file.write(link + '\n')
-        
-        file.write("\nUnerreichbare Links:\n")
-        for link in sorted(unreachable_links):  # Links, die nicht erreichbar sind
-            file.write(link + '\n')
+        # Die Zeichenkette durchgehen und nach URLs suchen
+        # Alle Zeilen zusammenführen, da Links über mehrere Zeilen gehen können
+        lines = text.split("\n")  # Text in Zeilen aufteilen
 
-    print(f'Links wurden überprüft und in die Datei {txt_output_path} geschrieben.')
+        full_text = ""
+        for line in lines:
+            full_text += line.strip() + " "  # Entferne führende/folgenden Leerzeichen und füge Leerzeichen hinzu
 
-# Beispielaufruf
-pdf_path = "DA-Main.pdf"  # Pfad zum PDF
-txt_output_path = "links.txt"  # Pfad zur Ausgabedatei
+        # Suche nach URLs im zusammengeführten Text
+        found_links = re.findall(url_pattern, full_text)
 
-extract_links_from_pdf(pdf_path, txt_output_path)
+        # Füge gefundene Links der Liste hinzu
+        links.extend(found_links)
+
+    # Entferne Duplikate (falls nötig)
+    unique_links = set(links)
+
+    # Schreibe die Links in eine Textdatei
+    with open(output_txt_path, 'w') as output_file:
+        for link in unique_links:
+            output_file.write(f"{link}\n")
+
+# Beispiel: Pfad zum PDF-Dokument und zum Output-TXT-File
+pdf_path = 'da.pdf'  # Dein PDF-Dateipfad
+output_txt_path = 'links.txt'  # Ausgabedatei für Links
+
+# Rufe die Funktion auf
+extract_links_from_pdf(pdf_path, output_txt_path)

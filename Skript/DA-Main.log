@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.6.26)  2 FEB 2025 16:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.4)  2 FEB 2025 18:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -6,9 +6,9 @@ entering extended mode
 (DA-Main.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo
 File: size11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count187
@@ -23,15 +23,15 @@ File: size11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\lmodern.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/lm\lmodern.sty
 Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
@@ -66,57 +66,57 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
 Package: babel 2024/01/07 v24.1 The Babel package
 \babel@savecnt=\count195
 \U@D=\dimen141
 \l@unhyphenated=\language79
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read2
 \bbl@dirlevel=\count196
 
 *************************************
 * Local config file bblopts.cfg used
 *
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
  babel
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/babel-german\ngerman.ld
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/babel-german\ngerman.ld
 f
 Language: ngerman 2024/01/19 v2.14 German support for babel (post-1996 orthogra
 phy)
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/babel-german\ngermanb.l
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/babel-german\ngermanb.l
 df
 Language: ngermanb 2024/01/19 v2.14 German support for babel (post-1996 orthogr
 aphy)
 Package babel Info: Making " an active character on input line 122.
 )))
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/de\babel
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/de\babel
 -ngerman.tex
 Package babel Info: Importing font and identification data for ngerman
 (babel)             from babel-de.ini. Reported on input line 11.
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2023/05/13 v2.17o AMS math features
 \@mathmargin=\skip50
 
 For additional information on amsmath, use the `?' option.
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks19
 \ex@=\dimen142
 ))
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen143
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count197
@@ -167,10 +167,10 @@ LaTeX Info: Redefining \Relbar on input line 971.
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
 Package: tabularx 2023/07/08 v2.11c `tabularx' package (DPC)
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
 Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \col@sep=\dimen151
 \ar@mcellbox=\box53
@@ -188,38 +188,38 @@ Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \TX@cols=\count275
 \TX@ftn=\toks25
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2023-11-26 v7.01g Hypertext links for LaTeX
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
 ty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+) (C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks26
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
 keys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.s
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.s
 ty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
 .sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -227,32 +227,32 @@ Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 ))
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro
 .sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
 lestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
 \c@section@level=\count276
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count277
 )
@@ -260,17 +260,17 @@ Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \Hy@linkcounter=\count278
 \Hy@pagecounter=\count279
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2023-11-26 v7.01g Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count280
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2023-11-26 v7.01g Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
@@ -286,10 +286,10 @@ Package hyperref Info: Bookmarks ON on input line 4448.
 LaTeX Info: Redefining \url on input line 4786.
 \XeTeXLinkMargin=\dimen159
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc
 .sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
@@ -305,7 +305,7 @@ Package hyperref Info: Link coloring OFF on input line 6085.
 Package hyperref Info: Link coloring with OCG OFF on input line 6090.
 Package hyperref Info: PDF/A mode OFF on input line 6095.
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
@@ -314,10 +314,10 @@ package with kernel methods
 \c@Hfootnote=\count285
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
 File: hpdftex.def 2023-11-26 v7.01g Hyperref driver for pdfTeX
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
@@ -325,11 +325,11 @@ with kernel methods
 \Fld@listcount=\count286
 \c@bookmark@seq@number=\count287
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
 echeck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquec
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquec
 ounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
@@ -338,7 +338,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip55
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count288
 \float@exts=\toks27
@@ -346,31 +346,31 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks28
 \@floatcapt=\box56
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
 fg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
 File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen162
 \Gin@req@width=\dimen163
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
 \Gm@cnth=\count289
@@ -386,11 +386,11 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutvoffset=\dimen171
 \Gm@dimlist=\toks29
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
 Package: fancyhdr 2024/12/09 v4.5 Extensive control of page headers and footers
 
 \f@nch@headwidth=\skip56
@@ -403,13 +403,13 @@ Package: fancyhdr 2024/12/09 v4.5 Extensive control of page headers and footers
 \f@nch@O@olf=\skip63
 \f@nch@O@orf=\skip64
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pdfpages.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pdfpages.sty
 Package: pdfpages 2024/10/28 v0.6c Insert pages of external PDF documents (AM)
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
 Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count292
 \calc@Bcount=\count293
@@ -422,19 +422,19 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count294
 \calc@Cskip=\skip67
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.sty
 Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
 \ESO@tempdima=\dimen174
 \ESO@tempdimb=\dimen175
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 274.
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
 Package xcolor Info: Model `RGB' extended on input line 1366.
@@ -449,7 +449,7 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
 \AM@pageheight=\dimen177
 \AM@fboxrule=\dimen178
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pppdftex.def
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pppdftex.def
 File: pppdftex.def 2024/10/28 v0.6c Pdfpages driver for pdfTeX (AM)
 )
 \pdfpages@includegraphics@status=\count295
@@ -460,22 +460,22 @@ File: pppdftex.def 2024/10/28 v0.6c Pdfpages driver for pdfTeX (AM)
 \AM@lof@heading=\toks32
 \c@AM@survey=\count297
 \AM@templatesizebox=\box58
-) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
-Package: enumitem 2025/01/19 v3.10 Customized lists
+) (C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip68
 \enit@outerparindent=\dimen179
 \enit@toks=\toks33
 \enit@inbox=\box59
 \enit@count@id=\count298
 \enitdp@description=\count299
-) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.sty
+) (C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.sty
 Package: biblatex 2023/03/05 v3.19 programmable bibliographies (PK/MW)
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
 \lrq@indent=\count300
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.def
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
 \c@tabx@nest=\count301
@@ -538,7 +538,7 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-dm.def
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-dm.def
 File: blx-dm.def 2023/03/05 v3.19 biblatex localization (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex style data model...
@@ -630,12 +630,12 @@ Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-compat.def
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-compat.def
 File: blx-compat.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
 )
 Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
- (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.def
+ (C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.def
 File: biblatex.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
 \c@textcitecount=\count415
 \c@textcitetotal=\count416
@@ -654,19 +654,19 @@ File: biblatex.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'authoryear-ibid'...
 Package biblatex Info: ... file 'authoryear-ibid.bbx' found.
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\authoryear
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\authoryear
 -ibid.bbx
 File: authoryear-ibid.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'authoryear'...
 Package biblatex Info: ... file 'authoryear.bbx' found.
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\authoryear
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\authoryear
 .bbx
 File: authoryear.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\standard.b
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\standard.b
 bx
 File: standard.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
 \c@bbx:relatedcount=\count424
@@ -675,7 +675,7 @@ File: standard.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load citation style 'authoryear-ibid'...
 Package biblatex Info: ... file 'authoryear-ibid.cbx' found.
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/cbx\authoryear
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/cbx\authoryear
 -ibid.cbx
 File: authoryear-ibid.cbx 2023/03/05 v3.19 biblatex citation style (PK/MW)
 Package biblatex Info: Redefining '\cite'.
@@ -689,16 +689,16 @@ Package biblatex Info: Redefining '\textcites'.
 Package biblatex Info: Trying to load configuration file...
 Package biblatex Info: ... file 'biblatex.cfg' found.
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.cfg
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.cfg
 File: biblatex.cfg 
 )
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Document encoding is UTF8 ....
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
 Package: expl3 2024-01-04 L3 programming layer (loader) 
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count426
@@ -709,15 +709,15 @@ Package biblatex Info: ... and expl3
 (biblatex)             is new enough (at least 2020/04/06),
 (biblatex)             setting 'casechanger=expl3'.
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-case-expl3
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-case-expl3
 .sty
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xpars
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xpars
 e.sty
 Package: xparse 2023-10-10 L3 Experimental document command parser
 )
 Package: blx-case-expl3 2023/03/05 v3.19 expl3 case changing code for biblatex
 ))
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
 \lst@mode=\count427
 \lst@gtempboxa=\box61
 \lst@token=\toks34
@@ -731,23 +731,23 @@ Package: blx-case-expl3 2023/03/05 v3.19 expl3 case changing code for biblatex
 \lst@lineno=\count432
 \lst@maxwidth=\dimen183
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 \c@lstnumber=\count433
 \lst@skipnumbers=\count434
 \lst@framebox=\box62
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
 File: listings.cfg 2023/02/27 1.9 listings configuration
 ))
 Package: listings 2023/02/27 1.9 (Carsten Heinz)
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/placeins\placeins.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/placeins\placeins.sty
 Package: placeins 2005/04/18  v 2.2
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@tempdima=\dimen184
 \captionmargin=\dimen185
@@ -771,39 +771,39 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 
 \@quotelevel=\count437
 \@quotereset=\count438
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 71
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 73
 .
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 (DA-Main.aux)
 \openout1 = `DA-Main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-Package hyperref Info: Link coloring OFF on input line 71.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+Package hyperref Info: Link coloring OFF on input line 73.
  (DA-Main.out) (DA-Main.out)
 \@outlinefile=\write4
 \openout4 = `DA-Main.out'.
 
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count439
@@ -818,13 +818,13 @@ ii
 \makeMPintoPDFobject=\count444
 \everyMPtoPDFconversion=\toks36
 )
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
@@ -863,15 +863,15 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape-nom
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape-nom
 etadata.sty
 Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PD
 F (HO)
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
 Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
@@ -879,19 +879,19 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 Package biblatex Info: Trying to load language 'ngerman'...
 Package biblatex Info: ... file 'ngerman.lbx' found.
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\ngerman.lb
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\ngerman.lb
 x
 File: ngerman.lbx 2023/03/05 v3.19 biblatex localization (PK/MW)
 Package biblatex Info: Trying to load language 'german'...
 Package biblatex Info: ... file 'german.lbx' found.
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\german.lbx
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\german.lbx
 File: german.lbx 2023/03/05 v3.19 biblatex localization (PK/MW)
 )
 Package biblatex Info: Trying to load language 'german'...
 Package biblatex Info: ... file 'german.lbx' found.
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\german.lbx
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\german.lbx
 File: german.lbx 2023/03/05 v3.19 biblatex localization (PK/MW)
 ))
 Package biblatex Info: Input encoding 'utf8' detected.
@@ -905,27 +905,13 @@ Package biblatex Info: ... file 'DA-Main.bbl' found.
 
 Package biblatex Warning: The following entry could not be found
 (biblatex)                in the database:
-(biblatex)                noauthor_urlpi29_nodate
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                noauthor_urlpi30_nodate
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                noauthor_urlpi31_nodate
+(biblatex)                noauthor_urlpi32_2023
 (biblatex)                Please verify the spelling and rerun
 (biblatex)                LaTeX afterwards.
 
 )
-Package biblatex Info: Reference section=0 on input line 71.
-Package biblatex Info: Reference segment=0 on input line 71.
+Package biblatex Info: Reference section=0 on input line 73.
+Package biblatex Info: Reference segment=0 on input line 73.
 \c@lstlisting=\count445
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
@@ -933,10 +919,10 @@ Package caption Info: End \AtBeginDocument code.
 
 pdfTeX warning: pdflatex (file ./Deckblatt.pdf): PDF inclusion: found PDF versi
 on <1.7>, but at most version <1.5> allowed
-<Deckblatt.pdf, id=255, 597.55246pt x 845.07724pt>
+<Deckblatt.pdf, id=111, 597.55246pt x 845.07724pt>
 File: Deckblatt.pdf Graphic file (type pdf)
 <use Deckblatt.pdf>
-Package pdftex.def Info: Deckblatt.pdf  used on input line 78.
+Package pdftex.def Info: Deckblatt.pdf  used on input line 80.
 (pdftex.def)             Requested size: 597.551pt x 845.07518pt.
 
 
@@ -944,7 +930,7 @@ pdfTeX warning: pdflatex (file ./Deckblatt.pdf): PDF inclusion: found PDF versi
 on <1.7>, but at most version <1.5> allowed
 File: Deckblatt.pdf Graphic file (type pdf)
 <use Deckblatt.pdf>
-Package pdftex.def Info: Deckblatt.pdf  used on input line 78.
+Package pdftex.def Info: Deckblatt.pdf  used on input line 80.
 (pdftex.def)             Requested size: 597.551pt x 845.07518pt.
 
 
@@ -954,91 +940,91 @@ on <1.7>, but at most version <1.5> allowed
 
 pdfTeX warning: pdflatex (file ./Deckblatt.pdf): PDF inclusion: found PDF versi
 on <1.7>, but at most version <1.5> allowed
-<Deckblatt.pdf, id=258, page=1, 597.55246pt x 845.07724pt>
+<Deckblatt.pdf, id=114, page=1, 597.55246pt x 845.07724pt>
 File: Deckblatt.pdf Graphic file (type pdf)
 <use Deckblatt.pdf, page 1>
-Package pdftex.def Info: Deckblatt.pdf , page1 used on input line 78.
+Package pdftex.def Info: Deckblatt.pdf , page1 used on input line 80.
 (pdftex.def)             Requested size: 597.551pt x 845.07518pt.
 File: Deckblatt.pdf Graphic file (type pdf)
 <use Deckblatt.pdf, page 1>
-Package pdftex.def Info: Deckblatt.pdf , page1 used on input line 78.
+Package pdftex.def Info: Deckblatt.pdf , page1 used on input line 80.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: Deckblatt.pdf Graphic file (type pdf)
 <use Deckblatt.pdf, page 1>
-Package pdftex.def Info: Deckblatt.pdf , page1 used on input line 78.
+Package pdftex.def Info: Deckblatt.pdf , page1 used on input line 80.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: Deckblatt.pdf Graphic file (type pdf)
 <use Deckblatt.pdf, page 1>
-Package pdftex.def Info: Deckblatt.pdf , page1 used on input line 78.
+Package pdftex.def Info: Deckblatt.pdf , page1 used on input line 80.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: Deckblatt.pdf Graphic file (type pdf)
 <use Deckblatt.pdf, page 1>
-Package pdftex.def Info: Deckblatt.pdf , page1 used on input line 78.
+Package pdftex.def Info: Deckblatt.pdf , page1 used on input line 80.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 [1
 
 
  <./Deckblatt.pdf>]
-<./images//allgemein/bild_nico.jpg, id=290, 444.66125pt x 666.49pt>
+<./images//allgemein/bild_nico.jpg, id=146, 444.66125pt x 666.49pt>
 File: ./images//allgemein/bild_nico.jpg Graphic file (type jpg)
 <use ./images//allgemein/bild_nico.jpg>
 Package pdftex.def Info: ./images//allgemein/bild_nico.jpg  used on input line 
-83.
+85.
 (pdftex.def)             Requested size: 133.3994pt x 199.94853pt.
-<./images//allgemein/bild_philipp.jpg, id=291, 333.49594pt x 499.8675pt>
+<./images//allgemein/bild_philipp.jpg, id=147, 333.49594pt x 499.8675pt>
 File: ./images//allgemein/bild_philipp.jpg Graphic file (type jpg)
 <use ./images//allgemein/bild_philipp.jpg>
 Package pdftex.def Info: ./images//allgemein/bild_philipp.jpg  used on input li
-ne 90.
+ne 92.
 (pdftex.def)             Requested size: 133.39601pt x 199.94345pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 85--91
+Underfull \hbox (badness 10000) in paragraph at lines 87--93
 
  []
 
-[2{C:/Users/nicol/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/ni
-col/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc} <./images//allg
+[2{C:/Users/pippo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/pi
+ppo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc} <./images//allg
 emein/bild_nico.jpg> <./images//allgemein/bild_philipp.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 100--101
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
 
  []
 
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-08.
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
+10.
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-08.
+10.
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-108.
+110.
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-108.
+110.
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 108.
+(Font)              <10.95> on input line 110.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 108.
+(Font)              <8> on input line 110.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 108.
+(Font)              <6> on input line 110.
  [3]
-Underfull \hbox (badness 10000) in paragraph at lines 128--130
+Underfull \hbox (badness 10000) in paragraph at lines 130--132
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 131--133
+Underfull \hbox (badness 10000) in paragraph at lines 133--135
 
  []
 
@@ -1047,11 +1033,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 131--133
 \openout5 = `DA-Main.toc'.
 
  [6]
-<./images//allgemein/MAA_Konzept.png, id=381, 855.195pt x 679.53876pt>
+<./images//allgemein/MAA_Konzept.png, id=267, 855.195pt x 679.53876pt>
 File: ./images//allgemein/MAA_Konzept.png Graphic file (type png)
 <use ./images//allgemein/MAA_Konzept.png>
 Package pdftex.def Info: ./images//allgemein/MAA_Konzept.png  used on input lin
-e 146.
+e 150.
 (pdftex.def)             Requested size: 472.03123pt x 375.07469pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1065,24 +1051,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-<./images//allgemein/htl-reutte_logo.png, id=383, 264.99pt x 111.2958pt>
+<./images//allgemein/htl-reutte_logo.png, id=269, 264.99pt x 111.2958pt>
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 157.
+ line 161.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.157 
+l.161 
        [1 <./images//allgemein/MAA_Konzept.png> <./images//allgemein/htl-reutte
 _logo.png>]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-99.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
+03.
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
@@ -1096,14 +1082,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 204.
+ line 208.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.204 \subsubsection
+l.208 \subsubsection
                     {Was muss es nicht kÃ¶nnen?} [2]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1119,22 +1105,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 204.
+ line 208.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.204 \subsubsection
+l.208 \subsubsection
                     {Was muss es nicht kÃ¶nnen?} [3]
-Overfull \hbox (5.84499pt too wide) in paragraph at lines 205--207
-\T1/lmr/m/n/10.95 Dieser MAA ist als Hi-Fi Pro-dukt für den klas-si-schen Durch
--schnitts-bür-ger un-d/o-der Musik-Liebhaber
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 205--207
+Underfull \hbox (badness 10000) in paragraph at lines 209--211
 
  []
 
@@ -1149,26 +1129,26 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 209.
+ line 213.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.209 \subsection
+l.213 \subsection
                  {Auswahl Hardwarekomponenten} [4]
-Underfull \hbox (badness 10000) in paragraph at lines 212--222
+Underfull \hbox (badness 10000) in paragraph at lines 216--226
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--222
+Underfull \hbox (badness 10000) in paragraph at lines 216--226
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--222
+Underfull \hbox (badness 10000) in paragraph at lines 216--226
 
  []
 
@@ -1183,19 +1163,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 222.
+ line 226.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.222 \subsubsection
+l.226 \subsubsection
                     {Auswahl interne Hardware} [5]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
-27.
+31.
 
-(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
+(C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
@@ -1209,15 +1189,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 247.
+ line 251.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.247 
-       [6{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts
+l.251 
+       [6{C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts
 1.enc}]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1230,35 +1210,35 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 261.
+ line 265.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [7]
-Underfull \hbox (badness 1048) in paragraph at lines 294--294
+Underfull \hbox (badness 1048) in paragraph at lines 299--299
 \T1/lmr/m/n/10.95 Smartphone-App be-nö-tigt, um aus-zu-wäh-len, mit
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 267--296
+Underfull \hbox (badness 10000) in paragraph at lines 271--301
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 267--296
+Underfull \hbox (badness 10000) in paragraph at lines 271--301
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 267--296
+Underfull \hbox (badness 10000) in paragraph at lines 271--301
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 267--296
+Underfull \hbox (badness 10000) in paragraph at lines 271--301
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 267--296
+Underfull \hbox (badness 10000) in paragraph at lines 271--301
 
  []
 
@@ -1273,10 +1253,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 296.
+ line 301.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [8]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3039) has occurred while \output is active []
 
 
 
@@ -1290,20 +1270,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 300.
+ line 305.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 316--328
+Underfull \hbox (badness 10000) in paragraph at lines 321--333
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 316--328
+Underfull \hbox (badness 10000) in paragraph at lines 321--333
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 316--328
+Underfull \hbox (badness 10000) in paragraph at lines 321--333
 
  []
 
@@ -1318,7 +1298,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 328.
+ line 333.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [10]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1335,27 +1315,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 328.
+ line 333.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [11]
-
-LaTeX Warning: Citation 'noauthor_urlpi29_nodate' on page 12 undefined on input
- line 345.
-
-
-LaTeX Warning: Citation 'noauthor_urlpi30_nodate' on page 12 undefined on input
- line 349.
-
-
-LaTeX Warning: Citation 'noauthor_urlpi31_nodate' on page 12 undefined on input
- line 353.
-
-
-Overfull \hbox (70.0625pt too wide) in paragraph at lines 342--363
-\T1/lmr/m/n/10.95 men, Pro-zess-dia-gram-men, Or-ga-ni-gram-men, UML, ER und Ne
-tzwerkdiagrammen."([]) 
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1367,7 +1329,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 363.
+ line 368.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [12]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1384,10 +1346,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 363.
+ line 368.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 364--387
+Overfull \hbox (15.60246pt too wide) in paragraph at lines 369--392
+\T1/lmr/m/n/10.95 Die ^^RESP8266Audio^^P-Bibliothek wur-de ur-sprüng-lich für d
+as Vor-gän-ger-mo-dell des ESP32, den ESP8266,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 369--392
 
  []
 
@@ -1402,13 +1370,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 387.
+ line 392.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [14]
-Overfull \hbox (36.7852pt too wide) in paragraph at lines 388--400
-\T1/lmr/m/n/10.95 Android- oder Web-App bau-en. Um ei-ne Re-act Na-ti-ve App au
-s-zu-füh-ren, wird die Node.js-Laufzeitumgebung
- []
+
+LaTeX Warning: Citation 'noauthor_urlpi32_2023' on page 15 undefined on input l
+ine 394.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1421,15 +1388,29 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 400.
+ line 406.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [15]
-<./images//software/uml_microcontroller.png, id=530, 1918.16624pt x 1063.975pt>
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 410.
+(pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
+[16]
+<./images//software/uml_microcontroller.png, id=437, 1918.16624pt x 1063.975pt>
 
 File: ./images//software/uml_microcontroller.png Graphic file (type png)
 <use ./images//software/uml_microcontroller.png>
 Package pdftex.def Info: ./images//software/uml_microcontroller.png  used on in
-put line 407.
+put line 413.
 (pdftex.def)             Requested size: 587.43161pt x 325.83505pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1446,37 +1427,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 409.
-(pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
-[16]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
-<use ./images//allgemein/htl-reutte_logo.png>
-Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 410.
+ line 416.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 410--429
+Underfull \hbox (badness 10000) in paragraph at lines 416--435
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--429
+Underfull \hbox (badness 10000) in paragraph at lines 416--435
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--429
+Underfull \hbox (badness 10000) in paragraph at lines 416--435
 
  []
 
@@ -1495,10 +1459,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 429.
+ line 435.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [18 <./images//software/uml_microcontroller.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 430--449
+Underfull \hbox (badness 10000) in paragraph at lines 436--455
 
  []
 
@@ -1513,46 +1477,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 449.
+ line 455.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [19]
-<./images//software/uml_ablauf_esp32_setup.png, id=559, 448.67625pt x 1351.0475
+<./images//software/uml_ablauf_esp32_setup.png, id=460, 448.67625pt x 1351.0475
 pt>
 File: ./images//software/uml_ablauf_esp32_setup.png Graphic file (type png)
 <use ./images//software/uml_ablauf_esp32_setup.png>
 Package pdftex.def Info: ./images//software/uml_ablauf_esp32_setup.png  used on
- input line 455.
+ input line 461.
 (pdftex.def)             Requested size: 205.92804pt x 620.06891pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
-<use ./images//allgemein/htl-reutte_logo.png>
-Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 458.
-(pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
-[20]
-<./images//software/uml_ablauf_esp32_loop.png, id=565, 843.15pt x 1325.95375pt>
-
-File: ./images//software/uml_ablauf_esp32_loop.png Graphic file (type png)
-<use ./images//software/uml_ablauf_esp32_loop.png>
-Package pdftex.def Info: ./images//software/uml_ablauf_esp32_loop.png  used on 
-input line 462.
-(pdftex.def)             Requested size: 394.2864pt x 620.06891pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 458--464
-
- []
-
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1570,6 +1504,36 @@ File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
  line 464.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
+[20]
+<./images//software/uml_ablauf_esp32_loop.png, id=466, 843.15pt x 1325.95375pt>
+
+File: ./images//software/uml_ablauf_esp32_loop.png Graphic file (type png)
+<use ./images//software/uml_ablauf_esp32_loop.png>
+Package pdftex.def Info: ./images//software/uml_ablauf_esp32_loop.png  used on 
+input line 468.
+(pdftex.def)             Requested size: 394.2864pt x 620.06891pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 464--470
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
+<use ./images//allgemein/htl-reutte_logo.png>
+Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
+ line 470.
+(pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [21 <./images//software/uml_ablauf_esp32_setup.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1585,7 +1549,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 465.
+ line 471.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [22]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1602,14 +1566,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 466.
+ line 472.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [23 <./images//software/uml_ablauf_esp32_loop.png>]
-<./images//software/app_struktur.png, id=582, 597.23125pt x 570.13pt>
+<./images//software/app_struktur.png, id=483, 597.23125pt x 570.13pt>
 File: ./images//software/app_struktur.png Graphic file (type png)
 <use ./images//software/app_struktur.png>
 Package pdftex.def Info: ./images//software/app_struktur.png  used on input lin
-e 473.
+e 479.
 (pdftex.def)             Requested size: 472.03123pt x 450.61526pt.
 
 
@@ -1623,7 +1587,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 476.
+ line 482.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [24]
 
@@ -1637,7 +1601,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 476.
+ line 482.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [25 <./images//software/app_struktur.png>]
 
@@ -1651,35 +1615,35 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 501.
+ line 507.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 503--505
+Underfull \hbox (badness 10000) in paragraph at lines 509--511
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 503--505
+Underfull \hbox (badness 10000) in paragraph at lines 509--511
 
  []
 
-<./images//software/adapter_item.png, id=602, 1016.79875pt x 246.9225pt>
+<./images//software/adapter_item.png, id=503, 1016.79875pt x 246.9225pt>
 File: ./images//software/adapter_item.png Graphic file (type png)
 <use ./images//software/adapter_item.png>
 Package pdftex.def Info: ./images//software/adapter_item.png  used on input lin
-e 509.
+e 515.
 (pdftex.def)             Requested size: 188.8096pt x 45.84949pt.
-<./images//software/station_item.png, id=603, 938.50626pt x 268.00125pt>
+<./images//software/station_item.png, id=504, 938.50626pt x 268.00125pt>
 File: ./images//software/station_item.png Graphic file (type png)
 <use ./images//software/station_item.png>
 Package pdftex.def Info: ./images//software/station_item.png  used on input lin
-e 516.
+e 522.
 (pdftex.def)             Requested size: 188.8096pt x 53.91417pt.
-<./images//software/connection_item.png, id=604, 543.02875pt x 463.7325pt>
+<./images//software/connection_item.png, id=505, 543.02875pt x 463.7325pt>
 File: ./images//software/connection_item.png Graphic file (type png)
 <use ./images//software/connection_item.png>
 Package pdftex.def Info: ./images//software/connection_item.png  used on input 
-line 523.
+line 529.
 (pdftex.def)             Requested size: 188.8096pt x 161.24033pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1696,21 +1660,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 524.
+ line 530.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [27 <./images//software/adapter_item.png> <./images//software/station_item.png>
 ]
-<./images//software/station_list.png, id=613, 617.30624pt x 407.5225pt>
+<./images//software/station_list.png, id=514, 617.30624pt x 407.5225pt>
 File: ./images//software/station_list.png Graphic file (type png)
 <use ./images//software/station_list.png>
 Package pdftex.def Info: ./images//software/station_list.png  used on input lin
-e 532.
+e 538.
 (pdftex.def)             Requested size: 188.8096pt x 124.64551pt.
-<./images//software/connection_list.png, id=614, 391.4625pt x 641.39626pt>
+<./images//software/connection_list.png, id=515, 391.4625pt x 641.39626pt>
 File: ./images//software/connection_list.png Graphic file (type png)
 <use ./images//software/connection_list.png>
 Package pdftex.def Info: ./images//software/connection_list.png  used on input 
-line 539.
+line 545.
 (pdftex.def)             Requested size: 188.8096pt x 309.35431pt.
 
 Underfull \vbox (badness 5817) has occurred while \output is active []
@@ -1727,7 +1691,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 540.
+ line 546.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [28 <./images//software/connection_item.png> <./images//software/station_list.p
 ng>]
@@ -1742,15 +1706,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 552.
+ line 558.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [29 <./images//software/connection_list.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 571--576
+Underfull \hbox (badness 10000) in paragraph at lines 577--582
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 571--576
+Underfull \hbox (badness 10000) in paragraph at lines 577--582
 
  []
 
@@ -1765,7 +1729,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 576.
+ line 582.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [30]
 
@@ -1779,10 +1743,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 585.
+ line 591.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [31]
-Overfull \hbox (1.52551pt too wide) in paragraph at lines 590--591
+Overfull \hbox (1.52551pt too wide) in paragraph at lines 596--597
 \T1/lmr/m/n/10.95 In Zu-kunft wä-re es noch denk-bar, au-ÿer-halb der Di-plom-a
 r-beit wei-te-re Funk-tio-nen in die Smartphone-
  []
@@ -1798,17 +1762,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 597.
+ line 603.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [32]
-<./images//hardware/stuetzen_fusion.png, id=653, 505.89pt x 399.6359pt>
+<./images//hardware/stuetzen_fusion.png, id=554, 505.89pt x 399.6359pt>
 File: ./images//hardware/stuetzen_fusion.png Graphic file (type png)
 <use ./images//hardware/stuetzen_fusion.png>
 Package pdftex.def Info: ./images//hardware/stuetzen_fusion.png  used on input 
-line 610.
+line 616.
 (pdftex.def)             Requested size: 252.94437pt x 199.81746pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 602--613
+Underfull \hbox (badness 10000) in paragraph at lines 608--619
 
  []
 
@@ -1827,27 +1791,27 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 614.
+ line 620.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [33]
-<./images//hardware/basis-draufsicht_fusion.png, id=658, 446.09518pt x 379.8476
+<./images//hardware/basis-draufsicht_fusion.png, id=559, 446.09518pt x 379.8476
 7pt>
 File: ./images//hardware/basis-draufsicht_fusion.png Graphic file (type png)
 <use ./images//hardware/basis-draufsicht_fusion.png>
 Package pdftex.def Info: ./images//hardware/basis-draufsicht_fusion.png  used o
-n input line 619.
+n input line 625.
 (pdftex.def)             Requested size: 223.04704pt x 189.92337pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 614--622
+Underfull \hbox (badness 10000) in paragraph at lines 620--628
 
  []
 
-<./images//hardware/basis-inhalt_picture.png, id=659, 806.01125pt x 659.46375pt
+<./images//hardware/basis-inhalt_picture.png, id=560, 806.01125pt x 659.46375pt
 >
 File: ./images//hardware/basis-inhalt_picture.png Graphic file (type png)
 <use ./images//hardware/basis-inhalt_picture.png>
 Package pdftex.def Info: ./images//hardware/basis-inhalt_picture.png  used on i
-nput line 625.
+nput line 631.
 (pdftex.def)             Requested size: 225.68161pt x 184.64859pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1864,18 +1828,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 628.
+ line 634.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [34 <./images//hardware/stuetzen_fusion.png>]
-<./images//hardware/gitter-schema_fusion.png, id=666, 522.23679pt x 451.6875pt>
+<./images//hardware/gitter-schema_fusion.png, id=567, 522.23679pt x 451.6875pt>
 
 File: ./images//hardware/gitter-schema_fusion.png Graphic file (type png)
 <use ./images//hardware/gitter-schema_fusion.png>
 Package pdftex.def Info: ./images//hardware/gitter-schema_fusion.png  used on i
-nput line 636.
+nput line 642.
 (pdftex.def)             Requested size: 156.67224pt x 135.5073pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 629--639
+Underfull \hbox (badness 10000) in paragraph at lines 635--645
 
  []
 
@@ -1890,7 +1854,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 639.
+ line 645.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [35 <./images//hardware/basis-draufsicht_fusion.png> <./images//hardware/basis-
 inhalt_picture.png>]
@@ -1905,7 +1869,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 661.
+ line 667.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [36 <./images//hardware/gitter-schema_fusion.png>]
 
@@ -1919,10 +1883,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 675.
+ line 681.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 676--692
+Underfull \hbox (badness 10000) in paragraph at lines 682--698
 
  []
 
@@ -1937,10 +1901,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 702.
+ line 708.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 708--725
+Underfull \hbox (badness 10000) in paragraph at lines 714--731
 
  []
 
@@ -1955,7 +1919,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 725.
+ line 731.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [39]
 
@@ -1969,7 +1933,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 732.
+ line 738.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [40]
 
@@ -1983,7 +1947,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 732.
+ line 738.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [41]
 
@@ -1997,10 +1961,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 738.
+ line 744.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [42]
-Overfull \hbox (0.83601pt too wide) in paragraph at lines 742--742
+Overfull \hbox (0.83601pt too wide) in paragraph at lines 748--748
 [][]\T1/lmr/m/it/10.95 URLNL09 \T1/lmr/m/n/10.95 (2025). \T1/lmr/m/sc/10.95 url
 \T1/lmr/m/n/10.95 : []$\T1/lmtt/m/n/10.95 https : / / www . ti . com / product 
 / de -[] de / PCM5102A$[] \T1/lmr/m/n/10.95 (be-sucht am 02.02.2025). 
@@ -2017,24 +1981,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 741.
+ line 747.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [43]
-Overfull \hbox (17.05681pt too wide) in paragraph at lines 742--742
+Overfull \hbox (17.05681pt too wide) in paragraph at lines 748--748
 [][]\T1/lmr/m/it/10.95 URLNL15 \T1/lmr/m/n/10.95 (2025). \T1/lmr/m/sc/10.95 url
 \T1/lmr/m/n/10.95 : []$\T1/lmtt/m/n/10.95 https : / / www . printer -[] care . 
 de / de / drucker -[] ratgeber / wie -[] funktioniert -[]
  []
 
 
-Overfull \hbox (14.22438pt too wide) in paragraph at lines 742--742
+Overfull \hbox (14.22438pt too wide) in paragraph at lines 748--748
 [][]\T1/lmr/m/it/10.95 URLPI12 \T1/lmr/m/n/10.95 (2024). \T1/lmr/m/sc/10.95 url
 \T1/lmr/m/n/10.95 : []$\T1/lmtt/m/n/10.95 https : / / www . mikrocontroller . n
 et / articles / I2S$[] \T1/lmr/m/n/10.95 (be-sucht am 16.12.2024). 
  []
 
 
-Overfull \hbox (1.51349pt too wide) in paragraph at lines 742--742
+Overfull \hbox (1.51349pt too wide) in paragraph at lines 748--748
 [][]\T1/lmr/m/it/10.95 URLPI14 \T1/lmr/m/n/10.95 (2024). de. Sec-ti-on: De-sign
  Pat-tern. \T1/lmr/m/sc/10.95 url\T1/lmr/m/n/10.95 : []$\T1/lmtt/m/n/10.95 http
 s : / / www . geeksforgeeks . org / singleton -[]
@@ -2051,10 +2015,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 741.
+ line 747.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [44]
-Overfull \hbox (0.40324pt too wide) in paragraph at lines 742--742
+Overfull \hbox (0.40324pt too wide) in paragraph at lines 748--748
 [][]\T1/lmr/m/it/10.95 URLPI25 \T1/lmr/m/n/10.95 (Sep. 2021). de. \T1/lmr/m/sc/
 10.95 url\T1/lmr/m/n/10.95 : []$\T1/lmtt/m/n/10.95 https : / / www . mittwald .
  de / blog / hosting / was -[] ist -[] eigentlich -[]
@@ -2071,7 +2035,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 742.
+ line 748.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [45] (DA-Main.lof)
 \tf@lof=\write6
@@ -2093,7 +2057,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 747.
+ line 753.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [46]
 
@@ -2107,45 +2071,38 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./images//allgemein/htl-reutte_logo.png Graphic file (type png)
 <use ./images//allgemein/htl-reutte_logo.png>
 Package pdftex.def Info: ./images//allgemein/htl-reutte_logo.png  used on input
- line 751.
+ line 757.
 (pdftex.def)             Requested size: 66.24733pt x 27.82387pt.
 [47] (DA-Main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `DA-Main.out' has not changed.
-(rerunfilecheck)             Checksum: E555AFDA16F82E2BF7249907CA50F0C6;9923.
-
-Package biblatex Warning: Please rerun LaTeX.
-(biblatex)                Page breaks have changed.
-
+(rerunfilecheck)             Checksum: 2DB7D985AD358D03FFEB20C7983FD6A7;4281.
 Package logreq Info: Writing requests to 'DA-Main.run.xml'.
 \openout1 = `DA-Main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 23757 strings out of 474486
- 424550 string characters out of 5743755
+ 23755 strings out of 474486
+ 424716 string characters out of 5743756
  1948542 words of memory out of 5000000
- 45562 multiletter control sequences out of 15000+600000
- 595880 words of font info for 58 fonts, out of 8000000 for 9000
+ 45556 multiletter control sequences out of 15000+600000
+ 598875 words of font info for 59 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 75i,17n,81p,2389b,2371s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
-b><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
-b><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.p
-fb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pf
-b><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pf
-b><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pf
-b>
-Output written on DA-Main.pdf (53 pages, 2988846 bytes).
+ 75i,17n,81p,2385b,2371s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
+b><C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
+b><C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx8.pfb
+><C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pf
+b><C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb
+><C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb
+><C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb
+>
+Output written on DA-Main.pdf (53 pages, 2993024 bytes).
 PDF statistics:
- 907 PDF objects out of 1000 (max. 8388607)
- 176 named destinations out of 1000 (max. 500000)
- 610 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 815 PDF objects out of 1000 (max. 8388607)
+ 179 named destinations out of 1000 (max. 500000)
+ 322 words of extra memory for PDF output out of 10000 (max. 10000000)
 

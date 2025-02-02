@@ -1,22 +1,20 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
-[0] Config.pm:310> INFO - Logfile is 'DA-Main.blg'
-[119] biber-MSWIN64:340> INFO - === 
-[153] Biber.pm:419> INFO - Reading 'DA-Main.bcf'
-[279] Biber.pm:979> INFO - Found 45 citekeys in bib section 0
-[294] Biber.pm:4419> INFO - Processing section 0
-[307] Biber.pm:4610> INFO - Looking for bibtex file 'zitate_pi.bib' for section 0
-[368] bibtex.pm:1713> INFO - LaTeX decoding ...
-[452] bibtex.pm:1519> INFO - Found BibTeX data source 'zitate_pi.bib'
-[517] Biber.pm:4610> INFO - Looking for bibtex file 'zitate_nl.bib' for section 0
-[561] bibtex.pm:1713> INFO - LaTeX decoding ...
-[584] bibtex.pm:1519> INFO - Found BibTeX data source 'zitate_nl.bib'
-[649] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[649] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[650] Biber.pm:4239> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'de-DE'
-[650] Biber.pm:4245> INFO - No sort tailoring available for locale 'de-DE'
-[684] bbl.pm:660> INFO - Writing 'DA-Main.bbl' with encoding 'UTF-8'
-[693] bbl.pm:763> INFO - Output to DA-Main.bbl
-[693] Biber.pm:131> WARN - I didn't find a database entry for 'noauthor_urlpi29_nodate' (section 0)
-[693] Biber.pm:131> WARN - I didn't find a database entry for 'noauthor_urlpi30_nodate' (section 0)
-[693] Biber.pm:131> WARN - I didn't find a database entry for 'noauthor_urlpi31_nodate' (section 0)
-[693] Biber.pm:133> INFO - WARNINGS: 3
+[1] Config.pm:310> INFO - Logfile is 'DA-Main.blg'
+[543] biber-MSWIN64:340> INFO - === 
+[660] Biber.pm:419> INFO - Reading 'DA-Main.bcf'
+[1594] Biber.pm:979> INFO - Found 46 citekeys in bib section 0
+[1675] Biber.pm:4419> INFO - Processing section 0
+[1723] Biber.pm:4610> INFO - Looking for bibtex file 'zitate_pi.bib' for section 0
+[2159] bibtex.pm:1713> INFO - LaTeX decoding ...
+[2628] bibtex.pm:1519> INFO - Found BibTeX data source 'zitate_pi.bib'
+[2848] Biber.pm:4610> INFO - Looking for bibtex file 'zitate_nl.bib' for section 0
+[2999] bibtex.pm:1713> INFO - LaTeX decoding ...
+[3128] bibtex.pm:1519> INFO - Found BibTeX data source 'zitate_nl.bib'
+[3452] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[3452] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[3452] Biber.pm:4239> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'de-DE'
+[3453] Biber.pm:4245> INFO - No sort tailoring available for locale 'de-DE'
+[3543] bbl.pm:660> INFO - Writing 'DA-Main.bbl' with encoding 'UTF-8'
+[3587] bbl.pm:763> INFO - Output to DA-Main.bbl
+[3588] Biber.pm:131> WARN - I didn't find a database entry for 'noauthor_urlpi32_2023' (section 0)
+[3589] Biber.pm:133> INFO - WARNINGS: 1
