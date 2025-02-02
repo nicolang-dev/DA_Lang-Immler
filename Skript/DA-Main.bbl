@@ -57,46 +57,6 @@
       \verb https://www.atlassian.com/de/git/tutorials/what-is-git
       \endverb
     \endentry
-    \entry{redaktion_urlnl18_2020}{misc}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=5de107469109347220a0d684344bc41e}{%
-           family={{Redaktion}},
-           familyi={R\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {de-DE}%
-      }
-      \strng{namehash}{5de107469109347220a0d684344bc41e}
-      \strng{fullhash}{5de107469109347220a0d684344bc41e}
-      \strng{bibnamehash}{5de107469109347220a0d684344bc41e}
-      \strng{authorbibnamehash}{5de107469109347220a0d684344bc41e}
-      \strng{authornamehash}{5de107469109347220a0d684344bc41e}
-      \strng{authorfullhash}{5de107469109347220a0d684344bc41e}
-      \field{sortinit}{R}
-      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{shorttitle}
-      \field{abstract}{Spritzguss oder 3D-Druck? Was ist die bessere Fertigungstechnik für Kunststoffteile? Wann lohnt sich der Umstieg von 3D-Druck zum Spritzguss? Antworten findest du hier!}
-      \field{month}{12}
-      \field{shorttitle}{Spritzguss vs. {3D}-{Druck}}
-      \field{title}{{URLNL18}}
-      \field{urlday}{2}
-      \field{urlmonth}{2}
-      \field{urlyear}{2025}
-      \field{year}{2020}
-      \field{urldateera}{ce}
-      \verb{file}
-      \verb Snapshot:C\:\\Users\\nicol\\Zotero\\storage\\DPW5CZMZ\\3d-druck-spritzguss.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://2d-spritzguss.de/3d-druck-spritzguss
-      \endverb
-      \verb{url}
-      \verb https://2d-spritzguss.de/3d-druck-spritzguss
-      \endverb
-    \endentry
     \entry{santos_urlpi27_2018}{misc}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=f3e3016c9f958241aff430cf4941fae3}{%
@@ -169,8 +129,7 @@
       \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{url}
-      \field{labeltitlesource}{shorttitle}
-      \field{shorttitle}{Was ist ein {Line}-{Ausgang}?}
+      \field{labeltitlesource}{title}
       \field{title}{{URLNL02}}
       \field{urlday}{2}
       \field{urlmonth}{2}
@@ -363,9 +322,8 @@
       \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{url}
-      \field{labeltitlesource}{shorttitle}
+      \field{labeltitlesource}{title}
       \field{abstract}{Gefahren von Lithium-Ionen-Akkus ✓ Nachteile ✓ häufige Brandursachen ✓ Thermal Runaway ✓ Nachteile von Lithium-Batterien ► Jetzt informieren!}
-      \field{shorttitle}{Lithium-{Ionen}-{Akkus}}
       \field{title}{{URLNL11}}
       \field{urlday}{2}
       \field{urlmonth}{2}
@@ -1122,6 +1080,7 @@
   \enddatalist
   \missing{noauthor_urlnl07_nodate}
   \missing{noauthor_urlpi10_nodate-1}
+  \missing{redaktion_urlnl18_2020}
 \endrefsection
 \endinput
 
