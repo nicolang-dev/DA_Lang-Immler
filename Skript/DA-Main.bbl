@@ -1055,10 +1055,75 @@
       \verb https://docs.expo.dev/router/introduction/
       \endverb
     \endentry
+    \entry{noauthor_urlpi29_nodate}{misc}{}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{title}{{URLPI29}}
+      \field{urlday}{30}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb LaTeX - A document preparation system:C\:\\Users\\pippo\\Zotero\\storage\\EA26PL4R\\www.latex-project.org.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.latex-project.org/
+      \endverb
+      \verb{url}
+      \verb https://www.latex-project.org/
+      \endverb
+    \endentry
+    \entry{noauthor_urlpi30_nodate}{misc}{}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{title}{{URLPI30}}
+      \field{urlday}{30}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Flowchart Maker & Online Diagram Software:C\:\\Users\\pippo\\Zotero\\storage\\W2PC9SGR\\app.diagrams.net.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://app.diagrams.net/
+      \endverb
+      \verb{url}
+      \verb https://app.diagrams.net/
+      \endverb
+    \endentry
+    \entry{noauthor_urlpi31_nodate}{misc}{}
+      \list{language}{1}{%
+        {en}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Find out how to set-up and get the most from Visual Studio Code. Optimized for building and debugging modern web and cloud applications. Visual Studio Code is free and available on your favorite platform - Linux, macOS, and Windows.}
+      \field{title}{{URLPI31}}
+      \field{urlday}{30}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\pippo\\Zotero\\storage\\G6CC48IW\\docs.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://code.visualstudio.com/docs
+      \endverb
+      \verb{url}
+      \verb https://code.visualstudio.com/docs
+      \endverb
+    \endentry
   \enddatalist
-  \missing{noauthor_urlpi29_nodate}
-  \missing{noauthor_urlpi30_nodate}
-  \missing{noauthor_urlpi31_nodate}
+  \missing{noauthor_urlpi32_2023}
 \endrefsection
 \endinput
 
