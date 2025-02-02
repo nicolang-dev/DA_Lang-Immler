@@ -134,22 +134,20 @@ This diploma thesis deals with the development of a multi-room audio adapter. A 
 The thesis can be roughly divided into three parts: planning, development and testing/troubleshooting.
 \subsection*{Danksagung}
 Wir bedanken uns bei den betreuenden Lehrpersonen Dipl. Ing. Dr. Peter L. Steger und Dipl. Päd. Johannes Köll für die kompetente Unterstützung.
-
 \newpage
 \tableofcontents
-\addtocontents{toc}{\protect\setcounter{tocdepth}{0}} % Setzt den tocdepth auf 0 nur für das Inhaltsverzeichnis
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
 \newpage
-\setcounter{tocdepth}{2}  % Hiermit werden Abschnitte und Unterabschnitte im Inhaltsverzeichnis angezeigt
+\setcounter{tocdepth}{2}
 
 \pagestyle{fancy} % header und footer ab hier anzeigen
 \setcounter{page}{1} %setzt den Zähler der Seiten hier auf 1
 
 \section{Einleitung}
 \begin{figure}[H]
-\begin{center}
-\includegraphics[width=\linewidth]{/allgemein/MAA_Konzept.png}
-\caption{Skizze Gerätekette}
-\end{center}
+	\centering
+	\includegraphics[width=\linewidth]{/allgemein/MAA_Konzept.png}
+	\caption{Gerätekette Skizze}
 \end{figure}
 Hier ist eine vereinfachte Darstellung der Gerätekette und wie sich der MAA in diese eingliedern lässt.\newline
 Am unteren Bildrand ist eine Wolke mit Information dargestellt. Sie symbolisiert das Internet mit dessen Inhalt. Darüber ein Smartphone, welches mit dem Internet kommuniziert und sich so Informationen wie Stream-URLs holt und sie an den Adapter weitergibt. Der Adapter selbst (hier als blaue Platine dargestellt) holt sich den Stream selbst (also praktisch ein Audiosignal) und stellt ihn als Klinkenausgang zur Verfügung. Man kann diesen dann beispielsweise mit einem Lautsprecher verbinden und Musik hören.
@@ -612,25 +610,19 @@ Wenn man schon früh beachtet, dass die Prototypen mit einem 3D-Drucker gefertig
 Die Basis des Adapters bildet ein 71x58x27mm großer Kasten mit 2mm Wanddicke. Aus Erfahrung kann man sagen, dass diese Dicke bei 3D-Drucken stabil ist, während sie jedoch nicht zu klobig wirkt.\newline
 Die Stützen des Mikrocontroller beginnen auf 11mm Höhe und sind auf einer Längenseite 6x6x5mm und auf der anderen 6,9x6x5mm groß. Sie sind jeweils mit einer oder zwei Seiten an der Wand der Basis und somit überhängend. Dies wird im Teil "Drucken des Prototyps/Stützstruktur" noch wichtig.\newline
 \begin{figure}[H]
-\begin{flushleft}
-\includegraphics[scale=0.5]{/hardware/stuetzen_fusion.png}
-\caption{Abbildung der Stützen für die Komponenten}
-\end{flushleft}
+	\includegraphics[scale=0.5]{/hardware/stuetzen_fusion.png}
+	\caption{Stützen für die Komponenten}
 \end{figure}
 Auf den Stützen befinden sich jeweils Zylinder, die genau auf die Aussparungen des Mikrocontroller vermessen wurden. Die Zylinder haben einen Durchmesser von exakt 3mm. Der Abstand der Mittelpunkte dieser Zylinder war bei unserem Modell 47,10mm in der Länge und 23,10mm in der Breite. Auf einer Seite befindet sich zwischen Wand und Zylinder etwas mehr Platz, da der USB-C Port des Mikrocontrollers etwas über diesen herausragt. Deswegen auch der zuletzt erwähnte Versatz der Stütze von 0,9mm.\newline
 Die Breite der Basis ist also genau auf die Länge von dem von uns benutzten Mikrocontroller zugeschnitten.\newline
 In den gegenüberliegenden Ecken der Basis befinden sich der Digital-/Analogwandler und der Laderegler. Die Maße des Digital-/Analogwandler sind 31,8x17,2mm. Die Maße des Laderegler sind 28x17,45mm. Beide liegen, wie der Mikrocontroller auch, auf überhängenden, 5mm hohen Stützen auf. Aufgrund der USB-C Buchse wird der Halt des Laderegler noch von einer 3,5mm breiten 2mm-Erhöhung am Ende der Stütze verstärkt. Die USB-C Buchse wurde passend zum Laderegler und der Norm entsprechend (8,34x2,56mm Größe) eingelassen. Der Digital-/Analogwandler wird aufgrund der 3,5mm Klinkenbuchse von einer herabstehenden Wand gestützt, die im Teil "Deckel" genauer beschrieben wird. Die Aussparung der AUX-Buchse wurde auch passend für den Digital-/Analogwandler platziert und hat einen Durchmesser von 6mm.\newline
 \begin{figure}[H]
-\begin{flushleft}
-\includegraphics[scale=0.5]{/hardware/basis-draufsicht_fusion.png}
-\caption{Draufsicht der Basis in AUTODESK Fusion}
-\end{flushleft}
+	\includegraphics[scale=0.5]{/hardware/basis-draufsicht_fusion.png}
+	\caption{Draufsicht der Basis}
 \end{figure}
 \begin{figure}[H]
-\begin{flushleft}
-\includegraphics[scale=0.28]{/hardware/basis-inhalt_picture.png}
-\caption{Bild der Basis mit den wichtigsten Komponenten an Ort und Stelle}
-\end{flushleft}
+	\includegraphics[scale=0.28]{/hardware/basis-inhalt_picture.png}
+	\caption{Basis mit den Komponenten (während des Zusammensetzens)}
 \end{figure}
 \noindent \textbf{Deckel} \newline
 Der Deckel des Adapters ist grundsätzlich, wie die Wände der Basis, 71x58x2mm groß. Dieser hat jedoch eine zentrierte 67x54x1mm große Stufe. Mit dieser Stufe lässt sich der Deckel kleberlos auf den Adapter setzen und hält aufgrund der Eigenschaften des 3D-Drucks auch, zumindest für den Prototypen, fest genug.
@@ -638,10 +630,8 @@ Wie schon erwähnt, wird der DAC durch eine herabstehende Wand zusätzlich gest�
 An der freien Seite der Stützwand (nicht die des DAC) befindet sich ein runder Schacht für die RGB-LED mit 5mm Durchmesser und eine Aussparung für den Aufsatz des Tasters mit 10,10mm Durchmesser. Der Taster mit den Grundmaßen 6x6mm wird durch eine Art U-Form aus Wänden im Gehäuse gehalten. Eine Wand davon bildet die gerade eben beschriebene Stützwand. Die untere Wand, auf der der Taster aufliegt, hat zudem zwei auf den Taster angepasste, 1mm große Aussparungen für die zwei Pole des Tasters.\newline
 Wenn man in der Draufsicht auf den Deckel schaut, ist dort wo sich der Prozessor selbst befindet, ein Gitter in den Deckel eingelassen. Dieses Gitter hat die Maße 19,9x21,6mm, was etwas größer als der Prozessor des ESP32 ist. Das Gitter besteht aus diagonalen Streben, die jeweils 1,5mm breit sowie 1,5mm weit voneinander entfernt sind. So entsteht eine einfache und stabile Möglichkeit, Wärme durch den Deckel abzuleiten.\newline
 \begin{figure}[H]
-\begin{flushleft}
-\includegraphics[scale=0.3]{/hardware/gitter-schema_fusion.png}
-\caption{bemaßte Skizze des Belüftungsgitters in AUTODESK Fusion}
-\end{flushleft}
+	\includegraphics[scale=0.5]{/hardware/gesamt-draufsicht.png}
+	\caption{Draufsicht des Adaptergehäuses}
 \end{figure}
 \noindent \textbf{Tasteraufsatz} \newline
 Den Tasteraufsatz bildet ein Zylinder mit 9,5mm Durchmesser, auf dem sich ein weiterer Zylinder mit 5,5mm Durchmesser und zentrierter 3,5mm Aussparung für den Taster befindet.
