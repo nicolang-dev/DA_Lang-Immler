@@ -95,9 +95,7 @@ Nico.Lang@hak-reutte.ac.at\newline
 Wirtschaftsingenieure/Betriebsinformatik\newline
 6682 Vils AT\newline
 Philipp.Immler@hak-reutte.ac.at
-
 \newpage
-
 \subsection*{Eidesstattliche Erklärung}
 Hiermit versichere ich, dass ich die vorliegende Arbeit selbstständig verfasst und keine anderen Hilfsmittel als die angegebenen benutzt habe. Die Stellen, die anderen Werken (gilt ebenso für Werke aus elektronischen Datenbanken oder aus dem Internet) wörtlich oder sinngemäß entnommen sind, habe ich unter Angabe der Quelle und Einhaltung der Regeln wissenschaftlichen Zitierens kenntlich gemacht. Diese Versicherung umfasst auch in der Arbeit verwendete bildliche Darstellungen, Tabellen, Skizzen und Zeichnungen. Für die Erstellung der Arbeit habe ich auch Hilfsmittel generativer KI-Tools (ChatGPT 3.5) zu folgendem Zweck verwendet: Inspiration und grobe Informationsbeschaffung. Auch Übersetzer (DeepL) wurden zur Hilfe genommen. Die verwendeten Hilfsmittel wurden vollständig und wahrheitsgetreu inkl. Produktversion und Prompt ausgewiesen.\\
 
@@ -150,12 +148,10 @@ Wir bedanken uns bei den betreuenden Lehrpersonen Dipl. Ing. Dr. Peter L. Steger
 \end{figure}
 Hier ist eine vereinfachte Darstellung der Gerätekette und wie sich der MAA in diese eingliedern lässt.\newline
 Am unteren Bildrand ist eine Wolke mit Information dargestellt. Sie symbolisiert das Internet mit dessen Inhalt. Darüber ein Smartphone, welches mit dem Internet kommuniziert und sich so Informationen wie Stream-URLs holt und sie an den Adapter weitergibt. Der Adapter selbst (hier als blaue Platine dargestellt) holt sich den Stream selbst (also praktisch ein Audiosignal) und stellt ihn als Klinkenausgang zur Verfügung. Man kann diesen dann beispielsweise mit einem Lautsprecher verbinden und Musik hören.
-
 \subsection{Einleitung Hardware}
 Das Ziel des Hardware-Teils für folgende Diplomarbeit war, einen sinnvollen internen Aufbau des Geräts zu erzielen, die am besten geeigneten Hardware-Komponenten zu finden, das System bzw. die einzelnen Komponenten zusammenzusetzen und zu testen. Dieser Teil der Diplomarbeit wurde von Nico Lang übernommen.
 Zudem beschäftigt sich dieser Teil mit dem Gehäuse des Geräts und bestimmt die technischen Anforderungen (Schnittstellen), die der Adapter letztendlich haben soll. 
 Bei der Planung soll zudem darauf geachtet werden, möglichst viele Kosten einzusparen, ohne dabei die Faktoren der Sicherheit und Qualität zu vergessen.
-
 \subsection{Einleitung Software}
 Das Ziel des Software-Teils für folgende Diplomarbeit war, einerseits eine funktionierende Software für den Adapter selbst, andererseits eine funktionierende Smartphone-App zum Steuern des Adapters zu entwickeln. Dieser Teil der Diplomarbeit wurde von Philipp Immler übernommen. Die Software des Adapters wurde mit der Programmiersprache C++ codiert. Für die Entwicklung der Smartphone-App wurde TypeScript verwendet. Bei der Programmierung wurden zahlreiche Bibliotheken und Frameworks verwendet. Dies hat den Vorteil, dass diese schon vorgefertigten Code für bestimmte Probleme bieten und deshalb nicht alles von Grund auf neu entwickelt werden muss.
 \section{Planung}
@@ -506,49 +502,68 @@ Bei der Farbauswahl wurden als Hauptfarben eher dunklere Farben verwendet, um di
 \end{table}
 \FloatBarrier
 \subsubsection{Komponenten}
-Wie bereits im Kapitel 3.4.3 erwähnt, bietet React Native die Möglichkeit eigene Komponenten zu erstellen. Als Grundlage dafür dienen die Standardkomponenten von React Native. Der Vorteil bei der Verwendung von Komponenten ist, dass diese wiederverwendbar sind und ein bestimmtes Verhalten aufweisen. Man muss also den Code für eine Komponente nur einmal schreiben und kann diese Komponente dann in der gesamten App verwenden. Im Folgenden werden die wichtigsten Komponenten, welche selbst erstellt wurden, aufgezählt und kurz beschrieben. \newline
+Wie bereits im Kapitel 3.4.3 erwähnt, bietet React Native die Möglichkeit eigene Komponenten zu erstellen. Als Grundlage dafür dienen die Standardkomponenten von React Native. Der Vorteil bei der Verwendung von Komponenten ist, dass diese wiederverwendbar sind und ein bestimmtes Verhalten aufweisen. Man muss also den Code für eine Komponente nur einmal schreiben und kann diese Komponente dann in der gesamten App verwenden. Im Folgenden werden die wichtigsten Komponenten, welche selbst erstellt wurden, aufgezählt und kurz beschrieben.
 \begin{itemize}
-	\item \textbf{AdapterItem} 
-	\par Zeigt die Daten eines Adapters an. Wenn dieser nicht verbunden ist, wird dies mit einem grauen Hintergrund und einem Symbol einer durchgestrichenen Wolke signalisiert.
-	\begin{flushleft}
-    		\captionsetup{type=figure}
-     	\includegraphics[width=0.4\textwidth]{/software/adapter_item.png}
-    		\caption{AdapterItem-Komponente}
-    	\end{flushleft}
-	\item \textbf{StationItem}
-	\par Zeigt die Daten einer Internetradiostation an.
-	\begin{flushleft}
-    		\captionsetup{type=figure}
-     	\includegraphics[width=0.4\textwidth]{/software/station_item.png}
-    		\caption{StationItem-Komponente}
-    	\end{flushleft}
-	\item \textbf{ConnectionItem}
-	\par Stellt eine Verbindung zwischen Radiostation und Adapter dar. Dabei werden die StationItem-Komponente und die AdapterItem-Komponente verwendet. Die Komponente ermöglicht es auch, den aktuellen Stream des Adapters zu stoppen bzw. die Lautstärke des Streams zu regeln.
-	\begin{flushleft}
-    		\captionsetup{type=figure}
+	\item \textbf{AdapterItem} \par
+	\begin{minipage}{\linewidth}
+    Zeigt die Daten eines Adapters an. Wenn dieser nicht verbunden ist, wird dies mit einem grauen Hintergrund und einem Symbol einer durchgestrichenen Wolke signalisiert.
+    		\begin{figure}[H]
+        		\includegraphics[width=0.4\textwidth]{/software/adapter_item.png}
+        		\caption{AdapterItem-Komponente}
+    		\end{figure}
+	\end{minipage}
+
+	\item \textbf{StationItem} \par
+	\begin{minipage}{\linewidth}	
+	Zeigt die Daten einer Internetradiostation an.
+		\begin{figure}[H]
+     		\includegraphics[width=0.4\textwidth]{/software/station_item.png}
+    			\caption{StationItem-Komponente}
+    		\end{figure}
+    	\end{minipage}
+    	
+	\item \textbf{ConnectionItem} \par
+	\begin{minipage}{\linewidth}	
+	Stellt eine Verbindung zwischen Radiostation und Adapter dar. Dabei werden die StationItem-Komponente und die AdapterItem-Komponente verwendet. Die Komponente ermöglicht es auch, den aktuellen Stream des Adapters zu stoppen bzw. die Lautstärke des Streams zu regeln.
+		\begin{figure}[H]
      	\includegraphics[width=0.4\textwidth]{/software/connection_item.png}
     		\caption{FavouriteStationList-Komponente}
-    	\end{flushleft}
-	\item \textbf{AdapterList}
-	\par Erstellt eine Liste aus mehreren AdapterItem-Komponenten. Realisiert außerdem die Möglichkeit, einen Adapter zu löschen.
-	\item \textbf{FavouriteStationList}
-	\par Erstellt eine Liste, in der alle Stationen, welche sich in der Favoritenliste des Benutzers befinden, mithilfe von StationItem-Komponenten dar.
-	\begin{flushleft}
-    		\captionsetup{type=figure}
-     	\includegraphics[width=0.4\textwidth]{/software/station_list.png}
-    		\caption{FavouriteStationList-Komponente}
-    	\end{flushleft}
-	\item \textbf{Connectionlist}
-	\par Erstellt eine Liste, in der sich die aktuellen Verbindungen zwischen Adaptern und Radiostationen, dargestellt durch ConnectionItem-Komponenten, dar. Die Komponente ermöglicht es zudem Verbindungen zu trennen.
-	\begin{flushleft}
-    		\captionsetup{type=figure}
-     	\includegraphics[width=0.4\textwidth]{/software/connection_list.png}
-    		\caption{FavouriteStationList-Komponente}
-    	\end{flushleft}
-	\item \textbf{ErrorScreen}
-	\par Stellt eine Ansicht bereit, die signalisiert, dass irgendwo ein Fehler aufgetreten ist. Als Parameter wird dieser Komponente der Fehlertext und die Aktion, welche der/die Benutzer/in als Reaktion auf den Fehler ausführen kann, mitgegeben.
-	\item \textbf{LoadingScreen}
-	\par Stellt eine Lade-Animation dar und einen Text, der als Parameter übergeben wird. Diese Ansicht soll signalisieren, dass Daten in der App geladen werden und der/die Benutzer/in deshalb warten muss.
+    		\end{figure}
+    	\end{minipage}
+
+	\item \textbf{AdapterList} \par
+	\begin{minipage}{\linewidth}
+	Erstellt eine Liste aus mehreren AdapterItem-Komponenten. Realisiert außerdem die Möglichkeit, einen Adapter zu löschen.
+	\end{minipage}
+
+	\item \textbf{FavouriteStationList} \par
+	\begin{minipage}{\linewidth}
+	Erstellt eine Liste, in der alle Stationen, welche sich in der Favoritenliste des Benutzers befinden, mithilfe von StationItem-Komponenten dar.
+		\begin{figure}[H]
+    			\captionsetup{type=figure}
+     		\includegraphics[width=0.4\textwidth]{/software/station_list.png}
+    			\caption{FavouriteStationList-Komponente}
+    		\end{figure}
+    	\end{minipage}
+
+	\item \textbf{Connectionlist} \par
+	\begin{minipage}{\linewidth}
+	Erstellt eine Liste, in der sich die aktuellen Verbindungen zwischen Adaptern und Radiostationen, dargestellt durch ConnectionItem-Komponenten, dar. Die Komponente ermöglicht es zudem Verbindungen zu trennen.
+		\begin{figure}[H]
+     		\includegraphics[width=0.4\textwidth]{/software/connection_list.png}
+    			\caption{FavouriteStationList-Komponente}
+    		\end{figure}
+    	\end{minipage}
+\newpage
+	\item \textbf{ErrorScreen} \par
+	\begin{minipage}{\linewidth}
+	Stellt eine Ansicht bereit, die signalisiert, dass irgendwo ein Fehler aufgetreten ist. Als Parameter wird dieser Komponente der Fehlertext und die Aktion, welche der/die Benutzer/in als Reaktion auf den Fehler ausführen kann, mitgegeben.
+	\end{minipage}
+	
+	\item \textbf{LoadingScreen} \par
+	\begin{minipage}{\linewidth}
+	Stellt eine Lade-Animation dar und einen Text, der als Parameter übergeben wird. Diese Ansicht soll signalisieren, dass Daten in der App geladen werden und der/die Benutzer/in deshalb warten muss.
+	\end{minipage}
 \end{itemize}
 \subsubsection{Seiten}
 Wie bereits im Kapitel Struktur erwähnt, besteht die App aus mehreren Seiten, zwischen diesen mit verschiedenen Navigationsarten gewechselt werden kann. Eine Seite setzt sich dabei aus den Grundkomponenten von React Native und den selbst erstellten Komponenten, welche im Kapitel Komponenten genauer beschrieben wurden, zusammen. Dabei ist die Grundstruktur jeder Seite gleich. Wie man in Abbildung ... sehen kann, befindet sich oben ein Header, der den Namen der aktuellen Seite anzeigt, und unten die Tab-Bar welche anzeigt, in welchem Tab man sich aktuell befindet.
@@ -611,8 +626,7 @@ Wenn man schon früh beachtet, dass die Prototypen mit einem 3D-Drucker gefertig
 \textbf{Basis} \newline
 Die Basis des Adapters bildet ein 71x58x27mm großer Kasten mit 2 mm Wanddicke. Aus Erfahrung kann man sagen, dass diese Dicke bei 3D-Drucken stabil ist, während sie jedoch nicht zu klobig wirkt.\newline
 Die Stützen des Mikrocontrollers beginnen auf 11 mm Höhe und sind auf einer Längenseite 6x6x5mm und auf der anderen 6,9x6x5mm groß. Sie sind jeweils mit einer oder zwei Seiten an der Wand der Basis und somit überhängend. Dies wird im Teil "Drucken des Prototyps/Stützstruktur" noch wichtig.
-\newpage
-\begin{figure}
+\begin{figure}[H]
 	\includegraphics[scale=0.5]{/hardware/stuetzen_fusion.png}
 	\caption{Stützen für die Komponenten}
 \end{figure}
@@ -641,7 +655,6 @@ Den Tasteraufsatz bildet ein Zylinder mit 9,5 mm Durchmesser, auf dem sich ein w
 \vspace{4mm}\newline
 \parencite[vgl.][]{noauthor_urlnl12_nodate}\newline
 \parencite[vgl.][]{noauthor_urlnl17_nodate}
-
 \subsection{Fertigung Adaptergehäuse}
 Das Material unseres Gehäuses wurde auf Kunststoff begrenzt. Für die Fertigung von Kunststoffgehäusen gibt es hauptsächlich diese Möglichkeiten (in diesem Fall kommt mangels Alternativen nur der 3D-Druck in Frage): 
 \vspace{4mm}\newline
@@ -698,7 +711,7 @@ Da die in diesem Projekt benutzten Bauteile jedoch keine höheren Temperaturen v
 Um einen Lötvorgang aus eigener Erfahrung möglichst kurz zu beschreiben:\newline
 Man hat beispielsweise zwei Kabel, die man verbinden möchte, und die Verbindung sollte möglichst fest halten und gut leiten. Zuerst müssen die Enden der Kabel abisoliert werden. Es kann helfen, wenn man die Enden schon vor der eigentlichen Verbindung sozusagen etwas \glqq verzinnt\grqq{}. Nun richtet man die Kabel zueinander so aus, wie sie später fixiert sein sollen. Man fährt mit dem Ende des Lots (umgangssprachlich Lötzinn) an die heiße Spitze des Lötkolbens und schmilzt so etwas Lot auf die Verbindungsstelle (nicht zu viel, sonst erhält man dicke Tropfen; jedoch auch nicht zu wenig, da die Verbindung dann möglicherweise nicht ausreichend hält). Nach dem Abkühlen macht es Sinn, die Lötverbindung durch leichtes Rütteln oder ziehen zu überprüfen. Löten ist letztendlich aber ein Handwerk, das für saubere Ergebnisse Geduld und Übung voraussetzt.
 \vspace{4mm}\newline
-\parencite[vgl.][]{noauthor_urlnl13_nodate}\newline
+\parencite[vgl.][]{noauthor_urlnl13_nodate}
 \subsubsection{Kleben}
 Damit alle Komponenten und Teile sicher im Gehäuse sitzen und nichts klappert oder sich gar bewegt, worunter die Lötverbindung leiden würde, müssen gewisse Komponenten angeklebt werden. Vor allem bei den Buchsen ist eine feste Verbindung wichtig, da diese bei jedem Ein- und Ausstecken großer Belastung ausgesetzt sind. Somit wurden der Laderegler und der Digital-/Analogwandler an den dafür gedruckten Stützen angeklebt. Zudem wurde der gedruckte Aufsatz in Gehäuseoptik für den Taster auf diesem befestigt. Für alle Klebverbindungen im Adapter wurden entweder herkömmliches Cyanacrylat (Superkleber) oder Schmelzklebstoff (Heißkleber) verwendet.
 \section{Testen und Fehlerbehebung}
@@ -720,7 +733,7 @@ Man sieht dem Gehäuse bei guter Beleuchtung eindeutig an, dass es 3D-gedruckt w
 Der MAA funktioniert und erfüllt seine Funktionen ohne Fehler oder Komplikationen.
 \vspace{4mm}\newline
 \textbf{Usability}\newline
-Die Anwendung des Adapter ist grundsätzlich angenehm. Es gilt jedoch zu bedenken, dass uns sowohl Software als auch Hardware schon bekannt sind. Wie sich die Usability verändert, wenn der Adapter von jemandem benutzt wird, der ihn noch nie gesehen hat, kann man nur schlecht sagen. Dafür wären mehrere Produkttests nötig. Falls ein Vertrieb des Produkts in Betracht gezogen werden würde, wäre dies auf jeden Fall ein wichtiger Punkt.\newline
+Die Anwendung des Adapter ist grundsätzlich angenehm. Es gilt jedoch zu bedenken, dass uns sowohl Software als auch Hardware schon bekannt sind. Wie sich die Usability verändert, wenn der Adapter von jemandem benutzt wird, der ihn noch nie gesehen hat, kann man nur schlecht sagen. Dafür wären mehrere Produkttests nötig. Falls ein Vertrieb des Produkts in Betracht gezogen werden würde, wäre dies auf jeden Fall ein wichtiger Punkt.
 \subsection{Auftretende Fehler beheben}
 Es handelt sich hierbei nicht direkt um einen Fehler, jedoch ist uns wichtig, dass auch die Optik des Gehäuses so gut wie möglich ausfällt. Deshalb wurde viel mit verschiedenen Tricks und Methoden gearbeitet, die 3D-Drucke wertiger ausfallen zu lassen.\newline
 So war anfangs beispielsweise die Druckgenauigkeit in Millimeter nicht auf dem kleinst-möglichen Wert, was für Testdrucks aufgrund der wesentlich kürzeren Druckzeit jedoch völlig in Ordnung ist. Wenn alles passt, macht es aber definitiv Sinn, eine lange Druckdauer in Kauf zu nehmen, um das für den vorliegenden 3D-Drucker genaueste Ergebnis zu erhalten.\newline

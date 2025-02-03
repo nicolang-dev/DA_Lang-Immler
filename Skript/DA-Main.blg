@@ -1,18 +1,18 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'DA-Main.blg'
-[113] biber-MSWIN64:340> INFO - === 
-[149] Biber.pm:419> INFO - Reading 'DA-Main.bcf'
-[277] Biber.pm:979> INFO - Found 46 citekeys in bib section 0
-[293] Biber.pm:4419> INFO - Processing section 0
-[305] Biber.pm:4610> INFO - Looking for bibtex file 'zitate_pi.bib' for section 0
-[366] bibtex.pm:1713> INFO - LaTeX decoding ...
-[461] bibtex.pm:1519> INFO - Found BibTeX data source 'zitate_pi.bib'
-[529] Biber.pm:4610> INFO - Looking for bibtex file 'zitate_nl.bib' for section 0
-[684] bibtex.pm:1713> INFO - LaTeX decoding ...
-[703] bibtex.pm:1519> INFO - Found BibTeX data source 'zitate_nl.bib'
-[775] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[775] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[775] Biber.pm:4239> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'de-DE'
-[775] Biber.pm:4245> INFO - No sort tailoring available for locale 'de-DE'
-[805] bbl.pm:660> INFO - Writing 'DA-Main.bbl' with encoding 'UTF-8'
-[814] bbl.pm:763> INFO - Output to DA-Main.bbl
+[213] biber-MSWIN64:340> INFO - === 
+[256] Biber.pm:419> INFO - Reading 'DA-Main.bcf'
+[376] Biber.pm:979> INFO - Found 46 citekeys in bib section 0
+[390] Biber.pm:4419> INFO - Processing section 0
+[402] Biber.pm:4610> INFO - Looking for bibtex file 'zitate_pi.bib' for section 0
+[484] bibtex.pm:1713> INFO - LaTeX decoding ...
+[563] bibtex.pm:1519> INFO - Found BibTeX data source 'zitate_pi.bib'
+[623] Biber.pm:4610> INFO - Looking for bibtex file 'zitate_nl.bib' for section 0
+[702] bibtex.pm:1713> INFO - LaTeX decoding ...
+[732] bibtex.pm:1519> INFO - Found BibTeX data source 'zitate_nl.bib'
+[783] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[783] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[783] Biber.pm:4239> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'de-DE'
+[783] Biber.pm:4245> INFO - No sort tailoring available for locale 'de-DE'
+[811] bbl.pm:660> INFO - Writing 'DA-Main.bbl' with encoding 'UTF-8'
+[820] bbl.pm:763> INFO - Output to DA-Main.bbl
