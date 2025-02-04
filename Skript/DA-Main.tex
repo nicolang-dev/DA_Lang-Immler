@@ -179,20 +179,20 @@ Man kann also daraus schließen, dass man das Line-Out Signal des MAA vor dem La
 \vspace{4mm}\newline
 \textbf{Audioqualität}\newline
 Zudem ist es wichtig, dass das System den Ton zuverlässig und möglichst flüssig überträgt und ausgibt.\newline
-\glqq Das menschliche Ohr ist theoretisch in der Lage, Frequenzen von 20 Hz bis 20 kHz zu hören. Die
+Laut AXIS Communications: \glqq Das menschliche Ohr ist theoretisch in der Lage, Frequenzen von 20 Hz bis 20 kHz zu hören. Die
 Obergrenze von 20 kHz nimmt mit dem Alter ab.\grqq{} \parencite{noauthor_urlnl03_nodate} \newline
-Es gibt drei wichtige Grundgrößen, wenn es um Audioqualität geht: Samplerate, Auflösung und Bittiefe. Jan Baumann hat diese auf seiner Website sehr gut erklärt:
+Es gibt drei wichtige Grundgrößen, wenn es um Audioqualität geht: Samplerate, Auflösung und Bittiefe.\newline
+Jan Baumann hat diese auf seiner Website sehr gut erklärt:
 \vspace{4mm}\newline
 \glqq Die \textbf{Samplerate} (Einheit Hz = Hertz) gibt an, wie oft in einer Sekunde der Audio-Pegel erfasst und gespeichert wird. Eine Angabe von 44.100 Hz (44,1 kHz) bedeutet, dass 44.100 Werte für eine Sekunde Musik gespeichert werden. Übliche Sample-Raten sind 44,1 kHz (Musik CD), 48 kHz (Film) und 96 kHz (Tonstudio).\grqq{} \parencite{noauthor_urlnl04_nodate}
 \vspace{4mm}\newline
-\glqq Die \textbf{Auflösung} (Einheit Bit) gibt an, wie viel Speicher für so einen Sample-Wert genutzt wird. Zum Beispiel erlauben 16 Bit (2-hoch-16) eine Skala von 65.536 Werten für jeden einzelnen Sample-Wert. Wenn wir viel Speicher für einen Wert haben, können wir das Signal also mit mehr Genauigkeit verarbeiten. Übliche Werte sind 16 Bit (Musik CD) oder 24 Bit bzw. 32 Bit im Studio.\grqq{} \parencite{noauthor_urlnl04_nodate}
+\glqq Die \textbf{Auflösung} (Einheit Bit) gibt an, wie viel Speicher für so einen Sample-Wert genutzt wird. Zum Beispiel erlauben 16 Bit (2-hoch-16) eine Skala von 65.536 Werten für jeden einzelnen Sample-Wert. Wenn wir viel Speicher für einen Wert haben, können wir das Signal also mit mehr Genauigkeit verarbeiten. Übliche Werte sind 16 Bit (Musik CD) oder 24 Bit bzw. 32 Bit im Studio.\grqq{}  \parencite{noauthor_urlnl04_nodate}
 \vspace{4mm}\newline 
-\glqq Die \textbf{Bitrate} bzw. Datenrate (kBit/s) wird oft mit der Auflösung verwechselt. Sie steht für die “Bandbreite” der Audiodatei, also welche Datenmenge in einer Sekunde verarbeitet wird. Für unkomprimierte Formate wie WAV und AIFF berechnet man die Bitrate ganz einfach, indem man die drei Werte von oben multipliziert.\grqq{}\parencite{noauthor_urlnl04_nodate}\newline
+\glqq Die \textbf{Bitrate} bzw. Datenrate (kBit/s) wird oft mit der Auflösung verwechselt. Sie steht für die “Bandbreite” der Audiodatei, also welche Datenmenge in einer Sekunde verarbeitet wird. Für unkomprimierte Formate wie WAV und AIFF berechnet man die Bitrate ganz einfach, indem man die drei Werte von oben multipliziert.\grqq{} \parencite{noauthor_urlnl04_nodate}\newline
 Mehr zu Audioqualität aber im Teil \glqq Auswahl interne Hardware/Digital-/Analogwandler\grqq{}
-\vspace{4mm} \newline
-\parencite[vgl.][]{noauthor_urlnl03_nodate}
-\parencite[vgl.][]{noauthor_urlnl04_nodate}
-\vspace{4mm}\newline
+%\parencite[vgl.][]{noauthor_urlnl03_nodate}
+%\parencite[vgl.][]{noauthor_urlnl04_nodate}
+\newpage
 \textbf{Audio-Quellen}\newline
 Grundsätzlich kann jeder beliebige Audiostream aus dem Internet verwendet werden. Das können beispielsweise Radiosender sein.
 Ein Beispiel für einen solchen Audiostream wäre der des österreichischen Radiosenders \glqq OE3\grqq{}: \newline
@@ -224,16 +224,15 @@ Hier ein paar Grundfakten des ESP32-WROOM-32 (der Controller selbst):\newline
 Der von uns benutzte ESP32 hat einen Dual-Core 32-Bit-Prozessor (2x Tensilica-LX6-Kernen). Der Mikrocontroller hat WLAN (802.11b/g/n) und kann ein eigenes WLAN-Netzwerk (Access Point) erstellen (kleiner Webserver). Er unterstützt Bluetooth 4.0 (BLE/Bluetooth Smart) und Bluetooth Classic. Dies ist bei vielen SmartHome und IoT-Anwendungen nützlich. Er hat einen geringen Stromverbrauch von 50-70 mA (kleine Programme ohne Wi-Fi). Der Deep-Sleep Modus macht einen Stromverbrauch von unter 0,1mA möglich. Die Anschaffungskosten fallen mit unter 10 Euro im Vergleich zu anderen Mikrocontrollern auch sehr niedrig aus.\newline
 Wie schon erwähnt ist der ESP32 mit der (uns vertrauten) Arduino IDE programmierbar und kann auch in industriellen Umgebungen (-40°C bis +125°C) betrieben werden.\newline
 Für den Multi Room Sound-Adapter kommt ein ESP32 Entwicklungsboard (DOIT ESP32 DEVKIT V1) zum Einsatz.\newline
-Hier eine Beschreibung von Dev-Kits auf digitalewelt.at: \glqq Um alle Funktionen des ESP32 Moduls einfach nutzen zu können, gibt es sogenannte Entwicklungsboards. Diese sind nicht nur mit zusätzlichen Schaltungen für die Spannungsversorgung ausgestattet, sondern bieten uns auch die gängigen Anschlussmöglichkeiten für unsere externen Komponenten.\grqq{} \parencite{noauthor_urlnl07_2023}\newline \newline
+Hier eine Beschreibung von Dev-Kits auf digitalewelt.at: \glqq Um alle Funktionen des ESP32 Moduls einfach nutzen zu können, gibt es sogenannte Entwicklungsboards. Diese sind nicht nur mit zusätzlichen Schaltungen für die Spannungsversorgung ausgestattet, sondern bieten uns auch die gängigen Anschlussmöglichkeiten für unsere externen Komponenten.\grqq{} \parencite{noauthor_urlnl07_2023}\newline
 Erwähnenswert ist auch, dass der ESP32 an manchen GPIOs interne Pullup- /Pulldown-Widerstände hat. \glqq Wenn man einen Pin, an dem z.B. ein Sensor hängt, mit pinMode(5, INPUT) konfiguriert, hat der Pin keinen definierten Pegel.
 Aus diesem Grund kann er so lange zwischen HIGH und LOW schwanken, bis ihm ein Zustand zugeschrieben wird. Dafür hat der ESP32 interne Pullup- / Pulldown-Widerstände, die zugeschaltet werden können. Diese können mit INPUT\_PULLUP als Argument im Befehl pinMode() eingeschaltet werden.
 Bei INPUT\_PULLUP wird der Pin als Eingang deklariert und wenn er nicht beschaltet ist wird dieser auf HIGH gesetzt.
 Bei INPUT\_PULLDOWN hingegen wird der Eingang auf LOW gesetzt.\grqq{} \parencite{noauthor_urlnl08_nodate} \newline
-Pullup- /Pulldown-Widerstände sind essenziell für einen sauber konfigurierten Tactile-Button.
-\newline
-\parencite[vgl.][]{noauthor_urlnl06_nodate}\newline
-\parencite[vgl.][]{noauthor_urlnl07_2023}\newline
-\parencite[vgl.][]{noauthor_urlnl08_nodate}
+Pullup- /Pulldown-Widerstände sind essenziell für einen sauber konfigurierten Tactile-Button.\newline
+\parencite[vgl.][]{noauthor_urlnl06_nodate}
+%\parencite[vgl.][]{noauthor_urlnl07_2023}
+%\parencite[vgl.][]{noauthor_urlnl08_nodate}
 \vspace{4mm}\newline
 \textbf{Digital-/Analogwandler (Audio-Modul)}\newline
 Dieses Modul ist ausschlaggebend für eine gute Audioqualität. Das digitale Audiosignal vom ESP32 (Radiostream) muss nämlich für die Line-Out Buchse auf analog konvertiert werden. Dafür wird ein Modul mit dem PCM5102A (\glqq 2VRMS DirectPath™, 112 dB Audio Stereo DAC mit 32-Bit, 384 kHz-PCM-Schnittstelle\grqq{}) DAC (Digital-Analog-Converter) verwendet. Auf diesem Modul befinden sich alle Komponenten sowie die Klinkenbuchse, die für die Ausgabe des Audiosignals nötig sind. \parencite[vgl.][]{noauthor_urlnl09_nodate}
@@ -644,6 +643,7 @@ Die Stützen des Mikrocontrollers beginnen auf 11 mm Höhe und sind auf einer L�
 \noindent Auf den Stützen befinden sich jeweils Zylinder, die genau auf die Aussparungen des Mikrocontrollers vermessen wurden. Die Zylinder haben einen Durchmesser von exakt 3 mm. Der Abstand der Mittelpunkte dieser Zylinder war bei unserem Modell 47,10 mm in der Länge und 23,10 mm in der Breite. Auf einer Seite befindet sich zwischen Wand und Zylinder etwas mehr Platz, da der USB-C-Port des Mikrocontrollers etwas über diesen herausragt. Deswegen auch der zuletzt erwähnte Versatz der Stütze von 0,9 mm.\newline
 Die Breite der Basis ist also genau auf die Länge des von uns benutzten Mikrocontroller zugeschnitten.\newline
 In den gegenüberliegenden Ecken der Basis befinden sich der Digital-/Analogwandler und der Laderegler. Die Maße des Digital-/Analogwandlers sind 31,8x17,2 mm. Die Maße des Laderegler sind 28x17,45 mm. Beide liegen, wie der Mikrocontroller auch, auf überhängenden, 5 mm hohen Stützen auf. Aufgrund der USB-C Buchse wird der Halt des Laderegler noch von einer 3,5 mm breiten 2 mm-Erhöhung am Ende der Stütze verstärkt. Die USB-C Buchse wurde passend zum Laderegler und der Norm entsprechend (8,34x2,56 mm Größe) eingelassen. Der Digital-/Analogwandler wird aufgrund der 3,5 mm Klinkenbuchse von einer herab stehenden Wand gestützt, die im Teil "Deckel" genauer beschrieben wird. Die Aussparung der AUX-Buchse wurde auch passend für den Digital-/Analogwandler platziert und hat einen Durchmesser von 6 mm.\newline
+\parencite[vgl.][]{noauthor_urlnl17_nodate}\newline
 \begin{figure}[H]
 	\includegraphics[width=0.5\textwidth]{/hardware/basis-draufsicht_fusion.png}
 	\caption{Draufsicht der Basis}
@@ -663,23 +663,20 @@ Wenn man in der Draufsicht auf den Deckel schaut, ist dort, wo sich der Prozesso
 \end{figure}
 \noindent \textbf{Tasteraufsatz} \newline
 Den Tasteraufsatz bildet ein Zylinder mit 9,5 mm Durchmesser, auf dem sich ein weiterer Zylinder mit 5,5 mm Durchmesser und zentrierter 3,5 mm Aussparung für den Taster befindet.\newline
-\parencite[vgl.][]{noauthor_urlnl12_nodate}\newline
-\parencite[vgl.][]{noauthor_urlnl17_nodate}
+%\parencite[vgl.][]{noauthor_urlnl12_nodate}\newline
+%\parencite[vgl.][]{noauthor_urlnl17_nodate}
 \subsection{Fertigung Adaptergehäuse}
 Das Material unseres Gehäuses wurde auf Kunststoff begrenzt. Für die Fertigung von Kunststoffgehäusen gibt es hauptsächlich diese Möglichkeiten (in diesem Fall kommt mangels Alternativen nur der 3D-Druck in Frage): 
 \vspace{4mm}\newline
 \textbf{Spritzgießen} \newline
-\glqq Beim Spritzgießen wird der Kunststoff aus einem Plastifiziergerät (erwärmt den Kunststoff auf Schmelztemperatur) in einen Hohlraum (Formwerkzeug) gespritzt, in welchem er erst verdichtet wird und dann erkaltet.\grqq \parencite{noauthor_urlnl14_nodate} \newline 
+\glqq Beim Spritzgießen wird der Kunststoff aus einem Plastifiziergerät (erwärmt den Kunststoff auf Schmelztemperatur) in einen Hohlraum (Formwerkzeug) gespritzt, in welchem er erst verdichtet wird und dann erkaltet.\grqq{}  \parencite{noauthor_urlnl14_nodate} \newline 
 Ein Vorteil für dieses Verfahren ist, dass auch komplizierte Formteile voll automatisiert sehr schnell in hohen Stückzahlen produziert werden können.
-Der große Nachteil sind jedoch die hohen Stückkosten für die Formwerkzeuge. \parencite[vgl.][]{noauthor_urlnl14_nodate}
+Der große Nachteil sind jedoch die hohen Stückkosten für die Formwerkzeuge.  \parencite[vgl.][]{noauthor_urlnl14_nodate}
 \vspace{4mm}\newline
 \textbf{3D-Druck} \newline
 Die zwei gängigsten 3D-Druck-Methoden sind Filament und Resin (Harz). Aufgrund des hohen Aufwands, den ein Resin-Drucker mit sich bringt, wurde für dieses Projekt die Methode mit Filament gewählt. \newline
-Beim 3D-Drucken durch Fused Deposition Modeling (Schichtschmelzverfahren) wird Kunststoff in Drahtform (Filament) (die häufigsten Dicken sind 2,85mm (allgemein als 3mm bezeichnet) und 1,75mm wobei die 1,75mm Version weltweit am häufigsten verbreitet ist) durch beheizte Düsen geleitet und somit geschmolzen. Das nun weiche Filament wird in Schichten auf die Druckplatte aufgetragen und erhärtet kurz darauf. Durch dieses Schichten lassen sich präzise Körper aus Kunststoff bauen.
-\vspace{4mm}\newline
-\parencite[vgl.][]{noauthor_urlnl15_nodate}\newline
-\parencite[vgl.][]{noauthor_urlnl16_nodate}
-
+Beim 3D-Drucken durch Fused Deposition Modeling (Schichtschmelzverfahren) wird Kunststoff in Drahtform (Filament) (die häufigsten Dicken sind 2,85mm (allgemein als 3mm bezeichnet) und 1,75mm wobei die 1,75mm Version weltweit am häufigsten verbreitet ist) \parencite[vgl.][]{noauthor_urlnl16_nodate} durch beheizte Düsen geleitet und somit geschmolzen. Das nun weiche Filament wird in Schichten auf die Druckplatte aufgetragen und erhärtet kurz darauf. Durch dieses Schichten lassen sich präzise Körper aus Kunststoff bauen. \parencite[vgl.][]{noauthor_urlnl15_nodate}
+%\parencite[vgl.][]{noauthor_urlnl16_nodate}
 \subsubsection{Drucken des Prototyps}
 Die Gehäuse-Prototypen wurden mit einem \glqq PRUSA MK4S\grqq{} 3D-Drucker gefertigt. Alle FFF-Drucker von Prusa sind grundsätzlich für 1,75-Filament konfiguriert.
 \vspace{4mm}\newline

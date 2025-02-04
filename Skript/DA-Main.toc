@@ -10,8 +10,8 @@
 \contentsline {subsection}{\numberline {2.2}Auswahl Hardwarekomponenten}{4}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1}Auswahl externe Hardware}{5}{subsubsection.2.2.1}%
 \contentsline {subsubsection}{\numberline {2.2.2}Auswahl interne Hardware}{5}{subsubsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.3}Anforderungen Software Adapter}{8}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Anforderungen Smartphone-App}{10}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.3}Anforderungen Software Adapter}{7}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Anforderungen Smartphone-App}{9}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Auswahl Technologien}{10}{subsection.2.5}%
 \contentsline {subsubsection}{\numberline {2.5.1}Protokolle}{10}{subsubsection.2.5.1}%
 \contentsline {subsection}{\numberline {2.6}Auswahl Softwaretools}{12}{subsection.2.6}%
