@@ -5,15 +5,15 @@ import ErrorScreen from "@/components/ErrorScreen";
 import LoadingScreen from "@/components/LoadingScreen";
 import TextInputWindow from "@/components/TextInputWindow";
 import { AdapterAPI } from "@/api/AdapterAPI";
-import Adapter from "@/types/Adapter";
 import { GlobalStyle, Colors } from "@/constants/Style";
 import Network from "@/types/Network";
 import NetworkList from "@/components/NetworkList";
+import AdapterData from "@/types/AdapterData";
 
 export default function AddNewAdapter(){
     const [isReachable, setReachable] = useState(false);
     const [loading, setLoading] = useState(true);
-    const [adapter, setAdapter] = useState<Adapter|null>(null);
+    const [adapter, setAdapter] = useState<AdapterData|null>(null);
     const [networkList, setNetworkList] = useState<Network[]|null>(null);
     const [selectedSsid, setSelectedSsid] = useState("");
     const [name, setName] = useState("");
@@ -23,7 +23,7 @@ export default function AddNewAdapter(){
     useEffect(() => {
         setLoading(true);
         AdapterAPI.getInfoFromHost(host).then((res) => {
-            setAdapter({name: res.name, mac: res.mac, battery: res.battery, volume: res.volume, connected: false, streamUrl: res.stationUrl});
+            setAdapter({name: res.name, mac: res.mac, battery: res.battery, volume: res.volume, connected: false, streamUrl: res.streamUrl});
             setLoading(false);
             setReachable(true);
             AdapterAPI.getAvailableNetworks(host).then(res => {

@@ -1,9 +1,9 @@
 #ifndef MEMORYMANAGER_H
 #define MEMORYMANAGER_H
 
-#include <Arduino.h>
-#include <Preferences.h>
-#include <constants.h>
+#include "Arduino.h"
+#include "Preferences.h"
+#include "constants.h"
 #include "Logger.h"
 
 class MemoryManager{

@@ -1,8 +1,8 @@
-import Adapter from "./Adapter"
 import Station from "./Station"
+import AdapterData from "./AdapterData";
 
 type UserData = {
-    adapterList: Adapter[] | null,
+    adapterList: AdapterData[] | null,
     stationList: Station[] | null
 }
 

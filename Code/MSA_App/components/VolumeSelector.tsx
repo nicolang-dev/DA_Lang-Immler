@@ -22,16 +22,6 @@ export default function VolumeSelector({initVolumePercentage, onValueChange}: Pr
     const [volume, setVolume] = useState(initVolumePercentage);
     return(
         <View style={style.container}>
-            {
-                /*volume > 0 ? ( 
-                        <Pressable onPress={() => setVolume(0)}>
-                            <Feather name="volume-2" size={30} color={Colors.white}/>
-                        </Pressable>
-                )
-                : (
-                <Feather name="volume-x" size={30} color={Colors.white}/>
-                )*/
-            }
             <View style={style.innerContainer}>
                 <Button title="-" color={Colors.lightTurquoise}
                     onPress={() => {if(volume > 0) {

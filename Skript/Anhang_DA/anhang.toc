@@ -1,0 +1,8 @@
+\contentsline {section}{\numberline {1}Anhang 1: Projektmanagement-Tools}{VIII}{}%
+\contentsline {subsection}{\numberline {1.1}Anhang 1.1: Definition Arbeitspakete}{VIII}{}%
+\contentsline {subsection}{\numberline {1.2}Anhang 1.2: Projektstrukturplan}{XI}{}%
+\contentsline {subsection}{\numberline {1.3}Anhang 1.3: Gantt-Diagramm}{XII}{}%
+\contentsline {section}{\numberline {2}Anhang 2: UML-Klassendiagramm Adapter}{XIII}{}%
+\contentsline {section}{\numberline {3}Anhang 3: Code}{XIV}{}%
+\contentsline {subsection}{\numberline {3.1}Anhang 3.1: Code Adapter}{XIV}{}%
+\contentsline {subsection}{\numberline {3.2}Anhang 3.2: Code Smartphone-App}{XLIX}{}%

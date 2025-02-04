@@ -1,9 +1,7 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, initializeAuth, getReactNativePersistence, signOut, sendPasswordResetEmail, confirmPasswordReset } from "firebase/auth";
 import { getFirestore, setDoc, doc, getDoc, onSnapshot } from "firebase/firestore";
 import User from "../types/User";
-import Adapter from "@/types/Adapter";
 import Station from "@/types/Station";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -16,6 +14,11 @@ const firebaseConfig = {
   appId: "1:278556649604:web:6eb08d9dc209d160ccbad1",
   measurementId: "G-WMPLDFTYY2"
 };
+
+type Adapter = {
+    name: string,
+    mac: string
+}
 
 const app = initializeApp(firebaseConfig);
 const auth = initializeAuth(app, {persistence: getReactNativePersistence(AsyncStorage)});
@@ -145,14 +148,12 @@ export const CloudStorage = {
         }
     },
     onAdapterChange(callback: (newAdapterList: Adapter[]) => void){
-        console.log("test");
         if(auth.currentUser !== null){
             let uid = auth.currentUser.uid;
             const docName = "user_" + uid;
             const document = doc(storage, "adapter", docName);
             onSnapshot(document, (newDoc) => {
                 const data = newDoc.data();
-                console.log("data:" , data);
                 let adapterList = [];
                 if(data !== undefined){
                     adapterList = data.adapterList;

@@ -1,5 +1,3 @@
-import Adapter from "./Adapter";
-
 type AdapterData = {
     name: string,
     mac: string

@@ -1,74 +1,55 @@
-import { useEffect, useState } from "react";
-import { View, FlatList, Text, StyleSheet, Pressable } from "react-native";
+import { View, FlatList, StyleSheet, Pressable } from "react-native";
 import { GlobalStyle } from "@/constants/Style";
 import { router } from "expo-router";
 import ErrorScreen from "@/components/ErrorScreen";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AddToListButton from "./AddToListButton";
 import ConnectionItem from "./ConnectionItem";
-import LoadingScreen from "./LoadingScreen";
-import { Functions } from "@/utils/Functions";
 import Connection from "@/types/Connection";
 
 type Props = {
-    connectionList: Connection[]
-    onItemPress: Function
-}
+  connectionList: Connection[];
+  onItemPress: Function;
+};
 
-export default function ConnectionList({connectionList, onItemPress}: Props){
-    const [isDataFetched, setDataFetched] = useState(false);
-    const [isEmpty, setEmpty] = useState(false);
+export default function ConnectionList({ connectionList, onItemPress }: Props) {
+  const style = StyleSheet.create({
+    container: {
+      width: "95%",
+      alignSelf: "center",
+    },
+    icon: {
+      alignSelf: "flex-start",
+    },
+  });
 
-    /*function fetchData(){
-        Functions.getConnections().then(res => {
-            setDataFetched(true);
-            if(res !== null && res.length > 0){
-                setEmpty(false);
-                setConnectionList(res);
-            } else {
-                setEmpty(true);
-            }
-        })
-    }*/
-
-    useEffect(()=>{
-        console.log("connection list:", connectionList);
-        setDataFetched(true);
-        //setInterval(fetchData, 5000);
-    },[]);
-
-    const style = StyleSheet.create({
-        container: {
-            width: '95%',
-            alignSelf: 'center' 
-        },
-        icon: {
-            alignSelf: 'flex-start'
-        }
-    })
-
-    if(isDataFetched){
-        if(!isEmpty){
-            return(
-                <View style={style.container}>
-                    <FlatList data={connectionList} renderItem={({item}) => 
-                        <Pressable onPress={() => onItemPress(item)}>
-                            <ConnectionItem connection={item} onEndConnection={() => {/*fetchData()*/}}/> 
-                        </Pressable>
-                    }/>
-                    <AddToListButton onPress={() => router.push("/(tabs)/connection/addConnection")}/> 
-                </View>
-            )
-        } else {
-            return (
-                <SafeAreaView style={GlobalStyle.page}>
-                    <ErrorScreen errorText="Es sind zurzeit keine Verbindungen vorhanden!" buttonText="Verbindung erstellen" onButtonPress={() => router.push("/(tabs)/connection/addConnection")}/>
-                </SafeAreaView>
-            )
-        }
-    } else {
-        return (
-            <LoadingScreen text="Lade Verbindungen ..."/>
-        )
-    }
+  if (connectionList.length > 0) {
+    return (
+      <View style={style.container}>
+        <FlatList
+          data={connectionList}
+          renderItem={({ item }) => (
+            <Pressable onPress={() => onItemPress(item)}>
+              <ConnectionItem
+                connection={item}
+              />
+            </Pressable>
+          )}
+        />
+        <AddToListButton
+          onPress={() => router.push("/(tabs)/connection/addConnection")}
+        />
+      </View>
+    );
+  } else {
+    return (
+      <SafeAreaView style={GlobalStyle.page}>
+        <ErrorScreen
+          errorText="Es sind zurzeit keine Verbindungen vorhanden!"
+          buttonText="Verbindung erstellen"
+          onButtonPress={() => router.push("/(tabs)/connection/addConnection")}
+        />
+      </SafeAreaView>
+    );
+  }
 }

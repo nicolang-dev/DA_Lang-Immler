@@ -8,11 +8,9 @@ import Connection from "../types/Connection";
 import PlayPauseButton from "./PlayPauseButton";
 import VolumeSelector from "./VolumeSelector";
 import { AdapterAPI } from "@/api/AdapterAPI";
-import { useState } from "react";
 
 type Props = {
-  connection: Connection,
-  onEndConnection: Function
+  connection: Connection
 };
 
 const style = StyleSheet.create({
@@ -34,12 +32,10 @@ const style = StyleSheet.create({
     },
 })
 
-export default function ConnectionItem({connection, onEndConnection}: Props) {
+export default function ConnectionItem({connection}: Props) {
   function endConnection(){
-    AdapterAPI.sendPauseStream(connection.adapter).then(() => {
-      AdapterAPI.sendStreamUrl(connection.adapter, "").then(() =>{
-        onEndConnection();
-      })
+    AdapterAPI.sendPauseStream(connection.adapter.mac).then(() => {
+      AdapterAPI.sendStreamUrl(connection.adapter.mac, "");
     })
   }
 
@@ -52,7 +48,7 @@ export default function ConnectionItem({connection, onEndConnection}: Props) {
       <StationItem station={connection.station} selected={false}/>
       <View style={style.controlElementContainer}>
         <PlayPauseButton paused={connection.paused} onPress={() => {}}/>
-        <VolumeSelector initVolumePercentage={/*connection.adapter.volume*/ 50} onValueChange={/*(val: number) => {AdapterAPI.sendVolume(connection.adapter.name, val)}*/ () =>{}}/> 
+        <VolumeSelector initVolumePercentage={connection.adapter.volume} onValueChange={(val: number) => {AdapterAPI.sendVolume(connection.adapter.name, val)}}/> 
       </View>
     </View>
   );

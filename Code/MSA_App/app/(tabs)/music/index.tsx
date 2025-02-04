@@ -1,4 +1,4 @@
-import { SafeAreaView, Text } from "react-native";
+import { SafeAreaView } from "react-native";
 import { GlobalStyle } from "@/constants/Style";
 import StationList from "@/components/StationList";
 

@@ -1,8 +1,8 @@
 import Station from "./Station";
-import Adapter from "./Adapter";
+import AdapterData from "./AdapterData";
 
 type Connection = {
-    adapter: Adapter;
+    adapter: AdapterData;
     station: Station;
     paused: boolean;
 }

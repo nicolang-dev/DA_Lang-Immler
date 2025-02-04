@@ -1,7 +1,7 @@
 #ifndef AUDIOMANAGER_H
 #define AUDIOMANAGER_H
 
-#include <Arduino.h>
+#include "Arduino.h"
 #include "constants.h"
 #include "AudioFileSourceICYStream.h"
 #include "AudioFileSourceBuffer.h"

@@ -6,7 +6,6 @@ import {
   ReactNode,
 } from "react";
 import { CloudStorage } from "../api/FirebaseAPI";
-import Adapter from "../types/Adapter";
 import { AdapterAPI } from "@/api/AdapterAPI";
 import { UserContext } from "./UserContext";
 import AdapterData from "@/types/AdapterData";
@@ -16,35 +15,34 @@ type Props = {
 };
 
 type AdapterContextType = {
-  adapterDataList: AdapterData[];
+  adapterList: AdapterData[];
 };
 
 const defaultContext: AdapterContextType = {
-  adapterDataList: [],
+  adapterList: [],
 };
 
 export const AdapterContext = createContext<AdapterContextType>(defaultContext);
 
 export const AdapterProvider = ({ children }: Props) => {
   const { user } = useContext(UserContext);
-  const [adapterList, setAdapterList] = useState<Adapter[]>([]);
-  const [adapterDataList, setAdapterDataList] = useState<AdapterData[]>(
-    defaultContext.adapterDataList
+  const [adapterList, setAdapterList] = useState<AdapterData[]>(
+    defaultContext.adapterList
   );
 
   function requestAdapters() {
     if (adapterList !== null) {
-      let newAdapterDataList: AdapterData[] = [];
+      let newAdapterList: AdapterData[] = [];
       let promiseList = [];
       for(let adapter of adapterList) {
-        let promise = AdapterAPI.getInfo(adapter);
+        let promise = AdapterAPI.getInfo(adapter.mac);
         promiseList.push(promise);
       }
       Promise.allSettled(promiseList).then((results) => {
         for (let result of results) {
           if (result.status == "fulfilled") {
             let val = result.value;
-            let newAdapterData = {
+            let newAdapter = {
               name: val.name,
               mac: val.mac,
               battery: val.battery,
@@ -52,20 +50,20 @@ export const AdapterProvider = ({ children }: Props) => {
               streamUrl: val.streamUrl,
               connected: true,
             };
-            newAdapterDataList.push(newAdapterData);
+            newAdapterList.push(newAdapter);
           }
         }
       });
       for(let adapter of adapterList) {
         let containsMac = false;
-        for(let newAdapterData of newAdapterDataList){
-          if(newAdapterData.mac == adapter.mac){
+        for(let newAdapter of newAdapterList){
+          if(newAdapter.mac == adapter.mac){
             containsMac = true;
             break;
           }
         }
         if(!containsMac){
-          let newAdapterData = {
+          let newAdapter = {
             name: adapter.name,
             mac: adapter.mac,
             battery: 0,
@@ -73,22 +71,34 @@ export const AdapterProvider = ({ children }: Props) => {
             streamUrl: "",
             connected: false,
           };
+          newAdapterList.push(newAdapter);
         }
       }
-      console.log("setting new adapter data list");
-      setAdapterDataList(newAdapterDataList);
+      setAdapterList(newAdapterList);
     }
   }
 
   useEffect(() => {
-    console.log("use effect");
     let intervalId = 0;
     if (user !== null) {
-      console.log("user is not null");
-      CloudStorage.onAdapterChange((newAdapterList: Adapter[]) => {
-        console.log("adapter changed");
-        setAdapterList(newAdapterList);
-        setInterval(() => requestAdapters(), 5000);
+      CloudStorage.onAdapterChange((newAdapterList) => {
+        for(let newAdapter of newAdapterList){
+          let containsMac = false;
+          for(let adapter of adapterList){
+            if(adapter.mac == newAdapter.mac){
+              containsMac = true;
+              break;
+            }
+          }
+          if(!containsMac){
+            let newAdapters = [... adapterList];
+            let adapter: AdapterData = {name: newAdapter.name, mac: newAdapter.mac, volume: 0, battery: 0, streamUrl: "", connected: false};
+            newAdapters.push(adapter);
+            setAdapterList(newAdapters);
+          }
+          requestAdapters();
+        }
+        intervalId = setInterval(() => requestAdapters(), 5000);
       });
     } else {
       console.log("user is null");
@@ -97,7 +107,7 @@ export const AdapterProvider = ({ children }: Props) => {
   }, [user]);
 
   return (
-    <AdapterContext.Provider value={{ adapterDataList }}>
+    <AdapterContext.Provider value={{ adapterList }}>
       {children}
     </AdapterContext.Provider>
   );

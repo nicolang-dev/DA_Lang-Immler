@@ -2,7 +2,6 @@ import { Text, View } from "react-native";
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { GlobalStyle, Colors } from "@/constants/Style";
-import { useState } from "react";
 
 type Props = {
     batteryPercentage: number

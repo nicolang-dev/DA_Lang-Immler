@@ -1,5 +1,5 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
-import { Authentication, CloudStorage } from "../api/FirebaseAPI";
+import { createContext, useState, useEffect, ReactNode } from "react";
+import { Authentication } from "../api/FirebaseAPI";
 import User from "../types/User";
 
 type Props = {

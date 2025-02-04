@@ -1,4 +1,4 @@
-import { SafeAreaView, Button, View, StyleSheet } from "react-native";
+import { SafeAreaView, Button, StyleSheet } from "react-native";
 import { GlobalStyle, Colors } from "@/constants/Style";
 import { router } from "expo-router";
 

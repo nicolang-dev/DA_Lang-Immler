@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { Text, TextInput, Button, SafeAreaView, View, StyleSheet } from "react-native";
 import { GlobalStyle, Colors } from "@/constants/Style";
 import { router } from "expo-router";
