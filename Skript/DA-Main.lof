@@ -1,16 +1,17 @@
 \babel@toc {ngerman}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces MAA Konzept}}{1}{figure.caption.10}%
-\contentsline {figure}{\numberline {2}{\ignorespaces UML-Klassendiagramm Mikrocontroller}}{17}{figure.caption.12}%
-\contentsline {figure}{\numberline {3}{\ignorespaces UML-Ablaufdiagramm Mikrocontroller Setup}}{20}{figure.caption.14}%
-\contentsline {figure}{\numberline {4}{\ignorespaces UML-Ablaufdiagramm Mikrocontroller Loop}}{22}{figure.caption.15}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Struktur Smartphone-App}}{24}{figure.caption.16}%
-\contentsline {figure}{\numberline {6}{\ignorespaces AdapterItem-Komponente}}{26}{figure.caption.18}%
-\contentsline {figure}{\numberline {7}{\ignorespaces StationItem-Komponente}}{26}{figure.caption.19}%
-\contentsline {figure}{\numberline {8}{\ignorespaces FavouriteStationList-Komponente}}{26}{figure.caption.20}%
-\contentsline {figure}{\numberline {9}{\ignorespaces FavouriteStationList-Komponente}}{27}{figure.caption.22}%
-\contentsline {figure}{\numberline {10}{\ignorespaces FavouriteStationList-Komponente}}{27}{figure.caption.23}%
-\contentsline {figure}{\numberline {11}{\ignorespaces \glqq Stationen filtern \grqq {} - Seite}}{28}{figure.caption.24}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Stützen für die Komponenten}}{33}{figure.caption.25}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Draufsicht der Basis}}{34}{figure.caption.26}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Basis mit den Komponenten (während des Zusammensetzens)}}{34}{figure.caption.27}%
-\contentsline {figure}{\numberline {15}{\ignorespaces Draufsicht des Adaptergehäuses}}{35}{figure.caption.28}%
+\contentsline {figure}{\numberline {1}{\ignorespaces MAA Konzept}}{1}{figure.caption.9}%
+\contentsline {figure}{\numberline {2}{\ignorespaces UML-Klassendiagramm Mikrocontroller}}{17}{figure.caption.11}%
+\contentsline {figure}{\numberline {3}{\ignorespaces UML-Ablaufdiagramm Mikrocontroller Setup}}{20}{figure.caption.13}%
+\contentsline {figure}{\numberline {4}{\ignorespaces UML-Ablaufdiagramm Mikrocontroller Loop}}{22}{figure.caption.14}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Struktur Smartphone-App}}{24}{figure.caption.15}%
+\contentsline {figure}{\numberline {6}{\ignorespaces AdapterItem-Komponente}}{26}{figure.caption.17}%
+\contentsline {figure}{\numberline {7}{\ignorespaces StationItem-Komponente}}{26}{figure.caption.18}%
+\contentsline {figure}{\numberline {8}{\ignorespaces ConnectionItem-Komponente}}{26}{figure.caption.19}%
+\contentsline {figure}{\numberline {9}{\ignorespaces AdapterList-Komponente}}{27}{figure.caption.20}%
+\contentsline {figure}{\numberline {10}{\ignorespaces FavouriteStationList-Komponente}}{27}{figure.caption.22}%
+\contentsline {figure}{\numberline {11}{\ignorespaces ConnectionList-Komponente}}{28}{figure.caption.23}%
+\contentsline {figure}{\numberline {12}{\ignorespaces \glqq Stationen filtern \grqq {} - Seite}}{29}{figure.caption.24}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Stützen für die Komponenten}}{33}{figure.caption.25}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Draufsicht der Basis}}{34}{figure.caption.26}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Basis mit den Komponenten (während des Zusammensetzens)}}{34}{figure.caption.27}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Draufsicht des Adaptergehäuses}}{35}{figure.caption.28}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.4)  4 FEB 2025 14:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.4)  7 FEB 2025 16:32
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -428,13 +428,13 @@ Overfull \hbox (3.71077pt too wide) detected at line 2
  []
 
 
-Overfull \hbox (3.40662pt too wide) detected at line 7
- []\OT1/cmr/m/n/10.95 XIV
+Overfull \hbox (3.71077pt too wide) detected at line 4
+ []\OT1/cmr/m/n/10.95 XIII
  []
 
 
-Overfull \hbox (10.25038pt too wide) detected at line 8
- []\OT1/cmr/m/n/10.95 XLIX
+Overfull \hbox (7.66495pt too wide) detected at line 7
+ []\OT1/cmr/m/n/10.95 XVII
  []
 
 )
@@ -465,72 +465,162 @@ File: ap_3.png Graphic file (type png)
 <use ap_3.png>
 Package pdftex.def Info: ap_3.png  used on input line 83.
 (pdftex.def)             Requested size: 350.4464pt x 652.70622pt.
-<PSP_final.png, id=20, 655.248pt x 386.6445pt>
-File: PSP_final.png Graphic file (type png)
-<use PSP_final.png>
-Package pdftex.def Info: PSP_final.png  used on input line 88.
-(pdftex.def)             Requested size: 652.70622pt x 385.17451pt.
- [10 <./ap_3.png>]
-Overfull \vbox (31.40517pt too high) has occurred while \output is active []
+<PSP_final.pdf, id=20, 2634.84375pt x 1552.8603pt>
+File: PSP_final.pdf Graphic file (type pdf)
+<use PSP_final.pdf>
+Package pdftex.def Info: PSP_final.pdf  used on input line 86.
+(pdftex.def)             Requested size: 2634.83736pt x 1552.85654pt.
+File: PSP_final.pdf Graphic file (type pdf)
+<use PSP_final.pdf>
+Package pdftex.def Info: PSP_final.pdf  used on input line 86.
+(pdftex.def)             Requested size: 2634.83736pt x 1552.85654pt.
+<PSP_final.pdf, id=23, page=1, 2634.84375pt x 1552.8603pt>
+File: PSP_final.pdf Graphic file (type pdf)
+<use PSP_final.pdf, page 1>
+Package pdftex.def Info: PSP_final.pdf , page1 used on input line 86.
+(pdftex.def)             Requested size: 2634.83736pt x 1552.85654pt.
+File: PSP_final.pdf Graphic file (type pdf)
+<use PSP_final.pdf, page 1>
+Package pdftex.def Info: PSP_final.pdf , page1 used on input line 86.
+(pdftex.def)             Requested size: 614.48447pt x 362.14995pt.
+ [10 <./ap_3.png>] [11]
+File: PSP_final.pdf Graphic file (type pdf)
+<use PSP_final.pdf, page 1>
+Package pdftex.def Info: PSP_final.pdf , page1 used on input line 86.
+(pdftex.def)             Requested size: 614.48447pt x 362.14995pt.
+File: PSP_final.pdf Graphic file (type pdf)
+<use PSP_final.pdf, page 1>
+Package pdftex.def Info: PSP_final.pdf , page1 used on input line 86.
+(pdftex.def)             Requested size: 614.48447pt x 362.14995pt.
+File: PSP_final.pdf Graphic file (type pdf)
+<use PSP_final.pdf, page 1>
+Package pdftex.def Info: PSP_final.pdf , page1 used on input line 86.
+(pdftex.def)             Requested size: 614.48447pt x 362.14995pt.
+ [12
+
+ <./PSP_final.pdf>]
+
+pdfTeX warning: pdflatex (file ./Gantt_final.pdf): PDF inclusion: found PDF ver
+sion <1.7>, but at most version <1.5> allowed
+<Gantt_final.pdf, id=50, 794.97pt x 614.295pt>
+File: Gantt_final.pdf Graphic file (type pdf)
+<use Gantt_final.pdf>
+Package pdftex.def Info: Gantt_final.pdf  used on input line 88.
+(pdftex.def)             Requested size: 794.96806pt x 614.29349pt.
 
 
-[11 <./PSP_final.png>]
-<Gantt_final.png, id=29, 601.0455pt x 465.53925pt>
-File: Gantt_final.png Graphic file (type png)
-<use Gantt_final.png>
-Package pdftex.def Info: Gantt_final.png  used on input line 93.
-(pdftex.def)             Requested size: 652.70622pt x 505.58789pt.
-
-Overfull \hbox (33.55666pt too wide) in paragraph at lines 93--94
- [][] 
- []
+pdfTeX warning: pdflatex (file ./Gantt_final.pdf): PDF inclusion: found PDF ver
+sion <1.7>, but at most version <1.5> allowed
+File: Gantt_final.pdf Graphic file (type pdf)
+<use Gantt_final.pdf>
+Package pdftex.def Info: Gantt_final.pdf  used on input line 88.
+(pdftex.def)             Requested size: 794.96806pt x 614.29349pt.
 
 
-Overfull \vbox (31.40517pt too high) has occurred while \output is active []
+pdfTeX warning: pdflatex (file ./Gantt_final.pdf): PDF inclusion: found PDF ver
+sion <1.7>, but at most version <1.5> allowed
 
 
-[12 <./Gantt_final.png>]
-<uml_klassen.png, id=34, 1918.16624pt x 1063.975pt>
-File: uml_klassen.png Graphic file (type png)
-<use uml_klassen.png>
-Package pdftex.def Info: uml_klassen.png  used on input line 98.
-(pdftex.def)             Requested size: 652.70622pt x 362.03894pt.
+pdfTeX warning: pdflatex (file ./Gantt_final.pdf): PDF inclusion: found PDF ver
+sion <1.7>, but at most version <1.5> allowed
+<Gantt_final.pdf, id=53, page=1, 794.97pt x 614.295pt>
+File: Gantt_final.pdf Graphic file (type pdf)
+<use Gantt_final.pdf, page 1>
+Package pdftex.def Info: Gantt_final.pdf , page1 used on input line 88.
+(pdftex.def)             Requested size: 794.96806pt x 614.29349pt.
+File: Gantt_final.pdf Graphic file (type pdf)
+<use Gantt_final.pdf, page 1>
+Package pdftex.def Info: Gantt_final.pdf , page1 used on input line 88.
+(pdftex.def)             Requested size: 615.04005pt x 475.25821pt.
+[13]
+File: Gantt_final.pdf Graphic file (type pdf)
+<use Gantt_final.pdf, page 1>
+Package pdftex.def Info: Gantt_final.pdf , page1 used on input line 88.
+(pdftex.def)             Requested size: 615.04005pt x 475.25821pt.
+File: Gantt_final.pdf Graphic file (type pdf)
+<use Gantt_final.pdf, page 1>
+Package pdftex.def Info: Gantt_final.pdf , page1 used on input line 88.
+(pdftex.def)             Requested size: 615.04005pt x 475.25821pt.
+File: Gantt_final.pdf Graphic file (type pdf)
+<use Gantt_final.pdf, page 1>
+Package pdftex.def Info: Gantt_final.pdf , page1 used on input line 88.
+(pdftex.def)             Requested size: 615.04005pt x 475.25821pt.
+ [14
 
-Overfull \vbox (35.64351pt too high) has occurred while \output is active []
+ <./Gantt_final.pdf>]
+
+pdfTeX warning: pdflatex (file ./uml_klassen.pdf): PDF inclusion: found PDF ver
+sion <1.7>, but at most version <1.5> allowed
+<uml_klassen.pdf, id=79, 847.28815pt x 469.97668pt>
+File: uml_klassen.pdf Graphic file (type pdf)
+<use uml_klassen.pdf>
+Package pdftex.def Info: uml_klassen.pdf  used on input line 90.
+(pdftex.def)             Requested size: 847.28609pt x 469.97552pt.
 
 
-[13 <./uml_klassen.png>]
+pdfTeX warning: pdflatex (file ./uml_klassen.pdf): PDF inclusion: found PDF ver
+sion <1.7>, but at most version <1.5> allowed
+File: uml_klassen.pdf Graphic file (type pdf)
+<use uml_klassen.pdf>
+Package pdftex.def Info: uml_klassen.pdf  used on input line 90.
+(pdftex.def)             Requested size: 847.28609pt x 469.97552pt.
+
+
+pdfTeX warning: pdflatex (file ./uml_klassen.pdf): PDF inclusion: found PDF ver
+sion <1.7>, but at most version <1.5> allowed
+
+
+pdfTeX warning: pdflatex (file ./uml_klassen.pdf): PDF inclusion: found PDF ver
+sion <1.7>, but at most version <1.5> allowed
+<uml_klassen.pdf, id=82, page=1, 847.28815pt x 469.97668pt>
+File: uml_klassen.pdf Graphic file (type pdf)
+<use uml_klassen.pdf, page 1>
+Package pdftex.def Info: uml_klassen.pdf , page1 used on input line 90.
+(pdftex.def)             Requested size: 847.28609pt x 469.97552pt.
+File: uml_klassen.pdf Graphic file (type pdf)
+<use uml_klassen.pdf, page 1>
+Package pdftex.def Info: uml_klassen.pdf , page1 used on input line 90.
+(pdftex.def)             Requested size: 614.49443pt x 340.84985pt.
+[15]
+File: uml_klassen.pdf Graphic file (type pdf)
+<use uml_klassen.pdf, page 1>
+Package pdftex.def Info: uml_klassen.pdf , page1 used on input line 90.
+(pdftex.def)             Requested size: 614.49443pt x 340.84985pt.
+File: uml_klassen.pdf Graphic file (type pdf)
+<use uml_klassen.pdf, page 1>
+Package pdftex.def Info: uml_klassen.pdf , page1 used on input line 90.
+(pdftex.def)             Requested size: 614.49443pt x 340.84985pt.
+File: uml_klassen.pdf Graphic file (type pdf)
+<use uml_klassen.pdf, page 1>
+Package pdftex.def Info: uml_klassen.pdf , page1 used on input line 90.
+(pdftex.def)             Requested size: 614.49443pt x 340.84985pt.
+ [16
+
+ <./uml_klassen.pdf>]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 105.
+(Font)              <7> on input line 95.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 105.
- [14] [15]
+(Font)              <5> on input line 95.
+ [17] [18]
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
-193.
+183.
 
 (C:\Users\pippo\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
 File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [16]
+ [19]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [17]
-[18] [19] [20] [21] [22]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [23]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [24]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [25]
+ [20]
+[21] [22] [23] [24] [25]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [26]
-[27]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [27]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [28]
@@ -565,53 +655,56 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [41]
+[42]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [42]
-[43]
+ [43]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [44]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [45]
+[46]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [46]
-[47] [48] [49]
+ [47]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [50]
-[51]
+ [48]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [52]
+ [49]
+[50] [51] [52]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [53]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [54]
+[54]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [55]
-[56]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [56]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [57]
-[58] [59]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [58]
+[59]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [60]
-[61]
+[61] [62]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [62]
-[63]
+ [63]
+[64]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [64]
-[65] [66]
+ [65]
+[66]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [67]
@@ -623,43 +716,101 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [73]
-[74]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [75]
+[74] [75]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [76]
-[77] [78] [79]
+[77]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [80]
+ [78]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [81]
+ [79]
+[80] [81] [82]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [82]
-[83] [84] [85]
+ [83]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [86]
-[87] [88] [89] [90] [91] [92]
+ [84]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [93]
+ [85]
+[86] [87] [88]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [94]
-[95] [96] [97] [98] [99]
+ [89]
+[90] [91] [92] [93] [94] [95]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [100]
+ [96]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [101]
-[102] [103] [104] [105] [106]
-runsystem(latexminted cleantemp  --timestamp 20250204141311 0C466665C502997399D
+ [97]
+[98] [99] [100] [101] [102]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [103]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [104]
+[105] [106] [107] [108] [109] [110]
+
+pdfTeX warning: pdflatex (file ./gehaeuse_zeichnung.pdf): PDF inclusion: found 
+PDF version <1.7>, but at most version <1.5> allowed
+<gehaeuse_zeichnung.pdf, id=393, 1195.46625pt x 845.1575pt>
+File: gehaeuse_zeichnung.pdf Graphic file (type pdf)
+<use gehaeuse_zeichnung.pdf>
+Package pdftex.def Info: gehaeuse_zeichnung.pdf  used on input line 4210.
+(pdftex.def)             Requested size: 1195.46333pt x 845.15544pt.
+
+
+pdfTeX warning: pdflatex (file ./gehaeuse_zeichnung.pdf): PDF inclusion: found 
+PDF version <1.7>, but at most version <1.5> allowed
+File: gehaeuse_zeichnung.pdf Graphic file (type pdf)
+<use gehaeuse_zeichnung.pdf>
+Package pdftex.def Info: gehaeuse_zeichnung.pdf  used on input line 4210.
+(pdftex.def)             Requested size: 1195.46333pt x 845.15544pt.
+
+
+pdfTeX warning: pdflatex (file ./gehaeuse_zeichnung.pdf): PDF inclusion: found 
+PDF version <1.7>, but at most version <1.5> allowed
+
+
+pdfTeX warning: pdflatex (file ./gehaeuse_zeichnung.pdf): PDF inclusion: found 
+PDF version <1.7>, but at most version <1.5> allowed
+<gehaeuse_zeichnung.pdf, id=396, page=1, 1195.46625pt x 845.1575pt>
+File: gehaeuse_zeichnung.pdf Graphic file (type pdf)
+<use gehaeuse_zeichnung.pdf, page 1>
+Package pdftex.def Info: gehaeuse_zeichnung.pdf , page1 used on input line 4210
+.
+(pdftex.def)             Requested size: 1195.46333pt x 845.15544pt.
+File: gehaeuse_zeichnung.pdf Graphic file (type pdf)
+<use gehaeuse_zeichnung.pdf, page 1>
+Package pdftex.def Info: gehaeuse_zeichnung.pdf , page1 used on input line 4210
+.
+(pdftex.def)             Requested size: 614.53192pt x 434.45497pt.
+[111]
+File: gehaeuse_zeichnung.pdf Graphic file (type pdf)
+<use gehaeuse_zeichnung.pdf, page 1>
+Package pdftex.def Info: gehaeuse_zeichnung.pdf , page1 used on input line 4210
+.
+(pdftex.def)             Requested size: 614.53192pt x 434.45497pt.
+File: gehaeuse_zeichnung.pdf Graphic file (type pdf)
+<use gehaeuse_zeichnung.pdf, page 1>
+Package pdftex.def Info: gehaeuse_zeichnung.pdf , page1 used on input line 4210
+.
+(pdftex.def)             Requested size: 614.53192pt x 434.45497pt.
+File: gehaeuse_zeichnung.pdf Graphic file (type pdf)
+<use gehaeuse_zeichnung.pdf, page 1>
+Package pdftex.def Info: gehaeuse_zeichnung.pdf , page1 used on input line 4210
+.
+(pdftex.def)             Requested size: 614.53192pt x 434.45497pt.
+ [112
+
+ <./gehaeuse_zeichnung.pdf>]
+runsystem(latexminted cleantemp  --timestamp 20250207163212 0C466665C502997399D
 275DB9794B1DC)...executed.
 
  (anhang.aux)
@@ -669,13 +820,13 @@ L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 10258 strings out of 474486
- 215962 string characters out of 5743756
+ 10286 strings out of 474486
+ 216881 string characters out of 5743756
  2292542 words of memory out of 5000000
- 32420 multiletter control sequences out of 15000+600000
+ 32448 multiletter control sequences out of 15000+600000
  562959 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 85i,12n,93p,351b,1746s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 85i,17n,93p,351b,1744s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\pippo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt
 1000.pk><C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx10.pfb><C:/Users/pippo/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -685,9 +836,9 @@ X/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/pippo/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/pippo/AppData/Local
 /Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/pippo/AppD
 ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on anhang.pdf (100 pages, 999308 bytes).
+Output written on anhang.pdf (106 pages, 1312682 bytes).
 PDF statistics:
- 377 PDF objects out of 1000 (max. 8388607)
+ 453 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 96 words of extra memory for PDF output out of 10000 (max. 10000000)
 

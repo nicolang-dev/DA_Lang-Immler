@@ -1,9 +1,7 @@
 import Connection from "@/types/Connection";
-import Adapter from "@/types/Adapter";
 import Station from "@/types/Station";
 import { MemoryService } from "../services/MemoryService";
 import { RadioBrowserAPI } from "../api/RadioBrowserAPI";
-import { AdapterAPI } from "../api/AdapterAPI";
 
 export const Functions = {
     async getConnections(): Promise<Connection[]|null>{

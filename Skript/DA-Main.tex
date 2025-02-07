@@ -16,8 +16,6 @@
 \usepackage[margin=2.5cm, footskip=2cm]{geometry}
 \usepackage[onehalfspacing]{setspace}
 \usepackage{fancyhdr}
-\fancyhf{}
-\fancyhead[R]{Multi-Room Audio Adapter}
 \renewcommand{\footrulewidth}{0.4pt} %Strich über Footer
 \usepackage{pdfpages}
 \usepackage{enumitem}
@@ -75,7 +73,13 @@
 \newpage
 \pagenumbering{arabic}
 
-\includepdf[pages=1]{Deckblatt.pdf} %fügt Deckblatt als PDF ein
+\includepdf[pages=1]{Deckblatt_unterschrieben.pdf} %fügt Deckblatt als PDF ein
+
+%leere Seite
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
 
 \section*{Projekt}
 \subsection*{Projektteam}
@@ -94,31 +98,7 @@ Wirtschaftsingenieure/Betriebsinformatik\newline
 6682 Vils AT\newline
 Philipp.Immler@hak-reutte.ac.at
 \newpage
-\subsection*{Eidesstattliche Erklärung}
-Hiermit versichere ich, dass ich die vorliegende Arbeit selbstständig verfasst und keine anderen Hilfsmittel als die angegebenen benutzt habe. Die Stellen, die anderen Werken (gilt ebenso für Werke aus elektronischen Datenbanken oder aus dem Internet) wörtlich oder sinngemäß entnommen sind, habe ich unter Angabe der Quelle und Einhaltung der Regeln wissenschaftlichen Zitierens kenntlich gemacht. Diese Versicherung umfasst auch in der Arbeit verwendete bildliche Darstellungen, Tabellen, Skizzen und Zeichnungen. Für die Erstellung der Arbeit habe ich auch Hilfsmittel generativer KI-Tools (ChatGPT 3.5) zu folgendem Zweck verwendet: Inspiration und grobe Informationsbeschaffung. Auch Übersetzer (DeepL) wurden zur Hilfe genommen. Die verwendeten Hilfsmittel wurden vollständig und wahrheitsgetreu inkl. Produktversion und Prompt ausgewiesen.\\
-
-\vspace{30mm}
-
-\noindent
-\begin{minipage}[c]{5cm}
-	\centering \dotfill \\
-	Ort, Datum
-\end{minipage}
-\hfill
-    \begin{minipage}[c]{5cm}
-        \centering \dotfill \\
-        Nico Lang
-    \end{minipage}
-    
-\vspace{25mm}
-
-\noindent
-\begin{flushright}
-    \begin{minipage}[c]{5cm}
-        \centering \dotfill \\
-        Philipp Immler
-    \end{minipage}
-\end{flushright}
+\includepdf[pages=1]{Eidesstattliche_Erklärung_unterschrieben.pdf} %fügt die unterschriebene Eidesstattliche Erklärung ein
 \newpage
 \subsection*{Abstract Deutsch}
 Die vorliegende Diplomarbeit beschäftigt sich mit der Entwicklung eines Multi-Room Audio Adapters (MAA). Ein einzelner Adapter besitzt dabei die Funktion, einen Audiostream aus dem Internet auf einem Line-Output auszugeben. So lassen sich die Adapter beispielsweise mit aktiven Lautsprechern per Klinkenkabel verbinden, um so Musik in voneinander getrennten Räumen abzuspielen. Welche Musik in welchem Raum spielt, ist frei konfigurierbar. Dabei erfolgt die Konfiguration per Smartphone-App. Das Endergebnis der Diplomarbeit sind somit der Adapter selbst (physischer Prototyp) und die dazugehörige Smartphone-App. \newline \\
@@ -127,11 +107,13 @@ Die Diplomarbeit lässt sich grob in die drei Teile Planung, Entwicklung und Tes
 This diploma thesis deals with the development of a multi-room audio adapter. A single adapter has the function of outputting an audio stream from the Internet to a line output. For example, the adapters can be connected to active speakers via a jack cable in order to play music in separate rooms. Which music plays in which room is freely configurable. The configuration is done via smartphone app. The final result of the thesis is the adapter itself (physical prototype) and the corresponding smartphone app. \newline \\
 The thesis can be roughly divided into three parts: planning, development and testing/troubleshooting.
 \subsection*{Danksagung}
-Wir bedanken uns bei den betreuenden Lehrpersonen Dipl. Ing. Dr. Peter L. Steger und Dipl. Päd. Johannes Köll für die kompetente Unterstützung.
+Wir bedanken uns bei den betreuenden Lehrpersonen Dipl. Ing. Dr. Peter L. Steger und BEd Johannes Köll für die kompetente Unterstützung.
 
 \newpage
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt} % Entfernt die Linie über der Kopfzeile
+\fancyfoot[LO, RE]{\raisebox{2ex}{\thepage}} %Seitenanzahl im Footer
 \pagenumbering{Roman}
-\fancyfoot[LE, RO]{\raisebox{2ex}{\thepage}} %Seitenanzahl im Footer
 \pagestyle{fancy} % header und footer ab hier anzeigen
 \setcounter{page}{1} %setzt den Zähler der Seiten hier auf 1
 \tableofcontents % Zeigt das Inhaltsverzeichnis an
@@ -143,6 +125,10 @@ Wir bedanken uns bei den betreuenden Lehrpersonen Dipl. Ing. Dr. Peter L. Steger
 \newpage
 
 \pagenumbering{arabic}
+\fancyhf{}
+\fancyhead[LE, RO]{Multi-Room Audio Adapter}
+\renewcommand{\headrulewidth}{0.4pt} % Fügt die Linie über der Kopfzeile wieder ein
+\fancyfoot[LE, RO]{\raisebox{2ex}{\thepage}} %Seitenanzahl im Footer
 \fancyfoot[LO, RE]{
 	\includegraphics[scale=0.25]{/allgemein/htl-reutte_logo.png}
 } %HTL Logo im Footer
@@ -154,7 +140,7 @@ Wir bedanken uns bei den betreuenden Lehrpersonen Dipl. Ing. Dr. Peter L. Steger
 	\includegraphics[width=\linewidth]{/allgemein/MAA_Konzept.png}
 	\caption{MAA Konzept}
 \end{figure}
-Hier ist eine vereinfachte Darstellung des groben Konzepts des MAA-Systems abgebildet. In den einzelnen Räumen befindet sich jeweils ein Lautsprecher, welcher per Klinkenkabel mit dem MAA verbunden ist. Der Adapter sendet allgemeine Informationen an das Smartphone, welche dem/der Benutzer/in angezeigt werden. Vom Smartphone aus werden schließlich die URLs des Radio-Streams, welche die MAA empfangen sollen, an diese gesendet. Die Informationen über die Internetradiostationen holt sich die Smartphone-App dabei aus dem Internet. Die Streams selbst empfangen die MAA ebenfalls direkt aus dem Internet. 
+Hier ist eine vereinfachte Darstellung des groben Konzepts des MAA-Systems abgebildet. In den einzelnen Räumen befindet sich jeweils ein Lautsprecher, welcher per Klinkenkabel mit einem MAA verbunden ist. Der MAA sendet Statusinformationen an das Smartphone, welche dem/der Benutzer/in angezeigt werden. Vom Smartphone aus werden schließlich die URLs des Radio-Streams, welcher der jeweilige MAA empfangen sollen, an diese gesendet. Die Informationen über die Internetradiostationen holt sich die Smartphone-App dabei aus dem Internet. Die Streams selbst empfangen die MAA ebenfalls direkt aus dem Internet. 
 \subsection{Einleitung Hardware}
 Das Ziel des Hardware-Teils für folgende Diplomarbeit war, einen sinnvollen internen Aufbau des Geräts zu erzielen, die am besten geeigneten Hardware-Komponenten zu finden, das System bzw. die einzelnen Komponenten zusammenzusetzen und zu testen. Dieser Teil der Diplomarbeit wurde von Nico Lang übernommen.
 Zudem beschäftigt sich dieser Teil mit dem Gehäuse des Geräts und bestimmt die technischen Anforderungen (Schnittstellen), die der Adapter letztendlich haben soll. 
@@ -193,7 +179,7 @@ Mehr zu Audioqualität aber im Teil \glqq Auswahl interne Hardware/Digital-/Anal
 %\parencite[vgl.][]{noauthor_urlnl03_nodate}
 %\parencite[vgl.][]{noauthor_urlnl04_nodate}
 \newpage
-\textbf{Audio-Quellen}\newline
+\noindent \textbf{Audio-Quellen}\newline
 Grundsätzlich kann jeder beliebige Audiostream aus dem Internet verwendet werden. Das können beispielsweise Radiosender sein.
 Ein Beispiel für einen solchen Audiostream wäre der des österreichischen Radiosenders \glqq OE3\grqq{}: \newline
 \url{https://orf-live.ors-shoutcast.at/oe3-q2a}
@@ -258,13 +244,14 @@ Man kann daraus schließen, dass jeder kleinste Fehler beispielsweise zu einem B
 \textbf{Laderegler}\newline
 Für einen optimalen Ladeprozess und Schutz des Akkus wird ein spezieller Laderegler verwendet. Dieser regelt somit den Ladevorgang des Akkus und hört auf zu laden, sobald dieser voll ist. Der Aufbau dieses Ladereglers ist nicht kompliziert, es gibt jeweils einen Plus- und Minuspol für den Eingang (USB-C Buchse), den Akku (im Englischen auch als Battery bezeichnet) und den Ausgang.
 \subsection{Anforderungen Software Adapter}
-Im Folgenden wird beschrieben, welche Anforderungen an die Software des Adapters gestellt wurden: \newline \\
-\textbf{Access Point} \\
+Im Folgenden wird beschrieben, welche Anforderungen an die Software des Adapters gestellt wurden:
+\newpage
+\noindent \textbf{Access Point} \\
 Ein Access Point ist ein Gerät, welches ein WLAN (Wireless Local Area Network) aufbaut. Dabei können sich WLAN-Clients mit diesem verbinden und somit untereinander Daten austauschen. \newline
 \parencite[vgl.][]{noauthor_urlpi10_nodate-1} \newline
 Der Mikrocontroller soll im Konfigurationsmodus als Access Point arbeiten. Dabei wird dem/der Benutzer/in ermöglicht, sich mittels Smartphone-App mit dem Netzwerk des Mikrocontrollers zu verbinden und somit die Anmeldedaten des gewünschten Netzwerkes zu senden. Somit kann sich dann der Mikrocontroller in weiterer Folge mit dem gewünschten WLAN verbinden. Die Daten sollen dabei im JSON-Format mittels HTTP von der Smartphone-App an den Mikrocontroller gesendet werden. \newline \\
 \textbf{WLAN-Client} \\
-Ein WLAN-Client ist ein Gerät, welches mit einem Access Point verbunden ist und somit einen Teilnehmer in einem WLAN darstellt. Der WLAN-Client kann dabei Daten mit anderen Clients im Netzwerk austauschen. Wenn der MAA vollständig konfiguriert ist bzw. die Anmeldedaten des WLANs hat, soll sich dieser als WLAN-Client mit dem WLAN verbinden. Um den Datenaustausch zwischen Smartphone und MAA zu ermöglichen, müssen sich beide Geräte im gleichen Netzwerk befinden. Damit der MAA in weiterer Folge Audiostreams von Internetradios empfangen kann, muss zusätzlich eine Verbindung zum Internet bestehen. \newline \\
+Ein WLAN-Client ist ein Gerät, welches mit einem Access Point verbunden ist und somit einen Teilnehmer in einem WLAN darstellt. Der WLAN-Client kann dabei Daten mit anderen Clients im Netzwerk austauschen. Wenn der MAA vollständig konfiguriert ist bzw. die Anmeldedaten des zu verbindenden WLANs hat, soll sich dieser als WLAN-Client mit dem gewünschten WLAN verbinden. Um den Datenaustausch zwischen Smartphone und MAA zu ermöglichen, müssen sich beide Geräte im gleichen Netzwerk befinden. Damit der MAA in weiterer Folge Audiostreams von Internetradios empfangen kann, muss dieser zusätzlich mit dem Internet verbunden sein. \newline \\
 \textbf{REST-API} \\
 Der Mikrocontroller soll eine REST-API bereitstellen, mithilfe der es möglich ist, per HTTP Daten mit diesem auszutauschen. Eine REST-API ist eine API, welche den Designprinzipien der REST-Architektur folgt. API steht dabei für \glqq Application Programming Interface\grqq{}. Eine API bietet im Allgemeinen eine Möglichkeit für den einheitlichen Datenaustausch zwischen Programmen. Eine REST-API (Representational State Transfer Application Programming Interface) ist dabei eine API, welche die von der REST-Architektur vorgegebenen Regeln befolgt. Sie dient  zur Kommunikation zwischen Server und Client. Der Client kann mittels HTTP Anfragen an den Server senden. Der Server liefert dann eine Antwort, welche Daten enthalten kann. \parencite[vgl.][]{noauthor_urlpi04_nodate} \newline
 Auf diese Weise kommuniziert die Smartphone-App mit dem Mikrocontroller. Der Client kann dabei vordefinierte Routen aufrufen. Die aufgerufene Route bestimmt die Aktion, welche auf dem Server ausgeführt wird. Es gibt dabei verschiedene Typen von HTTP-Requests. Jeder Typ ist für eine bestimmte Aktion verantwortlich. Für die REST-API Aufrufe des MAA sind GET-, POST- und PUT-Requests möglich. Ein GET-Request wird verwendet, um Daten vom Server abzufragen. Der POST-Request wird verwendet, um neue Daten auf dem Server anzulegen. Mit einem PUT-Request werden Daten auf dem Server aktualisiert. \parencite[vgl.][]{noauthor_urlpi13_nodate} \newline
@@ -274,9 +261,9 @@ Im Folgenden werden die Routen, welche die REST-API des MAA bereitstellen soll, 
 \hline
 \textbf{Route} & \textbf{Anfragen-Typ} & \textbf{Aktion} \\
 \hline
-/getInfo & GET & Der Server sendet die Daten: Name, MAC-Adresse, Akkustand, Lautstärke und Stream-URL im JSON-Format an den Client. \\
+/getInfo & GET & Der Server (MAA) sendet die Daten: Name, MAC-Adresse, Akkustand, Lautstärke und Stream-URL im JSON-Format an den Client. \\
 \hline 
-/getAvailableNetworks & GET & Der Server (MAA) sendet eine Liste, welche SSID und RSSI (Stärke) von den Netzwerken, welche sich in der Reichweite von diesem befinden, im JSON-Format an den Client. Diese werden in der Smartphone-App benötigt, um auszuwählen, mit welchem Netzwerk sich der MAA verbinden soll.\\
+/getAvailableNetworks & GET & Der Server sendet eine Liste, welche SSID und RSSI (Stärke) von den Netzwerken, welche sich in der Reichweite von diesem befinden, im JSON-Format an den Client. Diese werden in der Smartphone-App benötigt, um auszuwählen, mit welchem Netzwerk sich der MAA verbinden soll.\\
 \hline
 /setConfigData & POST & Der Client sendet SSID und Passwort des Netzwerks, mit welchem sich der MAA verbinden soll, im JSON-Format an den Server. Dieser speichert dann die erhaltenen Daten in den EEPROM und startet neu.\\
 \hline
@@ -284,9 +271,9 @@ Im Folgenden werden die Routen, welche die REST-API des MAA bereitstellen soll, 
 \hline
 /setVolume & PUT & Der Client sendet die gewünschte Lautstärke (zwischen 0\% und 100\%) des Audios an den Server. Dieser setzt dann den Gain (Verstärkung) des Audio-Signals auf einen Wert zwischen 0 und 1. \\
 \hline
-/pauseStream & POST & Wenn dieser Request an den Server gesendet wird, stoppt dieser den aktuellen Audiostream. \\
+/pauseStream & POST & Der Server pausiert die Audio-Ausgabe. \\
 \hline
-/continueStream & POST & Beim Empfang dieses Requests setzt der Server den gestoppten Audiostream fort. \\
+/continueStream & POST & Der Server setzt die Audio-Ausgabe fort. \\
 \hline
 \end{tabularx} 
 \caption{REST-API Routen}
@@ -296,9 +283,9 @@ Im Folgenden werden die Routen, welche die REST-API des MAA bereitstellen soll, 
 Der Mikrocontroller sollte in der Lage sein, Audiostreams aus dem Internet zu empfangen, diese zu dekodieren und die dekodierten Daten als Signale auf dem Line-Out auszugeben. Dabei beschränken wir uns am Anfang auf Streams im MP3-Format, welches am häufigsten verwendet wird. Bei einem HTTP-Audiostream wird ein Audiofile in mehrere kleine Stücke zerteilt, welche dann per HTTP an den Client gesendet werden. Dieser fügt diese Stücke dann wieder zu einem Audiofile zusammen. Die MP3-kodierten Audiodaten müssen dann in weiterer Folge in ein PCM(Pulse Code Modulation) - Signal dekodiert werden, welches dann von dem Digital-Analog-Wandler in ein analoges Audiosignal umgewandelt wird. Das analoge Audiosignal kann dann auf der Lautsprecherbox ausgegeben werden.
 \subsection{Anforderungen Smartphone-App}
 Es wurde festgelegt, dass die Smartphone-App die folgenden Funktionalitäten bereitstellen soll:
-\vspace{4mm}\newline 
-\textbf{Verwaltung von Adaptern}  \\
-Mit der App soll es einerseits möglich sein, neue Adapter zu konfigurieren, andererseits bereits hinzugefügte Adapter zu verwalten. Dabei können von den Adaptern Daten, wie beispielsweise MAC-Adresse und Akkustand, angezeigt werden. Außerdem soll regelmäßig überprüft werden, ob die Adapter vom Smartphone aus erreichbar sind.
+\newpage
+\noindent \textbf{Verwaltung von Adaptern}  \\
+Mit der App soll es einerseits möglich sein, neue Adapter zu konfigurieren, andererseits bereits hinzugefügte Adapter zu verwalten. Dabei können von den Adaptern Daten, wie MAC-Adresse und Akkustand, angezeigt werden. Außerdem soll regelmäßig überprüft werden, ob die Adapter vom Smartphone aus erreichbar sind.
 \vspace{4mm}\newline
 \textbf{Verwaltung von Radiostationen} \\
 Es sollte zudem möglich sein, nach Audiostreams von Internetradios zu suchen und diese einer persönlichen Favoritenliste hinzuzufügen.
@@ -327,40 +314,40 @@ Das \glqq Inter IC Sound Protocol\grqq{} wird verwendet, um Stereo-Audio-Daten z
 	\item mindestens eine Datenleitung
 \end{itemize}
 Die Datenübertragung erfolgt seriell und synchron. Das heißt, dass die Daten nacheinander durch eine Leitung (die Datenleitung), in einem bestimmten Takt, welcher von der Taktleitung vorgegeben wird, übertragen werden. Wenn Audiodaten im Stereo-Format (linker und rechter Kanal) übertragen werden, wählt die Wortauswahl-Leitung jeweils den Kanal aus, welcher übertragen werden soll. \parencite[vgl.][]{noauthor_urlpi12_nodate} \\
-In der Diplomarbeit wurde das I2S Protokoll verwendet, um die digitalen Stereo-Audio-Daten vom Mikrocontroller an den Digital-Analog-Wandler zu übertragen. Dabei werden die Buffer, die der Mikrocontroller vom Audiostream erhält, mittels I2S an den Digital-Analog-Wandler gesendet, welcher die digitalen Daten in analoge PCM (Pulse Code Modulation) Daten umwandelt, sodass diese dann anschließend auf der Lautsprecherbox ausgegeben werden können. Dabei wurden folgende Parameter für die Datenübertragung gewählt:
+In der Diplomarbeit wurde das I2S-Protokoll verwendet, um die digitalen Stereo-Audio-Daten, welche der Mikrocontroller vom Audiostream erhält, an den Digital-Analog-Wandler zu übertragen. Dieser wandelt das digitale Signal dann in weiterer Folge in ein analoges Signal um. Für die Datenübertragung wurden folgende Parameter verwendet:
 \begin{itemize}
-	\item Bittiefe: 16 Bit pro Sample
+	\item Bittiefe: 16 Bit/Sample
 	\item Audio-Kanäle: 2
-	\item Sample-Rate: 44100 kHz
+	\item Sample-Rate: 44,1 kHz
 \end{itemize}
 \subsection{Auswahl Softwaretools}
 In diesem Kapitel geht es um die Recherche und Auswahl von geeigneten Softwaretools, welche für die App-Entwicklung, als auch für die Entwicklung der Software des Mikrocontrollers verwendet wurden. Des Weiteren werden auch noch die Tools beschrieben, welche für das Schreiben der Diplomarbeit verwendet wurden.
 \subsubsection{Softwaretools zum Schreiben der Diplomarbeit}
-Im Folgenden werden die Softwaretools, welche zum Schreiben der Diplomarbeit benutzt wurden, aufgezählt und beschrieben.
-\newpage
-\noindent \textbf{\LaTeX} \\
-"LaTeX ist ein hochwertiges Schriftsatzsystem, das Funktionen für die Erstellung technischer und wissenschaftlicher Dokumentationen enthält. LaTeX ist der De-facto-Standard für die Kommunikation und Veröffentlichung von wissenschaftlichen Dokumenten." \parencite{noauthor_urlpi29_nodate} \newline
+Im Folgenden werden die Softwaretools, welche zum Schreiben der Diplomarbeit benutzt wurden, aufgezählt und beschrieben:
+\vspace{4mm}\newline
+\textbf{\LaTeX} \\
+"LaTeX ist ein hochwertiges Schriftsatzsystem, das Funktionen für die Erstellung technischer und wissenschaftlicher Dokumentationen enthält. LaTeX ist der De-facto-Standard für die Kommunikation und Veröffentlichung von wissenschaftlichen Dokumenten." \parencite{noauthor_urlpi29_nodate}
 LaTeX wurde für die Diplomarbeit gewählt, weil es sich sehr gut für das Schreiben von wissenschaftlichen Arbeiten, vor allem mit technischem Bezug, eignet und wir somit schon damit vertraut sind, wenn wir es in Zukunft, z.B. im Studium, benutzen müssen.
 \vspace{4mm}\newline
 \textbf{draw.io} \\
 "draw.io ist eine kostenlose Online-Diagrammsoftware zur Erstellung von Flussdiagrammen, Prozessdiagrammen, Organigrammen, UML, ER und Netzwerkdiagrammen." \parencite{noauthor_urlpi30_nodate} \\
 Alle Diagramme, welche in der Diplomarbeit zu sehen sind, wurden in draw.io erstellt, weil es einfach zu handhaben ist und eine sehr große Auswahl an Diagrammtypen und Formen bereitstellt.
-\vspace{4mm}\newline
-\textbf{Visual Studio Code} \\
+\newpage
+\noindent \textbf{Visual Studio Code} \\
 \glqq Visual Studio Code ist ein leichtgewichtiger, aber leistungsstarker Quellcode-Editor, der auf Ihrem Desktop läuft und für Windows, macOS und Linux verfügbar ist. Er bietet integrierte Unterstützung für JavaScript, TypeScript und Node.js und verfügt über ein umfangreiches Ökosystem von Erweiterungen für andere Sprachen und Laufzeiten (wie C++, C\#, Java, Python, PHP, Go, .NET).\grqq{} \parencite{noauthor_urlpi31_nodate} \\
-Visual Studio Code wurde als IDE für den Code der Diplomarbeit gewählt, weil durch die unzähligen Erweiterungen viele verschiedene Programmiersprachen und Bibliotheken unterstützt werden und somit der gesamte Code, sowohl für den Mikrocontroller als auch für die Smartphone-App, darin geschrieben werden konnte.
+Visual Studio Code wurde als IDE (Integrated Development Environment) für den Code der Diplomarbeit gewählt, weil durch die unzähligen Erweiterungen viele verschiedene Programmiersprachen und Bibliotheken unterstützt werden und somit der gesamte Code, sowohl für den Mikrocontroller als auch für die Smartphone-App, darin geschrieben werden konnte.
 \vspace{4mm}\newline
 \textbf{GitHub} \\
 Git im Allgemeinen ist das meistverbreitete Versionskontrollsystem. Ein Versionskontrollsystem wird verwendet, um den Versionsverlauf einer Software zu erfassen. Dies hat den Vorteil, dass man bei auftretenden Fehlern jederzeit wieder auf eine ältere Version der Software umsteigen kann. Ein weiterer Vorteil beim Einsatz eines Versionskontrollsystems ist, dass mehrere Entwickler gleichzeitig an derselben Software arbeiten können. Git gehört zu den DVCS (Distributed Version Control Systems), also verteilten Versionskontrollsystemen. Das heißt, dass der Versionsverlauf der Software nicht zentral auf einem Server gespeichert ist, sondern auf den Rechnern der Benutzer, in einem sogenannten Repository. Dies bietet höhere Sicherheit, Performance und Flexibilität. \parencite[vgl.][]{noauthor_urlpi17_nodate} \\ 
-GitHub ist eine Software, die Git verwendet. Dabei ist Github cloud-basiert, das heißt, es ist online zugänglich und benötigt deshalb keine eigene Software auf dem Rechner. Außerdem hat Github  eine sehr benutzerfreundliche Oberfläche, was es auch für Einsteiger leichter verständlich macht. \parencite[vgl.][]{noauthor_urlpi18_nodate}
+GitHub ist eine Software, die Git verwendet. Dabei ist Github cloud-basiert, das heißt, es ist online zugänglich und benötigt deshalb keine eigene Software auf dem Rechner. Außerdem hat Github  eine sehr benutzerfreundliche Oberfläche, was es für allem für Einsteiger leichter verständlich macht. \parencite[vgl.][]{noauthor_urlpi18_nodate}
 In der Diplomarbeit wurde GitHub für die Verwaltung des Codes und der Dokumente verwendet. Der Vorteil dabei ist, dass jedes Projektmitglied auf seinem lokalen PC an den Dokumenten arbeiten kann und die Änderungen dann per GitHub synchronisiert werden können.
 \vspace{4mm}\newline
 \textbf{DeepL} \\
 Bei DeepL handelt es sich um einen Übersetzer, der KI einsetzt und somit einer der genauesten Übersetzer weltweit ist. DeepL wurde aufgrund seiner Genauigkeit und kostenlosen Verfügbarkeit in der Diplomarbeit verwendet, um englische Texte ins Deutsche zu übersetzen.
 \subsubsection{Bibliotheken Mikrocontroller}
 Im Folgenden werden die Bibliotheken, welche für die Programmierung der Mikrocontroller-Software verwendet wurden, aufgezählt und beschrieben.
-\vspace{4mm}\newline
-\textbf{Arduino Core} \\
+\newpage
+\noindent \textbf{Arduino Core} \\
 (https://github.com/espressif/arduino-esp32) \\
 Die \glqq Arduino-Core\grqq{}-Bibliothek wurde verwendet, um den ESP32 ähnlich wie ein Arduino-Board programmieren zu können. Es erleichtert dabei die Programmierung enorm. Vor allem dann, wenn man schon Vorerfahrung mit der Programmierung von Arduino-Boards hat. Ein weiterer Vorteil ist, dass diese Bibliothek bereits weitere nützliche Bibliotheken beinhaltet, welche für die Programmierung benötigt werden.
 \vspace{4mm}\newline
@@ -373,17 +360,18 @@ Die\grqq{} WiFi\grqq{}-Bibliothek ist eine offizielle Bibliothek von Arduino, we
 Die \glqq ArduinoJSON\grqq{}-Bibliothek wird verwendet, um Daten in das JSON-Format zu codieren. JSON (Java Script Object Notation) ist ein Datenformat, welches  für den einheitlichen Datenaustausch zwischen Servern und Clients verwendet wird. Dabei verwendet JSON sogenannte Schlüssel-Wert-Paare. Das heißt, einem Wert ist immer ein eindeutiger Schlüssel zugeordnet. In der Diplomarbeit realisiert die \glqq ArduinoJSON\grqq{}-Bibliothek den einheitlichen Datenaustausch zwischen Webserver (ESP32) und Client (Smartphone). \parencite[vgl.][]{noauthor_urlpi11_nodate}
 \vspace{4mm}\newline
 \textbf{WebServer} \\
-Die \glqq WebServer\grqq{}-Bibliothek wird verwendet, um einen Webserver auf dem ESP32 bereitzustellen. Dieser ist in Kombination mit der REST-API wichtig für den Datenaustausch zwischen MAA und Smartphone-App. Auf die REST-API wurde bereits im Kapitel 3.3 genauer eingegangen. Der Webserver kann Anfragen von Clients entgegennehmen und diesen Antworten zurücksenden. Dabei gibt es vordefinierte Routen, welche aufrufbar sind.
+Die \glqq WebServer\grqq{}-Bibliothek wird verwendet, um einen Webserver auf dem ESP32 bereitzustellen. Dieser ist in Kombination mit der REST-API wichtig für den Datenaustausch zwischen MAA und Smartphone-App. Auf die REST-API wurde bereits im Kapitel 2.3 genauer eingegangen. Der Webserver kann Anfragen von Clients entgegennehmen und diesen Antworten zurücksenden. Dabei gibt es vordefinierte Routen, welche aufrufbar sind.
 \vspace{4mm}\newline
 \textbf{ESP8266Audio} \\
 (https://github.com/earlephilhower/ESP8266Audio) \\
-Die \glqq ESP8266Audio\grqq{}-Bibliothek wurde ursprünglich für das Vorgängermodell des ESP32, den ESP8266, entwickelt. Sie wurde allerdings mittlerweile von den Entwicklern angepasst, sodass man sie auch für den ESP32 verwenden kann. Die Bibliothek stellt Funktionen zum Empfangen, Dekodieren und Ausgeben von Audio-Daten bereit. Die Bibliothek wurde in der Diplomarbeit verwendet, um MP3-Streams vom Internet zu empfangen, diese zu dekodieren und die dekodierten PCM-Signale über I2S an den DAC zu senden. Der ESP32 verfügt zwar bereits standardmäßig über Funktionen, mit deren Hilfe man Audiodaten mittels I2S übertragen kann, allerdings sind diese sehr komplex in der Verwendung und Konfiguration. Da die \glqq ESP8266Audio\grqq{}-Bibliothek bereits die perfekte Lösung für die Anforderungen der Mikrocontroller-Software bietet, wurde deshalb diese verwendet. \newline \\
+Die \glqq ESP8266Audio\grqq{}-Bibliothek wurde ursprünglich für das Vorgängermodell des ESP32, den ESP8266, entwickelt. Sie wurde allerdings mittlerweile von den Entwicklern angepasst, sodass man sie auch für den ESP32 verwenden kann. Die Bibliothek stellt Funktionen zum Empfangen, Dekodieren und Ausgeben von Audio-Daten bereit. Die Bibliothek wurde in der Diplomarbeit verwendet, um MP3-Streams vom Internet zu empfangen, diese zu dekodieren und die dekodierten PCM-Signale über I2S an den DAC zu senden. Der ESP32 verfügt zwar bereits standardmäßig über Funktionen, mit deren Hilfe man Audiodaten mittels I2S übertragen kann, allerdings sind diese sehr komplex in der Verwendung und Konfiguration. Da die \glqq ESP8266Audio\grqq{}-Bibliothek bereits die perfekte Lösung für die Anforderungen der Mikrocontroller-Software bietet, wurde diese in der Diplomarbeit verwendet. \newline \\
 \textbf{Preferences} \\
 (https://github.com/espressif/arduino-esp32/tree/master/libraries/Preferences) \\
 Die \glqq Preferences\grqq{}-Bibliothek wird verwendet, um Schreib- und Lesezugriffe auf den eingebauten EEPROM (Electrical Eresable Programmable Read Only Memory) des ESP32 durchzuführen. Dabei werden die im EEPROM gespeicherten Werte mittels eindeutiger Schlüssel identifiziert.
 \subsubsection{Softwaretools Smartphone-App}
 \textbf{TypeScript} \\
-Bei TypeScript handelt es sich um eine Erweiterung von JavaScript. Der Vorteil von TypeScript ist, dass dieses eine statische Typisierung ermöglicht. Reines JavaScript hat eine dynamische Typisierung. Das heißt, dass den definierten Variablen erst durch den Interpreter ein konkreter Datentyp zugewiesen wird. Im Gegensatz dazu, kann man in TypeScript den Variablen direkt konkrete Datentypen zuweisen. Dadurch wird eine höhere Typensicherheit und eine bessere Wartbarkeit des Codes garantiert. \parencite[vgl.][]{noauthor_urlpi32_2023} Aufgrund dieser Vorteile wurde TypeScript in der Diplomarbeit verwendet. 
+Bei TypeScript handelt es sich um eine Erweiterung der Programmiersprache \glqq JavaScript\grqq{}. Der Vorteil von TypeScript ist, dass dieses eine statische Typisierung ermöglicht. Reines JavaScript hat eine dynamische Typisierung. Das heißt, dass den definierten Variablen erst durch den Interpreter ein konkreter Datentyp zugewiesen wird. Im Gegensatz dazu kann man in TypeScript den Variablen direkt konkrete Datentypen zuweisen. Dadurch wird eine höhere Typensicherheit und eine bessere Wartbarkeit des Codes garantiert. \parencite[vgl.][]{noauthor_urlpi32_2023} \newline
+Aufgrund dieser Vorteile wurde TypeScript in der Diplomarbeit verwendet. 
 \vspace{4mm}\newline
 \textbf{Node.js} \\
 Bei Node.js handelt es sich um eine JavaScript-Laufzeitumgebung, welche es ermöglicht, JavaScript-Code und somit auch TypeScript-Code lokal auf dem Rechner auszuführen. Normalerweise ist JavaScript eine Programmiersprache, welche für die Frontend-Entwicklung eingesetzt wird und nur im Browser läuft. Mit der Verwendung von Node.js ist es allerdings möglich, JavaScript auch im Backend, also lokal auf dem Rechner, zu verwenden. Node.js stellt außerdem einen eigenen Paket-Manager namens \glqq npm\grqq{} (Node Package Manager) bereit, der es ermöglicht, zahlreiche Open-Source-Pakete, für unterschiedlichste Anwendungen zu installieren. Somit können mithilfe von Node.js die Vorteile, welche JavaScript bietet, zur Entwicklung zahlreicher Apps verwendet werden. \parencite[vgl.][]{noauthor_urlpi25_2021}
@@ -391,14 +379,14 @@ Node.js wurde in der Diplomarbeit verwendet, um die Entwicklung mit React Native
 \vspace{4mm}\newline
 \textbf{React Native} \\
 React Native ist ein Framework, welches die plattformübergreifende Entwicklung von Apps ermöglicht. Das heißt, man schreibt einen Code in JavaScript bzw. TypeScript und kann aus diesem dann eine IOS-, Android- oder Web-App bauen. Um eine React Native App auszuführen, wird die Node.js-Laufzeitumgebung benötigt, welche im vorherigen Teil beschrieben wurde. React Native wurde erstmals 2015 von Meta (damals noch Facebook) als Open-Source-Projekt veröffentlicht. Seither wird es weiterhin von Meta gewartet bzw. weiterentwickelt und hat eine riesige Community, welche ständig neue Bibliotheken für das Framework veröffentlicht. React Native basiert auf React, welches man bereits aus der Webentwicklung kennt. Der Vorteil von React im Gegensatz zur normalen Webentwicklung ist, dass man wiederverwendbare Komponenten bauen kann. Wenn sich der Zustand einer Komponente ändert, wird nur diese neu gerendert (erstellt/berechnet) und nicht die ganze Seite. Dieses Verhalten wird auch in React Native ermöglicht. In React Native stehen dabei einige Standardkomponenten zur Verfügung, welche dann jeweils in native Komponenten, passend für das jeweilige Betriebssystem, gerendert werden. Aus den Standardkomponenten kann man schließlich seine eigenen Komponenten bauen, welche dann ganz einfach im Programm inkludiert werden können.
-React native wurde für die Entwicklung der Smartphone-App verwendet, weil es sehr aufwendig gewesen wäre, für jede Plattform eigenen Code zu schreiben und dies außerdem tiefes Vorwissen in der App-Entwicklung vorausgesetzt hätte. \parencite[vgl.][]{noauthor_urlpi07_nodate}
+React Native wurde für die Entwicklung der Smartphone-App verwendet, weil es sehr aufwendig gewesen wäre, für jede Plattform eigenen Code zu schreiben und dies außerdem tiefes Vorwissen in der App-Entwicklung vorausgesetzt hätte. \parencite[vgl.][]{noauthor_urlpi07_nodate}
 \vspace{4mm}\newline
 \textbf{Expo} \\
 Um das Entwickeln der Smartphone-App noch einfacher bzw. effizienter zu gestalten, wurde das Expo-Framework verwendet. Dieses Framework basiert wiederum auf React Native und stellt zusätzlich hilfreiche Bibliotheken und eine Projektstruktur zur Verfügung. Dies hat den Vorteil, dass der grundlegende Aufbau einer App bereits vorgegeben wird und man somit von Beginn an eine solide Basis hat, auf der man weiterentwickeln kann. Expo bietet zudem das sogenannte \glqq File-based routing\grqq{}, welches die Entwicklung der App-Navigation sehr erleichtert. Ein weiterer Vorteil von Expo ist, dass für das Testen der App die \glqq ExpoGo\grqq{}-App verwendet werden kann. Diese ermöglicht es, die App bereits bevor diese vollständig fertiggestellt ist, auf dem Smartphone zu testen. Dadurch wird die Entwicklung um ein Vielfaches erleichtert. \parencite[vgl.][]{noauthor_urlpi08_nodate}
 \section{Entwicklung}
 \subsection{Entwicklung Software Adapter}
 In diesem Kapitel wird der Übergang der Planung in die Entwicklung der Software des Mikrocontrollers, welcher im MAA verbaut ist, beschrieben. 
-Zur Entwicklung der Software des Mikrocontrollers wurde die IDE Visual Studio Code in Verbindung mit dem Framework PlatformIO verwendet. PlatformIO ist ein Framework, welches für die Entwicklung von Embedded Systems verwendet wird und somit einige hilfreiche Funktionen in Verbindung mit dem ESP32 bietet. \parencite[vgl.][]{noauthor_urlpi26_nodate} Um die Entwicklung so effizient wie möglich zu gestalten, wurden die Bibliotheken, welche bereits im Kapitel 3.6.2 beschrieben wurden, verwendet.
+Zur Entwicklung der Software des Mikrocontrollers wurde die IDE Visual Studio Code, welche bereits im Kapitel 2.6 beschrieben wurde, in Verbindung mit dem Framework \glqq PlatformIO\grqq{} verwendet. PlatformIO ist ein Framework, welches für die Entwicklung von Embedded Systems verwendet wird und somit einige hilfreiche Funktionen in Verbindung mit dem ESP32 bietet. \parencite[vgl.][]{noauthor_urlpi26_nodate} Um die Entwicklung so effizient wie möglich zu gestalten, wurden die Bibliotheken, welche bereits im Kapitel 2.6.2 beschrieben wurden, verwendet.
 \subsubsection{Klassen}
 Um die Modularität und somit die Wiederverwendbarkeit und Wartbarkeit des Codes zu gewährleisten, wurde in der Entwicklung der Software für den Adapter auf objektorientierte Programmierung gesetzt. Dies ist möglich, da die Programmiersprache C++, welche für das Schreiben der Software verwendet wurde, objektorientierte Programmierung unterstützt. Für einen Großteil der Klassen wurde das Singleton-Designpattern verwendet. Dieses gewährleistet, dass immer nur eine Instanz der Klasse vorhanden ist, was Sinn ergibt, wenn von einer Klasse nicht mehrere Instanzen verfügbar sein sollen. \parencite[vgl.][]{noauthor_urlpi14_nodate}. \newline
 Das folgende UML-Klassendiagramm veranschaulicht die Beziehung der verschiedenen Klassen zueinander:
@@ -412,8 +400,9 @@ Im Folgenden werden die einzelnen Klassen genauer beschrieben:
 \vspace{4mm}\newline
 \textbf{Mode} \newline
 Im ENUM \glqq Mode\grqq{} werden die verschiedenen Modi der Software definiert. Ein ENUM ist wie eine Art Datentyp, der Konstanten definiert, welche man verwenden darf. \parencite[vgl.][]{noauthor_urlpi15_nodate} \newline
-In unserem Fall definiert der ENUM die drei Modi \glqq NORMAL\grqq{}, \glqq CONFIG\grqq{} und \glqq ERROR\grqq{}. Diese geben den Status des MAA an. Der Modus \glqq NORMAL\grqq{} signalisiert, dass sich der MAA im normalen Zustand befindet, dieser also voll funktionsfähig ist. Im Modus \glqq CONFIG\grqq{} fungiert der MAA als Access Point. Somit können sich Clients mit diesem verbinden und die Anmeldedaten des WLANs senden. Der Modus \glqq ERROR\grqq{} wird gesetzt, wenn ein Fehler im Programm auftritt. Dies ist zum Beispiel der Fall, wenn die Verbindung mit dem WLAN unterbrochen wird. Der aktuelle Modus wird mithilfe der Status-LED signalisiert, welche als nächstes genauer beschrieben wird. \newline \\
-\textbf{StatusLED} \\
+In unserem Fall definiert der ENUM die drei Modi \glqq NORMAL\grqq{}, \glqq CONFIG\grqq{} und \glqq ERROR\grqq{}. Diese geben den Status des MAA an. Der Modus \glqq NORMAL\grqq{} signalisiert, dass sich der MAA im normalen Zustand befindet, dieser also voll funktionsfähig ist. Im Modus \glqq CONFIG\grqq{} fungiert der MAA als Access Point. Somit können sich Clients mit diesem verbinden und die Anmeldedaten des WLANs, mit dem sich der MAA verbinden soll, senden. Der Modus \glqq ERROR\grqq{} wird gesetzt, wenn ein Fehler im Programm auftritt. Dies ist zum Beispiel der Fall, wenn die Verbindung mit dem WLAN unterbrochen wird. Der aktuelle Modus wird mithilfe der Status-LED signalisiert, welche als nächstes genauer beschrieben wird.
+\newpage
+\noindent \textbf{StatusLED} \\
 Mithilfe der Klasse \glqq StatusLED\grqq{} wird die RGB-LED, welche am Mikrocontroller angeschlossen ist, gesteuert. Mit ihr wird der aktuelle Modus des MAA dem/der Benutzer/in angezeigt. Die nachstehende Tabelle beschreibt, welche Farbe für welchen Modus steht: \newline
 \begin{table}[H]
 	\begin{tabular}{|l|l|}
@@ -431,21 +420,21 @@ Mithilfe der Klasse \glqq StatusLED\grqq{} wird die RGB-LED, welche am Mikrocont
 \end{table}
 \noindent %dass Text nach figure nicht eingerückt wird
 \textbf{NetworkManager}\newline
-Die Klasse \glqq NetworkManager\grqq{} beinhaltet Funktionen, welche die Wi-Fi-Funktionalität des ESP32 verwenden. Es ist hier möglich, den Access Point - und den Client-Modus zu aktivieren, nach verfügbaren Netzwerken zu suchen, sowie die MAC-Adresse des Adapters zu lesen. Diese Funktionen werden alle mithilfe der im Kapitel 3.6.2 erwähnten \glqq WiFi\grqq{}-Bibliothek verwirklicht.
+Die Klasse \glqq NetworkManager\grqq{} beinhaltet Funktionen, welche die Wi-Fi-Funktionalität des ESP32 verwenden. Es ist hier möglich, den Access Point - und den Client-Modus zu aktivieren, nach verfügbaren Netzwerken zu suchen, sowie die MAC-Adresse des Adapters zu lesen. Diese Funktionen werden alle mithilfe der im Kapitel 2.6.2 erwähnten \glqq WiFi\grqq{}-Bibliothek verwirklicht.
 \vspace{4mm}\newline
 \textbf{AudioManager}\newline
-Die Klasse \glqq AudioManager\grqq{} ist für den Empfang des Internetradio-Streams, für das Dekodieren des empfangenen Streams und für die Ausgabe des dekodierten Audio-Signals zuständig. Dafür wird primär die \glqq ESP8266Audio\grqq{}-Bibliothek, welche bereits im Kapitel 3.6.2 beschrieben wurde, verwendet.
+Die Klasse \glqq AudioManager\grqq{} ist für den Empfang des Internetradio-Streams, für das Dekodieren des empfangenen Streams und für die Ausgabe des dekodierten Audio-Signals zuständig. Dafür wird primär die \glqq ESP8266Audio\grqq{}-Bibliothek, welche bereits im Kapitel 2.6.2 beschrieben wurde, verwendet.
 \vspace{4mm}\newline
 \textbf{Logger}\newline
 Die Klasse \glqq Logger\grqq{} ist für die Verwaltung von Logs, welche von anderen Klassen geschrieben werden, zuständig. In ihr befindet sich ein Vektor, welcher Tupels, bestehend aus Log-Text und Log-Zeitpunkt, speichert, definiert. Diese Logs sind essenziell für die Fehlerbehebung, da man sehen kann, welche Aktionen im Programm ausgeführt wurden und wo Fehler aufgetreten sind. Die Klasse bietet Funktionen zum Hinzufügen von Logs und zum Anzeigen bestehender Logs. Die Funktionen sind alle statisch, das heißt, man muss kein Objekt dieser Klasse erzeugen, um die Funktionen auszuführen. Dies ist sinnvoll, weil es möglich sein soll, von jeder Klasse direkt auf die Log-Funktionen zuzugreifen.
 %\newpage
 \vspace{4mm}\newline
 \noindent \textbf{ServerManager}\newline
-Die Klasse \glqq ServerManager\grqq{} ist für das Verwalten des Webservers, welcher auf dem MAA läuft, zuständig. In ihr werden die Funktionen, die durch die Aufrufe der Routen der REST-API ausgeführt werden, definiert. Die Kernfunktionen der Klasse werden vor allem durch die im Kapitel 3.6.2 erwähnte \glqq WebServer\grqq{}-Bibliothek bereitgestellt.
-\vspace{4mm}\newline
-\textbf{MemoryManager} \newline
+Die Klasse \glqq ServerManager\grqq{} ist für das Verwalten des Webservers, welcher auf dem MAA läuft, zuständig. In ihr werden die Funktionen, die durch die Aufrufe der Routen der REST-API ausgeführt werden, definiert. Die Kernfunktionen der Klasse werden vor allem durch die im Kapitel 2.6.2 erwähnte \glqq WebServer\grqq{}-Bibliothek bereitgestellt.
+\newpage
+\noindent \textbf{MemoryManager} \newline
 Die Klasse \glqq MemoryManager\grqq{} ist für das Schreiben in und das Lesen aus dem EEPROM des Mikrocontrollers zuständig. Der EEPROM ist ein nichtflüchtiger Speicher, das heißt, er behält die Daten auch nach einem Spannungsverlust des Mikrocontrollers. Dies ist vor allem für Daten sinnvoll, welche nicht jedes Mal neu definiert werden, wie z.B. Anmeldedaten des WLANs. \parencite[vgl.][]{noauthor_urlpi27_2018}
-Um die Funktionen des EEPROMs des ESP32 zu nutzen, wurde die \glqq Preferences\grqq{}-Bibliothek, welche ebenfalls im Kapitel 3.6.2 beschrieben wurde, verwendet. Diese arbeitet mit Schlüssel-Wert-Paaren. Das heißt, auf die gespeicherten Variablen kann mittels eindeutigem Schlüssel zugegriffen werden.
+Um die Funktionen des EEPROMs des ESP32 zu nutzen, wurde die \glqq Preferences\grqq{}-Bibliothek, welche ebenfalls im Kapitel 2.6.2 beschrieben wurde, verwendet. Diese arbeitet mit Schlüssel-Wert-Paaren. Das heißt, auf die gespeicherten Variablen kann mittels eindeutigem Schlüssel zugegriffen werden.
 \newline \\
 \textbf{BatteryManager} \newline
 Die Klasse \glqq BatteryManager\grqq{} ist für das Auslesen des Akkustands des ESP32 zuständig. Dies wird erreicht, indem der Spannungspegel an einem analogen Eingang des ESP32 eingelesen wird und aus diesem dann der Ladestand des Akkus errechnet wird.
@@ -459,7 +448,7 @@ Im folgenden UML-Ablaufdiagramm wird der grobe Programmablauf der Setup-Funktion
 	\includegraphics[height=\textheight]{/software/uml_ablauf_esp32_setup.png}
 	\caption{UML-Ablaufdiagramm Mikrocontroller Setup}
 \end{figure}
-\noindent In der Setup-Funktion werden zuerst Konstanten, welche später im Programm benötigt werden, definiert. Auch werden am Anfang die entsprechenden Instanzen der Singleton-Klassen abgerufen. Anschließend wird der Name des Adapters definiert. Dieser setzt sich, wie bereits im Kapitel 3.5.1 erwähnt, aus \glqq MAA\grqq{} und den letzten drei Byte der MAC-Adresse zusammen. Er ist somit für jeden Adapter eindeutig. Der Name wird später als SSID des Access Points bzw. als Hostname für den Webserver verwendet. Nachdem der Name gesetzt ist, wird mit der Klasse \glqq MemoryManager\grqq{} abgefragt, ob WLAN-Anmeldedaten im EEPROM gespeichert sind. Sind diese vorhanden, so versucht der MAA eine Verbindung mit dem WLAN herzustellen. Ist dies möglich, wird der Modus auf \glqq NORMAL\grqq{} gesetzt. Schlägt die Verbindung mit dem WLAN, z.B. durch falsche Anmeldedaten, fehl, wird der Modus auf \glqq ERROR\grqq{} gesetzt. \newline \\
+\noindent In der Setup-Funktion werden zuerst Konstanten, welche später im Programm benötigt werden, definiert. Auch werden am Anfang die entsprechenden Instanzen der Singleton-Klassen abgerufen. Anschließend wird der Name des Adapters definiert. Dieser setzt sich, wie bereits im Kapitel 2.5.1 erwähnt, aus \glqq MAA\grqq{} und den letzten drei Byte der MAC-Adresse zusammen. Er ist somit für jeden Adapter eindeutig. Der Name wird später als SSID des Access Points bzw. als Hostname für den Webserver verwendet. Nachdem der Name gesetzt ist, wird mit der Klasse \glqq MemoryManager\grqq{} abgefragt, ob WLAN-Anmeldedaten im EEPROM gespeichert sind. Sind diese vorhanden, so versucht der MAA eine Verbindung mit dem WLAN herzustellen. Ist dies möglich, wird der Modus auf \glqq NORMAL\grqq{} gesetzt. Schlägt die Verbindung mit dem WLAN, z.B. durch falsche Anmeldedaten, fehl, wird der Modus auf \glqq ERROR\grqq{} gesetzt. \newline \\
 \textbf{Loop} \newline
 Im folgenden UML-Ablaufdiagramm wird der grobe Programmablauf der Loop-Funktion dargestellt:
 \newpage
@@ -467,7 +456,7 @@ Im folgenden UML-Ablaufdiagramm wird der grobe Programmablauf der Loop-Funktion 
 	\includegraphics[height=\textheight]{/software/uml_ablauf_esp32_loop.png}
 	\caption{UML-Ablaufdiagramm Mikrocontroller Loop}
 \end{figure}
-\noindent Am Anfang der Loop-Funktion wird abgefragt, ob der Modus auf \glqq ERROR\grqq{} gesetzt ist. Ist dies der Fall, wird nichts mehr ausgeführt, das heißt, die Funktion springt wieder an den Startpunkt. Ist der Modus allerdings nicht auf \glqq ERROR\grqq{} gesetzt, wird überprüft, ob der Knopf gedrückt ist. Ist dieser gedrückt, wird der Modus auf \glqq CONFIG\grqq{} gesetzt. Anschließend wird überprüft, ob der Modus auf \glqq NORMAL\grqq{} gesetzt ist. Ist dies der Fall, wird überprüft, ob immer noch eine Verbindung mit dem WLAN besteht. Dies geschieht mithilfe der Klasse \glqq NetworkManager\grqq{}. Wenn eine WLAN-Verbindung besteht, wird mithilfe der Klasse \glqq ServerManager\grqq{} überprüft, ob der Webserver läuft. Wenn nicht, wird dieser gestartet. Ist der Modus allerdings nicht auf \glqq NORMAL\grqq{} gesetzt, also auf \glqq CONFIG\grqq{}, so wird zuerst überprüft, ob der Access Point - Modus gestartet ist, da dieser für die Verbindung zwischen Client (Smartphone) und Server (MAA) benötigt wird. Wenn nicht, wird dieser schließlich gestartet und das mDNS-Protokoll, welches bereits im Kapitel 3.5.1 beschrieben wurde, wird konfiguriert. Diese Prozesse werden wieder mithilfe der \glqq NetworkManager\grqq{}-Klasse durchgeführt. Anschließend wird ebenfalls der Zustand des Webservers überprüft. Am Schluss der Loop-Funktion wird noch die Loop-Funktion der Klasse Audio-Manager ausgeführt. Diese regelt das Audiostreaming.
+\noindent Am Anfang der Loop-Funktion wird abgefragt, ob der Modus auf \glqq ERROR\grqq{} gesetzt ist. Ist dies der Fall, wird nichts mehr ausgeführt, das heißt, die Funktion springt wieder an den Startpunkt. Ist der Modus allerdings nicht auf \glqq ERROR\grqq{} gesetzt, wird überprüft, ob der Taster gedrückt ist. Ist dieser gedrückt, wird der Modus auf \glqq CONFIG\grqq{} gesetzt. Anschließend wird überprüft, ob der Modus auf \glqq NORMAL\grqq{} gesetzt ist. Ist dies der Fall, wird überprüft, ob immer noch eine Verbindung mit dem WLAN besteht. Dies geschieht mithilfe der Klasse \glqq NetworkManager\grqq{}. Wenn eine WLAN-Verbindung besteht, wird mithilfe der Klasse \glqq ServerManager\grqq{} überprüft, ob der Webserver läuft. Wenn nicht, wird dieser gestartet. Ist der Modus allerdings nicht auf \glqq NORMAL\grqq{} gesetzt, also auf \glqq CONFIG\grqq{}, so wird zuerst überprüft, ob der Access Point - Modus gestartet ist, da dieser für die Verbindung zwischen Client (Smartphone) und Server (MAA) benötigt wird. Wenn nicht, wird dieser schließlich gestartet und das mDNS-Protokoll, welches bereits im Kapitel 2.5.1 beschrieben wurde, wird konfiguriert. Diese Prozesse werden wieder mithilfe der \glqq NetworkManager\grqq{}-Klasse durchgeführt. Anschließend wird ebenfalls der Zustand des Webservers überprüft. Am Schluss der Loop-Funktion wird noch die Loop-Funktion der Klasse \glqq AudioManager\grqq{} ausgeführt. Diese regelt das Audiostreaming.
 \subsubsection{Erweiterungsmöglichkeiten}
 In Zukunft sind noch weitere Funktionalitäten, welche außerhalb der Diplomarbeit implementiert werden, für die Software geplant. Im Hinblick auf die Sicherheit wäre es durchaus sinnvoll, den Webserver des Mikrocontrollers auf HTTPS umzustellen. Somit wäre eine verschlüsselte Kommunikation mit diesem möglich. Zusätzlich wäre es auch denkbar eine Funktion zu implementieren, die es ermöglicht mehrere Adapter zu Gruppen zu verbinden. In diesen Gruppen soll dann jeweils der gleiche Audiostream synchron empfangen und ausgegeben werden. Die Synchronisierung der Adapter bringt aber eine hohe Komplexität mit sich, da man per WLAN-Verbindung mit sehr großen Latenzen zu rechnen hat. Ein Ansatz wäre zum Beispiel, dass jeder Mikrocontroller in einem bestimmten Intervall die Zeit von einem NTP (Network Time Protocol) - Server abfragt und somit auf allen Mikrocontrollern die Zeit annähernd gleich ist. Dann könnte man die Buffer, welche vom Audiostream erhalten werden, mit einem Zeitstempel versehen und sie beim Erreichen dieser Zeit abspielen. Das Hauptproblem dieser Lösung wäre, dass die Zeitdifferenz zwischen den Mikrocontrollern vermutlich zu groß wäre und somit eine hörbare Latenz entsteht.
 \subsection{Entwicklung Smartphone-App}
@@ -480,12 +469,12 @@ In diesem Kapitel wird der Aufbau bzw. die Struktur der Smartphone-App genauer b
 \end{figure}
 \FloatBarrier
 \noindent \textbf{Navigation} \newline
-Für die Navigation zwischen den Seiten der App wurde einerseits die Tab-Navigation und andererseits die Stack-Navigation von \glqq Expo Router\grqq{} verwendet. Dabei wird grob zwischen dem Ordner \glqq auth\grqq{} und dem Ordner \glqq tabs\grqq{} unterschieden. Der Ordner \glqq auth\grqq{} enthält die Seiten, welche für die Benutzerauthentifizierung, also Login und Registrierung, notwendig sind. Der Ordner \glqq tabs\grqq{} hingegen enthält alle Seiten, welche für registrierte Benutzer sichtbar sind und somit die eigentliche App darstellen. Die App ist grundlegend in die vier Tabs \glqq Verbindungen\grqq{}, \glqq Adapter\grqq{}, \glqq Musik\grqq{} und \glqq Profil\grqq{}  gegliedert. Zwischen diesen Tabs kann mithilfe der Tab-Bar, welche unten in der App sichtbar ist, gewechselt werden. In den einzelnen Tabs befinden sich jeweils mehrere Seiten. Zwischen diesen Seite kann mittels Stack-Navigator gewechselt werden. Der Stack-Navigator arbeitet dabei nach dem sogenannten \glqq Last In - First Out\grqq{}- Prinzip (LIFO). Das heißt, dass die Seite, welche als letztes zum Stack (Stapel) hinzugefügt wurde, als Erstes wieder von diesem entfernt wird. Somit wird die Navigations-Historie festgehalten und der/die Benutzer/in kann jederzeit wieder auf die vorherigen Seiten zurückgehen. \parencite[vgl.][]{noauthor_urlpi28_nodate}
+Für die Navigation zwischen den Seiten der App wurde einerseits die Tab-Navigation und andererseits die Stack-Navigation von \glqq Expo Router\grqq{} verwendet. Dabei wird grob zwischen dem Ordner \glqq auth\grqq{} und dem Ordner \glqq tabs\grqq{} unterschieden. Der Ordner \glqq auth\grqq{} enthält die Seiten, welche für die Benutzerauthentifizierung, also Login und Registrierung, notwendig sind. Der Ordner \glqq tabs\grqq{} hingegen enthält alle Seiten, welche für angemeldete Benutzer sichtbar sind und somit die eigentliche App darstellen. Die App ist grundlegend in die vier Tabs \glqq Verbindungen\grqq{}, \glqq Adapter\grqq{}, \glqq Musik\grqq{} und \glqq Profil\grqq{}  gegliedert. Zwischen diesen Tabs kann mithilfe der Tab-Bar, welche unten in der App sichtbar ist, gewechselt werden. In den einzelnen Tabs befinden sich jeweils mehrere Seiten. Zwischen diesen Seiten kann mittels Stack-Navigator gewechselt werden. Der Stack-Navigator arbeitet dabei nach dem sogenannten \glqq Last In - First Out\grqq{}- Prinzip (LIFO). Das heißt, dass die Seite, welche als letztes zum Stack (Stapel) hinzugefügt wurde, als Erstes wieder von diesem entfernt wird. Somit wird die Navigations-Historie festgehalten und der/die Benutzer/in kann jederzeit wieder auf die vorherigen Seiten zurückgehen. \parencite[vgl.][]{noauthor_urlpi28_nodate}
 \subsubsection{Design}
-Beim Style des User Interface der App wurde auf Übersichtlichkeit und wenig Komplexität gesetzt. Der/Die Benutzer/in soll sich in der App schnellstmöglich zurechtfinden. Durch die gute Benutzbarkeit werden allerdings gleichzeitig die Konfigurationsmöglichkeiten eingeschränkt, was die Flexibilität der App senkt. Bei der Auswahl der Farben, welche in der App sichtbar sind, wurde darauf geachtet, dass diese die App modern und schlicht erscheinen lassen. Für die App wurde ein Darkmode implementiert, weil dieser in den meisten modernen Applikationen verwendet wird und dieser die App somit moderner aussehen lässt.
+Beim Style des User-Interface der App wurde auf Übersichtlichkeit und wenig Komplexität gesetzt. Der/Die Benutzer/in soll sich in der App schnellstmöglich zurechtfinden. Durch die gute Benutzbarkeit werden allerdings gleichzeitig die Konfigurationsmöglichkeiten eingeschränkt, was die Flexibilität der App senkt. Bei der Auswahl der Farben, welche in der App sichtbar sind, wurde darauf geachtet, dass diese die App modern und schlicht erscheinen lassen. Für die App wurde ein Darkmode implementiert, weil dieser in den meisten modernen Applikationen verwendet wird und somit die App moderner aussehen lässt.
 \vspace{4mm}\newline
 \textbf{Farben} \\
-Bei der Farbauswahl wurden als Hauptfarben eher dunklere Farben verwendet, um die App im Darkmode darzustellen. Im Kontrast zu den primär dunklen Farben wurden knallige, satte Farben im Torquise-Ton für die Steuerelemente, wie z.B. Buttons verwendet. Im Folgenden ist eine Tabelle mit den verwendeten Farben und deren Farbcodes im Hex-Format abgebildet: 
+Um den erwähnten Darkmode umzusetzen, wurden in der App primär dunkle Farben verwendet. Im Kontrast zu diesen dunklen Farben wurden knallige, satte Farben im Torquise-Ton für die Steuerelemente, wie z.B. Buttons, verwendet. Im Folgenden ist eine Tabelle mit den verwendeten Farben und deren Farbcodes im Hex-Format abgebildet: 
 \begin{table}
 	\begin{tabular}{|l|l|l|}
         \hline
@@ -506,7 +495,7 @@ Bei der Farbauswahl wurden als Hauptfarben eher dunklere Farben verwendet, um di
 \end{table}
 \FloatBarrier
 \subsubsection{Komponenten}
-Wie bereits im Kapitel 3.4.3 erwähnt, bietet React Native die Möglichkeit eigene Komponenten zu erstellen. Als Grundlage dafür dienen die Standardkomponenten von React Native. Der Vorteil bei der Verwendung von Komponenten ist, dass diese wiederverwendbar sind und ein bestimmtes Verhalten aufweisen. Man muss also den Code für eine Komponente nur einmal schreiben und kann diese Komponente dann in der gesamten App verwenden. Im Folgenden werden die wichtigsten Komponenten, welche selbst erstellt wurden, aufgezählt und kurz beschrieben.
+Wie bereits im Kapitel 2.6.3 erwähnt, bietet React Native die Möglichkeit, eigene Komponenten zu erstellen. Als Grundlage dafür dienen die Standardkomponenten von React Native. Der Vorteil bei der Verwendung von Komponenten ist, dass diese wiederverwendbar sind und ein eigenes Verhalten aufweisen. Man muss also den Code für eine Komponente nur einmal schreiben und kann diese Komponente dann in der gesamten App verwenden. Im Folgenden werden die wichtigsten Komponenten, welche selbst erstellt wurden, aufgezählt und kurz beschrieben:
 \begin{itemize}
 	\item \textbf{AdapterItem} \par
 	\begin{minipage}{\linewidth}
@@ -531,34 +520,41 @@ Wie bereits im Kapitel 3.4.3 erwähnt, bietet React Native die Möglichkeit eige
 	Stellt eine Verbindung zwischen Radiostation und Adapter dar. Dabei werden die StationItem-Komponente und die AdapterItem-Komponente verwendet. Die Komponente ermöglicht es auch, den aktuellen Stream des Adapters zu stoppen bzw. die Lautstärke des Streams zu regeln.
 		\begin{figure}[H]
      	\includegraphics[width=0.4\textwidth]{/software/connection_item.png}
-    		\caption{FavouriteStationList-Komponente}
+    		\caption{ConnectionItem-Komponente}
     		\end{figure}
     	\end{minipage}
-
+    	
 	\item \textbf{AdapterList} \par
+	%\vspace{-10mm}
 	\begin{minipage}{\linewidth}
 	Erstellt eine Liste aus mehreren AdapterItem-Komponenten. Realisiert außerdem die Möglichkeit, einen Adapter zu löschen.
+	\begin{figure}[H]
+     	\includegraphics[width=0.4\textwidth]{/software/adapter_list.png}
+    		\caption{AdapterList-Komponente}
+    		\end{figure}
 	\end{minipage}
-
+	%\vspace{-3cm}
 	\item \textbf{FavouriteStationList} \par
+	%\vspace{-10mm}
 	\begin{minipage}{\linewidth}
-	Erstellt eine Liste, in der alle Stationen, welche sich in der Favoritenliste des Benutzers befinden, mithilfe von StationItem-Komponenten dar.
+	Stellt eine Liste, gefüllt mit allen Stationen, welche sich in der Favoritenliste des Benutzers befinden, mithilfe von StationItem-Komponenten dar.
 		\begin{figure}[H]
     			\captionsetup{type=figure}
      		\includegraphics[width=0.4\textwidth]{/software/station_list.png}
     			\caption{FavouriteStationList-Komponente}
     		\end{figure}
     	\end{minipage}
-
-	\item \textbf{Connectionlist} \par
+    	
+    	\newpage
+	\item \textbf{ConnectionList} \par
 	\begin{minipage}{\linewidth}
-	Erstellt eine Liste, in der sich die aktuellen Verbindungen zwischen Adaptern und Radiostationen, dargestellt durch ConnectionItem-Komponenten, dar. Die Komponente ermöglicht es zudem Verbindungen zu trennen.
+	Erstellt eine Liste, in der sich alle aktuellen Verbindungen zwischen Adaptern und Radiostationen befinden, dar. Die einzelnen Verbindungen werden mithilfe von ConnectionItem-Komponenten dargestellt.
 		\begin{figure}[H]
      		\includegraphics[width=0.4\textwidth]{/software/connection_list.png}
-    			\caption{FavouriteStationList-Komponente}
+    			\caption{ConnectionList-Komponente}
     		\end{figure}
     	\end{minipage}
-\newpage
+    	
 	\item \textbf{ErrorScreen} \par
 	\begin{minipage}{\linewidth}
 	Stellt eine Ansicht bereit, die signalisiert, dass irgendwo ein Fehler aufgetreten ist. Als Parameter wird dieser Komponente der Fehlertext und die Aktion, welche der/die Benutzer/in als Reaktion auf den Fehler ausführen kann, mitgegeben.
@@ -570,7 +566,7 @@ Wie bereits im Kapitel 3.4.3 erwähnt, bietet React Native die Möglichkeit eige
 	\end{minipage}
 \end{itemize}
 \subsubsection{Seiten}
-Wie bereits im Kapitel Struktur erwähnt, besteht die App aus mehreren Seiten, zwischen diesen mit verschiedenen Navigationsarten gewechselt werden kann. Eine Seite setzt sich dabei aus den Grundkomponenten von React Native und den selbst erstellten Komponenten, welche im Kapitel 3.2.3 genauer beschrieben wurden, zusammen. Dabei ist die Grundstruktur jeder Seite gleich. Wie in Abbildung 11 zu sehen ist, befindet sich oben ein Header, der den Namen der aktuellen Seite anzeigt, und unten die Tab-Bar welche anzeigt, in welchem Tab man sich aktuell befindet. Dazwischen befindet sich der Inhalt der Seite, welcher sich, wie bereits erwähnt aus verschiedenen Komponenten zusammensetzt.
+Wie bereits im Kapitel Struktur erwähnt, besteht die App aus mehreren Seiten, zwischen diesen mit verschiedenen Navigationsarten gewechselt werden kann. Eine Seite setzt sich dabei aus den Grundkomponenten von React Native und den selbst erstellten Komponenten, welche im Kapitel 3.2.3 genauer beschrieben wurden, zusammen. Dabei ist die Grundstruktur jeder Seite gleich. Wie in Abbildung 12, am Beispiel der Seite \glqq Stationen filtern\grqq{} zu sehen ist, befindet sich oben ein Header, der den Namen der aktuellen Seite anzeigt und unten die Tab-Bar, welche anzeigt, in welchem Tab man sich aktuell befindet. Dazwischen befindet sich der Inhalt der Seite, welcher sich, wie bereits erwähnt, aus verschiedenen Komponenten zusammensetzt.
 \begin{figure}[H]
      		\includegraphics[width=0.3\textwidth]{/software/stationenFiltern_page.png}
     			\caption{\glqq Stationen filtern \grqq{} - Seite}
@@ -585,42 +581,42 @@ Im Folgenden werden die einzelnen Seiten der App aufgezählt und kurz beschriebe
 	\par Zeigt die aktuellen Verbindungen mithilfe der ConnectionList-Komponente an. Auf dieser Seite ist es möglich, bestehende Verbindungen zu verwalten und zu trennen.
 	\item \textbf{Verbindung hinzufügen}
 	\par Ermöglicht es, eine neue Verbindung zwischen einem Adapter und einer Internetradiostation anzulegen.
+	\newpage
 	\item \textbf{Startseite Adapter}
 	\par Zeigt alle gespeicherten Adapter des Benutzers / der Benutzerin an. Hier ist es außerdem möglich, Adapter zu löschen.
 	\item \textbf{Adapter hinzufügen}
 	\par Ermöglicht es, einen neuen Adapter hinzuzufügen bzw. diesen zu konfigurieren.
 	\item \textbf{Stationen filtern}
-	\par Ermöglicht es, das Land bzw. die Sprache auszuwählen, nach denen dann in weiterer Folge die Stationen, welche auf der Seite \glqq Stationen auswählen\grqq{} angezeigt werden.
+	\par Ermöglicht es, das Land bzw. die Sprache auszuwählen, nach denen die Stationen, welche in weiterer Folge auf der Seite \glqq Stationen auswählen\grqq{} angezeigt werden, gefiltert werden.
 	\item \textbf{Stationen auswählen}
-	\par Ermöglicht es, mehrere Stationen auszuwählen, welche dann in die Favoritenliste des Benutzers / der Benutzerin übernommen werden. Es werden nur Stationen angezeigt, die den Filteroptionen, welche auf der Seite \glqq Stationen filtern\grqq{} festgelegt wurden, angezeigt.
+	\par Ermöglicht es, mehrere Stationen auszuwählen, welche dann in die Favoritenliste des Benutzers / der Benutzerin übernommen werden. Es werden nur Stationen angezeigt, die den Filteroptionen, welche auf der Seite \glqq Stationen filtern\grqq{} festgelegt wurden, entsprechen.
 	\item \textbf{Profil}
-	\par Hier werden Informationen zum Profil des Benutzers / der Benutzerin angezeigt. Auf dieser Seite wird dem/der Benutzer/in außerdem ermöglicht sich abzumelden bzw. sein/ihr Passwort zurückzusetzen.
+	\par Hier werden Informationen zum Profil des Benutzers / der Benutzerin angezeigt. Auf dieser Seite wird dem/der Benutzer/in außerdem ermöglicht, sich abzumelden bzw. sein/ihr Passwort zurückzusetzen.
 \end{itemize}
 \subsubsection{APIs}
-In diesem Kapitel werden die APIs (Application Programming Interfaces) beschrieben, mit welchen die App Daten austauscht. \newline \\
+In diesem Kapitel werden die APIs (Application Programming Interfaces) beschrieben, mit welchen die Smartphone-App Daten austauscht. Eine API ist dabei, wie bereits kurz im Kapitel 2.3 erläutert, eine einheitliche Schnittstelle zum Austausch von Daten. Folgende APIs wurden in Verbindung mit der Smartphone-App verwendet:
+\vspace{4mm}\newline
 \textbf{RadioBrowser-API}\\
-Die RadioBrowser-API ist eine open-source API welche eine sehr umfangreiche Sammlung von Internet-Radios bereitstellt. Dabei ist es einerseits möglich, mithilfe dieser API neue Radiostationen zu der Sammlung hinzuzufügen und andererseits, bestehenden Radiostationen nach bestimmten Suchkriterien zu suchen und die Daten derer abzufragen. \parencite[vgl.][]{noauthor_urlpi21_nodate} \newline
-In der Smartphone-App wird die RadioBrowser-API verwendet, um nach Radiosendern zu suchen und in weiterer Folge die Stream-URLs dieser an den MAA zu senden. Der MAA ruft in weiterer Folge den jeweiligen Audiostream auf und empfängt diesen. \newline \\
+Die RadioBrowser-API ist eine Open-Source-API welche eine sehr umfangreiche Sammlung von Internet-Radios bereitstellt. Dabei ist es einerseits möglich, mithilfe dieser API neue Radiostationen zu der Sammlung hinzuzufügen und andererseits, bestehenden Radiostationen nach bestimmten Suchkriterien zu suchen und die Daten derer abzufragen. \parencite[vgl.][]{noauthor_urlpi21_nodate} \newline
+In der Smartphone-App wird die RadioBrowser-API verwendet, um nach Radiosendern zu suchen und in weiterer Folge die Stream-URLs dieser an den MAA zu senden. Der MAA ruft in weiterer Folge den jeweiligen Audiostream auf und empfängt diesen. \vspace{4mm}\newline
 \textbf{Firebase}\\
 Firebase ist eine Entwicklungsplattform von Google, welche verschiedene Dienste, die hilfreich für die Entwicklung von Apps bzw. Web-Apps sind, bereitstellt. Firebase stellt dabei ein Backend für die Apps dar. Damit werden Prozesse, wie z.B. Benutzerauthentifizierung, Speicherung von Benutzern und Speicherung von Daten nicht lokal auf dem Gerät, sondern in der Cloud ausgeführt \parencite[vgl.][]{noauthor_urlpi22_nodate} \newline
-In der Smartphone-App wurde Firebase zur Benutzerverwaltung verwendet. Dabei wurde einerseits der \glqq Firebase Authentication\grqq{}-Dienst für die Benutzerauthentifizierung und andererseits der \glqq Cloud Firestore\grqq{}-Dienst für die Speicherung von Benutzerdaten verwendet. Firebase wurde für die Entwicklung der Smartphone-App gewählt, da dadurch der Ressourcenverbrauch der App minimiert wird und der/die Benutzer/in von jedem Gerät aus Zugriff auf seine/ihre Daten hat und somit nicht auf ein bestimmtes Gerät angewiesen ist. Außerdem müssen Dienste, wie z.B. die Benutzerauthentifizierung nicht neu entwickelt werden.
+In der Smartphone-App wurde Firebase zur Benutzerverwaltung verwendet. Dabei wurde einerseits der \glqq Firebase Authentication\grqq{}-Dienst für die Benutzerauthentifizierung und andererseits der \glqq Cloud Firestore\grqq{}-Dienst für die Speicherung von Benutzerdaten verwendet. Firebase wurde für die Entwicklung der Smartphone-App gewählt, da dadurch der Ressourcenverbrauch der App minimiert wird und der/die Benutzer/in von jedem Gerät aus Zugriff auf seine/ihre Daten hat und somit nicht auf ein bestimmtes Gerät angewiesen ist. Außerdem müssen Dienste, wie z.B. die Benutzerauthentifizierung, nicht von Grund auf entwickelt werden.
 \subsubsection{Zustandsverwaltung}
-Um Zustände, welche in mehreren Teilen der App benötigt werden, global bereitzustellen, wurde die Context-Funktionalität von React Native verwendet. Context ermöglicht es Zustände global in der App bereitzustellen und diese in den einzelnen Komponenten aufzurufen. Dabei werden bei der Änderung eines Zustands die betroffenen Komponenten sofort aktualisiert. Um den Context bereitzustellen, wird ein sogenannter Context-Provider verwendet. Alle Komponenten welche in den Context-Provider eingebettet sind, können auf den Zustand von diesem zugreifen. \parencite[vgl.][]{noauthor_urlpi23_nodate} \newline
+Um Zustände, welche in mehreren Teilen der App benötigt werden, global bereitzustellen, wurde die \glqq Context\grqq{}-Funktionalität von React Native verwendet. Context ermöglicht es, Zustände global in der App bereitzustellen und auf diese in den einzelnen Komponenten der App zuzugreifen. Dabei werden bei der Änderung eines Zustands die betroffenen Komponenten automatisch aktualisiert. Um den Context bereitzustellen, wird ein sogenannter Context-Provider verwendet. Alle Komponenten, welche in den Context-Provider eingebettet sind, können auf den Zustand von diesem zugreifen. \parencite[vgl.][]{noauthor_urlpi23_nodate} \newline
 In der Smartphone-App wurden folgende ContextProvider definiert:
 \begin{itemize}
 	\item \textbf{UserContext}
 	\par Stellt das Benutzerobjekt bereit. Dieses beinhaltet wichtige Benutzerdaten, welche an mehreren Stellen der App verwendet werden. Das Benutzerobjekt wird von Firebase Authentication abgefragt.
-	\newpage
 	\item \textbf{AdapterContext}
 	\par Stellt eine Liste von hinzugefügten Adaptern bereit. Diese Liste wird von Firebase Firestore abgefragt. Falls sich die in Firestore gespeicherte Liste ändert, wird die Liste, welche der AdapterContext bereitstellt, automatisch aktualisiert. 
 	\item \textbf{StationContext}
 	\par Stellt eine Liste von hinzugefügten Radiostationen bereit. Diese Liste wird ebenfalls von Firebase Firestore abgefragt. Die hier gespeicherte Liste wird ebenfalls automatisch aktualisiert, falls sich die Liste in Firestore ändert.
 \end{itemize}
 \subsubsection{Benutzerverwaltung}
-Die Benutzerdaten sind durch ein im UserContext gespeichertes Benutzerobjekt in der gesamten App global verfügbar. Das Objekt wird am Anfang der App, falls vorhanden, aus dem lokalen Gerätespeicher ausgelesen oder mittels Login von Firebase abgefragt. Der Status des Benutzerobjektes wird mittels eines Event-Handlers verfolgt. Das heißt, wenn sich der Status des Benutzerobjektes, z.B. durch einen Logout, ändert, wird 
-Die Verwaltung von Benutzerdaten wurde primär mit Firebase (siehe APIs) verwirklicht. Beim Start der App wird abgefragt ob im lokalen Speicher ein Benutzer-Objekt gespeichert ist. Wenn dies der Fall ist, ist der Teil Tabs für den/die Benutzer/in erreichbar. Ist dies nicht der Fall, so wird der/die Benutzer/in zur Login-Seite weitergeleitet. Dort ist es möglich 
+Die Verwaltung von Benutzerdaten wurde mithilfe der im Kapitel 3.2.5 beschriebenen Firebase-API in Kombination mit dem UserContext, welcher im Kapitel 3.6.2 beschrieben wurde, realisiert. Durch das im UserContext gespeicherte Benutzerobjekt sind die Benutzerdaten in der gesamten App global verfügbar. Das Objekt wird beim Start der App, falls vorhanden, aus dem lokalen Gerätespeicher ausgelesen oder mittels Login von Firebase abgefragt. Der Status des Benutzerobjektes wird mithilfe eines Event-Handlers verfolgt. Das heißt, wenn sich der Status des Benutzerobjektes, z.B. durch einen Logout, ändert, wird dies direkt registriert.
 \subsubsection{Erweiterungsmöglichkeiten}
-In Zukunft wäre es noch denkbar, außerhalb der Diplomarbeit weitere Funktionen in die Smartphone-App zu implementieren. Dabei wäre es durchaus sinnvoll mehrere Audio-Streaming-Quellen, wie zum Beispiel Musikstreamingdienste (Spotify, Amazon Music etc.) einzubinden. Außerdem könnte man das Erstellen von Adapter-Gruppen realisieren, sodass mehrere Adapter zu einer Gruppe zusammengefügt werden können und diese dann den gleichen Stream ausgeben. Um dies umzusetzen, müsste allerdings auch die Software des Adapters weiterentwickelt werden.
+In Zukunft wäre es noch denkbar, außerhalb der Diplomarbeit weitere Funktionen in die Smartphone-App zu implementieren. Dabei wäre es durchaus sinnvoll, mehrere Audio-Streaming-Quellen, wie zum Beispiel Musikstreamingdienste (Spotify, Amazon Music etc.) einzubinden. Außerdem könnte man, wie bereits in vorherigen Kapiteln erwähnt, das Erstellen von Adapter-Gruppen realisieren, sodass mehrere Adapter zu einer Gruppe zusammengefügt werden können und diese dann den gleichen Stream, möglichst synchron ausgeben. Um dies umzusetzen, müsste allerdings auch die Software des Adapters weiterentwickelt werden.
 \subsection{Design Adaptergehäuse}
 Das Adaptergehäuse trägt einen wesentlichen Teil zur Sicherheit des Endverbrauchers sowie zur optimalen
 Funktionalität der Komponenten bei. Zudem soll es möglichst kompakt sein.
@@ -645,13 +641,14 @@ Die Breite der Basis ist also genau auf die Länge des von uns benutzten Mikroco
 In den gegenüberliegenden Ecken der Basis befinden sich der Digital-/Analogwandler und der Laderegler. Die Maße des Digital-/Analogwandlers sind 31,8x17,2 mm. Die Maße des Laderegler sind 28x17,45 mm. Beide liegen, wie der Mikrocontroller auch, auf überhängenden, 5 mm hohen Stützen auf. Aufgrund der USB-C Buchse wird der Halt des Laderegler noch von einer 3,5 mm breiten 2 mm-Erhöhung am Ende der Stütze verstärkt. Die USB-C Buchse wurde passend zum Laderegler und der Norm entsprechend (8,34x2,56 mm Größe) eingelassen. Der Digital-/Analogwandler wird aufgrund der 3,5 mm Klinkenbuchse von einer herab stehenden Wand gestützt, die im Teil "Deckel" genauer beschrieben wird. Die Aussparung der AUX-Buchse wurde auch passend für den Digital-/Analogwandler platziert und hat einen Durchmesser von 6 mm.\newline
 \parencite[vgl.][]{noauthor_urlnl17_nodate}\newline
 \begin{figure}[H]
-	\includegraphics[width=0.5\textwidth]{/hardware/basis-draufsicht_fusion.png}
+	\includegraphics[width=0.4\textwidth]{/hardware/basis-draufsicht_fusion.png}
 	\caption{Draufsicht der Basis}
 \end{figure}
 \begin{figure}[H]
-	\includegraphics[width=0.5\textwidth]{/hardware/basis-inhalt_picture.png}
+	\includegraphics[width=0.4\textwidth]{/hardware/basis-inhalt_picture.png}
 	\caption{Basis mit den Komponenten (während des Zusammensetzens)}
 \end{figure}
+\newpage
 \noindent \textbf{Deckel} \newline
 Der Deckel des Adapters ist grundsätzlich, wie die Wände der Basis, 71x58x2 mm groß. Dieser hat jedoch eine zentrierte 67x54x1 mm große Stufe. Mit dieser Stufe lässt sich der Deckel kleberlos auf den Adapter setzen und hält aufgrund der Eigenschaften des 3D-Drucks auch, zumindest für den Prototypen, fest genug.
 Wie schon erwähnt, wird der DAC durch eine herabstehende Wand zusätzlich gestützt. Die Maße dieser Wand sind 32x2x10 mm. Es würde keinen Sinn machen, die Wand wie beim Laderegler von der Außenwand aus überhängend zu machen, da der DAC länger als der Laderegler ist und die Buchse sich eher mittig in der entsprechenden Außenwand der Basis befindet.\newline
@@ -721,7 +718,7 @@ Damit alle Komponenten und Teile sicher im Gehäuse sitzen und nichts klappert o
 \subsection{Testen des Gesamtsystems}
 \subsubsection{Testen des Prototyps}
 Es gibt unzählbar viele Möglichkeiten, einen Prototyp auf Herz und Nieren zu testen. Diese Diplomarbeit beschränkt sich jedoch auf einige wesentliche Aspekte wie Verarbeitung, Funktion und Useability.
-\vspace{4mm}\newline
+\vspace{4mm} \newline
 \textbf{Verarbeitung}
 \vspace{4mm}\newline
 Positives:\newline
@@ -748,6 +745,10 @@ Beim PRUSA MK4S war diese Funktion sehr zufriedenstellend. Oberflächen werden, 
 Ziel des Hardware-Teils in dieser Diplomarbeit war es, passende Komponenten zu finden und diese in einem selbst designten Gehäuse zu einem Prototyp des MAA zusammenzusetzen. Dies wurde, wie geplant, umgesetzt. Dabei kamen grundlegende Methoden wie 3D-Design, 3D-Druck, Löten und weitere zum Einsatz. Grundsätzlich lief alles wie geplant, es ergaben sich jedoch öfters größere Herausforderungen dort, wo man eigentlich keine erwartete. Für diese fand sich aber immer eine passende Lösung.
 \subsection{Konklusion Software}
 Abschließend kann man sagen, dass das Ziel, eine funktionierende Software für den Adapter sowie eine funktionierende Smartphone-App im Zuge der Diplomarbeit zu entwickeln, erfüllt wurde. Das heißt aber nicht, dass der Code dieser beiden Applikationen fertiggestellt ist. Wie bereits beschrieben, können in Zukunft noch zahlreiche neue Features für die Applikationen entwickelt werden, welche ansonsten den Rahmen der Diplomarbeit gesprengt hätten.
+%leere Seite
+\newpage
+\thispagestyle{empty}
+\mbox{}
 \newpage
 \pagenumbering{Roman}
 \setcounter{page}{3} % setzt Seitenzähler auf 3, aber noch römische Zahlen

@@ -9,7 +9,7 @@
 \usepackage[onehalfspacing]{setspace}
 \usepackage{fancyhdr}
 \fancyhf{}
-\fancyfoot[LE, RO]{\raisebox{2ex}{\thepage}} %Seitenanzahl im Footer
+%\fancyfoot[RE, LO]{\raisebox{2ex}{\thepage}} %Seitenanzahl im Footer
 \renewcommand{\footrulewidth}{0.4pt} %Strich über Footer
 
 \pagenumbering{Roman}  % Römische Zahlen
@@ -83,24 +83,14 @@
     \includegraphics[height=\textheight]{ap_3.png}
 \end{figure}
 \subsection{Anhang 1.2: Projektstrukturplan}
-\begin{figure}[H]  
-    \centering
-    \includegraphics[width=\textheight, angle=90]{PSP_final.png}
-\end{figure}
+\includepdf[pages=1]{PSP_final.pdf} %fügt Deckblatt als PDF ein
 \subsection{Anhang 1.3: Gantt-Diagramm}
-\begin{figure}[H]  
-    \centering
-    \includegraphics[width=\textheight, angle=90]{Gantt_final.png}
-\end{figure}
+\includepdf[pages=1]{Gantt_final.pdf} %fügt Deckblatt als PDF ein
 \section{Anhang 2: UML-Klassendiagramm Adapter}
-\begin{figure}[H]  
-    \centering
-    \includegraphics[width=\textheight, angle=90]{uml_klassen.png}
-\end{figure}
+\includepdf[pages=1]{uml_klassen.pdf} %fügt Deckblatt als PDF ein
 \section{Anhang 3: Code}
 \subsection{Anhang 3.1: Code Adapter}
 \textbf{AudioManager.h}
-
 \begin{lstlisting}
 #ifndef AUDIOMANAGER_H
 #define AUDIOMANAGER_H
@@ -4212,4 +4202,10 @@ type UserData = {
 
 export default UserData;
 \end{lstlisting}
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+\section{Anhang 4: Zeichnung Gehäuse Adapter}
+\includepdf[pages=1]{gehaeuse_zeichnung.pdf} %fügt Deckblatt als PDF ein
 \end{document}
