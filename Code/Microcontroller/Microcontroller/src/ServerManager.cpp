@@ -20,7 +20,7 @@ ServerManager* ServerManager::getInstance(){
 }
 
 String ServerManager::getInfo(){
-    String name = memory->readName();
+    String name = adapterName;
     String mac = network->getMac();
     int volume = audio->getVolume();
     int battery_status = battery->getBatteryStatus();

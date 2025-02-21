@@ -1,4 +1,4 @@
-import { Text, View, Image, StyleSheet, Pressable } from "react-native";
+import { Text, View, Image, StyleSheet } from "react-native";
 import { Colors, GlobalStyle } from '@/constants/Style';
 import Station from "../types/Station";
 

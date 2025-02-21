@@ -8,6 +8,7 @@
 #include "ServerManager.h"
 #include "AudioManager.h"
 #include "Mode.h"
+#include "Name.h"
 
 Mode mode = NORMAL;
 unsigned long actual_time = 0;
@@ -15,7 +16,6 @@ unsigned long last_wlan_request_time = 0;
 int wlan_reconnect_tries = 0;
 unsigned long last_log_size = 0;
 String last_log = "";
-String name;
 
 unsigned long wlan_connection_start = 0;
 int wlan_reconnection_tries = 0;
@@ -52,9 +52,6 @@ void setup(){
     battery = BatteryManager::getInstance();
     audio = AudioManager::getInstance();
 
-    //setting name
-    //name = "MAA_" + network->getMac()
-
     //turn status led off at the beginning
     statusLED->setOff();
 
@@ -66,7 +63,7 @@ void setup(){
         Logger::add("SSID: " + wlan_ssid);
         Logger::add("password: " + wlan_password);
         Logger::add("starting wlan client");
-        network->startClient(wlan_ssid, wlan_password, name);
+        network->startClient(wlan_ssid, wlan_password, adapterName);
         wlan_connection_start = millis();
         while(!network->isConnectedToWlan() && mode != ERROR){
             Serial.print(".");
@@ -116,7 +113,7 @@ void loop(){
         } else { //mode is config
             if(!network->isApStarted()){ //if ap is not running, start ap
                 Logger::add("starting ap");
-                network->startAP(name);
+                network->startAP(adapterName);
             }
         }
         
@@ -126,7 +123,7 @@ void loop(){
             Logger::add("starting web server");
             server->start();
             Logger::add("setting mDNS");
-            if(!network->setmDns(name)){
+            if(!network->setmDns(adapterName)){
                 Logger::add("mDNS couldn't be set");
             }
         }

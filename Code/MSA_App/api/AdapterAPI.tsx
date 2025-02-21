@@ -2,39 +2,38 @@ import axios from "axios";
 import Network from "../types/Network";
 import AdapterData from "@/types/AdapterData";
 
+function getUrlFromMac(mac: string): string{
+    let uniquePart = mac.substring(9, 11) + mac.substring(12, 14) + mac.substring(15, 17);
+    let url = "http://maa_" + uniquePart + ".local:8080";
+    return url;
+}
+
 export const AdapterAPI = {
-    
-    getUrlFromMac(mac: string): string{
-        let withoutSeperator = mac.replace(":", "");
-        let uniquePart = withoutSeperator.substring(6, withoutSeperator.length-1);
-        let url = "http://msa_" + uniquePart + ".local:8080";
-        return url;
-    },
     /**
      * get information of adapter via http get-request
      * @param {string} mac - mac of adapter
      * @returns {Promise<AdapterData>} - Promise, with Data as AdapterData type (name: string, mac: string, volume: number, battery: number, stationUrl: string)
      */ 
     async getInfo(mac: string): Promise<AdapterData>{
-        const url = this.getUrlFromMac(mac) + "/getInfo";
+        const url = getUrlFromMac(mac) + "/getInfo";
         try{
             const res = await axios.get(url, {timeout: 2500});
-            return {name: res.data.name, mac: mac, volume: res.data.volume, battery: res.data.battery, streamUrl: res.data.stationUrl, connected: true};
+            return {name: res.data.name, mac: res.data.mac, volume: res.data.volume, battery: res.data.battery, streamUrl: res.data.stationUrl, connected: true};
         } catch(err) {
             throw err;
         }
     },
-    async getInfoFromHost(hostName: string): Promise<AdapterData>{
-        const url = hostName + "/getInfo";
+    async getInfoFromHost(host: string): Promise<AdapterData>{
+        const url = host + "/getInfo";
         try{
             const res = await axios.get(url, {timeout: 2500});
-            return JSON.parse(res.data);
+            return {name: res.data.name, mac: res.data.mac, volume: res.data.volume, battery: res.data.battery, streamUrl: res.data.stationUrl, connected: true};
         } catch(err) {
             throw err;
         }
     },
     async getAvailableNetworks(mac: string): Promise<Network[]>{
-        const url = this.getUrlFromMac(mac) + "/getAvailableNetworks";
+        const url = getUrlFromMac(mac) + "/getAvailableNetworks";
         try{
             const res = await axios.get(url);
             return JSON.parse(res.data);
@@ -43,7 +42,7 @@ export const AdapterAPI = {
         }
     },
     async getPaused(mac: string): Promise<boolean>{
-        const url = this.getUrlFromMac(mac) + "/getPaused";
+        const url = getUrlFromMac(mac) + "/getPaused";
         try{
             const res = await axios.get(url);
             return JSON.parse(res.data).paused;
@@ -51,13 +50,13 @@ export const AdapterAPI = {
             throw err;
         }
     },
-    async sendConfigData(mac: string, wifiSsid: string, wifiPassword: string, newAdapterName: string){
-        const url = this.getUrlFromMac(mac) + "/setConfigData";
-        const data = "ssid=" + wifiSsid + "&password=" + wifiPassword + "&name=" + newAdapterName;
+    async sendWifiCredentials(mac: string, wifiSsid: string, wifiPassword: string){
+        const url = getUrlFromMac(mac) + "/setWifiCredentials";
+        const data = "ssid=" + wifiSsid + "&password=" + wifiPassword;
         return axios.post(url, data);
     },
     async sendVolume(mac: string, volume: number){
-        const url = this.getUrlFromMac(mac) + "/setVolume";
+        const url = getUrlFromMac(mac) + "/setVolume";
         const data = "volume=" + volume;
         try{
             return axios.put(url, data);
@@ -66,7 +65,7 @@ export const AdapterAPI = {
         }
     },
     async sendStreamUrl(mac: string, streamUrl: string){
-        const url = this.getUrlFromMac(mac) + "/setStreamUrl";
+        const url = getUrlFromMac(mac) + "/setStreamUrl";
         const data = "url=" + streamUrl;
         try{
             return axios.put(url, data);
@@ -75,7 +74,7 @@ export const AdapterAPI = {
         }
     },
     async sendPauseStream(mac: string){
-        const url = this.getUrlFromMac(mac) + "/pauseStream";
+        const url = getUrlFromMac(mac) + "/pauseStream";
         try{
             return axios.post(url);
         } catch(err){
@@ -83,7 +82,7 @@ export const AdapterAPI = {
         }
     },
     async sendContinueStream(mac: string){
-        const url = this.getUrlFromMac(mac) + "/continueStream";
+        const url = getUrlFromMac(mac) + "/continueStream";
         try{
             return axios.post(url);
         } catch(err){

@@ -1,0 +1,15 @@
+#include "MemoryManager.h"
+#include "Arduino.h"
+
+void setup(){
+    Serial.begin(9600);
+    MemoryManager* memory = MemoryManager::getInstance();
+    memory->writeWlanSsid("AP-II");
+    memory->writeWlanPassword("MmrL48!?48y");
+    Serial.println(memory->readWlanSsid());
+    Serial.println(memory->readWlanPassword());
+}
+
+void loop(){
+
+}

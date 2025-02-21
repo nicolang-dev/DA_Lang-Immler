@@ -9,6 +9,7 @@
 #include "ArduinoJson.h"
 #include "AudioManager.h"
 #include "MemoryManager.h"
+#include "Name.h"
 
 class ServerManager{
     private:

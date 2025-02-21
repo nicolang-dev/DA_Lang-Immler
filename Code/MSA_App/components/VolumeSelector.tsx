@@ -6,7 +6,8 @@ import { StyleSheet } from "react-native";
 
 type Props = {
     initVolumePercentage: number,
-    onValueChange: Function
+    onValueChange: Function,
+    active: boolean
 };
 
 const style = StyleSheet.create({
@@ -18,7 +19,7 @@ const style = StyleSheet.create({
     }
 })
 
-export default function VolumeSelector({initVolumePercentage, onValueChange}: Props){
+export default function VolumeSelector({initVolumePercentage, onValueChange, active}: Props){
     const [volume, setVolume] = useState(initVolumePercentage);
     return(
         <View style={style.container}>
@@ -41,6 +42,7 @@ export default function VolumeSelector({initVolumePercentage, onValueChange}: Pr
                     style={{width: '50%'}}
                     minimumTrackTintColor={Colors.lightTurquoise}
                     maximumTrackTintColor={Colors.lightTurquoise}
+                    disabled={!active}
                 />
                 <Button title="+" color={Colors.lightTurquoise}
                     onPress={() => {if(volume < 100) {

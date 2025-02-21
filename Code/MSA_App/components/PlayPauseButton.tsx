@@ -5,15 +5,22 @@ import Entypo from '@expo/vector-icons/Entypo';
 
 type Props = {
     paused: boolean,
+    active: boolean,
     onPress: Function
 }
 
-export default function PlayPauseButton({paused, onPress}: Props){
+export default function PlayPauseButton({paused, active, onPress}: Props){
+    let buttonColor: string;
+    if(active){
+        buttonColor = Colors.lightTurquoise;
+    } else {
+        buttonColor = Colors.grey;
+    }
     return(
-        <Pressable onPress={() => onPress()}>
+        <Pressable disabled={!active} onPress={() => onPress()}>
             { paused 
-                ? <Entypo name="controller-play" size={30} color={Colors.lightTurquoise}/>
-                : <AntDesign name="pause" size={30} color={Colors.lightTurquoise}/>
+                ? <Entypo name="controller-play" size={30} color={buttonColor}/>
+                : <AntDesign name="pause" size={30} color={buttonColor}/>
             }
         </Pressable>
     )

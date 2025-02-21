@@ -4,6 +4,7 @@ import { GlobalStyle, Colors } from "@/constants/Style";
 import { UserContext } from "@/context/UserContext";
 import { Authentication } from "@/api/FirebaseAPI";
 import { router } from "expo-router";
+import ProfileIcon from "@/components/ProfileIcon";
 
 export default function ProfileScreen(){
   const { user } = useContext(UserContext);
@@ -13,13 +14,17 @@ export default function ProfileScreen(){
       alignItems: 'center'
     }, error: {
       color: Colors.red
+    },
+    container: {
+      alignItems: "center"
     }
   })
 
   if(user !== null){
     return(
-      <SafeAreaView style={GlobalStyle.page}>
-        <Text>{"Email: " + user.email}</Text>
+      <SafeAreaView style={[GlobalStyle.page, style.container]}>
+        <ProfileIcon/>
+        <Text style={GlobalStyle.textBig}>{"Email: " + user.email}</Text>
         <Button title="Abmelden" color={Colors.lightTurquoise} onPress={() => {
           Authentication.logOut().then(()=> router.replace("/"));
         }}/>

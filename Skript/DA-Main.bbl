@@ -497,9 +497,8 @@
       \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{url}
-      \field{labeltitlesource}{shorttitle}
+      \field{labeltitlesource}{title}
       \field{abstract}{React Native is a name you hear a lot in the mobile app development world. But what is React Native, and what makes it so popular amongst developers?}
-      \field{shorttitle}{What {Is} {React} {Native}?}
       \field{title}{{URLPI07}}
       \field{urlday}{30}
       \field{urlmonth}{10}
@@ -549,10 +548,9 @@
       \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{url}
-      \field{labeltitlesource}{shorttitle}
+      \field{labeltitlesource}{title}
       \field{abstract}{In unserem IT-Lexikon findest du alle wichtigen IT-Begriffe einfach und verständlich erklärt. Für Unternehmer und alle, die sich für IT interessieren.}
       \field{note}{Publication Title: techbold}
-      \field{shorttitle}{Was ist ein {Access} {Point}?}
       \field{title}{{URLPI10}}
       \field{urlday}{16}
       \field{urlmonth}{12}

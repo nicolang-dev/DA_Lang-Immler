@@ -8,11 +8,13 @@ type Props = {
 };
 
 type StationContextType = {
-    stationList: Station[]
+    stationList: Station[],
+    loaded: boolean
 };
 
 const defaultContext = {
-    stationList: []
+    stationList: [],
+    loaded: false
 };
 
 export const StationContext = createContext<StationContextType>(defaultContext);
@@ -20,17 +22,19 @@ export const StationContext = createContext<StationContextType>(defaultContext);
 export const StationProvider = ({children}: Props) => {
     const { user } = useContext(UserContext);
     const [stationList, setStationList] = useState<Station[]>(defaultContext.stationList);
+    const [loaded, setLoaded] = useState(defaultContext.loaded);
 
     useEffect(() => {
         if(user !== null){
             CloudStorage.onStationChange((newStationList: Station[]) => {
+                setLoaded(true);
                 setStationList(newStationList);
             })
         }
     }, [user]);
 
     return(
-        <StationContext.Provider value={{stationList}}>
+        <StationContext.Provider value={{stationList, loaded}}>
             {children}
         </StationContext.Provider>
     )

@@ -23,7 +23,7 @@ export default function BatteryIndicator({batteryPercentage}: Props){
         iconName = "battery-empty";
     }
 
-    if(batteryPercentage > 0){
+    if(batteryPercentage >= 0){
         return(
             <View>
                 <FontAwesome name={iconName} size={24} color={Colors.white}/>

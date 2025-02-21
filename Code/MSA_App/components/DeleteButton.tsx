@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet } from "react-native"
+import { Pressable } from "react-native"
 import FontAwesome from "@expo/vector-icons/FontAwesome"
 import { Colors } from "@/constants/Style"
 

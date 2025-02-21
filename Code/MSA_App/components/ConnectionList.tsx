@@ -17,6 +17,7 @@ export default function ConnectionList({ connectionList, onItemPress }: Props) {
     container: {
       width: "95%",
       alignSelf: "center",
+      marginTop: 10
     },
     icon: {
       alignSelf: "flex-start",
@@ -30,9 +31,7 @@ export default function ConnectionList({ connectionList, onItemPress }: Props) {
           data={connectionList}
           renderItem={({ item }) => (
             <Pressable onPress={() => onItemPress(item)}>
-              <ConnectionItem
-                connection={item}
-              />
+              <ConnectionItem connection={item} />
             </Pressable>
           )}
         />
@@ -43,13 +42,11 @@ export default function ConnectionList({ connectionList, onItemPress }: Props) {
     );
   } else {
     return (
-      <SafeAreaView style={GlobalStyle.page}>
-        <ErrorScreen
-          errorText="Es sind zurzeit keine Verbindungen vorhanden!"
-          buttonText="Verbindung erstellen"
-          onButtonPress={() => router.push("/(tabs)/connection/addConnection")}
-        />
-      </SafeAreaView>
+      <ErrorScreen
+        errorText="Es sind zurzeit keine Verbindungen vorhanden!"
+        buttonText="Verbindung erstellen"
+        onButtonPress={() => router.push("/(tabs)/connection/addConnection")}
+      />
     );
   }
 }

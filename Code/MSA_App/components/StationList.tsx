@@ -1,24 +1,26 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { View, FlatList, StyleSheet, Pressable } from "react-native";
-import { GlobalStyle } from "@/constants/Style";
-import StationItem from "@/components/StationItem";
-import Station from "@/types/Station";
 import { router } from "expo-router";
 import ErrorScreen from "@/components/ErrorScreen";
-import { SafeAreaView } from "react-native-safe-area-context";
 import DeleteButton from "./DeleteButton";
 import AddToListButton from "./AddToListButton";
 import { Alert } from "react-native";
-import { StationContext } from "@/context/StationContext";
-import { CloudStorage } from "@/api/FirebaseAPI";
+import Station from "@/types/Station";
+import StationItem from "./StationItem";
 
 type Props = {
+  stationList: Station[];
   onItemSelect: Function;
+  onDeleteStation: Function;
   editable: boolean;
 };
 
-export default function StationList({ onItemSelect, editable }: Props) {
-  const { stationList } = useContext(StationContext);
+export default function StationList({
+  stationList,
+  onItemSelect,
+  onDeleteStation,
+  editable,
+}: Props) {
   const [selectedStation, setSelectedStation] = useState<Station | null>(null);
 
   function handleItemPress(item: Station) {
@@ -28,23 +30,6 @@ export default function StationList({ onItemSelect, editable }: Props) {
     } else {
       setSelectedStation(item);
       onItemSelect(item);
-    }
-  }
-
-  function deleteItem() {
-    if(selectedStation !== null && stationList.length > 0) {
-        let newStationList = [... stationList];
-        for(let i = 0; i < newStationList.length; i++){
-            if(newStationList[i].uuid == selectedStation.uuid){
-                newStationList.splice(i, 1);
-                break;
-            }
-        }
-        if(newStationList.length !== 0){
-            CloudStorage.setStationList(newStationList);
-        } else{
-            CloudStorage.setStationList([]);
-        }
     }
   }
 
@@ -65,7 +50,7 @@ export default function StationList({ onItemSelect, editable }: Props) {
           {
             text: "Ja",
             onPress: () => {
-              deleteItem();
+              onDeleteStation(selectedStation);
             },
           },
         ]
@@ -73,11 +58,18 @@ export default function StationList({ onItemSelect, editable }: Props) {
     }
   }
 
+  function isSelected(item: Station) {
+    if (selectedStation !== null && selectedStation.uuid == item.uuid) {
+      return true;
+    }
+    return false;
+  }
+
   const style = StyleSheet.create({
     container: {
       width: "95%",
       alignSelf: "center",
-      marginTop: 20
+      marginTop: 10
     },
     icon: {
       alignSelf: "flex-start",
@@ -90,7 +82,7 @@ export default function StationList({ onItemSelect, editable }: Props) {
     },
   });
 
-  if(stationList.length > 0) {
+  if (stationList.length > 0) {
     return (
       <View style={style.container}>
         <FlatList
@@ -101,23 +93,14 @@ export default function StationList({ onItemSelect, editable }: Props) {
                 handleItemPress(item);
               }}
             >
-              <StationItem
-                station={item}
-                selected={
-                  selectedStation !== null && selectedStation.uuid == item.uuid
-                }
-              />
+              <StationItem station={item} selected={isSelected(item)} />
             </Pressable>
           )}
         />
         {editable && (
           <View style={style.iconContainer}>
             <AddToListButton
-              onPress={() =>
-                router.push("/(tabs)/music/radiosearch", {
-                  relativeToDirectory: true,
-                })
-              }
+              onPress={() => router.push("/music/radiosearch")}
             />
             {selectedStation !== null && (
               <DeleteButton
@@ -132,13 +115,11 @@ export default function StationList({ onItemSelect, editable }: Props) {
     );
   } else {
     return (
-      <SafeAreaView style={GlobalStyle.page}>
-        <ErrorScreen
-          errorText="Du hast noch keine Stationen hinzugefügt!"
-          buttonText="Station hinzufügen"
-          onButtonPress={() => router.push("/(tabs)/music/radiosearch")}
-        />
-      </SafeAreaView>
+      <ErrorScreen
+        errorText="Du hast noch keine Stationen hinzugefügt!"
+        buttonText="Station hinzufügen"
+        onButtonPress={() => router.push("/music/radiosearch")}
+      />
     );
   }
 }

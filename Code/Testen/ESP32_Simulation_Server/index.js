@@ -1,12 +1,13 @@
 const express = require("express");
 const bonjour = require("bonjour")();
 const app = express();
+const mdns = require("multicast-dns");
 
     const mac = "02:1A:6B:4C:D7:9F";
-    const name = "adapter1";
+    const name = "MAA_4CD79F";
     const volume = 20;
     const battery = 60;
-    const streamUrl = "http://stream.live.vc.bbcmedia.co.uk/bbc_world_service";
+    const streamUrl = "";
     const paused = false;
 
         app.get("/", (req, res) => {
@@ -54,10 +55,12 @@ const app = express();
             paused = params.paused;
             res.sendStatus(200);
             console.log("paused: ", paused);
-        })3
+        })
 
 app.listen(80, ()=>{
     console.log("listening!");
 })
 
-bonjour.publish({name: "adapter1", type: 'http', port: 80, host: "adapter1.local"});
+console.log("mDNS-Service läuft...");
+
+//bonjour.publish({name: "adapter1", type: 'http', port: 80, host: "test.local"});

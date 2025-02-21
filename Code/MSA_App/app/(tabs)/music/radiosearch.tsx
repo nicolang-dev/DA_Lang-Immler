@@ -70,7 +70,7 @@ export default function RadioSearch(){
                         ))}
                     </Picker>
                     <Button color={Colors.lightTurquoise} title="Search!" onPress={() => {
-                        router.push({pathname: "/(tabs)/music/favouriteStationSelect", params: {countryName: selectedCountryName, languageName: selectedLanguageName}})
+                        router.replace({pathname: "/(tabs)/music/favouriteStationSelect", params: {countryName: selectedCountryName, languageName: selectedLanguageName}})
                     }}/>
                 </ScrollView>
             </SafeAreaView>

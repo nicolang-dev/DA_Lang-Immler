@@ -62,7 +62,7 @@ export default function AdapterList({
 
   function isSelected(item: AdapterData) {
     if (selectedAdapter !== null && selectedAdapter.mac == item.mac) {
-      if ((showOnlyAvailable && item.connected) || !showOnlyAvailable) {
+      if ((showOnlyAvailable && item.connected && (item.streamUrl.length == 0)) || !showOnlyAvailable) {
         return true;
       }
     }
@@ -73,6 +73,7 @@ export default function AdapterList({
     container: {
       width: "95%",
       alignSelf: "center",
+      marginTop: 10
     },
     icon: {
       alignSelf: "flex-start",
@@ -85,7 +86,7 @@ export default function AdapterList({
     },
   });
 
-  if (adapterList.length > 0) {
+  if(adapterList.length > 0) {
     return (
       <View style={style.container}>
         <FlatList
@@ -96,7 +97,7 @@ export default function AdapterList({
                 handleItemPress(item);
               }}
             >
-              <AdapterItem adapter={item} selected={isSelected(item)} reachable={item.connected}/>
+              <AdapterItem adapter={item} selected={isSelected(item)}/>
             </Pressable>
           )}
         />
